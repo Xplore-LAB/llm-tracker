@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Papers · 时间轴</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#333}
+header{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;padding:.8rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-shrink:0}
+header a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem}
+header a:hover{color:white}
+header h1{font-size:1.3rem}
+.stats{display:flex;gap:.6rem;padding:.7rem 1rem;background:white;border-bottom:1px solid #eee;flex-shrink:0}
+.stat-card{flex:1;text-align:center;padding:.4rem .5rem}
+.stat-card .num{font-size:1.3rem;font-weight:700;color:#302b63}
+.stat-card .lbl{font-size:.68rem;color:#aaa}
+.view-bar{display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:white;border-bottom:1px solid #eee;flex-shrink:0}
+.vtab{padding:.3rem .9rem;border-radius:2rem;border:2px solid #302b63;background:white;cursor:pointer;font-weight:600;font-size:.8rem;transition:all .2s}
+.vtab.active,.vtab:hover{background:#302b63;color:white}
+.nav-btn{padding:.3rem .7rem;border-radius:6px;border:1px solid #ddd;background:white;cursor:pointer;font-size:.85rem}
+.nav-btn:hover{background:#f0f0f0}
+.period-label{font-size:.88rem;font-weight:600;color:#302b63;min-width:90px;text-align:center}
+/* Main area */
+.main{display:flex;flex-direction:column;gap:.9rem;padding:1rem;max-width:1200px;margin:0 auto}
+.left{display:flex;flex-direction:column;gap:.8rem}
+.right{background:white;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.06);max-height:42vh;overflow-y:auto}
+/* Heatmap */
+.heatmap-wrap{background:white;border-radius:10px;padding:1rem;box-shadow:0 1px 6px rgba(0,0,0,.06)}
+.hm-title{font-size:.8rem;color:#888;margin-bottom:.7rem}
+.hm-scroll{overflow-x:auto}
+.hm-inner{display:inline-flex;gap:0}
+.day-labels{display:flex;flex-direction:column;gap:3px;padding-top:18px;margin-right:4px}
+.day-lbl{font-size:.6rem;color:#bbb;height:13px;line-height:13px;text-align:right;width:18px}
+.hm-cols{display:flex;flex-direction:column}
+.month-row{display:flex;gap:3px;margin-bottom:3px;height:14px}
+.month-lbl{font-size:.62rem;color:#bbb;overflow:hidden}
+.hm-grid{display:flex;gap:3px}
+.hm-col{display:flex;flex-direction:column;gap:3px}
+.cell{width:13px;height:13px;border-radius:2px;cursor:pointer;flex-shrink:0}
+.cell:hover{outline:1px solid #302b63}
+.cell.l0{background:#ebedf0}.cell.l1{background:#c6e48b}.cell.l2{background:#7bc96f}.cell.l3{background:#239a3b}.cell.l4{background:#196127}
+.cell.selected{outline:2px solid #e65100!important}
+.legend{display:flex;align-items:center;gap:3px;margin-top:.6rem;font-size:.68rem;color:#bbb}
+/* Calendar */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-head{text-align:center;font-size:.68rem;color:#bbb;padding:.2rem 0}
+.cal-cell{border-radius:5px;padding:.25rem;text-align:center;cursor:pointer;min-height:38px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cal-cell:hover{opacity:.8}
+.cal-cell .dn{font-size:.78rem}.cal-cell .dc{font-size:.58rem;color:rgba(255,255,255,.85)}
+.cal-cell.l0{background:#ebedf0;color:#999}
+.cal-cell.l1{background:#c6e48b;color:#2e7d32}
+.cal-cell.l2{background:#7bc96f;color:white}
+.cal-cell.l3{background:#239a3b;color:white}
+.cal-cell.l4{background:#196127;color:white}
+.cal-cell.empty{background:transparent!important;cursor:default}
+.cal-cell.today{outline:2px solid #302b63;outline-offset:1px}
+.cal-cell.selected{outline:2px solid #e65100!important;outline-offset:1px}
+/* Bar chart */
+.bar-section{background:white;border-radius:10px;padding:1rem;box-shadow:0 1px 6px rgba(0,0,0,.06)}
+.bar-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem}
+.bar-label{font-size:.72rem;color:#666;width:50px;text-align:right;flex-shrink:0}
+.bar-track{flex:1;background:#f0f0f0;border-radius:4px;height:18px;overflow:hidden;cursor:pointer}
+.bar-fill{height:100%;background:linear-gradient(90deg,#302b63,#7c6fcd);border-radius:4px;transition:width .3s}
+.bar-count{font-size:.7rem;color:#aaa;width:26px}
+/* Paper list */
+.list-header{padding:.8rem 1rem;font-size:.82rem;color:#555;border-bottom:1px solid #f0f0f0;position:sticky;top:0;background:white;z-index:1;border-radius:10px 10px 0 0}
+.paper-item{padding:.65rem 1rem;border-bottom:1px solid #f5f5f5;cursor:pointer}
+.paper-item:hover .pi-title{color:#302b63}
+.pi-title{font-size:.82rem;line-height:1.4;margin-bottom:.15rem}
+.pi-zh{font-size:.75rem;color:#888;margin-bottom:.2rem}
+.pi-meta{display:flex;gap:.3rem;flex-wrap:wrap}
+.pi-tag{font-size:.67rem;padding:.1rem .4rem;border-radius:1rem;background:#e3f2fd;color:#1565c0}
+.pi-date{font-size:.67rem;color:#bbb}
+.empty-tip{text-align:center;padding:2rem;color:#ccc;font-size:.82rem}
+@media(max-width:700px){.main{padding:.7rem}.stats{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<header>
+  <a href="../">← 返回</a>
+  <h1>📅 时间轴</h1>
+</header>
+<div class="stats" id="stats">
+  <div class="stat-card"><div class="num">-</div><div class="lbl">总论文数</div></div>
+  <div class="stat-card"><div class="num">-</div><div class="lbl">今年收录</div></div>
+  <div class="stat-card"><div class="num">-</div><div class="lbl">本月新增</div></div>
+  <div class="stat-card"><div class="num">-</div><div class="lbl">今日新增</div></div>
+</div>
+<div class="view-bar">
+  <button class="vtab active" onclick="setView('year',this)">年</button>
+  <button class="vtab" onclick="setView('month',this)">月</button>
+  <button class="vtab" onclick="setView('week',this)">周</button>
+  <button class="nav-btn" onclick="navPrev()">‹</button>
+  <span class="period-label" id="period-label"></span>
+  <button class="nav-btn" onclick="navNext()">›</button>
+</div>
+<div class="main">
+  <div class="left" id="left-panel"></div>
+  <div class="right" id="right-panel">
+    <div class="list-header">点击图表查看论文</div>
+    <div class="empty-tip">👆 点击格子或条形</div>
+  </div>
+</div>
+<script>
+let PAPERS=[], currentView='year', curYear=new Date().getFullYear(), curMonth=new Date().getMonth();
+const byDate={};
+
+function buildIndex(){PAPERS.forEach(p=>{const d=p.date||String(p.year||2022)+'-01-01';(byDate[d]=byDate[d]||[]).push(p);});}
+
+function levelOf(n){return n===0?'l0':n<=2?'l1':n<=5?'l2':n<=10?'l3':'l4';}
+
+function renderStats(){
+  const now=new Date(),ty=String(now.getFullYear()),tm=ty+'-'+String(now.getMonth()+1).padStart(2,'0'),td=now.toISOString().slice(0,10);
+  const cards=[
+    [PAPERS.length,'总论文数'],
+    [PAPERS.filter(p=>(p.date||'').startsWith(ty)).length,'今年收录'],
+    [PAPERS.filter(p=>(p.date||'').startsWith(tm)).length,'本月新增'],
+    [(byDate[td]||[]).length,'今日新增']
+  ];
+  document.getElementById('stats').innerHTML=cards.map(([n,l])=>`<div class="stat-card"><div class="num">${n}</div><div class="lbl">${l}</div></div>`).join('');
+}
+
+function setView(v,el){currentView=v;document.querySelectorAll('.vtab').forEach(t=>t.classList.remove('active'));el.classList.add('active');render();}
+function navPrev(){if(currentView==='year')curYear--;else if(currentView==='month'){curMonth--;if(curMonth<0){curMonth=11;curYear--;}}render();}
+function navNext(){if(currentView==='year')curYear++;else if(currentView==='month'){curMonth++;if(curMonth>11){curMonth=0;curYear++;}}render();}
+
+function render(){
+  clearRight();
+  if(currentView==='year')renderYear();
+  else if(currentView==='month')renderMonth();
+  else renderWeek();
+}
+
+function renderYear(){
+  document.getElementById('period-label').textContent=curYear+'年';
+  const start=new Date(curYear,0,1);start.setDate(start.getDate()-start.getDay());
+  const end=new Date(curYear,11,31);
+  const weeks=[],monthPos={};let week=[],cur=new Date(start);
+  while(cur<=end||week.length){
+    if(cur>end&&week.length){while(week.length<7)week.push(null);weeks.push(week);break;}
+    const ds=cur.toISOString().slice(0,10),inYear=cur.getFullYear()===curYear;
+    if(cur.getDate()===1&&inYear)monthPos[weeks.length]=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][cur.getMonth()];
+    week.push(inYear?{ds,count:(byDate[ds]||[]).length}:null);
+    if(cur.getDay()===6){weeks.push(week);week=[];}
+    cur.setDate(cur.getDate()+1);
+  }
+  // month labels
+  const mkeys=Object.keys(monthPos).map(Number).sort((a,b)=>a-b);
+  let mlHtml='<div class="month-row">';
+  mkeys.forEach((idx,i)=>{const span=((mkeys[i+1]||weeks.length)-idx)*16;mlHtml+=`<div class="month-lbl" style="width:${span}px">${monthPos[idx]}</div>`;});
+  mlHtml+='</div>';
+  const dayNames=['','Mon','','Wed','','Fri',''];
+  let html=`<div class="heatmap-wrap"><div class="hm-title">${curYear}年论文热力图</div><div class="hm-scroll"><div class="hm-inner"><div class="day-labels">${dayNames.map(l=>`<div class="day-lbl">${l}</div>`).join('')}</div><div class="hm-cols">${mlHtml}<div class="hm-grid">`;
+  weeks.forEach(w=>{
+    html+='<div class="hm-col">';
+    for(let d=0;d<7;d++){
+      const c=w[d];
+      if(!c){html+='<div style="width:13px;height:13px"></div>';continue;}
+      html+=`<div class="cell ${levelOf(c.count)}" title="${c.ds}: ${c.count}篇" onclick="selectDay('${c.ds}',this)"></div>`;
+    }
+    html+='</div>';
+  });
+  html+=`</div></div></div></div><div class="legend">少 <div class="cell l0"></div><div class="cell l1"></div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l4"></div> 多</div></div>`;
+  document.getElementById('left-panel').innerHTML=html;
+}
+
+function renderMonth(){
+  const mn=['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+  document.getElementById('period-label').textContent=`${curYear}年${mn[curMonth]}`;
+  const firstDay=new Date(curYear,curMonth,1).getDay(),days=new Date(curYear,curMonth+1,0).getDate();
+  const today=new Date().toISOString().slice(0,10);
+  let html='<div class="heatmap-wrap"><div class="cal-grid">';
+  ['日','一','二','三','四','五','六'].forEach(d=>html+=`<div class="cal-head">${d}</div>`);
+  for(let i=0;i<firstDay;i++)html+='<div class="cal-cell empty"></div>';
+  for(let d=1;d<=days;d++){
+    const ds=`${curYear}-${String(curMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const cnt=(byDate[ds]||[]).length,isToday=ds===today?'today':'';
+    html+=`<div class="cal-cell ${levelOf(cnt)} ${isToday}" onclick="selectDay('${ds}',this)" title="${ds}: ${cnt}篇">
+      <span class="dn">${d}</span>${cnt>0?`<span class="dc">${cnt}</span>`:''}
+    </div>`;
+  }
+  html+='</div><div class="legend" style="margin-top:.5rem">少 <div class="cell l0"></div><div class="cell l1"></div><div class="cell l2"></div><div class="cell l3"></div><div class="cell l4"></div> 多</div></div>';
+  document.getElementById('left-panel').innerHTML=html;
+}
+
+function renderWeek(){
+  document.getElementById('period-label').textContent='近12周';
+  const now=new Date();now.setHours(0,0,0,0);
+  const weeks=[];
+  for(let w=11;w>=0;w--){
+    const e=new Date(now);e.setDate(e.getDate()-w*7);
+    const s=new Date(e);s.setDate(s.getDate()-6);
+    let count=0;const c=new Date(s);
+    while(c<=e){count+=(byDate[c.toISOString().slice(0,10)]||[]).length;c.setDate(c.getDate()+1);}
+    weeks.push({label:`${s.getMonth()+1}/${s.getDate()}`,count,start:s.toISOString().slice(0,10),end:e.toISOString().slice(0,10)});
+  }
+  const max=Math.max(...weeks.map(w=>w.count),1);
+  let html='<div class="bar-section"><div class="hm-title" style="margin-bottom:.8rem">近12周论文数量</div>';
+  weeks.forEach(w=>{
+    html+=`<div class="bar-row"><div class="bar-label">${w.label}</div>
+      <div class="bar-track" onclick="selectRange('${w.start}','${w.end}','${w.label}周')">
+        <div class="bar-fill" style="width:${w.count/max*100}%"></div>
+      </div><div class="bar-count">${w.count}</div></div>`;
+  });
+  html+='</div>';
+  document.getElementById('left-panel').innerHTML=html;
+}
+
+function selectDay(ds,el){
+  document.querySelectorAll('.cell.selected,.cal-cell.selected').forEach(c=>c.classList.remove('selected'));
+  if(el)el.classList.add('selected');
+  renderRight(byDate[ds]||[],ds);
+}
+function selectRange(start,end,label){
+  const s=new Date(start),e=new Date(end);
+  renderRight(PAPERS.filter(p=>{const d=new Date(p.date||p.year+'-01-01');return d>=s&&d<=e;}),label);
+}
+function renderRight(papers,label){
+  let html=`<div class="list-header">${label}（${papers.length}篇）</div>`;
+  if(!papers.length){html+='<div class="empty-tip">该时段暂无论文</div>';}
+  else papers.forEach(p=>{
+    const tags=(p.tags||[]).map(t=>`<span class="pi-tag">${t}</span>`).join('');
+    html+=`<div class="paper-item" onclick="window.open('https://arxiv.org/abs/${p.id}','_blank')">
+      <div class="pi-title">${p.title}</div>
+      ${p.title_zh?`<div class="pi-zh">${p.title_zh}</div>`:''}
+      <div class="pi-meta">${tags}<span class="pi-date">${p.date||String(p.year)||''}</span></div>
+    </div>`;
+  });
+  document.getElementById('right-panel').innerHTML=html;
+}
+function clearRight(){
+  document.getElementById('right-panel').innerHTML='<div class="list-header">点击图表查看论文</div><div class="empty-tip">👆 点击格子或条形</div>';
+}
+
+fetch('../timeline-data.json?t='+Date.now()).then(r=>r.json()).then(data=>{
+  PAPERS=data;buildIndex();renderStats();renderYear();
+});
+</script>
+</body>
+</html>

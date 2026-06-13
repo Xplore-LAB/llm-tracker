@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Papers Tracker</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#333}
+header{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;padding:1.5rem 2rem;text-align:center}
+header h1{font-size:1.8rem;margin-bottom:.3rem}
+header p{opacity:.8;font-size:.85rem}
+.tabs{display:flex;justify-content:center;gap:.6rem;padding:.8rem;background:white;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.tab{padding:.45rem 1.1rem;border-radius:2rem;cursor:pointer;border:2px solid #302b63;background:white;font-weight:600;transition:all .2s;font-size:.82rem;text-decoration:none;color:#302b63}
+.tab.active,.tab:hover{background:#302b63;color:white}
+/* Main layout */
+.main-layout{display:grid;grid-template-columns:260px 1fr;gap:0;max-width:1200px;margin:0 auto;padding:1rem}
+/* Company timeline sidebar */
+.sidebar{background:white;border-radius:12px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06);height:calc(100vh - 160px);overflow:hidden;display:flex;flex-direction:column;position:sticky;top:80px}
+.sidebar h3{font-size:.82rem;color:#302b63;font-weight:700;margin-bottom:.8rem;flex-shrink:0;display:flex;justify-content:space-between;align-items:center}
+.sidebar h3 span{font-size:.7rem;color:#aaa;font-weight:400}
+.timeline-list{overflow-y:auto;flex:1;cursor:grab;user-select:none;padding-right:4px}
+.timeline-list:active{cursor:grabbing}
+.timeline-list::-webkit-scrollbar{width:4px}
+.timeline-list::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px}
+.tl-item{padding:.5rem .6rem;border-left:2px solid #e0e0e0;margin-left:.5rem;margin-bottom:.3rem;cursor:pointer;transition:border-color .2s,background .2s;border-radius:0 6px 6px 0}
+.tl-item:hover{border-left-color:#302b63;background:#f5f0ff}
+.tl-date{font-size:.65rem;color:#aaa;margin-bottom:.15rem}
+.tl-company{font-size:.68rem;font-weight:700;margin-bottom:.1rem}
+.tl-title{font-size:.72rem;color:#444;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tl-zh{font-size:.68rem;color:#888;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+/* Right content */
+.content{padding-left:1rem}
+.toolbar{display:flex;gap:.7rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:.8rem}
+.fg{display:flex;flex-direction:column;gap:3px}
+.fg label{font-size:.68rem;color:#888;text-transform:uppercase;letter-spacing:.04em}
+.fg input,.fg select{padding:.38rem .65rem;border:1px solid #ddd;border-radius:8px;font-size:.82rem;background:white;outline:none}
+.fg input:focus,.fg select:focus{border-color:#302b63}
+.fg.grow{flex:1;min-width:160px}
+.result-info{font-size:.78rem;color:#999;margin-bottom:.6rem}
+.section{display:none}
+.section.active{display:block}
+.card{background:white;border-radius:10px;padding:1rem 1.2rem;margin-bottom:.7rem;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:box-shadow .2s;position:relative}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.card-meta{display:flex;gap:.35rem;flex-wrap:wrap;align-items:center;margin-bottom:.4rem}
+.badge{font-size:.72rem;padding:.15rem .55rem;border-radius:1rem;font-weight:600;white-space:nowrap}
+.badge.cite{background:#fff3e0;color:#e65100}
+.badge.cite.high{background:#e8f5e9;color:#2e7d32}
+.badge.date{background:#ede7f6;color:#4527a0}
+.badge.tag{background:#e3f2fd;color:#1565c0;cursor:pointer}
+.badge.tag:hover{background:#1565c0;color:white}
+.arxiv-link{font-size:.8rem;color:#302b63;text-decoration:none;font-weight:600}
+.arxiv-link:hover{text-decoration:underline}
+.card h3{font-size:.92rem;line-height:1.5;margin-bottom:.15rem;padding-right:2rem}
+.title-zh{font-size:.84rem;color:#555;margin-bottom:.3rem;padding-right:2rem}
+.authors{font-size:.8rem;color:#666;margin-bottom:.35rem}
+.abstract{font-size:.8rem;color:#555;line-height:1.6;border-top:1px solid #f0f0f0;padding-top:.4rem;margin-top:.3rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.fav-btn{position:absolute;top:.9rem;right:.9rem;background:none;border:none;font-size:1.2rem;cursor:pointer;opacity:.3;transition:opacity .2s,transform .2s}
+.fav-btn:hover{opacity:.8;transform:scale(1.2)}
+.fav-btn.active{opacity:1}
+/* Pagination */
+.pagination{display:flex;align-items:center;justify-content:center;gap:.3rem;margin-top:1rem;flex-wrap:wrap}
+.page-btn{padding:.35rem .65rem;border:1px solid #ddd;border-radius:6px;background:white;cursor:pointer;font-size:.8rem;transition:all .2s;min-width:32px;text-align:center}
+.page-btn:hover,.page-btn.active{background:#302b63;color:white;border-color:#302b63}
+.page-btn.dots{cursor:default;border:none;background:none}
+.page-jump{display:flex;align-items:center;gap:.3rem;font-size:.78rem;color:#999;margin-left:.3rem}
+.page-jump input{width:44px;padding:.3rem .4rem;border:1px solid #ddd;border-radius:6px;font-size:.78rem;text-align:center;outline:none}
+.page-jump input:focus{border-color:#302b63}
+.empty{text-align:center;padding:3rem;color:#999}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem}
+.topic-card{background:white;border-radius:10px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.06);cursor:pointer;transition:box-shadow .2s}
+.topic-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.topic-card h4{font-size:.92rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
+.topic-card p{font-size:.78rem;color:#666;line-height:1.5}
+.topic-count{font-size:.7rem;background:#302b63;color:white;border-radius:1rem;padding:.1rem .45rem}
+.loading{text-align:center;padding:3rem;color:#999}
+footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1rem}
+@media(max-width:800px){.main-layout{grid-template-columns:1fr}.sidebar{display:none}}
+
+.badge.tag-Agent{background:#fff3e0;color:#e65100}
+.badge.tag-RAG{background:#e8f5e9;color:#2e7d32}
+.badge.tag-Reasoning{background:#e3f2fd;color:#1565c0}
+.badge.tag-Multimodal{background:#fce4ec;color:#880e4f}
+.badge.tag-Fine-tuning{background:#f3e5f5;color:#6a1b9a}
+.badge.tag-Safety{background:#e0f2f1;color:#004d40}
+.badge.tag-LLM{background:#e8eaf6;color:#283593}
+.badge.tag-MCP{background:#fff8e1;color:#f57f17}
+/* sidebar filters */
+.sidebar-filters{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.7rem;flex-shrink:0}
+.sidebar-filters select{padding:.3rem .5rem;border:1px solid #e0e0e0;border-radius:6px;font-size:.75rem;background:white;outline:none;color:#333}
+.sidebar-filters select:focus{border-color:#302b63}
+</style>
+</head>
+<body>
+<header>
+  <h1>🤖 LLM Papers Tracker</h1>
+  <p id="header-sub">AI 大模型前沿论文追踪 · 每日自动更新</p>
+</header>
+<div class="tabs">
+  <button class="tab active" onclick="showTab('latest',this)">🆕 最新</button>
+  <button class="tab" onclick="showTab('hot',this)">🔥 高引用</button>
+  <button class="tab" onclick="showTab('topics',this)">🏷️ 主题</button>
+  <button class="tab" onclick="showTab('favorites',this)">⭐ 收藏</button>
+  <a class="tab" href="timeline/">📅 时间轴</a>
+  <button class="tab" onclick="refreshData()" title="重新加载数据">🔄 刷新</button>
+  <button class="tab" id="btn-update" onclick="triggerUpdate()" title="触发 GitHub Actions 自动抓取最新论文">⚡ 更新数据</button>
+</div>
+<div class="main-layout">
+  <!-- Left sidebar: company timeline -->
+  <div class="sidebar">
+    <h3>🏢 公司论文 <span>可拖拽滚动</span></h3>
+    <div class="sidebar-filters">
+  <select id="tl-company" onchange="filterTimeline()">
+    <option value="">全部公司</option>
+    <option value="OpenAI">OpenAI</option>
+    <option value="Google">Google</option>
+    <option value="Meta">Meta</option>
+    <option value="Anthropic">Anthropic</option>
+    <option value="Mistral">Mistral</option>
+    <option value="Qwen">Qwen</option>
+    <option value="DeepSeek">DeepSeek</option>
+    <option value="Baidu">Baidu</option>
+  </select>
+  <select id="tl-tag" onchange="filterTimeline()">
+    <option value="">全部标签</option>
+    <option value="RAG">RAG</option>
+    <option value="Agent">Agent</option>
+    <option value="Reasoning">Reasoning</option>
+    <option value="Multimodal">Multimodal</option>
+    <option value="Fine-tuning">Fine-tuning</option>
+    <option value="Safety">Safety</option>
+    <option value="LLM">LLM</option>
+    <option value="MCP">MCP</option>
+  </select>
+</div>
+<div class="timeline-list" id="timeline-list"><div class="loading" style="padding:1rem;font-size:.8rem">加载中...</div></div>
+  </div>
+  <!-- Right content -->
+  <div class="content">
+    <div class="toolbar" id="toolbar">
+      <div class="fg grow"><label>搜索</label><input type="text" id="q" placeholder="标题、作者、关键词（支持中文）..." oninput="applyFilter()"></div>
+      <div class="fg"><label>主题</label>
+        <select id="tag-filter" onchange="applyFilter()">
+          <option value="">全部</option>
+          <option value="RAG">RAG</option>
+          <option value="Agent">Agent</option>
+          <option value="MCP">MCP</option>
+          <option value="Reasoning">Reasoning</option>
+          <option value="Multimodal">Multimodal</option>
+          <option value="Fine-tuning">Fine-tuning</option>
+          <option value="Safety">Safety</option>
+          <option value="LLM">LLM</option>
+        </select>
+      </div>
+      <div class="fg"><label>排序</label>
+        <select id="sort" onchange="applyFilter()">
+          <option value="date">最新日期</option>
+          <option value="cite">引用量</option>
+          <option value="title">标题</option>
+        </select>
+      </div>
+      <div class="fg"><label>年份</label>
+        <select id="year" onchange="applyFilter()">
+          <option value="">全部</option>
+          <option value="2026">2026</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+        </select>
+      </div>
+    </div>
+    <div class="result-info" id="result-info"></div>
+    <div id="latest" class="section active"><div class="loading">加载中...</div></div>
+    <div id="hot" class="section"></div>
+    <div id="topics" class="section"></div>
+    <div id="favorites" class="section"></div>
+  </div>
+</div>
+<footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore0114" style="color:#302b63">GitHub</a></footer>
+<script>
+const TOPICS=[
+  {key:"RAG",icon:"🔍",name:"RAG 检索增强",desc:"检索增强生成，解决 LLM 幻觉和知识过时问题"},
+  {key:"Agent",icon:"🤖",name:"AI Agent 智能体",desc:"自主规划、工具调用、多智能体协作"},
+  {key:"MCP",icon:"🔌",name:"MCP 工具协议",desc:"Model Context Protocol，标准化 LLM 工具集成"},
+  {key:"Reasoning",icon:"🧠",name:"推理能力",desc:"CoT、思维链、复杂推理增强"},
+  {key:"Multimodal",icon:"🖼️",name:"多模态",desc:"图文音视频多模态大模型"},
+  {key:"Fine-tuning",icon:"⚙️",name:"微调与对齐",desc:"LoRA、RLHF、指令微调、高效训练"},
+  {key:"Safety",icon:"🛡️",name:"安全与对齐",desc:"AI 安全、价值对齐、有害内容防护"},
+  {key:"LLM",icon:"💡",name:"基础大模型",desc:"GPT、LLaMA、Qwen 等基础模型研究"},
+];
+const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48'};
+const PAGE_SIZE=8;
+let PAPERS=[], currentTab='latest', currentPage=1;
+let favorites=new Set(JSON.parse(localStorage.getItem('llm_favs')||'[]'));
+
+// Drag-to-scroll sidebar
+const tl=document.getElementById('timeline-list');
+let isDragging=false,startY=0,scrollTop=0;
+tl.addEventListener('mousedown',e=>{isDragging=true;startY=e.pageY-tl.offsetTop;scrollTop=tl.scrollTop;tl.style.cursor='grabbing'});
+document.addEventListener('mouseup',()=>{isDragging=false;tl.style.cursor='grab'});
+document.addEventListener('mousemove',e=>{if(!isDragging)return;e.preventDefault();tl.scrollTop=scrollTop-(e.pageY-tl.offsetTop-startY)});
+
+let ALL_COMPANY_PAPERS=[];
+function filterTimeline(){
+  const co=document.getElementById('tl-company').value;
+  const tag=document.getElementById('tl-tag').value;
+  let data=ALL_COMPANY_PAPERS;
+  if(co) data=data.filter(p=>p.company===co);
+  if(tag) data=data.filter(p=>(p.tags||[]).includes(tag));
+  renderTimeline(data);
+}
+function renderTimeline(papers){
+  const html=papers.length?papers.map(p=>`
+    <div class="tl-item" onclick="window.open('https://arxiv.org/abs/${p.id}','_blank')" style="border-left-color:${COLORS[p.company]||'#302b63'}">
+      <div class="tl-date">${p.date||p.year||''}</div>
+      <div class="tl-company" style="color:${COLORS[p.company]||'#302b63'}">${p.company}</div>
+      <div class="tl-title">${p.title}</div>
+      ${p.title_zh?`<div class="tl-zh">${p.title_zh}</div>`:''}
+    </div>`).join(''):'<div style="padding:1rem;font-size:.8rem;color:#bbb;text-align:center">暂无论文</div>';
+  document.getElementById('timeline-list').innerHTML=html;
+}
+function loadCompanyTimeline(){
+  fetch('company-papers.json?t='+Date.now()).then(r=>r.json()).then(papers=>{
+    ALL_COMPANY_PAPERS=papers;
+    renderTimeline(papers);
+  });
+}
+
+function toggleFav(id){
+  favorites.has(id)?favorites.delete(id):favorites.add(id);
+  localStorage.setItem('llm_favs',JSON.stringify([...favorites]));
+  document.querySelectorAll(`.fav-btn[data-id="${id}"]`).forEach(b=>b.classList.toggle('active',favorites.has(id)));
+  if(currentTab==='favorites')renderSection(1);
+}
+
+function filterData(){
+  const q=document.getElementById('q').value.toLowerCase();
+  const tagF=document.getElementById('tag-filter').value;
+  const sortF=document.getElementById('sort').value;
+  const yearF=document.getElementById('year').value;
+  let data=currentTab==='favorites'?PAPERS.filter(p=>favorites.has(p.id)):[...PAPERS];
+  if(currentTab==='hot')data=data.filter(p=>p.cite>=500);
+  if(q)data=data.filter(p=>p.title.toLowerCase().includes(q)||(p.title_zh||'').includes(q)||p.authors.toLowerCase().includes(q)||(p.tags||[]).join(' ').toLowerCase().includes(q));
+  if(tagF)data=data.filter(p=>(p.tags||[]).includes(tagF));
+  if(yearF)data=data.filter(p=>p.year==yearF);
+  if(sortF==='cite')data.sort((a,b)=>b.cite-a.cite);
+  else if(sortF==='title')data.sort((a,b)=>a.title.localeCompare(b.title));
+  else data.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  return data;
+}
+
+function renderCard(p){
+  const fav=favorites.has(p.id);
+  const tags=(p.tags||[]).map(t=>`<span class="badge tag tag-${t}" onclick="filterByTag('${t}')">${t}</span>`).join(' ');
+  return `<div class="card">
+    <button class="fav-btn ${fav?'active':''}" data-id="${p.id}" onclick="toggleFav('${p.id}')">⭐</button>
+    <div class="card-meta">
+      <span class="badge cite ${p.cite>=1000?'high':''}">📊 ${(p.cite||0).toLocaleString()}</span>
+      <span class="badge date">📅 ${p.date||String(p.year)||''}</span>
+      <a class="arxiv-link" href="https://arxiv.org/abs/${p.id}" target="_blank">arXiv ↗</a>
+    </div>
+    <h3>${p.title}</h3>
+    ${p.title_zh?`<div class="title-zh">📖 ${p.title_zh}</div>`:''}
+    <div class="authors">👤 ${p.authors}</div>
+    <div style="margin-bottom:.3rem">${tags}</div>
+    <div class="abstract">${p.abstract}</div>
+  </div>`;
+}
+
+function renderPagination(total, page){
+  const totalPages=Math.ceil(total/PAGE_SIZE);
+  if(totalPages<=1) return '';
+  const pages=[];
+  // always show first, last, current±2
+  const show=new Set([1,totalPages,page,page-1,page+1,page-2,page+2].filter(p=>p>=1&&p<=totalPages));
+  const sorted=[...show].sort((a,b)=>a-b);
+  let html='<div class="pagination">';
+  let prev=0;
+  sorted.forEach(p=>{
+    if(p-prev>1) html+=`<span class="page-btn dots">…</span>`;
+    html+=`<button class="page-btn ${p===page?'active':''}" onclick="renderSection(${p})">${p}</button>`;
+    prev=p;
+  });
+  html+=`<div class="page-jump">跳至<input type="number" min="1" max="${totalPages}" placeholder="${page}" onkeydown="if(event.key==='Enter'){const v=parseInt(this.value);if(v>=1&&v<=${totalPages})renderSection(v)}">页</div>`;
+  html+='</div>';
+  return html;
+}
+
+function renderSection(page){
+  currentPage=page||1;
+  const data=filterData();
+  const total=data.length;
+  const slice=data.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
+  document.getElementById('result-info').textContent=`共 ${total} 篇`;
+  let html=slice.length?slice.map(renderCard).join(''):'<div class="empty">暂无论文 📭</div>';
+  html+=renderPagination(total,currentPage);
+  document.getElementById(currentTab).innerHTML=html;
+}
+
+function filterByTag(tag){document.getElementById('tag-filter').value=tag;applyFilter();}
+function applyFilter(){if(currentTab!=='topics')renderSection(1);}
+
+function showTab(tab,el){
+  currentTab=tab;
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  el.classList.add('active');
+  document.getElementById('toolbar').style.display=tab==='topics'?'none':'flex';
+  document.getElementById('result-info').textContent='';
+  if(tab==='topics')renderTopics();else renderSection(1);
+}
+
+function renderTopics(){
+  document.getElementById('topics').innerHTML='<div class="topic-grid">'+TOPICS.map(t=>{
+    const count=PAPERS.filter(p=>(p.tags||[]).includes(t.key)).length;
+    return `<div class="topic-card" onclick="selectTopic('${t.key}')">
+      <h4>${t.icon} ${t.name} <span class="topic-count">${count}</span></h4>
+      <p>${t.desc}</p></div>`;
+  }).join('')+'</div>';
+}
+
+function selectTopic(tag){
+  document.getElementById('tag-filter').value=tag;
+  const btn=document.querySelector('.tab');
+  showTab('latest',btn);btn.classList.add('active');
+}
+
+fetch('papers.json?t='+Date.now()).then(r=>r.json()).then(data=>{
+  PAPERS=data;
+  document.getElementById('header-sub').textContent=`AI 大模型前沿论文追踪 · 共 ${PAPERS.length} 篇 · 每日自动更新`;
+  renderSection(1);
+  loadCompanyTimeline();
+}).catch(()=>{
+  document.getElementById('latest').innerHTML='<div class="empty">数据加载失败，请刷新重试</div>';
+});
+
+// ── Manual update ──────────────────────────────────────────
+function showToast(msg, duration) {
+  duration = duration || 3000;
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    t.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#302b63;color:white;padding:.7rem 1.5rem;border-radius:2rem;font-size:.85rem;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:opacity .3s';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = '1';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => { t.style.opacity = '0'; }, duration);
+}
+
+function refreshData() {
+  showToast('🔄 正在刷新数据...');
+  const ts = Date.now();
+  Promise.all([
+    fetch('papers.json?t=' + ts).then(r => r.json()),
+    fetch('company-papers.json?t=' + ts).then(r => r.json())
+  ]).then(([papers, companyPapers]) => {
+    PAPERS = papers;
+    ALL_COMPANY_PAPERS = companyPapers;
+    document.getElementById('header-sub').textContent = `AI 大模型前沿论文追踪 · 共 ${PAPERS.length} 篇 · 每日自动更新`;
+    filterTimeline();
+    renderSection(currentPage);
+    showToast('✅ 数据已刷新！共 ' + PAPERS.length + ' 篇论文');
+  }).catch(() => {
+    showToast('❌ 刷新失败，请稍后重试', 5000);
+  });
+}
+
+function triggerUpdate() {
+  const btn = document.getElementById('btn-update');
+  btn.textContent = '⏳ 提交中...';
+  btn.disabled = true;
+
+  fetch('https://api.github.com/repos/Xplore0114/Xplore0114.github.io/actions/workflows/update-papers.yml/dispatches', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ ref: 'master' })
+  }).then(res => {
+    if (res.ok) {
+      showToast('✅ 已触发更新！数据将在 1~2 分钟内刷新', 5000);
+      btn.textContent = '✅ 已提交';
+      setTimeout(() => {
+        btn.textContent = '⚡ 更新数据';
+        btn.disabled = false;
+      }, 10000);
+    } else if (res.status === 401 || res.status === 403) {
+      // Not logged in — open GitHub Actions page
+      showToast('🔑 请先登录 GitHub，已为您打开页面', 4000);
+      window.open('https://github.com/Xplore0114/Xplore0114.github.io/actions', '_blank');
+      btn.textContent = '⚡ 更新数据';
+      btn.disabled = false;
+    } else {
+      throw new Error('HTTP ' + res.status);
+    }
+  }).catch(() => {
+    showToast('❌ 触发失败，请手动前往 GitHub Actions', 5000);
+    window.open('https://github.com/Xplore0114/Xplore0114.github.io/actions', '_blank');
+    btn.textContent = '⚡ 更新数据';
+    btn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>
