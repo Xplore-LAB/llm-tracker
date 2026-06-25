@@ -1,5 +1,837 @@
 [
   {
+    "id": "2606.26003",
+    "title": "Dziri Voicebot: An End-to-End Low-Resource Speech-to-Speech Conversational System for Algerian Dialect",
+    "authors": "Dihia Lanasri, Fairouz Taki, Asma Kemmoum",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "RAG"
+    ],
+    "abstract": "Automatic speech and language technologies are still heavily biased toward high-resource languages, limiting their applicability to dialectal and low-resource settings such as Algerian Dialect. This language presents additional challenges including lack of standardized orthography, frequent codeswitching with French, and scarcity of annotated speech resources. This paper addresses the problem of building a complete speech-to-speech conversational system for Algerian Dialect. We propose a modular"
+  },
+  {
+    "id": "2606.25721",
+    "title": "Tracing Target Answers in Poisoned Retrieval Corpora via Token Influence Attribution",
+    "authors": "Yan-Lun Chen, Pin-Yu Chen, Chia-Mu Yu et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "RAG"
+    ],
+    "abstract": "Retrieval-Augmented Generation (RAG) systems are vulnerable to corpus poisoning attacks that manipulate model outputs through malicious retrieved documents. Existing detection methods typically rely on auxiliary classifiers or additional LLM-based verification, introducing substantial computational overhead. We present TRACE, a lightweight detection framework that identifies poisoning attacks by tracing answer-related tokens through token influence attribution. TRACE first discovers recurrent hi"
+  },
+  {
+    "id": "2606.25656",
+    "title": "Is GraphRAG Needed? From Basic RAG to Graph-/Agentic Solutions with Context Optimization",
+    "authors": "Long Chen, Ryan Razkenari, Yuxuan Zhou et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "RAG"
+    ],
+    "abstract": "As advanced RAG variants like GraphRAG and Agentic RAG emerge, one leading question is when and how to use them. Here, we introduce a framework for different RAG scenarios evaluation and comparison on semi-structured knowledge bases, including regular RAG, GraphRAG, Modular RAG and Agentic RAG. We provide implementation for 9 standardized RAG scenarios, and conduct experiments for a comprehensive comparison. These scenarios are designed for real use cases regarding data and domain restrictions, "
+  },
+  {
+    "id": "2606.25622",
+    "title": "Probabilistic Agents in Deterministic Audits: Evaluating Multi-Agent Systems for Automated Audits Based on the German IT-Grundschutz",
+    "authors": "Lea Roxanne Muth, Marian Margraf",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "RAG"
+    ],
+    "abstract": "The NIS-2 Directive mandates robust Risk Management from thousands of small and medium enterprises. To ensure compliance, companies rely on established standards such as the German IT-Grundschutz (IT-GS) of the Federal Office for Information Security. However, IT-GS certification is resource-intensive and requires a high level of manual effort for documentation, validation, and revision, making scalable implementation difficult and expensive. Building upon our previous conceptual framework, this"
+  },
+  {
+    "id": "2606.25533",
+    "title": "Security and Privacy in Retrieval-Augmented Generation: Architectures, Threats, Defenses, and Future Directions for Building Trustworthy Systems",
+    "authors": "Balamurugan Palanisamy, G S S Chalapathi, Vikas Hassija et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "LLM"
+    ],
+    "abstract": "Retrieval-Augmented Generation (RAG) has emerged as a dominant paradigm for enhancing large language models with external knowledge. By coupling retrieval mechanisms with generative models, RAG systems improve factual grounding and adaptability across domains. However, integrating retrieval pipelines introduces new security and privacy risks that extend beyond conventional language modeling threats. Sensitive information may be exposed through retrieval indices, query logs, context construction,"
+  },
+  {
+    "id": "2606.25338",
+    "title": "Hybrid-IR: Dual-Path Hybrid Retrieval with Iterative Reasoning for Complex Medical Question Answering",
+    "authors": "Sheng Wan, Jiahui Zhang, Zicheng Zhao et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) have shown promising performance across a wide range of biomedical applications, including medical question answering (QA), yet they remain prone to hallucinations and outdated knowledge. Although retrieval-augmented generation (RAG) can alleviate this issue by incorporating external documents, there still exist two fundamental limitations. First, medical knowledge is often fragmented across documents, while most RAG methods rely on a single retrieval path, which mak"
+  },
+  {
+    "id": "2606.26080",
+    "title": "Neglected Free Lunch from Post-training: Progress Advantage for LLM Agents",
+    "authors": "Changdae Oh, Wendi Li, Seongheon Park et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Process reward models enable fine-grained, step-level evaluation of LLMs, yet building them for agentic settings remains prohibitively difficult: long-horizon interactions, irreversible actions, and stochastic environment feedback make both human annotation and Monte Carlo estimation infeasible at scale. In this work, we show that reinforcement learning (RL) post-training already provides the ingredients for effective step-level scoring, eliminating the need for dedicated reward model training a"
+  },
+  {
+    "id": "2606.25960",
+    "title": "Agentic System as Compressor: Quantifying System Intelligence in Bits",
+    "authors": "Zihan Qin, Hongrui Zhang",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Large language models are turning from isolated predictors into agentic systems: they call tools, retrieve evidence, obey environment constraints, use verifiers, and complete tasks through search and multi-turn interaction. We adopts an analytical viewpoint based on \"compression is intelligence\": under a fixed task distribution, interface, and compute budget, a stronger agentic system lets a target object be reconstructed with fewer bits. We operationalize the measure with arithmetic coding, see"
+  },
+  {
+    "id": "2606.25941",
+    "title": "Explainable Control Framework (XCF) based on Fuzzy Model-Agnostic Explanation and LLM Agent-Supported Interface",
+    "authors": "Faliang Yin, Hak-Keung Lam, David Watson",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Increasing demand for precise and reliable control in complex scenarios has led to the development of increasingly sophisticated controllers, including data-driven approaches employing closed box models and mathematically rigorous yet complex designs. This complexity highlights the needs for explainable control that can provide human-understandable insights into controller behavior. In this paper, an explainable control framework (XCF) along with supporting algorithms and user interface are prop"
+  },
+  {
+    "id": "2606.25852",
+    "title": "Semantic Consistency Policy Optimization for Reinforcement Learning of LLM Agents",
+    "authors": "Peng Xu, Sijia Chen, Junzhuo Li et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Group-based reinforcement learning effectively post-trains LLM agents for long-horizon, sparse-reward tasks by deriving step-level credit from trajectory outcomes. However, this ties a step's credit to its rollout's final outcome: semantically near-identical intermediate steps receive opposite credit depending on whether their trajectory eventually succeeded or failed. Such semantic credit inconsistency sends conflicting gradients to similar actions and wastes the partially-correct progress insi"
+  },
+  {
+    "id": "2606.25819",
+    "title": "Beyond Function Calling: Benchmarking Tool-Using Agents under Tool-Environment Unreliability",
+    "authors": "Yang Tian, Zhengpeng Shi, Bo Zhao",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "MCP",
+      "LLM"
+    ],
+    "abstract": "Large language models are increasingly deployed as agents that solve tasks by interacting with external tool environments. Although recent tool-use benchmarks increasingly cover complex task settings, they still largely assume clean, stable, and trustworthy tool environments, leaving tool-environment unreliability insufficiently examined. We introduce ToolBench-X, a benchmark for evaluating agents under recoverable reliability hazards. ToolBench-X contains executable multi-step tasks across dive"
+  },
+  {
+    "id": "2606.25705",
+    "title": "GUI agent: Guided Exploration of User-Sensitive Screens",
+    "authors": "Aradhana Nayak, Mussadiq Nazeer, Wang Peng et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "LLM agents are increasingly being used to automate tasks for users within an open GUI environment. They inevitably encounter screens containing user-sensitive information, for which takeover of task execution by the user is highly desirable or even necessary. State-of-the-art LLM-driven agents are usually fine-tuned to complete tasks regardless of the safety implications of their actions. This makes their real-world deployment difficult and adversely affects the reliability. Therefore, it is cru"
+  },
+  {
+    "id": "2606.25651",
+    "title": "MedGuards: Multi-Agent System for Reliable Medical Error Detection and Correction",
+    "authors": "Congbo Ma, Hu Wang, Yichun Zhang et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "As Large Language Models (LLMs) are increasingly deployed in healthcare settings, accurate error detection and correction in generated or existing text becomes critical, as even minor mistakes can pose risks to patient safety. Existing methods for error detection and correction, including automated checks and heuristic-based approaches, do not generalize well across unseen datasets. In this paper, we propose MedGuards as a medical safety guardrail, which is a new framework that treats medical er"
+  },
+  {
+    "id": "2606.25556",
+    "title": "BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents",
+    "authors": "Hanyang Wang, Weijieying Ren, Yuxiang Zhang et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Stepwise group-based RL is an attractive way to train long-horizon LLM agents without a learned critic: it reuses multiple sampled rollouts to estimate local advantages. Its weakness is less visible but more fundamental: every group-relative estimator assumes that the steps it compares are equivalent for credit assignment. We show that current agentic variants violate this assumption through a state-action credit mismatch. The observation-hash partition is overly fine on the state side, creating"
+  },
+  {
+    "id": "2606.25447",
+    "title": "The Interplay of Harness Design and Post-Training in LLM Agents",
+    "authors": "Kyungmin Kim, Youngbin Choi, Seoyeon Lee et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Tool-integrated LLM agents are often wrapped within a harness: the scaffolding that determines which tools are exposed, how they are described, and what auxiliary information accompanies each per-step observation. While agents are routinely post-trained, this scaffolding is typically treated as a fixed engineering detail, with design effort limited to the training-free regime. Moreover, existing post-training algorithms assume a static environment, even though tool environments and tasks often s"
+  },
+  {
+    "id": "2606.25421",
+    "title": "Beyond Next-Observation Prediction: Agent-Authored World Modeling for Sequential Decision Making",
+    "authors": "Guangfeng Cai, Kaibing Yang, Shuo He et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Recent studies on world modeling for Large Language Model (LLM) agents typically formulate the learning objective as next-observation prediction. However, this objective ties supervision to what a transition happens to reveal, which may omit the dynamics most relevant to the agent's current decision. To bridge this gap, we propose Agent-Authored World Modeling (AAWM), a training procedure that constructs supervision from the policy's own decision needs. Specifically, at each state, the agent ide"
+  },
+  {
+    "id": "2606.25400",
+    "title": "BrainAgent: A Large Language Model-Driven Multi-Agent Framework for Autonomous Brain Signal Understanding",
+    "authors": "Yangxuan Zhou, Sha Zhao, Jiquan Wang et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Brain-Computer Interfaces (BCIs) and brain signal understanding are pivotal for clinical health and next-generation interactions. Despite this significance, its widespread adoption in real-world scenarios remains restricted, primarily because current analytical paradigms lack sufficient agentic intelligence. First, existing methodologies impose prohibitive technical barriers, requiring extensive specialized expertise. Second, they remain inherently static and task-specific, failing to execute th"
+  },
+  {
+    "id": "2606.25358",
+    "title": "Agentic Knowledge Tracing: A Multi-Agent LLM Architecture for Stealth Assessment of Financial Literacy in Serious Games",
+    "authors": "Gabriel Santos, Rita Julia, Marcelo Nascimento",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Assessing financial literacy during gameplay without disrupting the learning experience remains a key challenge in serious games for education. We present the Agentic BKT pipeline, a multi-agent large language model architecture for stealth assessment of financial competencies from open-ended gameplay events. The pipeline processes events from a 2D platformer serious game aligned with the OECD/INFE financial literacy framework through four phases: (1) the game captures every player decision as a"
+  },
+  {
+    "id": "2606.26027",
+    "title": "Why Multi-Step Tool-Use Reinforcement Learning Collapses and How Supervisory Signals Fix It",
+    "authors": "Yupu Hao, Zhuoran Jin, Huanxuan Liao et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "MCP",
+      "LLM"
+    ],
+    "abstract": "Tool use enables large language models (LLMs) to perform complex tasks, and recent agentic reinforcement learning (RL) methods show promise for enhancing model capabilities. However, RL alone often leads to instability or limited gains in tool-use tasks. In our experiments, some models exhibit catastrophic collapse, where performance abruptly drops and tool-invocation structures fail. The analysis reveals that these failures stem from unexpected probability spikes in specific control tokens, dis"
+  },
+  {
+    "id": "2606.25519",
+    "title": "Quantization Inflates Reasoning: Token Inflation as a Hidden Cost of Low-Bit Reasoning Models",
+    "authors": "Xinyu Lian, Walid Krichene, Beichen Huang et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "MCP",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Quantization is widely used to reduce the inference cost of large language models, but its effect on reasoning models is not fully captured by final-answer accuracy or per-token latency. We show that low-bit post-training quantization can introduce a hidden test-time compute cost: quantized reasoning models often generate longer chains of thought even when they still answer correctly. Across mathematical reasoning, code generation, scientific question answering, and agentic tool-use benchmarks, "
+  },
+  {
+    "id": "2606.26079",
+    "title": "Same Evidence, Different Answer: Auditing Order Sensitivity in Multimodal Large Language Models",
+    "authors": "Akshay Paruchuri, Sanmi Koyejo, Ehsan Adeli",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Standard benchmarks for multimodal large language models (MLLMs) score each item on one canonical ordering and miss whether order-irrelevant shuffling changes the answer, a baseline reliability property called for by emerging AI evaluation guidelines. We introduce Facet-Probe, a five-facet audit (option, evidence-chunk, document-rank, image-set, and mixed-modality ordering) of 18 frontier and open-weight MLLMs. A Bayesian item-response model separates ordering noise from per-facet bias, and a sa"
+  },
+  {
+    "id": "2606.26071",
+    "title": "Model Forensics: Investigating Whether Concerning Behavior Reflects Misalignment",
+    "authors": "Aditya Singh, Gerson Kroiz, Senthooran Rajamanoharan et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "A central goal of safety research is determining whether a model is misaligned. Prior work has largely focused on detecting concerning behavior. But behavior alone does not establish misalignment: a concerning action can arise from benign causes such as confusion. This motivates model forensics: investigating whether the action was driven by malign intent. In this paper, we propose a baseline protocol for model forensics consisting of two steps, iterated as needed. First, we read the chain of th"
+  },
+  {
+    "id": "2606.26029",
+    "title": "TriViewBench: Controlled Complexity Scaling for Multi-View Structural Reasoning in MLLMs",
+    "authors": "Yu-Yang Chen, Lan-Zhe Guo",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Multimodal Large Language Models (MLLMs) demonstrate strong performance on standard visual question answering benchmarks, yet their scalability under controlled structural complexity remains poorly understood. We introduce TriViewBench, a controlled three-view visual reasoning benchmark constructed from synthetic 3D scenes with explicitly parameterized object count and occlusion. The benchmark contains 1,923 scenes and over 14K Question-Answer (QA) pairs organized into four complexity levels and"
+  },
+  {
+    "id": "2606.25984",
+    "title": "InvestPhilBench: A Multi-Layer Dynamic Benchmark for Evaluating Large Language Model Procedural Reasoning in Expert Investment Philosophy",
+    "authors": "Mingguang Chen, Bo Qu",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large language models are increasingly deployed as investment research assistants, yet no benchmark tests whether they can accurately reconstruct and apply the specific procedural decision frameworks of expert investors. We introduce InvestPhilBench, a multi-layer dynamic benchmark spanning eight cognitive tiers, from principle identification (L1) to novel framework extrapolation (L8). The v0.6 release comprises 118 primary-source-verified investment principle cards, 25 decision framework cards "
+  },
+  {
+    "id": "2606.25935",
+    "title": "Overview of HIPE-2026: Person-Place Relation Extraction from Multilingual Historical Texts",
+    "authors": "Juri Opitz, Maud Ehrmann, Corina Raclé et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Was this person ever at that place, and if so, when? Answering such questions from noisy, multilingual historical documents is the central challenge of HIPE-2026, the third edition of the HIPE evaluation series. Moving from named entity recognition and linking (HIPE-2020, HIPE-2022) to reasoning about relationships between entities, HIPE-2026 targets two temporally grounded relation types: $at$, indicating that a person was present at a location at some point prior to a document's publication da"
+  },
+  {
+    "id": "2606.25832",
+    "title": "MiniOpt: Reasoning to Model and Solve General Optimization Problems with Limited Resources",
+    "authors": "Ke Zhao, Zixiang Di, Hong Qian et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Achieving strong optimization generalization across diverse optimization problems while requiring limited training resources remains a challenging problem for optimization-oriented large language models (LLMs). Existing approaches typically rely on large-scale supervised datasets, costly reasoning annotations, and expensive intermediate step verification, resulting in substantial training overhead. To address these challenges, we propose MiniOpt, a reinforcement learning framework that learns to"
+  },
+  {
+    "id": "2606.25568",
+    "title": "Riazi-8B: An Urdu Large Language Model for Mathematical Reasoning",
+    "authors": "Azher Ali, Ibtsam Haider, Raja Khurram Shahzad et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Fine-tuning",
+      "LLM"
+    ],
+    "abstract": "Recent LLMs demonstrate strong mathematical reasoning capabilities, but existing gains rely heavily on English-centric training resources and benchmarks. As a result, reasoning performance degrades substantially in low-resource languages such as Urdu, where reasoning-oriented datasets and adapted models remain scarce. Urdu lacks both reasoning-oriented resources and models adapted for multi-step mathematical problem solving, limiting the applicability of recent progress to Urdu-speaking users. W"
+  },
+  {
+    "id": "2606.25532",
+    "title": "Agentic evolution of physically constrained foundation models",
+    "authors": "Jiangwei Zhang, Wen Sun, Chong Wang et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Artificial intelligence increasingly drives automated scientific discovery, yet contemporary generalist agents lack physical grounding, frequently hallucinating hardware-incompatible designs. Here, we present a physically grounded, multi-agent discovery engine that autonomously architects hardware-compliant computing systems. Anchored by an Evolutionary Knowledge Graph structuring past scientific innovations, the framework extracts an \"algorithmic Chain-of-Thought\" to transform blind stochastic "
+  },
+  {
+    "id": "2606.25524",
+    "title": "Cliff Tokens: Identifying Single-Token Failure Triggers in LLM Mathematical Reasoning",
+    "authors": "Jaeyong Ko, Pilsung Kang, Yukyung Lee",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) reach high accuracy in mathematical reasoning, but individual traces on the same problem diverge; some arrive at the correct answer while others fail. Prior work analyzes failure at the step, chunk, or sentence level, or at tokens where failure has already occurred. Neither identifies the precise token that triggers the shift toward failure. We introduce the cliff token, a token where the token-wise potential drops significantly under an adaptive threshold that scale"
+  },
+  {
+    "id": "2606.25354",
+    "title": "Efficient and Trainable Language Model Test-Time Scaling via Local Branch Routing",
+    "authors": "Yutong Yin, Mingyu Jin, Jin Pan et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Test-time scaling improves language-model reasoning, but existing approaches often face a difficult trade-off: long chain-of-thought sampling remains single-threaded, while sentence- or solution-level search can be computationally expensive and hard to train end-to-end. We introduce Local Branch Routing (LBR), a token-level test-time scaling framework that expands a small local lookahead tree, forwards all sampled branches through the language model, and uses a lightweight router to select the d"
+  },
+  {
+    "id": "2606.25990",
+    "title": "SpeechEQ: Benchmarking Emotional Intelligence Quotient in Socially Aware Voice Conversational Models",
+    "authors": "Liang-Yuan Wu, Zih-Ching Chen, Tongshuang Wu et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "Safety"
+    ],
+    "abstract": "As multimodal conversational systems increasingly engage in spoken interaction, their ability to navigate paralinguistic social cues has become a critical bottleneck for natural human-AI communication. However, existing evaluations of machine emotional intelligence assess reasoning exclusively through isolated text or passive acoustic perception, overlooking the complex cross-modal reasoning required for active, multi-turn dialogue. We introduce \\textsc{SpeechEQ}, a comprehensive framework desig"
+  },
+  {
+    "id": "2606.25657",
+    "title": "Steering Vision-Language Models with Joint Sparse Autoencoders",
+    "authors": "Huizhen Shu, Xuying Li, Hongxu Lin et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "Safety"
+    ],
+    "abstract": "Sparse Autoencoders (SAEs) have shown promise for analyzing language models, but applying them to vision-language models (VLMs) often yields representations that are difficult to use as controllable cross-modal steering directions. We introduce the Joint Sparse Autoencoder (JSAE), which uses an explicit alignment constraint to jointly factorize sequence-pooled vision and language activations into shared, interpretable image/caption-level features. Applied to LLaVA, JSAE recovers cross-modal feat"
+  },
+  {
+    "id": "2606.25445",
+    "title": "C3-Bench: A Context-Aware Change Captioning Benchmark",
+    "authors": "Jae-Woo Kim, Hyeongbeom Kim, Ue-Hwan Kim",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Multimodal"
+    ],
+    "abstract": "While Change Captioning systems have garnered substantial attention to respond to our evolving world, their true performance on diverse real-world change contexts remains largely unexplored due to the lack of comprehensive evaluation frameworks. To fill this gap, we propose C3-Bench, a comprehensive benchmark for evaluating Context-aware Change Captioning. C3-Bench features: (1) 4,996 human-labeled image pairs of 51 real-world change contexts across four domains (e.g., natural scenes, remote sen"
+  },
+  {
+    "id": "2606.25375",
+    "title": "Beyond Visual Forensics: Auditing Multimodal Robustness for Synthetic Medical Image Detection",
+    "authors": "Ching-Hao Chiu, Hao-Wei Chung, Gelei Xu et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Multimodal"
+    ],
+    "abstract": "With the rapid adoption of generative AI, synthetic medical images pose growing risks, including diagnostic deception and insurance fraud. Although prior work has explored vision-language model (VLM)-based synthetic image detection, these evaluations typically consider images in isolation. In clinical practice, however, images are interpreted alongside structured records and metadata, and VLMs are increasingly deployed under joint image-record inputs. We uncover a previously underexamined multim"
+  },
+  {
+    "id": "2606.26057",
+    "title": "The Unfireable Safety Kernel: Execution-Time AI Alignment for AI Agents and Other Escapable AI Systems",
+    "authors": "Seth Dobrin, Łukasz Chmiel",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning"
+    ],
+    "abstract": "AI agents are granted access to tools, APIs, and other infrastructure, making them active principals in those systems. The dominant approach places controls inside the agent's own runtime: system prompts, output filters, and guardrail libraries. Any control in the agent's address space is reachable by inputs that influence it; this generalizes to any AI system with sufficient reach into its own runtime, a class we term escapable AI systems. We identify four properties that an authorization mecha"
+  },
+  {
+    "id": "2606.25821",
+    "title": "SARA: Unlocking Multilingual Knowledge in Mixture-of-Experts via Semantically Anchored Routing Alignment",
+    "authors": "Tianyu Dong, Yangyang Liu, Jiang Zhou et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning"
+    ],
+    "abstract": "Sparse Mixture-of-Experts (MoE) architectures have emerged as an increasingly influential paradigm as they offer a strategic balance between parameter scalability and computational efficiency. However, low-resource languages, which suffer from a scarcity of high-quality training data, often have their tokens routed to different experts than those predominantly activated by high-resource inputs, which limits cross-lingual expert sharing. This cross-lingual routing divergence consequently hinders "
+  },
+  {
+    "id": "2606.25627",
+    "title": "TL++: Accuracy and Privacy Preserving Traversal Learning for Distributed Intelligent Systems",
+    "authors": "Erdenebileg Batbaatar, Young Yoon",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning"
+    ],
+    "abstract": "Distributed intelligent systems increasingly need to train across data silos without centralizing raw data. Federated learning keeps data local but can suffer under heterogeneous partitions and requires repeated full-model exchange. Split learning reduces communication through cut-layer activations, but standard protocols generally do not recover centralized mini-batch gradient behavior and may expose activations and gradients in plaintext. We present TL++, a two-mode traversal-learning framewor"
+  },
+  {
+    "id": "2606.25285",
+    "title": "EPTS: Elastic Post-Training Sparsity for Efficient Large Language Model Compression",
+    "authors": "Ke Xu, Jiaqi Wan, Wenhao Hu et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning",
+      "LLM"
+    ],
+    "abstract": "Post-Training Sparsity (PTS) has emerged as a crucial paradigm for compressing Large Language Models to facilitate efficient deployment on resource-constrained devices. However, existing PTS methodologies are typically confined to Single-Sparsity optimization, necessitating a separate, time-consuming optimization session for each specific sparsity level. This rigid paradigm significantly hinders flexible deployment across diverse hardware scenarios, as adapting to a new sparsity requirement mand"
+  },
+  {
+    "id": "2606.26095",
+    "title": "Learning Action Priors for Cross-embodiment Robot Manipulation",
+    "authors": "Dong Jing, Tianqi Zhang, Jiaqi Liu et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Safety"
+    ],
+    "abstract": "Most Vision-Language-Action (VLA) models build on a Vision-Language Model (VLM) backbone by attaching an action module and optimizing the full policy jointly. This design inherits strong visual and linguistic priors from the VLM, but leaves the action module to learn physical motion almost from scratch. As a result, the policy lacks an explicit motion prior, forcing early optimization to simultaneously discover temporal action dynamics and cross-modal alignment, a challenge further amplified in "
+  },
+  {
+    "id": "2606.26040",
+    "title": "AI translation of literary texts is \"fine\", but readers still prefer human translations",
+    "authors": "Yves Ferstler, Adam Podoxin, Ty Brassington et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "AI translation of literary works is increasingly common. While the content may be rendered adequately, we do not know enough about how readers experience it in terms of immersiveness and literary effect, aspects poorly captured by automatic machine translation metrics or human evaluation targeting fluency and adequacy. We ask 15 avid readers to compare recently published human translations (HT) to machine translations (MT) generated with an agentic large language model (LLM)-based pipeline, for "
+  },
+  {
+    "id": "2606.25782",
+    "title": "Do Encoders Suffice? A Systematic Comparison of Encoder and Decoder Safety Judges for LLM Adversarial Evaluation",
+    "authors": "Han Jeon, Shiv Medler, Joseph Voyles et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "With the widespread adoption of large language models (LLMs) in chatbots and everyday applications, companies increasingly need guardrails that are effective while remaining low-cost and low-latency. Safety evaluation of LLM outputs has generally relied on LLM-based judges, which can be effective but are often slow and expensive to deploy at scale. In this paper, we evaluate whether fine-tuned modern encoder classifiers from the ModernBERT family, including ModernBERT and Ettin, can reliably ide"
+  },
+  {
+    "id": "2606.25750",
+    "title": "RAS: Measuring LLM Safety Through Refusal Alignment",
+    "authors": "Chang-Chieh Huang, Yan-Lun Chen, Chia-Mu Yu et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Safety evaluation of large language models (LLMs) is commonly performed by querying models with unsafe or jailbreak prompts and judging whether their outputs violate a safety policy. Although useful, output-level evaluation is expensive, sensitive to judge choice, and easily tied to fixed question banks. We propose **SafeVec**, a white-box evaluation procedure that measures safety from internal representations rather than generated answers. **SafeVec** first extracts layer-wise refusal direction"
+  },
+  {
+    "id": "2606.25529",
+    "title": "STEB: A Speech-to-Speech Translation Expressiveness Benchmark for Evaluating Beyond Translation Fidelity",
+    "authors": "Sitong Cheng, Weizhen Bian, Songjun Cao et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Speech-to-speech translation (S2ST) should preserve not only lexical meaning, but also expressive attributes: emotion, scenario style (e.g., news reporting vs. dramatic dialogue), and nonverbal vocalizations (NVs). Moreover, collecting cross-lingual target speech that is both translation-faithful and expressively aligned with the source is difficult at scale, making reference-based evaluation impractical. We introduce STEB (Speech-to-Speech Translation Expressiveness Benchmark), a 32.6-hour Chin"
+  },
+  {
+    "id": "2606.25444",
+    "title": "Does Translation-Enhanced Speech Encoder Pre-training Affect Speech LLMs?",
+    "authors": "Tomoya Mizumoto, Yusuke Fujita",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Connecting a pre-trained speech encoder to a Large Language Model (LLM) is the standard architecture for building Speech LLMs. However, a structural misalignment exists between the encoder and the LLM. Unlike encoders based on automatic speech recognition, which often produce representations in separate language-specific spaces, LLMs operate within a unified language-agnostic space. A mechanism is required to align the encoder's language-specific representations with the LLM's shared space. We a"
+  },
+  {
+    "id": "2606.25442",
+    "title": "PolicyAlign: Direct Policy-Based Safety Alignment for Large Language Models",
+    "authors": "Chang Wu, Junfeng Fang, Houcheng Jiang et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Safety alignment of large language models (LLMs) typically depends on high-quality supervision data, such as safe demonstrations or preference pairs. However, in real-world deployment, emerging safety requirements are often specified as natural-language policies, while corresponding supervision data may be costly, delayed, or unavailable. This creates a mismatch between rapidly evolving safety policies and conventional data-driven alignment methods. To address this, we propose PolicyAlign, a sim"
+  },
+  {
+    "id": "2606.25380",
+    "title": "A Survey of Toxicity Detection and Mitigation Strategies for Multilingual Language Models",
+    "authors": "Soham Dan, Himanshu Beniwal, Thomas Hartvigsen",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are increasingly deployed across languages, but their safety behavior remains uneven across linguistic and cultural contexts. This survey synthesizes work on toxicity detection and detoxification for multilingual LLMs. We first catalogue threat models that exploit language choice, translation pivots, code-switching, orthographic variation, multi-turn interaction, and post-deployment fine-tuning to weaken safety alignment. We then organize task formulations (toxic-to-"
+  },
+  {
+    "id": "2606.25332",
+    "title": "Decoupling Reconnaissance and Exploitation: Measuring the Capability Boundaries of LLM-Based Web Penetration Testing",
+    "authors": "Liwei Yu, Shuo Li, Ming Zhou et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large Language Models (LLMs) have shown promise for automated penetration testing, yet existing end-to-end black-box evaluations are highly susceptible to error cascading: failures in early reconnaissance can mask an agent's actual ability to exploit vulnerabilities. To more accurately characterize these capabilities, we propose a two-stage decoupled evaluation framework that separates exploit execution from reconnaissance. Using ground-truth injection and knowledge-driven ablation across 70 hig"
+  },
+  {
+    "id": "2606.26036",
+    "title": "Detect, Unlearn, Restore: Defending Text Summarization Models Against Data Poisoning",
+    "authors": "Poojitha Thota, Shirin Nilizadeh",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Training-time data poisoning during fine-tuning poses a significant threat to large language models (LLMs) deployed for abstractive text summarization, where small task-specific datasets exert disproportionate influence on model behavior. In this setting, adversaries manipulate fine-tuning data to induce persistent summarization failures, such as biased or harmful summaries, while preserving standard evaluation metrics. We present a unified post-hoc defense framework for detecting and remediatin"
+  },
+  {
+    "id": "2606.26021",
+    "title": "Privacy Vulnerabilities of Attention Layers in Tabular Foundation Models and Protection of High-Risk Queries",
+    "authors": "Tânia Carvalho, Maxime Cordy",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Tabular foundation models are commonly assumed to present limited privacy concerns as they are often pre-trained on large collections of synthetic data. However, these models leverage in-context learning, where sensitive records may be provided directly at inference time as labelled context examples. In this paper, we demonstrate that predictions generated via the attention mechanism leak sufficient information to enable effective Membership Inference Attacks (MIAs). To highlight this vulnerabil"
+  },
+  {
+    "id": "2606.25987",
+    "title": "Weave of Formal Thought",
+    "authors": "Alexandre Bouayad",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) attain remarkable surface fluency on code, yet they neither formally guarantee the syntactic validity of their output nor leverage the hierarchical structure defining the target language. While existing constrained-decoding frameworks address the former, they operate under rigid assumptions that preclude critical lexical mechanisms -- including context-sensitive lexing, maximal-munch tokenization, and keyword extraction -- and only approximate vocabulary masking, sac"
+  },
+  {
+    "id": "2606.25973",
+    "title": "Helpful or Harmful? Evaluating LLM-Assisted Vulnerability Patching via a Human Study",
+    "authors": "Giulian Biolo, Michael Tezza, Yuanjun Gong et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Software vulnerability remediation is a cognitively demanding task that requires specialized security expertise often lacking in general developers. In the meantime, Large Language Models (LLMs) assisted tools show potential in vulnerability detection, location, and repair tasks. [Hypothesis:] While LLM-assistance is hypothesized to accelerate patching, it also risks introducing hallucinations or insecure code, leading to a higher likelihood of generating superficial repairs that bypass the stan"
+  },
+  {
+    "id": "2606.25879",
+    "title": "AI-Assisted Computational Reproducibility on the FABRIC Testbed",
+    "authors": "Komal Thareja, Paul Ruth, Berent Aldikacti et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Computational reproducibility remains difficult despite being central to scientific research. In this paper, we show how the international FABRIC testbed, combined with large language model (LLM) coding assistants through LoomAI, can simplify reproducing published experiments across multiple domains. We reproduced three case studies on FABRIC, covering BBR-family congestion-control evaluations, LAMMPS molecular dynamics scaling benchmarks on a CPU-only MPI cluster, and stress protein homeostasis"
+  },
+  {
+    "id": "2606.25787",
+    "title": "How Large Language Models Source Brand Reputation Across Languages and Markets",
+    "authors": "Dmitrij Zatuchin",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "When a large language model (LLM) answers a question about a company, it grounds the answer in retrieved web sources, and those sources decide what the model says. Most analysis of AI brand visibility looks at the answer text. This study looks one step earlier, at the citations. We merge three Rankfor.AI datasets covering 128 brands across 12 home markets and 13 languages, and analyse 167,551 URL-grounded citations (189,974 total attribution rows). We classify each citation by domain and source "
+  },
+  {
+    "id": "2606.25645",
+    "title": "Taxonomy of Risks on Automated Fact-Checking Systems Considering its Propagation",
+    "authors": "Jun Yajima, Tatsuya Oka, Takao Okubo",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "In recent years, the posting of fake news including disinformation and misinformation on social networking services (SNS) has become a social problem. To combat this fake news, fact-checking that is the process of assessing the veracity of posts on SNS has become increasingly important. While fact-checking is currently performed by fact-checking organizations, it is difficult to fact-check all posts on SNS. Therefore, the use of automated fact-checking systems is effective. Recent automated fact"
+  },
+  {
+    "id": "2606.25608",
+    "title": "An Approach for a Supporting Multi-LLM System for Automated Certification Based on the German IT-Grundschutz",
+    "authors": "Lea Roxanne Muth, Marian Margraf",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "This paper presents a novel approach to perform semi-automated BSI IT-Grundschutz certification using a MultiLarge Language Model system (MLS) with Hybrid RetrievalAugmented Generation (HybridRAG). Facing the challenges of the Network and Information Security Directive 2 (NIS2) directive, a shortage of specialists, and high implementation costs, our MLS architecture aims to increase efficiency, reduce costs, and support certifiers in maintaining the quality of security concepts while meeting the"
+  },
+  {
+    "id": "2606.25552",
+    "title": "SFL-MTSC: Leveraging Semantic Frame-Level Multi-Task Self-Consistency for Robust Multi-Intent Spoken Language Understanding",
+    "authors": "Po-Yen Chen, Berlin Chen",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Prompt-based spoken language understanding (SLU) with large language models (LLMs) often suffers from inconsistent intent--slot structures due to decoding stochasticity, particularly in multi-intent scenarios. In view of this, we propose Semantic Frame-Level Multi-Task Self-Consistency (SFL-MTSC), a novel structured aggregation framework operating at the semantic frame level. Instead of output-level majority voting, SFL-MTSC decomposes predictions into intent-specific frames, applies domain--int"
+  },
+  {
+    "id": "2606.25530",
+    "title": "Evaluating LLMs on Real-World Software Performance Optimization",
+    "authors": "Ezgi Sarıkayak, Wenchao Gu, Hesham Ghonim et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Software performance optimization is a notoriously complex and manual task. Despite the growing use of Large Language Models (LLMs) for code refinement, we still lack benchmarks that capture how optimization actually happens in real-world codebases. Existing frameworks often oversimplify the problem by focusing on isolated functions or a single performance metric, missing the critical trade-offs between execution time and memory footprint, the inherent noise of the measurement environment, and t"
+  },
+  {
+    "id": "2606.25476",
+    "title": "A Red Teaming Framework for Large Language Models: A Case Study on Faithfulness Evaluation",
+    "authors": "Abrar Alotaibi, Raed Mughus, Moataz Ahmed",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) have demonstrated remarkable performance across natural language processing tasks, yet their deployment in high-stakes applications raises critical concerns regarding reliability, safety, and trustworthiness. In this paper, we present a red teaming framework that systematically uncovers vulnerabilities in LLM outputs. Our approach employs a novel multi-role architecture comprising target, attacker, and jury models. The attackers generate increasingly effective advers"
+  },
+  {
+    "id": "2606.25436",
+    "title": "Evaluating Japanese Dialect Robustness Across Speech and Text-based Large Language Models",
+    "authors": "Tomoya Mizumoto, Yusuke Fujita, Hao Shi et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Dialogue systems based on large language models (LLMs) have advanced significantly in recent years. However, dialectal variation remains a major challenge, particularly for systems that process spoken input. LLM-based speech language models (SLMs), which integrate LLMs with speech processing components, show promise for spoken language tasks, yet their ability to comprehend dialects has not been sufficiently studied. Moreover, it remains unclear how the dialectal understanding of the base LLM af"
+  },
+  {
+    "id": "2606.25403",
+    "title": "CrossAccent-TTS: Cross-Lingual Accent-Intensity Controllable Text-to-Speech via Disentangled Speaker and Accent Representations",
+    "authors": "Ram Annamdevula, Ankit Tatawat, Ashishkumar P. Gudmalwar et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Accent conversion and controllability remain fundamental challenges in cross-lingual text-to-speech (TTS), particularly for low-resource and phonetically diverse Indic languages. While recent large language model (LLM)-based TTS systems exhibit strong cross-lingual generalization, they provide limited explicit control over accent characteristics and intensity. In this paper, we propose CrossAccentTTS, a framework that enables both accent control and conversion while preserving speaker identity. "
+  },
+  {
+    "id": "2606.25396",
+    "title": "Long-Term Simulation Exposes Cognitive-Developmental Risks in AI Companions",
+    "authors": "Kaicheng Shen, Lingyu Li, Wen Wu et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "AI companions powered by large language models increasingly interact with cognition-developing users, including children and adolescents, creating risks that may accumulate over time. Existing safety evaluations largely rely on single-turn or short-session tests, which cannot capture risks that emerge only through prolonged interaction. To address this gap, we propose TSJ (Theater-Stage-Judge), a longitudinal framework combining persona-driven user simulation, dynamic psychological-state updatin"
+  },
+  {
+    "id": "2606.25369",
+    "title": "Sarashina2.2-TTS: Tackling Kanji Polyphony in Japanese Speech Generation via Data Scaling and Targeted Data Synthesis",
+    "authors": "Lianbo Liu, Shiao Zhu, Kai Washizaki et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "While large language model (LLM)-based text-to-speech (TTS) systems have achieved high-quality speech synthesis, most existing systems focus on English and Chinese. Japanese, however, remains under-explored, and its unique linguistic challenges, such as widespread context-dependent kanji polyphony, have yet to be adequately tackled. Here we introduce Sarashina2.2-TTS (https://github.com/sbintuitions/sarashina2.2-tts), a Japanese-centric LLM-TTS system that tackles these challenges through a dual"
+  },
+  {
+    "id": "2606.25366",
+    "title": "Reliability-Asymmetric Spacecraft Autonomy: Co-Designing a Capable Learned GNC Stack with a Verified, Adaptation-Aware Runtime Shield",
+    "authors": "Alireza Shojaei",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Deep-space missions need onboard autonomy that is both capable and certifiable. Rule-based autonomy is certifiable but brittle, while learned autonomy is capable but hard to verify. We present AMPLE-GNC, a three-tier guidance, navigation, and control stack. Its capability path combines a small foundation-model commander that maps natural language to PDDL+, a constraint-screening verifier, and a fault-adaptive controller. All three are bounded by a runtime shield with nine linear-temporal-logic i"
+  },
+  {
+    "id": "2606.25331",
+    "title": "Improved Large Language Diffusion Models",
+    "authors": "Shen Nie, Qiyang Min, Shaoxuan Xu et al.",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Modern large language models are predominantly trained with autoregressive factorization and causal attention. We present \\emph{iLLaDA}, an 8B masked diffusion language model trained from scratch with fully bidirectional attention. iLLaDA keeps the masked diffusion objective throughout pre-training and supervised fine-tuning (SFT), scaling pre-training to 12T tokens and fine-tuning on a 25B-token instruction corpus for 12 epochs. We further use variable-length generation for efficiency and intro"
+  },
+  {
+    "id": "2606.25328",
+    "title": "Supervised Post-training of Speech Foundation Models for Robust Adaptation in Speech Deepfake Detection",
+    "authors": "Zihan Pan, Sailor Hardik, Jinyang Wu",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large speech foundation models have shown strong potential for speech deepfake detection, but direct fine-tuning is limited by a mismatch between self-supervised pre-training objectives and spoof-specific artifacts. To address this, we propose a mix-frame post-training strategy to create localized spoof-oriented perturbations and use frame-level supervision to encourage the SSL model to learn local inconsistencies that are critical for robust spoof detection. On ASVspoof5, we achieve state-of-th"
+  },
+  {
+    "id": "2606.25269",
+    "title": "Stabilizing black-box algorithms through task-oriented randomization",
+    "authors": "Yali Wang, Zhaojun Wang",
+    "year": 2026,
+    "date": "2026-06-24",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "As black-box models become foundational to modern research, ensuring their stability is paramount for the realization of trustworthy artificial intelligence. The inherent diversity of inputs - ranging from structured Gaussian distributions to complex data with unknown structures - poses a significant challenge: how to stabilize black-box outputs while effectively leveraging available prior information. This paper introduces a task-oriented randomization methodology that adaptively tailors its st"
+  },
+  {
     "id": "2606.24623",
     "title": "Privacy-Preserving RAG via Multi-Agent Semantic Rewriting: Achieving Confidentiality Without Compromising Contextual Fidelity",
     "authors": "Yuanhe Zhao, Tianyu Zhang, Huafei Xing et al.",
@@ -766,6 +1598,256 @@
       "LLM"
     ],
     "abstract": "Contextual entrainment, which is a newly discovered phenomenon in large language models (LLMs), refers to the tendency of a model to assign higher probabilities to tokens that appear in its context. In this work, we extend this phenomenon from the token level to the sentence level by examining the per-token mean log-probability of a sentence instead of the probabilities of individual tokens. We investigate sentence-level contextual entrainment across 26 LLMs from seven families and two datasets,"
+  },
+  {
+    "id": "2606.25191",
+    "title": "To Isolate or to Score? Model-Adaptive Assessment for Cost-Efficient Multi-Agent RAG",
+    "authors": "Jungseob Lee, Chanjun Park, Heuiseok Lim",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "RAG"
+    ],
+    "abstract": "Multi-agent document assessment for retrieval-augmented generation is computationally expensive, driving practitioners toward smaller, deployable models whose assessment mechanisms remain poorly understood. We conduct a controlled study of training-free interventions on 7B-9B instruction-tuned models across diverse QA benchmarks, revealing a sharp dichotomy in how models benefit from assessment. For weaker baselines, the dominant mechanism is per-document isolation. Astoundingly, assessment-free"
+  },
+  {
+    "id": "2606.24976",
+    "title": "Diagnosing and Mitigating Compounding Failures in Agentic Persuasion via Taxonomic Strategy Retrieval",
+    "authors": "Pradyumna Narayana, Sana Ayromlou, Purvi Sehgal",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "LLM"
+    ],
+    "abstract": "Foundation-model agents in multi-step, open-ended environments frequently suffer from compounding errors, where early mistakes contaminate long-horizon trajectories. While Multi-Agent Debate (MAD) succeeds in deterministic domains, agents in subjective tasks like persuasion experience severe problem drift and sycophantic conformity. We identify semantic leakage in standard Retrieval-Augmented Generation (RAG) as a reproducible trigger for these failures, as standard RAG prioritizes vocabulary ov"
+  },
+  {
+    "id": "2606.25198",
+    "title": "Heuresis: Search Strategies for Autonomous AI Research Agents Across Quality, Diversity and Novelty",
+    "authors": "Antonis Antoniades, Deepak Nathani, Ritam Saha et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Autonomous AI Research promises to accelerate the scientific progress of machine learning. To realise this goal, current Large Language Model (LLM)-based agents need to go beyond just writing code, to mastering the exploration of simultaneously performant, diverse and novel ideas. To this end, we introduce Heuresis, a framework that abstracts the research pipeline into a set of general and composable primitives, enabling open-ended scientific exploration in machine learning research. We implemen"
+  },
+  {
+    "id": "2606.25161",
+    "title": "TRUSTMEM: Learning Trustworthy Memory Consolidation for LLM Agents with Long-Term Memory",
+    "authors": "Tianyu Yang, Sudipta Paul, Vijay Srinivasan et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large language model (LLM) agents rely on long-term memory to support extended interactions and personalized assistance beyond finite context windows. Existing memory agents actively update external memory through generated write, revise, and delete operations, but these updates may omit important information, corrupt existing memory, or introduce unsupported hallucinated content. Once stored, such errors become persistent system-state failures that can affect future reasoning and generation. In"
+  },
+  {
+    "id": "2606.25034",
+    "title": "Yuvion VL: A Multimodal Foundation Model for Adversarial Content and AI Safety",
+    "authors": "Shikai Qiu, Xiaowen Xu, Benlei Cui et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "General-purpose models often struggle to reliably identify and understand real-world multimodal risks, largely due to the inherent multimodal adversarial nature of content and AI safety. We present Yuvion VL, a family of multimodal large language models purpose-built for content and AI safety, with both instruction-tuned and reasoning-oriented variants. Yuvion VL addresses this gap by treating safety as an inherently adversarial and multimodal problem and designing the entire pipeline around adv"
+  },
+  {
+    "id": "2606.24965",
+    "title": "Project Auto-World: Towards Automated Benchmarking of Neural Relational Reasoners",
+    "authors": "Anirban Das, Joanne Boisson, Irtaza Khalid et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Reasoning about relational structures remains a significant challenge for neural models, particularly when they must systematically apply learned knowledge to problem instances that are harder than those seen in training. Progress is hampered by the difficulty of evaluating such generalization, since a priori, it is rarely clear what makes an instance hard. We study how this issue can be addressed by using large language models (LLMs) to automate benchmark generation, learning to produce increas"
+  },
+  {
+    "id": "2606.25182",
+    "title": "What Intermediate Layers Know: Detecting Jailbreaks from Entropy Dynamics",
+    "authors": "Sofiia Nikolenko, Michele Papucci, Mina Rezaei et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Jailbreak attacks reveal a persistent weakness in aligned Large Language Models: carefully crafted prompts can elicit policy-violating responses despite safety training. While most defenses operate at the prompt or output level, it remains unclear how harmful intent is encoded within the model's internal representations. We investigate this question by analyzing token-level predictive entropy trajectories across layers of a frozen LLM using the logit lens. We find that static aggregate statistic"
+  },
+  {
+    "id": "2606.25057",
+    "title": "LLM-Based Scientific Peer Review: Methods, Benchmarks, and Reliability Challenges",
+    "authors": "Thi Huyen Nguyen, Zahra Ahmadi",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "The rapid growth of scientific submissions has pushed traditional peer review toward its scalability limits, motivating the exploration of large language models (LLMs) as intelligent automated evaluation assistants. Although recent studies show that LLMs can generate fluent critiques and approximate reviewer scores, their reliability, robustness, and security as decision-support systems remain insufficiently understood. This survey offers a systems-level analysis of LLM-based scientific peer rev"
+  },
+  {
+    "id": "2606.25156",
+    "title": "ATMA: Length-Invariant Language Modeling via Polar Attention and Gated-Delta Compression Memory",
+    "authors": "Habibullah Akbar",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Modern large language models based on softmax scaled-dot-product attention are constrained by their training sequence length: as the key-value sequence grows, softmax probability mass can dilute across a wider distribution, inducing activation shift and long-context performance collapse. Moreover, long-context language modeling faces a structural tension: a sliding-window attention core maintains a bounded local representation and low perplexity but is blind to long-range dependencies, while ful"
+  },
+  {
+    "id": "2606.25143",
+    "title": "The cognitive, affective, and behavioral expression of self-stigma among people who use drugs in online substance use communities",
+    "authors": "Layla Bouzoubaa, Hyung Wook Choi, Milan Varghese et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Objectives: To develop a codebook for self-stigma across cognitive, affective, and behavioral domains, and to estimate the prevalence, co-occurrence, and temporal patterns of these indicators in Reddit posts by people who use drugs. Methods: We developed a ten-indicator codebook through consensus-based abductive coding spanning cognitive (self-labeling, pessimism/self-defeatism, deservingness/worthlessness), affective (shame, guilt/self-blame, despair/hopelessness), and behavioral (concealment, "
+  },
+  {
+    "id": "2606.25116",
+    "title": "BCoughBench: Benchmarking Respiratory Acoustic Foundation Models Under Body-Coupled Wearable Sensor Conditions",
+    "authors": "Mayur Sanap, Prasanna Desikan, Edgar Lobaton",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Respiratory acoustic foundation models (FMs) are benchmarked exclusively on smartphone recordings, yet clinical deployment increasingly targets body-coupled (BC) wearables whose sensors attenuate high-frequency content through tissue and bone, leaving FM reliability uncharacterised. We introduce BCoughBench, evaluating five FMs (OPERA-CT/CE/GT, HeAR, M2D+Resp) on nine classification tasks (AUROC, sensitivity at 95% specificity, Expected Calibration Error) and three age regression tasks (MAE vs. "
+  },
+  {
+    "id": "2606.25102",
+    "title": "Dream at SemEval-2026 Task 13: SALSA for Single-Pass Machine-Generated Code Detection",
+    "authors": "Ruslan Berdichevsky, Shai Nahum-Gefen, Elad Ben-Zaken",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models have transformed code generation, raising concerns around authorship, assessment integrity, and software trust. SemEval-2026 Task 13 Subtask A operationalizes detection as binary classification over code snippets, with a particular emphasis on out-of-distribution (OOD) generalization across unseen programming languages and application domains. We propose a SALSA-style formulation, Single-pass Autoregressive LLM Structured Classification, that maps each class to a dedicated "
+  },
+  {
+    "id": "2606.25041",
+    "title": "Wan-Streamer v0.1: End-to-end Real-time Interactive Foundation Models",
+    "authors": "Lianghua Huang, Zhifan Wu, Wei Wang et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "We present Wan-Streamer, a native-streaming, end-to-end interactive foundation model designed from the ground up for real-time, low-latency, full-duplex audio-visual interaction. Wan-Streamer seamlessly models language, audio, and video as both input and output within a single Transformer, where the sequence is represented as interleaved visual, audio, and text input tokens together with visual, audio, and text output tokens, coordinated by block-causal attention for incremental streaming. Unlik"
+  },
+  {
+    "id": "2606.25039",
+    "title": "LLM-ACES: Closed-Loop Discovery of Dynamical Systems with LLM-Guided Adaptive Search",
+    "authors": "Nikhil Abhyankar, Sha Li, Sanchit Kabra et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Recovering governing Ordinary Differential Equations (ODEs) from data is a central challenge in modeling dynamical systems across scientific domains. Existing approaches cast discovery as a static inference problem over fixed datasets, assuming that the observed trajectories are sufficiently informative. However, dynamical systems evolve over large state spaces, and limited data can make multiple equations observationally indistinguishable, leading to identifiability gaps and the recovery of inc"
+  },
+  {
+    "id": "2606.25008",
+    "title": "Neural Scaling Universality: If Exponents Are Fixed, Time to Understand Coefficients",
+    "authors": "Yizhou Liu, Jeff Gore",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Neural scaling laws describe how pre-training loss decays as power laws with training time, model size, and compute. This position paper argues that the exponents of these power laws are fixed by generic mechanisms: a one-third time scaling due to the strong nonlinearity of Softmax, an inverse width scaling due to representational superposition, and an inverse depth scaling due to ensemble averaging of Transformer layers. These mechanisms are robust to a wide range of data structures and archite"
+  },
+  {
+    "id": "2606.24995",
+    "title": "Are Tabular Foundation Models Robust to Realistic Query Distribution Shifts in Microbiome Data?",
+    "authors": "Giulia Perciballi, Ahmad Fall, Federica Granese et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Tabular foundation models (TFMs) achieve strong performance on microbiome abundance data, yet their robustness under realistic distribution shift remains poorly characterized. We introduce a benchmark that evaluates the robustness of TFMs to biologically inspired perturbations across six gut microbiome datasets spanning four disease contexts. In this in-context learning setting, models receive unperturbed support sets as context and are evaluated on perturbed query samples. To isolate robustness"
+  },
+  {
+    "id": "2606.24985",
+    "title": "Retrieval-Augmented Personalization with Foundation Models for Wearable Stress Detection",
+    "authors": "Louis Simon, Mohamed Chetouani",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Personalization in wearable-based stress detection remains challenging due to substantial inter-individual variability in physiological and behavioral responses. While traditional approaches rely on user-specific fine-tuning or costly self-supervised pre-training on large datasets, we propose a lightweight alternative based on retrieval-augmented personalization. Our method leverages frozen, out-of-domain foundation models to retrieve similar patterns from a target user's history and encode them"
+  },
+  {
+    "id": "2606.24973",
+    "title": "LLM Performance on a Real, Double-Marked GCSE Benchmark",
+    "authors": "Malachy Fox, Kavi Samra, Paul Jung",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "We introduce a dataset of 32,534 double-marked real student responses to GCSE mock exams (GCSEs are the UK's national exams, taken at age ~16), spanning 328 questions across five subjects and including handwritten work. We test whether off-the-shelf large language models agree with examiners as closely as the two examiners agree with each other. We find that models overwhelmingly agree well with the examiner consensus across subjects, with the top performing models agreeing more closely with exa"
+  },
+  {
+    "id": "2606.24957",
+    "title": "Dustin: Draft-Augmented Sparse Verification for Efficient Long-Context Generation with Speculative Decoding",
+    "authors": "WenHung Lee, Jian-Jia Chen, Xiaolin Lin et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "While speculative decoding improves inference throughput for multi-batch long-context Large Language Models (LLMs), its efficiency is often limited by a verification bottleneck where Key-Value (KV) cache loading dominates latency. Existing compression methods fail in this regime: static eviction incurs accuracy loss due to saliency shift, while dynamic selection introduces prohibitive computational overhead during the verification path. We propose Dustin, a sparse verification framework designed"
+  },
+  {
+    "id": "2606.24950",
+    "title": "MacroLens: A Multi-Task Benchmark for Contextual Financial Reasoning under Macroeconomic Scenarios",
+    "authors": "Patara Trirat, Jin Myung Kwak, Jay Heo et al.",
+    "year": 2026,
+    "date": "2026-06-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Financial decision-making is contextual: forecasting prices, valuing companies, and assessing event exposure weigh price history, accounting fundamentals, macroeconomic regime, and contemporaneous text. A benchmark over these four signals is hard to build because finance violates four assumptions of time-series evaluation: text must be gated by its publication date to prevent look-ahead, quarterly fundamentals are reported with a one- to ninety-day lag, filing text is partly redundant with the n"
   },
   {
     "id": "2606.22909",
@@ -1924,6 +3006,33 @@
       "LLM"
     ],
     "abstract": "Graph and multi-agent orchestration frameworks make production large language model (LLM) workflows practical, but they do not by themselves solve conversational continuity when users maintain several interdependent objectives. This conceptual systems paper focuses on the high-complexity end of that design space, where goals can be suspended, resumed, revised, and invalidated by actions in other goals. We introduce the Goal-Oriented Dialogue Runtime (GODR), a framework-neutral design pattern tha"
+  },
+  {
+    "id": "2606.24937",
+    "title": "The Hitchhiker's Guide to Agentic AI: From Foundations to Systems",
+    "authors": "Haggai Roitman",
+    "year": 2026,
+    "date": "2026-06-22",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "MCP",
+      "Reasoning",
+      "Fine-tuning"
+    ],
+    "abstract": "The Hitchhiker's Guide to Agentic AI is a comprehensive practitioner's reference for building autonomous AI systems. The book covers the full stack from first principles to production deployment, organized around a central thesis: building great agentic systems requires understanding every layer of the pipeline, not just one. The book opens with the LLM substrate -- transformer architecture, GPU systems, training and fine-tuning (SFT,LoRA, MoE), model compression, and inference optimization -- t"
+  },
+  {
+    "id": "2606.24941",
+    "title": "EmotionAI: A Privacy-Preserving Computational Intelligence Pipeline for Speech-Emotion-Grounded Conversational Analysis",
+    "authors": "Wai Laam Mak, Isibor Kennedy Ihianle, Pedro Machado",
+    "year": 2026,
+    "date": "2026-06-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Reviewing recorded interviews for affective cues such as composure, hesitation and agitation is slow and subjective, and cloud services that could automate it require sensitive audio to leave the device. EmotionAI is a fully local Computational Intelligence (CI) pipeline that couples Speech Emotion Recognition (SER) with generative reasoning. Speaker diarisation, Whisper Automatic Speech Recognition (ASR) and a wav2vec2 emotion classifier produce per-segment affective evidence, which is then pas"
   },
   {
     "id": "2606.22692",
@@ -3488,6 +4597,18 @@
       "Safety"
     ],
     "abstract": "Large language models are increasingly used to answer questions over annual reports, earnings decks, and analyst notes, yet their outputs remain difficult to verify in high-stakes financial workflows. A fluent answer can blend directly grounded statements, weak synthesis, and unsupported claims across narrative text, tables, and charts. We present EvidenceLens, a visual analytics prototype that treats financial question answering as a claim-evidence alignment problem. The system decomposes an an"
+  },
+  {
+    "id": "2606.24915",
+    "title": "Error-Aware TF-IDF Retrieval-Augmented Generation for ASR Error Correction",
+    "authors": "Mohammad Aref Jafari-Raddani",
+    "year": 2026,
+    "date": "2026-06-19",
+    "cite": 0,
+    "tags": [
+      "RAG"
+    ],
+    "abstract": "End-to-end automatic speech recognition systems frequently hallucinate rare entities and domain-specific terms, especially in low-resource languages. While retrieval-augmented generation frameworks can mitigate these errors using large language models, current architectures face significant challenges. They either rely on standard sparse retrieval that ignores phonetic misrecognitions or utilize heavyweight cross-modal embeddings that introduce high latency. This letter proposes a highly efficie"
   },
   {
     "id": "2606.20369",
@@ -10063,6 +11184,18 @@
       "Reasoning"
     ],
     "abstract": "End-to-end autonomous parking has emerged as a critical task within the realm of autonomous driving. However, existing methods suffer from black-box characteristics, lacking high-level semantic understanding and interpretability, which impedes the realization of seamless long-distance autonomous parking from the road to the target spot. To address these limitations, we propose ParkingTransformer, a novel framework that leverages multi-view perception and the scene understanding capability of Lar"
+  },
+  {
+    "id": "2606.24902",
+    "title": "Failure Modes of Large Language Models on Research-Level Mathematics: A Taxonomy and an Empirical Characterisation",
+    "authors": "Arnesh Banerjee, Ayushi Bhattacharjee",
+    "year": 2026,
+    "date": "2026-06-12",
+    "cite": 0,
+    "tags": [
+      "RAG"
+    ],
+    "abstract": "The \"First Proof\" benchmark [1] posed ten research-level mathematics questions to the strongest publicly available LLMs and found them consistently wrong-not silent, but confidently, fluently wrong. This paper asks why. Working from the per-question post-mortems in First Proof's Appendix A, I identify four failure modes: citation fabrication (F1), premise smuggling (F2), silent problem reformulation (F3), and local-to-global compatibility gaps (F4). I then audit eight one-shot proofs generated b"
   },
   {
     "id": "2606.13680",
@@ -29936,6 +31069,18 @@
       "Safety"
     ],
     "abstract": "Large language models (LLMs) have emerged as powerful representation learners whose internal features increasingly align with human cognition. We study whether modern LLMs can serve as a lens for understanding neural representations in the human brain, focusing on emotional valence in EEG. We first build a one-dimensional valence direction, the V-axis, from modern LLMs using only nine emotion-evocative sentences. We validate it through zero-shot transfer to sentiment benchmarks and cross-model c"
+  },
+  {
+    "id": "2605.29682",
+    "title": "Scaling Laws for Agent Harnesses via Effective Feedback Compute",
+    "authors": "Xuanliang Zhang, Dingzirui Wang, Keyan Xu et al.",
+    "year": 2026,
+    "date": "2026-05-28",
+    "cite": 0,
+    "tags": [
+      "MCP"
+    ],
+    "abstract": "Agent harnesses shape language-model performance by controlling tool use, feedback, verification, memory, and repair. Yet raw test-time expenditure, such as tokens, tool calls, wall time, or cost, cannot distinguish useful feedback from redundant or unstable interaction. We introduce \\emph{Effective Feedback Compute} (EFC), a trace-level scaling coordinate for informative, valid, non-redundant, and retained feedback. We further define Estimated-EFC, NRS-EFC, harness efficiency $η$, and task-dema"
   },
   {
     "id": "2605.28645",
