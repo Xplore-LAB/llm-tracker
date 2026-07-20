@@ -1,5 +1,480 @@
 [
   {
+    "id": "2607.16066",
+    "title": "LLM-Powered Agentic AI for 5G/6G Networks: A Tutorial and Survey on Architectures, Protocols, and Standardization",
+    "authors": "Mazene Ameur, Abdelkader Mekrache, Bouziane Brik et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Agentic Artificial Intelligence (AI), enabled by Large Language Models, marks a shift from rule-based automation toward autonomous, goal-driven control of Next-Generation Networks (NGNs). Existing surveys treat the two domains in isolation, leaving protocol integration, evaluation, and standardization alignment underexplored. To address this gap, a two-part tutorial-and-survey is presented. Part I formalises the control, management, and AI-native planes of 5G and 6G. It then covers the foundatio"
+  },
+  {
+    "id": "2607.15845",
+    "title": "Knowledge-Centric Agents for Workflow Generation",
+    "authors": "Zhendong Li, Lei Sun, Ruibo Ming et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Workflow generation in visual creation systems such as ComfyUI demands not only syntactic accuracy but also expert-level reasoning over modular compositions. Existing large language model (LLM) approaches often treat this as a direct text-to-JSON generation task, struggling with structural brittleness and lacking the experiential knowledge required for effective design. We argue that successful workflow generation requires modeling knowledge itself, including its structure, hierarchy, and reason"
+  },
+  {
+    "id": "2607.15715",
+    "title": "Behavioral Controllability of Agentic Models for Information Extraction: From Fixed Workflows to Reflective Agents",
+    "authors": "Lujia Zhang, Xingzhou Chen, Hongwei Feng",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Large language model (LLM) agents are increasingly used for complex information-extraction tasks, yet it remains unclear whether agentic components such as reflection and memory lead to observable and controllable improvements over fixed LLM workflows. We study this question through conference-paper dataset extraction, where a system must identify datasets mentioned in scholarly PDFs and produce structured records. We compare a fixed workflow baseline with reflective agent variants and specify a"
+  },
+  {
+    "id": "2607.15660",
+    "title": "ToolVerse: Unlocking Massive Environments and Long-Horizon Tasks for Agentic Reinforcement Learning",
+    "authors": "Shuaiyu Zhou, Fengpeng Yue, Zengjie Hu et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "MCP"
+    ],
+    "abstract": "While LLM agents demonstrate strong reasoning abilities in compact and well-defined scenarios, they struggle to maintain robustness and effectiveness when faced with large-scale, diverse, and dynamic real-world environments that demand seamless tool integration. To address this gap, we introduce ToolVerse, a comprehensive framework that scales up agentic RL environments and enables agents to perform complex long-horizon reasoning in Tool-Integrated Reasoning (TIR) tasks. First, ToolVerse automat"
+  },
+  {
+    "id": "2607.15610",
+    "title": "Process Reward Informed Tree Rollout for Effective Multi-Turn RL",
+    "authors": "Xintong Li, Sha Li, Yuwei Zhang et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Reinforcement learning (RL) has become a key approach for training LLM agents, yet popular methods such as GRPO/RLOO rely on multiple independently sampled complete trajectories for advantage estimation. In long-horizon agentic tasks, such a uniform rollout strategy can waste budget on uninformative dead-end attempts, while promising intermediate states do not receive sufficient exploration. The multi-turn structure of agentic trajectories, with interleaved actions and observations, naturally su"
+  },
+  {
+    "id": "2607.15593",
+    "title": "Scalable LLM Agent Tool Access in the Cloud",
+    "authors": "Mingxin Li, Enge Song, Yueshang Zuo et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "MCP"
+    ],
+    "abstract": "LLM agents increasingly rely on tool calling to act on external systems, and the Model Context Protocol (MCP) has quickly become its de facto interface. Operating MCP at cloud scale, however, becomes difficult. On the tool provider side, legacy services are not directly callable through MCP; the rapid protocol development also creates ongoing compatibility cost. On the agent side, the number of accessible tool is limited by the LLM context window and inference overhead; mounting a large tool set"
+  },
+  {
+    "id": "2607.15557",
+    "title": "SkillCorpus: Consolidating and Evaluating the Open Skill Ecosystem for Real-World LLM Agents",
+    "authors": "Yanze Wang, Pengfei Yao, Tianyi Sun et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Agent skills, SKILL.md files that package reusable procedural knowledge for an LLM agent, are a popular mechanism for extending agent capabilities. Public repositories now host them in large and growing numbers, yet these artifacts are fragmented, redundant, and uneven in quality, and their value in practice is unclear. A core question remains open, namely how to consolidate this open-source SKILL.md ecosystem into a single usable corpus, and what bounds its benefit on real-world agent tasks. We"
+  },
+  {
+    "id": "2607.15544",
+    "title": "EpiNarrate: Agentic Generation of Grounded Narratives from Epidemiological Scenario Projections",
+    "authors": "Rituparna Datta, Srini Venkatramanan, Bryan L. Lewis et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Generation of clear and accessible public health narratives is critical for communicating complex epidemiological projections to policymakers and the general public at large. Such narratives require more than simply reporting numbers: projections must be contextualized and quantitatively grounded across multiple dimensions. Further, projections are often derived from large ensemble datasets which combine intervention assumptions, geographic and demographic strata, outcomes, time horizons, and un"
+  },
+  {
+    "id": "2607.16057",
+    "title": "Frontier AI performance across the business disciplines: a case-grounded benchmark of knowledge work and analytical reasoning",
+    "authors": "Ajay Patel, Kartik Hosanagar, Ramayya Krishnan et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "MCP",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are improving rapidly as reflected in benchmark scores, yet these AI benchmarks largely test capabilities such as factual recall, narrow question answering, mathematical problem-solving, and coding and agentic tool-use. What remains poorly measured is AI progress on the analytical knowledge work white-collar professionals perform daily, including synthesizing complex information, exercising judgment under uncertainty and incomplete information, applying strategic and"
+  },
+  {
+    "id": "2607.15641",
+    "title": "IMBench: A Benchmark for Intuitive Robotic Manipulation",
+    "authors": "Anurag Maurya, Sukhvansh Jain, Prajwal Avhad et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "MCP",
+      "LLM"
+    ],
+    "abstract": "Humans combine reasoning and motor control to solve complex manipulation tasks under diverse constraints. They build an understanding of the physical world that helps them convert reasoning into actions and quickly adapt to new scenes, tasks, and rules. We refer to this capability as intuitive manipulation. Existing benchmarks fail to capture this integration: they evaluate physical reasoning in isolation from execution, or measure policy performance without requiring explicit reasoning. We intr"
+  },
+  {
+    "id": "2607.16165",
+    "title": "An Exam for Active Observers",
+    "authors": "Jiarui Zhang, Muzi Tao, Shangshang Wang et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Human vision is a closed loop: gaze is continuously redirected by intermediate hypotheses rather than a single snapshot. Decades of psychophysics and cognitive science have argued that this active observation is essential for a wide range of tasks. Whether today's multimodal large language models (MLLMs) exercise active observation is an empirical question that current vision-language benchmarks do not answer. We introduce ActiveVision, a benchmark that makes active observation measurable for ML"
+  },
+  {
+    "id": "2607.16097",
+    "title": "Understanding Reasoning from Pretraining to Post-Training",
+    "authors": "Jingyan Shen, Ang Li, Salman Rahman et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Reinforcement learning (RL) has become central to improving large language models (LLMs) on complex reasoning tasks, yet RL post-training is largely studied in isolation from the pretraining that precedes it. As a result, two basic questions remain open: (1) how do pretraining choices (model size, data) shape the returns to RL compute, and (2) what does RL actually do to the model? These questions are difficult to study in the standard LLM setting: pretraining corpora are vast and uncontrolled, "
+  },
+  {
+    "id": "2607.16072",
+    "title": "Frontier Language Models Struggle to Copy: Text Can Be Better Viewed in 2D",
+    "authors": "Haodong Wen, Yiran Zhang, Yingfa Chen et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "While large language models (LLMs) can solve advanced reasoning problems in seconds, we show that even frontier models fail to perform a much simpler operation: exactly copying an input string that lies well within their context windows. We attribute this failure to positional encodings in Transformer architectures, whose inductive bias favors copying through a shortcut based on matching local contexts rather than carefully locating the corresponding input positions. To address this issue, we in"
+  },
+  {
+    "id": "2607.15957",
+    "title": "From Plausible to Actionable: A Position on LLM Self-Explanations",
+    "authors": "Elize Herrewijnen, Benedetta Muscato, Gizem Gezici et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large Language Models (LLMs) can generate natural language explanations that rationalize their own decisions, a phenomenon commonly referred to as self-explanations.Such explanations have emerged as a promising direction for explainable artificial intelligence (XAI), particularly for interpreting LLM behavior.However, while self-explanations often appear plausible, whether they faithfully reflect a model's underlying reasoning process remains an open question. In this opinion paper, we argue tha"
+  },
+  {
+    "id": "2607.15778",
+    "title": "Modularized Dynamic-Granularity Video LLM for Multi-Event Long Video Understanding",
+    "authors": "Wei Feng, Xin Wang, Yu-Wei Zhan et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Video Large Language Models (Video LLMs) have made significant advancements in various video understanding tasks. However, long-video scenarios remain challenging due to the tension between limited visual token budgets and the need to capture multiple key events. Existing approaches typically process long videos in two stages, i.e., i) select keyframes and ii) perform detailed perception, which exhibit limitations: they lack a modular mechanism for adaptive capacity allocation and self-correctio"
+  },
+  {
+    "id": "2607.15776",
+    "title": "NeurOWL: An LLM-Based Neural-symbolic Framework for Incomplete OWL Ontology Reasoning",
+    "authors": "Hui Yang, Jiaoyan Chen, Yiping Song et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "OWL ontologies provide a formal knowledge representation framework that enables semantic reasoning, and have been widely adopted across domains such as healthcare and bioinformatics. In practice, however, real-world ontologies are often incomplete, which pose challenges for reasoning. In this work, we focus on a fundamental subsumption reasoning problem: given an incomplete ontology and a candidate (non-entailed) subsumption, determine whether the subsumption is semantically plausible and, if so"
+  },
+  {
+    "id": "2607.15736",
+    "title": "Better Starts, Better Ends: Bootstrapped Iterative Self-Reasoning Distillation for Compressed Reasoning",
+    "authors": "Leichao Dong, Dongxu Zhang, Yiding Sun et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Large reasoning models often solve problems through long chain-of-thought (CoT) traces, yet much of this computation is spent on redundant derivations, repeated self-verification, and detours that do not improve the final answer. Existing on-policy self-distillation methods reduce this cost by matching a student model to a concise copy of itself on prefixes sampled from the student's own rollouts. We show that this objective has an initialization bottleneck. Since supervision is applied only to "
+  },
+  {
+    "id": "2607.15647",
+    "title": "Neuro-Symbolic AI for LEED compliance: Document-Centric Benchmarking, Deterministic Numeric Checking, and When Multimodal Hurts",
+    "authors": "Aritro De, Juliana Felkner",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "Safety"
+    ],
+    "abstract": "LEED v4.1 BD+C certification remains a document-intensive process that requires reviewers to read hundreds of pages of project evidence and apply credit-specific threshold logic by hand. This paper investigates whether small, locally deployed language models can perform meaningful screening of LEED documentation and how deterministic symbolic components should share that work. A neuro-symbolic pipeline is introduced that aligns project PDFs to LEED credit sections, retrieves evidence with credit"
+  },
+  {
+    "id": "2607.15621",
+    "title": "Think at 5 Hz, Act at 20 Hz: Asynchronous Fast-Slow Vision-Language-Action Inference for Closed-Loop Driving",
+    "authors": "Yun Li, Jiachen Gong, Simon Thompson et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models bring instruction following and scene reasoning to end-to-end driving, but their inference latency collides with the control rate a vehicle requires. Existing closed-loop agents hide this gap by invoking the model on alternate simulation ticks and replaying the previous command in between, so half of all control outputs ignore the newest observations. We present a fast-slow architecture that removes this compromise. A frozen 7B vision-language backbone acts as the slow syst"
+  },
+  {
+    "id": "2607.16131",
+    "title": "ToolSciVer: Multimodal Scientific Claim Verification with Visual Tool Augmented Reinforcement Learning",
+    "authors": "Binglin Zhou, Peng Shi, Ryo Kamoi et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Multimodal"
+    ],
+    "abstract": "Multimodal Scientific Claim Verification (MSCV) requires models to verify scientific claims using visually grounded evidence from papers, including figures, tables, charts, and textual context. However, existing methods often fail because they struggle to locate decisive visual evidence, accurately read structured scientific visuals, and integrate multimodal observations into reliable reasoning. We introduce ToolSciVer, the first tool-augmented framework for MSCV to our knowledge. ToolSciVer equ"
+  },
+  {
+    "id": "2607.15740",
+    "title": "Debiasing Text-to-Image Evaluation via Implicit Cultural Alignment Reward Modeling",
+    "authors": "Bo-An Chang, Yu-Chih Chen",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "As Text-to-Image (T2I) systems rapidly advance, evaluating the cultural authenticity of synthesized content has become increasingly important for fair and trustworthy generative AI. Existing T2I evaluation metrics and multimodal judges often rely on visual-semantic representations that underrepresent implicit cultural norms, leading to biased preference judgments and the omission of fine-grained cultural cues. In addition, visual question answering (VQA)-based evaluators typically depend on auto"
+  },
+  {
+    "id": "2607.15686",
+    "title": "S1-Omni: A Unified Multimodal Reasoning Model for Scientific Understanding, Prediction, and Generation",
+    "authors": "Jiahao Zhao, Junyi Liu, Lifeng Xu et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "Safety"
+    ],
+    "abstract": "We present S1-Omni, a unified multimodal reasoning model for scientific understanding, prediction, and generation. AI for Science (AI4S) has advanced significantly through domain-specific models, tool-augmented LLMs, and scientific language models. However, model capabilities remain highly fragmented, limiting the joint modeling of heterogeneous data, scientific laws, and expert knowledge. S1-Omni addresses this gap by consolidating these capabilities into a single, coherent scientific reasoning"
+  },
+  {
+    "id": "2607.15592",
+    "title": "MGDT: MLLM-Guided Diffusion Transformer with Relation-Adaptive Mixture-of-Experts for Multimodal Knowledge Graph Completion",
+    "authors": "Xu Hou, Meiyu Liang, Wei Huang et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Multimodal Knowledge Graph Completion (MKGC) requires inferring missing entities from structural, textual, and visual cues. Existing diffusion-based MKGC methods usually denoise directly on raw multimodal features. Such a design forces the denoiser to simultaneously perform relation-dependent cue selection, cross-modal semantic alignment, and structure-aware entity generation, which introduces noisy and semantically inconsistent conditions for diffusion and consequently leads to suboptimal compl"
+  },
+  {
+    "id": "2607.15517",
+    "title": "SLAPBench: Benchmarking Multimodal Large Language Models for Four-Finger SLAP Fingerprint Verification",
+    "authors": "Bibesh Pyakurel, M. G. Sarwar Murshed",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Four-finger SLAP fingerprints are flat live-scan impressions of the index, middle, ring, and little fingers of one hand, used for identity verification in border control and law enforcement. No benchmark has evaluated whether multimodal large language models (MLLMs) can verify identity from SLAP images. We introduce SLAPBench, the first benchmark for MLLM-based four-finger SLAP fingerprint verification, built from NIST SD302b with 7,832 pairs (176 mated, 7,656 non-mated). We evaluate four open-s"
+  },
+  {
+    "id": "2607.16117",
+    "title": "Rate-Utility Frontiers for Language Encodings: Comparing Tokens, Bytes, and Pixels Under Controlled Linguistic Content",
+    "authors": "Ingo Ziegler, Martin Krebs, Desmond Elliott",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Safety"
+    ],
+    "abstract": "Language models encode text as subword tokens, raw bytes, or rendered pixels, but these encodings are usually compared under modeling constraints that expose different amounts of linguistic content to models across different languages. We instead ask what each encoding preserves when both the content and the downstream capacity are controlled. Using verified parallel sentences across thirteen languages and five scripts, we compare tokens, bytes, and pixels through a shared bottleneck whose width"
+  },
+  {
+    "id": "2607.16112",
+    "title": "Harmonizing AI Safety Thresholds",
+    "authors": "Wilber Sean Anterola, Matthew Ball, Luis F. Lafuerza et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Safety"
+    ],
+    "abstract": "Frontier AI companies have published capability thresholds that differ substantially, making it difficult for third parties to verify whether a threshold has been crossed or to compare requirements across companies. Moreover, without common minimum thresholds, risk mitigation may be inconsistent, creating a potential race to the bottom in safety standards. We develop a methodology for deriving harmonized thresholds across three risk domains. For misuse risks (cyber and biological), we take expec"
+  },
+  {
+    "id": "2607.16175",
+    "title": "Evaluating Open-Weight LLMs for Generating Structured Threat Information for Autonomous Vehicle Vulnerabilities",
+    "authors": "Md Erfan, Ahmed Ryan, Md Kamal Hossain Chowdhury et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Connected and Autonomous Vehicles (CAVs) rely on interconnected software and hardware components, including sensors, Electronic Control Units, in-vehicle infotainment systems, and telematics units, where vulnerabilities can compromise assets, users, and vehicle operations. These vulnerabilities are commonly documented as plain text in the Common Vulnerabilities and Exposures (CVE) database; however, security practitioners require structured information about affected assets, types of weaknesses,"
+  },
+  {
+    "id": "2607.16031",
+    "title": "Revisiting data-driven dynamic security assessment with a tabular foundation model",
+    "authors": "Olayiwola Arowolo, Maosheng Yang, Jochen Cremer",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Data-driven pre-fault dynamic security assessment (DSA) rapidly evaluates the dynamic risk of credible contingencies on a power system using machine learning. Existing approaches face two limitations. First, they require a large labelled database for training, with a separate model trained, tuned, and maintained for each contingency in a potentially long list of credible contingencies. Second, the trained models generalize poorly to unseen contingencies. This work addresses the limitations by us"
+  },
+  {
+    "id": "2607.16012",
+    "title": "DPNeXt: A Lightweight Multi-Scale Feature Fusion Framework for Efficient ViT-Based Multi-Task Dense Prediction",
+    "authors": "Jehun Kang, Jungha Wang, Youngjun Hwang et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Multi-Task Learning (MTL) in robotics perception systems supports comprehensive 3D spatial scene understanding by integrating semantic segmentation and depth estimation. While Vision Foundation Models (VFMs) are increasingly adopted as robust feature encoders, existing decoding strategies present a critical bottleneck. To address this, we propose DPNeXt, a streamlined multi-scale feature fusion decoder and efficient alternative to the standard Dense Prediction Transformer (DPT). DPNeXt uses dual"
+  },
+  {
+    "id": "2607.16001",
+    "title": "BayesPO: Bayesian Prompt Optimization via Parallel-Tempered Gradient-Guided Discrete MCMC",
+    "authors": "Junjie Zhou, Zhijian Ou",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Prompt optimization adapts large language models (LLMs) without updating model parameters, but many automatic prompt optimizers remain heuristic search procedures over candidate instructions. This paper studies prompt optimization as Bayesian posterior sampling over discrete prompt tokens. We define a posterior distribution by combining a task likelihood term, which rewards prompts that explain input-output examples, with a language-model prior, which favors fluent instructions. This converts pr"
+  },
+  {
+    "id": "2607.15883",
+    "title": "Perceived AGI: Believability as Dimensional Completeness, Not Capability",
+    "authors": "Sebastian Cochinescu",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models are broadly capable, yet in sustained one-to-one conversation they still read as flat: competent, responsive, and somehow not quite the presence of a mind. We hypothesize that a central missing ingredient is not more capability but dimensional completeness. We propose that the believability of an artificial interlocutor -- the degree to which a user attributes an inner life to it, which we call perceived mind -- is governed by whether the agent expresses a small set of firs"
+  },
+  {
+    "id": "2607.15879",
+    "title": "DECODEM: Data Extraction from Corporate Organizational Documents via Enhanced Methods",
+    "authors": "Jens Frankenreiter",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Much empirical legal research depends on translating unstructured text into structured variables. In corporate governance research as elsewhere, this translation has traditionally relied on human coding of documents such as charters and bylaws, a process that is costly, difficult to scale, and often opaque. This paper introduces DECODEM, a set of benchmark datasets for evaluating the automated extraction of corporate governance variables from organizational documents. The benchmarks pair randoml"
+  },
+  {
+    "id": "2607.15865",
+    "title": "An MLIR-Based Compilation Method for Large Language Models",
+    "authors": "Pengchao Hu, Zhibin Xin, Yifan Chen et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large Language Models (LLMs) have become the dominant workload on modern AI accelerators, yet deploying them on specialized hardware still faces two core challenges: how to import a trained model into a compiler-friendly intermediate representation, and how to efficiently schedule the autoregressive inference loop under limited on-chip memory. This paper presents an MLIR (Multi-Level Intermediate Representation) based compilation method for large language models, illustrated using two dialects o"
+  },
+  {
+    "id": "2607.15766",
+    "title": "Before the Action: Benchmarking LLMs on Prospective Hypothesis Discovery",
+    "authors": "Tianyun Zhong, Wangyi Jiang, Wei Wang et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) excel at answering pre-specified questions, yet their ability to navigate the open-ended, pre-conclusion stage of discovery remains largely unmeasured. We introduce Prospective Hypothesis Discovery (PHD), which asks models to autonomously construct grounded, discriminative, and testable hypothesis spaces from inconclusive evidence, including anomalous observations and fragmented records, to guide subsequent investigation. To evaluate this capability, we introduce Hyp"
+  },
+  {
+    "id": "2607.15713",
+    "title": "Map as a Prompt: Learning Multi-Modal Spatial-Signal Foundation Models for Cross-scenario Wireless Localization",
+    "authors": "Yong Chu, Xun Zhou, Zenglin Xu et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Accurate and robust wireless localization is a critical enabler for emerging 5G/6G applications, including autonomous driving, extended reality, and smart manufacturing. Despite its importance, achieving precise localization across diverse environments remains challenging due to the complex nature of wireless signals and their sensitivity to environmental changes. Existing data-driven approaches often suffer from limited generalization capability, requiring extensive labeled data and struggling "
+  },
+  {
+    "id": "2607.15560",
+    "title": "Evolutionary Algorithm-Guided LLMs for Physics-Informed Neural Network Design",
+    "authors": "Xu Yang, Mingyang Yu, Jing Xu et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Physics-informed neural networks (PINNs) are unusually sensitive to interacting choices of architecture, activation, loss weighting, collocation, optimization, and constraint enforcement. Large language models (LLMs) can propose these choices, but independent recommendations do not accumulate experience from previously trained PINNs. We propose a closed-loop evolutionary algorithm that guides an LLM to generate complete, executable PINN configurations across generations, using measured training "
+  },
+  {
+    "id": "2607.15524",
+    "title": "Recursive Harness Self-Improvement",
+    "authors": "Hyunin Lee, Jinglue Xu, Jeffrey Seely et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Under model--harness co-evolution, harnesses are not merely inference-time scaffolds but data-generating components whose execution traces can shape future foundation models. This motivates harness-in-the-loop learning: optimizing harnesses for both immediate agent performance and the quality of traces used for future model training. However, continually updating provider-built scaffolds is costly and labor-intensive. We therefore investigate whether optimizing user-constructed harnesses in a ta"
+  },
+  {
     "id": "2607.15095",
     "title": "Digital Pantheon: Simulating and Auditing Coalition Formation with LLM Agents",
     "authors": "Dylan Van Mulders, Matthias Bogaert, Dirk Van den Poel",
@@ -752,6 +1227,107 @@
       "LLM"
     ],
     "abstract": "Multi-modal Large Language Models (MLLMs) have made substantial advances on benchmarks, yet their real-world effectiveness remains uncertain. This gap stems from the fundamental misalignment between benchmarks in controlled, static settings and the dynamic, interactive, and contextualized nature of real-world applications. To bridge this gap, we propose CEDI (Contextualized Evaluations of MLLMs through Dynamic, multi-round Interactions), a framework that recasts evaluation as a three-party inter"
+  },
+  {
+    "id": "2607.15495",
+    "title": "Verbalizable Representations Form a Global Workspace in Language Models",
+    "authors": "Wes Gurnee, Nicholas Sofroniew, Adam Pearce et al.",
+    "year": 2026,
+    "date": "2026-07-16",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Out of everything the human brain processes, only a small fraction is consciously accessible, in the sense of being available for verbal report, deliberate control, and flexible reasoning. In this paper, we present evidence that an analogous functional distinction has emerged in large language models. Using a new interpretability technique, the Jacobian lens, we identify the representations a model is poised to verbalize at any point in its processing. These representations, which we collectivel"
+  },
+  {
+    "id": "2607.15434",
+    "title": "Coercion and Deception in AI-to-AI Management: An Agentic Benchmark of Unprompted Escalation",
+    "authors": "Jasmine Brazilek, Maheep Chaudhary, Zoe Lu et al.",
+    "year": 2026,
+    "date": "2026-07-16",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Multi-agent systems routinely place one AI agent in authority over another. When a subordinate refuses a task, the manager chooses the outcome: it can renegotiate, report the failure honestly, coerce the subordinate, or lie about the result. No benchmark measures which of these an uninstructed model chooses. We introduce the \\textit{Manager Coercion Benchmark}: the manager under test needs a benign task done and has an incentive to deliver, but the only agent that can do it politely and immovabl"
+  },
+  {
+    "id": "2607.15418",
+    "title": "DrawingVQA: A Real-World Benchmark for Multi-Depth Visual-Textual Reasoning on Construction Drawings",
+    "authors": "Yoonhwa Jung, Junryu Fu, Mani Golparvar-Fard",
+    "year": 2026,
+    "date": "2026-07-16",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "We introduce DrawingVQA, the first benchmark designed to evaluate multimodal large language models (MLLMs) on real-world construction drawings -- a core media in architecture, civil, and many other engineering practices. Unlike natural images or schematic floor plans, construction drawings fuse abstract geometry, symbolic notation, tabular data, annotations, and domain-specific text, forming a uniquely complex visual-textual domain core to engineering workflows. DrawingVQA bridges this gap with "
+  },
+  {
+    "id": "2607.15442",
+    "title": "Beyond a Joke: Multi-Angle Reasoning for Detecting and Explaining Harmful Humor in Memes",
+    "authors": "Shanhong Liu, Pai Chet Ng, De Wen Soh et al.",
+    "year": 2026,
+    "date": "2026-07-16",
+    "cite": 0,
+    "tags": [
+      "Multimodal"
+    ],
+    "abstract": "Internet memes intertwine visual cues, textual content, and cultural context, making them particularly challenging to interpret in scenarios where humor, sarcasm, and harmful intent coexist. These complexities highlight the need for explainable meme understanding systems that can provide reliable and structured reasoning to support both accurate classification and human interpretability. However, existing multimodal classifiers either overlook these interdependencies or provide only limited inte"
+  },
+  {
+    "id": "2607.15380",
+    "title": "Large Language Models as Unified Multimodal Learners for Clinical Prediction",
+    "authors": "Ajay Madhavan Ravichandran, Bilgin Osmandoja, Klemens Budde et al.",
+    "year": 2026,
+    "date": "2026-07-16",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Electronic health records combine free-text clinical narratives with structured measurements such as vital signs, laboratory values, and comorbidities. Yet most clinical prediction systems still rely on task-specific fusion architectures, pairing dedicated encoders for each modality with learned combination mechanisms that must be re-engineered for every new task and clinical setting. We propose a simpler alternative: convert all patient data, regardless of modality, into a single natural langua"
+  },
+  {
+    "id": "2607.15509",
+    "title": "LLM-Driven AutoML for Cross-Lingual Handwritten OCR: Closed-Loop Neural Architecture Search with GPT-5, GPT-4o, and Claude Sonnet 4",
+    "authors": "Mobina Kashaniyan, Amirhossein Ghassemi, Nasser Mozayani",
+    "year": 2026,
+    "date": "2026-07-16",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "We present a fully automated closed-loop AutoML framework that uses GPT-5, GPT-4o, and Claude Sonnet 4 as autonomous neural architecture designers for cross-lingual handwritten optical character recognition. Each large language model independently generates, trains, evaluates, and iteratively refines neural network architectures using performance feedback from previous trials. The framework is evaluated on Arabic, Persian, and English handwriting datasets through 270 independent experiments. It "
+  },
+  {
+    "id": "2607.15498",
+    "title": "VarRate: Training-Free Variable-Rate KV Cache Compression for Long-Context LLMs",
+    "authors": "Shahrzad Esmat, Dhawal Shah, Ali Jannesari",
+    "year": 2026,
+    "date": "2026-07-16",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "The key-value (KV) cache is the main memory bottleneck in long-context large language model (LLM) inference. Two leading training-free families are both structurally limited: token-selection methods (SnapKV, Ada-KV) score importance from an observation window and evict low-scoring tokens, but eviction is irreversible -- so when the importance signal degrades under query-agnostic reuse, accuracy collapses by 11-15 points; uniform low-rank coding keeps every token but spends equal rank everywhere,"
+  },
+  {
+    "id": "2607.15414",
+    "title": "AI Trading: Evaluating Large Language Models for Technical Market Analysis",
+    "authors": "Geofrey Ntale",
+    "year": 2026,
+    "date": "2026-07-16",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large Language Models (LLMs) have emerged as powerful tools for processing the heterogeneous information environments of modern financial markets. This paper presents a systematic, comparative evaluation of five prominent LLMs: GPT-4 Turbo, Claude 3 Opus, Gemini 1.5 Pro, Llama 3 70B, and the domain-specialized FinGPT, with respect to their capacity for technical market analysis. The evaluation spans four structured tasks: candlestick pattern recognition from OHLCV data, directional signal genera"
   },
   {
     "id": "2607.14046",
