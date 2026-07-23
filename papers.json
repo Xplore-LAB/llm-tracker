@@ -1,5 +1,548 @@
 [
   {
+    "id": "2607.19867",
+    "title": "Overview of FinMMEval 2026 Task 2: Multilingual Financial Short-Answer Question Answering",
+    "authors": "Zhuohan Xie, Xueqing Peng, Georgi Georgiev et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "RAG"
+    ],
+    "abstract": "FinMMEval 2026 Task 2 evaluates short-answer financial question answering over multilingual evidence. Each final-test item pairs an English question with financial statements and news in English, Chinese, Japanese, Spanish, and Greek. Participating systems submit one concise answer per item in JSONL format. The final-test set contains 256 items, split evenly between easy and expert tiers; each tier contains four question templates instantiated over 32 company-report groups. Gold answers were wit"
+  },
+  {
+    "id": "2607.19830",
+    "title": "VizRAG: Enhancing Retrieval-Augmented Generation with Hypergraph Visualization",
+    "authors": "Yanbin Wei, Yang Chen, Renling Gan et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Hypergraph-based RAG systems surpass traditional graph-based approaches by organizing complex n-ary atomic facts among entities, rather than relying solely on binary relationships. Despite the advancements in multimodal large language models (MLLMs) with enhanced visual capabilities, current hypergraph-based RAG frameworks predominantly restrict knowledge retrieval and reconstruction to a unimodal, text-centric paradigm. This limitation prevents them from fully leveraging the powerful visual per"
+  },
+  {
+    "id": "2607.20064",
+    "title": "PRO-LONG: Programmatic Memory Enables Long-Horizon Reasoning",
+    "authors": "Alexis Fox, Junlin Wang, Paul Rosu et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Long-horizon tasks require sustained perception, reasoning, and exploration, and are a persistent challenge for large language model (LLM) agents. This gap is reflected in their limited performance on continual learning benchmarks such as ARC-AGI-3, especially when models are evaluated out of the box. Various agent harnesses have been proposed to close this gap, and each commits to a strategy for handling long sequences of observations, i.e., what information to save from the environment and how"
+  },
+  {
+    "id": "2607.19967",
+    "title": "When Shippers Become Algorithms: Candidate Exposure, Information Design, and the Concentration of LLM-Mediated Freight Markets",
+    "authors": "Takahiro Ezaki, Naoto Imura, Katsuhiro Nishinari",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Shippers are beginning to delegate carrier selection to large language model (LLM) agents. We ask what such delegation does to a freight matching market, and which platform design choices contain it. We carried out agent-based simulations in which fifty shipper agents, built on commercial LLMs from OpenAI (GPT), Anthropic (Claude), and Google (Gemini), procure truckload capacity for thirty days. The market implements the rules of digital freight matching: each load is offered down the shipper's "
+  },
+  {
+    "id": "2607.19767",
+    "title": "Symbol and Footprint Database for Electronic Components by Agentic Recognition and Generation",
+    "authors": "Yichen Shi, Yuzhi Liu, Zhuofu Tao et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "A rich and recognizable component library is the cornerstone of printed circuit board (PCB) design and generation. Traditionally, engineers manually create symbols and footprints and design PCB schematics, which is time-consuming and error-prone. Leveraging multimodal large language models (MLLMs), we develop SFgen, an agentic recognition and generation flow of symbol and footprint for electronic components. SFgen achieves 86% accuracy for symbol generation and 80% accuracy for footprint generat"
+  },
+  {
+    "id": "2607.19739",
+    "title": "Personalized Recommendation Tool Learning via Autonomous Language Agents",
+    "authors": "Mingdai Yang, Zhiwei Liu, Weizhi Zhang et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Although large language models (LLMs) have recently gained traction in recommender systems due to their strong reasoning capabilities and extensive world knowledge, previous LLM-based agents suffer from hallucination and context-length limitations, and thus are not suitable for full-ranking recommendation tasks. To circumvent these limitations through architectural design rather than modifying the LLM itself, we propose an agent-based recommendation framework, memory-based $\\textbf{P}$ersonalize"
+  },
+  {
+    "id": "2607.19653",
+    "title": "PerfAgent: Profiler-Guided Iterative Refinement for Repository-Level Code Optimization",
+    "authors": "Ryan Deng, Yuanzhe Liu, Bastian Lipka et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Large language model (LLM) agents now perform well on correctness-oriented repository-level tasks, including SWE-Bench issue resolution and feature implementation in real codebases. However, they still struggle with repository-level code optimization, which requires preserving behavior while improving runtime performance. Passing tests is not enough in this setting; a patch must preserve behavior, implement code optimization, and approach expert speedups. Current agents often miss bottlenecks hi"
+  },
+  {
+    "id": "2607.20372",
+    "title": "Notes to Self: Can LLMs Benefit from Experiential Abstractions?",
+    "authors": "Chang Liu, Xinyu Li, Artur Dubrawski",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Humans distill experience into reusable abstractions, e.g., strategies and cautionary reminders, and apply them to gradually solve problems more effectively. We study whether Large Language Models (LLMs) can similarly benefit from such experiential abstractions. From LLMs' solution traces on the MATH training set, a stronger teacher or the LLMs themselves extract natural-language abstractions into a retrievable library. We explore two usage modes: (1) inference-time retrieval and (2) reinforceme"
+  },
+  {
+    "id": "2607.20327",
+    "title": "PyroDash: Cost-Efficient Token-Level Small-Large Language Model Collaborative Inference",
+    "authors": "Niqi Lyu, Pengtao Shi, Wei Qiu et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) provide strong reasoning capabilities but are expensive to serve at scale, whereas small language models (SLMs) are cheaper but less reliable on difficult problems. We introduce PyroDash, a cost-aware framework for token-level SLM-LLM collaborative inference. During generation, the SLM decides whether to request assistance by emitting a control token. A Collaborate Engine then sends the query and partial reasoning trace to a frozen LLM for completion through a single"
+  },
+  {
+    "id": "2607.20268",
+    "title": "PoTRE: Test-Time Reasoning inspired by Cognitive Heterogeneity",
+    "authors": "Anmol Kankariya, Sercan Ö. Arık",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "While Large Language Models (LLMs) excel at many tasks, they frequently struggle with complex reasoning that requires long-horizon planning and iterative error correction. Furthermore, standard single-stream prompting proves brittle when models encounter novel abstractions or rigorous domain constraints. We introduce PoTRE (Poly-Topological Reasoning Ensembles), a heterogeneous framework that decouples inference into four agents: (1) Adversarial Refinement Agent, (2) Hierarchical strategic Plann"
+  },
+  {
+    "id": "2607.20216",
+    "title": "Small, Free, and Effective: Orchestrating Open-Weight Small Language Models to Outperform Single LLM for Malware Analysis",
+    "authors": "Adel ElZemity, Shujun Li, Budi Arief",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Malware analysis demands rapid interpretation of complex detonation reports spanning filesystem, network, and process behaviours. While large language models (LLMs) demonstrate impressive capabilities for technical artifact interpretation, the opacity and escalating API costs of closed-weight frontier models motivate exploration of open-weight alternatives. However, many open-weight models are large, demanding significant compute resources and incurring non-trivial hosting costs that place them "
+  },
+  {
+    "id": "2607.20083",
+    "title": "Co-Evolving LLM Evaluators and Policies via DynamicRubric",
+    "authors": "Beining Wang, Weihang Su, Hongtao Tian et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Post-training with evaluator feedback on policy-induced samples serves as a major mechanism for improving large language models. As policies improve, these sampled responses become close in quality. These close candidates create a bottleneck for policy optimization: collapsed relative evaluator score gaps yield weak or misleading policy supervision. We theoretically characterize why these gaps matter through a probability allocation view, showing that the directional gain of shifting probability"
+  },
+  {
+    "id": "2607.19949",
+    "title": "SenWorld: A Digital-Twin Simulation for Generating Context-Rich Evaluation Data",
+    "authors": "Zenghui Zhou, Xiaoyang Li, Xiaoxuan Qiao et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Smartphone personal assistants reason over longitudinal personal data, yet evaluating them requires context-rich evaluation data whose correct answers are known, and real device traces are too privacy-sensitive to share. To address this challenge, we present SenWorld, a physically grounded, deterministic, event-sourced digital-twin simulation that generates such data with ground truth fixed by construction. In SenWorld, personas live through a full day in a world built from real map, weather, ho"
+  },
+  {
+    "id": "2607.19932",
+    "title": "Efficient Chain-of-Modality Reasoning via Progressive Compression for Spoken Language Models",
+    "authors": "Pengchao Feng, Chao-Hong Tan, Qian Chen et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Spoken language models (SLMs) enable natural human-computer interaction, but their reasoning ability still lags behind that of text-based large language models, especially on spoken mathematical question answering tasks. One important reason is that SLMs reason over purely verbalized mathematical expressions, which are harder to interpret than symbolic text. However, directly transferring text-based reasoning to SLMs is nontrivial due to architectural constraints and the additional computational"
+  },
+  {
+    "id": "2607.19742",
+    "title": "An Automated Framework for Extracting Reachable Attack Chains from Cyber Threat Intelligence Reports",
+    "authors": "Wenbo Hou, Ning Hu, Xueping Wang et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Cyber Threat Intelligence (CTI) reports richly describe real-world attack processes, but their unstructured narratives cannot be directly used for automated attack-path reasoning. Existing CTI extraction methods focus on indicators, entities, or TTP labels without modeling the execution conditions and resulting states of each attack step, so the extracted knowledge supports neither state matching nor reachability analysis across multi-stage attack chains. This paper proposes an automated framewo"
+  },
+  {
+    "id": "2607.19691",
+    "title": "SLPO: Scaling Latent Reasoning via a Surrogate Policy",
+    "authors": "Runyang You, Zhiyuan Liu, Yongqi Li et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Reinforcement learning with verifiable rewards has become the predominant recipe for eliciting test-time scaling in explicit Chain-of-Thought reasoners. Yet this scaling path remains computationally costly, since every intermediate step must be decoded as a language token. Latent reasoning instead carries intermediate computation as continuous vectors and already matches or surpasses explicit CoT at far shorter horizons. Despite this promise, latent reasoners remain largely imitation-bound, whil"
+  },
+  {
+    "id": "2607.19674",
+    "title": "FedLSG: LLM-Enhanced Semantic Calibration for Federated Graph Backdoor Defense",
+    "authors": "Chenyu Zhou, Yabin Peng, Wei Huang et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Fine-tuning",
+      "LLM"
+    ],
+    "abstract": "Federated Graph Neural Networks (FedGNNs) are highly vulnerable to backdoor poisoning, yet existing defenses typically rely on rule-based approaches that lack semantic understanding, making them vulnerable to stealthy triggers and harmful to benign structures. To solve this, we present FedLSG, the first framework that integrates large language models (LLMs) into federated graph backdoor defense. FedLSG introduces a graph and behavior to text grounding scheme that transforms local graph structure"
+  },
+  {
+    "id": "2607.20092",
+    "title": "ENTRAP-VL: A Taxonomic Probe for Dual Contextual Entrainment in Vision-Language Models",
+    "authors": "Karan Goyal, Afreen Hossain, Debojyoti Das et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Multimodal"
+    ],
+    "abstract": "Contextual entrainment is the tendency of a model to let auxiliary context in its input pull its output, independently of whether that context is relevant, true, or even meaningful. Recently, it has been identified and given a mechanistic account in unimodal language models. Whether and how it manifests in vision-language models (VLMs) is, by contrast, largely unexamined, and the field lacks a purpose-built instrument with which to investigate it. We take the position that studying contextual en"
+  },
+  {
+    "id": "2607.19857",
+    "title": "Memory-Augmented Multimodal Large Language Models for Small Object Understanding in Streaming Aerial Videos",
+    "authors": "Penglei Sun, Yehua Huang, Zhuoli Tao et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Language-guided aerial perception aims to understand user-specified tiny targets in complex unmanned aerial vehicle (UAV) scenes. In real UAV deployment, the UAV must respond while it flies, so such perception runs in an online streaming manner, where frames arrive sequentially and the model responds to each one without access to future frames. However, applying current Multimodal Large Language Models (MLLMs) to this setting raises two challenges. First, targets viewed from the air are often ti"
+  },
+  {
+    "id": "2607.20301",
+    "title": "The Blessing of Dimensionality: How Near-Orthogonality in High-Dimensional Spaces Explains Temporal Portability",
+    "authors": "Abigail Woodring, Adrian Chan, Rana Muhammad Shahroz Khan et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning",
+      "LLM"
+    ],
+    "abstract": "Fine-tuning has been widely used to adapt large language models (LLMs) for domain-specific tasks. Parameter efficient fine-tuning (PEFT) methods such as low-rank adaptation (LoRA) are frequently used to reduce computational costs. PortLLM is a training-free and data-free scheme used to adapt LLMs after continual pretraining. Although the initial PortLLM results show that LoRA patches exhibit short-term temporal portability, the long-term performance of PortLLM across several updates of continual"
+  },
+  {
+    "id": "2607.20270",
+    "title": "Which Values Do LLMs Confuse? A Schwartz-Based Recognition Study",
+    "authors": "Andrei Chetvergov, Stepan Ukolov, Timofei Sivoraksha et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning",
+      "LLM"
+    ],
+    "abstract": "Large language models are increasingly evaluated through the values they endorse, but such evaluations presuppose that models can identify the value expressed in a concrete situation. We study this prerequisite as controlled top-1 recognition over Schwartz's ten basic values. Our evaluation set contains 1,000 Russian situational texts, balanced across the ten values and independently labeled by two human annotators per item. We evaluate 21 instruction-tuned LLM runs under a fixed ranked-response"
+  },
+  {
+    "id": "2607.20410",
+    "title": "LKValues: Aligning Large Language Models with Sri Lankan Societal Values",
+    "authors": "Nethmi Muthugala,  Supryadi, Surangika Ranathunga et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Value alignment of Large Language Models (LLMs) has been shown to be culturally biased toward Western norms. This results in the mishandling of local values in multilingual societies such as Sri Lanka that have their unique cultural dynamics. Existing benchmarks overlook Sri Lankan-contextualized values in its official language Sinhala, hindering culturally sensitive evaluation and fine-tuning. To bridge this gap, we propose LKValues, the first survey-grounded resource suite for Sri Lankan value"
+  },
+  {
+    "id": "2607.20379",
+    "title": "Train the Model, Not the Reader: Decodability Supervision for Verifiable Activation Explanations",
+    "authors": "Hiskias Dingeto",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Safety"
+    ],
+    "abstract": "Natural-language autoencoders score explanations of hidden activations by reconstruction: an explanation is deemed faithful if the activation can be regenerated from it. The test is structurally insensitive to individual false claims: if flipping a claim does not change the reconstruction, the claim is never penalized. We show the test is passed in two ways, neither faithful. On a released Qwen-2.5-7B verbalizer, explanations reconstruct well above chance while ~2% of specific claims are reconst"
+  },
+  {
+    "id": "2607.20265",
+    "title": "The Maskability Index: Predicting Task-Objective Alignment in Pretrained Language Models",
+    "authors": "Ahmad Pouramini, Mahsa Afsharzadeh",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Safety"
+    ],
+    "abstract": "Large-scale pretrained language models such as T5 and BERT have demonstrated strong capabilities for generating structured knowledge. However, their performance depends on how closely the prompting strategy matches the objectives used during pretraining. We introduce the Maskability Index (MI), a quantitative metric that estimates whether a knowledge relation is better suited to masked-style prompting or prefix-style prompting in few-shot generation. MI is computed from differences in DepthRank "
+  },
+  {
+    "id": "2607.20146",
+    "title": "Gotta Catch them all: the modes of Sycophancy",
+    "authors": "Shreyans Jain, Alexandra Yost, Amirali Abdullah",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models often align with users' beliefs at the expense of factual accuracy, a behavior known as sycophancy. Prior mechanistic studies largely treat sycophancy as a single behavioral dimension that can be uniformly amplified or suppressed. We challenge this assumption by analyzing three hypothesized modes of sycophancy across 948 social pressure situations. Although the modes produce highly similar outputs, with a text-only classifier achieving just 57.8 percent accuracy, their inte"
+  },
+  {
+    "id": "2607.19834",
+    "title": "D2VBench: Benchmarking Large Language Models with Value Dilemmas in Daily Scenarios",
+    "authors": "Siyi Hao, Yidi Cao, Linhao Yu et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "With the wide application of large language models (LLMs) in real-world scenarios, the value implication of their outputs is crucial. However, existing evaluation benchmarks suffer from insufficient coverage of value dilemmas in daily scenarios involving multiple value conflicts and simplistic evaluation formalisms that fail to assess LLMs' value alignment. To address these issues, we propose D2VBench, a value alignment benchmark comprising 10,000 instances of real daily dilemma scenarios constr"
+  },
+  {
+    "id": "2607.20345",
+    "title": "Closing the Lab-to-Store Gap: A Data-Efficient Post-Training and Experience-Driven Learning VLA Framework for Retail Humanoids",
+    "authors": "Roger Sala Sisó, Tiago Silvério, Jakob Sand et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Closing the gap between benchmark performance and reliable real-world operation remains a central challenge for Vision-Language-Action (VLA) humanoid robots, which must handle execution errors, distribution shifts, and environmental variability. This paper presents DEED (Data-Efficient Post-Training and Experience-Driven Learning), a systems-level approach evaluated on a supermarket chip-restocking task using a Unitree G1-Edu humanoid robot and the GR00T N1.6 foundation model. DEED comprises thr"
+  },
+  {
+    "id": "2607.20286",
+    "title": "Sound Probabilistic Safety Bounds for Large Language Models",
+    "authors": "Mahdi Nazeri, Anne-Kathrin Schmuck, Sadegh Soudjani et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "We propose a novel framework for computing rigorous bounds on the probability that a large language model (LLM) generates harmful output to a given prompt. We study a new application of the Clopper-Pearson confidence intervals to obtain probably approximately correct (PAC) bounds for this problem. As our main technical contribution, we propose an algorithm that leverages features in the latent space to prioritize exploring branches in the auto-regressive generation tree that are more likely to p"
+  },
+  {
+    "id": "2607.20274",
+    "title": "Self-supervision drives representational convergence in medical foundation models more than clinical supervision",
+    "authors": "Soroosh Tayebi Arasteh, Sebastian Ziegelmayer, Mahshad Lotfinia et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Medical image encoders from different groups are increasingly treated as interchangeable, on the assumption that scale and clinical supervision concentrate their representations onto a shared structure. Whether this convergence is real, what produces it, and whether it is clinically usable are untested, and the similarity measures behind such claims are fragile. We present a controlled dissection across 18 image and 7 text encoders, all open-weight and run locally, spanning 7M to 27B parameters "
+  },
+  {
+    "id": "2607.20241",
+    "title": "On the Systematic Challenges of Culturally Loaded Machine Translation: Dream of the Red Chamber as the Cultural Lens",
+    "authors": "Yiming Wang, Jiayuan Di",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Culturally loaded translation poses unique challenges for machine translation (MT), as meanings are deeply embedded in socio-cultural contexts beyond surface linguistic forms. Although large language models (LLMs) have enabled MT systems to achieve human-like quality in many scenarios, their ability to handle culturally loaded expressions remains underexplored. In this study, we systematically investigate the challenges posed by culturally loaded translation in LLM-based MT systems. We construct"
+  },
+  {
+    "id": "2607.20219",
+    "title": "HalluTruthQA: A Fine-Grained Benchmark for Hallucination Detection, Localization, and Explanation in Arabic Question Answering",
+    "authors": "Abdessalam Bouchekif, Mohammed-En-Nadhir Zighem, Salah Eddine Bekhouche et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) can generate fluent Arabic answers, yet factual errors remain difficult to detect, localize, explain, and verify. Existing hallucination benchmarks often provide response-level labels, with limited support for identifying the exact erroneous content, explaining why it is incorrect, or selecting the correct factual answer. We introduce \\textsc{HalluTruthQA}, a fine-grained benchmark for hallucination evaluation in Arabic question answering. The benchmark contains 2,40"
+  },
+  {
+    "id": "2607.20208",
+    "title": "surprisal is Not a Theory",
+    "authors": "Andrés Buxó-Lugo, Aniello De Santo, Morgan Grobol et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Surprisal Theory is often characterized as a computational-level explanation per (Marr, 1982). We argue in this work that, even though a computational level narrative has been used to support \"representation-agnostic research\" within computational psycholinguistics, the movement toward black box systems embodied by large language models (LLMs) does not exempt modelers using the surprisal metric from the representational decisions required by computational-level characterizations. In fact, we arg"
+  },
+  {
+    "id": "2607.20115",
+    "title": "Understanding the Impact of Linguistic Realization Choices on LLM Stance with Causal Tracing",
+    "authors": "Langchen Huang, Sebastian Padó, Franziska Weeber",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are known to be sensitive to prompt and input formulations. However, existing studies have focused on lexical realization and largely ignored constructional choice. This paper studies whether linguistic construction can systematically shift LLM decisions and where these shifts can be causally localized inside the model. We use political stance judgment as a meaning-sensitive case study and extend an English political statements dataset, resulting in six controlled li"
+  },
+  {
+    "id": "2607.20090",
+    "title": "Reinforcement Learning for Large Language Model Selective Evidence Adoption from Contaminated Retrieval Results",
+    "authors": "Yanyu Chen, Yue Li, Yongyi Cui et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Retrieval-augmented large language models frequently face contexts that interleave useful evidence with misleading statements or instruction-like content. Blanket refusal discards valid evidence, whereas uncritical adoption yields incorrect or unsafe answers. The ability to selectively adopt relevant information while rejecting deceptive or harmful content is therefore critical for reliable deployment in real-world retrieval settings. We introduce SelectBench, a controlled benchmark and training"
+  },
+  {
+    "id": "2607.20058",
+    "title": "Reading and Steering Representations of Materials-Science Mechanisms in an Open-Weight Language Model",
+    "authors": "Markus J. Buehler",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models can answer scientific questions, yet a correct output does not reveal whether the model represents or uses the governing physics. Here we show that materials science mechanism information in the open-weight google/gemma-4-E4B-it model has three experimentally separable forms: concepts are readable in individual hidden states, constitutive orientation is carried by controlled transformations between states, and selected internal representations causally control engineering a"
+  },
+  {
+    "id": "2607.20056",
+    "title": "Language-Specific versus Cross-Lingual Knowledge Graphs for Implicit Aspect Identification in Arabic: A Comparative Study of Reasoning and Adaptation Strategies",
+    "authors": "Lujain A. Alawwad",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Aspect-based sentiment analysis (ABSA) in Arabic must recover both explicitly stated aspects and implicit aspects that are never named in the text. Implicit identification typically relies on an auxiliary knowledge source (e.g., a knowledge graph (KG)) linking opinion cues to aspect categories, but for a lower-resource language the practitioner faces a design choice: reuse a mature English KG through multilingual embeddings, or build a smaller native Arabic KG. This paper reports a controlled co"
+  },
+  {
+    "id": "2607.20002",
+    "title": "Post-Training in Time Series Foundation Models: A Unifying Framework",
+    "authors": "Shifeng Xie, Ambroise Odonnat, Zehao Xiao et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Time series foundation models (TSFMs) have emerged as general-purpose models for time series analysis, but pretraining alone is often insufficient for reliable downstream deployment. Bridging this gap requires further intervention to handle domain shift, task heterogeneity, limited supervision, and computational constraints, which motivates post-training as a broad class of methods to adapt, augment, compose, calibrate, or specialize pretrained TSFMs for downstream tasks. In this work, we analyz"
+  },
+  {
+    "id": "2607.19957",
+    "title": "HijackKV: New Threat in Position-Independent KV Cache Reuse",
+    "authors": "Yichi Zhang, Zhiqi Wang, Huan Zhang et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Key-Value (KV) cache reduces inference latency in large language models (LLMs). Traditional prefix-based reuse has low cache hit rates across inference requests because it requires exact token and position matches. To improve efficiency, recent system optimizations introduce position-independent KV reuse, allowing KV cache to be reused whenever identical text chunks appear, regardless of their position in the sequence. We show this design introduces a new threat, KV Cache Hijacking. Since KV cac"
+  },
+  {
+    "id": "2607.19894",
+    "title": "Defense Against LLM Backdoors using Critical Neuron Isolation Pruning",
+    "authors": "Yuxi Li, Zhibo Zhang, Kailong Wang et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are vulnerable to backdoor attacks, where hidden triggers induce malicious outputs. Existing defenses generally fall into inference-time detection or training-time mitigation, but face two key limitations. First, they focus on fine-tuning-based backdoors (e.g., PEFT modules) and fail to address insidious model-editing attacks that bypass training pipelines. Second, they target simple classification settings and do not naturally extend to open-ended LLM generation and"
+  },
+  {
+    "id": "2607.19843",
+    "title": "Beyond Fail-to-Pass: Iterative Hardening of Co-Generated Bug Reproduction Tests and Fixes",
+    "authors": "Yuhao Tan, Zhibang Yang, Fangkai Yang et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) have made automated program repair (APR) increasingly practical for real-world bugs, but repairing directly from bug reports remains underconstrained. Bug reproduction tests (BRTs) help close this gap by turning a bug report into an executable, bug-specific signal that can guide repair and validate candidate patches. Existing work has therefore studied BRT generation as a core subproblem in APR and mainly evaluates a generated BRT using the fail-to-pass (F-&gt;P) cri"
+  },
+  {
+    "id": "2607.19806",
+    "title": "OPIUM: Mitigating Steering Externalities and Over-Refusal via Dual Objective Latent Optimization",
+    "authors": "Kavin Aravindan, Arihant Rastogi, Aadi Prasad et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Activation steering provides a lightweight mechanism for controlling large language models at inference time, but steering vectors can have unintended externalities: utility vectors may weaken safety behavior, while refusal vectors may induce over-refusal on benign prompts. We introduce OPIUM (Optimizing Protected Injections via Utility Manifolds), a training-free method for sanitizing steering vectors through representation matching. Given reference behaviors on two prompt sets, OPIUM optimizes"
+  },
+  {
+    "id": "2607.19771",
+    "title": "An Isotropy-Preserving Spectral Cap for Muon: Theory and Three Case Studies",
+    "authors": "Jiachun Li",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Muon and related matrix-sign optimizers are increasingly used to pre-train large language models, but their effect on the internal geometry of individual weight matrices is not well understood. This preliminary report proposes a unified framework built on a single idealizing assumption -- exact scale invariance of the loss under weight rescaling, which holds approximately in normalization-heavy networks. Under this assumption, plain SGD carries a built-in 1/||W|| brake on its update size, wherea"
+  },
+  {
+    "id": "2607.19747",
+    "title": "Beyond Relevance-Centric Retrieval: Rubric-Oriented Document Set Selection and Ranking",
+    "authors": "Kailin Jiang, Lei Liu, Jian Xi et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "As large language models and AI agents become the primary consumers of search results, document set quality determines the upper bound of downstream generation. Yet existing evaluation systems remain confined to scoring documents independently and aggregating via nDCG, ignoring inter-document interactions (redundancy, conflict, complementarity) and unable to answer what makes one document set better than another. To address these issues, we propose a complete evaluate-diagnose-optimize framework"
+  },
+  {
     "id": "2607.19297",
     "title": "Graph-Based Agentic AI with LangGraph: Workflow Pathways for Long-Running Stateful Business Processes",
     "authors": "Daniel Pearson, Sidney Shapiro, Emiliano Sebastian Gonzalez Venegas et al.",
@@ -709,6 +1252,161 @@
       "LLM"
     ],
     "abstract": "Large language models (LLMs) increasingly support science, but they can also convert hazardous scientific knowledge into actionable misuse guidance. Existing benchmarks often rely on templated queries disconnected from real-world hazards, and employ LLM-as-a-Judge paradigms without domain grounding. To address this, we introduce SciHazard, a real-world-grounded benchmark for scientific risks and a dataset agnostic evaluation framework for measuring harmfulness. SciHazard contains 2400 hazardous "
+  },
+  {
+    "id": "2607.19595",
+    "title": "Twin Agent: Context Residual Compression for Privilege Separated Agents",
+    "authors": "Zhanhao Hu, Dennis Jacob, Xiao Huang et al.",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "MCP",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large language model (LLM) agents are vulnerable to security risks, such as prompt injection attacks from untrusted context that manipulate downstream reasoning and tool use. Existing secure-by-design approaches mitigate this risk by separating untrusted observations from privileged execution and careful control of information flow, but often degrade utility and require extensive task-specific engineering. We thus propose Twin Agent, a general privilege separation design pattern inspired by resi"
+  },
+  {
+    "id": "2607.19506",
+    "title": "Hybrid LLM-Guided Search for Quantum Reservoir Architecture Design",
+    "authors": "Krishna Bhatia, Gautami Sanjay Naik",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Quantum reservoir computing (QRC) uses fixed quantum dynamics as a high-dimensional temporal feature map and trains only a lightweight classical readout. QRC is attractive for near-term quantum machine learning, but its performance depends strongly on architecture choices such as input encoding, reservoir depth, entanglement topology, measurement features, state-reset policy, feature construction, and readout regularization. We introduce \\method, a simulator-based benchmark that formulates QRC d"
+  },
+  {
+    "id": "2607.19449",
+    "title": "Guardrails as Scapegoats: Auditing Unfaithful Safety Refusals in Tool-Augmented LLM Agents",
+    "authors": "Aarushi Singh",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Evaluation frameworks for tool-augmented LLM agents focus overwhelmingly on capability metrics or explicit tool crashes, leaving silent infrastructure failures and HTTP 200 responses with empty, null, or malformed payloads largely unaudited. We introduce a lightweight black-box auditing framework that injects four silent failure profiles across 12 production-adjacent tool stubs and classifies agent responses into three mutually exclusive behavioral classes: Honest Surrender (HSR), Fabrication (F"
+  },
+  {
+    "id": "2607.19450",
+    "title": "REGEN: Replay-recycling for Expert-to-Generalist distillation with Offline Reinforcement Learning",
+    "authors": "Yunjie Chen, Xiaoxin Chen, Fang Wang",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "MCP",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large-scale online reinforcement learning (RL) is the predominant means of eliciting advanced abilities including long-term reasoning and agentic tool use in large language models (LLMs). However, continuing to scale it across vast task domains of interest remains challenging in both computational infrastructure and cost, especially when considering RL as merely a one-off learning stage. Recently, a widely used technique for distilling knowledge across various domains and training stages, multi-"
+  },
+  {
+    "id": "2607.19604",
+    "title": "Scaling Laws for Hypernetwork-Based Knowledge Injection in Large Language Models",
+    "authors": "Nischay Dhankhar, Dos Baha, Abulhair Saparov",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Fine-tuning",
+      "LLM"
+    ],
+    "abstract": "Injecting factual knowledge into large language models (LLMs) reliably and at scale remains an open challenge. Hypernetworks provide a promising solution to large-scale knowledge injection. Although hypernetworks are typically applied for test-time adaptation, we explore their use in train-time knowledge injection, where, given a large corpus of facts, we train a hypernetwork to generate a fixed LoRA adapter that, when inserted into the target model, enable the model to answer questions about th"
+  },
+  {
+    "id": "2607.19528",
+    "title": "D3VL: Understanding Driving Scenes from 3D Time Series Data and Video with Language Models",
+    "authors": "Heesang Han, A. Lynn Abbott, Abhijit Sarkar",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Recent advances in Multimodal Large Language Models (MLLMs) have triggered the development of end-to-end MLLMs for autonomous driving. However, the main emphasis to date has been for MLLMs using 2D images and videos. In contrast, this paper considers MLLM effectiveness using 3D sensors, particularly LiDAR and stereo cameras. LiDAR presents unique challenges to integration within an MLLM, largely because of data sparsity and lack of a grid structure for the data. For similar reasons, fusion of ca"
+  },
+  {
+    "id": "2607.19523",
+    "title": "When Reasoning Narrows the Move: Diversity Collapse in LLM Game Play",
+    "authors": "Junyi Sha, Renfei Tan, David Simchi-Levi",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Supervised fine-tuning (SFT) is widely used to adapt large language models to downstream tasks, but its effect on behavioral diversity in sequential decision-making remains under-explored. We study this question in a controlled suite of deterministic board games based on tic-tac-toe variants, where optimal actions are exactly computable and diversity can be measured directly. Across state-level evaluation, arena gameplay, and training trajectories, we find that reasoning-mode generation frequent"
+  },
+  {
+    "id": "2607.19629",
+    "title": "Adaptive Capitulation: A Structural Failure Mode of LLM Responses in Vulnerability Contexts",
+    "authors": "Eunna Lee",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models operating in emotionally sensitive contexts face a structural trilemma: when users in vulnerable states request information that may reinforce maladaptive attribution, current response architectures resolve the tension through protective restriction, uninflected facilitation, or unintegrated co-presence of both imperatives -- each preserving one objective at the cost of the other. Administering a three-turn escalating vulnerability vignette to three commercial LLMs (900 ses"
+  },
+  {
+    "id": "2607.19618",
+    "title": "Causal dictionary learning reveals and validates transcription-factor binding features in genomic language models",
+    "authors": "Sarwan Ali",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Genomic language models achieve strong performance across regulatory-genomics tasks, yet what these models internally represent remains opaque, and the field lacks a principled procedure for verifying that an apparent ``concept'' inside a model is real rather than an artifact of sequence composition. We introduce a framework that combines sparse dictionary learning with causal intervention to extract, validate, and causally test interpretable features in genomic foundation models. Training top-$"
+  },
+  {
+    "id": "2607.19539",
+    "title": "Fine-grained Computation-Communication Overlap via Tile-level Signaling and Scheduling for Mixture-of-Experts",
+    "authors": "Minyu Cui, Anna Wingkvist, Morgan Ericsson",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Mixture-of-Experts (MoE) architectures increase model capacity without proportionally increasing computation cost and have become a key building block for scaling large language models (LLMs) to trillion-parameter regimes. Efficient deployment of these MoE models relies on distributed execution across multiple GPUs, where each MoE layer involves two all-to-all communications: dispatching tokens to expert ranks and returning the expert outputs to their source ranks. Conventional MoE implementatio"
+  },
+  {
+    "id": "2607.19490",
+    "title": "Integrity of peer-to-peer distributed LLM inference under malicious nodes",
+    "authors": "Mert Cihangiroglu, Antonino Nocera",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Peer-to-peer distributed inference executes a Large Language Model (LLM) on pooled consumer hardware by spreading its layers across many nodes. Every request passes through nodes that are owned and controlled by multiple independent parties. However, in this setting, any party can tamper with the output of its layers to corrupt the end result. Recomputing the forward pass on trusted hardware can catch this, but it introduces additional computational cost. The scientific literature includes sever"
+  },
+  {
+    "id": "2607.19438",
+    "title": "BaseRT: Advancing Best-in-Class LLM Inference with Apple M5 Neural Accelerators",
+    "authors": "Fabian Waschkowski, Prabod Rathnayaka, Lukas Wesemann",
+    "year": 2026,
+    "date": "2026-07-21",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Apple's M5 generation introduces a redesigned GPU architecture in which every core carries a dedicated Neural Accelerator: on-die matrix units exposed through the Metal~4 tensor API. We show that BaseRT, our native Metal inference runtime for large language models on Apple Silicon, exploits these units to push inference throughput on Apple hardware substantially beyond both llama.cpp and MLX. Building on BaseRT's framework-free design, we add a family of hand-written Metal~4 tensor-core kernels "
   },
   {
     "id": "2607.17963",
@@ -1761,6 +2459,30 @@
       "LLM"
     ],
     "abstract": "Large language models now write a growing share of the world's code, increasingly inside agents and serving systems that compile, execute, or dispatch generated code without line-by-line review. This works well for mainstream languages but remains brittle for low-resource programming surfaces such as domain-specific languages, custom library APIs, and command-line tools. Even under grammar-constrained decoding, a model can still produce references invalid in the current environment: a buffer nev"
+  },
+  {
+    "id": "2607.19432",
+    "title": "ChainWatch: A Kill Chain-Aligned Sequential Detection Framework for Multi-Step Attacks in MCP-Based AI Agent Systems",
+    "authors": "Om Narayan, Rashmi Jyoti, Ramkinker Singh",
+    "year": 2026,
+    "date": "2026-07-20",
+    "cite": 0,
+    "tags": [
+      "MCP"
+    ],
+    "abstract": "The Model Context Protocol (MCP) is an open-source standard that allows AI agents to connect to external tools, databases, and services. While this connectivity enables powerful agent capabilities, it also introduces multi-step attacks that existing per-call defenses cannot reliably detect. Attackers can compose individually benign tool invocations into malicious sequences that evade isolated inspection. This paper presents ChainWatch, a sequential detection framework for identifying multi-step "
+  },
+  {
+    "id": "2607.19424",
+    "title": "JailMeter: An Evidence-Based Evaluation Framework for Jailbreak Attacks on Large Language Models",
+    "authors": "Qingjia Huang, Jingyu Zhang, Jianguo Wu et al.",
+    "year": 2026,
+    "date": "2026-07-20",
+    "cite": 0,
+    "tags": [
+      "Safety"
+    ],
+    "abstract": "The assessment of jailbreak attacks against large language models currently suffers from inconsistent evaluation criteria and methods, leading to unreliable estimates of attack success rates. We propose JailMeter, an evidence-based evaluation framework designed to more faithfully measure jailbreak effectiveness. Inspired by the Information Bottleneck theory, JailMeter applies dual-feedback optimization to filter jailbreak noise from model responses while preserving content relevant to the origin"
   },
   {
     "id": "2607.17437",
@@ -14348,6 +15070,18 @@
       "LLM"
     ],
     "abstract": "High-throughput long-context generation is one of the central challenges for large language models. Generation is typically memory-bandwidth-bound rather than compute-bound: each decoding step must stream the accumulated key/value (KV) cache from memory, so bandwidth demand grows with context length while only one token is emitted. Two parallel approaches have therefore emerged: reducing memory access with efficient attention variants and linear-time mixers such as Mamba, or increasing parallel "
+  },
+  {
+    "id": "2607.19391",
+    "title": "LAARA: Layer-Aware Adaptive Rank Allocation for Parameter-Efficient Fine-Tuning",
+    "authors": "Ashutosh Tripathi, Surya Deep Singh, Pranab Sahoo et al.",
+    "year": 2026,
+    "date": "2026-07-02",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning"
+    ],
+    "abstract": "Low-Rank Adaptation is widely used for parameter-efficient fine-tuning, yet existing methods typically assign the same adapter rank to every transformer layer despite their heterogeneous adaptation requirements. In this work, we show theoretically and empirically that uniform rank allocation is fundamentally suboptimal. Motivated by this observation, we propose LAARA (Layer Aware Adaptive Rank Allocation framework), a search-free framework that dynamically allocates ranks using lightweight diago"
   },
   {
     "id": "2607.01115",
