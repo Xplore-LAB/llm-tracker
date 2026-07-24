@@ -1,5 +1,638 @@
 [
   {
+    "id": "2607.21324",
+    "title": "GRADRAG: Cross-Component Prompt Adaptation for Coordinated Multi-Agent RAG",
+    "authors": "Paolo Pedinotti, Enrico Santus",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "RAG",
+      "Agent"
+    ],
+    "abstract": "Retrieval-Augmented Generation (RAG) systems increasingly employ multiple LLM agents. Yet, most prior work optimizes components in isolation rather than coordinating improvements across the pipeline. We introduce GRADRAG, a framework for cross-component prompt adaptation that models the RAG pipeline as a computational graph and propagates structured evaluation feedback to update upstream agents. An Evaluator critiques downstream answers and supporting evidence, producing actionable feedback that"
+  },
+  {
+    "id": "2607.21482",
+    "title": "Agentic coding without the cloud: evaluating open-weight large language models on longitudinal data preparation tasks",
+    "authors": "Mack Nixon, Liam Wright, Yevgeniya Kovalchuk et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) and agents are now widely used tools in code development, with data typically sent to third-party cloud-based models. Their adoption in research using personal data is constrained by governance requirements that typically prohibit data transmission to external services. Locally deployable open-weight models offer an alternative since sensitive data never leave the local environment. We introduce an open-source framework for evaluating the efficacy of AI agents powere"
+  },
+  {
+    "id": "2607.21419",
+    "title": "PATS: Policy-Aware Training Scaffolding for Agentic Reinforcement Learning",
+    "authors": "Yipeng Shi, Zhipeng Ma, Yue Wang et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "In long-horizon LLM agent reinforcement learning, weak policies often repeat similar failures, producing uninformative rollout trajectories and limiting effective policy optimization. Existing skill-centric methods improve exploration by optimizing, filtering, or internalizing reusable skills. However, they remain centered on the skills themselves rather than being designed as adaptive training-time support for the evolving policy. To address this, we propose a policy-centric training paradigm t"
+  },
+  {
+    "id": "2607.21106",
+    "title": "AttriMem: Attribution-Guided Process Feedback for Agent Memory Learning",
+    "authors": "Qinfeng Li, Yuntai Bao, Xinyan Yu et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Effective memory is crucial for LLM agents, yet constructing it effectively remains challenging. A memory-construction policy decides what information to extract, store, update, compress, or discard as interactions accumulate. Heuristic memory methods rely on subjective, task-specific rules, which can misalign with downstream objectives and limit cross-task adaptability. RL-based methods, by contrast, learn from task feedback but mainly use outcome- or module-level rewards. These coarse signals "
+  },
+  {
+    "id": "2607.21019",
+    "title": "HiMe: Real-Time Self-Hosted Personal Agent Platform for Health Insights with Wearable Devices",
+    "authors": "Wei Liu, Siya Qi, Linhai Zhang et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Traditional approaches to wearable health signal analysis, such as smartwatches, are constrained by rigid analytical frameworks and limited personalisation. The emergence of LLM agents creates a new opportunity for Personal Health Agentic Analysis, where health insights can be generated adaptively and in context. However, currently there is no open-source locally deployable platform capable of processing personal health data in real time while preserving privacy. We present HiMe, a locally deplo"
+  },
+  {
+    "id": "2607.21013",
+    "title": "EmoAgent-R1: Towards Multimodal Emotion Understanding with Reinforcement Learning-based Dynamic Agent Specialization",
+    "authors": "Lihuang Fang, Yuchen Zou, kebin Jin et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Multimodal large language models (MLLMs) have achieved impressive performance in multimodal emotion recognition (MER) tasks and lifted MER to a new level that is complex emotion understanding with advanced video understanding abilities and natural language description. However, existing MLLM-based methods often use a fixed prompt to perceive the emotions, ignoring the dynamicity and complexity of the emotion source in the multimodal inputs. To address these issues, we propose a novel Reinforceme"
+  },
+  {
+    "id": "2607.20999",
+    "title": "Workflow-Localized Mechanism Learning: Attribution-Guided Repair and Knowledge Reuse for Structured Agent Skills",
+    "authors": "Zibin Lin, Shengli Zhang, Taotao Wang et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Agent Skills package reusable procedural knowledge as external artifacts for frozen language-model agents, yet existing optimizers do not jointly resolve where a failure occurs in a workflow, which mechanism caused it, and how relevant knowledge from third-party Skills should be reused locally. We introduce Workflow-Localized Mechanism Learning (WML). Its Node--Mechanism Attribution identifies the failed workflow node, implicated mechanisms, and smallest valid edit target, routing single-mechani"
+  },
+  {
+    "id": "2607.20982",
+    "title": "GuardianAgentBench: Where Agents Fail and How to Guard Them",
+    "authors": "Vishal Ishwar Naik, Chenyu Xu, Donna Dong et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "As large language model agents increasingly operate autonomously with access to tools and external environments, ensuring their safe and reliable behavior becomes critical. We present GuardianAgentBench (GABench), a benchmark of 580 scenarios across six domains evaluated on three production-ready frameworks: LangChain, LlamaIndex, and Vectara. The benchmark incorporates rigorous multi-stage validation and five adversarial attack modes. Experiments with six state-of-the-art models reveal that eve"
+  },
+  {
+    "id": "2607.20827",
+    "title": "Auditing Provenance Sensitivity in LLM Agent Action Selection",
+    "authors": "Junchi Liao",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "LLM agents choose tools and arguments from context that mixes user requests, tool outputs, retrieved records, memory, and untrusted text. Evidence can be relevant without being authorized to determine a decision, so a correct action need not be grounded only in permitted evidence. We introduce a target-specific authorization audit that labels context factors separately for each tool and argument target. Its primary test holds the task, proposition, position, and policy fixed while changing only "
+  },
+  {
+    "id": "2607.21412",
+    "title": "Euclid-MCP: A Model Context Protocol Server for Deterministic Logical Reasoning via Prolog",
+    "authors": "Bartolomeo Bogliolo",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "MCP",
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large Language Models (LLMs) excel at natural language understanding and generation but remain unreliable for multi-step logical reasoning, especially in safety-critical or compliance-sensitive domains. Recent neuro-symbolic approaches address this gap by coupling neural models with external symbolic engines, yet most integrations are bespoke and lack a standardized interface for tool-augmented agents. This paper presents Euclid-MCP, an open-source MCP server that provides deterministic logical "
+  },
+  {
+    "id": "2607.21552",
+    "title": "MIRROR: Learning from the Other View for Multi-Modal Reasoning",
+    "authors": "Wen Ye, Yuxiao Qu, Aviral Kumar et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Unlike large language models (LLMs) that exhibit strong reasoning capabilities, vision-language models (VLMs) struggle with visual reasoning, even on geometry problems that admit equivalent text, diagram, and combined diagram+text views. We show that these views often elicit different behaviors: a model may solve a problem from text but fail on the corresponding diagram, or succeed visually while failing textually. This inconsistency suggests that different views expose complementary reasoning p"
+  },
+  {
+    "id": "2607.21433",
+    "title": "Token Budget Saturation and Mechanistic Early Detection of Reasoning Non-Convergence in Chain-of-Thought Models",
+    "authors": "Renuka Oladri, Niveda Jawahar, Abdirisak Mohamed",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Chain-of-thought reasoning models such as DeepSeek-R1-Distill-Qwen-7B exhibit a bimodal convergence pattern: generations either terminate within a token budget (converged) or exhaust it without reaching a conclusion (non-converged). We characterize this phenomenon empirically, showing that converged generations achieve 90.3% accuracy on AIME 1983-2024 while non-converged ones achieve only 6.6%, with an overall convergence rate of 62.0%. We then ask whether this outcome is detectable early in the"
+  },
+  {
+    "id": "2607.21424",
+    "title": "An Evaluation Framework for Structured Audio Captions Validated by Controlled Perturbations",
+    "authors": "Liang-Yuan Wu, Sripathi Sridhar, Mark Cartwright et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Recent advancements in automated audio captioning (AAC) have shifted from monolithic sentence generation toward structured formats that explicitly disentangle distinct acoustic and semantic properties. However, evaluating this heterogeneous data remains a significant challenge. Existing caption metrics focus on flat textual outputs and fail to reliably assess multimodal attributes. To bridge this gap, we propose a multi-axis evaluation framework tailored for structured audio descriptions. Buildi"
+  },
+  {
+    "id": "2607.21401",
+    "title": "When Are Reasoning-Based Guardrails Not Efficient? ResponseGuard: A Fast Vision-Language Guard for Real-Time Moderation",
+    "authors": "Dongbin Na",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal"
+    ],
+    "abstract": "A vision-language AI assistant returns its answer as a stream of generated tokens. Therefore, a safety guard that watches that answer has to keep up with the stream and stop a harmful reply before a user reads it. Recent vision-language guardrails instead generate a chain of thought before they issue a verdict. They believe that step-by-step reasoning yields a safer guard. This design makes the guard heavy and slow, since the model must decode many tokens for harmfulness detection. We pose the q"
+  },
+  {
+    "id": "2607.21340",
+    "title": "Capital Markets LLM Reliability Score (CM-LRS): From Plausible to Bankable",
+    "authors": "Prerit Ahuja",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "In capital-markets workflows the question is rarely whether a large language model can produce a fluent draft, but whether the draft is bankable: defensible in front of a counter-party or a regulator, with the documents in hand. Existing methods address parts of that gap: open-domain QA benchmarks reward surface accuracy, and finance benchmarks (FinanceBench, FinQA, ConvFinQA) advance document-grounded and numerical QA but evaluate at the question-answer layer rather than the workflow outputs pr"
+  },
+  {
+    "id": "2607.21307",
+    "title": "Scaling Up Formal Representation of Clinical Trial Protocols in Ensemble Logic Using LLMs: A Preliminary Study",
+    "authors": "Yan Huang, Xubing Hao, Xiaojin Li et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "The reliance on unstructured free text for documenting clinical trial protocols creates a significant barrier to automated reasoning, cohort discovery, and trial simulation. The lack of formal structure obscures critical temporal phenotypes, such as dynamic eligibility criteria and event timing constraints. Although Temporal Ensemble Logic (TEL) offers an expressive framework for modeling these elements, manual encoding remains a prohibitive bottleneck. We introduce the CT-TEL workflow: a scalab"
+  },
+  {
+    "id": "2607.21306",
+    "title": "AI Assistants Overassist",
+    "authors": "Verona Teo, Raghav Jain, Tobias Gerstenberg et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) are increasingly used as tutors and thought partners, helping users reason through problems. While guidance from AI assistants can scaffold thinking and foster learning, such benefits depend on how they help--for instance, intervening too early or too frequently may hinder true learning and cognitive engagement. Yet how AI systems navigate intervention decisions during problem-solving remains poorly understood. Here, we introduce Int-Bench, a simulation-based benchma"
+  },
+  {
+    "id": "2607.21291",
+    "title": "Adaptive Depth Sparse Framework: Similarity-Driven Resource Allocation for Pre-Trained LLMs",
+    "authors": "Yidu Wu, Xiang Wang, Kejie Zhao et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) achieve strong generation and reasoning performance, but the Transformer architecture incurs high inference cost. Existing acceleration methods often rely on task-specific fine-tuning or training from scratch, increasing adaptation cost and limiting cross-task usability. We present an Adaptive Depth Sparse Framework (AdaDSF) that converts off-the-shelf pre-trained LLMs into depth-sparse models without full retraining. Our key insight is that layers contribute unequal"
+  },
+  {
+    "id": "2607.21063",
+    "title": "QuantiBias: Benchmarking Quantization-Induced Bias in LLMs",
+    "authors": "Emilio Ferrara",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Almost every large language model that reaches a broad audience is quantized: trained in full precision, then compressed for efficiency. This step is assumed harmless and its safety is rarely re-checked. We find its principal side effect is increased bias that standard safety evaluation misses. Holding the model, its training, and the prompts fixed, a quantized model still refuses harmful requests, still avoids over-refusing benign prompts, and still selects the unbiased multiple-choice answer. "
+  },
+  {
+    "id": "2607.20935",
+    "title": "Chemical Chain-of-Thought Functions as a Hallucination-Prone Molecular Scratchpad",
+    "authors": "Jiatong Li, Yuxuan Ren, Weida Wang et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "Chemical reasoning language models are expected to derive molecular answers through faithful chain-of-thought (CoT). However, across four reasoning model families and twelve chemistry tasks, hallucination is widespread and largely decoupled from answer correctness: correct answers often coexist with fabricated structural claims absent from the relevant molecules. Yet this does not make the reasoning trace computationally irrelevant. Attribution analyses suggest a shared scratchpad function expre"
+  },
+  {
+    "id": "2607.20833",
+    "title": "REFACT: Adaptive Fact Restatement for Compact and Faithful Chain-of-Thought Reasoning",
+    "authors": "Zhensheng Jin, Xin Dai, Zhenghao Liu et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large language models increasingly rely on long-form reasoning for complex tasks, yet their reasoning traces may drift away from the supplied context when evidence is sparse, noisy, or in conflict with parametric knowledge. Existing grounding methods either attach citations after generation or encourage evidence retrieval inside the trace, but they often do not ensure that cited content is sufficient for the local inference and final answer. We propose REFACT, an adaptive fact-restatement citati"
+  },
+  {
+    "id": "2607.20806",
+    "title": "Profiling Lightweight Large Language Models",
+    "authors": "Tomohiro Harada, Enrique Alba, Gabriel Luque",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Lightweight large language models (LLMs) are increasingly being deployed locally on personal computers and are expected to play a growing role in resource-constrained edge and mobile environments. In such settings, energy consumption, execution time, and memory usage directly affect practical usability, yet existing evaluations of LLM efficiency largely rely on proxy descriptors such as parameter count or FLOPs, often decoupled from task precision. This paper introduces a PTME-based experimental"
+  },
+  {
+    "id": "2607.21570",
+    "title": "MedGame: Storytelling Gamification Empowered by Large Language Models for Medical Education",
+    "authors": "Qian Wu, Xinrong Zhou, Zizhan Ma et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Large Language Models (LLMs) show promise for medical education, but most existing systems focus on localized interactions such as question answering or single-turn feedback, rather than organizing an entire clinical case into a decision-centered learning trajectory. We introduce \\textit{MedGame}, a framework that transforms static clinical cases into structured, executable storytelling games. MedGame uses a dual-engine design: a Medical Narrative Designer synthesizes case-grounded clinical stor"
+  },
+  {
+    "id": "2607.21300",
+    "title": "Unlearning Under Imbalance: Benchmarking Fairness in Multimodal LLM Unlearning",
+    "authors": "Lorenzo Orsingher, Thomas De Min, Massimiliano Mancini et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Machine unlearning has emerged as a tool for removing personal data from trained models to comply with recent AI regulations. To evaluate unlearning effectiveness in multimodal large language models (MLLMs), prior works fine-tune models on fictitious identities, simulating unlearning requests on subsets of these IDs, which are typically uniformly distributed. However, in realistic scenarios, people from different demographic groups may request to be unlearned at different frequencies, potentiall"
+  },
+  {
+    "id": "2607.21155",
+    "title": "CRAG-MM-Diagnostics: Enabling Stage-Wise Analysis of Knowledge-Intensive VQA",
+    "authors": "Hanseok Oh, Parishad BehnamGhader, Benno Krojer et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Multimodal"
+    ],
+    "abstract": "Knowledge-Intensive Visual Question Answering (KI-VQA) benchmarks evaluate Vision-Language Models (VLMs) as multimodal knowledge assistants by requiring external information beyond a provided image to answer questions. KI-VQA involves multiple sub-problems -referring expression understanding, visual grounding, object recognition, knowledge retrieval, and reasoning-yet existing benchmarks typically report only end-task accuracy, obscuring where failures arise. To analyze the full KI-VQA pipeline,"
+  },
+  {
+    "id": "2607.20981",
+    "title": "Beyond Independent Optimization: Compression, MoE Routing, and Quantization Interactions in Multimodal Edge Intelligence",
+    "authors": "Jay Gor, Karm Dave, Akshita Abrol et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "LLM"
+    ],
+    "abstract": "Efficient multimodal inference is increasingly constrained not only by model quality or FLOP count, but also by the cost of preserving, moving, routing, caching, and quantizing multimodal representations under latency, memory, and energy constraints. This paper reviews recent advances in efficient vision-language and multimodal large language models, covering visual token compression, video token management, KV-cache optimization, Mixture-of-Experts (MoE) routing, low-bit quantization, edge depl"
+  },
+  {
+    "id": "2607.20814",
+    "title": "Enhancing Explainable Cardiac Diagnosis with Guide-Grounded Multimodal LLMs",
+    "authors": "Hai-Nam Duy Vuong, Duy-Anh Bui, Trong-Nghia Nguyen et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Multimodal",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "The electrocardiogram (ECG) is a cornerstone of cardiac as- sessment, yet clinical deployment of deep learning models remains con- strained by limited interpretability and the hallucination risk of large language models (LLMs). Existing CNN+Grad-CAM+multimodal LLM frameworks can generate ECG reports, but their explanations are often only weakly grounded in established diagnostic criteria, reducing trust- worthiness and reproducibility. We propose a guide-grounded multimodal framework that explic"
+  },
+  {
+    "id": "2607.21498",
+    "title": "Artificial Epanorthosis: Why large language models overuse a classical rhetorical figure, and how to mitigate it",
+    "authors": "Federico Boggia",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning",
+      "LLM"
+    ],
+    "abstract": "A rhetorical figure that Cicero and Quintilian catalogued two thousand years ago reappears, systematically, in the text of large language models: epanorthosis, the self-correction of the specimen «This is not a course. It is a journey of transformation». This essay argues that the overuse is a trained disposition, driven mainly by a training distribution rich in promotional prose and by preference tuning (RLHF) that rewards confident, emphatic phrasing; the left-to-right nature of generation is "
+  },
+  {
+    "id": "2607.21279",
+    "title": "A Unified Moral-Value Dataset for Instruction Tuning",
+    "authors": "Zhaohui Zeng, Florian Mai",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning",
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) have developed rapidly and become valuable tools in everyday life. However, how to align LLMs to a particular set of human values is still an open problem. Recent studies show that instruction tuning has strong potential for zero-shot tasks and may serve as an effective approach to addressing value alignment. Nevertheless, although many datasets for instruction tuning already exist, they are not specifically designed around moral scenarios and behaviors. We construct"
+  },
+  {
+    "id": "2607.21558",
+    "title": "Beyond Sycophancy: Structured Resistance and Compliance in LLM Moral Reasoning",
+    "authors": "Baihui Wang, Bernard Koch",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Building socially calibrated large language models, which can learn from others without simply yielding to them, requires more than reducing sycophancy as a one-dimensional failure mode. Models must distinguish when to incorporate others' perspectives from when to maintain a well-grounded moral judgment. We study the broader resistance-compliance process governing this distinction. Across three studies, we show that models' judgment revision is structured along three dimensions that parallel cla"
+  },
+  {
+    "id": "2607.21327",
+    "title": "From Static Bibliometrics to Dynamic Knowledge Graphs: An LLM-Powered Framework for Modernizing Science, Technology, and Innovation (STI) Analytics",
+    "authors": "Muhsen Hammoud",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Bibliometric indicators - citation counts, h-indexes, co-authorship networks - have long anchored science, technology, and innovation (STI) analytics, yet suffer from temporal lag, semantic shallowness, and an inability to capture the non-linear dynamics of contemporary knowledge ecosystems. Dynamic knowledge graphs and large language models (LLMs) have each been proposed as remedies, but neither is sufficient alone: existing scholarly knowledge graphs remain largely static, while LLM-driven pip"
+  },
+  {
+    "id": "2607.21151",
+    "title": "V-DEAL: Diagnosing Video Safety De-Calibration as an Understanding-Refusal Coupling Failure",
+    "authors": "Zhetong Zhang, Honghao Fu, Miao Xu et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "As Video Large Language Models are increasingly deployed in real-world applications, ensuring their safety alignment has become critical. Counterintuitively, we find that harmful videos paired with benign queries achieve higher attack success rates than the same videos paired with explicitly harmful queries. To understand the underlying mechanism of this vulnerability, we present V-DEAL, a three-level diagnostic framework that jointly analyzes this failure across model behaviour, understanding, "
+  },
+  {
+    "id": "2607.21010",
+    "title": "Reexamining zero-shot summarization: Empirical investigation of trustworthiness of LLM-summarizers",
+    "authors": "Vasudha Bhatnagar, Purnima Bindal, Vikas Kumar et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Zero-shot summarization using Large Language Models (LLMs) has significantly advanced the abstractive summarization task by producing coherent and fluent summaries. However, underlying stochasticity of the large language models raises concerns about the stability and trustworthiness of the LLM-generated summaries. This issue has become increasingly important due to proliferation of LLM-generated summaries in educational settings, where students and researchers summarize complex academic material"
+  },
+  {
+    "id": "2607.21530",
+    "title": "From Resource Flow to Executable Tests: Petri-Net-Guided LLM Test Generation for Concurrent Stateful Rust APIs",
+    "authors": "Kaiwen Zhang, Guanjun Liu",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Concurrent stateful library APIs expose behavior through evolving resource ownership, lifecycle states, and competing interleavings. Large language models can synthesize executable Rust tests, but their outputs often violate API preconditions, remain shallow, or reduce concurrency to accidental sequential traces. Conversely, model-based and systematic testing techniques provide semantic control but commonly require substantial handwritten code to turn abstract scenarios into executable tests. Th"
+  },
+  {
+    "id": "2607.21522",
+    "title": "GS-Agent: Creating 4D Physical Worlds With Generative Simulation",
+    "authors": "Hongxin Zhang, Chunru Lin, Junyan Li et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Creating dynamic and physically realistic 4D worlds from natural language descriptions is both fascinating and challenging. Traditional computer graphics methods rely on manual creation, requiring extensive human effort to fine-tune materials, motions, and visual fidelity. Recent advances in generative foundation models have sparked interest in learning to generate such 4D worlds from large-scale data; however, existing methods still struggle to ensure physical plausibility and controllability. "
+  },
+  {
+    "id": "2607.21517",
+    "title": "Improved lower bounds for the Shannon capacity of odd cycles",
+    "authors": "Nathaniel Itty, Christopher D. Rosin, Chase Carstensen et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "The Shannon capacity $Θ(G)$ of a graph $G$ quantifies the maximum rate at which information can be transmitted with zero error over a noisy channel. It is lower bounded by $α(G^d)^{1/d}$ for any $d$, where $α(G^d)$ is the independence number of the $d$-th strong power of $G$. We construct independent sets of size $134753$ in $C_7^{10}$, $21909$ in $C_{11}^{6}$, and $62530$ in $C_{13}^{6}$, improving the best known lower bounds for the Shannon capacity of these graphs to $Θ(C_7)\\geq 134753^{1/10}"
+  },
+  {
+    "id": "2607.21468",
+    "title": "Thinkink: 2D Spatial Ink-native Interaction with LLMs",
+    "authors": "Mohammad Hasan Payandeh, Daniel Vogel, Jian Zhao",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "People often use handwritten notes and sketches to externalize ideas for ideation. To integrate large language models (LLMs) into this practice, we propose Thinkink. Prompts can be handwritten text or drawn sketches with LLM-generated responses visualized as ink-like text and sketches spatially integrated into a shared canvas. A semantic tree streamlines ink interpretation, and a lightweight UI provides explicit control using a state machine. The tool was designed using a three-stage process. A "
+  },
+  {
+    "id": "2607.21445",
+    "title": "When Trivia Is Not Trivial: Everyday Knowledge Failures in Multilingual LLMs",
+    "authors": "Anna Mosolova, Djamé Seddah",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Quiz rooms, trivia nights, and quiz shows challenge human knowledge across a wide range of topics, from canonical facts to everyday culture. In this paper, we examine whether large language models (LLMs) can perform competitively in such settings, using quiz-style questions to test them on both common and niche topics. We introduce TriviaRoomQA, a multilingual benchmark designed to evaluate everyday, culturally grounded, and long-tail knowledge across 288 topics. The benchmark contains 3,300 par"
+  },
+  {
+    "id": "2607.21402",
+    "title": "MSBraM: A Multi-scale Self-supervised Brain Foundation Model for Hierarchical EEG Dynamics Learning",
+    "authors": "Tao Zhou, Jing Han, Lingyu Shu et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Self-supervised foundation models have recently shown strong potential for electroencephalogram (EEG)-based analysis. However, existing approaches struggle to capture the inherently multi-scale temporal structure of EEG signals, where local neural patterns and long-range dependencies jointly encode task-relevant information. This limitation hampers cross-scale representation learning and generalization across diverse downstream tasks. To address this challenge, we propose MSBraM, a Multi-Scale s"
+  },
+  {
+    "id": "2607.21384",
+    "title": "Multimodal Pretraining for Generalizable EEG Representation Learning",
+    "authors": "Targol Bakhtiarvand, Jugal Kalita, Adham Atyabi",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Electroencephalography (EEG) models used for epilepsy are often limited to specific datasets and tasks. This limited approach can make it challenging to apply these models across different datasets or in various situations. However, recent studies in foundation models and self-supervised learning suggest that an adaptable EEG backbone could support a range of EEG related tasks. In this study, we have developed a multimodal EEG foundation model that combines a raw signal encoder based on the Mamb"
+  },
+  {
+    "id": "2607.21292",
+    "title": "An LLM-Driven Workflow for Automated Process Control Strategy Generation and Tuning from Dynamic Process Models",
+    "authors": "Ari Luna Rueda, Eike Cramer, Klaus Hellgardt et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "We present a structured large-language-model-driven workflow for automated multi-variable control design from dynamic process models. The workflow decomposes the design task into constrained code-generation steps: plant-interface construction, normalization, manipulated-variable controlled-variable (MV-CV) pairing, controller specification, closed loop simulation, scenario generation, performance evaluation and Bayesian-optimization (BO) based tuning. Generated artifacts are executed and validat"
+  },
+  {
+    "id": "2607.21284",
+    "title": "news-crawler-LM: A Small Long-Context Model For High-Quality News Crawling",
+    "authors": "Pascal Stolzenburg, Jonas Golde, Max Dallabetta et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Extracting structured content from news pages remains challenging due to heterogeneous HTML layouts, inconsistent markup, and substantial boilerplate such as navigation elements and advertisements. Rule-based news crawlers can achieve high extraction accuracy by encoding site-specific structure, but require manual configuration in order to generalize to new publishers. Large language models provide a more flexible alternative by reducing the need for handcrafted rules, but their high computation"
+  },
+  {
+    "id": "2607.21196",
+    "title": "Case study: solving P-99 with LPTP and an LLM",
+    "authors": "Fred Mesnard, Thierry Marianne, Étienne Payet et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Ninety-Nine Prolog Problems (P-99) is a famous set of Prolog exercises. We solved the first thirty three just by prompting an LLM (Large Language Model). We used Claude from Anthropic. By solved we mean: generate the Prolog code and a test file, run the tests and check whether they pass, then formally prove types, groundness, termination, uniqueness, existence and also sometimes functional correctness with LPTP (Logic Program Theorem Prover). Hence our approach is an experiment in vibe-coding/ve"
+  },
+  {
+    "id": "2607.21187",
+    "title": "Case study: proving sqrt(2) irrational with LPTP and an LLM",
+    "authors": "Fred Mesnard, Étienne Payet, Wim Vanhoof",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "We present the interactions with an LLM (Large Language Model) aiming at proving that the square root of 2 is not a rational number in an LP (Logic Programming) context. We start from a few basic pure logic programming predicate definitions. We rely on the LPTP (Logic Program Theorem Prover) system for stating and proving properties about logic programs. As the proof language of LPTP is based on natural deduction, the proofs are human readable. In our case study, we sketch in LPTP the usual proo"
+  },
+  {
+    "id": "2607.21090",
+    "title": "Training Large Language Models for Self-Explanation Faithfulness",
+    "authors": "Yeoktatt Cheah, María Pérez-Ortiz, Noah Y. Siegel et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "We propose a Reinforcement Learning (RL) method to directly optimize the faithfulness of self-explanations - the extent to which a model's generated reasoning accurately reflects its internal decision-making process. While existing work focuses on evaluating faithfulness or using inference-time prompting frameworks to improve an LLM's self-explanation's tractability, these approaches do not provide a mechanism to directly optimize a model's parameters to generate faithful self-explanations. We b"
+  },
+  {
+    "id": "2607.21067",
+    "title": "PrefReward: Learning User Preference Matrix for Personalized Text Generation",
+    "authors": "Yue Wu, Chengbing Wang, Yimeng Bai et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large Language Models (LLMs) have demonstrated remarkable ability in generating personalized content by leveraging user histories and contextual cues. However, most existing personalization approaches rely on implicit representations within model parameters, making it difficult to interpret user-specific preferences or effectively handle long-context dependencies. To address these challenges, we propose PrefReward, a novel preference-aware generative framework that explicitly models user styles "
+  },
+  {
+    "id": "2607.20995",
+    "title": "Where Animacy Lives in Large Language Models: Tracing the Circuits of the Animacy Concept",
+    "authors": "Samuele Punzo, Giovanni Cinà, Sandro Pezzelle",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Distinguishing animate from inanimate concepts in written language requires more than shallow text processing, as it involves recognizing complex selectional constraints and contextual cues, such as verb-argument interactions. Yet, current large language models (LLMs) appear to be capable of doing it. We investigate whether this animacy-sensitive behavior of LLMs can be traced to a localized set of causally relevant components and connections. To do so, we construct a controlled dataset of minim"
+  },
+  {
+    "id": "2607.20933",
+    "title": "Transformer-Assisted LLM-Based Source Code Summarisation: to Enable More Secure Software Development",
+    "authors": "Jesse Phillips, Tracy Hall, Paul Rayson et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Neural Source Code Summarisation (NSCS) aims to generate natural language summaries of source code to improve developers' and maintainers' understanding of code. Source code summaries are vital during the maintenance phase of the Secure Software Development Lifecycle (SSDLC), as they improve maintainers' understanding of code and help reduce the number of bugs and vulnerabilities in a software system. However, summaries are often missing, incomplete, or outdated in many software systems. Solutio"
+  },
+  {
+    "id": "2607.20923",
+    "title": "Scientific exploration, collaboration and labor division in the large language model era",
+    "authors": "Xiang Zheng, Xi Hong, Jialin Liu et al.",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) have rapidly and significantly entered scientific workflows, but it remains unclear how their diffusion is associated with changes in scientists' strategies in research directions and team building. We link PubMed Central full text with OpenAlex publication and collaboration histories for 775,323 scientists and analyze CRediT contribution statements from 137,120 multi-author papers. After 2022, scientists increasingly published across more intellectually distant fiel"
+  },
+  {
+    "id": "2607.20916",
+    "title": "Traceable Scholarship: Page Anchors and Ariadne's Thread for Humanistic Inquiry in the Age of Generative AI",
+    "authors": "Deyu Jing",
+    "year": 2026,
+    "date": "2026-07-23",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Generative AI lets large language models produce scholarly-looking text within seconds, yet fluency does not equal valid explanation. The deepest risk is not factual error alone but the appearance that an explanation is already established without clear sources, page numbers, editions, or evidence. We liken the page anchor to Ariadne's thread: within the labyrinth of generative fluency, it is the thread that leads the scholar back to the source. This paper proposes Traceable Scholarship as the m"
+  },
+  {
     "id": "2607.19867",
     "title": "Overview of FinMMEval 2026 Task 2: Multilingual Financial Short-Answer Question Answering",
     "authors": "Zhuohan Xie, Xueqing Peng, Georgi Georgiev et al.",
@@ -541,6 +1174,117 @@
       "LLM"
     ],
     "abstract": "As large language models and AI agents become the primary consumers of search results, document set quality determines the upper bound of downstream generation. Yet existing evaluation systems remain confined to scoring documents independently and aggregating via nDCG, ignoring inter-document interactions (redundancy, conflict, complementarity) and unable to answer what makes one document set better than another. To address these issues, we propose a complete evaluate-diagnose-optimize framework"
+  },
+  {
+    "id": "2607.20630",
+    "title": "Demonstrating GenDB: Instance-Optimized and Customized Query Processing Code Generation via LLM Agents",
+    "authors": "Jiale Lao, Immanuel Trummer",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "LLM"
+    ],
+    "abstract": "Traditional query processing engines require continuous development and extensions to support new techniques and user requirements, and in some cases, entirely new systems must be built from scratch. However, these engines are difficult to extend due to their internal complexity, and building new systems demands significant engineering effort and cost. To address this, we demonstrate GenDB, a generative query engine that shifts query processing from manually engineered systems to query processin"
+  },
+  {
+    "id": "2607.20638",
+    "title": "WaveformQA: Benchmarking LLM Temporal Reasoning on Digital Waveforms",
+    "authors": "Yichuan Liu, Daniel Cummings, Nick Vadlamudi",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ],
+    "abstract": "Large Language Models (LLMs) have demonstrated strong capabilities in code generation and reasoning, yet their ability to perform temporal reasoning over digital waveform data remains largely unexplored. Although reasoning over digital waveforms is a critical bottleneck in design verification, existing benchmarks primarily evaluate hardware description language (HDL) code generation and use waveforms only as supplementary context. This paper presents WaveformQA, an open-source question-answering"
+  },
+  {
+    "id": "2607.20767",
+    "title": "Rushes: A Human Preference Dataset for Pluralistic Alignment",
+    "authors": "Michael Xu, Jorge Leandro, Sudha Rao et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning"
+    ],
+    "abstract": "We introduce Rushes, a dataset and benchmark for studying revealed human engagement preferences in interactive narrative environments. Rushes is collected through a game interface where users interact with AI-generated branching narratives and select one choice from a small, explicit candidate set at each decision point. Each interaction logs the full candidate set, the user's choice, and the evolving narrative context, yielding time-ordered trajectories with persistent user-level identifiers. R"
+  },
+  {
+    "id": "2607.20722",
+    "title": "REGARD: Regional Affective Differences in Large Language Models",
+    "authors": "Andrei Chetvergov, Alexander Evseev, Mikhail Solovev et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "Safety",
+      "LLM"
+    ],
+    "abstract": "Large language models trained and aligned within different linguistic and regional ecosystems may frame the same political, cultural, and geopolitical entities in different ways. Such differences are often evaluated through sentiment, favorability, or stance, reducing model attitudes to a single positive-negative axis. We introduce REGARD, a study of what drives affective framing differences across LLMs on post-Soviet entities using target-directed Valence-Arousal-Dominance profiling. We query 1"
+  },
+  {
+    "id": "2607.20773",
+    "title": "HARP: The Human--AI Research Platform",
+    "authors": "Zeshu Zhu, Natalie Friedman, Kevin Weatherwax et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models (LLMs) have shifted human--computer interaction from `traditional'' interface journeys toward more conversational exchanges. Researchers studying HCI and UI use moderated usability sessions, interviews, surveys, transcript analysis, and static prototypes. However, static prototypes provide limited opportunities to study interaction with live AI systems or systematically control how an LLM behaves across participants and scenarios. Conversation transcripts reveal little abou"
+  },
+  {
+    "id": "2607.20730",
+    "title": "GPE: Evaluating Robust Evidence Aggregation for Fact Verification under Controllable GEO-Style Poisoning",
+    "authors": "Zhaoqi Wang, Zijian Zhang, Xiaomei Yuan et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Large language models increasingly use search tools to retrieve up-to-date information, introducing a new attack surface in which retrieved documents can be manipulated. This risk is amplified by the development of generative engine optimization, which can make selected content more likely to be retrieved, cited, and adopted by models. Existing fact-verification benchmarks and evaluation frameworks do not provide the controlled evidence environments needed to assess robustness against GEO poison"
+  },
+  {
+    "id": "2607.20596",
+    "title": "Are Single-Token Sparse Autoencoder Features Causally Necessary? Layer-Depth and SAE-Family Effects",
+    "authors": "Seonglae Cho, Zekun Wu, Kleyton Da Costa et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Sparse autoencoder (SAE) features are used to interpret and steer large language models, yet whether a feature's causal role is stable across SAE families remains untested. Single-token features that activate on one vocabulary item provide the diagnostic case where ground truth permits direct comparison. We analyze 3.9M features across six models and three SAE families using zero-ablation at full layer depth. Single-token features cluster 4.7x tighter in decoder space and concentrate in early la"
+  },
+  {
+    "id": "2607.20589",
+    "title": "Evaluating the Effectiveness of Persona Simulation in Opinion Prediction with GPT-4.1",
+    "authors": "Sarah Y. Li, Ziyu Yao",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "Persona simulation involves utilizing large language models (LLMs) to anticipate human choices or interactions based on specific characteristic information. To further understand current limitations and future directions, we tested persona simulation in opinion prediction with GPT-4.1 (knowledge cutoff by June 2024). Using personas from nine U.S. states provided by Columbia University's Personas dataset, GPT-4.1 accurately predicted 2024 election outcomes in eight out of the nine states, only fa"
+  },
+  {
+    "id": "2607.20583",
+    "title": "Foundation-model-guided radiogenomic discovery linking cancer genomes to cancer scans",
+    "authors": "Frederik Hauke, Jeremias Krause, Patrick Wienholt et al.",
+    "year": 2026,
+    "date": "2026-07-22",
+    "cite": 0,
+    "tags": [
+      "LLM"
+    ],
+    "abstract": "The function of many genes is still unknown, and conventional driver-discovery methods, which rely on how frequently a gene is mutated, cannot assess genes that are only rarely affected. Here we pair Evo~2-based genome analysis with routine clinical imaging to identify gene--phenotype associations at genome-wide scale. For every somatic mutation across three TCGA cohorts (cRCC=clear cell renal cell carcinoma, HCC=hepatocellular carcinoma, and BC=breast cancer; $n = 340$ total), Evo~2 predicts a "
   },
   {
     "id": "2607.19297",
@@ -2234,7 +2978,8 @@
     "date": "2026-07-20",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "LLM-driven agent systems have emerged as a promising paradigm for electronic design automation (EDA), demonstrating strong potential for automating complex design workflows. However, existing evaluations primarily examine individual language models on isolated EDA tasks, providing limited insight into how different agent systems perform across complete EDA flows. In this work, we present FluxBench, a systematic evaluation of AI agents on end-to-end EDA workflows under unified prompts, tool envir"
   },
@@ -3799,6 +4544,30 @@
       "Agent"
     ],
     "abstract": "Calibration of grey-box simulation models is a constrained optimization problem in which model evaluations are expensive, the parameter space can be high-dimensional, and the search must respect plausibility constraints. Although the simulation code is fully available to the analyst, the joint effect of multiple parameters remains difficult to predict analytically. Classical optimizers such as Nelder--Mead (NM) are simple to deploy but sample-inefficient, particularly under constraints. Modern B"
+  },
+  {
+    "id": "2607.20558",
+    "title": "StabilityBench: Benchmarking Instability in LLMs",
+    "authors": "Emma Kondrup, Zachary Yang, Anne Imouza et al.",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Reasoning"
+    ],
+    "abstract": "AI Assistants are increasingly deployed in high-stakes settings, such as healthcare or government services. Yet their real-world behavior remains poorly understood due to strong context dependence. Current evaluation protocols follow a defense-in-depth paradigm with compounding layers of safeguards, ranging from traditional benchmarks to live or adversarial testing. Such benchmarks remain largely static and single-turn, limiting their ability to capture real-world variability in conversational s"
+  },
+  {
+    "id": "2607.20556",
+    "title": "KeySI: An Interaction Framework for Tuning Text Embeddings Based on Human Feedback",
+    "authors": "Yan Zhu, Y. Chen, Rebecca Faust",
+    "year": 2026,
+    "date": "2026-07-17",
+    "cite": 0,
+    "tags": [
+      "Safety"
+    ],
+    "abstract": "In large-scale text analysis tasks, pre-trained language models are often used to embed text corpora for downstream analysis. However, such models may struggle to capture domain-specific semantics and adapting them typically requires large amounts of labeled data and technical expertise to implement training pipelines. Recent approaches have demonstrated how visual interactions in document projections can capture human feedback as training signals for model tuning. However, these methods operate"
   },
   {
     "id": "2607.15095",
@@ -9007,6 +9776,18 @@
     "abstract": "Automatically retrieving videos from large camera-trap datasets remains challenging. Text-to-Video retrieval (TVR) methods based on large video-language models (VLMs) have potential to retrieve events of interest by describing them with simple text queries. However, current methods often lack spatiotemporal understanding and do not generalize well to ecological data. In this work, we introduce Prompting-MammAlps, the first camera-trap TVR benchmark, and propose a fine-grained and interpretable T"
   },
   {
+    "id": "2607.20531",
+    "title": "DynamicMCPBench: A Trace-Grounded, Effect-Scored Benchmark for LLM Agents over Live MCP Servers",
+    "authors": "Jerzy Kamiński, Ilya Galyukshev, Artem Kuznetsov et al.",
+    "year": 2026,
+    "date": "2026-07-10",
+    "cite": 0,
+    "tags": [
+      "MCP"
+    ],
+    "abstract": "Large language model (LLM) agents are increasingly deployed over Model Context Protocol (MCP) servers, yet the benchmarks used to evaluate them score the final answer or a fixed \"ground-truth\" list of tools, both of which are fragile once the underlying data is live and stateful. We present DynamicMCPBench, a reusable framework rather than a fixed dataset. A practitioner can run it on their own MCP servers to test models on their own tasks, or let it collect servers automatically to measure a mo"
+  },
+  {
     "id": "2607.08495",
     "title": "The Context Access Divide: Interaction-Level Architecture as a Complementary Dimension of Agentic Inequality",
     "authors": "Masahiro Fujita",
@@ -11559,6 +12340,18 @@
       "Fine-tuning"
     ],
     "abstract": "Human memory is reconstructive, not a faithful recording. Current multimodal LLMs (MLLMs) lack this capability: they process images through a frozen visual encoder, produce a one-shot text output, and discard internal representations. We present DoYouRemember, a three-stage architecture introducing reconstructive memory into MLLMs: (1) a VQ-VAE compresses images into discrete visual tokens, (2) a LoRA-fine-tuned LLM jointly attends to visual and text tokens, and (3) a Diffusion Decoder reconstru"
+  },
+  {
+    "id": "2607.20515",
+    "title": "Reliability-Aware LLM Alignment from Inconsistent Human Feedback",
+    "authors": "Jingyi Huang, Ruohan Zong, Yujun Feng et al.",
+    "year": 2026,
+    "date": "2026-07-07",
+    "cite": 0,
+    "tags": [
+      "Fine-tuning"
+    ],
+    "abstract": "Reinforcement Learning from Human Feedback (RLHF) is critical for aligning Large Language Models (LLMs) with human preferences. However, its efficacy is often compromised by the inherent inconsistency and subjectivity of human annotations. Existing preference optimization frameworks, such as Direct Preference Optimization (DPO), typically treat ambiguous pairs with high annotator disagreement identically to those with unanimous consensus, forcing models to overfit to inconsistent supervision sig"
   },
   {
     "id": "2607.05069",
@@ -29659,6 +30452,18 @@
       "Safety"
     ],
     "abstract": "UI videos provide a natural input for generating interactive webpages, as they capture both webpage appearance and action-triggered state transitions. However, directly applying video-capable vision-language models to this task remains insufficient. Existing models typically rely on sparse sampling or compressed temporal representations, which may miss short action boundaries and break the state-action-state transitions needed to implement webpage behavior. We formulate UI video-to-code generati"
+  },
+  {
+    "id": "2607.20498",
+    "title": "AISE-Bench: A Full-Cycle Curated Benchmark for Information Seeking on Academic Knowledge Graphs",
+    "authors": "Fanjin Zhang, Zhengyang Wang, Ruixuan Huang et al.",
+    "year": 2026,
+    "date": "2026-06-16",
+    "cite": 0,
+    "tags": [
+      "MCP"
+    ],
+    "abstract": "Large language models (LLMs) augmented with tools are emerging as autonomous agents capable of using Web engine, APIs, and code to solve complex, long-horizon tasks. Current tool-using benchmarks for information seeking on academic graphs rely on synthetic templates, simplified solution spaces, or narrow tasks such as paper-centric tasks, leaving key challenges underexplored - realistic user intent, complex multi-step API planning, rich parameter filling for APIs, grounded answers with reference"
   },
   {
     "id": "2606.16817",
