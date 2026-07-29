@@ -50,6 +50,7 @@ header p{opacity:.8;font-size:.85rem}
 .grid{position:absolute;top:0;bottom:0;border-left:1px solid #f2f2f6}
 .node{position:absolute;top:50%;transform:translate(-50%,-50%);text-decoration:none;z-index:2}
 .node .dot{display:block;width:10px;height:10px;border-radius:50%;background:var(--c);margin:0 auto;border:2px solid white;box-shadow:0 0 0 1px var(--c);transition:transform .15s}
+.node.extra .dot{background:white}
 .node .lbl{position:absolute;left:50%;transform:translateX(-50%);font-size:.62rem;font-weight:600;color:var(--c);white-space:nowrap;display:none;bottom:12px}
 .lane-body.labels .node .lbl{display:block}
 .lane-body.labels .node.r1 .lbl{bottom:23px;opacity:.85}
@@ -104,6 +105,7 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
     <button class="range-btn on" data-r="1y" onclick="setRange('1y')">近一年</button>
     <button class="range-btn" data-r="2y" onclick="setRange('2y')">近两年</button>
     <button class="range-btn" data-r="all" onclick="setRange('all')">全部</button>
+    <span class="lbl-t" style="margin-left:auto">● arXiv 论文　○ 官方发布（报告/仓库/博客）</span>
   </div>
   <div class="chart-wrap"><div class="chart" id="chart"><div class="loading">加载中...</div></div></div>
   <div class="list-info" id="list-info"></div>
@@ -259,7 +261,9 @@ function renderChart(){
   html+=lanes.map(co=>{
     const nodes=models.filter(m=>m.company===co).map((m,i)=>{
       const r=showLabels?` r${i%3}`:'';
-      return `<a class="node${r}" style="left:${X(m.date)}%;--c:${color(co)}" href="https://arxiv.org/abs/${m.id}" target="_blank" title="${m.model} · ${m.date}\n${m.title}"><span class="lbl">${m.model}</span><span class="dot"></span></a>`;
+      const href=m.url||`https://arxiv.org/abs/${m.id}`;
+      const tip=`${m.model} · ${m.date}\n${m.title||m.note||''}`;
+      return `<a class="node${r}${m.extra?' extra':''}" style="left:${X(m.date)}%;--c:${color(co)}" href="${href}" target="_blank" title="${tip}"><span class="lbl">${m.model}</span><span class="dot"></span></a>`;
     }).join('');
     const grid=ticks.map(([,x])=>`<span class="grid" style="left:${X(new Date(x).toISOString().slice(0,10))}%"></span>`).join('');
     return `<div class="lane"><div class="lane-name" style="color:${color(co)}" title="点击只看 ${co}" onclick="toggleCompany('${co}')">${logoHTML(co)}${co}</div><div class="lane-body ${showLabels?'labels':''}">${grid}${nodes}</div></div>`;
