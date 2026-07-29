@@ -130,6 +130,24 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
     <option value="Qwen">Qwen</option>
     <option value="DeepSeek">DeepSeek</option>
     <option value="Baidu">Baidu</option>
+    <option value="Zhipu">Zhipu</option>
+    <option value="Moonshot">Moonshot</option>
+    <option value="MiniMax">MiniMax</option>
+    <option value="Xiaomi">Xiaomi</option>
+    <option value="Tencent">Tencent</option>
+    <option value="Microsoft">Microsoft</option>
+    <option value="Nvidia">Nvidia</option>
+    <option value="IBM">IBM</option>
+    <option value="AllenAI">AllenAI</option>
+    <option value="TII">TII</option>
+    <option value="xAI">xAI</option>
+    <option value="01.AI">01.AI</option>
+    <option value="Baichuan">Baichuan</option>
+    <option value="InternLM">InternLM</option>
+    <option value="Databricks">Databricks</option>
+    <option value="AI21">AI21</option>
+    <option value="LG">LG</option>
+    <option value="Cohere">Cohere</option>
   </select>
   <select id="tl-tag" onchange="filterTimeline()">
     <option value="">全部标签</option>
@@ -200,7 +218,7 @@ const TOPICS=[
   {key:"Safety",icon:"🛡️",name:"安全与对齐",desc:"AI 安全、价值对齐、有害内容防护"},
   {key:"LLM",icon:"💡",name:"基础大模型",desc:"GPT、LLaMA、Qwen 等基础模型研究"},
 ];
-const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48'};
+const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d'};
 const PAGE_SIZE=8;
 let PAPERS=[], currentTab='latest', currentPage=1;
 let favorites=new Set(JSON.parse(localStorage.getItem('llm_favs')||'[]'));

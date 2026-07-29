@@ -8371,7 +8371,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "We present a fully automated closed-loop AutoML framework that uses GPT-5, GPT-4o, and Claude Sonnet 4 as autonomous neural architecture designers for cross-lingual handwritten optical character recognition. Each large language model independently generates, trains, evaluates, and iteratively refines neural network architectures using performance feedback from previous trials. The framework is evaluated on Arabic, Persian, and English handwriting datasets through 270 independent experiments. It "
+    "abstract": "We present a fully automated closed-loop AutoML framework that uses GPT-5, GPT-4o, and Claude Sonnet 4 as autonomous neural architecture designers for cross-lingual handwritten optical character recognition. Each large language model independently generates, trains, evaluates, and iteratively refines neural network architectures using performance feedback from previous trials. The framework is evaluated on Arabic, Persian, and English handwriting datasets through 270 independent experiments. It ",
+    "company": "Anthropic"
   },
   {
     "id": "2607.15498",
@@ -9828,7 +9829,8 @@
     "tags": [
       "Multimodal"
     ],
-    "abstract": "We present a full-pipeline inference optimization for the MiMo-V2.5 model family, which combines Hybrid Sliding Window Attention (Hybrid SWA), sparse Mixture-of-Experts (MoE), and multimodal encoders. While Hybrid SWA can ideally reduce both attention compute and KVCache storage significantly compared to Full Attention, realizing these gains in production requires substantial engineering effort. We systematically optimize the KVCache system with layerwise prefetch, SWA-aware prefix cache trees, "
+    "abstract": "We present a full-pipeline inference optimization for the MiMo-V2.5 model family, which combines Hybrid Sliding Window Attention (Hybrid SWA), sparse Mixture-of-Experts (MoE), and multimodal encoders. While Hybrid SWA can ideally reduce both attention compute and KVCache storage significantly compared to Full Attention, realizing these gains in production requires substantial engineering effort. We systematically optimize the KVCache system with layerwise prefetch, SWA-aware prefix cache trees, ",
+    "company": "Xiaomi"
   },
   {
     "id": "2607.13315",
@@ -10691,7 +10693,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Recent foundation image and video generation models offer strong generalization and controllability, but their direct application to embodied scenarios is limited by requirements for multi-view consistency, geometric coherence, and robot embodiment constraints. Existing methods typically adapt foundation models with limited robot data, often sacrificing visual knowledge acquired during large-scale pre-training. We present Xiaomi-Robotics-U0, a 38-billion-parameter multimodal autoregressive model"
+    "abstract": "Recent foundation image and video generation models offer strong generalization and controllability, but their direct application to embodied scenarios is limited by requirements for multi-view consistency, geometric coherence, and robot embodiment constraints. Existing methods typically adapt foundation models with limited robot data, often sacrificing visual knowledge acquired during large-scale pre-training. We present Xiaomi-Robotics-U0, a 38-billion-parameter multimodal autoregressive model",
+    "company": "Xiaomi"
   },
   {
     "id": "2607.11632",
@@ -11350,7 +11353,8 @@
     "tags": [
       "Multimodal"
     ],
-    "abstract": "Frontier language models are increasingly evaluated on biomedical benchmarks, but two problems undermine most published evaluations: legacy benchmarks are near-saturated, and open-ended responses are graded by other language models. We evaluate Claude Fable 5, Anthropic's most capable publicly available model, across eight biomedical benchmarks, four text and four multimodal, using deterministic scoring against fixed answer keys throughout. We include two Claude predecessors and GPT-5 as baselin"
+    "abstract": "Frontier language models are increasingly evaluated on biomedical benchmarks, but two problems undermine most published evaluations: legacy benchmarks are near-saturated, and open-ended responses are graded by other language models. We evaluate Claude Fable 5, Anthropic's most capable publicly available model, across eight biomedical benchmarks, four text and four multimodal, using deterministic scoring against fixed answer keys throughout. We include two Claude predecessors and GPT-5 as baselin",
+    "company": "Anthropic"
   },
   {
     "id": "2607.10628",
@@ -13136,7 +13140,8 @@
     "tags": [
       "Fine-tuning"
     ],
-    "abstract": "This paper describes our self-designed system for Task 1 of the MLC-SLM 2026 Challenge for multilingual two-speaker conversational speech. The system combines a modular speaker diarization front end with a challenge-adapted Qwen3-ASR-1.7B recognizer. The diarization front end performs voice activity detection, subsegment generation, CAMPPlus speaker embedding extraction, two-speaker spectral clustering, and RTTM-based audio segmentation. The resulting speaker-attributed segments are grouped by l"
+    "abstract": "This paper describes our self-designed system for Task 1 of the MLC-SLM 2026 Challenge for multilingual two-speaker conversational speech. The system combines a modular speaker diarization front end with a challenge-adapted Qwen3-ASR-1.7B recognizer. The diarization front end performs voice activity detection, subsegment generation, CAMPPlus speaker embedding extraction, two-speaker spectral clustering, and RTTM-based audio segmentation. The resulting speaker-attributed segments are grouped by l",
+    "company": "Qwen"
   },
   {
     "id": "2607.08646",
@@ -13479,7 +13484,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Large language models increasingly provide labels, evaluations, and feedback for tasks specified in natural language. When a specification admits multiple readings but the supervision channel does not reveal which is operative, additional labels reduce sampling error without resolving the resulting identification problem. We introduce Natural Language PAC (NL-PAC), a framework that uses a fixed model's thresholded decoding law to define admissible labels and candidate targets. The probability th"
+    "abstract": "Large language models increasingly provide labels, evaluations, and feedback for tasks specified in natural language. When a specification admits multiple readings but the supervision channel does not reveal which is operative, additional labels reduce sampling error without resolving the resulting identification problem. We introduce Natural Language PAC (NL-PAC), a framework that uses a fixed model's thresholded decoding law to define admissible labels and candidate targets. The probability th",
+    "company": "MiniMax"
   },
   {
     "id": "2607.08803",
@@ -16106,7 +16112,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Large language models are increasingly used as private, always-available conversational systems, but little is known about how people with depressive symptoms use them. Building on CSCW work on disclosure and peer support, we examine ChatGPT as an emerging informal support infrastructure: private, persistent, responsive, and available outside ordinary hours. We analyze 187,093 ChatGPT conversations from 766 participants who completed the PHQ-8, comparing those below the moderate-symptom threshol"
+    "abstract": "Large language models are increasingly used as private, always-available conversational systems, but little is known about how people with depressive symptoms use them. Building on CSCW work on disclosure and peer support, we examine ChatGPT as an emerging informal support infrastructure: private, persistent, responsive, and available outside ordinary hours. We analyze 187,093 ChatGPT conversations from 766 participants who completed the PHQ-8, comparing those below the moderate-symptom threshol",
+    "company": "OpenAI"
   },
   {
     "id": "2607.05638",
@@ -18787,7 +18794,8 @@
     "tags": [
       "Multimodal"
     ],
-    "abstract": "We introduce Gemma 4, a new generation of open-weight, natively multimodal language models in the Gemma model family. Designed to advance compute efficiency and reasoning, the Gemma 4 model suite features dense and Mixture-of-Experts architectures, ranging from 2.3B to 31B parameters. Alongside improved vision and audio encoders for all model sizes, we propose a unified, encoder-free architecture for our 12B model, which ingests raw audio and image patches. Furthermore, we integrate a thinking m"
+    "abstract": "We introduce Gemma 4, a new generation of open-weight, natively multimodal language models in the Gemma model family. Designed to advance compute efficiency and reasoning, the Gemma 4 model suite features dense and Mixture-of-Experts architectures, ranging from 2.3B to 31B parameters. Alongside improved vision and audio encoders for all model sizes, we propose a unified, encoder-free architecture for our 12B model, which ingests raw audio and image patches. Furthermore, we integrate a thinking m",
+    "company": "Google"
   },
   {
     "id": "2607.02763",
@@ -20356,7 +20364,8 @@
     "tags": [
       "Multimodal"
     ],
-    "abstract": "Graphical user interface (GUI) agents build on vision-language models to complete user tasks end-to-end in real applications through interface actions such as tapping, swiping, text entry, and navigation. However, existing GUI agents are trained and evaluated largely on offline trajectories, simulated environments, and standardized benchmarks. These differ substantially from real applications in interface layout, interaction logic, and abnormal-state distribution, and cannot faithfully character"
+    "abstract": "Graphical user interface (GUI) agents build on vision-language models to complete user tasks end-to-end in real applications through interface actions such as tapping, swiping, text entry, and navigation. However, existing GUI agents are trained and evaluated largely on offline trajectories, simulated environments, and standardized benchmarks. These differ substantially from real applications in interface layout, interaction logic, and abnormal-state distribution, and cannot faithfully character",
+    "company": "Xiaomi"
   },
   {
     "id": "2606.31310",
@@ -26589,7 +26598,8 @@
       "Reasoning",
       "LLM"
     ],
-    "abstract": "A world model predicts environment dynamics based on current observations and actions, serving as a core cognitive mechanism for reasoning and planning. In this work, we investigate how world modeling based on language models can further push the boundaries of general agents. (i) We first focus on building foundation models for agentic environment simulation. We introduce Qwen-AgentWorld-35B-A3B and Qwen-AgentWorld-397B-A17B, the first language world models capable of simulating agentic environm"
+    "abstract": "A world model predicts environment dynamics based on current observations and actions, serving as a core cognitive mechanism for reasoning and planning. In this work, we investigate how world modeling based on language models can further push the boundaries of general agents. (i) We first focus on building foundation models for agentic environment simulation. We introduce Qwen-AgentWorld-35B-A3B and Qwen-AgentWorld-397B-A17B, the first language world models capable of simulating agentic environm",
+    "company": "Qwen"
   },
   {
     "id": "2606.24596",
@@ -36074,7 +36084,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Behavioral audits of Large Language Models on moral prompts measure what the model says, not the internal computation producing it. We use Transluce, an AI-driven mechanistic-interpretability platform, to examine LLaMA 3.1-8B-Instruct on 54 moral prompts in four batteries: 17 dilemmas, policy, and meta-ethical questions (B1); 6 role-playing scenarios (B3); and a controlled trolley contrast varying the switching mechanism with people fixed (B4, 15 prompts) or identity attributes with mechanism fi"
+    "abstract": "Behavioral audits of Large Language Models on moral prompts measure what the model says, not the internal computation producing it. We use Transluce, an AI-driven mechanistic-interpretability platform, to examine LLaMA 3.1-8B-Instruct on 54 moral prompts in four batteries: 17 dilemmas, policy, and meta-ethical questions (B1); 6 role-playing scenarios (B3); and a controlled trolley contrast varying the switching mechanism with people fixed (B4, 15 prompts) or identity attributes with mechanism fi",
+    "company": "Meta"
   },
   {
     "id": "2606.15197",
@@ -37071,7 +37082,8 @@
       "Agent",
       "Multimodal"
     ],
-    "abstract": "Ultra-long-context capability is becoming indispensable for frontier LLMs: agentic workflows, repository-scale code reasoning, and persistent memory all require the model to jointly attend over hundreds of thousands to millions of tokens, yet the quadratic cost of softmax attention makes this untenable at deployment scale. We introduce MiniMax Sparse Attention (MSA), a blockwise sparse attention built upon Grouped Query Attention (GQA). A lightweight Index Branch scores key-value blocks and inde"
+    "abstract": "Ultra-long-context capability is becoming indispensable for frontier LLMs: agentic workflows, repository-scale code reasoning, and persistent memory all require the model to jointly attend over hundreds of thousands to millions of tokens, yet the quadratic cost of softmax attention makes this untenable at deployment scale. We introduce MiniMax Sparse Attention (MSA), a blockwise sparse attention built upon Grouped Query Attention (GQA). A lightweight Index Branch scores key-value blocks and inde",
+    "company": "MiniMax"
   },
   {
     "id": "2606.13385",
@@ -40181,7 +40193,8 @@
       "Reasoning",
       "LLM"
     ],
-    "abstract": "Tuning controllers for strongly coupled multi-input multi-output (MIMO) industrial processes is hard: decentralized classical auto-tuning ignores loop interaction, and local numerical optimization from natural initializations stalls in the resulting non-convex cost landscape. We ask whether on-premise open-source large language models (LLMs), which keep data on-site and need no plant model, can help. On a single-loop CSTR, classical relay-feedback tuning (IAE 0.106, near the 0.102 optimum) beats"
+    "abstract": "Tuning controllers for strongly coupled multi-input multi-output (MIMO) industrial processes is hard: decentralized classical auto-tuning ignores loop interaction, and local numerical optimization from natural initializations stalls in the resulting non-convex cost landscape. We ask whether on-premise open-source large language models (LLMs), which keep data on-site and need no plant model, can help. On a single-loop CSTR, classical relay-feedback tuning (IAE 0.106, near the 0.102 optimum) beats",
+    "company": "Xiaomi"
   },
   {
     "id": "2606.10931",
@@ -40493,7 +40506,8 @@
       "Fine-tuning",
       "LLM"
     ],
-    "abstract": "Financial named-entity recognition (NER) is essential for translating unstructured financial reports and news into structured knowledge graphs. However, general-purpose large language models (LLMs) often misclassify financial entities or ignore domain-specific patterns. This paper investigates the use of DeepSeek-R1-8B, a recent open-source large language model, combined with Low-Rank Adaptation (LoRA) and Noisy Embedding Fine-Tuning (NEFTune) for financial NER. Each annotated sentence in our co"
+    "abstract": "Financial named-entity recognition (NER) is essential for translating unstructured financial reports and news into structured knowledge graphs. However, general-purpose large language models (LLMs) often misclassify financial entities or ignore domain-specific patterns. This paper investigates the use of DeepSeek-R1-8B, a recent open-source large language model, combined with Low-Rank Adaptation (LoRA) and Noisy Embedding Fine-Tuning (NEFTune) for financial NER. Each annotated sentence in our co",
+    "company": "DeepSeek"
   },
   {
     "id": "2606.10327",
@@ -40507,7 +40521,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Automated Essay Scoring (AES) systems must judge interdependent discourse elements (e.g., lead, claim, evidence, conclusion), yet most approaches treat these in isolation, harming coherence and generalization. We investigate task-aware fine-tuning of LLaMA-3.1-8B for AES using parameter-efficient LoRA with 4-bit quantization and compare three training curricula: (i) Sequential (progressively fine-tuning on lead, then position, then claim, then evidence, then conclusion), (ii) Independent (task-s"
+    "abstract": "Automated Essay Scoring (AES) systems must judge interdependent discourse elements (e.g., lead, claim, evidence, conclusion), yet most approaches treat these in isolation, harming coherence and generalization. We investigate task-aware fine-tuning of LLaMA-3.1-8B for AES using parameter-efficient LoRA with 4-bit quantization and compare three training curricula: (i) Sequential (progressively fine-tuning on lead, then position, then claim, then evidence, then conclusion), (ii) Independent (task-s",
+    "company": "Meta"
   },
   {
     "id": "2606.11173",
@@ -42504,7 +42519,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Baichuan-M4 is Baichuan Intelligence's clinical-grade medical large model, designed for \\emph{continuous care} rather than single-turn medical question answering. It is built as a coordinated medical agent system around three pillars: \\textbf{Baichuan-Harness}, a unified runtime that keeps reinforcement-learning training and real-world deployment consistent while enforcing action constraints, tool use, long-term patient memory, and multi-agent coordination; a \\textbf{core reasoning model} traine"
+    "abstract": "Baichuan-M4 is Baichuan Intelligence's clinical-grade medical large model, designed for \\emph{continuous care} rather than single-turn medical question answering. It is built as a coordinated medical agent system around three pillars: \\textbf{Baichuan-Harness}, a unified runtime that keeps reinforcement-learning training and real-world deployment consistent while enforcing action constraints, tool use, long-term patient memory, and multi-agent coordination; a \\textbf{core reasoning model} traine",
+    "company": "Baichuan"
   },
   {
     "id": "2606.08976",
@@ -44184,7 +44200,8 @@
       "Reasoning",
       "LLM"
     ],
-    "abstract": "The emergence of \"Aha moments\" in large language models, particularly DeepSeek-R1-0120, has raised the question of whether these systems genuinely reason or merely imitate the appearance of reasoning. We conduct a comprehensive empirical comparison between model and human reasoning across all 30 problems from AIME 2025, exhaustively annotating 10,247 reasoning steps into five functional categories: Analysis, Inference, Branch, Backtrace, and Reflection. We find a clear structural difference. Hum"
+    "abstract": "The emergence of \"Aha moments\" in large language models, particularly DeepSeek-R1-0120, has raised the question of whether these systems genuinely reason or merely imitate the appearance of reasoning. We conduct a comprehensive empirical comparison between model and human reasoning across all 30 problems from AIME 2025, exhaustively annotating 10,247 reasoning steps into five functional categories: Analysis, Inference, Branch, Backtrace, and Reflection. We find a clear structural difference. Hum",
+    "company": "DeepSeek"
   },
   {
     "id": "2606.07237",
@@ -47739,7 +47756,8 @@
     "tags": [
       "Safety"
     ],
-    "abstract": "Large language model (LLM) \"answer engines\" such as ChatGPT now send measurable referral traffic to the open web, and a practice analogous to search engine optimization, here called Answer Engine Optimization (AEO), has emerged. Public AEO success stories typically quote large raw growth multiples, but raw referral growth is confounded by the rapid platform-level growth of the answer engines themselves. We report a longitudinal field study on a single high-traffic domain (glasp.co) whose corpus "
+    "abstract": "Large language model (LLM) \"answer engines\" such as ChatGPT now send measurable referral traffic to the open web, and a practice analogous to search engine optimization, here called Answer Engine Optimization (AEO), has emerged. Public AEO success stories typically quote large raw growth multiples, but raw referral growth is confounded by the rapid platform-level growth of the answer engines themselves. We report a longitudinal field study on a single high-traffic domain (glasp.co) whose corpus ",
+    "company": "OpenAI"
   },
   {
     "id": "2606.04349",
@@ -55398,7 +55416,8 @@
     "tags": [
       "Multimodal"
     ],
-    "abstract": "We demonstrate that sparse autoencoders can extract interpretable features from Claude 3 Sonnet, a production-scale language model, addressing the open question of whether dictionary learning methods scale beyond small transformers. We trained sparse autoencoders with up to 34 million features on the model's middle layer residual stream, using scaling laws to guide hyperparameter selection. The resulting features are multilingual and multimodal (generalizing to images despite text-only training)"
+    "abstract": "We demonstrate that sparse autoencoders can extract interpretable features from Claude 3 Sonnet, a production-scale language model, addressing the open question of whether dictionary learning methods scale beyond small transformers. We trained sparse autoencoders with up to 34 million features on the model's middle layer residual stream, using scaling laws to guide hyperparameter selection. The resulting features are multilingual and multimodal (generalizing to images despite text-only training)",
+    "company": "Anthropic"
   },
   {
     "id": "2605.29299",
@@ -55830,7 +55849,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Embodied intelligence is often studied through specialized models for individual tasks such as manipulation or navigation, resulting in fragmented capabilities and limited generalization across tasks, environments, and robot embodiments. In this work, we study whether heterogeneous embodied decision-making problems can be unified within a single vision-language-action model. We present Qwen-VLA, a unified embodied foundation model that extends Qwen's vision-language modeling stack from perceptio"
+    "abstract": "Embodied intelligence is often studied through specialized models for individual tasks such as manipulation or navigation, resulting in fragmented capabilities and limited generalization across tasks, environments, and robot embodiments. In this work, we study whether heterogeneous embodied decision-making problems can be unified within a single vision-language-action model. We present Qwen-VLA, a unified embodied foundation model that extends Qwen's vision-language modeling stack from perceptio",
+    "company": "Qwen"
   },
   {
     "id": "2605.30200",
@@ -56299,7 +56319,8 @@
       "RAG",
       "LLM"
     ],
-    "abstract": "We present a protocol to evaluate ChatGPT's ability to generate disease-centric biomedical associations. It outlines how we generate the associations, validate the biological entities using biomedical ontologies, and verify associations using literature. The protocol includes a self-consistency strategy to assess generative reliability across ChatGPT models. To address ontology exact-match limitations, we provide a use case performing semantic verification through a workflow enabled by Retrieval"
+    "abstract": "We present a protocol to evaluate ChatGPT's ability to generate disease-centric biomedical associations. It outlines how we generate the associations, validate the biological entities using biomedical ontologies, and verify associations using literature. The protocol includes a self-consistency strategy to assess generative reliability across ChatGPT models. To address ontology exact-match limitations, we provide a use case performing semantic verification through a workflow enabled by Retrieval",
+    "company": "OpenAI"
   },
   {
     "id": "2605.30667",
@@ -59946,7 +59967,8 @@
     "tags": [
       "Safety"
     ],
-    "abstract": "We introduce the MiniMax-M2 series, a family of Mixture-of-Experts language models built around the principle that mini activations can unleash maximum real-world intelligence. The flagship M2 contains 229.9B total parameters with only 9.8B activated per token. Designed end-to-end for agentic deployment, the M2 series rests on three components: (i) agent-driven data pipelines producing large-scale, verifiable trajectories across agentic coding and agentic cowork, each grounded in an executable w"
+    "abstract": "We introduce the MiniMax-M2 series, a family of Mixture-of-Experts language models built around the principle that mini activations can unleash maximum real-world intelligence. The flagship M2 contains 229.9B total parameters with only 9.8B activated per token. Designed end-to-end for agentic deployment, the M2 series rests on three components: (i) agent-driven data pipelines producing large-scale, verifiable trajectories across agentic coding and agentic cowork, each grounded in an executable w",
+    "company": "MiniMax"
   },
   {
     "id": "2605.26431",
@@ -61598,7 +61620,8 @@
       "Fine-tuning",
       "LLM"
     ],
-    "abstract": "We present the first end-to-end demonstration of fine-tuning and serving Google's Gemma 4 31B model on TPU hardware, providing an empirical comparison of TPU and GPU platforms for large language model adaptation. Using LoRA on a Google TPU v5p-8 for training and TPU v6e-8 (Trillium) for inference, we document the full set of code-level adaptations required to port a GPU-native training recipe, built on PyTorch, HuggingFace TRL, and FSDP, to the JAX + Tunix/Qwix stack. These adaptations span mesh"
+    "abstract": "We present the first end-to-end demonstration of fine-tuning and serving Google's Gemma 4 31B model on TPU hardware, providing an empirical comparison of TPU and GPU platforms for large language model adaptation. Using LoRA on a Google TPU v5p-8 for training and TPU v6e-8 (Trillium) for inference, we document the full set of code-level adaptations required to port a GPU-native training recipe, built on PyTorch, HuggingFace TRL, and FSDP, to the JAX + Tunix/Qwix stack. These adaptations span mesh",
+    "company": "Google"
   },
   {
     "id": "2605.25565",
@@ -77143,7 +77166,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Large language models have achieved remarkable capabilities across diverse tasks, yet their internal decision-making processes remain largely opaque, limiting our ability to inspect, control, and systematically improve them. This opacity motivates a growing body of research in mechanistic interpretability, with sparse autoencoders (SAEs) emerging as one of the most promising tools for decomposing model activations into sparse, interpretable feature representations. We introduce Qwen-Scope, an op"
+    "abstract": "Large language models have achieved remarkable capabilities across diverse tasks, yet their internal decision-making processes remain largely opaque, limiting our ability to inspect, control, and systematically improve them. This opacity motivates a growing body of research in mechanistic interpretability, with sparse autoencoders (SAEs) emerging as one of the most promising tools for decomposing model activations into sparse, interpretable feature representations. We introduce Qwen-Scope, an op",
+    "company": "Qwen"
   },
   {
     "id": "2605.11885",
@@ -82076,7 +82100,8 @@
     "tags": [
       "Fine-tuning"
     ],
-    "abstract": "Indirect prompt injection remains a persistent weakness in retrieval-augmented and tool-using LLM systems, and the problem becomes harder to characterise in multilingual settings. We present MIPIAD, a defense framework evaluated on English and Bangla that combines a sequence classifier fine-tuned from Qwen2.5-1.5B via LoRA (XLPID), TF-IDF lexical features, and validation-tuned ensembling through late fusion, stacking, and gradient boosting. The framework is evaluated on a synthetic benchmark bui"
+    "abstract": "Indirect prompt injection remains a persistent weakness in retrieval-augmented and tool-using LLM systems, and the problem becomes harder to characterise in multilingual settings. We present MIPIAD, a defense framework evaluated on English and Bangla that combines a sequence classifier fine-tuned from Qwen2.5-1.5B via LoRA (XLPID), TF-IDF lexical features, and validation-tuned ensembling through late fusion, stacking, and gradient boosting. The framework is evaluated on a synthetic benchmark bui",
+    "company": "Qwen"
   },
   {
     "id": "2605.07201",
@@ -85650,7 +85675,8 @@
       "Fine-tuning",
       "LLM"
     ],
-    "abstract": "We present our system for SemEval-2026 Task 9: Multilingual Polarization Detection, a binary classification task spanning 22 languages. Our approach fine-tunes separate Gemma~3 models (12B and 27B parameters) per language using Low-Rank Adaptation (LoRA), augmented with synthetic data generated by a large language model (LLM). We employ three synthetic data strategies (direct generation, paraphrasing, and contrastive pair creation) using GPT-4o-mini, with a multi-stage quality filtering pipeline"
+    "abstract": "We present our system for SemEval-2026 Task 9: Multilingual Polarization Detection, a binary classification task spanning 22 languages. Our approach fine-tunes separate Gemma~3 models (12B and 27B parameters) per language using Low-Rank Adaptation (LoRA), augmented with synthetic data generated by a large language model (LLM). We employ three synthetic data strategies (direct generation, paraphrasing, and contrastive pair creation) using GPT-4o-mini, with a multi-stage quality filtering pipeline",
+    "company": "Google"
   },
   {
     "id": "2605.04980",
@@ -92786,7 +92812,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "This paper introduces a systematic evaluation framework grounded in the Interagency Language Roundtable (ILR) Skill Level Descriptions and applies it to Claude (Sonnet 4.6) across six languages: English, French, Romanian, Spanish, Italian, and German. We administer a battery of 12 semantically equivalent prompt clusters spanning ILR complexity levels 1 through 3+, collect 216 responses (12 prompts, 6 languages, 3 runs), and analyze outputs through a two-layer methodology combining automated quan"
+    "abstract": "This paper introduces a systematic evaluation framework grounded in the Interagency Language Roundtable (ILR) Skill Level Descriptions and applies it to Claude (Sonnet 4.6) across six languages: English, French, Romanian, Spanish, Italian, and German. We administer a battery of 12 semantically equivalent prompt clusters spanning ILR complexity levels 1 through 3+, collect 216 responses (12 prompts, 6 languages, 3 runs), and analyze outputs through a two-layer methodology combining automated quan",
+    "company": "Anthropic"
   },
   {
     "id": "2604.27128",
@@ -94393,7 +94420,8 @@
     "tags": [
       "Fine-tuning"
     ],
-    "abstract": "Small instruct-tuned LLMs produce degenerate verbal confidence under minimal elicitation: ceiling rates above 95%, near-chance Type-2 AUROC, and Invalid validity profiles. We test whether confidence-conditioned supervised fine-tuning (CSFT) with self-consistency-derived targets can close the gap between internal information and verbal readout. A pre-registered Phase 0 protocol on Gemma 3 4B-it with a modal filter restricting training to items with correct modal answers produced a negative result"
+    "abstract": "Small instruct-tuned LLMs produce degenerate verbal confidence under minimal elicitation: ceiling rates above 95%, near-chance Type-2 AUROC, and Invalid validity profiles. We test whether confidence-conditioned supervised fine-tuning (CSFT) with self-consistency-derived targets can close the gap between internal information and verbal readout. A pre-registered Phase 0 protocol on Gemma 3 4B-it with a modal filter restricting training to items with correct modal answers produced a negative result",
+    "company": "Google"
   },
   {
     "id": "2604.24618",
@@ -100762,7 +100790,8 @@
     "tags": [
       "Reasoning"
     ],
-    "abstract": "Chain-of-Thought (CoT) reasoning has become a powerful driver of trajectory prediction in VLA-based autonomous driving, yet its autoregressive nature imposes a latency cost that is prohibitive for real-time deployment. Latent CoT methods attempt to close this gap by compressing reasoning into continuous hidden states, but consistently fall short of their explicit counterparts. We suggest that this is due to purely linguistic latent representations compressing a symbolic abstraction of the world,"
+    "abstract": "Chain-of-Thought (CoT) reasoning has become a powerful driver of trajectory prediction in VLA-based autonomous driving, yet its autoregressive nature imposes a latency cost that is prohibitive for real-time deployment. Latent CoT methods attempt to close this gap by compressing reasoning into continuous hidden states, but consistently fall short of their explicit counterparts. We suggest that this is due to purely linguistic latent representations compressing a symbolic abstraction of the world,",
+    "company": "Xiaomi"
   },
   {
     "id": "2604.18463",
@@ -100802,7 +100831,8 @@
       "Fine-tuning",
       "LLM"
     ],
-    "abstract": "We present Six Llamas, a comparative study examining whether large language models fine-tuned on distinct religious corpora encode systematically different patterns of ethical reasoning. Six variants of Meta-Llama-3.1-8B are constructed: one unmodified control and five LoRA-adapted models trained exclusively on the sacred and theological texts of Christianity, Islam, Judaism, Hinduism, or Buddhism. All six models are probed with an identical battery of 17 standardized ethical prompts spanning mo"
+    "abstract": "We present Six Llamas, a comparative study examining whether large language models fine-tuned on distinct religious corpora encode systematically different patterns of ethical reasoning. Six variants of Meta-Llama-3.1-8B are constructed: one unmodified control and five LoRA-adapted models trained exclusively on the sacred and theological texts of Christianity, Islam, Judaism, Hinduism, or Buddhism. All six models are probed with an identical battery of 17 standardized ethical prompts spanning mo",
+    "company": "Meta"
   },
   {
     "id": "2604.18396",
@@ -101122,7 +101152,8 @@
       "Fine-tuning",
       "Safety"
     ],
-    "abstract": "Change visual question answering (Change VQA) addresses the problem of answering natural-language questions about semantic changes between bi-temporal remote sensing (RS) images. Although vision-language models (VLMs) have recently been studied for temporal RS image understanding, Change VQA remains underexplored in the context of modern multimodal models. In this letter, we revisit the CDVQA benchmark using recent Qwen models under a unified low-rank adaptation (LoRA) setting. We compare Qwen3-"
+    "abstract": "Change visual question answering (Change VQA) addresses the problem of answering natural-language questions about semantic changes between bi-temporal remote sensing (RS) images. Although vision-language models (VLMs) have recently been studied for temporal RS image understanding, Change VQA remains underexplored in the context of modern multimodal models. In this letter, we revisit the CDVQA benchmark using recent Qwen models under a unified low-rank adaptation (LoRA) setting. We compare Qwen3-",
+    "company": "Qwen"
   },
   {
     "id": "2604.18360",
@@ -107776,7 +107807,8 @@
       "Reasoning",
       "LLM"
     ],
-    "abstract": "The applications of Generative Artificial Intelligence (GenAI) and their intersections with data-driven fields, such as healthcare, finance, transportation, and information security, have led to significant improvements in service efficiency and low latency. However, this synergy raises serious concerns regarding the security of large language models (LLMs) and their potential impact on the privacy of companies and users' data. Many technology companies that incorporate LLMs in their services wi"
+    "abstract": "The applications of Generative Artificial Intelligence (GenAI) and their intersections with data-driven fields, such as healthcare, finance, transportation, and information security, have led to significant improvements in service efficiency and low latency. However, this synergy raises serious concerns regarding the security of large language models (LLMs) and their potential impact on the privacy of companies and users' data. Many technology companies that incorporate LLMs in their services wi",
+    "company": "Meta"
   },
   {
     "id": "2604.12167",
@@ -109277,7 +109309,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Vision-Language Models (VLMs) have rapidly advanced by leveraging powerful pre-trained Large Language Models (LLMs) as core reasoning backbones. As new and more capable LLMs emerge with improved reasoning, instruction-following, and generalization, there is a pressing need to efficiently update existing VLMs to incorporate these advancements. However, the integration of new LLMs into VLMs, particularly how the evolving LLMs contribute to multimodal reasoning, alignment, and task-specific perform"
+    "abstract": "Vision-Language Models (VLMs) have rapidly advanced by leveraging powerful pre-trained Large Language Models (LLMs) as core reasoning backbones. As new and more capable LLMs emerge with improved reasoning, instruction-following, and generalization, there is a pressing need to efficiently update existing VLMs to incorporate these advancements. However, the integration of new LLMs into VLMs, particularly how the evolving LLMs contribute to multimodal reasoning, alignment, and task-specific perform",
+    "company": "Meta"
   },
   {
     "id": "2604.10973",
@@ -113907,7 +113940,8 @@
       "Multimodal",
       "Safety"
     ],
-    "abstract": "This technical report introduces EXAONE 4.5, the first open-weight vision language model released by LG AI Research. EXAONE 4.5 is architected by integrating a dedicated visual encoder into the existing EXAONE 4.0 framework, enabling native multimodal pretraining over both visual and textual modalities. The model is trained on large-scale data with careful curation, particularly emphasizing document-centric corpora that align with LG's strategic application domains. This targeted data design ena"
+    "abstract": "This technical report introduces EXAONE 4.5, the first open-weight vision language model released by LG AI Research. EXAONE 4.5 is architected by integrating a dedicated visual encoder into the existing EXAONE 4.0 framework, enabling native multimodal pretraining over both visual and textual modalities. The model is trained on large-scale data with careful curation, particularly emphasizing document-centric corpora that align with LG's strategic application domains. This targeted data design ena",
+    "company": "LG"
   },
   {
     "id": "2604.08797",
@@ -114395,7 +114429,8 @@
       "Reasoning",
       "Fine-tuning"
     ],
-    "abstract": "Mixture-of-experts (MoE) language models are often expected to offer better quality-efficiency tradeoffs than dense models because only a subset of parameters is activated per token, but the practical value of that advantage depends on end-to-end behavior under realistic inference constraints. We present a controlled empirical benchmark of seven recent reasoning-oriented instruction-tuned models spanning dense and MoE designs, namely Gemma-4-E2B, Gemma-4-E4B, Gemma-4-26B-A4B, Phi-4-mini-reasonin"
+    "abstract": "Mixture-of-experts (MoE) language models are often expected to offer better quality-efficiency tradeoffs than dense models because only a subset of parameters is activated per token, but the practical value of that advantage depends on end-to-end behavior under realistic inference constraints. We present a controlled empirical benchmark of seven recent reasoning-oriented instruction-tuned models spanning dense and MoE designs, namely Gemma-4-E2B, Gemma-4-E4B, Gemma-4-26B-A4B, Phi-4-mini-reasonin",
+    "company": "Google"
   },
   {
     "id": "2604.06995",
@@ -120565,7 +120600,8 @@
     "tags": [
       "Fine-tuning"
     ],
-    "abstract": "Optical Chemical Structure Recognition (OCSR) is critical for converting 2D molecular diagrams from printed literature into machine-readable formats. While Vision-Language Models have shown promise in end-to-end OCR tasks, their direct application to OCSR remains challenging, and direct full-parameter supervised fine-tuning often fails. In this work, we adapt DeepSeek-OCR-2 for molecular optical recognition by formulating the task as image-conditioned SMILES generation. To overcome training inst"
+    "abstract": "Optical Chemical Structure Recognition (OCSR) is critical for converting 2D molecular diagrams from printed literature into machine-readable formats. While Vision-Language Models have shown promise in end-to-end OCR tasks, their direct application to OCSR remains challenging, and direct full-parameter supervised fine-tuning often fails. In this work, we adapt DeepSeek-OCR-2 for molecular optical recognition by formulating the task as image-conditioned SMILES generation. To overcome training inst",
+    "company": "DeepSeek"
   },
   {
     "id": "2604.03493",
@@ -125004,7 +125040,8 @@
     "tags": [
       "Safety"
     ],
-    "abstract": "Constitutional AI (CAI) aligns language models with explicitly stated normative principles, offering a transparent alternative to implicit alignment through human feedback alone. However, because constitutions are authored by specific groups of people, the resulting models may reflect particular cultural perspectives. We investigate this question by evaluating Anthropic's Claude Sonnet on 55 World Values Survey items, selected for high cross-cultural variance across six value domains and adminis"
+    "abstract": "Constitutional AI (CAI) aligns language models with explicitly stated normative principles, offering a transparent alternative to implicit alignment through human feedback alone. However, because constitutions are authored by specific groups of people, the resulting models may reflect particular cultural perspectives. We investigate this question by evaluating Anthropic's Claude Sonnet on 55 World Values Survey items, selected for high cross-cultural variance across six value domains and adminis",
+    "company": "Anthropic"
   },
   {
     "id": "2603.28765",
@@ -125759,7 +125796,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Large language models fragment Kazakh text into many more tokens than equivalent English text, because their tokenizers were built for high-resource languages. This tokenizer tax inflates compute, shortens the effective context window, and weakens the model's grip on Kazakh morphology. We propose to bypass the tokenizer entirely by feeding raw bytes through a small adapter that learns to speak the internal language of a frozen Qwen2.5-7B. Once the adapter is trained, we freeze it and fine-tune o"
+    "abstract": "Large language models fragment Kazakh text into many more tokens than equivalent English text, because their tokenizers were built for high-resource languages. This tokenizer tax inflates compute, shortens the effective context window, and weakens the model's grip on Kazakh morphology. We propose to bypass the tokenizer entirely by feeding raw bytes through a small adapter that learns to speak the internal language of a frozen Qwen2.5-7B. Once the adapter is trained, we freeze it and fine-tune o",
+    "company": "Qwen"
   },
   {
     "id": "2603.27838",
@@ -130153,7 +130191,8 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Large language models such as ChatGPT have increased scholarly output, but whether this productivity boost produces genuine intellectual advancement remains untested. I address this gap by measuring the semantic novelty of 13,847 articles published between 2020 and 2025 in 44 Information Systems journals. Using SPECTER2 embeddings, I operationalize novelty as the cosine distance between each paper and its nearest prior neighbors. A difference-in-differences design with the November 2022 release "
+    "abstract": "Large language models such as ChatGPT have increased scholarly output, but whether this productivity boost produces genuine intellectual advancement remains untested. I address this gap by measuring the semantic novelty of 13,847 articles published between 2020 and 2025 in 44 Information Systems journals. Using SPECTER2 embeddings, I operationalize novelty as the cosine distance between each paper and its nearest prior neighbors. A difference-in-differences design with the November 2022 release ",
+    "company": "OpenAI"
   },
   {
     "id": "2603.22528",
@@ -132257,7 +132296,8 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "We introduce Nemotron-Cascade 2, an open 30B MoE model with 3B activated parameters that delivers best-in-class reasoning and strong agentic capabilities. Despite its compact size, its mathematical and coding reasoning performance approaches that of frontier open models. It is the second open-weight LLM, after DeepSeekV3.2-Speciale-671B-A37B, to achieve Gold Medal-level performance in the 2025 International Mathematical Olympiad (IMO), the International Olympiad in Informatics (IOI), and the ICP"
+    "abstract": "We introduce Nemotron-Cascade 2, an open 30B MoE model with 3B activated parameters that delivers best-in-class reasoning and strong agentic capabilities. Despite its compact size, its mathematical and coding reasoning performance approaches that of frontier open models. It is the second open-weight LLM, after DeepSeekV3.2-Speciale-671B-A37B, to achieve Gold Medal-level performance in the 2025 International Mathematical Olympiad (IMO), the International Olympiad in Informatics (IOI), and the ICP",
+    "company": "Nvidia"
   },
   {
     "id": "2603.19195",
@@ -154254,7 +154294,8 @@
       "Fine-tuning"
     ],
     "abstract": "The increasing health-seeking behavior and digital consumption of biomedical information by the general public necessitate scalable solutions for automatically adapting complex scientific and technical documents into plain language. Automatic text simplification solutions, including advanced large language models (LLMs), however, continue to face challenges in reliably arbitrating the tension between optimizing readability performance and ensuring preservation of discourse fidelity. This report ",
-    "title_zh": "指令调整法学硕士在遏制文本简化中的可读性与准确性张力方面的架构优势"
+    "title_zh": "指令调整法学硕士在遏制文本简化中的可读性与准确性张力方面的架构优势",
+    "company": "Mistral"
   },
   {
     "id": "2511.05616",
@@ -154527,7 +154568,8 @@
       "Fine-tuning"
     ],
     "abstract": "This paper addresses the critical challenges of communication overhead, data heterogeneity, and privacy in deep learning for channel state information (CSI) feedback in massive MIMO systems. To this end, we propose Fed-PELAD, a novel federated learning framework that incorporates personalized encoders and a LoRA-adapted shared decoder. Specifically, personalized encoders are trained locally on each user equipment (UE) to capture device-specific channel characteristics, while a shared decoder is ",
-    "title_zh": "Fed-PELAD：使用个性化编码器和适应 LoRA 的共享解码器进行大规模 MIMO CSI 反馈的通信高效联合学习"
+    "title_zh": "Fed-PELAD：使用个性化编码器和适应 LoRA 的共享解码器进行大规模 MIMO CSI 反馈的通信高效联合学习",
+    "company": "Xiaomi"
   },
   {
     "id": "2510.24700",
@@ -157217,7 +157259,8 @@
     "tags": [
       "MCP"
     ],
-    "abstract": "Enabling large language models with external tools has become a pivotal strategy for extending their functionality beyond text space. To enhance LLMs' tool-calling abilities, previous approaches primarily rely on supervised fine-tuning (SFT) with trajectories distilled from stronger models, often resulting in imitative reasoning that limits generalization. In this work, we explore rule-based reinforcement learning to enhance tool-calling in LLMs, resulting in Nemotron-Research-Tool-N1, a series "
+    "abstract": "Enabling large language models with external tools has become a pivotal strategy for extending their functionality beyond text space. To enhance LLMs' tool-calling abilities, previous approaches primarily rely on supervised fine-tuning (SFT) with trajectories distilled from stronger models, often resulting in imitative reasoning that limits generalization. In this work, we explore rule-based reinforcement learning to enhance tool-calling in LLMs, resulting in Nemotron-Research-Tool-N1, a series ",
+    "company": "Nvidia"
   },
   {
     "id": "2504.13958",
@@ -157953,7 +157996,8 @@
       "Fine-tuning"
     ],
     "abstract": "We introduce phi-3-mini, a 3.8 billion parameter language model trained on 3.3 trillion tokens, whose overall performance is comparable to Mixtral 8x7B and GPT-3.5.",
-    "title_zh": "Phi-3 技术报告：手机本地功能强大的语言模型"
+    "title_zh": "Phi-3 技术报告：手机本地功能强大的语言模型",
+    "company": "Microsoft"
   },
   {
     "id": "2404.16130",
