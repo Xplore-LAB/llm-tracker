@@ -14286,8 +14286,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Adversarial team games (ATGs) with asymmetric information, such as adversarial path-finding, goal search, and reachability games on graphs, require strategies that are robust to hidden opponent types, such as a hidden goal flag, and to deception. Under asymmetric information, deception is seen as strategic shifts in the type distribution such that the omniscient opponent can collude with Nature and condition its play on the observed type. Existing risk-neutral solution concepts, such as Bayesian",
-    "company": "MiniMax"
+    "abstract": "Adversarial team games (ATGs) with asymmetric information, such as adversarial path-finding, goal search, and reachability games on graphs, require strategies that are robust to hidden opponent types, such as a hidden goal flag, and to deception. Under asymmetric information, deception is seen as strategic shifts in the type distribution such that the omniscient opponent can collude with Nature and condition its play on the observed type. Existing risk-neutral solution concepts, such as Bayesian"
   },
   {
     "id": "2607.08495",
@@ -56065,7 +56064,6 @@
       "Safety"
     ],
     "abstract": "Multilingual Information Retrieval (MLIR) reflects real-world search environments in which queries and relevant documents may appear in different languages within a mixed-language corpus. However, existing embedding models are primarily optimized for Multi-Monolingual retrieval and their performance often degrades in MLIR settings. Moreover, directly applying conventional contrastive learning to MLIR can exacerbate language clustering and expose a trade-off between cross-lingual alignment and em",
-    "company": "Xiaomi",
     "note": "MIMO通过单语检索目标训练多语言嵌入模型，改善跨语言混合语料下的信息检索性能。"
   },
   {
@@ -94379,7 +94377,6 @@
       "LLM"
     ],
     "abstract": "Channel fingerprint (CF) is considered a key enabler for facilitating the acquisition of channel state information (CSI) in massive multiple-input multiple-output (MIMO) communication systems. In this work, we investigate a novel type of CF that stores statistical CSI (sCSI) at each potential location, referred to as statistical CF (sCF). Specifically, we reveal the relationship between sCSI, namely the channel spatial covariance matrix (CSCM), and the channel power angular spectrum (CPAS). Buil",
-    "company": "Xiaomi",
     "note": "针对大规模MIMO提出统一张量学习框架构建统计信道指纹，降低CSI获取开销。"
   },
   {
@@ -146891,7 +146888,6 @@
       "Agent"
     ],
     "abstract": "Massive internet of things microservices require integrating renewable energy harvesting into mobile edge computing (MEC) for sustainable eScience infrastructures. Spatiotemporal mismatches between stochastic task arrivals and intermittent green energy along with complex inter-user interference in multi-antenna (MIMO) uplinks complicate real-time resource management. Traditional centralized optimization and off-policy reinforcement learning struggle with scalability and signaling overhead in den",
-    "company": "Xiaomi",
     "note": "在MIMO-MEC网络中提出碳感知多智能体强化学习方法，实现去中心化动态任务卸载。"
   },
   {
@@ -159716,7 +159712,6 @@
       "LLM"
     ],
     "abstract": "Multimodal large language models (MLLMs) hold promise for integrating diverse data modalities, but current medical adaptations such as LLaVA-Med often fail to fully exploit the synergy between color fundus photography (CFP) and optical coherence tomography (OCT), and offer limited interpretability of quantitative biomarkers. We introduce GROK, a grounded multimodal large language model that jointly processes CFP, OCT, and text to deliver clinician-grade diagnoses of ocular and systemic disease. ",
-    "company": "xAI",
     "note": "构建融合眼底彩照与OCT的医学多模态大模型GROK，借知识引导指令实现定量到定性诊断。"
   },
   {
@@ -160873,7 +160868,6 @@
       "Multimodal"
     ],
     "abstract": "We propose a novel diffusion model, termed the non-identical diffusion model, and investigate its application to wireless orthogonal frequency division multiplexing (OFDM) channel generation. Unlike the standard diffusion model that uses a scalar-valued time index to represent the global noise level, we extend this notion to an element-wise time indicator to capture local error variations more accurately. Non-identical diffusion enables us to characterize the reliability of each element (e.g., s",
-    "company": "Xiaomi",
     "note": "提出非一致扩散模型，将标量时间索引扩展为逐元素时间步，用于MIMO-OFDM信道生成。"
   },
   {
@@ -161734,7 +161728,6 @@
       "LLM"
     ],
     "abstract": "We consider the multinomial logistic bandit problem in which a learner interacts with an environment by selecting actions to maximize expected rewards based on probabilistic feedback from multiple possible outcomes. In the binary setting, recent work has focused on understanding the impact of the non-linearity of the logistic model (Faury et al., 2020; Abeille et al., 2021). They introduced a problem-dependent constant $κ_* \\geq 1$ that may be exponentially large in some problem parameters and w",
-    "company": "MiniMax",
     "note": "针对多项Logistic老虎机问题，提出利用非线性结构的极小极大最优算法，实现多分类概率反馈下的最优遗憾界。"
   },
   {
@@ -163560,7 +163553,6 @@
       "Multimodal"
     ],
     "abstract": "Semantic communications aim to enhance transmission efficiency by jointly optimizing source coding, channel coding, and modulation. While prior research has demonstrated promising performance in simulations, real-world implementations often face significant challenges, including noise variability and nonlinear distortions, leading to performance gaps. This article investigates these challenges in a multiple-input multiple-output (MIMO) and orthogonal frequency-division multiplexing (OFDM)-based ",
-    "company": "Xiaomi",
     "note": "融合神经网络与MIMO-OFDM构建语义通信系统，验证实现在噪声与非线性失真下的传输鲁棒性。"
   },
   {
@@ -165487,7 +165479,6 @@
       "Agent"
     ],
     "abstract": "Unsupervised environment design (UED) is a form of automatic curriculum learning for training robust decision-making agents to zero-shot transfer into unseen environments. Such autocurricula have received much interest from the RL community. However, UED experiments, based on CPU rollouts and GPU model updates, have often required several weeks of training. This compute requirement is a major obstacle to rapid innovation for the field. This work introduces the minimax library for UED training on",
-    "company": "MiniMax",
     "note": "minimax提供基于JAX的高效基线方法，用于无监督环境设计的自动课程学习，显著加速实验流程。"
   },
   {
@@ -165543,7 +165534,6 @@
       "Agent"
     ],
     "abstract": "Board games are a great source of entertainment for all ages, as they create a competitive and engaging environment, as well as stimulating learning and strategic thinking. It is common for digital versions of board games, as any other type of digital games, to offer the option to select the difficulty of the game. This is usually done by customizing the search parameters of the AI algorithm. However, this approach cannot be extended to General Game Playing agents, as different games might requi",
-    "company": "MiniMax",
     "note": "提出混合极小极大-蒙特卡洛树搜索算法，为通用博弈引入难度动态调节机制。"
   },
   {
