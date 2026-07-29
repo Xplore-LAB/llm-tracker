@@ -89,6 +89,15 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
 .sidebar-filters{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.7rem;flex-shrink:0}
 .sidebar-filters select{padding:.3rem .5rem;border:1px solid #e0e0e0;border-radius:6px;font-size:.75rem;background:white;outline:none;color:#333}
 .sidebar-filters select:focus{border-color:#302b63}
+/* learning path */
+.stage{margin-bottom:1.5rem}
+.stage-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem}
+.stage-head h2{font-size:1.05rem;color:#302b63}
+.stage-num{background:#302b63;color:white;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0}
+.stage-intro{font-size:.85rem;color:#555;line-height:1.6;margin-bottom:.5rem}
+.concept-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.7rem}
+.concept-chip{font-size:.72rem;background:#ede7f6;color:#4527a0;border-radius:1rem;padding:.2rem .6rem;cursor:help}
+.learn-note{font-size:.82rem;color:#2e7d32;background:#f1f8e9;border-radius:6px;padding:.4rem .6rem;line-height:1.5}
 </style>
 </head>
 <body>
@@ -100,6 +109,7 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
   <button class="tab active" onclick="showTab('latest',this)">🆕 最新</button>
   <button class="tab" onclick="showTab('hot',this)">🔥 高引用</button>
   <button class="tab" onclick="showTab('topics',this)">🏷️ 主题</button>
+  <button class="tab" onclick="showTab('learn',this)">📚 学习路径</button>
   <button class="tab" onclick="showTab('favorites',this)">⭐ 收藏</button>
   <a class="tab" href="timeline/">📅 时间轴</a>
   <button class="tab" onclick="refreshData()" title="重新加载数据">🔄 刷新</button>
@@ -174,10 +184,11 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
     <div id="latest" class="section active"><div class="loading">加载中...</div></div>
     <div id="hot" class="section"></div>
     <div id="topics" class="section"></div>
+    <div id="learn" class="section"></div>
     <div id="favorites" class="section"></div>
   </div>
 </div>
-<footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore0114" style="color:#302b63">GitHub</a></footer>
+<footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB" style="color:#302b63">GitHub</a></footer>
 <script>
 const TOPICS=[
   {key:"RAG",icon:"🔍",name:"RAG 检索增强",desc:"检索增强生成，解决 LLM 幻觉和知识过时问题"},
@@ -307,9 +318,9 @@ function showTab(tab,el){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(tab).classList.add('active');
   el.classList.add('active');
-  document.getElementById('toolbar').style.display=tab==='topics'?'none':'flex';
+  document.getElementById('toolbar').style.display=(tab==='topics'||tab==='learn')?'none':'flex';
   document.getElementById('result-info').textContent='';
-  if(tab==='topics')renderTopics();else renderSection(1);
+  if(tab==='topics')renderTopics();else if(tab==='learn')renderLearn();else renderSection(1);
 }
 
 function renderTopics(){
@@ -325,6 +336,46 @@ function selectTopic(tag){
   document.getElementById('tag-filter').value=tag;
   const btn=document.querySelector('.tab');
   showTab('latest',btn);btn.classList.add('active');
+}
+
+// ── Learning path ─────────────────────────────────────────
+let LEARN_PATH=null;
+function renderLearn(){
+  const el=document.getElementById('learn');
+  if(LEARN_PATH){el.innerHTML=buildLearnHtml();return;}
+  el.innerHTML='<div class="loading">加载中...</div>';
+  fetch('learning-path.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+    LEARN_PATH=d;
+    el.innerHTML=buildLearnHtml();
+  }).catch(()=>{
+    el.innerHTML='<div class="empty">学习路径数据加载失败，请刷新重试</div>';
+  });
+}
+function buildLearnHtml(){
+  const idMap={};
+  PAPERS.forEach(p=>{idMap[p.id]=p;});
+  return LEARN_PATH.stages.map((s,i)=>{
+    const concepts=(s.concepts||[]).map(c=>`<span class="concept-chip" title="${c.desc}">💡 ${c.term}</span>`).join('');
+    const papers=(s.papers||[]).map(p=>{
+      const hit=idMap[p.id];
+      const fav=hit&&favorites.has(p.id);
+      return `<div class="card">
+        ${hit?`<button class="fav-btn ${fav?'active':''}" data-id="${p.id}" onclick="toggleFav('${p.id}')">⭐</button>`:''}
+        <div class="card-meta">
+          ${hit?`<span class="badge cite ${hit.cite>=1000?'high':''}">📊 ${(hit.cite||0).toLocaleString()}</span>`:''}
+          <a class="arxiv-link" href="https://arxiv.org/abs/${p.id}" target="_blank">arXiv:${p.id} ↗</a>
+        </div>
+        <h3>${p.title}</h3>
+        <div class="learn-note">📌 ${p.note}</div>
+      </div>`;
+    }).join('');
+    return `<div class="stage">
+      <div class="stage-head"><span class="stage-num">${i+1}</span><h2>${s.icon} ${s.title}</h2></div>
+      <p class="stage-intro">${s.intro}</p>
+      <div class="concept-row">${concepts}</div>
+      ${papers}
+    </div>`;
+  }).join('');
 }
 
 fetch('papers.json?t='+Date.now()).then(r=>r.json()).then(data=>{
@@ -375,7 +426,7 @@ function triggerUpdate() {
   btn.textContent = '⏳ 提交中...';
   btn.disabled = true;
 
-  fetch('https://api.github.com/repos/Xplore0114/Xplore0114.github.io/actions/workflows/update-papers.yml/dispatches', {
+  fetch('https://api.github.com/repos/Xplore-LAB/Xplore-LAB.github.io/actions/workflows/update-papers.yml/dispatches', {
     method: 'POST',
     headers: {
       'Accept': 'application/vnd.github+json',
@@ -393,7 +444,7 @@ function triggerUpdate() {
     } else if (res.status === 401 || res.status === 403) {
       // Not logged in — open GitHub Actions page
       showToast('🔑 请先登录 GitHub，已为您打开页面', 4000);
-      window.open('https://github.com/Xplore0114/Xplore0114.github.io/actions', '_blank');
+      window.open('https://github.com/Xplore-LAB/Xplore-LAB.github.io/actions', '_blank');
       btn.textContent = '⚡ 更新数据';
       btn.disabled = false;
     } else {
@@ -401,7 +452,7 @@ function triggerUpdate() {
     }
   }).catch(() => {
     showToast('❌ 触发失败，请手动前往 GitHub Actions', 5000);
-    window.open('https://github.com/Xplore0114/Xplore0114.github.io/actions', '_blank');
+    window.open('https://github.com/Xplore-LAB/Xplore-LAB.github.io/actions', '_blank');
     btn.textContent = '⚡ 更新数据';
     btn.disabled = false;
   });
