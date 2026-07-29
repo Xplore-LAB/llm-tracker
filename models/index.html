@@ -14,44 +14,56 @@ header p{opacity:.8;font-size:.85rem}
 .tab{padding:.45rem 1.1rem;border-radius:2rem;border:2px solid #302b63;background:white;font-weight:600;font-size:.82rem;text-decoration:none;color:#302b63}
 .tab:hover,.tab.active{background:#302b63;color:white}
 .page{max-width:1200px;margin:0 auto;padding:1rem}
-h2.sec{font-size:1.05rem;color:#302b63;margin:1.2rem 0 .6rem}
+/* ── toolbar ────────────────────────────────────── */
+.toolbar{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:.8rem 1rem;margin-bottom:1rem}
+.search-row{display:flex;gap:.6rem;align-items:center;margin-bottom:.6rem}
+.search-row input{flex:1;padding:.45rem .8rem;border:1px solid #ddd;border-radius:8px;font-size:.85rem;outline:none}
+.search-row input:focus{border-color:#302b63}
+.search-row .hint{font-size:.72rem;color:#aaa;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.chip{padding:.18rem .6rem;border-radius:1rem;font-size:.72rem;font-weight:600;cursor:pointer;border:1.5px solid var(--c);color:var(--c);background:white;transition:all .15s;user-select:none}
+.chip.on{background:var(--c);color:white}
+.chip.all{border-color:#302b63;color:#302b63}
+.chip.all.on{background:#302b63;color:white}
 /* ── timeline chart ─────────────────────────────── */
-.chart-wrap{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:.8rem .5rem .5rem;overflow-x:auto}
+.chart-wrap{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:.8rem .5rem .5rem;overflow-x:auto;margin-bottom:1rem}
 .chart{min-width:1150px;position:relative}
 .axis{position:relative;height:18px;border-bottom:2px solid #e0e0e0;margin-left:92px;margin-right:8px}
 .axis span{position:absolute;top:0;transform:translateX(-50%);font-size:.68rem;color:#999}
-.lane{display:flex;align-items:stretch;border-bottom:1px dashed #f0f0f0}
-.lane:last-child{border-bottom:none}
-.lane-name{flex:0 0 84px;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;border-right:2px solid #e0e0e0}
-.lane-body{flex:1;position:relative;height:66px}
-.lane-body::before{content:'';position:absolute;left:0;right:8px;top:44px;border-top:1px solid #f3f3f3}
-.node{position:absolute;top:40px;transform:translateX(-50%);text-decoration:none;z-index:2}
-.node .dot{display:block;width:9px;height:9px;border-radius:50%;background:var(--c);margin:0 auto;border:2px solid white;box-shadow:0 0 0 1px var(--c)}
-.node .lbl{position:absolute;left:50%;transform:translateX(-50%);font-size:.62rem;font-weight:600;color:var(--c);white-space:nowrap}
-.node.r0 .lbl{bottom:16px}
-.node.r1 .lbl{bottom:27px;opacity:.85}
-.node.r2 .lbl{bottom:38px;opacity:.7}
-.node:hover .dot{transform:scale(1.5)}
+.lane{display:flex;align-items:stretch;border-bottom:1px solid #f5f5f5}
+.lane:nth-child(even){background:#fafafc}
+.lane-name{flex:0 0 84px;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;border-right:2px solid #e0e0e0;cursor:pointer}
+.lane-name:hover{text-decoration:underline}
+.lane-body{flex:1;position:relative;height:30px}
+.lane-body.labels{height:64px}
+.grid{position:absolute;top:0;bottom:0;border-left:1px solid #f2f2f6}
+.node{position:absolute;top:50%;transform:translate(-50%,-50%);text-decoration:none;z-index:2}
+.node .dot{display:block;width:10px;height:10px;border-radius:50%;background:var(--c);margin:0 auto;border:2px solid white;box-shadow:0 0 0 1px var(--c);transition:transform .15s}
+.node .lbl{position:absolute;left:50%;transform:translateX(-50%);font-size:.62rem;font-weight:600;color:var(--c);white-space:nowrap;display:none;bottom:12px}
+.lane-body.labels .node .lbl{display:block}
+.lane-body.labels .node.r1 .lbl{bottom:23px;opacity:.85}
+.lane-body.labels .node.r2 .lbl{bottom:34px;opacity:.7}
 .node:hover{z-index:5}
-.node:hover .lbl{background:white;padding:0 3px;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.15)}
-/* ── company sections ───────────────────────────── */
-.co-block{margin-bottom:1.2rem}
-.co-head{display:flex;align-items:center;gap:.5rem;margin:1.2rem 0 .6rem}
-.co-head .chip{width:12px;height:12px;border-radius:3px}
-.co-head h2{font-size:1rem;color:#302b63}
-.co-head small{color:#999;font-weight:400;font-size:.75rem}
+.node:hover .dot{transform:scale(1.6)}
+.node:hover .lbl{display:block;background:white;padding:1px 4px;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+/* ── series list ────────────────────────────────── */
+.list-info{font-size:.78rem;color:#999;margin:.4rem 0 .6rem}
 .series-card{background:white;border-radius:10px;padding:.9rem 1.1rem;margin-bottom:.6rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.series-head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-bottom:.4rem}
+.series-head{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem}
 .series-head h3{font-size:.92rem}
-.series-head .meta{font-size:.72rem;color:#999}
-.series-head .cnt{font-size:.7rem;background:#302b63;color:white;border-radius:1rem;padding:.1rem .45rem}
+.co-chip{font-size:.68rem;color:white;border-radius:.8rem;padding:.12rem .5rem;font-weight:700}
+.cnt{font-size:.7rem;background:#302b63;color:white;border-radius:1rem;padding:.1rem .45rem}
+.meta{font-size:.72rem;color:#999}
 .paper-row{padding:.35rem 0;border-top:1px solid #f5f5f5}
 .paper-row .p-meta{font-size:.72rem;color:#999;margin-bottom:.1rem}
 .paper-row a{color:#333;text-decoration:none;font-size:.84rem;font-weight:600}
 .paper-row a:hover{color:#302b63;text-decoration:underline}
 .learn-note{font-size:.8rem;color:#2e7d32;background:#f1f8e9;border-radius:6px;padding:.3rem .55rem;margin-top:.25rem;line-height:1.5}
-details{background:white;border-radius:10px;padding:.8rem 1.1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-summary{cursor:pointer;font-size:.85rem;font-weight:600;color:#666}
+mark{background:#fff3b0;border-radius:2px;padding:0 1px}
+.pagination{display:flex;align-items:center;justify-content:center;gap:.3rem;margin-top:1rem;flex-wrap:wrap}
+.page-btn{padding:.35rem .65rem;border:1px solid #ddd;border-radius:6px;background:white;cursor:pointer;font-size:.8rem;min-width:32px;text-align:center}
+.page-btn:hover,.page-btn.active{background:#302b63;color:white;border-color:#302b63}
+.page-btn.dots{cursor:default;border:none;background:none}
 .loading,.empty{text-align:center;padding:3rem;color:#999}
 footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1rem}
 </style>
@@ -67,80 +79,165 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
   <a class="tab" href="../timeline/">📅 时间轴</a>
 </div>
 <div class="page">
-  <h2 class="sec">发布时间轴 <span style="font-size:.72rem;color:#999;font-weight:400">（点节点跳转 arXiv，可横向滚动）</span></h2>
+  <div class="toolbar">
+    <div class="search-row">
+      <input type="text" id="q" placeholder="搜索公司 / 模型 / 论文标题 / 介绍..." oninput="query=this.value.trim();page=1;render()">
+      <span class="hint" id="hint"></span>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
   <div class="chart-wrap"><div class="chart" id="chart"><div class="loading">加载中...</div></div></div>
-  <div id="sections"></div>
+  <div class="list-info" id="list-info"></div>
+  <div id="list"></div>
+  <div id="pager"></div>
 </div>
 <footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB" style="color:#302b63">GitHub</a></footer>
 <script>
 const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d'};
 const color=c=>COLORS[c]||'#302b63';
+const PAGE_SIZE=12;
+let DATA=null, PDFS=new Set(), SEL=new Set(), query='', page=1;
 
-let PDFS=new Set();
 Promise.all([
   fetch('../models.json?t='+Date.now()).then(r=>r.json()),
   fetch('../pdfs-index.json?t='+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[])
 ]).then(([data,pdfIds])=>{
+  DATA=data;
   PDFS=new Set(pdfIds);
-  const models=data.models.filter(m=>m.date&&m.date.length>=10);
-  document.getElementById('header-sub').textContent=
-    `主流厂商模型发布一览 · ${models.length} 个模型系列 · 数据来自 arXiv 追踪库`;
-  renderChart(models);
-  renderSections(data.groups);
+  const n=data.models.length;
+  document.getElementById('header-sub').textContent=`主流厂商模型发布一览 · ${n} 个模型系列 · 数据来自 arXiv 追踪库`;
+  renderChips();
+  render();
 }).catch(()=>{
   document.getElementById('chart').innerHTML='<div class="empty">数据加载失败，请刷新重试</div>';
 });
 
-function renderChart(models){
-  const t0=Date.parse(models[0].date), t1=Date.now();
-  const X=d=>(Date.parse(d)-t0)/(t1-t0)*100;
-  const companies=[...new Set(models.map(m=>m.company))];
-  // year axis
-  const y0=new Date(t0).getFullYear(), y1=new Date(t1).getFullYear();
-  let axis='<div class="axis">';
-  for(let y=y0;y<=y1;y++){
-    const x=X(y+'-01-01');
-    if(x>=0&&x<=100)axis+=`<span style="left:${x}%">${y}</span>`;
-  }
-  axis+='</div>';
-  const lanes=companies.map(co=>{
-    const nodes=models.filter(m=>m.company===co).map((m,i)=>{
-      const x=Math.min(99.5,Math.max(.5,X(m.date)));
-      return `<a class="node r${i%3}" style="left:${x}%;--c:${color(co)}" href="https://arxiv.org/abs/${m.id}" target="_blank" title="${m.model} · ${m.date}\n${m.title}"><span class="lbl">${m.model}</span><span class="dot"></span></a>`;
-    }).join('');
-    return `<div class="lane"><div class="lane-name" style="color:${color(co)}">${co}</div><div class="lane-body">${nodes}</div></div>`;
+function activeCompanies(){
+  return SEL.size?[...SEL]:DATA.groups.map(g=>g.company);
+}
+function toggleCompany(co){
+  if(SEL.has(co))SEL.delete(co);else SEL.add(co);
+  page=1;
+  renderChips();render();
+}
+function clearSel(){SEL.clear();page=1;renderChips();render();}
+
+function renderChips(){
+  const bar=document.getElementById('chips');
+  const all=`<span class="chip all ${SEL.size?'':'on'}" style="--c:#302b63" onclick="clearSel()">全部</span>`;
+  bar.innerHTML=all+DATA.groups.map(g=>{
+    const on=SEL.has(g.company);
+    return `<span class="chip ${on?'on':''}" style="--c:${color(g.company)}" onclick="toggleCompany('${g.company}')">${g.company} ${g.series.length}</span>`;
   }).join('');
-  document.getElementById('chart').innerHTML=axis+lanes;
+}
+
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hl(s){
+  if(!query)return esc(s);
+  const q=query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  return esc(s).replace(new RegExp(`(${q})`,'gi'),'<mark>$1</mark>');
+}
+
+function render(){
+  renderChart();
+  renderList();
+}
+
+function renderChart(){
+  const active=activeCompanies();
+  const models=DATA.models.filter(m=>m.date&&m.date.length>=10&&active.includes(m.company));
+  const showLabels=active.length<=6;
+  const t0=Date.parse(DATA.models.find(m=>m.date&&m.date.length>=10).date), t1=Date.now();
+  const X=d=>Math.min(99.3,Math.max(.7,(Date.parse(d)-t0)/(t1-t0)*100));
+  const y0=new Date(t0).getFullYear(), y1=new Date(t1).getFullYear();
+  const years=[];
+  for(let y=y0;y<=y1;y++){const x=X(y+'-01-01');if(x>=0&&x<=100)years.push([y,x]);}
+  let html='<div class="axis">'+years.map(([y,x])=>`<span style="left:${x}%">${y}</span>`).join('')+'</div>';
+  html+=active.map(co=>{
+    const nodes=models.filter(m=>m.company===co).map((m,i)=>{
+      const r=showLabels?` r${i%3}`:'';
+      return `<a class="node${r}" style="left:${X(m.date)}%;--c:${color(co)}" href="https://arxiv.org/abs/${m.id}" target="_blank" title="${m.model} · ${m.date}\n${m.title}"><span class="lbl">${m.model}</span><span class="dot"></span></a>`;
+    }).join('');
+    const grid=years.map(([_,x])=>`<span class="grid" style="left:${x}%"></span>`).join('');
+    return `<div class="lane"><div class="lane-name" style="color:${color(co)}" title="点击只看 ${co}" onclick="toggleCompany('${co}')">${co}</div><div class="lane-body ${showLabels?'labels':''}">${grid}${nodes}</div></div>`;
+  }).join('');
+  document.getElementById('chart').innerHTML=html;
+  document.getElementById('hint').textContent=showLabels?'':'提示：选 ≤6 家公司可显示全部模型名，悬停节点看详情';
+}
+
+function latestDate(s){
+  return s.papers.map(p=>p.date||'').sort().pop()||'';
+}
+function matchSeries(s,q){
+  q=q.toLowerCase();
+  if(s.company.toLowerCase().includes(q)||s.model.toLowerCase().includes(q))return true;
+  return s.papers.some(p=>p.title.toLowerCase().includes(q)||(p.note||'').includes(q));
+}
+function matchPaper(p,q){
+  q=q.toLowerCase();
+  return p.title.toLowerCase().includes(q)||(p.note||'').includes(q)||p.id.includes(q);
+}
+
+function renderList(){
+  const active=activeCompanies();
+  let series=[];
+  DATA.groups.forEach(g=>{
+    if(!active.includes(g.company))return;
+    g.series.forEach(s=>series.push({company:g.company,model:s.model,papers:s.papers}));
+  });
+  if(query)series=series.filter(s=>matchSeries(s,query));
+  series.sort((a,b)=>latestDate(b).localeCompare(latestDate(a)));
+  const total=series.length;
+  const totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
+  if(page>totalPages)page=totalPages;
+  const slice=series.slice((page-1)*PAGE_SIZE,page*PAGE_SIZE);
+  document.getElementById('list-info').textContent=`共 ${total} 个模型系列 · 第 ${page}/${totalPages} 页`;
+  document.getElementById('list').innerHTML=slice.length?slice.map(seriesCard).join(''):'<div class="empty">没有匹配的模型 📭</div>';
+  renderPager(totalPages);
+}
+
+function seriesCard(s){
+  const papers=query?s.papers.filter(p=>matchPaper(p,query)||s.model.toLowerCase().includes(query.toLowerCase())):s.papers;
+  const dates=s.papers.map(p=>p.date).filter(Boolean).sort();
+  return `<div class="series-card">
+    <div class="series-head">
+      <span class="co-chip" style="background:${color(s.company)}">${s.company}</span>
+      <h3 style="color:${color(s.company)}">${hl(s.model)}</h3>
+      <span class="cnt">${s.papers.length} 篇</span>
+      <span class="meta">${dates[0]||''} ~ ${dates[dates.length-1]||''}</span>
+    </div>
+    ${papers.map(paperRow).join('')||'<div style="font-size:.8rem;color:#bbb">系列名匹配，无标题命中的论文</div>'}
+  </div>`;
 }
 
 function paperRow(p){
   return `<div class="paper-row">
     <div class="p-meta">📅 ${p.date||''} · <a href="https://arxiv.org/abs/${p.id}" target="_blank" style="font-weight:400;color:#302b63">arXiv:${p.id} ↗</a>${PDFS.has(p.id)?` · <a href="../pdfs/${p.id}.pdf" target="_blank" style="font-weight:400;color:#302b63">📄 PDF</a>`:''}</div>
-    <a href="https://arxiv.org/abs/${p.id}" target="_blank">${p.title}</a>
-    ${p.note?`<div class="learn-note">📌 ${p.note}</div>`:''}
+    <a href="https://arxiv.org/abs/${p.id}" target="_blank">${hl(p.title)}</a>
+    ${p.note?`<div class="learn-note">📌 ${hl(p.note)}</div>`:''}
   </div>`;
 }
 
-function renderSections(groups){
-  document.getElementById('sections').innerHTML=groups.map(g=>{
-    const total=g.series.reduce((n,s)=>n+s.papers.length,0)+g.others.length;
-    const series=g.series.map(s=>{
-      const dates=s.papers.map(p=>p.date).filter(Boolean).sort();
-      return `<div class="series-card">
-        <div class="series-head">
-          <h3 style="color:${color(g.company)}">${s.model}</h3>
-          <span class="cnt">${s.papers.length} 篇</span>
-          <span class="meta">${dates[0]||''} ~ ${dates[dates.length-1]||''}</span>
-        </div>
-        ${s.papers.map(paperRow).join('')}
-      </div>`;
-    }).join('');
-    const others=g.others.length?`<details><summary>其他论文（${g.others.length} 篇）</summary>${g.others.map(paperRow).join('')}</details>`:'';
-    return `<div class="co-block">
-      <div class="co-head"><span class="chip" style="background:${color(g.company)}"></span><h2>${g.company}</h2><small>${g.series.length} 个模型系列 · ${total} 篇论文</small></div>
-      ${series}${others}
-    </div>`;
-  }).join('');
+function renderPager(totalPages){
+  if(totalPages<=1){document.getElementById('pager').innerHTML='';return;}
+  const show=new Set([1,totalPages,page,page-1,page+1,page-2,page+2].filter(p=>p>=1&&p<=totalPages));
+  const sorted=[...show].sort((a,b)=>a-b);
+  let html='<div class="pagination">';
+  if(page>1)html+=`<button class="page-btn" onclick="goPage(${page-1})">‹</button>`;
+  let prev=0;
+  sorted.forEach(p=>{
+    if(p-prev>1)html+='<span class="page-btn dots">…</span>';
+    html+=`<button class="page-btn ${p===page?'active':''}" onclick="goPage(${p})">${p}</button>`;
+    prev=p;
+  });
+  if(page<totalPages)html+=`<button class="page-btn" onclick="goPage(${page+1})">›</button>`;
+  html+='</div>';
+  document.getElementById('pager').innerHTML=html;
+}
+function goPage(p){
+  page=p;
+  renderList();
+  document.getElementById('list-info').scrollIntoView({behavior:'smooth',block:'start'});
 }
 </script>
 </body>
