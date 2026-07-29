@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模型发布时序 · LLM Papers Tracker</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#333}
+header{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;padding:1.5rem 2rem;text-align:center}
+header h1{font-size:1.8rem;margin-bottom:.3rem}
+header p{opacity:.8;font-size:.85rem}
+.tabs{display:flex;justify-content:center;gap:.6rem;padding:.8rem;background:white;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.tab{padding:.45rem 1.1rem;border-radius:2rem;border:2px solid #302b63;background:white;font-weight:600;font-size:.82rem;text-decoration:none;color:#302b63}
+.tab:hover,.tab.active{background:#302b63;color:white}
+.page{max-width:1200px;margin:0 auto;padding:1rem}
+h2.sec{font-size:1.05rem;color:#302b63;margin:1.2rem 0 .6rem}
+/* ── timeline chart ─────────────────────────────── */
+.chart-wrap{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:.8rem .5rem .5rem;overflow-x:auto}
+.chart{min-width:1150px;position:relative}
+.axis{position:relative;height:18px;border-bottom:2px solid #e0e0e0;margin-left:92px;margin-right:8px}
+.axis span{position:absolute;top:0;transform:translateX(-50%);font-size:.68rem;color:#999}
+.lane{display:flex;align-items:stretch;border-bottom:1px dashed #f0f0f0}
+.lane:last-child{border-bottom:none}
+.lane-name{flex:0 0 84px;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;border-right:2px solid #e0e0e0}
+.lane-body{flex:1;position:relative;height:66px}
+.lane-body::before{content:'';position:absolute;left:0;right:8px;top:44px;border-top:1px solid #f3f3f3}
+.node{position:absolute;top:40px;transform:translateX(-50%);text-decoration:none;z-index:2}
+.node .dot{display:block;width:9px;height:9px;border-radius:50%;background:var(--c);margin:0 auto;border:2px solid white;box-shadow:0 0 0 1px var(--c)}
+.node .lbl{position:absolute;left:50%;transform:translateX(-50%);font-size:.62rem;font-weight:600;color:var(--c);white-space:nowrap}
+.node.r0 .lbl{bottom:16px}
+.node.r1 .lbl{bottom:27px;opacity:.85}
+.node.r2 .lbl{bottom:38px;opacity:.7}
+.node:hover .dot{transform:scale(1.5)}
+.node:hover{z-index:5}
+.node:hover .lbl{background:white;padding:0 3px;border-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+/* ── company sections ───────────────────────────── */
+.co-block{margin-bottom:1.2rem}
+.co-head{display:flex;align-items:center;gap:.5rem;margin:1.2rem 0 .6rem}
+.co-head .chip{width:12px;height:12px;border-radius:3px}
+.co-head h2{font-size:1rem;color:#302b63}
+.co-head small{color:#999;font-weight:400;font-size:.75rem}
+.series-card{background:white;border-radius:10px;padding:.9rem 1.1rem;margin-bottom:.6rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.series-head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-bottom:.4rem}
+.series-head h3{font-size:.92rem}
+.series-head .meta{font-size:.72rem;color:#999}
+.series-head .cnt{font-size:.7rem;background:#302b63;color:white;border-radius:1rem;padding:.1rem .45rem}
+.paper-row{padding:.35rem 0;border-top:1px solid #f5f5f5}
+.paper-row .p-meta{font-size:.72rem;color:#999;margin-bottom:.1rem}
+.paper-row a{color:#333;text-decoration:none;font-size:.84rem;font-weight:600}
+.paper-row a:hover{color:#302b63;text-decoration:underline}
+.learn-note{font-size:.8rem;color:#2e7d32;background:#f1f8e9;border-radius:6px;padding:.3rem .55rem;margin-top:.25rem;line-height:1.5}
+details{background:white;border-radius:10px;padding:.8rem 1.1rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+summary{cursor:pointer;font-size:.85rem;font-weight:600;color:#666}
+.loading,.empty{text-align:center;padding:3rem;color:#999}
+footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1rem}
+</style>
+</head>
+<body>
+<header>
+  <h1>🧬 模型发布时序</h1>
+  <p id="header-sub">主流厂商模型发布一览 · 数据来自 arXiv 追踪库</p>
+</header>
+<div class="tabs">
+  <a class="tab" href="../">📄 论文追踪</a>
+  <a class="tab active" href="./">🧬 模型时序</a>
+  <a class="tab" href="../timeline/">📅 时间轴</a>
+</div>
+<div class="page">
+  <h2 class="sec">发布时间轴 <span style="font-size:.72rem;color:#999;font-weight:400">（点节点跳转 arXiv，可横向滚动）</span></h2>
+  <div class="chart-wrap"><div class="chart" id="chart"><div class="loading">加载中...</div></div></div>
+  <div id="sections"></div>
+</div>
+<footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB" style="color:#302b63">GitHub</a></footer>
+<script>
+const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d'};
+const color=c=>COLORS[c]||'#302b63';
+
+let PDFS=new Set();
+Promise.all([
+  fetch('../models.json?t='+Date.now()).then(r=>r.json()),
+  fetch('../pdfs-index.json?t='+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[])
+]).then(([data,pdfIds])=>{
+  PDFS=new Set(pdfIds);
+  const models=data.models.filter(m=>m.date&&m.date.length>=10);
+  document.getElementById('header-sub').textContent=
+    `主流厂商模型发布一览 · ${models.length} 个模型系列 · 数据来自 arXiv 追踪库`;
+  renderChart(models);
+  renderSections(data.groups);
+}).catch(()=>{
+  document.getElementById('chart').innerHTML='<div class="empty">数据加载失败，请刷新重试</div>';
+});
+
+function renderChart(models){
+  const t0=Date.parse(models[0].date), t1=Date.now();
+  const X=d=>(Date.parse(d)-t0)/(t1-t0)*100;
+  const companies=[...new Set(models.map(m=>m.company))];
+  // year axis
+  const y0=new Date(t0).getFullYear(), y1=new Date(t1).getFullYear();
+  let axis='<div class="axis">';
+  for(let y=y0;y<=y1;y++){
+    const x=X(y+'-01-01');
+    if(x>=0&&x<=100)axis+=`<span style="left:${x}%">${y}</span>`;
+  }
+  axis+='</div>';
+  const lanes=companies.map(co=>{
+    const nodes=models.filter(m=>m.company===co).map((m,i)=>{
+      const x=Math.min(99.5,Math.max(.5,X(m.date)));
+      return `<a class="node r${i%3}" style="left:${x}%;--c:${color(co)}" href="https://arxiv.org/abs/${m.id}" target="_blank" title="${m.model} · ${m.date}\n${m.title}"><span class="lbl">${m.model}</span><span class="dot"></span></a>`;
+    }).join('');
+    return `<div class="lane"><div class="lane-name" style="color:${color(co)}">${co}</div><div class="lane-body">${nodes}</div></div>`;
+  }).join('');
+  document.getElementById('chart').innerHTML=axis+lanes;
+}
+
+function paperRow(p){
+  return `<div class="paper-row">
+    <div class="p-meta">📅 ${p.date||''} · <a href="https://arxiv.org/abs/${p.id}" target="_blank" style="font-weight:400;color:#302b63">arXiv:${p.id} ↗</a>${PDFS.has(p.id)?` · <a href="../pdfs/${p.id}.pdf" target="_blank" style="font-weight:400;color:#302b63">📄 PDF</a>`:''}</div>
+    <a href="https://arxiv.org/abs/${p.id}" target="_blank">${p.title}</a>
+    ${p.note?`<div class="learn-note">📌 ${p.note}</div>`:''}
+  </div>`;
+}
+
+function renderSections(groups){
+  document.getElementById('sections').innerHTML=groups.map(g=>{
+    const total=g.series.reduce((n,s)=>n+s.papers.length,0)+g.others.length;
+    const series=g.series.map(s=>{
+      const dates=s.papers.map(p=>p.date).filter(Boolean).sort();
+      return `<div class="series-card">
+        <div class="series-head">
+          <h3 style="color:${color(g.company)}">${s.model}</h3>
+          <span class="cnt">${s.papers.length} 篇</span>
+          <span class="meta">${dates[0]||''} ~ ${dates[dates.length-1]||''}</span>
+        </div>
+        ${s.papers.map(paperRow).join('')}
+      </div>`;
+    }).join('');
+    const others=g.others.length?`<details><summary>其他论文（${g.others.length} 篇）</summary>${g.others.map(paperRow).join('')}</details>`:'';
+    return `<div class="co-block">
+      <div class="co-head"><span class="chip" style="background:${color(g.company)}"></span><h2>${g.company}</h2><small>${g.series.length} 个模型系列 · ${total} 篇论文</small></div>
+      ${series}${others}
+    </div>`;
+  }).join('');
+}
+</script>
+</body>
+</html>

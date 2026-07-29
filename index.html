@@ -112,6 +112,7 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
   <button class="tab" onclick="showTab('learn',this)">📚 学习路径</button>
   <button class="tab" onclick="showTab('favorites',this)">⭐ 收藏</button>
   <a class="tab" href="timeline/">📅 时间轴</a>
+  <a class="tab" href="models/">🧬 模型</a>
   <button class="tab" onclick="refreshData()" title="重新加载数据">🔄 刷新</button>
   <button class="tab" id="btn-update" onclick="triggerUpdate()" title="触发 GitHub Actions 自动抓取最新论文">⚡ 更新数据</button>
 </div>
@@ -221,6 +222,7 @@ const TOPICS=[
 const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d'};
 const PAGE_SIZE=8;
 let PAPERS=[], currentTab='latest', currentPage=1;
+let PDFS=new Set();
 let favorites=new Set(JSON.parse(localStorage.getItem('llm_favs')||'[]'));
 
 // Drag-to-scroll sidebar
@@ -288,6 +290,7 @@ function renderCard(p){
       <span class="badge cite ${p.cite>=1000?'high':''}">📊 ${(p.cite||0).toLocaleString()}</span>
       <span class="badge date">📅 ${p.date||String(p.year)||''}</span>
       <a class="arxiv-link" href="https://arxiv.org/abs/${p.id}" target="_blank">arXiv ↗</a>
+      ${PDFS.has(p.id)?`<a class="arxiv-link" href="pdfs/${p.id}.pdf" target="_blank">📄 PDF</a>`:''}
     </div>
     <h3>${p.title}</h3>
     ${p.title_zh?`<div class="title-zh">📖 ${p.title_zh}</div>`:''}
@@ -397,8 +400,12 @@ function buildLearnHtml(){
   }).join('');
 }
 
-fetch('papers.json?t='+Date.now()).then(r=>r.json()).then(data=>{
+Promise.all([
+  fetch('papers.json?t='+Date.now()).then(r=>r.json()),
+  fetch('pdfs-index.json?t='+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[])
+]).then(([data,pdfIds])=>{
   PAPERS=data;
+  PDFS=new Set(pdfIds);
   document.getElementById('header-sub').textContent=`AI 大模型前沿论文追踪 · 共 ${PAPERS.length} 篇 · 每日自动更新`;
   renderSection(1);
   loadCompanyTimeline();
