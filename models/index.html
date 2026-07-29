@@ -78,6 +78,23 @@ mark{background:#fff3b0;border-radius:2px;padding:0 1px}
 .page-btn.dots{cursor:default;border:none;background:none}
 .loading,.empty{text-align:center;padding:3rem;color:#999}
 footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1rem}
+/* ── detail modal ───────────────────────────────── */
+.modal-mask{position:fixed;inset:0;background:rgba(15,12,41,.55);z-index:100;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:2.5rem 1rem}
+.modal-mask.open{display:flex}
+.modal{background:white;border-radius:14px;max-width:780px;width:100%;padding:1.2rem 1.4rem;box-shadow:0 12px 48px rgba(0,0,0,.3);position:relative}
+.modal-close{position:absolute;top:.7rem;right:.9rem;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#999}
+.modal-close:hover{color:#333}
+.modal-head{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.3rem}
+.modal-head h2{font-size:1.25rem}
+.modal-date{font-size:.78rem;color:#999}
+.arch{width:100%;border:1px solid #eee;border-radius:8px;margin:.7rem 0;background:#fafafa}
+.arch-cap{font-size:.7rem;color:#aaa;text-align:center;margin-top:-.4rem;margin-bottom:.5rem}
+.modal-note{font-size:.85rem;color:#2e7d32;background:#f1f8e9;border-radius:8px;padding:.5rem .8rem;line-height:1.6;margin:.5rem 0}
+.btn-row{display:flex;gap:.5rem;flex-wrap:wrap;margin:.7rem 0}
+.btn{padding:.4rem .95rem;border-radius:1.5rem;border:1.5px solid #302b63;color:#302b63;font-size:.8rem;font-weight:600;text-decoration:none;transition:all .15s}
+.btn:hover{background:#302b63;color:white}
+.modal-papers{border-top:1px solid #f0f0f0;margin-top:.7rem;padding-top:.5rem}
+.modal-papers h4{font-size:.85rem;color:#302b63;margin-bottom:.2rem}
 </style>
 </head>
 <body>
@@ -111,6 +128,9 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
   <div class="list-info" id="list-info"></div>
   <div id="list"></div>
   <div id="pager"></div>
+</div>
+<div class="modal-mask" id="modal-mask" onclick="if(event.target===this)closeDetail()">
+  <div class="modal" id="modal"></div>
 </div>
 <footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB" style="color:#302b63">GitHub</a></footer>
 <script>
@@ -150,15 +170,49 @@ function flagOf(co){const m=META[co];return m?(m.flag||(m.region==='cn'?'🇨�
 function openTag(co){const m=META[co];return m?({open:'🔓',mixed:'🔓',closed:'🔒'}[m.open]):'';}
 
 const color=c=>COLORS[c]||'#302b63';
+// main code/weights repo per company (for the detail modal button)
+const COMPANY_GH={
+  OpenAI:'https://github.com/openai/gpt-oss',
+  Google:'https://github.com/google-deepmind/gemma',
+  Meta:'https://github.com/meta-llama/llama3',
+  Mistral:'https://github.com/mistralai/mistral-inference',
+  Qwen:'https://github.com/QwenLM/Qwen3',
+  DeepSeek:'https://github.com/deepseek-ai/DeepSeek-V3',
+  Baidu:'https://github.com/PaddlePaddle/ERNIE',
+  Zhipu:'https://github.com/THUDM/GLM-4',
+  Moonshot:'https://github.com/MoonshotAI/Kimi-K2',
+  MiniMax:'https://github.com/MiniMax-AI/MiniMax-01',
+  Xiaomi:'https://github.com/XiaomiMiMo/MiMo',
+  Tencent:'https://github.com/Tencent/Tencent-Hunyuan-Large',
+  Microsoft:'https://github.com/microsoft/Phi-3CookBook',
+  Nvidia:'https://github.com/NVIDIA/NeMo',
+  IBM:'https://github.com/ibm-granite',
+  AllenAI:'https://github.com/allenai/OLMo',
+  xAI:'https://github.com/xai-org/grok-1',
+  '01.AI':'https://github.com/01-ai/Yi',
+  Baichuan:'https://github.com/baichuan-inc/Baichuan2',
+  InternLM:'https://github.com/InternLM/InternLM',
+  Databricks:'https://github.com/databricks/dbrx',
+  AI21:'https://github.com/ai21labs/Jamba',
+  LG:'https://github.com/LG-AI-EXAONE',
+  TII:'https://huggingface.co/tiiuae',
+  Cohere:'https://huggingface.co/cohereforai',
+};
+const dkey=m=>m.replace(/[\s\-.]/g,'').toLowerCase();
+const nkey=(co,model)=>co+'|'+dkey(model);
 const PAGE_SIZE=12;
-let DATA=null, PDFS=new Set(), SEL=new Set(), REGION=null, OPEN=null, RANGE='1y', query='', page=1;
+let DATA=null, PDFS=new Set(), FIGS={}, NODE_MAP={}, SERIES_MAP={}, SEL=new Set(), REGION=null, OPEN=null, RANGE='1y', query='', page=1;
 
 Promise.all([
   fetch('../models.json?t='+Date.now()).then(r=>r.json()),
-  fetch('../pdfs-index.json?t='+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[])
-]).then(([data,pdfIds])=>{
+  fetch('../pdfs-index.json?t='+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch('../models-figures.json?t='+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
+]).then(([data,pdfIds,figs])=>{
   DATA=data;
   PDFS=new Set(pdfIds);
+  FIGS=figs;
+  DATA.models.forEach(m=>{NODE_MAP[nkey(m.company,m.model)]=m;});
+  DATA.groups.forEach(g=>g.series.forEach(s=>{SERIES_MAP[nkey(g.company,s.model)]=s;}));
   const n=data.models.length;
   document.getElementById('header-sub').textContent=`主流厂商模型发布一览 · ${n} 个模型系列 · 数据来自 arXiv 追踪库`;
   renderChips();
@@ -261,9 +315,8 @@ function renderChart(){
   html+=lanes.map(co=>{
     const nodes=models.filter(m=>m.company===co).map((m,i)=>{
       const r=showLabels?` r${i%3}`:'';
-      const href=m.url||`https://arxiv.org/abs/${m.id}`;
-      const tip=`${m.model} · ${m.date}\n${m.title||m.note||''}`;
-      return `<a class="node${r}${m.extra?' extra':''}" style="left:${X(m.date)}%;--c:${color(co)}" href="${href}" target="_blank" title="${tip}"><span class="lbl">${m.model}</span><span class="dot"></span></a>`;
+      const tip=`${m.model} · ${m.date}\n${m.title||m.note||''}\n点击查看详情`;
+      return `<a class="node${r}${m.extra?' extra':''}" style="left:${X(m.date)}%;--c:${color(co)}" href="javascript:void(0)" onclick="showDetail('${nkey(m.company,m.model)}')" title="${tip}"><span class="lbl">${m.model}</span><span class="dot"></span></a>`;
     }).join('');
     const grid=ticks.map(([,x])=>`<span class="grid" style="left:${X(new Date(x).toISOString().slice(0,10))}%"></span>`).join('');
     return `<div class="lane"><div class="lane-name" style="color:${color(co)}" title="点击只看 ${co}" onclick="toggleCompany('${co}')">${logoHTML(co)}${co}</div><div class="lane-body ${showLabels?'labels':''}">${grid}${nodes}</div></div>`;
@@ -310,6 +363,7 @@ function seriesCard(s){
       <h3 style="color:${color(s.company)}">${hl(s.model)}</h3>
       <span class="cnt">${s.papers.length} 篇</span>
       <span class="meta">${dates[0]||''} ~ ${dates[dates.length-1]||''}</span>
+      <span class="meta" style="cursor:pointer;color:#302b63;text-decoration:underline" onclick="showDetail('${nkey(s.company,s.model)}')">🔍 详情</span>
     </div>
     ${papers.map(paperRow).join('')||'<div style="font-size:.8rem;color:#bbb">系列名匹配，无标题命中的论文</div>'}
   </div>`;
@@ -344,6 +398,45 @@ function goPage(p){
   renderList();
   document.getElementById('list-info').scrollIntoView({behavior:'smooth',block:'start'});
 }
+
+// ── detail modal ──────────────────────────────────
+function showDetail(key){
+  const m=NODE_MAP[key];
+  if(!m)return;
+  const s=SERIES_MAP[key];
+  const papers=s?s.papers:[];
+  const fig=FIGS[key];
+  const gh=COMPANY_GH[m.company];
+  const reportUrl=m.url||(m.id?`https://arxiv.org/abs/${m.id}`:'');
+  const buttons=[
+    reportUrl?`<a class="btn" href="${reportUrl}" target="_blank">📑 技术报告/官方发布 ↗</a>`:'',
+    gh?`<a class="btn" href="${gh}" target="_blank">💻 代码/权重 ↗</a>`:'',
+    (m.id&&PDFS.has(m.id))?`<a class="btn" href="../pdfs/${m.id}.pdf" target="_blank">📄 本地 PDF</a>`:'',
+    m.id?`<a class="btn" href="https://arxiv.org/abs/${m.id}" target="_blank">arXiv:${m.id} ↗</a>`:'',
+  ].filter(Boolean).join('');
+  document.getElementById('modal').innerHTML=`
+    <button class="modal-close" onclick="closeDetail()">✕</button>
+    <div class="modal-head">
+      ${logoHTML(m.company,'lg')}
+      <h2 style="color:${color(m.company)}">${esc(m.model)}</h2>
+      <span class="co-chip" style="background:${color(m.company)}">${m.company} ${flagOf(m.company)}</span>
+      <span class="meta">${openTag(m.company)} ${{open:'开放权重',mixed:'混合开放',closed:'闭源'}[(META[m.company]||{}).open]||''}</span>
+    </div>
+    <div class="modal-date">📅 发布日期 ${m.date||'未知'}${papers.length?` · 追踪到 ${papers.length} 篇相关论文`:''}${m.extra?' · 官方发布（暂无 arXiv 论文）':''}</div>
+    ${fig?`<img class="arch" src="${fig}" alt="${esc(m.model)} 结构图" loading="lazy"><div class="arch-cap">模型结构图 · 截自技术报告</div>`:''}
+    ${m.note?`<div class="modal-note">📌 ${esc(m.note)}</div>`:''}
+    ${m.title?`<div style="font-size:.82rem;color:#666;margin:.3rem 0">📄 ${esc(m.title)}</div>`:''}
+    <div class="btn-row">${buttons}</div>
+    ${papers.length?`<div class="modal-papers"><h4>系列论文（${papers.length}）</h4>${papers.map(paperRow).join('')}</div>`:''}
+  `;
+  document.getElementById('modal-mask').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDetail(){
+  document.getElementById('modal-mask').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail();});
 </script>
 </body>
 </html>
