@@ -275,6 +275,7 @@ function renderCard(p){
     ${p.title_zh?`<div class="title-zh">📖 ${p.title_zh}</div>`:''}
     <div class="authors">👤 ${p.authors}</div>
     <div style="margin-bottom:.3rem">${tags}</div>
+    ${p.note?`<div class="learn-note">📌 ${p.note}</div>`:''}
     <div class="abstract">${p.abstract}</div>
   </div>`;
 }
