@@ -20,19 +20,30 @@ header p{opacity:.8;font-size:.85rem}
 .search-row input{flex:1;padding:.45rem .8rem;border:1px solid #ddd;border-radius:8px;font-size:.85rem;outline:none}
 .search-row input:focus{border-color:#302b63}
 .search-row .hint{font-size:.72rem;color:#aaa;white-space:nowrap}
-.chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center}
+.chips + .chips{margin-top:.4rem}
+.chips .lbl-t{font-size:.72rem;color:#999;margin-right:.1rem}
 .chip{padding:.18rem .6rem;border-radius:1rem;font-size:.72rem;font-weight:600;cursor:pointer;border:1.5px solid var(--c);color:var(--c);background:white;transition:all .15s;user-select:none}
 .chip.on{background:var(--c);color:white}
 .chip.all{border-color:#302b63;color:#302b63}
 .chip.all.on{background:#302b63;color:white}
+.chip.logo-chip{display:inline-flex;align-items:center;gap:.3rem}
+/* ── logo ───────────────────────────────────────── */
+.logo{position:relative;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:4px;overflow:hidden;flex-shrink:0;font-style:normal;font-size:.66rem;font-weight:800;color:white;background:var(--c,#302b63)}
+.logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:white}
+.logo.lg{width:22px;height:22px;font-size:.75rem}
 /* ── timeline chart ─────────────────────────────── */
+.range-bar{display:flex;gap:.4rem;align-items:center;margin-bottom:.5rem}
+.range-bar .lbl-t{font-size:.75rem;color:#999}
+.range-btn{padding:.25rem .8rem;border:1.5px solid #302b63;border-radius:1rem;background:white;color:#302b63;font-size:.75rem;font-weight:600;cursor:pointer}
+.range-btn.on{background:#302b63;color:white}
 .chart-wrap{background:white;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:.8rem .5rem .5rem;overflow-x:auto;margin-bottom:1rem}
 .chart{min-width:1150px;position:relative}
 .axis{position:relative;height:18px;border-bottom:2px solid #e0e0e0;margin-left:92px;margin-right:8px}
-.axis span{position:absolute;top:0;transform:translateX(-50%);font-size:.68rem;color:#999}
+.axis span{position:absolute;top:0;transform:translateX(-50%);font-size:.68rem;color:#999;white-space:nowrap}
 .lane{display:flex;align-items:stretch;border-bottom:1px solid #f5f5f5}
 .lane:nth-child(even){background:#fafafc}
-.lane-name{flex:0 0 84px;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;border-right:2px solid #e0e0e0;cursor:pointer}
+.lane-name{flex:0 0 84px;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:flex-end;gap:.3rem;padding-right:8px;border-right:2px solid #e0e0e0;cursor:pointer}
 .lane-name:hover{text-decoration:underline}
 .lane-body{flex:1;position:relative;height:30px}
 .lane-body.labels{height:64px}
@@ -51,7 +62,7 @@ header p{opacity:.8;font-size:.85rem}
 .series-card{background:white;border-radius:10px;padding:.9rem 1.1rem;margin-bottom:.6rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .series-head{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem}
 .series-head h3{font-size:.92rem}
-.co-chip{font-size:.68rem;color:white;border-radius:.8rem;padding:.12rem .5rem;font-weight:700}
+.co-chip{display:inline-flex;align-items:center;gap:.3rem;font-size:.68rem;color:white;border-radius:.8rem;padding:.14rem .5rem .14rem .2rem;font-weight:700}
 .cnt{font-size:.7rem;background:#302b63;color:white;border-radius:1rem;padding:.1rem .45rem}
 .meta{font-size:.72rem;color:#999}
 .paper-row{padding:.35rem 0;border-top:1px solid #f5f5f5}
@@ -84,7 +95,15 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
       <input type="text" id="q" placeholder="搜索公司 / 模型 / 论文标题 / 介绍..." oninput="query=this.value.trim();page=1;render()">
       <span class="hint" id="hint"></span>
     </div>
+    <div class="chips" id="meta-chips"></div>
     <div class="chips" id="chips"></div>
+  </div>
+  <div class="range-bar">
+    <span class="lbl-t">时间范围</span>
+    <button class="range-btn" data-r="6m" onclick="setRange('6m')">近半年</button>
+    <button class="range-btn on" data-r="1y" onclick="setRange('1y')">近一年</button>
+    <button class="range-btn" data-r="2y" onclick="setRange('2y')">近两年</button>
+    <button class="range-btn" data-r="all" onclick="setRange('all')">全部</button>
   </div>
   <div class="chart-wrap"><div class="chart" id="chart"><div class="loading">加载中...</div></div></div>
   <div class="list-info" id="list-info"></div>
@@ -94,9 +113,43 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
 <footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB" style="color:#302b63">GitHub</a></footer>
 <script>
 const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d'};
+// region: cn/us/other ; open: open/mixed/closed ; dom: logo domain
+const META={
+  OpenAI:{region:'us',open:'mixed',dom:'openai.com'},
+  Google:{region:'us',open:'mixed',dom:'google.com'},
+  Meta:{region:'us',open:'open',dom:'meta.com'},
+  Anthropic:{region:'us',open:'closed',dom:'anthropic.com'},
+  Mistral:{region:'other',open:'open',dom:'mistral.ai',flag:'🇫🇷'},
+  Qwen:{region:'cn',open:'open',dom:'qwen.ai'},
+  DeepSeek:{region:'cn',open:'open',dom:'deepseek.com'},
+  Baidu:{region:'cn',open:'open',dom:'baidu.com'},
+  Zhipu:{region:'cn',open:'open',dom:'zhipuai.cn'},
+  Moonshot:{region:'cn',open:'open',dom:'moonshot.cn'},
+  MiniMax:{region:'cn',open:'open',dom:'minimax.io'},
+  Xiaomi:{region:'cn',open:'open',dom:'mi.com'},
+  Tencent:{region:'cn',open:'open',dom:'tencent.com'},
+  Microsoft:{region:'us',open:'open',dom:'microsoft.com'},
+  Nvidia:{region:'us',open:'open',dom:'nvidia.com'},
+  IBM:{region:'us',open:'open',dom:'ibm.com'},
+  AllenAI:{region:'us',open:'open',dom:'allenai.org'},
+  TII:{region:'other',open:'open',dom:'tii.ae',flag:'🇦🇪'},
+  xAI:{region:'us',open:'mixed',dom:'x.ai'},
+  '01.AI':{region:'cn',open:'open',dom:'01.ai'},
+  Baichuan:{region:'cn',open:'open',dom:'baichuan-ai.com'},
+  InternLM:{region:'cn',open:'open',dom:'shlab.org.cn'},
+  Databricks:{region:'us',open:'open',dom:'databricks.com'},
+  AI21:{region:'other',open:'open',dom:'ai21.com',flag:'🇮🇱'},
+  LG:{region:'other',open:'open',dom:'lg.com',flag:'🇰🇷'},
+  Cohere:{region:'other',open:'open',dom:'cohere.com',flag:'🇨🇦'},
+};
+const REGION_LABEL={cn:'🇨🇳 中国',us:'🇺🇸 美国',other:'🌍 其他'};
+const OPEN_LABEL={open:'🔓 开放权重',mixed:'🔓 混合',closed:'🔒 闭源'};
+function flagOf(co){const m=META[co];return m?(m.flag||(m.region==='cn'?'🇨🇳':'🇺🇸')):'';}
+function openTag(co){const m=META[co];return m?({open:'🔓',mixed:'🔓',closed:'🔒'}[m.open]):'';}
+
 const color=c=>COLORS[c]||'#302b63';
 const PAGE_SIZE=12;
-let DATA=null, PDFS=new Set(), SEL=new Set(), query='', page=1;
+let DATA=null, PDFS=new Set(), SEL=new Set(), REGION=null, OPEN=null, RANGE='1y', query='', page=1;
 
 Promise.all([
   fetch('../models.json?t='+Date.now()).then(r=>r.json()),
@@ -112,22 +165,43 @@ Promise.all([
   document.getElementById('chart').innerHTML='<div class="empty">数据加载失败，请刷新重试</div>';
 });
 
+function logoHTML(co,cls){
+  const m=META[co]||{};
+  const letter=co.replace(/[^A-Za-z]/g,'')[0]||'?';
+  const src=m.dom?`https://www.google.com/s2/favicons?domain=${m.dom}&sz=64`:'';
+  return `<i class="logo ${cls||''}" style="--c:${color(co)}">${letter}${src?`<img src="${src}" onerror="this.remove()" loading="lazy">`:''}</i>`;
+}
+
 function activeCompanies(){
-  return SEL.size?[...SEL]:DATA.groups.map(g=>g.company);
+  let base=SEL.size?[...SEL]:DATA.groups.map(g=>g.company);
+  if(REGION)base=base.filter(co=>(META[co]||{}).region===REGION);
+  if(OPEN)base=base.filter(co=>(META[co]||{}).open===OPEN);
+  return base;
 }
 function toggleCompany(co){
   if(SEL.has(co))SEL.delete(co);else SEL.add(co);
-  page=1;
-  renderChips();render();
+  page=1;renderChips();render();
 }
 function clearSel(){SEL.clear();page=1;renderChips();render();}
+function setRegion(r){REGION=REGION===r?null:r;page=1;renderChips();render();}
+function setOpen(o){OPEN=OPEN===o?null:o;page=1;renderChips();render();}
+function setRange(r){
+  RANGE=r;
+  document.querySelectorAll('.range-btn').forEach(b=>b.classList.toggle('on',b.dataset.r===r));
+  renderChart();
+}
 
 function renderChips(){
+  document.getElementById('meta-chips').innerHTML=
+    '<span class="lbl-t">分类</span>'+
+    Object.entries(REGION_LABEL).map(([k,v])=>`<span class="chip all ${REGION===k?'on':''}" style="--c:#302b63" onclick="setRegion('${k}')">${v}</span>`).join('')+
+    '<span class="lbl-t" style="margin-left:.4rem">开放度</span>'+
+    Object.entries(OPEN_LABEL).map(([k,v])=>`<span class="chip all ${OPEN===k?'on':''}" style="--c:#302b63" onclick="setOpen('${k}')">${v}</span>`).join('');
   const bar=document.getElementById('chips');
-  const all=`<span class="chip all ${SEL.size?'':'on'}" style="--c:#302b63" onclick="clearSel()">全部</span>`;
-  bar.innerHTML=all+DATA.groups.map(g=>{
+  const all=`<span class="chip all ${SEL.size?'':'on'}" style="--c:#302b63" onclick="clearSel()">全部公司</span>`;
+  bar.innerHTML='<span class="lbl-t">公司</span>'+all+DATA.groups.map(g=>{
     const on=SEL.has(g.company);
-    return `<span class="chip ${on?'on':''}" style="--c:${color(g.company)}" onclick="toggleCompany('${g.company}')">${g.company} ${g.series.length}</span>`;
+    return `<span class="chip logo-chip ${on?'on':''}" style="--c:${color(g.company)}" onclick="toggleCompany('${g.company}')">${logoHTML(g.company)}${g.company} ${g.series.length}</span>`;
   }).join('');
 }
 
@@ -138,36 +212,63 @@ function hl(s){
   return esc(s).replace(new RegExp(`(${q})`,'gi'),'<mark>$1</mark>');
 }
 
-function render(){
-  renderChart();
-  renderList();
+function render(){renderChart();renderList();}
+
+function rangeStart(){
+  const t1=Date.now(), day=86400000;
+  if(RANGE==='6m')return t1-183*day;
+  if(RANGE==='1y')return t1-365*day;
+  if(RANGE==='2y')return t1-730*day;
+  return Date.parse(DATA.models.find(m=>m.date&&m.date.length>=10).date);
+}
+
+function makeTicks(t0,t1){
+  const span=(t1-t0)/86400000, out=[];
+  const d=new Date(t0);
+  if(span>900){
+    for(let y=d.getFullYear();y<=new Date(t1).getFullYear();y++)out.push([String(y),Date.parse(y+'-01-01')]);
+  }else if(span>400){
+    let y=d.getFullYear(),q=Math.floor(d.getMonth()/3)+1;
+    while(Date.parse(`${y}-${String((q-1)*3+1).padStart(2,'0')}-01`)<=t1){
+      out.push([`${y}Q${q}`,Date.parse(`${y}-${String((q-1)*3+1).padStart(2,'0')}-01`)]);
+      q++;if(q>4){q=1;y++;}
+    }
+  }else{
+    let y=d.getFullYear(),m=d.getMonth();
+    while(Date.parse(`${y}-${String(m+1).padStart(2,'0')}-01`)<=t1){
+      out.push([`${String(m+1).padStart(2,'0')}月`,Date.parse(`${y}-${String(m+1).padStart(2,'0')}-01`)]);
+      m++;if(m>11){m=0;y++;}
+    }
+  }
+  return out.filter(([,t])=>t>=t0&&t<=t1);
 }
 
 function renderChart(){
   const active=activeCompanies();
-  const models=DATA.models.filter(m=>m.date&&m.date.length>=10&&active.includes(m.company));
-  const showLabels=active.length<=6;
-  const t0=Date.parse(DATA.models.find(m=>m.date&&m.date.length>=10).date), t1=Date.now();
+  const t0=rangeStart(), t1=Date.now();
+  const inRange=m=>m.date&&m.date.length>=10&&Date.parse(m.date)>=t0;
+  const models=DATA.models.filter(m=>inRange(m)&&active.includes(m.company));
+  const lanes=active.filter(co=>models.some(m=>m.company===co)||SEL.has(co));
+  const showLabels=lanes.length<=6;
   const X=d=>Math.min(99.3,Math.max(.7,(Date.parse(d)-t0)/(t1-t0)*100));
-  const y0=new Date(t0).getFullYear(), y1=new Date(t1).getFullYear();
-  const years=[];
-  for(let y=y0;y<=y1;y++){const x=X(y+'-01-01');if(x>=0&&x<=100)years.push([y,x]);}
-  let html='<div class="axis">'+years.map(([y,x])=>`<span style="left:${x}%">${y}</span>`).join('')+'</div>';
-  html+=active.map(co=>{
+  const ticks=makeTicks(t0,t1);
+  let html='<div class="axis">'+ticks.map(([l,x])=>`<span style="left:${X(new Date(x).toISOString().slice(0,10))}%">${l}</span>`).join('')+'</div>';
+  if(!lanes.length){
+    html+='<div class="empty">当前筛选条件下，该时间范围内没有模型发布 📭</div>';
+  }
+  html+=lanes.map(co=>{
     const nodes=models.filter(m=>m.company===co).map((m,i)=>{
       const r=showLabels?` r${i%3}`:'';
       return `<a class="node${r}" style="left:${X(m.date)}%;--c:${color(co)}" href="https://arxiv.org/abs/${m.id}" target="_blank" title="${m.model} · ${m.date}\n${m.title}"><span class="lbl">${m.model}</span><span class="dot"></span></a>`;
     }).join('');
-    const grid=years.map(([_,x])=>`<span class="grid" style="left:${x}%"></span>`).join('');
-    return `<div class="lane"><div class="lane-name" style="color:${color(co)}" title="点击只看 ${co}" onclick="toggleCompany('${co}')">${co}</div><div class="lane-body ${showLabels?'labels':''}">${grid}${nodes}</div></div>`;
+    const grid=ticks.map(([,x])=>`<span class="grid" style="left:${X(new Date(x).toISOString().slice(0,10))}%"></span>`).join('');
+    return `<div class="lane"><div class="lane-name" style="color:${color(co)}" title="点击只看 ${co}" onclick="toggleCompany('${co}')">${logoHTML(co)}${co}</div><div class="lane-body ${showLabels?'labels':''}">${grid}${nodes}</div></div>`;
   }).join('');
   document.getElementById('chart').innerHTML=html;
   document.getElementById('hint').textContent=showLabels?'':'提示：选 ≤6 家公司可显示全部模型名，悬停节点看详情';
 }
 
-function latestDate(s){
-  return s.papers.map(p=>p.date||'').sort().pop()||'';
-}
+function latestDate(s){return s.papers.map(p=>p.date||'').sort().pop()||'';}
 function matchSeries(s,q){
   q=q.toLowerCase();
   if(s.company.toLowerCase().includes(q)||s.model.toLowerCase().includes(q))return true;
@@ -201,7 +302,7 @@ function seriesCard(s){
   const dates=s.papers.map(p=>p.date).filter(Boolean).sort();
   return `<div class="series-card">
     <div class="series-head">
-      <span class="co-chip" style="background:${color(s.company)}">${s.company}</span>
+      <span class="co-chip" style="background:${color(s.company)}">${logoHTML(s.company)}${s.company} ${flagOf(s.company)}</span>
       <h3 style="color:${color(s.company)}">${hl(s.model)}</h3>
       <span class="cnt">${s.papers.length} 篇</span>
       <span class="meta">${dates[0]||''} ~ ${dates[dates.length-1]||''}</span>
