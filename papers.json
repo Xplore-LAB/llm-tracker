@@ -984,7 +984,6 @@
       "Multimodal"
     ],
     "abstract": "Recently, photonic transformer accelerators (PTAs) have successfully achieved significant speedup and energy efficiency improvements over electronic accelerators for expediting Transformer inference. However, state-of-the-art rely on expensive multi-wavelength light generation and large dot-product units due to active phase-shifter components, thus making their approach inefficient and impractical. To address this, we propose MDTransformer, a novel hardware-software co-design of PTA based on mod",
-    "company": "Cohere",
     "note": "提出模分复用光子Transformer加速器MDTransformer，采用逆向设计相干交叉阵列，去除昂贵多波长光源以降低成本。"
   },
   {
@@ -2183,7 +2182,6 @@
       "LLM"
     ],
     "abstract": "Delayed generalization, or grokking, remains poorly understood despite extensive empirical study. We identify an exactly solvable late-time relaxation mechanism for grokking in linear models trained with full-batch heavy-ball optimization and weight decay, together with a locally quadratic extension to nonlinear neural networks. Our analysis reveals a distinguished population-active component of the empirical null space, which we call the grokking subspace. Along this subspace, the training pred",
-    "company": "xAI",
     "note": "识别grokking的晚期松弛精确机制，给出线性模型可解分析并推广至非线性网络"
   },
   {
@@ -4844,7 +4842,6 @@
       "LLM"
     ],
     "abstract": "Adding a learned adapter to a frozen, command-conditioned locomotion policy is worthwhile only if the interface exposes improvements that are both real and recoverable from deployment-time observations. We introduce an adapter necessity audit that separates global operating-point gain,same-state counterfactual headroom, deployment gain over a cross-fitted fixed action, and state-allocation gain over a frequency-matched randomized policy. Source-cluster learner refits map these quantities and con",
-    "company": "Cohere",
     "note": "提出适配器必要性审计方法，通过闭环辨识与反事实评估判断冻结运动策略中学习适配器的实际增益价值。"
   },
   {
@@ -7112,8 +7109,7 @@
     "tags": [
       "Safety"
     ],
-    "abstract": "Within Explainable Artificial Intelligence, mechanistic interpretability uses Sparse Autoencoders (SAEs) to extract more interpretable features from neural representations. However, assessing their monosemanticity, and thus explanation quality, remains challenging. Existing metrics require external concept labels or depend on pretrained embedding models, making them sensitive to encoder's geometry. We introduce the Tversky Monosemanticity Score (TMS), a label-free metric that operationalizes mon",
-    "company": "Cohere"
+    "abstract": "Within Explainable Artificial Intelligence, mechanistic interpretability uses Sparse Autoencoders (SAEs) to extract more interpretable features from neural representations. However, assessing their monosemanticity, and thus explanation quality, remains challenging. Existing metrics require external concept labels or depend on pretrained embedding models, making them sensitive to encoder's geometry. We introduce the Tversky Monosemanticity Score (TMS), a label-free metric that operationalizes mon"
   },
   {
     "id": "2607.17674",
@@ -7601,7 +7597,6 @@
       "LLM"
     ],
     "abstract": "Wireless physical neural networks (WPNNs) embed neural computation directly into analog hardware, offering lower energy consumption and latency than conventional digital implementations. In this paper, we propose a deep WPNN in which nonlinear activations are realized by a multi-hop multiple-input multiple-output (MIMO) relay network, in which each relay implements a trainable complex linear gain and bias, followed by the power amplifier's intrinsic nonlinearity acting as an activation function.",
-    "company": "Xiaomi",
     "note": "提出深度无线物理神经网络，以多跳MIMO中继实现非线性激活函数，将神经计算嵌入模拟硬件。"
   },
   {
@@ -7976,7 +7971,6 @@
       "Multimodal"
     ],
     "abstract": "DeeperRadar is a radar-centric, sensor-stack-conditioned framework that co-designs radar sensing and multi-modal 3D detection for autonomous mobility by learning a sparse acquisition pattern end-to-end with the fusion model. A learnable MIMO design module is trained end-to-end within a fusion network that operates directly on raw radar ADC data together with camera images and LiDAR point clouds. During training, the design module is supervised by the other sensors, enabling the system to learn b",
-    "company": "Xiaomi",
     "note": "DeeperRadar端到端联合设计MIMO雷达与多模态融合，学习稀疏采集模式并直接从原始ADC数据完成3D检测。"
   },
   {
@@ -9007,7 +9001,6 @@
       "LLM"
     ],
     "abstract": "Retinal layer segmentation in Optical Coherence Tomography (OCT) is a fundamental step for extracting quantitative biomarkers of retinal structure. Indeed, there is a growing interest in the analysis of OCTs in the context of neurodegenerative diseases. However, segmentation remains challenging due to speckle noise, shadowing artifacts, low contrast between adjacent layers, anatomical variability across subjects, and domain shifts arising from different acquisition protocols and clinical populat",
-    "company": "Cohere",
     "note": "提出空间归一化方法应对OCT视网膜层分割中的散斑噪声与伪影问题，实现跨域稳健分割。"
   },
   {
@@ -10654,8 +10647,7 @@
     "tags": [
       "Fine-tuning"
     ],
-    "abstract": "In bandit problems, standard regret-minimizing algorithms treat exploration as an amortized cost, which can expose early participants to unfair ex-ante losses in settings such as clinical trials. Recent work addresses this by evaluating the sequence of per-round expected rewards through the generalized $p$-mean, interpolating between utilitarian welfare ($p=1$), Nash welfare ($p\\to0$), and Rawlsian fairness ($p\\to-\\infty$). Although tight guarantees are known for $p\\ge0$, the strictly fair regim",
-    "company": "MiniMax"
+    "abstract": "In bandit problems, standard regret-minimizing algorithms treat exploration as an amortized cost, which can expose early participants to unfair ex-ante losses in settings such as clinical trials. Recent work addresses this by evaluating the sequence of per-round expected rewards through the generalized $p$-mean, interpolating between utilitarian welfare ($p=1$), Nash welfare ($p\\to0$), and Rawlsian fairness ($p\\to-\\infty$). Although tight guarantees are known for $p\\ge0$, the strictly fair regim"
   },
   {
     "id": "2607.12310",
@@ -11523,7 +11515,6 @@
       "Multimodal"
     ],
     "abstract": "EEG-to-image evaluation should distinguish visual fidelity from recoverable meaning. Yet EEG-derived reconstructions are blurry, distorted, and low-detail, causing SSIM, LPIPS, and CLIP to penalize semantically recoverable outputs or reward plausible but incorrect ones. We analyze 6,855 ground-truth/reconstruction pairs from ATM, ENIGMA, BrainVis, and DreamDiffusion using semantic probes, caption harshness and blind-spot rates, and controlled degradations. Pixel metrics show near-zero correlatio",
-    "company": "Cohere",
     "note": "分析6855对EEG图像重建样本，揭示SSIM/LPIPS/CLIP指标缺陷，提出VLM辅助的感知—语义一致性评估框架。"
   },
   {
@@ -14597,8 +14588,7 @@
       "Reasoning",
       "LLM"
     ],
-    "abstract": "Large-Language Models (LLMs) can be prone to flawed and unfaithful reasoning that decoding strategies like Self-Consistency (SC) fail to detect as they evaluate only final-answer agreement while ignoring the logical validity of intermediate steps. This raises three fundamental questions: How can we reliably quantify uncertainty in LLM reasoning? Can semantic, structural, and causal awareness select more faithful reasoning compared to naïve majority voting? and How robust is reasoning topology un",
-    "company": "Cohere"
+    "abstract": "Large-Language Models (LLMs) can be prone to flawed and unfaithful reasoning that decoding strategies like Self-Consistency (SC) fail to detect as they evaluate only final-answer agreement while ignoring the logical validity of intermediate steps. This raises three fundamental questions: How can we reliably quantify uncertainty in LLM reasoning? Can semantic, structural, and causal awareness select more faithful reasoning compared to naïve majority voting? and How robust is reasoning topology un"
   },
   {
     "id": "2607.08011",
@@ -15019,8 +15009,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Large language models increasingly provide labels, evaluations, and feedback for tasks specified in natural language. When a specification admits multiple readings but the supervision channel does not reveal which is operative, additional labels reduce sampling error without resolving the resulting identification problem. We introduce Natural Language PAC (NL-PAC), a framework that uses a fixed model's thresholded decoding law to define admissible labels and candidate targets. The probability th",
-    "company": "MiniMax"
+    "abstract": "Large language models increasingly provide labels, evaluations, and feedback for tasks specified in natural language. When a specification admits multiple readings but the supervision channel does not reveal which is operative, additional labels reduce sampling error without resolving the resulting identification problem. We introduce Natural Language PAC (NL-PAC), a framework that uses a fixed model's thresholded decoding law to define admissible labels and candidate targets. The probability th"
   },
   {
     "id": "2607.08803",
@@ -16356,8 +16345,7 @@
     "tags": [
       "Safety"
     ],
-    "abstract": "Developing seamless, high-performance, native intelligent full-duplex Spoken Language Models (SLMs) remains a critical challenge and long-standing goal for the speech and NLP community. Despite notable progress, recent endeavors are fundamentally constrained by severe modality interference, which causes substantial knowledge degradation and compromises semantic integrity -- ultimately making full-duplex SLMs feel unnatural and unintelligent. In this paper, through an exhaustive fine-grained anal",
-    "company": "Cohere"
+    "abstract": "Developing seamless, high-performance, native intelligent full-duplex Spoken Language Models (SLMs) remains a critical challenge and long-standing goal for the speech and NLP community. Despite notable progress, recent endeavors are fundamentally constrained by severe modality interference, which causes substantial knowledge degradation and compromises semantic integrity -- ultimately making full-duplex SLMs feel unnatural and unintelligent. In this paper, through an exhaustive fine-grained anal"
   },
   {
     "id": "2607.06461",
@@ -16893,7 +16881,6 @@
       "LLM"
     ],
     "abstract": "On modular arithmetic, a network's embedding keeps compressing for tens of thousands of steps after it has already generalized. Reading effective rank at the grokking transition overstates the converged value by 3-5x on an MLP, and by 1.3-1.5x on a transformer trained to convergence; on the MLP it also erases which cells compress at all. Compression lags the accuracy transition by an amount on the order of the time-to-grok, at least 10,000 steps, rather than coinciding with it. A one-variable ab",
-    "company": "xAI",
     "note": "审计grokking表征度量，指出收敛前有效秩等指标在MLP上高估3至5倍，揭示测量偏差"
   },
   {
@@ -16907,7 +16894,6 @@
       "LLM"
     ],
     "abstract": "Which properties of a partially trained network are causally portable to a different, independently trained network? Single-trajectory interventions show necessity within one run, not portability across runs. We introduce cross-trajectory chimera interventions: given two runs from different seeds, we split each weight vector into a norm and a unit direction, recombine one run's norm with the other's direction, and continue training. On two modular-arithmetic tasks that grok, the components disso",
-    "company": "xAI",
     "note": "提出跨轨迹嵌合体干预方法，拆解权重幅度与方向，揭示二者在grokking中的不同因果作用"
   },
   {
@@ -17792,7 +17778,6 @@
       "LLM"
     ],
     "abstract": "The Muon optimizer reaches the grokking threshold on modular arithmetic faster than AdamW. Prior work attributes this to \"spectral-norm constraints plus orthogonalized momentum\" but does not isolate which mechanism matters. To better understand Moun's behavior, we run multi-seed and multi-learning-rate sweeps to decompose and stress-test the effect. First, an ablation shows the speedup comes from orthogonalization (the Newton-Schulz iteration): orthogonalize-only matches full Muon, whereas spect",
-    "company": "xAI",
     "note": "多速率多种子实验分解Muon优化器，揭示其grokking加速源于正交化动量而非谱范数约束"
   },
   {
@@ -17806,7 +17791,6 @@
       "LLM"
     ],
     "abstract": "Grokking -- the delayed onset of generalization long after a network has fit its training set - -is usually studied in models too large to read completely and reported from single training runs. We instead study a publicly released ~11,856-parameter Llama-style transformer (Glimmer-1-Base) on modular arithmetic, small enough to enumerate its weights, attention, and full input-output map, and we measure grokking as a multi-seed rate rather than a single outcome. In this fully-tractable regime gro",
-    "company": "xAI",
     "note": "用约11856参数Transformer多种子研究，证明grokking条件苛刻且脆弱，难以稳定复现"
   },
   {
@@ -19493,8 +19477,7 @@
     "tags": [
       "RAG"
     ],
-    "abstract": "Reasoning Language Models (RLMs) have significantly improved performance on complex tasks by extending the reasoning chain. However, these chains are prone to containing factual errors, particularly in knowledge-intensive tasks. To address this issue, we propose CheckRLM, a framework that improves the reliability of the reasoning process through Retrieval-Augmented Generation (RAG) by timely checking and correcting factual errors. Specifically, CheckRLM extracts factual claims from the reasoning",
-    "company": "Cohere"
+    "abstract": "Reasoning Language Models (RLMs) have significantly improved performance on complex tasks by extending the reasoning chain. However, these chains are prone to containing factual errors, particularly in knowledge-intensive tasks. To address this issue, we propose CheckRLM, a framework that improves the reliability of the reasoning process through Retrieval-Augmented Generation (RAG) by timely checking and correcting factual errors. Specifically, CheckRLM extracts factual claims from the reasoning"
   },
   {
     "id": "2607.02116",
@@ -22644,7 +22627,6 @@
       "Multimodal"
     ],
     "abstract": "Real-time video segmentation of the prostate in Transrectal Ultrasound (TRUS) is essential for image-guided interventions. While conventional 2D methods suffer from inter-frame inconsistencies by disregarding temporal context, 3D architectures incur prohibitive latency. To resolve this dilemma, we present a Temporally Consistent Learning Framework that distills temporal coherence into a 2D network during training, preserving single-frame inference efficiency. Our design is driven by a key clinic",
-    "company": "Cohere",
     "note": "提出时序一致性学习框架，将3D时序信息蒸馏到2D网络，实现经直肠超声前列腺视频的实时精准分割。"
   },
   {
@@ -24032,8 +24014,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Calibration is usually evaluated in aggregate, but the most dangerous failures are often local: predictions that remain highly confident despite being wrong. We study this failure mode as false-confidence concentration, the extent to which confident errors occupy compact, discoverable regions of prediction space. We introduce FALCON-Discover, a post-hoc, model-agnostic framework that ranks predictions using discrepancy signals from confidence, local support, neighborhood agreement, and perturbat",
-    "company": "TII"
+    "abstract": "Calibration is usually evaluated in aggregate, but the most dangerous failures are often local: predictions that remain highly confident despite being wrong. We study this failure mode as false-confidence concentration, the extent to which confident errors occupy compact, discoverable regions of prediction space. We introduce FALCON-Discover, a post-hoc, model-agnostic framework that ranks predictions using discrepancy signals from confidence, local support, neighborhood agreement, and perturbat"
   },
   {
     "id": "2606.30388",
@@ -24046,7 +24027,6 @@
       "Reasoning"
     ],
     "abstract": "Delayed generalization (\\ie~grokking) refers to the phenomenon in which a neural network fits its training data early in training but only begins to generalize after a prolonged delay, often through an abrupt transition. Despite extensive empirical study, its underlying mechanism remains poorly understood. In this work, we first theoretically characterize a shell--core topological configuration of the reachable solution space induced by Adam's optimization dynamics with weight-shrinkage regulari",
-    "company": "xAI",
     "note": "建立grokking缩放律的随机几何理论，刻画延迟泛化在训练后期的统计机制与相变行为"
   },
   {
@@ -24714,7 +24694,6 @@
       "LLM"
     ],
     "abstract": "Symmetry provides a quantum neural network structure, but on its own it does not keep the network trainable once noise is present. We ask which physical quantity decides whether the gradients of an equivariant circuit survive decoherence, and we answer with a compact training law. Working with U(1)-equivariant brickwork circuits that conserve a charge, we find that two distinct effects govern a trainable gradient. Causality fixes where the gradient can live, confining it to the backward light co",
-    "company": "Cohere",
     "note": "提出紧凑训练定律，揭示噪声环境下U(1)等变量量子电路梯度可训练性的判据物理量。"
   },
   {
@@ -24728,7 +24707,6 @@
       "Reasoning"
     ],
     "abstract": "Graph-based narrative extraction relies on a coherence function to score transitions between events, but the coherence metrics in current use are defined operationally and lack an information-theoretic foundation. We study the composite metric $C=\\sqrt{A\\cdot T}$, where $A$ is the angular similarity of document embeddings and $T=1-d_{\\mathrm{JS}}$ is a topic proximity from the Jensen-Shannon distance of soft memberships, and give it an information-geometric reading together with an axiomatic cha",
-    "company": "Cohere",
     "note": "从信息几何角度为复合一致性度量提供理论基础，改进基于图的事件叙事提取。"
   },
   {
@@ -31748,8 +31726,7 @@
     "tags": [
       "Reasoning"
     ],
-    "abstract": "Large language models (LLMs) deployed for logical reasoning in knowledge-intensive domains exhibit a subtle but critical failure: coherence can be vacuously achieved through systematic abstention. A model that withholds commitment to either entailment or refutation satisfies negation consistency while providing no utility. We introduce Coherence Under Commitment (CUC), a dual-query evaluation paradigm that jointly measures consistency and decisiveness. CUC contributes three innovations: (1) a co",
-    "company": "Cohere"
+    "abstract": "Large language models (LLMs) deployed for logical reasoning in knowledge-intensive domains exhibit a subtle but critical failure: coherence can be vacuously achieved through systematic abstention. A model that withholds commitment to either entailment or refutation satisfies negation consistency while providing no utility. We introduce Coherence Under Commitment (CUC), a dual-query evaluation paradigm that jointly measures consistency and decisiveness. CUC contributes three innovations: (1) a co"
   },
   {
     "id": "2606.21496",
@@ -31946,7 +31923,6 @@
       "LLM"
     ],
     "abstract": "Psycholinguistics studies show that human readers fall for coherence illusions: an incoherent discourse can seem coherent simply because a distractor matches what comes next. We investigate whether Dutch language models (6 monolingual and 4 multilingual) show the same behavior on texts that link back to earlier context with words such as 'again' and 'too'. First, we find that surprisal at the critical word tracks human acceptability judgments and eye-tracking data. Models are more surprised by i",
-    "company": "Cohere",
     "note": "以惊奇度、能量和注意力熵为指标，检验荷兰语模型是否复现人类的连贯性幻觉。"
   },
   {
@@ -33898,8 +33874,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "We study factual edit propagation in a controlled synthetic knowledge-graph QA setting using a 2x2 grid that crosses loop recurrence with shared-memory access: a dense transformer (Dense), a looped transformer (Loop), a dense backbone with shared memory (Dense+Mem), and a looped backbone with shared memory (loop-memory coupling, LMC). The two factors dissociate. For learning, both routes to repeated shared access -- looped recomputation and repeated memory rereading -- cross the out-of-distribut",
-    "company": "xAI"
+    "abstract": "We study factual edit propagation in a controlled synthetic knowledge-graph QA setting using a 2x2 grid that crosses loop recurrence with shared-memory access: a dense transformer (Dense), a looped transformer (Loop), a dense backbone with shared memory (Dense+Mem), and a looped backbone with shared memory (loop-memory coupling, LMC). The two factors dissociate. For learning, both routes to repeated shared access -- looped recomputation and repeated memory rereading -- cross the out-of-distribut"
   },
   {
     "id": "2606.18103",
@@ -35254,8 +35229,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Grokking, the delayed jump from memorization to generalization, is usually tied to the weight norm: a smaller norm generalizes sooner. We ask what the norm actually controls. Holding the weight norm fixed by clamping and varying only an output temperature, we slide the grokking delay across its entire norm-induced range under cross-entropy; matching the effective logit scale back to baseline recovers about 85% of the delay at two moduli. Across a grid of norms and temperatures the delay collapse",
-    "company": "xAI"
+    "abstract": "Grokking, the delayed jump from memorization to generalization, is usually tied to the weight norm: a smaller norm generalizes sooner. We ask what the norm actually controls. Holding the weight norm fixed by clamping and varying only an output temperature, we slide the grokking delay across its entire norm-induced range under cross-entropy; matching the effective logit scale back to baseline recovers about 85% of the delay at two moduli. Across a grid of norms and temperatures the delay collapse"
   },
   {
     "id": "2606.16817",
@@ -36898,8 +36872,7 @@
       "MCP",
       "LLM"
     ],
-    "abstract": "Large language model (LLM) agents have made rapid progress on short-horizon, well-scoped tasks, yet their ability to sustain coherent decisions in dynamic long-horizon environments remains uncertain. We introduce RetailBench, a data-grounded simulation benchmark for evaluating tool-using LLM agents in single-store supermarket operation. RetailBench models retail management as a partially observable decision process and is designed to support thousand-day-scale simulations. In this environment, a",
-    "company": "Cohere"
+    "abstract": "Large language model (LLM) agents have made rapid progress on short-horizon, well-scoped tasks, yet their ability to sustain coherent decisions in dynamic long-horizon environments remains uncertain. We introduce RetailBench, a data-grounded simulation benchmark for evaluating tool-using LLM agents in single-store supermarket operation. RetailBench models retail management as a partially observable decision process and is designed to support thousand-day-scale simulations. In this environment, a"
   },
   {
     "id": "2606.15609",
@@ -38675,7 +38648,6 @@
       "Reasoning"
     ],
     "abstract": "We study context compression for multi-hop question answering with small language models. We propose Telegraph English, a readable symbolic format that rewrites retrieved passages into structured entity-relation statements, preserving reasoning evidence at lower token cost. In controlled experiments on MuSiQue, TwoWiki, and HotpotQA, Telegraph English outperforms three matched-budget compression baselines (character-level deletion, truncation, and random sub-sampling) on every dataset, with gain",
-    "company": "Cohere",
     "note": "提出Telegraph English可读符号格式，以更低token预算在多跳问答中保留推理证据。"
   },
   {
@@ -40226,8 +40198,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Grokking is the delayed onset of generalization in neural networks, arising long after they fit the training data. Whether the weight norm causes this delay is disputed: some studies report a critical norm at the transition, others observe grokking with no fixed norm at all. We settle this by intervening on the norm during training rather than only observing it. Under free training with weight decay, networks grok when the weight norm reaches a value Wc that varies little across seeds and learni",
-    "company": "xAI"
+    "abstract": "Grokking is the delayed onset of generalization in neural networks, arising long after they fit the training data. Whether the weight norm causes this delay is disputed: some studies report a critical norm at the transition, others observe grokking with no fixed norm at all. We settle this by intervening on the norm during training rather than only observing it. Under free training with weight decay, networks grok when the weight norm reaches a value Wc that varies little across seeds and learni"
   },
   {
     "id": "2606.11945",
@@ -42035,8 +42006,7 @@
       "Reasoning",
       "LLM"
     ],
-    "abstract": "Tuning controllers for strongly coupled multi-input multi-output (MIMO) industrial processes is hard: decentralized classical auto-tuning ignores loop interaction, and local numerical optimization from natural initializations stalls in the resulting non-convex cost landscape. We ask whether on-premise open-source large language models (LLMs), which keep data on-site and need no plant model, can help. On a single-loop CSTR, classical relay-feedback tuning (IAE 0.106, near the 0.102 optimum) beats",
-    "company": "Xiaomi"
+    "abstract": "Tuning controllers for strongly coupled multi-input multi-output (MIMO) industrial processes is hard: decentralized classical auto-tuning ignores loop interaction, and local numerical optimization from natural initializations stalls in the resulting non-convex cost landscape. We ask whether on-premise open-source large language models (LLMs), which keep data on-site and need no plant model, can help. On a single-loop CSTR, classical relay-feedback tuning (IAE 0.106, near the 0.102 optimum) beats"
   },
   {
     "id": "2606.10931",
@@ -42363,8 +42333,7 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Automated Essay Scoring (AES) systems must judge interdependent discourse elements (e.g., lead, claim, evidence, conclusion), yet most approaches treat these in isolation, harming coherence and generalization. We investigate task-aware fine-tuning of LLaMA-3.1-8B for AES using parameter-efficient LoRA with 4-bit quantization and compare three training curricula: (i) Sequential (progressively fine-tuning on lead, then position, then claim, then evidence, then conclusion), (ii) Independent (task-s",
-    "company": "Cohere"
+    "abstract": "Automated Essay Scoring (AES) systems must judge interdependent discourse elements (e.g., lead, claim, evidence, conclusion), yet most approaches treat these in isolation, harming coherence and generalization. We investigate task-aware fine-tuning of LLaMA-3.1-8B for AES using parameter-efficient LoRA with 4-bit quantization and compare three training curricula: (i) Sequential (progressively fine-tuning on lead, then position, then claim, then evidence, then conclusion), (ii) Independent (task-s"
   },
   {
     "id": "2606.11173",
@@ -44648,7 +44617,6 @@
       "LLM"
     ],
     "abstract": "While Ising machines serve as advanced physical solvers for the Ising model,enabling applications in combinatorial optimization and neural network training,their scalability for large-scale neural networks remains constrained by hardware connectivity limitations and suboptimal training methodologies. In this work,we leverage a Coherent Ising Machine (CIM) to train an energy-based neural network using Equilibrium Propagation, achieving performance comparable to existing software-based implementat",
-    "company": "Cohere",
     "note": "利用相干伊辛机优化能量神经网络训练，缓解硬件连接性受限带来的扩展瓶颈。"
   },
   {
@@ -46438,8 +46406,7 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Cultural-aspect work on large language models is dominated by a negative target: which outputs to suppress. We argue that a constructive counterpart is also needed, a working definition of what a culturally coherent response is rather than only what it must avoid, and instantiate it for Korean. We design an alignment-data pipeline around a prompt-based LLM seed generator that expands a Korean harm taxonomy, with a Korean-culturally-adapted safe-response policy at its centre: a per-category guide",
-    "company": "Cohere"
+    "abstract": "Cultural-aspect work on large language models is dominated by a negative target: which outputs to suppress. We argue that a constructive counterpart is also needed, a working definition of what a culturally coherent response is rather than only what it must avoid, and instantiate it for Korean. We design an alignment-data pipeline around a prompt-based LLM seed generator that expands a Korean harm taxonomy, with a Korean-culturally-adapted safe-response policy at its centre: a per-category guide"
   },
   {
     "id": "2606.07500",
@@ -46922,8 +46889,7 @@
     "tags": [
       "Reasoning"
     ],
-    "abstract": "We study the minimax rate of estimating a future value $μ_{t_n+h}$ of a curve $t\\mapstoμ_t$ in the $2$-Wasserstein space $\\mathcal{P}_2(\\mathbb{R}^d)$ from finitely many noisy snapshots of its past, under an adiabatic bound $\\|\\nabla_t^k v\\|\\le\\varepsilon$ on the $k$-th covariant derivative of the velocity field. Our central result is a unified temporal-spatial minimax lower bound: over regular, locally transport-rich subclasses, every estimator incurs $W_2$-risk with $M$-exponent $γ_d(k+1)/(k+1",
-    "company": "MiniMax"
+    "abstract": "We study the minimax rate of estimating a future value $μ_{t_n+h}$ of a curve $t\\mapstoμ_t$ in the $2$-Wasserstein space $\\mathcal{P}_2(\\mathbb{R}^d)$ from finitely many noisy snapshots of its past, under an adiabatic bound $\\|\\nabla_t^k v\\|\\le\\varepsilon$ on the $k$-th covariant derivative of the velocity field. Our central result is a unified temporal-spatial minimax lower bound: over regular, locally transport-rich subclasses, every estimator incurs $W_2$-risk with $M$-exponent $γ_d(k+1)/(k+1"
   },
   {
     "id": "2606.07889",
@@ -46939,7 +46905,6 @@
       "LLM"
     ],
     "abstract": "LLM-based coding agents sometimes acknowledge a problem in their own reasoning and then proceed anyway. We call this pattern strained coherence: a safety-relevant failure mode in which an agent has information that should change its behavior, states that information, and still acts against it. The pattern overlaps with verbalized reward hacking, where an agent names a tension between a task proxy and the underlying goal yet optimizes the proxy anyway. We give an operational definition, build a C",
-    "company": "Cohere",
     "note": "命名“紧张连贯性”失效模式，揭示编码智能体明知问题仍违规执行的预失败信号。"
   },
   {
@@ -48766,8 +48731,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Understanding the generalization performance of over-parameterized neural networks has become a central topic in deep learning theory. While recent advances, particularly works under the Neural Tangent Kernel (NTK) regime, have shed light on the behavior of shallow architectures, the statistical generalization properties of deep neural networks (DNNs), especially in regression tasks, remain far less understood. In this paper, we make significant progress toward closing this gap by providing a co",
-    "company": "MiniMax"
+    "abstract": "Understanding the generalization performance of over-parameterized neural networks has become a central topic in deep learning theory. While recent advances, particularly works under the Neural Tangent Kernel (NTK) regime, have shed light on the behavior of shallow architectures, the statistical generalization properties of deep neural networks (DNNs), especially in regression tasks, remain far less understood. In this paper, we make significant progress toward closing this gap by providing a co"
   },
   {
     "id": "2606.05863",
@@ -48779,8 +48743,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Grokking suggests that fitting the training data and learning a simple underlying rule may occur on different time scales. We formalize this phenomenon by separating the fast decay of the classification loss from the slower simplification of the learned representation, and we call the resulting pair of stopping times two training clocks. For deep linear networks, we show that a post-margin gap-growth or one-step tail-contraction condition reduces the cross-entropy loss to level epsilon on a loga",
-    "company": "xAI"
+    "abstract": "Grokking suggests that fitting the training data and learning a simple underlying rule may occur on different time scales. We formalize this phenomenon by separating the fast decay of the classification loss from the slower simplification of the learned representation, and we call the resulting pair of stopping times two training clocks. For deep linear networks, we show that a post-margin gap-growth or one-step tail-contraction condition reduces the cross-entropy loss to level epsilon on a loga"
   },
   {
     "id": "2606.04739",
@@ -49994,8 +49957,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Modern Transformer architectures frequently employ normalization mechanisms such as RMSNorm and Query-Key Normalization, making parts of the model approximately scale-invariant with respect to weight magnitudes. In this regime, standard Frobenius-norm weight decay acts purely along the radial direction of the weight space and cannot directly simplify the function represented by the normalized layer. We study grokking in small algorithmic tasks through this lens and propose \\emph{Low-Rank Decay} ",
-    "company": "xAI"
+    "abstract": "Modern Transformer architectures frequently employ normalization mechanisms such as RMSNorm and Query-Key Normalization, making parts of the model approximately scale-invariant with respect to weight magnitudes. In this regime, standard Frobenius-norm weight decay acts purely along the radial direction of the weight space and cannot directly simplify the function represented by the normalized layer. We study grokking in small algorithmic tasks through this lens and propose \\emph{Low-Rank Decay} "
   },
   {
     "id": "2606.03777",
@@ -51279,8 +51241,7 @@
     "tags": [
       "Safety"
     ],
-    "abstract": "Aligning AI systems with diverse human values requires value specifications grounded in concrete examples, but generating such examples without extensive human supervision remains an open challenge. We investigate what makes these examples effective, using Internal Coherence Maximization (ICM) -- which infers labels by maximizing their mutual predictability -- to generate persona-specific examples that steer a model toward a target group's values, without human supervision. Across four benchmark",
-    "company": "Cohere"
+    "abstract": "Aligning AI systems with diverse human values requires value specifications grounded in concrete examples, but generating such examples without extensive human supervision remains an open challenge. We investigate what makes these examples effective, using Internal Coherence Maximization (ICM) -- which infers labels by maximizing their mutual predictability -- to generate persona-specific examples that steer a model toward a target group's values, without human supervision. Across four benchmark"
   },
   {
     "id": "2606.03096",
@@ -53004,8 +52965,7 @@
     "tags": [
       "Agent"
     ],
-    "abstract": "We study fixed-confidence best-action identification (BAI) in stochastic minimax trees. This problem is increasingly relevant in modern AI planning, where deep minimax search and Monte Carlo Tree Search (MCTS) with language model long rollouts face a fundamental tradeoff: heuristic evaluations are cheap but biased, while accurate rollouts are reliable but prohibitively expensive. We propose 2FFS, a two-fidelity tree-search algorithm that brings multi-fidelity flat bandit ideas into trees. The al",
-    "company": "MiniMax"
+    "abstract": "We study fixed-confidence best-action identification (BAI) in stochastic minimax trees. This problem is increasingly relevant in modern AI planning, where deep minimax search and Monte Carlo Tree Search (MCTS) with language model long rollouts face a fundamental tradeoff: heuristic evaluations are cheap but biased, while accurate rollouts are reliable but prohibitively expensive. We propose 2FFS, a two-fidelity tree-search algorithm that brings multi-fidelity flat bandit ideas into trees. The al"
   },
   {
     "id": "2606.01482",
@@ -56119,7 +56079,6 @@
       "LLM"
     ],
     "abstract": "Dialogue topic segmentation is critical in many human-AI collaborative applications which requires identifying heterogeneous boundary cues, including lexical transitions near utterance edges and semantic discontinuities across utterances. Existing utterance models often dilute these local lexical signals. We propose CobSeg, a novel multi-branch architecture that separates coherence-level semantic continuity from lexical boundary transitions and recovers both through directional boundary predicti",
-    "company": "Cohere",
     "note": "提出CobSeg多分支架构，通过建模词汇与语义边界线索提升对话主题分割效果。"
   },
   {
@@ -56231,8 +56190,7 @@
     "tags": [
       "Agent"
     ],
-    "abstract": "Multi-component LLM agents assemble probabilistic claims from components that each see only part of a joint problem; the composition can violate basic probability axioms even when every component is locally coherent. We formalise this locally coherent, globally incoherent failure via the compositional residual eps*, the L2 distance from the composed quote to the joint coherent polytope, computable at runtime from system output and the declared cross-component coupling constraints. A product-stru",
-    "company": "Cohere"
+    "abstract": "Multi-component LLM agents assemble probabilistic claims from components that each see only part of a joint problem; the composition can violate basic probability axioms even when every component is locally coherent. We formalise this locally coherent, globally incoherent failure via the compositional residual eps*, the L2 distance from the composed quote to the joint coherent polytope, computable at runtime from system output and the declared cross-component coupling constraints. A product-stru"
   },
   {
     "id": "2605.30274",
@@ -60619,8 +60577,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "When large language models are fine-tuned to generate persona- or tone-conditioned responses, their output diversity is severely limited--a failure we term Cross-Style Collapse. We trace this collapse to the cross-entropy objective, which under shared representations tends to suppress diverse continuations. We propose Semantic Flow Regularization (SFR), a lightweight auxiliary objective that supervises the backbone with continuous sentence-encoder embeddings of future segments via conditional fl",
-    "company": "Cohere"
+    "abstract": "When large language models are fine-tuned to generate persona- or tone-conditioned responses, their output diversity is severely limited--a failure we term Cross-Style Collapse. We trace this collapse to the cross-entropy objective, which under shared representations tends to suppress diverse continuations. We propose Semantic Flow Regularization (SFR), a lightweight auxiliary objective that supervises the backbone with continuous sentence-encoder embeddings of future segments via conditional fl"
   },
   {
     "id": "2605.27967",
@@ -62016,8 +61973,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Time series foundation models (TSFMs) are transforming the forecasting paradigm through large-scale cross-domain pretraining. However, most existing TSFMs remain univariate, and recent efforts to enable cross-variate modeling still operate directly within the raw variate space. This design introduces fundamental limitations in semantic alignment and relational expressivity. Specifically, raw-space group mixing lacks a dedicated mechanism to align heterogeneous physical quantities, while standard",
-    "company": "TII"
+    "abstract": "Time series foundation models (TSFMs) are transforming the forecasting paradigm through large-scale cross-domain pretraining. However, most existing TSFMs remain univariate, and recent efforts to enable cross-variate modeling still operate directly within the raw variate space. This design introduces fundamental limitations in semantic alignment and relational expressivity. Specifically, raw-space group mixing lacks a dedicated mechanism to align heterogeneous physical quantities, while standard"
   },
   {
     "id": "2605.27268",
@@ -62896,8 +62852,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Training loss and accuracy are the standard signals used to monitor generalization during deep neural network training. Two well-documented phenomena complicate this picture: in grokking, train loss falls rapidly while test performance improves abruptly only after a long delay; in epoch-wise double descent, train loss decreases monotonically while test loss or error rises and falls. Existing accounts are often task-specific, and a task-agnostic analysis framework for diagnosing and explaining th",
-    "company": "xAI"
+    "abstract": "Training loss and accuracy are the standard signals used to monitor generalization during deep neural network training. Two well-documented phenomena complicate this picture: in grokking, train loss falls rapidly while test performance improves abruptly only after a long delay; in epoch-wise double descent, train loss decreases monotonically while test loss or error rises and falls. Existing accounts are often task-specific, and a task-agnostic analysis framework for diagnosing and explaining th"
   },
   {
     "id": "2605.26019",
@@ -70530,8 +70485,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "We study reinforcement learning for episodic Markov Decision Processes (MDPs) whose transitions are modelled by a multinomial logistic (MNL) model. Existing algorithms for MNL mixture MDPs yield a regret of $\\smash{\\tilde{O}(dH^2\\sqrt{T})}$ (Li et al., 2024), where $d$ is the feature dimension, $H$ the episode length, and $T$ the number of episodes. Inspired by the logistic bandit literature (Abeille et al., 2021; Faury et al., 2022; Boudart et al., 2026), we introduce a problem-dependent consta",
-    "company": "MiniMax"
+    "abstract": "We study reinforcement learning for episodic Markov Decision Processes (MDPs) whose transitions are modelled by a multinomial logistic (MNL) model. Existing algorithms for MNL mixture MDPs yield a regret of $\\smash{\\tilde{O}(dH^2\\sqrt{T})}$ (Li et al., 2024), where $d$ is the feature dimension, $H$ the episode length, and $T$ the number of episodes. Inspired by the logistic bandit literature (Abeille et al., 2021; Faury et al., 2022; Boudart et al., 2026), we introduce a problem-dependent consta"
   },
   {
     "id": "2605.20441",
@@ -70543,8 +70497,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Transformers trained on modular arithmetic exhibit sharp transitions between memorization, generalization, and collapse. We show that weight decay acts as a scalar empirical control parameter for these regimes, and introduce two cheap online diagnostics, mean pairwise attention-head cosine similarity and entropy standard deviation, that track training dynamics from attention activations alone and complement loss-landscape diagnostics at lower compute cost. Across eleven experimental conditions a",
-    "company": "xAI"
+    "abstract": "Transformers trained on modular arithmetic exhibit sharp transitions between memorization, generalization, and collapse. We show that weight decay acts as a scalar empirical control parameter for these regimes, and introduce two cheap online diagnostics, mean pairwise attention-head cosine similarity and entropy standard deviation, that track training dynamics from attention activations alone and complement loss-landscape diagnostics at lower compute cost. Across eleven experimental conditions a"
   },
   {
     "id": "2605.18673",
@@ -74312,8 +74265,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Why does a Transformer that has memorized its training set wait thousands of steps before it generalizes? Existing accounts locate this delay in norm minimization, feature emergence, or the late discovery of sparse subnetworks. These explanations capture important parts of the transition, but ignore a constraint unique to attention-based models: if attention discards an informative token, no bounded downstream computation can recover it. We formalize attention as an implicit Bayesian posterior o",
-    "company": "xAI"
+    "abstract": "Why does a Transformer that has memorized its training set wait thousands of steps before it generalizes? Existing accounts locate this delay in norm minimization, feature emergence, or the late discovery of sparse subnetworks. These explanations capture important parts of the transition, but ignore a constraint unique to attention-based models: if attention discards an informative token, no bounded downstream computation can recover it. We formalize attention as an implicit Bayesian posterior o"
   },
   {
     "id": "2605.15041",
@@ -75985,7 +75937,6 @@
       "Multimodal"
     ],
     "abstract": "Evaluating object removal in images and videos remains challenging because the task is inherently one-to-many, yet existing metrics frequently disagree with human perception. Full-reference metrics reward copy-paste behaviors over genuine erasure; no-reference metrics suffer from systematic biases such as favoring blurry results; and global temporal metrics are insensitive to localized artifacts within edited regions. To address these limitations, we propose RC (Removal Coherence), a pair of per",
-    "company": "Cohere",
     "note": "构建PROVE感知基准，针对图像视频物体移除任务设计更贴合人类判断的评测方法。"
   },
   {
@@ -75999,7 +75950,6 @@
       "LLM"
     ],
     "abstract": "Zeroth-Order (ZO) optimization is pivotal for scenarios where backpropagation is unavailable, such as memory-constrained on-device learning and black-box optimization. However, existing methods face a stark trade-off: they are either sample-inefficient (e.g., standard finite differences) or suffer from high variance due to randomized estimation (e.g., random subspace methods). In this work, we propose Coherent Coordinate Descent (CoCD), a deterministic, sample-efficient, and budget-aware ZO opti",
-    "company": "Cohere",
     "note": "提出协调坐标下降法结合隐式景观平滑，将陈旧梯度转化为稳定梯度以提升零阶优化。"
   },
   {
@@ -77680,8 +77630,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "We give the first quantitative prediction of grokking delay under AdamW. Treating the delay as a first-passage time, we derive a closed-form law T_grok - T_mem = (1 / 2 kappa_LL eta lambda) log(V_mem / V_star), where V_t = ||theta_t||^2 is the squared parameter norm, V_star is an architecture-dependent threshold, and kappa_LL absorbs the AdamW correction to the clean-SGD contraction rate 2 eta lambda. Calibrating (kappa_LL, V_star) on a single hyperparameter cell predicts grokking delays on 26 h",
-    "company": "xAI"
+    "abstract": "We give the first quantitative prediction of grokking delay under AdamW. Treating the delay as a first-passage time, we derive a closed-form law T_grok - T_mem = (1 / 2 kappa_LL eta lambda) log(V_mem / V_star), where V_t = ||theta_t||^2 is the squared parameter norm, V_star is an architecture-dependent threshold, and kappa_LL absorbs the AdamW correction to the clean-SGD contraction rate 2 eta lambda. Calibrating (kappa_LL, V_star) on a single hyperparameter cell predicts grokking delays on 26 h"
   },
   {
     "id": "2605.12411",
@@ -79973,8 +79922,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Tree ensembles such as random forests (RFs) and gradient boosting machines (GBMs) are among the most widely used supervised learners, yet their theoretical properties remain incompletely understood. We adopt a spectral perspective on these algorithms, with two main contributions. First, we derive minimax-optimal convergence for RF regression, showing that, under mild regularity conditions on tree growth, the eigenvalue decay of the induced kernel operator governs the statistical rate. Second, we",
-    "company": "MiniMax"
+    "abstract": "Tree ensembles such as random forests (RFs) and gradient boosting machines (GBMs) are among the most widely used supervised learners, yet their theoretical properties remain incompletely understood. We adopt a spectral perspective on these algorithms, with two main contributions. First, we derive minimax-optimal convergence for RF regression, showing that, under mild regularity conditions on tree growth, the eigenvalue decay of the induced kernel operator governs the statistical rate. Second, we"
   },
   {
     "id": "2605.12394",
@@ -79986,8 +79934,7 @@
     "tags": [
       "Reasoning"
     ],
-    "abstract": "Training Neural Networks (NNs) without overfitting is difficult; detecting that overfitting is difficult as well. We present a novel Random Matrix Theory method that detects the onset of overfitting in deep learning models without access to train or test data. For each model layer, we randomize each weight matrix element-wise, $\\mathbf{W} \\to \\mathbf{W}^{\\mathrm{rand}}$, fit the randomized empirical spectral distribution with a Marchenko-Pastur distribution, and identify large outliers that viol",
-    "company": "xAI"
+    "abstract": "Training Neural Networks (NNs) without overfitting is difficult; detecting that overfitting is difficult as well. We present a novel Random Matrix Theory method that detects the onset of overfitting in deep learning models without access to train or test data. For each model layer, we randomize each weight matrix element-wise, $\\mathbf{W} \\to \\mathbf{W}^{\\mathrm{rand}}$, fit the randomized empirical spectral distribution with a Marchenko-Pastur distribution, and identify large outliers that viol"
   },
   {
     "id": "2605.10853",
@@ -81918,7 +81865,6 @@
       "LLM"
     ],
     "abstract": "Formalisation is the process of writing system requirements in a formal language. These requirements mostly originate in Natural Language. In the field of Formal Methods, formalisation is often identified as one of the most delicate and complicated steps in the verification process. Not seldomly, formalisation tools and environments choose various levels of requirement descriptions: Natural Language, Technical Language, Diagram Representations and Formal Language, to mention a few. In the litera",
-    "company": "Cohere",
     "note": "以FRETish为案例，探讨结构化自然语言形式化过程中影响需求连贯性的因素。"
   },
   {
@@ -87585,7 +87531,6 @@
       "Reasoning"
     ],
     "abstract": "We study the grokking phenomenon through the lens of topology. Using persistent homology on point clouds derived from the embedding matrices of a range of models trained on modular arithmetic with varying primes, we identify a clear and consistent topological signature of grokking: a sharp increase in both the maximum and total persistence of first homology ($H_1$). Persistence diagrams reveal the emergence of a dominant long-lived topological feature together with increasingly structured second",
-    "company": "xAI",
     "note": "用持续同调分析嵌入矩阵点云，揭示grokking伴随一阶持续性急剧上升，确立其拓扑指纹。"
   },
   {
@@ -87599,7 +87544,6 @@
       "LLM"
     ],
     "abstract": "Deep neural networks exhibit periodic loss spikes during unregularized long-term training, a phenomenon known as the \"Slingshot Mechanism.\" Existing work usually attributes this to intrinsic optimization dynamics, but its triggering mechanism remains unclear. This paper proves that this phenomenon is a result of floating-point arithmetic precision limits. As training enters a high-confidence stage, the difference between the correct-class logit and the other logits may exceed the absorption-erro",
-    "company": "xAI",
     "note": "证明周期性损失尖峰源于低精度浮点算术，挑战将其归因于优化动力学的传统解释。"
   },
   {
@@ -90873,7 +90817,6 @@
       "Agent"
     ],
     "abstract": "Learning to Defer (L2D) enables a model to predict autonomously or defer to an expert, but prior work largely assumes flat label spaces. We study the first L2D setting with hierarchical multi-label decisions, motivated by medical-imaging workflows in which findings are organised by clinical taxonomies. In this setting, deferral is a delegation action rather than a label assignment, so treating it as an independent per-label decision can produce deferral incoherence, including taxonomic contradic",
-    "company": "Cohere",
     "note": "提出首个层次多标签学习延迟框架L2D，在医学影像中按临床分类树进行决策委派，突破扁平标签空间的传统假设。"
   },
   {
@@ -92984,7 +92927,6 @@
       "LLM"
     ],
     "abstract": "We introduce energy-based constraint networks -- a modality-agnostic architecture that learns structural coherence from contrastive pairs. The system processes frozen encoder embeddings through a state-space model with dual-head attention, producing a scalar energy measuring structural consistency alongside per-position energy scores that localize violations. Multiple independently trained branches detect different violation types and compose at inference without interference. We demonstrate the",
-    "company": "Cohere",
     "note": "提出基于能量的约束网络架构，通过对比对学习跨模态结构一致性，结合状态空间模型输出能量分数定位结构偏差。"
   },
   {
@@ -93488,8 +93430,7 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "In recent years, Multimodal Large Language Models (MLLMs) have achieved remarkable progress on a wide range of multimodal benchmarks. Despite these advances, most existing benchmarks mainly focus on single-image or multi-image comprehension. In real-world scenarios such as document reading, information is often presented as interleaved multimodel contexts. This requires MLLMs not only to recognize the content of individual images, but also to identify relevant textual and visual evidence, establ",
-    "company": "Cohere"
+    "abstract": "In recent years, Multimodal Large Language Models (MLLMs) have achieved remarkable progress on a wide range of multimodal benchmarks. Despite these advances, most existing benchmarks mainly focus on single-image or multi-image comprehension. In real-world scenarios such as document reading, information is often presented as interleaved multimodel contexts. This requires MLLMs not only to recognize the content of individual images, but also to identify relevant textual and visual evidence, establ"
   },
   {
     "id": "2604.27351",
@@ -94452,7 +94393,6 @@
       "LLM"
     ],
     "abstract": "Multivariate time series anomaly detection in ICS has attracted growing attention due to the increasing threat of cyber-physical attacks on critical infrastructure. State-of-the-art methods model inter-sensor relationships from raw time-domain amplitude values, using graph neural networks, Transformers. However, these methods discard the phase spectrum produced by time frequency transformations, We argue that phase information constitutes a complementary and previously overlooked detection modal",
-    "company": "Cohere",
     "note": "提出PhaseNet++方法，构建相位相干图捕捉传感器关系，弥补时域幅值分析中相位信息缺失的不足。"
   },
   {
@@ -94531,8 +94471,7 @@
       "Reasoning",
       "LLM"
     ],
-    "abstract": "Multi-agent deliberation systems using large language models (LLMs) are increasingly proposed for policy simulation, yet they suffer from artificial consensus: evaluator agents converge on the same option regardless of their assigned value perspectives. We present the AI Council, a three-phase deliberation framework, and conduct 120 deliberations across two policy scenarios to test two interventions. First, architectural heterogeneity (assigning a different 7-9B parameter model to each value per",
-    "company": "Cohere"
+    "abstract": "Multi-agent deliberation systems using large language models (LLMs) are increasingly proposed for policy simulation, yet they suffer from artificial consensus: evaluator agents converge on the same option regardless of their assigned value perspectives. We present the AI Council, a three-phase deliberation framework, and conduct 120 deliberations across two policy scenarios to test two interventions. First, architectural heterogeneity (assigning a different 7-9B parameter model to each value per"
   },
   {
     "id": "2604.26522",
@@ -95510,8 +95449,7 @@
       "Reasoning",
       "LLM"
     ],
-    "abstract": "Large Language Models (LLMs) have shown strong potential for narrative generation, but their use in complex, multi-layered role-playing game (RPG) worlds is still limited by issues of coherence, controllability, and structural consistency. This paper explores a dependency-aware, multi-stage prompt pipeline for procedural RPG content generation that models narrative dependencies through structured intermediate representations. The approach decomposes generation into sequential stages: world build",
-    "company": "Cohere"
+    "abstract": "Large Language Models (LLMs) have shown strong potential for narrative generation, but their use in complex, multi-layered role-playing game (RPG) worlds is still limited by issues of coherence, controllability, and structural consistency. This paper explores a dependency-aware, multi-stage prompt pipeline for procedural RPG content generation that models narrative dependencies through structured intermediate representations. The approach decomposes generation into sequential stages: world build"
   },
   {
     "id": "2604.25444",
@@ -96213,7 +96151,6 @@
       "LLM"
     ],
     "abstract": "Tian (2025) proves a repulsion theorem (Theorem 6) for the matrix $ B = (\\widetilde{F}^\\top \\widetilde{F} + ηI)^{-1} $ during the interactive feature-learning stage of grokking: similar features have negative off-diagonal entries $ B_{j\\ell} $, producing an effective repulsive force that drives them apart. However, the theorem does not specify when this mechanism becomes empirically observable, nor whether it leaves a measurable spectral signature in the parameter updates. We test this directly ",
-    "company": "xAI",
     "note": "对两层网络中特征排斥定理展开实证研究，刻画谱锁定发生时机与排斥力的交互。"
   },
   {
@@ -98287,8 +98224,7 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "Emotionally talking head video generation aims to generate expressive portrait videos with accurate lip synchronization and emotional facial expressions. Current methods rely on simple emotional labels, leading to insufficient semantic information. While introducing high-level semantics enhances expressiveness, it easily causes lip-sync degradation. Furthermore, mainstream generation methods struggle to balance computational efficiency and global motion awareness in long videos and suffer from p",
-    "company": "Cohere"
+    "abstract": "Emotionally talking head video generation aims to generate expressive portrait videos with accurate lip synchronization and emotional facial expressions. Current methods rely on simple emotional labels, leading to insufficient semantic information. While introducing high-level semantics enhances expressiveness, it easily causes lip-sync degradation. Furthermore, mainstream generation methods struggle to balance computational efficiency and global motion awareness in long videos and suffer from p"
   },
   {
     "id": "2604.23296",
@@ -98829,8 +98765,7 @@
     "tags": [
       "Fine-tuning"
     ],
-    "abstract": "Graph Visual Question Answering (GVQA) for autonomous driving organizes reasoning into ordered stages, namely Perception, Prediction, and Planning, where planning decisions should remain consistent with the model's own perception. We present a comparative study of cross-stage context passing on DriveLM-nuScenes using two complementary mechanisms. The explicit variant evaluates three prompt-based conditioning strategies on a domain-adapted 4B VLM (Mini-InternVL2-4B-DA-DriveLM) without additional ",
-    "company": "Cohere"
+    "abstract": "Graph Visual Question Answering (GVQA) for autonomous driving organizes reasoning into ordered stages, namely Perception, Prediction, and Planning, where planning decisions should remain consistent with the model's own perception. We present a comparative study of cross-stage context passing on DriveLM-nuScenes using two complementary mechanisms. The explicit variant evaluates three prompt-based conditioning strategies on a domain-adapted 4B VLM (Mini-InternVL2-4B-DA-DriveLM) without additional "
   },
   {
     "id": "2604.22407",
@@ -101529,7 +101464,6 @@
       "LLM"
     ],
     "abstract": "Bilevel optimization and bilevel minimax optimization have recently emerged as unifying frameworks for a range of machine-learning tasks, including hyperparameter optimization and reinforcement learning. The existing literature focuses on empirical efficiency and convergence guarantees, leaving a critical theoretical gap in understanding how well these algorithms generalize. To bridge this gap, we provide the first systematic generalization analysis for first-order gradient-based bilevel minimax",
-    "company": "MiniMax",
     "note": "研究一阶双层极小极大优化的稳定性与泛化性，填补现有理论在收敛保证之外的理解空白，为双层学习框架提供理论支撑。"
   },
   {
@@ -108260,8 +108194,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Large Language Models (LLMs) are increasingly exposed to adaptive jailbreaking, particularly in high-stakes Chemical, Biological, Radiological, and Nuclear (CBRN) domains. Although streaming probes enable real-time monitoring, they still make systematic errors. We identify a core issue: existing methods often rely on a few high-scoring tokens, leading to false alarms when sensitive CBRN terms appear in benign contexts. To address this, we introduce a streaming probing objective that requires mul",
-    "company": "Cohere"
+    "abstract": "Large Language Models (LLMs) are increasingly exposed to adaptive jailbreaking, particularly in high-stakes Chemical, Biological, Radiological, and Nuclear (CBRN) domains. Although streaming probes enable real-time monitoring, they still make systematic errors. We identify a core issue: existing methods often rely on a few high-scoring tokens, leading to false alarms when sensitive CBRN terms appear in benign contexts. To address this, we introduce a streaming probing objective that requires mul"
   },
   {
     "id": "2604.14838",
@@ -109741,7 +109674,6 @@
       "LLM"
     ],
     "abstract": "Majority-vote ensembles achieve variance reduction by averaging over diverse, approximately independent base learners. When training data exhibits Markov dependence, as in time-series forecasting, reinforcement learning (RL) replay buffers, and spatial grids, this classical guarantee degrades in ways that existing theory does not fully quantify. We provide a minimax characterization of this phenomenon for discrete classification in a fixed-dimensional Markov setting, together with an adaptive al",
-    "company": "MiniMax",
     "note": "针对马尔可夫依赖数据下的多数投票集成，提出谱路由方法并建立极小极大最优性理论，量化方差缩减保证的退化程度。"
   },
   {
@@ -113011,7 +112943,6 @@
       "LLM"
     ],
     "abstract": "Quantum algorithms with a proven theoretical speedup over classical computation are rare. Among the most prominent is the Harrow-Hassidim-Lloyd (HHL) algorithm for solving sparse linear systems. Here, HHL is applied to encode melodic preference: the system matrix encodes Narmour implication-realisation and Krumhansl-Kessler tonal stability, so its solution vector is a music-cognition-weighted note-pair distribution. The key constraint of HHL is that reading its output classically cancels the qua",
-    "company": "Cohere",
     "note": "将HHL量子算法应用于音乐生成，系统矩阵编码和声偏好，为旋律与和声联合生成提供量子架构概念验证。"
   },
   {
@@ -113027,7 +112958,6 @@
       "LLM"
     ],
     "abstract": "Multi-hop Knowledge Graph Question Answering (KGQA) requires coherent reasoning across relational paths, yet existing methods often treat each reasoning step independently and fail to effectively leverage experience from prior explorations, leading to fragmented reasoning and redundant exploration. To address these challenges, we propose Trajectoryaware Reasoning with Adaptive Context and Exploration priors (TRACE), an experiential framework that unifies LLM-driven contextual reasoning with expl",
-    "company": "Cohere",
     "note": "提出TRACE框架，利用经验轨迹实现连贯多跳知识图谱推理，减少冗余探索与推理碎片化问题。"
   },
   {
@@ -113892,7 +113822,6 @@
       "Multimodal"
     ],
     "abstract": "Retinal Cysts are formed by leakage and accumulation of fluid in the retina due to the incompetence of retinal vasculature. These cystic spaces have significance in several ocular diseases such as age-related macular degeneration, diabetic macular edema, etc. Optical coherence tomography is one of the predominant diagnosing techniques for imaging retinal pathologies. Segmenting and quantification of intraretinal cysts plays the vital role in predicting visual acuity. In literature, several metho",
-    "company": "Cohere",
     "note": "聚焦OCT图像中的视网膜囊肿自动检测，针对黄斑变性、糖尿病黄斑水肿等眼部疾病提供影像学诊断支持。"
   },
   {
@@ -118316,7 +118245,6 @@
       "Agent"
     ],
     "abstract": "This paper focuses on energy savings in downlink operation of cell-free massive MIMO (CF mMIMO) networks under dynamic traffic conditions. We propose a multi-agent deep reinforcement learning (MADRL) algorithm that enables each access point (AP) to autonomously control antenna re-configuration and advanced sleep mode (ASM) selection. After the training process, the proposed framework operates in a fully distributed manner, eliminating the need for centralized control and allowing each AP to dyna",
-    "company": "Xiaomi",
     "note": "采用多智能体深度强化学习方法，实现无蜂窝大规模MIMO网络下行动态节能。"
   },
   {
@@ -118330,7 +118258,6 @@
       "Reasoning"
     ],
     "abstract": "Recent AI systems have achieved gold-medal-level performance on the International Mathematical Olympiad, demonstrating remarkable proficiency at competition-style problem solving. However, competition mathematics represents only a narrow slice of mathematical reasoning: problems are drawn from limited domains, require minimal advanced machinery, and can often reward insightful tricks over deep theoretical knowledge. We introduce Riemann-Bench, a private benchmark of expert-curated problems desig",
-    "company": "Moonshot",
     "note": "构建Riemann-Bench数学基准，超越竞赛风格题目，评估模型在更广泛数学推理中的真实水平。"
   },
   {
@@ -121294,7 +121221,6 @@
       "LLM"
     ],
     "abstract": "Abrupt transitions between distinct dynamical regimes are a hallmark of complex systems. Grokking in deep neural networks provides a striking example -- an abrupt transition from memorization to generalization long after training accuracy saturates -- yet robust macroscopic signatures of this transition remain elusive. Here we introduce \\textbf{TDU--OFC} (Thresholded Diffusion Update--Olami-Feder-Christensen), an offline avalanche probe that converts gradient snapshots into cascade statistics an",
-    "company": "xAI",
     "note": "提出维度临界性度量TDU，在MLP与Transformer上捕捉grokking突变转变的宏观指纹。"
   },
   {
@@ -121308,7 +121234,6 @@
       "LLM"
     ],
     "abstract": "Neural network grokking -- the abrupt memorization-to-generalization transition -- challenges our understanding of learning dynamics. Through finite-size scaling of gradient avalanche dynamics across eight model scales, we find that grokking is a \\textit{dimensional phase transition}: effective dimensionality~$D$ crosses from sub-diffusive (subcritical, $D &lt; 1$) to super-diffusive (supercritical, $D &gt; 1$) at generalization onset, exhibiting self-organized criticality (SOC). Crucially, $D$ ",
-    "company": "xAI",
     "note": "通过有限尺寸缩放分析梯度雪崩，证明grokking是有效维度穿越亚临界值的维度相变。"
   },
   {
@@ -127202,7 +127127,6 @@
       "LLM"
     ],
     "abstract": "Grokking in modular arithmetic has established itself as the quintessential fruit fly experiment, serving as a critical domain for investigating the mechanistic origins of model generalization. Despite its significance, existing research remains narrowly focused on specific local circuits or optimization tuning, largely overlooking the global structural evolution that fundamentally drives this phenomenon. We propose that grokking originates from a spontaneous simplification of internal model str",
-    "company": "xAI",
     "note": "综述模块运算grokking研究进展，涵盖从局部回路到全局智能涌现的机制探讨。"
   },
   {
@@ -131744,7 +131668,6 @@
       "LLM"
     ],
     "abstract": "In this article, we focus on search algorithms for two-player perfect information games, whose objective is to determine the best possible strategy, and ideally a winning strategy. Unfortunately, some search algorithms for games in the literature are not able to always determine a winning strategy, even with an infinite search time. This is the case, for example, of the following algorithms: Unbounded Best-First Minimax and Descent Minimax, which are core algorithms in state-of-the-art knowledge",
-    "company": "MiniMax",
     "note": "分析无界最优优先与下降式极小极大搜索的完备性，揭示部分博弈搜索算法在无限时间内也无法判定必胜策略。"
   },
   {
@@ -131758,7 +131681,6 @@
       "Reasoning"
     ],
     "abstract": "Grokking -- the delayed onset of generalization after early memorization -- is often described with phase-transition language, but that claim has lacked falsifiable finite-size inputs. Here we supply those inputs by treating the group order $p$ of $\\mathbb{Z}_p$ as an admissible extensive variable and a held-out spectral head-tail contrast as a representation-level order parameter, then apply a condensed-matter-style diagnostic chain to coarse-grid sweeps and a dense near-critical addition audit",
-    "company": "xAI",
     "note": "将群阶视为广延量，给出可证伪的有限尺寸缩放观测量，把grokking严格化为相变。"
   },
   {
@@ -138862,7 +138784,6 @@
       "LLM"
     ],
     "abstract": "Standard optimization theories struggle to explain grokking, where generalization occurs long after training convergence. While geometric studies attribute this to slow drift, they often overlook the interaction between the optimizer's noise structure and landscape curvature. This work analyzes AdamW dynamics on modular arithmetic tasks, revealing a ``Spectral Gating'' mechanism that regulates the transition from memorization to generalization. We find that AdamW operates as a variance-gated sto",
-    "company": "xAI",
     "note": "分析AdamW在模块运算上的方差受限动力学，提出谱门控与ε-稳定阈值刻画grokking相变。"
   },
   {
@@ -140120,7 +140041,6 @@
       "Agent"
     ],
     "abstract": "Reinforcement learning (RL) has achieved remarkable success in a wide range of control and decision-making tasks. However, RL agents often exhibit unstable or degraded performance when deployed in environments subject to unexpected external disturbances and model uncertainties. Consequently, ensuring reliable performance under such conditions remains a critical challenge. In this paper, we propose minimax deep deterministic policy gradient (MMDDPG), a framework for learning disturbance-resilient",
-    "company": "MiniMax",
     "note": "提出基于分数阶目标的稳定极小极大DDPG算法，提升深度强化学习在外部扰动与模型不确定性下的鲁棒性。"
   },
   {
@@ -141727,7 +141647,6 @@
       "Reasoning"
     ],
     "abstract": "Grokking -- the sudden generalisation that appears long after a model has perfectly memorised its training data -- has been widely observed but lacks a quantitative theory explaining the length of the delay. We show that grokking is a norm-driven representational phase transition in regularised training dynamics, and establish the Norm-Separation Delay Law: $T_{\\mathrm{grok}} - T_{\\mathrm{mem}} = Θ(γ_{\\mathrm{eff}}^{-1} \\log(\\|θ_{\\mathrm{mem}}\\|^2 / \\|θ_{\\mathrm{post}}\\|^2))$, where $γ_{\\mathrm{",
-    "company": "xAI",
     "note": "建立范数分离延迟定律，从第一性原理定量预测正则化训练下grokking延迟的时长。"
   },
   {
@@ -141741,7 +141660,6 @@
       "LLM"
     ],
     "abstract": "Mechanistic interpretability typically relies on post-hoc analysis of trained networks. We instead adopt an interventional approach: testing hypotheses a priori by modifying architectural topology to observe training dynamics. We study grokking - delayed generalization in Transformers trained on cyclic modular addition (Zp) - investigating if specific architectural degrees of freedom prolong the memorization phase. We identify two independent structural factors in standard Transformers: unbounde",
-    "company": "xAI",
     "note": "通过干预架构拓扑先验测试假设，揭示Transformer在循环模加任务中的几何归纳偏置。"
   },
   {
@@ -146577,7 +146495,6 @@
       "LLM"
     ],
     "abstract": "This paper investigates the grokking phenomenon, which refers to the sudden transition from a long memorization to generalization observed during neural networks training, in the context of learning multiplication in finite-dimensional algebras (FDA). While prior work on grokking has focused mainly on group operations, we extend the analysis to more general algebraic structures, including non-associative, non-commutative, and non-unital algebras. We show that learning group operations is a speci",
-    "company": "xAI",
     "note": "扩展grokking研究至有限维代数乘法任务，揭示其在该代数结构中的延迟泛化机制与训练动力学新特征。"
   },
   {
@@ -147500,7 +147417,6 @@
       "LLM"
     ],
     "abstract": "Grokking -- the abrupt transition from memorization to generalization long after near-zero training loss -- has been studied mainly in single-task settings. We extend geometric analysis to multi-task modular arithmetic, training shared-trunk Transformers on dual-task (mod-add + mod-mul) and tri-task (mod-add + mod-mul + mod-sq) objectives across a systematic weight decay sweep. Five consistent phenomena emerge. (1) Staggered grokking order: multiplication generalizes first, followed by squaring,",
-    "company": "xAI",
     "note": "拓展多任务模块算术grokking的几何分析，揭示横向不稳定性、权重叠加与衰减相变结构。"
   },
   {
@@ -147514,7 +147430,6 @@
       "LLM"
     ],
     "abstract": "Grokking -- the abrupt transition from memorization to generalization after prolonged training -- has been linked to confinement on low-dimensional execution manifolds in modular arithmetic. Whether this mechanism extends beyond arithmetic remains open. We study two sequence-learning benchmarks: SCAN compositional generalization and Dyck-1 depth prediction. Across both tasks and a wide range of learning rates, the commutator defect -- a curvature measure derived from non-commuting gradient updat",
-    "company": "xAI",
     "note": "基于损失景观几何提出grokking早期预警信号，在SCAN与Dyck-1等序列任务中验证执行流形假说。"
   },
   {
@@ -147706,7 +147621,6 @@
       "LLM"
     ],
     "abstract": "Grokking -- the delayed transition from memorization to generalization in small algorithmic tasks -- remains poorly understood. We present a geometric analysis of optimization dynamics in transformers trained on modular arithmetic. PCA of attention weight trajectories reveals that training evolves predominantly within a low-dimensional execution subspace, with a single principal component capturing 68-83% of trajectory variance. To probe loss-landscape geometry, we measure commutator defects -- ",
-    "company": "xAI",
     "note": "对Transformer模块算术训练进行几何分析，发现优化轨迹局限于低维执行子空间并呈横向弯曲。"
   },
   {
@@ -149762,7 +149676,6 @@
       "LLM"
     ],
     "abstract": "Grokking, the phenomenon of delayed generalization, is often attributed to the depth and compositional structure of deep neural networks. We study grokking in one of the simplest possible settings: the learning of a linear model with logistic loss for binary classification on data that are linearly (and max margin) separable about the origin. We investigate three testing regimes: (1) test data drawn from the same distribution as the training data, in which case grokking is not observed; (2) test",
-    "company": "xAI",
     "note": "在最简线性逻辑回归中复现grokking现象，挑战其依赖深层网络组合结构的传统认知。"
   },
   {
@@ -150932,7 +150845,6 @@
       "LLM"
     ],
     "abstract": "Accurate channel state information in wideband multiple-input multiple-output (MIMO) systems is fundamentally constrained by pilot overhead, a challenge that intensifies as antenna counts and bandwidths scale toward 6G. This paper proposes a structure-informed hybrid estimator that formulates pilot-limited MIMO channel estimation as low-rank tensor completion from sparse pilot observations -- a severely underdetermined inverse problem that prior tensor approaches avoid by assuming fully observed",
-    "company": "Xiaomi",
     "note": "将导频受限MIMO信道估计建模为低秩张量分解问题，提出结构化混合估计器以提升精度。"
   },
   {
@@ -151934,7 +151846,6 @@
       "LLM"
     ],
     "abstract": "Gliomas are placing an increasingly clinical burden on Sub-Saharan Africa (SSA). In the region, the median survival for patients remains under two years, and access to diagnostic imaging is extremely limited. These constraints highlight an urgent need for automated tools that can extract the maximum possible information from each available scan, tools that are specifically trained on local data, rather than adapted from high-income settings where conditions are vastly different. We utilize the B",
-    "company": "xAI",
     "note": "探索对nnU-Net进行grokking式过训练以提升撒哈拉以南非洲地区胶质瘤MRI分割性能。"
   },
   {
@@ -154505,7 +154416,6 @@
       "LLM"
     ],
     "abstract": "While Large Language Models (LLMs) excel at factual retrieval, they often struggle with the \"curse of two-hop reasoning\" in compositional tasks. Recent research suggests that parameter-sharing transformers can bridge this gap by forming a \"Generalization Circuit\" during a prolonged \"grokking\" phase. A fundamental question arises: Is a grokked model superior to its non-grokked counterparts on downstream tasks? Furthermore, is the extensive computational cost of waiting for the grokking phase wort",
-    "company": "xAI",
     "note": "分析Transformer泛化电路的功能与迁移性，评估grokking模型在组合推理中的实际应用价值。"
   },
   {
@@ -155999,8 +155909,7 @@
       "Reasoning",
       "Multimodal"
     ],
-    "abstract": "Precise delineation of anatomical and pathological structures within 3D medical volumes is crucial for accurate diagnosis, effective surgical planning, and longitudinal disease monitoring. Despite advancements in AI, clinically viable segmentation is often hindered by the scarcity of 3D annotations, patient-specific variability, data privacy concerns, and substantial computational overhead. In this work, we propose FALCON, a cross-domain few-shot segmentation framework that achieves high-precisi",
-    "company": "TII"
+    "abstract": "Precise delineation of anatomical and pathological structures within 3D medical volumes is crucial for accurate diagnosis, effective surgical planning, and longitudinal disease monitoring. Despite advancements in AI, clinically viable segmentation is often hindered by the scarcity of 3D annotations, patient-specific variability, data privacy concerns, and substantial computational overhead. In this work, we propose FALCON, a cross-domain few-shot segmentation framework that achieves high-precisi"
   },
   {
     "id": "2601.16218",
@@ -156316,7 +156225,6 @@
       "LLM"
     ],
     "abstract": "Jamming attacks pose a critical threat to wireless networks, particularly in cell-free massive MIMO systems, where distributed access points and user equipment (UE) create complex, time-varying topologies. This paper proposes a novel jamming detection framework leveraging dynamic graphs and graph convolutional neural networks (GCN) to address this challenge. By modeling the network as a dynamic graph, we capture evolving communication links and detect jamming attacks as anomalies in the graph ev",
-    "company": "Xiaomi",
     "note": "提出基于动态图与图卷积网络的干扰检测框架，刻画无蜂窝大规模MIMO时变拓扑，捕捉拓扑-信号联合特征提升检测性能。"
   },
   {
@@ -156518,7 +156426,6 @@
       "Multimodal"
     ],
     "abstract": "The evolution of semantic communications has profoundly impacted wireless video transmission, whose applications dominate driver of modern bandwidth consumption. However, most existing schemes are predominantly optimized for simple additive white Gaussian noise or Rayleigh fading channels, neglecting the ubiquitous multiple-input multiple-output (MIMO) environments that critically hinder practical deployment. To bridge this gap, we propose the context video semantic transmission (CVST) framework",
-    "company": "Xiaomi",
     "note": "面向MIMO信道设计变长变率上下文视频语义传输方案，在含信道估计误差的实测信道条件下兼顾压缩与稳健性。"
   },
   {
@@ -157045,7 +156952,6 @@
       "LLM"
     ],
     "abstract": "Scalable sampling of molecular states in thermodynamic equilibrium is a long-standing challenge in statistical physics. Boltzmann Generators tackle this problem by pairing a generative model, capable of exact likelihood computation, with importance sampling to obtain consistent samples under the target distribution. Current Boltzmann Generators primarily use continuous normalizing flows (CNFs) trained with flow matching for efficient training of powerful models. However, likelihood calculation f",
-    "company": "TII",
     "note": "FALCON针对连续流模型提出少步精确似然计算方法，提升Boltzmann生成器在分子平衡态采样中的效率与精度。"
   },
   {
@@ -157492,7 +157398,6 @@
       "LLM"
     ],
     "abstract": "Extremely large-scale massive multiple-input multiple-output (XL-MIMO) is a key enabler for sixth-generation (6G) networks, offering massive spatial degrees of freedom. Despite these advantages, the coexistence of near-field and far-field effects in hybrid-field channels presents significant challenges for accurate estimation, where traditional methods often struggle to generalize effectively. In recent years, large language models (LLMs) have achieved impressive performance on downstream tasks ",
-    "company": "Xiaomi",
     "note": "提出LLM4XCE，将大语言模型用于极大规模MIMO混合场信道估计，利用其推理能力处理近远场共存难题。"
   },
   {
@@ -158553,7 +158458,6 @@
       "LLM"
     ],
     "abstract": "Grokking is a puzzling phenomenon in neural networks where full generalization occurs only after a substantial delay following the complete memorization of the training data. Previous research has linked this delayed generalization to representation learning driven by weight decay, but the precise underlying dynamics remain elusive. In this paper, we argue that post-memorization learning can be understood through the lens of constrained optimization: gradient descent effectively minimizes the we",
-    "company": "xAI",
     "note": "提出grokking的零损失流形范数最小化理论，阐释权重衰减驱动表示学习的精确动力学。"
   },
   {
@@ -158672,7 +158576,6 @@
       "Multimodal"
     ],
     "abstract": "We present LeMiCa, a training-free and efficient acceleration framework for diffusion-based video generation. While existing caching strategies primarily focus on reducing local heuristic errors, they often overlook the accumulation of global errors, leading to noticeable content degradation between accelerated and original videos. To address this issue, we formulate cache scheduling as a directed graph with error-weighted edges and introduce a Lexicographic Minimax Path Optimization strategy th",
-    "company": "MiniMax",
     "note": "提出无训练的LeMiCa加速框架，通过字典序极小极大路径缓存减少扩散视频生成中的全局误差累积与内容退化。"
   },
   {
@@ -158726,8 +158629,7 @@
       "Fine-tuning"
     ],
     "abstract": "This paper addresses the critical challenges of communication overhead, data heterogeneity, and privacy in deep learning for channel state information (CSI) feedback in massive MIMO systems. To this end, we propose Fed-PELAD, a novel federated learning framework that incorporates personalized encoders and a LoRA-adapted shared decoder. Specifically, personalized encoders are trained locally on each user equipment (UE) to capture device-specific channel characteristics, while a shared decoder is ",
-    "title_zh": "Fed-PELAD：使用个性化编码器和适应 LoRA 的共享解码器进行大规模 MIMO CSI 反馈的通信高效联合学习",
-    "company": "Xiaomi"
+    "title_zh": "Fed-PELAD：使用个性化编码器和适应 LoRA 的共享解码器进行大规模 MIMO CSI 反馈的通信高效联合学习"
   },
   {
     "id": "2510.24700",
@@ -158922,7 +158824,6 @@
       "LLM"
     ],
     "abstract": "As communication networks evolve towards greater complexity (e.g., 6G and beyond), a deep understanding of the wireless environment becomes increasingly crucial. When explicit knowledge of the environment is unavailable, geometry-aware feature extraction from channel state information (CSI) emerges as a pivotal methodology to bridge physical-layer measurements with network intelligence. This paper proposes to explore the received signal strength (RSS) data, without explicit 3D environment knowle",
-    "company": "Xiaomi",
     "note": "提出物理信息神经网络，联合CSI与传播物理先验进行MIMO波束图重建与环境几何感知，无需显式环境知识。"
   },
   {
@@ -158962,7 +158863,6 @@
       "Reasoning"
     ],
     "abstract": "We introduce Falcon, a cross-domain Chinese text-to-SQL benchmark grounded in an enterprise-compatible dialect (MaxCompute/Hive). It contains 600 Chinese questions over 28 databases; 77% require multi-table reasoning and over half touch more than four tables. Each example is annotated along SQL-computation features and Chinese semantics. For evaluation, we release a robust execution comparator and an automated evaluation pipeline, under which all current state-of-the-art large-scale models (incl",
-    "company": "TII",
     "note": "Falcon发布企业级中文Text-to-SQL基准，涵盖多库多表推理场景，并标注SQL计算与中文语义特征。"
   },
   {
@@ -159080,7 +158980,6 @@
       "LLM"
     ],
     "abstract": "Millimeter-wave (mmWave) and Terahertz (THz)-band communications hold great promise in meeting the growing data-rate demands of next-generation wireless networks, offering abundant bandwidth. To mitigate the severe path loss inherent to these high frequencies and reduce hardware costs, ultra-massive multiple-input multiple-output (UM-MIMO) systems with hybrid beamforming architectures can deliver substantial beamforming gains and enhanced spectral efficiency. However, accurate channel estimation",
-    "company": "Xiaomi",
     "note": "提出DiffPace，将扩散模型作为即插即用先验用于mmWave/THz超大规模MIMO信道估计，缓解高频严重路径损耗。"
   },
   {
@@ -159709,7 +159608,6 @@
       "Fine-tuning"
     ],
     "abstract": "Channel equalization is fundamental for mitigating distortions such as frequency-selective fading and inter-symbol interference. Unlike standard supervised learning approaches that require costly retraining or fine-tuning for each new task, in-context learning (ICL) adapts to new channels at inference time with only a few examples. However, existing ICL-based equalizers are primarily developed for and evaluated on static channels within the context window. Indeed, to our knowledge, prior princip",
-    "company": "Xiaomi",
     "note": "将上下文学习引入非平稳MIMO信道均衡，无需重训即可在推理时用少量样本适配新信道条件。"
   },
   {
@@ -159762,7 +159660,6 @@
       "Safety"
     ],
     "abstract": "Minimax risk and regret focus on expectation, missing rare failures critical in safety-critical bandits and reinforcement learning. Minimax quantiles capture these tails. Three strands of prior work motivate this study: minimax-quantile bounds restricted to non-interactive estimation; unified interactive analyses that focus on expected risk rather than risk level specific quantile bounds; and high-probability bandit bounds that still lack a quantile-specific toolkit for general interactive proto",
-    "company": "MiniMax",
     "note": "研究交互式统计决策中风险水平相关的极小极大分位数下界，弥补期望型风险对尾部稀有失败事件刻画不足的问题。"
   },
   {
@@ -159977,7 +159874,6 @@
       "LLM"
     ],
     "abstract": "In this paper, we propose Capacity-Net, a novel unsupervised learning approach aimed at maximizing the achievable rate in reflecting intelligent surface (RIS)-aided millimeter-wave (mmWave) multiple input multiple output (MIMO) systems. To combat severe channel fading of the mmWave spectrum, we optimize the phase-shifting factors of the reflective elements in the RIS to enhance the achievable rate. However, most optimization algorithms rely heavily on complete and accurate channel state informat",
-    "company": "Xiaomi",
     "note": "提出无监督学习方法Capacity-Net，免信道估计直接优化RIS相移以最大化mmWave MIMO系统和速率。"
   },
   {
@@ -160136,7 +160032,6 @@
       "LLM"
     ],
     "abstract": "Existing methods for evaluating the harmfulness of content generated by large language models (LLMs) have been well studied. However, approaches tailored to multimodal large language models (MLLMs) remain underdeveloped and lack depth. This work highlights the crucial role of visual information in moderating content in visual question answering (VQA), a dimension often overlooked in current research. To bridge this gap, we introduce Falcon, a large-scale vision-language safety dataset containing",
-    "company": "TII",
     "note": "Falcon构建多模态大模型安全评估数据集，聚焦视觉信息在视觉问答内容审核中的关键作用。"
   },
   {
@@ -160360,7 +160255,6 @@
       "Reasoning"
     ],
     "abstract": "While the phenomenon of grokking, i.e., delayed generalization, has been studied extensively, it remains an open problem whether there is a mathematical framework that characterizes what kind of features will emerge, how and in which conditions it happens, and is closely related to the gradient dynamics of the training, for complex structured inputs. We propose a novel framework, named $\\mathbf{Li}_2$, that captures three key stages for the grokking behavior of 2-layer nonlinear networks: (I) La",
-    "company": "xAI",
     "note": "建立grokking特征涌现的可证明标度律，从梯度动力学视角揭示特征何时及如何涌现的数学条件。"
   },
   {
@@ -160374,7 +160268,6 @@
       "Reasoning"
     ],
     "abstract": "It remains an open question whether LLMs can acquire or generalize genuinely new reasoning strategies, beyond the sharpened skills encoded in their parameters during pre-training or post-training. To attempt to answer this debate, we introduce DELTA-Code -- Distributional Evaluation of Learnability and Transferrability in Algorithmic Coding -- a controlled benchmark of synthetic coding problem families designed to probe two fundamental aspects: learnability -- can LLMs, through reinforcement lea",
-    "company": "xAI",
     "note": "提出DELTA-Code评测基准，探究强化学习能否让大语言模型解锁并迁移全新的算法推理能力。"
   },
   {
@@ -160401,7 +160294,6 @@
       "LLM"
     ],
     "abstract": "Minimax-based search algorithms with alpha-beta pruning and transposition tables are a central component of classical game-playing engines and remain widely used in practice. Despite their widespread use, these algorithms are subtle, highly optimized, and notoriously difficult to reason about, making non-obvious errors hard to detect by testing alone. Using the Dafny verification system, we formally verify a range of minimax search algorithms, including variants with alpha-beta pruning and trans",
-    "company": "MiniMax",
     "note": "对Alpha-Beta剪枝与置换表等极小极大博弈搜索算法进行形式化验证，揭示难以通过测试发现的潜在错误。"
   },
   {
@@ -160676,7 +160568,6 @@
       "LLM"
     ],
     "abstract": "In this paper, we propose a sustainable long short-term memory (LSTM)-based precoding framework for reconfigurable intelligent surface (RIS)-assisted millimeter-wave (mmWave) MIMO systems. Instead of explicit channel state information (CSI) estimation, the framework exploits uplink pilot sequences to implicitly learn channel characteristics, reducing both pilot overhead and inference complexity. Practical hardware constraints are addressed by incorporating the phase-dependent amplitude model of ",
-    "company": "Xiaomi",
     "note": "提出可持续LSTM预编码框架，利用上行导频隐式学习RIS辅助毫米波MIMO信道特性，无需显式CSI估计。"
   },
   {
@@ -160808,7 +160699,6 @@
       "Multimodal"
     ],
     "abstract": "This paper investigates multimodal semantic non-orthogonal transmission and fusion in hybrid analog-digital massive multiple-input multiple-output (MIMO). A Transformer-based cross-modal source-channel semantic-aware network (CSC-SA-Net) framework is conceived, where channel state information (CSI) reference signal (RS), feedback, analog-beamforming/combining, and baseband semantic processing are data-driven end-to-end (E2E) optimized at the base station (BS) and user equipments (UEs). CSC-SA-Ne",
-    "company": "Xiaomi",
     "note": "设计Transformer跨模态语义感知网络CSC-SA-Net，实现混合模数大规模MIMO多模态语义非正交传输与融合。"
   },
   {
@@ -160835,7 +160725,6 @@
       "LLM"
     ],
     "abstract": "Sixth generation (6G) systems require environment-aware communication, driven by native artificial intelligence (AI) and integrated sensing and communication (ISAC). Radio maps (RMs), providing spatially continuous channel information, are key enablers. However, generating high-fidelity RM ground truth via electromagnetic (EM) simulations is computationally intensive, motivating machine learning (ML)-based RM construction. The effectiveness of these data-driven methods depends on large-scale, hi",
-    "company": "Xiaomi",
     "note": "构建UrbanMIMOMap数据集，基于射线追踪为6G环境感知通信提供高保真MIMO CSI及预编码基准。"
   },
   {
@@ -160943,7 +160832,6 @@
       "Multimodal"
     ],
     "abstract": "To support cooperative perception (CP) of networked mobile agents in dynamic scenarios, the efficient and robust transmission of sensory data is a critical challenge. Deep learning-based joint source-channel coding (JSCC) has demonstrated promising results for image transmission under adverse channel conditions, outperforming traditional rule-based codecs. While recent works have explored to combine JSCC with the widely adopted multiple-input multiple-output (MIMO) technology, these approaches a",
-    "company": "Xiaomi",
     "note": "提出基于SoM的任务驱动MIMO图像传输方案，结合深度学习JSCC提升协作感知中恶劣信道下的鲁棒性。"
   },
   {
@@ -161156,7 +161044,6 @@
       "LLM"
     ],
     "abstract": "Signature-based Intrusion Detection Systems (IDS) detect malicious activity by matching network or host events against predefined rules. Security analysts manually develop these rules from Cyber Threat Intelligence (CTI). As threats evolve, this manual pipeline faces two bottlenecks. Before authoring a new rule, an analyst must reconcile the incoming CTI with the existing rule base and determine whether to create, update, or retire one. This process is challenging due to the representational dif",
-    "company": "TII",
     "note": "FALCON结合自反思机制，将网络威胁情报自动转化为可部署的入侵检测签名规则，缓解人工编写瓶颈。"
   },
   {
@@ -161497,7 +161384,6 @@
       "LLM"
     ],
     "abstract": "In the user-centric cell-free massive MIMO (UC-mMIMO) network scheme, user mobility necessitates updating the set of serving access points to maintain the user-centric clustering. Such updates are typically performed through handoff (HO) operations; however, frequent HOs lead to overheads associated with the allocation and release of resources. This paper presents a deep reinforcement learning (DRL)-based solution to predict and manage these connections for mobile users. Our solution employs the",
-    "company": "Xiaomi",
     "note": "采用深度强化学习设计用户中心无蜂窝大规模MIMO切换策略，平衡服务AP更新与资源开销。"
   },
   {
@@ -161539,7 +161425,6 @@
       "LLM"
     ],
     "abstract": "Deep learning (DL) has emerged as a solution for precoding in massive multiple-input multiple-output (mMIMO) systems due to its capacity to learn the characteristics of the propagation environment. However, training such a model requires high-quality, local datasets at the deployment site, which are often difficult to collect. We propose a transformer-based foundation model for mMIMO precoding that seeks to minimize the energy consumption of the transmitter while dynamically adapting to per-user",
-    "company": "Xiaomi",
     "note": "提出Transformer基础模型实现大规模MIMO预编码，免本地数据集自适应调节用户速率与功率权衡。"
   },
   {
@@ -161553,7 +161438,6 @@
       "LLM"
     ],
     "abstract": "In this paper, we propose a deep unfolding neural network-based MIMO detector that incorporates complex-valued computations using Wirtinger calculus. The method, referred as Dynamic Partially Shrinkage Thresholding (DPST), enables efficient, interpretable, and low-complexity MIMO signal detection. Unlike prior approaches that rely on real-valued approximations, our method operates natively in the complex domain, aligning with the fundamental nature of signal processing tasks. The proposed algori",
-    "company": "Xiaomi",
     "note": "提出动态部分收缩阈值算法DPST，结合深度展开与Wirtinger复数计算，实现低复杂度可解释MIMO检测。"
   },
   {
@@ -161582,7 +161466,6 @@
       "LLM"
     ],
     "abstract": "We study a privacy-preserving data-sharing setting where a privatizer transforms private data into a sanitized version observed by an authorized reconstructor and two unauthorized adversaries, each with access to side information correlated with the private data. The reconstructor is evaluated under a distortion function, while each adversary is evaluated using a separate loss function. The privatizer ensures the reconstructor distortion remains below a fixed threshold while maximizing the minim",
-    "company": "MiniMax",
     "note": "研究带失真约束与对抗推断的极小极大数据脱敏，在授权重构与未授权对手间实现隐私保护与效用平衡。"
   },
   {
@@ -161610,7 +161493,6 @@
       "LLM"
     ],
     "abstract": "Reconfigurable intelligent surfaces (RISs) are an emerging technology for improving spectral efficiency and reducing power consumption in future wireless systems. This paper investigates the joint design of the transmit precoding matrices and the RIS phase shift vector in a multi-user RIS-aided multiple-input multiple-output (MIMO) communication system. We formulate a max-min optimization problem to maximize the minimum achievable rate while considering transmit power and reradiation mask constr",
-    "company": "Xiaomi",
     "note": "研究RIS辅助MIMO多波束成形，在再辐射掩膜约束下联合优化发射预编码与RIS相移。"
   },
   {
@@ -161639,7 +161521,6 @@
       "LLM"
     ],
     "abstract": "As a green MIMO structure, the heterogeneous hybrid analog-digital H2AD MIMO architecture has been shown to own a great potential to replace the massive or extremely large-scale fully-digital MIMO in the future wireless networks to address the three challenging problems faced by the latter: high energy consumption, high circuit cost, and high complexity. However, how to intelligently sense the number and direction of multi-emitters via such a structure is still an open hard problem. To address t",
-    "company": "Xiaomi",
     "note": "提出DNN联合估计目标数量与方向方法，面向绿色异构混合模数H2AD大规模MIMO接收机实现高效感知。"
   },
   {
@@ -161653,7 +161534,6 @@
       "Multimodal"
     ],
     "abstract": "Reducing feedback overhead in beyond 5G networks is a critical challenge, as the growing number of antennas in modern massive MIMO systems substantially increases the channel state information (CSI) feedback demand in frequency division duplex (FDD) systems. To address this, extensive research has focused on CSI compression and prediction, with neural network-based approaches gaining momentum and being considered for integration into the 3GPP 5G-Advanced standards. While deep learning has been e",
-    "company": "Xiaomi",
     "note": "利用时序信道预测实现符合标准的DM-RS分配，降低大规模MIMO系统的CSI反馈开销。"
   },
   {
@@ -161667,7 +161547,6 @@
       "LLM"
     ],
     "abstract": "Grokking refers to delayed generalization in which the increase in test accuracy of a neural network occurs appreciably after the improvement in training accuracy This paper introduces several practical metrics including variance under dropout, robustness, embedding similarity, and sparsity measures, that can forecast grokking behavior. Specifically, the resilience of neural networks to noise during inference is estimated from a Dropout Robustness Curve (DRC) obtained from the variation of the a",
-    "company": "xAI",
     "note": "提出dropout方差、嵌入相似度等可预测grokking的实用指标，为提前识别延迟泛化提供工具。"
   },
   {
@@ -161753,7 +161632,6 @@
       "Safety"
     ],
     "abstract": "In line with the AI-native 6G vision, explainability and robustness are crucial for building trust and ensuring reliable performance in millimeter-wave (mmWave) systems. Efficient beam alignment is essential for initial access, but deep learning (DL) solutions face challenges, including high data collection overhead, hardware constraints, lack of explainability, and susceptibility to adversarial attacks. This paper proposes a robust and explainable DL-based beam alignment engine (BAE) for mmWave",
-    "company": "Xiaomi",
     "note": "数字孪生辅助的可解释AI方法，提升毫米波MIMO系统中波束预测的鲁棒性与可信度。"
   },
   {
@@ -161898,7 +161776,6 @@
       "LLM"
     ],
     "abstract": "In this paper, the precoding design is investigated for maximizing the throughput of millimeter wave (mmWave) multiple-input multiple-output (MIMO) systems with obstructed direct communication paths. In particular, a reconfigurable intelligent surface (RIS) is employed to enhance MIMO transmissions, considering mmWave characteristics related to line-of-sight (LoS) and multipath effects. The traditional exhaustive search (ES) for optimal codewords in the continuous phase shift is computationally ",
-    "company": "Xiaomi",
     "note": "提出基于DNN的预编码方案，在考虑实际相移约束下最大化RIS辅助毫米波MIMO吞吐量。"
   },
   {
@@ -161941,7 +161818,6 @@
       "LLM"
     ],
     "abstract": "As a green MIMO structure, massive H$^2$AD is viewed as a potential technology for the future 6G wireless network. For such a structure, it is a challenging task to design a low-complexity and high-performance fusion of target direction values sensed by different sub-array groups with fewer use of prior knowledge. To address this issue, a lightweight Cramer-Rao lower bound (CRLB)-ratio-weight fusion (WF) method is proposed, which approximates inverse CRLB of each subarray using antenna number re",
-    "company": "Xiaomi",
     "note": "采用多分支DNN与CRLB比率加权融合策略，实现大规模H²AD MIMO接收机低复杂度高精度DOA感知。"
   },
   {
@@ -162202,7 +162078,6 @@
       "LLM"
     ],
     "abstract": "Grokking refers to a delayed generalization following overfitting when optimizing artificial neural networks with gradient-based methods. In this work, we demonstrate that grokking can be induced by regularization, either explicit or implicit. More precisely, we show that when there exists a model with a property $P$ (e.g., sparse or low-rank weights) that generalizes on the problem of interest, gradient descent with a small but non-zero regularization of $P$ (e.g., $\\ell_1$ or nuclear norm regu",
-    "company": "xAI",
     "note": "突破参数欧氏范数视角，证明显式或隐式正则化在具备特定性质模型上可触发grokking。"
   },
   {
@@ -162244,7 +162119,6 @@
       "LLM"
     ],
     "abstract": "We study the well-known grokking phenomena in neural networks (NNs) using a 3-layer MLP trained on 1 k-sample subset of MNIST, with and without weight decay, and discover a novel third phase -- \\emph{anti-grokking} -- that occurs very late in training and resembles but is distinct from the familiar \\emph{pre-grokking} phases: test accuracy collapses while training accuracy stays perfect. This late-stage collapse is distinct, from the known pre-grokking and grokking phases, and is not detected by",
-    "company": "xAI",
     "note": "用HTSR理论分析grokking现象，在训练极后期发现区别于预grokking的\"反grokking\"新阶段。"
   },
   {
@@ -162382,7 +162256,6 @@
       "LLM"
     ],
     "abstract": "Designing analog circuits from performance specifications is a complex, multi-stage process encompassing topology selection, parameter inference, and layout feasibility. We introduce FALCON, a unified machine learning framework that enables fully automated, specification-driven analog circuit synthesis through topology selection and layout-constrained optimization. Given a target performance, FALCON first selects an appropriate circuit topology using a performance-driven classifier guided by hum",
-    "company": "TII",
     "note": "FALCON提供端到端机器学习框架，从性能规格自动完成模拟电路的拓扑选择与布局约束设计。"
   },
   {
@@ -162532,7 +162405,6 @@
       "LLM"
     ],
     "abstract": "Grokking, a delayed generalization in neural networks after perfect training performance, has been observed in Transformers and MLPs, but the components driving it remain underexplored. We show that embeddings are central to grokking: introducing them into MLPs induces delayed generalization in modular arithmetic tasks, whereas MLPs without embeddings can generalize immediately. Our analysis identifies two key mechanisms: (1) Embedding update dynamics, where rare tokens stagnate due to sparse gr",
-    "company": "xAI",
     "note": "揭示嵌入层是grokking的关键驱动，在MLP中加入嵌入即可在模算术任务上诱发延迟泛化。"
   },
   {
@@ -162601,7 +162473,6 @@
       "Safety"
     ],
     "abstract": "False negatives pose a critical challenge in vision-language pretraining (VLP) due to the many-to-many correspondence between images and texts in large-scale datasets. These false negatives introduce conflicting supervision signals that degrade the learned embedding space and diminish the effectiveness of hard negative sampling. In this paper, we propose FALCON (False-negative Aware Learning of COntrastive Negatives), a learning-based mini-batch construction strategy that adaptively balances the",
-    "company": "TII",
     "note": "FALCON识别视觉语言预训练中的假负例，通过对比正交非对齐优化难负例采样，提升表征质量。"
   },
   {
@@ -162694,8 +162565,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "This paper presents the first experimental evaluation of four previously untested modifications of Unbounded Best-First Minimax algorithm. This algorithm explores the game tree by iteratively expanding the most promising sequences of actions based on the current partial game tree. We first evaluate the use of transposition tables, which convert the game tree into a directed acyclic graph by merging duplicate states. Second, we compare the original algorithm by Korf &amp; Chickering with the vari",
-    "company": "MiniMax"
+    "abstract": "This paper presents the first experimental evaluation of four previously untested modifications of Unbounded Best-First Minimax algorithm. This algorithm explores the game tree by iteratively expanding the most promising sequences of actions based on the current partial game tree. We first evaluate the use of transposition tables, which convert the game tree into a directed acyclic graph by merging duplicate states. Second, we compare the original algorithm by Korf &amp; Chickering with the vari"
   },
   {
     "id": "2505.04640",
@@ -162832,7 +162702,6 @@
       "Reasoning"
     ],
     "abstract": "Transformers have achieved great success in numerous NLP tasks but continue to exhibit notable gaps in multi-step factual reasoning, especially when real-world knowledge is sparse. Recent advances in grokking have demonstrated that neural networks can transition from memorizing to perfectly generalizing once they detect underlying logical patterns - yet these studies have primarily used small, synthetic tasks. In this paper, for the first time, we extend grokking to real-world factual data and a",
-    "company": "xAI",
     "note": "将grokking机制应用于真实多跳推理，通过数据增强让Transformer从记忆过渡到泛化。"
   },
   {
@@ -162861,7 +162730,6 @@
       "LLM"
     ],
     "abstract": "Accurately forecasting the performance of Large Language Models (LLMs) before extensive fine-tuning or merging can substantially reduce both computational expense and development time. Although prior approaches like scaling laws account for global factors such as parameter size or training tokens, they often overlook explicit lineage relationships-i.e., which models are derived or merged from which parents. In this work, we propose a novel Lineage-Regularized Matrix Factorization (LRMF) framewor",
-    "company": "TII",
     "note": "提出基于血缘关系的LLM性能预测方法，弥补传统缩放定律对模型谱系因素建模的不足。"
   },
   {
@@ -162926,7 +162794,6 @@
       "LLM"
     ],
     "abstract": "Gossip Learning (GL) is a decentralized learning paradigm where users iteratively exchange and aggregate models with a small set of neighboring peers. Recent approaches rely on dynamic communication graphs built using Random Peer Sampling (RPS) protocols which have been proven to accelerate convergence. However, we show that these approaches are vulnerable to a dual attack: Byzantine nodes can poison models and manipulate peer sampling to amplify their influence. We address this combination of t",
-    "company": "IBM",
     "note": "提出GRANITE去中心化学习框架，将拜占庭容错机制融入动态八卦协议，增强抗恶意节点能力。"
   },
   {
@@ -162940,7 +162807,6 @@
       "LLM"
     ],
     "abstract": "Grokking is proposed and widely studied as an intricate phenomenon in which generalization is achieved after a long-lasting period of overfitting. In this work, we propose NeuralGrok, a novel gradient-based approach that learns an optimal gradient transformation to accelerate the generalization of transformers in arithmetic tasks. Specifically, NeuralGrok trains an auxiliary module (e.g., an MLP block) in conjunction with the base model. This module dynamically modulates the influence of individ",
-    "company": "xAI",
     "note": "提出NeuralGrok方法，学习最优梯度变换以加速Transformer在算术任务上的延迟泛化过程。"
   },
   {
@@ -162967,7 +162833,6 @@
       "LLM"
     ],
     "abstract": "This paper investigates the impact of different optimizers on the grokking phenomenon, where models exhibit delayed generalization. We conducted experiments across seven numerical tasks (primarily modular arithmetic) using a modern Transformer architecture. The experimental configuration systematically varied the optimizer (Muon vs. AdamW) and the softmax activation function (standard softmax, stablemax, and sparsemax) to assess their combined effect on learning dynamics. Our empirical evaluatio",
-    "company": "xAI",
     "note": "对比Muon与AdamW优化器在多个算术任务上的表现，证明Muon能显著加速grokking的延迟泛化。"
   },
   {
@@ -163535,7 +163400,6 @@
       "LLM"
     ],
     "abstract": "In the field of artificial intelligence, self-supervised learning has demonstrated superior generalization capabilities by leveraging large-scale unlabeled datasets for pretraining, which is especially critical for wireless communication models to adapt to a variety of scenarios. This paper innovatively treats Channel State Information (CSI) and Channel Impulse Response (CIR) as naturally aligned multi-modal data and proposes the first MIMO wireless channel foundation model, named CSI-CLIP. By e",
-    "company": "Xiaomi",
     "note": "利用CIR-CSI一致性自监督预训练，构建适用于多种场景的MIMO无线信道通用基础模型。"
   },
   {
@@ -163616,7 +163480,6 @@
       "LLM"
     ],
     "abstract": "While neural lossy compression techniques have markedly advanced the efficiency of Channel State Information (CSI) compression and reconstruction for feedback in MIMO communications, efficient algorithms for more challenging and practical tasks-such as CSI compression for future channel prediction and reconstruction with relevant side information-remain underexplored, often resulting in suboptimal performance when existing methods are extended to these scenarios. To that end, we propose a novel ",
-    "company": "Xiaomi",
     "note": "将生成式扩散模型用于MIMO CSI压缩，可处理未来信道预测及含边信息重建等复杂任务。"
   },
   {
@@ -163630,8 +163493,7 @@
       "Safety",
       "LLM"
     ],
-    "abstract": "The rapid advancement of large language models (LLMs) necessitates effective mechanisms to ensure their responsible deployment by accurately distinguishing unsafe content from benign content. While substantial safety datasets are available in English, multilingual safety modeling remains underexplored due to limited open-source safety datasets in other languages. Even within English datasets, safe yet sensitive corner-case content is scarce, leading to shortcut learning by models and non-trivial",
-    "company": "MiniMax"
+    "abstract": "The rapid advancement of large language models (LLMs) necessitates effective mechanisms to ensure their responsible deployment by accurately distinguishing unsafe content from benign content. While substantial safety datasets are available in English, multilingual safety modeling remains underexplored due to limited open-source safety datasets in other languages. Even within English datasets, safe yet sensitive corner-case content is scarce, leading to shortcut learning by models and non-trivial"
   },
   {
     "id": "2502.02377",
@@ -163643,8 +163505,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "We propose a minimax-Bayes approach to Ad Hoc Teamwork (AHT) that optimizes policies against an adversarial prior over partners, explicitly accounting for uncertainty about partners at time of deployment. Unlike existing methods that assume a specific distribution over partners, our approach improves worst-case performance guarantees. Extensive experiments, including evaluations on coordinated cooking tasks from the Melting Pot suite, show our method's superior robustness compared to self-play, ",
-    "company": "MiniMax"
+    "abstract": "We propose a minimax-Bayes approach to Ad Hoc Teamwork (AHT) that optimizes policies against an adversarial prior over partners, explicitly accounting for uncertainty about partners at time of deployment. Unlike existing methods that assume a specific distribution over partners, our approach improves worst-case performance guarantees. Extensive experiments, including evaluations on coordinated cooking tasks from the Melting Pot suite, show our method's superior robustness compared to self-play, "
   },
   {
     "id": "2502.06807",
@@ -163673,7 +163534,6 @@
       "LLM"
     ],
     "abstract": "Large language models have been widely applied, but can inadvertently encode sensitive or harmful information, raising significant safety concerns. Machine unlearning has emerged to alleviate this concern; however, existing training-time unlearning approaches, relying on coarse-grained loss combinations, have limitations in precisely separating knowledge and balancing removal effectiveness with model utility. In contrast, we propose Fine-grained Activation manipuLation by Contrastive Orthogonal ",
-    "company": "TII",
     "note": "FALCON通过对比正交非对齐实现大模型细粒度激活操控，提升机器遗忘的精度与安全性。"
   },
   {
@@ -163687,7 +163547,6 @@
       "LLM"
     ],
     "abstract": "Grokking, or delayed generalization, is an intriguing learning phenomenon where test set loss decreases sharply only after a model's training set loss has converged. This challenges conventional understanding of the training dynamics in deep learning networks. In this paper, we formalize and investigate grokking, highlighting that a key factor in its emergence is a distribution shift between training and test data. We introduce two synthetic datasets specifically designed to analyze grokking. On",
-    "company": "xAI",
     "note": "将grokking形式化为统计现象，从统计学角度解释测试损失在训练收敛后才骤降的原因。"
   },
   {
@@ -163867,7 +163726,6 @@
       "LLM"
     ],
     "abstract": "Massive MIMO (Multiple-Input Multiple-Output) is an advanced wireless communication technology, using a large number of antennas to improve the overall performance of the communication system in terms of capacity, spectral, and energy efficiency. The performance of MIMO systems is highly dependent on the quality of channel state information (CSI). Predicting CSI is, therefore, essential for improving communication system performance, particularly in MIMO systems, since it represents key characte",
-    "company": "Xiaomi",
     "note": "采用BERT架构构建大规模MIMO信道状态信息预测的通用基础模型。"
   },
   {
@@ -163937,7 +163795,6 @@
       "LLM"
     ],
     "abstract": "Arguments evoke emotions, influencing the effect of the argument itself. Not only the emotional intensity but also the category influence the argument's effects, for instance, the willingness to adapt stances. While binary emotionality has been studied in arguments, there is no work on discrete emotion categories (e.g., \"Anger\") in such data. To fill this gap, we crowdsource subjective annotations of emotion categories in a German argument corpus and evaluate automatic LLM-based labeling methods",
-    "company": "TII",
     "note": "标注论证文本中的离散情感类别，对比人类与大模型在情感分类任务上的一致性差异。"
   },
   {
@@ -163951,7 +163808,6 @@
       "LLM"
     ],
     "abstract": "Striking an optimal balance between minimal drafting latency and high speculation accuracy to enhance the inference speed of Large Language Models remains a significant challenge in speculative decoding. In this paper, we introduce Falcon, an innovative semi-autoregressive speculative decoding framework fashioned to augment both the drafter's parallelism and output quality. Falcon incorporates the Coupled Sequential Glancing Distillation technique, which fortifies inter-token dependencies within",
-    "company": "TII",
     "note": "Falcon：提出半自回归推测解码框架，通过增强草稿并行性与定制解码树，兼顾低草稿延迟与高推测精度，加速大语言模型推理。"
   },
   {
@@ -163979,7 +163835,6 @@
       "Agent"
     ],
     "abstract": "Pursuing human-like interaction for Graphical User Interface (GUI) agents requires understanding the GUI context and following user instructions. However, existing works typically couple these two aspects and focus more on instruct-following abilities, while ignoring the importance of understanding the GUI context. In this paper, we introduce an instruction-free GUI navigation dataset, termed Insight-UI Dataset, to enhance model comprehension of GUI environments. Insight-UI Dataset is automatica",
-    "company": "TII",
     "note": "Falcon-UI：解耦GUI界面理解与指令遵循，提出先理解再执行的智能体框架，强调界面上下文理解对GUI交互的重要性。"
   },
   {
@@ -164095,7 +163950,6 @@
       "LLM"
     ],
     "abstract": "This technical report presents Yi-Lightning, our latest flagship large language model (LLM). It achieves exceptional performance, ranking 6th overall on Chatbot Arena, with particularly strong results (2nd to 4th place) in specialized categories including Chinese, Math, Coding, and Hard Prompts. Yi-Lightning leverages an enhanced Mixture-of-Experts (MoE) architecture, featuring advanced expert segmentation and routing mechanisms coupled with optimized KV-caching techniques. Our development proce",
-    "company": "01.AI",
     "note": "采用增强MoE架构打造Yi-Lightning旗舰大模型，Chatbot Arena总榜第六，中文、数学、代码类专项跻身前四。"
   },
   {
@@ -164108,8 +163962,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "We investigate the approximation and estimation rates of conditional diffusion transformers (DiTs) with classifier-free guidance. We present a comprehensive analysis for ``in-context'' conditional DiTs under four common data assumptions. We show that both conditional DiTs and their latent variants lead to the minimax optimality of unconditional DiTs under identified settings. Specifically, we discretize the input domains into infinitesimal grids and then perform a term-by-term Taylor expansion o",
-    "company": "MiniMax"
+    "abstract": "We investigate the approximation and estimation rates of conditional diffusion transformers (DiTs) with classifier-free guidance. We present a comprehensive analysis for ``in-context'' conditional DiTs under four common data assumptions. We show that both conditional DiTs and their latent variants lead to the minimax optimality of unconditional DiTs under identified settings. Specifically, we discretize the input domains into infinitesimal grids and then perform a term-by-term Taylor expansion o"
   },
   {
     "id": "2411.14054",
@@ -164147,8 +164000,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Most existing DOA estimation methods assume ideal source incident angles with minimal noise. Moreover, directly using pre-estimated angles to calculate weighted coefficients can lead to performance loss. Thus, a green multi-modal (MM) fusion DOA framework is proposed to realize a more practical, low-cost and high time-efficiency DOA estimation for a H$^2$AD array. Firstly, two more efficient clustering methods, global maximum cos\\_similarity clustering (GMaxCS) and global minimum distance cluste",
-    "company": "Xiaomi"
+    "abstract": "Most existing DOA estimation methods assume ideal source incident angles with minimal noise. Moreover, directly using pre-estimated angles to calculate weighted coefficients can lead to performance loss. Thus, a green multi-modal (MM) fusion DOA framework is proposed to realize a more practical, low-cost and high time-efficiency DOA estimation for a H$^2$AD array. Firstly, two more efficient clustering methods, global maximum cos\\_similarity clustering (GMaxCS) and global minimum distance cluste"
   },
   {
     "id": "2411.04535",
@@ -164185,8 +164037,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "The emergence of 6th generation (6G) mobile networks brings new challenges in supporting high-mobility communications, particularly in addressing the issue of channel aging. While existing channel prediction methods offer improved accuracy at the expense of increased computational complexity, limiting their practical application in mobile networks. To address these challenges, we present LinFormer, an innovative channel prediction framework based on a scalable, all-linear, encoder-only Transform",
-    "company": "Xiaomi"
+    "abstract": "The emergence of 6th generation (6G) mobile networks brings new challenges in supporting high-mobility communications, particularly in addressing the issue of channel aging. While existing channel prediction methods offer improved accuracy at the expense of increased computational complexity, limiting their practical application in mobile networks. To address these challenges, we present LinFormer, an innovative channel prediction framework based on a scalable, all-linear, encoder-only Transform"
   },
   {
     "id": "2410.21349",
@@ -164200,7 +164051,6 @@
       "LLM"
     ],
     "abstract": "Recently, large language models (LLMs) have achieved significant progress in automated code generation. Despite their strong instruction-following capabilities, these models frequently struggled to align with user intent in coding scenarios. In particular, they were hampered by datasets that lacked diversity and failed to address specialized tasks or edge cases. Furthermore, challenges in supervised fine-tuning (SFT) and reinforcement learning from human feedback (RLHF) led to failures in genera",
-    "company": "TII",
     "note": "FALCON：构建反馈驱动的长短期记忆增强代码优化系统，缓解大模型在多样化编程场景中与用户意图对齐不足的问题。"
   },
   {
@@ -164255,8 +164105,7 @@
     "tags": [
       "Fine-tuning"
     ],
-    "abstract": "We conduct the convergence analysis of parameter estimation in the contaminated mixture of experts. This model is motivated from the prompt learning problem where ones utilize prompts, which can be formulated as experts, to fine-tune a large-scale pre-trained model for learning downstream tasks. There are two fundamental challenges emerging from the analysis: (i) the proportion in the mixture of the pre-trained model and the prompt may converge to zero during the training, leading to the prompt ",
-    "company": "MiniMax"
+    "abstract": "We conduct the convergence analysis of parameter estimation in the contaminated mixture of experts. This model is motivated from the prompt learning problem where ones utilize prompts, which can be formulated as experts, to fine-tune a large-scale pre-trained model for learning downstream tasks. There are two fundamental challenges emerging from the analysis: (i) the proportion in the mixture of the pre-trained model and the prompt may converge to zero during the training, leading to the prompt "
   },
   {
     "id": "2410.11805",
@@ -164321,8 +164170,7 @@
     "tags": [
       "Agent"
     ],
-    "abstract": "We propose a {\\em novel} piecewise stationary linear bandit (PSLB) model, where the environment randomly samples a context from an unknown probability distribution at each changepoint, and the quality of an arm is measured by its return averaged over all contexts. The contexts and their distribution, as well as the changepoints are unknown to the agent. We design {\\em Piecewise-Stationary $\\varepsilon$-Best Arm Identification$^+$} (PS$\\varepsilon$BAI$^+$), an algorithm that is guaranteed to iden",
-    "company": "MiniMax"
+    "abstract": "We propose a {\\em novel} piecewise stationary linear bandit (PSLB) model, where the environment randomly samples a context from an unknown probability distribution at each changepoint, and the quality of an arm is measured by its return averaged over all contexts. The contexts and their distribution, as well as the changepoints are unknown to the agent. We design {\\em Piecewise-Stationary $\\varepsilon$-Best Arm Identification$^+$} (PS$\\varepsilon$BAI$^+$), an algorithm that is guaranteed to iden"
   },
   {
     "id": "2410.07073",
@@ -164348,8 +164196,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Wireless networks supporting artificial intelligence have gained significant attention, with Over-the-Air Federated Learning emerging as a key application due to its unique transmission and distributed computing characteristics. This paper derives error bounds for Over-the-Air Federated Learning in a Cell-free MIMO system and formulates an optimization problem to minimize optimality gap via joint optimization of power control and beamforming. We introduce the MOP-LOFPC algorithm, which employs L",
-    "company": "Xiaomi"
+    "abstract": "Wireless networks supporting artificial intelligence have gained significant attention, with Over-the-Air Federated Learning emerging as a key application due to its unique transmission and distributed computing characteristics. This paper derives error bounds for Over-the-Air Federated Learning in a Cell-free MIMO system and formulates an optimization problem to minimize optimality gap via joint optimization of power control and beamforming. We introduce the MOP-LOFPC algorithm, which employs L"
   },
   {
     "id": "2410.05355",
@@ -164375,8 +164222,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "Decoding strategies play a pivotal role in text generation for modern language models, yet a puzzling gap divides theory and practice. Surprisingly, strategies that should intuitively be optimal, such as Maximum a Posteriori (MAP), often perform poorly in practice. Meanwhile, popular heuristic approaches like Top-$k$ and Nucleus sampling, which employ truncation and normalization of the conditional next-token probabilities, have achieved great empirical success but lack theoretical justification",
-    "company": "MiniMax"
+    "abstract": "Decoding strategies play a pivotal role in text generation for modern language models, yet a puzzling gap divides theory and practice. Surprisingly, strategies that should intuitively be optimal, such as Maximum a Posteriori (MAP), often perform poorly in practice. Meanwhile, popular heuristic approaches like Top-$k$ and Nucleus sampling, which employ truncation and normalization of the conditional next-token probabilities, have achieved great empirical success but lack theoretical justification"
   },
   {
     "id": "2410.00690",
@@ -164388,8 +164234,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "The minimax sample complexity of group distributionally robust optimization (GDRO) has been determined up to a $\\log(K)$ factor, where $K$ is the number of groups. In this work, we venture beyond the minimax perspective via a novel notion of sparsity that we dub $(λ, β)$-sparsity. In short, this condition means that at any parameter $θ$, there is a set of at most $β$ groups whose risks at $θ$ all are at least $λ$ larger than the risks of the other groups. To find an $ε$-optimal $θ$, we show via ",
-    "company": "MiniMax"
+    "abstract": "The minimax sample complexity of group distributionally robust optimization (GDRO) has been determined up to a $\\log(K)$ factor, where $K$ is the number of groups. In this work, we venture beyond the minimax perspective via a novel notion of sparsity that we dub $(λ, β)$-sparsity. In short, this condition means that at any parameter $θ$, there is a set of at most $β$ groups whose risks at $θ$ all are at least $λ$ larger than the risks of the other groups. To find an $ε$-optimal $θ$, we show via "
   },
   {
     "id": "2409.18300",
@@ -164402,7 +164247,6 @@
       "Multimodal"
     ],
     "abstract": "We introduce FALCON, a unified self-supervised video pretraining approach for UAV action recognition from raw RGB aerial footage, requiring no additional preprocessing at inference. UAV videos exhibit severe spatial imbalance: large, cluttered backgrounds dominate the field of view, causing reconstruction-based pretraining to waste capacity on uninformative regions and under-learn action-relevant human/object cues. FALCON addresses this by integrating object-aware masked autoencoding with object",
-    "company": "TII",
     "note": "FALCON：提出面向无人机动作识别的自监督视频预训练方法，借助未来感知学习与目标中心上下文建模应对空间不平衡挑战。"
   },
   {
@@ -164415,8 +164259,7 @@
     "tags": [
       "Safety"
     ],
-    "abstract": "While robust optimal control theory provides a rigorous framework to compute robot control policies that are provably safe, it struggles to scale to high-dimensional problems, leading to increased use of deep learning for tractable synthesis of robot safety. Unfortunately, existing neural safety synthesis methods often lack convergence guarantees and solution interpretability. In this paper, we present Minimax Actors Guided by Implicit Critic Stackelberg (MAGICS), a novel adversarial reinforceme",
-    "company": "MiniMax"
+    "abstract": "While robust optimal control theory provides a rigorous framework to compute robot control policies that are provably safe, it struggles to scale to high-dimensional problems, leading to increased use of deep learning for tractable synthesis of robot safety. Unfortunately, existing neural safety synthesis methods often lack convergence guarantees and solution interpretability. In this paper, we present Minimax Actors Guided by Implicit Critic Stackelberg (MAGICS), a novel adversarial reinforceme"
   },
   {
     "id": "2409.02060",
@@ -164428,8 +164271,7 @@
     "tags": [
       "LLM"
     ],
-    "abstract": "We introduce OLMoE, a fully open, state-of-the-art language model leveraging sparse Mixture-of-Experts (MoE). OLMoE-1B-7B has 7 billion (B) parameters but uses only 1B per input token. We pretrain it on 5 trillion tokens and further adapt it to create OLMoE-1B-7B-Instruct. Our models outperform all available models with similar active parameters, even surpassing larger ones like Llama2-13B-Chat and DeepSeekMoE-16B. We present various experiments on MoE training, analyze routing in our model show",
-    "company": "AllenAI"
+    "abstract": "We introduce OLMoE, a fully open, state-of-the-art language model leveraging sparse Mixture-of-Experts (MoE). OLMoE-1B-7B has 7 billion (B) parameters but uses only 1B per input token. We pretrain it on 5 trillion tokens and further adapt it to create OLMoE-1B-7B-Instruct. Our models outperform all available models with similar active parameters, even surpassing larger ones like Llama2-13B-Chat and DeepSeekMoE-16B. We present various experiments on MoE training, analyze routing in our model show"
   },
   {
     "id": "2409.00084",
@@ -164769,7 +164611,6 @@
       "LLM"
     ],
     "abstract": "This study investigates an asymptotically locally minimax optimal algorithm for fixed-budget best-arm identification (BAI). We propose the Generalized Neyman Allocation (GNA) algorithm and demonstrate that its worst-case upper bound on the probability of misidentifying the best arm aligns with the worst-case lower bound under the small-gap regime, where the gap between the expected outcomes of the best and suboptimal arms is small. Our lower and upper bounds are tight, matching exactly including",
-    "company": "MiniMax",
     "note": "提出广义Neyman分配（GNA）算法用于固定预算最佳臂识别，证明其最坏情形上界与小间隙区域下界匹配，实现局部minimax最优。"
   },
   {
@@ -164809,7 +164650,6 @@
       "Agent"
     ],
     "abstract": "A major challenge in decision making domains with large state spaces is to effectively select actions which maximize utility. In recent years, approaches such as reinforcement learning (RL) and search algorithms have been successful to tackle this issue, despite their differences. RL defines a learning framework that an agent explores and interacts with. Search algorithms provide a formalism to search for a solution. However, it is often difficult to evaluate the performances of such approaches ",
-    "company": "MiniMax",
     "note": "以Connect-4为测试平台，对比评估Minimax、Q-Learning与蒙特卡洛树搜索在决策任务中的表现，探讨不同方法优劣。"
   },
   {
@@ -164849,7 +164689,6 @@
       "LLM"
     ],
     "abstract": "This paper aims to tackle the challenge posed by the increasing integration of software tools in research across various disciplines by investigating the application of Falcon-7b for the detection and classification of software mentions within scholarly texts. Specifically, the study focuses on solving Subtask I of the Software Mention Detection in Scholarly Publications (SOMD), which entails identifying and categorizing software mentions from academic literature. Through comprehensive experimen",
-    "company": "TII",
     "note": "应用Falcon-7b于学术文本中软件提及的检测与分类任务，验证开源大模型在科学文献挖掘中的有效性。"
   },
   {
@@ -164991,7 +164830,6 @@
       "Agent"
     ],
     "abstract": "We consider a variant of continuous-state partially-observable stochastic games with neural perception mechanisms and an asymmetric information structure. One agent has partial information, with the observation function implemented as a neural network, while the other agent is assumed to have full knowledge of the state. We present, for the first time, an efficient online method to compute an $\\varepsilon$-minimax strategy profile, which requires only one linear program to be solved for each age",
-    "company": "MiniMax",
     "note": "首次为带神经感知机制的连续状态部分可观察随机博弈提出基于HSVI的在线minimax策略，处理非对称信息结构。"
   },
   {
@@ -165178,7 +165016,6 @@
       "LLM"
     ],
     "abstract": "Distributionally robust offline reinforcement learning (RL), which seeks robust policy training against environment perturbation by modeling dynamics uncertainty, calls for function approximations when facing large state-action spaces. However, the consideration of dynamics uncertainty introduces essential nonlinearity and computational burden, posing unique challenges for analyzing and practically employing function approximation. Focusing on a basic setting where the nominal model and perturbe",
-    "company": "MiniMax",
     "note": "针对分布鲁棒离线强化学习，提出minimax最优且计算高效的算法，结合函数逼近处理动力学不确定性。"
   },
   {
@@ -165315,7 +165152,6 @@
       "Agent"
     ],
     "abstract": "In unsupervised environment design, reinforcement learning agents are trained on environment configurations (levels) generated by an adversary that maximises some objective. Regret is a commonly used objective that theoretically results in a minimax regret (MMR) policy with desirable robustness guarantees; in particular, the agent's maximum regret is bounded. However, once the agent reaches this regret bound on all levels, the adversary will only sample levels where regret cannot be further redu",
-    "company": "MiniMax",
     "note": "精化无监督环境设计中的minimax遗憾目标，提升MMR策略的鲁棒性保证。"
   },
   {
@@ -165329,7 +165165,6 @@
       "LLM"
     ],
     "abstract": "We study a noise model for linear stochastic bandits for which the subgaussian noise parameter vanishes linearly as we select actions on the unit sphere closer and closer to the unknown vector. We introduce an algorithm for this problem that exhibits a minimax regret scaling as $\\log^3(T)$ in the time horizon $T$, in stark contrast the square root scaling of this regret for typical bandit algorithms. Our strategy, based on weighted least-squares estimation, achieves the eigenvalue relation $λ_{\\",
-    "company": "MiniMax",
     "note": "针对线性随机老虎机的一类亚高斯噪声模型，提出实现minimax遗憾按log³(T)尺度增长的算法。"
   },
   {
@@ -165384,7 +165219,6 @@
       "Agent"
     ],
     "abstract": "Many real-world applications involve some agents that fall into two teams, with payoffs that are equal within the same team but of opposite sign across the opponent team. The so-called two-team zero-sum Markov games (2t0sMGs) can be resolved with reinforcement learning in recent years. However, existing methods are thus inefficient in light of insufficient consideration of intra-team credit assignment, data utilization and computational intractability. In this paper, we propose the individual-gl",
-    "company": "MiniMax",
     "note": "提出FM3Q分解式多智能体minimax Q学习方法，解决两队零和马尔可夫博弈中样本效率不足的问题。"
   },
   {
@@ -165533,7 +165367,6 @@
       "LLM"
     ],
     "abstract": "Graph Neural Network (GNN) ushered in a new era of machine learning with interconnected datasets. While traditional neural networks can only be trained on independent samples, GNN allows for the inclusion of inter-sample interactions in the training process. This gain, however, incurs additional memory cost, rendering most GNNs unscalable for real-world applications involving vast and complicated networks with tens of millions of nodes (e.g., social circles, web graphs, and brain graphs). This m",
-    "company": "TII",
     "note": "FALCON：提出特征-标签约束的图网络塌缩方法，通过特征与标签联合约束显著降低图神经网络的训练内存开销。"
   },
   {
@@ -165627,7 +165460,6 @@
       "Agent"
     ],
     "abstract": "Recent advances in Competitive Self-Play (CSP) have achieved, or even surpassed, human level performance in complex game environments such as Dota 2 and StarCraft II using Distributed Multi-Agent Reinforcement Learning (MARL). One core component of these methods relies on creating a pool of learning agents -- consisting of the Main Agent, past versions of this agent, and Exploiter Agents -- where Exploiter Agents learn counter-strategies to the Main Agents. A key drawback of these approaches is ",
-    "company": "MiniMax",
     "note": "提出Minimax Exploiter方法，通过高效构建对手智能体池实现数据高效的竞争性自博弈训练。"
   },
   {
@@ -165683,7 +165515,6 @@
       "LLM"
     ],
     "abstract": "Adversarial Training (AT) has become arguably the state-of-the-art algorithm for extracting robust features. However, researchers recently notice that AT suffers from severe robust overfitting problems, particularly after learning rate (LR) decay. In this paper, we explain this phenomenon by viewing adversarial training as a dynamic minimax game between the model trainer and the attacker. Specifically, we analyze how LR decay breaks the balance between the minimax game by empowering the trainer ",
-    "company": "MiniMax",
     "note": "从动态minimax博弈视角解释对抗训练中的鲁棒过拟合现象，提出平衡、再平衡的分析框架。"
   },
   {
@@ -165740,7 +165571,6 @@
       "LLM"
     ],
     "abstract": "Text summarization is a critical Natural Language Processing (NLP) task with applications ranging from information retrieval to content generation. Leveraging Large Language Models (LLMs) has shown remarkable promise in enhancing summarization techniques. This paper embarks on an exploration of text summarization with a diverse set of LLMs, including MPT-7b-instruct, falcon-7b-instruct, and OpenAI ChatGPT text-davinci-003 models. The experiment was performed with different hyperparameters and ev",
-    "company": "TII",
     "note": "综述对比MPT-7b-instruct、Falcon-7b-instruct与ChatGPT在文本摘要任务上的表现，评估不同大语言模型的摘要生成能力差异。"
   },
   {
@@ -165783,7 +165613,6 @@
       "LLM"
     ],
     "abstract": "The minimax problems arise throughout machine learning applications, ranging from adversarial training and policy evaluation in reinforcement learning to AUROC maximization. To address the large-scale data challenges across multiple clients with communication-efficient distributed training, federated learning (FL) is gaining popularity. Many optimization algorithms for minimax problems have been developed in the centralized setting (\\emph{i.e.} single-machine). Nonetheless, the algorithm for min",
-    "company": "MiniMax",
     "note": "面向联邦学习中非凸极小极大优化问题，提出高效可扩展的分布式求解方法。"
   },
   {
@@ -165895,7 +165724,6 @@
       "LLM"
     ],
     "abstract": "Efficient networks, e.g., MobileNetV2, EfficientNet, etc, achieves state-of-the-art (SOTA) accuracy with lightweight computation. However, existing homomorphic encryption (HE)-based two-party computation (2PC) frameworks are not optimized for these networks and suffer from a high inference overhead. We observe the inefficiency mainly comes from the packing algorithm, which ignores the computation characteristics and the communication bottleneck of homomorphically encrypted depthwise convolutions",
-    "company": "TII",
     "note": "Falcon：优化高效移动网络中的同态加密卷积计算，显著降低MobileNetV2等轻量网络在隐私推理场景下的推理开销。"
   },
   {
@@ -165937,7 +165765,6 @@
       "Fine-tuning"
     ],
     "abstract": "Time domain astronomy is advancing towards the analysis of multiple massive datasets in real time, prompting the development of multi-stream machine learning models. In this work, we study Domain Adaptation (DA) for real/bogus classification of astronomical alerts using four different datasets: HiTS, DES, ATLAS, and ZTF. We study the domain shift between these datasets, and improve a naive deep learning classification model by using a fine tuning approach and semi-supervised deep DA via Minimax ",
-    "company": "MiniMax",
     "note": "采用极小极大熵域自适应框架，跨多源天文数据流完成真假警报分类。"
   },
   {
@@ -165965,7 +165792,6 @@
       "LLM"
     ],
     "abstract": "Brain-inspired Spiking Neural Networks (SNNs) have the characteristics of event-driven and high energy-efficient, which are different from traditional Artificial Neural Networks (ANNs) when deployed on edge devices such as neuromorphic chips. Most previous work focuses on SNNs training strategies to improve model performance and brings larger and deeper network architectures. It is difficult to deploy these complex networks on resource-limited edge devices directly. To meet such demand, people c",
-    "company": "MiniMax",
     "note": "基于极小极大优化框架压缩脉冲神经网络，兼顾准确率与边缘部署开销。"
   },
   {
@@ -166020,7 +165846,6 @@
       "Agent"
     ],
     "abstract": "The proliferation of the Internet has led to the emergence of online advertising, driven by the mechanics of online auctions. In these repeated auctions, software agents participate on behalf of aggregated advertisers to optimize for their long-term utility. To fulfill the diverse demands, bidding strategies are employed to optimize advertising objectives subject to different spending constraints. Existing approaches on constrained bidding typically rely on i.i.d. train and test conditions, whic",
-    "company": "MiniMax",
     "note": "融合因果感知强化学习与极小极大遗憾优化，应对在线广告中对抗性约束出价。"
   },
   {
@@ -166034,7 +165859,6 @@
       "LLM"
     ],
     "abstract": "While numerous works have focused on devising efficient algorithms for reinforcement learning (RL) with uniformly bounded rewards, it remains an open question whether sample or time-efficient algorithms for RL with large state-action space exist when the rewards are \\emph{heavy-tailed}, i.e., with only finite $(1+ε)$-th moments for some $ε\\in(0,1]$. In this work, we address the challenge of such rewards in RL with linear function approximation. We first design an algorithm, \\textsc{Heavy-OFUL}, ",
-    "company": "MiniMax",
     "note": "针对函数逼近下重尾奖励强化学习，建立极小极大最优且依赖实例的遗憾界。"
   },
   {
@@ -166357,7 +166181,6 @@
       "Reasoning"
     ],
     "abstract": "Ontologies are one of the richest sources of knowledge. Real-world ontologies often contain thousands of axioms and are often human-made. Hence, they may contain inconsistency and incomplete information which may impair classical reasoners to compute entailments that are considered as useful. To overcome these two challenges, we propose FALCON, a Fuzzy Ontology Neural reasoner to approximate reasoning over ALC ontologies. We provide an approximate technique for the model generation step in class",
-    "company": "TII",
     "note": "提出FALCON系统，针对含噪声与缺失的大规模ALC本体实现可扩展的不一致推理"
   },
   {
@@ -166384,7 +166207,6 @@
       "LLM"
     ],
     "abstract": "In this work, we consider and analyze the sample complexity of model-free reinforcement learning with a generative model. Particularly, we analyze mirror descent value iteration (MDVI) by Geist et al. (2019) and Vieillard et al. (2020a), which uses the Kullback-Leibler divergence and entropy regularization in its value and policy updates. Our analysis shows that it is nearly minimax-optimal for finding an $\\varepsilon$-optimal policy when $\\varepsilon$ is sufficiently small. This is the first th",
-    "company": "MiniMax",
     "note": "分析带生成模型的KL熵正则化强化学习，证明镜像下降值迭代达到极小极大最优。"
   },
   {
@@ -166398,7 +166220,6 @@
       "LLM"
     ],
     "abstract": "While a broad range of techniques have been proposed to tackle distribution shift, the simple baseline of training on an $\\textit{undersampled}$ balanced dataset often achieves close to state-of-the-art-accuracy across several popular benchmarks. This is rather surprising, since undersampling algorithms discard excess majority group data. To understand this phenomenon, we ask if learning is fundamentally constrained by a lack of minority group samples. We prove that this is indeed the case in th",
-    "company": "MiniMax",
     "note": "理论上证明非参数分类中下采样是分布偏移下极小极大最优的鲁棒性干预。"
   },
   {
@@ -166441,7 +166262,6 @@
       "Multimodal"
     ],
     "abstract": "We present a meta-learning framework for learning new visual concepts quickly, from just one or a few examples, guided by multiple naturally occurring data streams: simultaneously looking at images, reading sentences that describe the objects in the scene, and interpreting supplemental sentences that relate the novel concept with other concepts. The learned concepts support downstream applications, such as answering questions by reasoning about unseen images. Our model, namely FALCON, represents",
-    "company": "TII",
     "note": "提出FALCON元学习框架，融合图像、句法描述与概念关系，实现少样本快速视觉概念学习"
   },
   {
