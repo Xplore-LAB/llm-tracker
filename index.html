@@ -149,6 +149,14 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
     <option value="AI21">AI21</option>
     <option value="LG">LG</option>
     <option value="Cohere">Cohere</option>
+    <option value="ByteDance">ByteDance</option>
+    <option value="StepFun">StepFun</option>
+    <option value="Meituan">Meituan</option>
+    <option value="AntGroup">AntGroup</option>
+    <option value="ModelBest">ModelBest</option>
+    <option value="Huawei">Huawei</option>
+    <option value="Skywork">Skywork</option>
+    <option value="SenseTime">SenseTime</option>
   </select>
   <select id="tl-tag" onchange="filterTimeline()">
     <option value="">全部标签</option>
@@ -219,7 +227,7 @@ const TOPICS=[
   {key:"Safety",icon:"🛡️",name:"安全与对齐",desc:"AI 安全、价值对齐、有害内容防护"},
   {key:"LLM",icon:"💡",name:"基础大模型",desc:"GPT、LLaMA、Qwen 等基础模型研究"},
 ];
-const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d'};
+const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d',ByteDance:'#1e37ff',StepFun:'#6d28d9',Meituan:'#eab308',AntGroup:'#1677ff',ModelBest:'#84cc16',Huawei:'#c7000b',Skywork:'#0ea5e9',SenseTime:'#0284c7'};
 const PAGE_SIZE=8;
 let PAPERS=[], currentTab='latest', currentPage=1;
 let PDFS=new Set();

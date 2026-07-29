@@ -134,7 +134,7 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
 </div>
 <footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB" style="color:#302b63">GitHub</a></footer>
 <script>
-const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d'};
+const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d',ByteDance:'#1e37ff',StepFun:'#6d28d9',Meituan:'#eab308',AntGroup:'#1677ff',ModelBest:'#84cc16',Huawei:'#c7000b',Skywork:'#0ea5e9',SenseTime:'#0284c7'};
 // region: cn/us/other ; open: open/mixed/closed ; dom: logo domain
 const META={
   OpenAI:{region:'us',open:'mixed',dom:'openai.com'},
@@ -163,6 +163,14 @@ const META={
   AI21:{region:'other',open:'open',dom:'ai21.com',flag:'🇮🇱'},
   LG:{region:'other',open:'open',dom:'lg.com',flag:'🇰🇷'},
   Cohere:{region:'other',open:'open',dom:'cohere.com',flag:'🇨🇦'},
+  ByteDance:{region:'cn',open:'mixed',dom:'bytedance.com'},
+  StepFun:{region:'cn',open:'open',dom:'stepfun.com'},
+  Meituan:{region:'cn',open:'open',dom:'meituan.com'},
+  AntGroup:{region:'cn',open:'open',dom:'antgroup.com'},
+  ModelBest:{region:'cn',open:'open',dom:'modelbest.cn'},
+  Huawei:{region:'cn',open:'mixed',dom:'huawei.com'},
+  Skywork:{region:'cn',open:'open',dom:'skywork.ai'},
+  SenseTime:{region:'cn',open:'mixed',dom:'sensetime.com'},
 };
 const REGION_LABEL={cn:'🇨🇳 中国',us:'🇺🇸 美国',other:'🌍 其他'};
 const OPEN_LABEL={open:'🔓 开放权重',mixed:'🔓 混合',closed:'🔒 闭源'};
@@ -197,6 +205,12 @@ const COMPANY_GH={
   LG:'https://github.com/LG-AI-EXAONE',
   TII:'https://huggingface.co/tiiuae',
   Cohere:'https://huggingface.co/cohereforai',
+  ByteDance:'https://github.com/ByteDance-Seed/seed-oss',
+  StepFun:'https://github.com/stepfun-ai',
+  Meituan:'https://github.com/meituan-longcat',
+  AntGroup:'https://huggingface.co/inclusionAI',
+  ModelBest:'https://github.com/OpenBMB/MiniCPM',
+  Skywork:'https://github.com/SkyworkAI',
 };
 const dkey=m=>m.replace(/[\s\-.]/g,'').toLowerCase();
 const nkey=(co,model)=>co+'|'+dkey(model);
@@ -228,8 +242,13 @@ function logoHTML(co,cls){
   return `<i class="logo ${cls||''}" style="--c:${color(co)}">${letter}${src?`<img src="${src}" onerror="this.remove()" loading="lazy">`:''}</i>`;
 }
 
+function allCompanies(){
+  const s=new Set(DATA.groups.map(g=>g.company));
+  DATA.models.forEach(m=>s.add(m.company));
+  return [...s];
+}
 function activeCompanies(){
-  let base=SEL.size?[...SEL]:DATA.groups.map(g=>g.company);
+  let base=SEL.size?[...SEL]:allCompanies();
   if(REGION)base=base.filter(co=>(META[co]||{}).region===REGION);
   if(OPEN)base=base.filter(co=>(META[co]||{}).open===OPEN);
   return base;
@@ -255,9 +274,12 @@ function renderChips(){
     Object.entries(OPEN_LABEL).map(([k,v])=>`<span class="chip all ${OPEN===k?'on':''}" style="--c:#302b63" onclick="setOpen('${k}')">${v}</span>`).join('');
   const bar=document.getElementById('chips');
   const all=`<span class="chip all ${SEL.size?'':'on'}" style="--c:#302b63" onclick="clearSel()">全部公司</span>`;
-  bar.innerHTML='<span class="lbl-t">公司</span>'+all+DATA.groups.map(g=>{
-    const on=SEL.has(g.company);
-    return `<span class="chip logo-chip ${on?'on':''}" style="--c:${color(g.company)}" onclick="toggleCompany('${g.company}')">${logoHTML(g.company)}${g.company} ${g.series.length}</span>`;
+  const seriesCount={};
+  DATA.groups.forEach(g=>{seriesCount[g.company]=g.series.length;});
+  const order=[...new Set([...DATA.groups.map(g=>g.company),...DATA.models.map(m=>m.company)])];
+  bar.innerHTML='<span class="lbl-t">公司</span>'+all+order.map(co=>{
+    const on=SEL.has(co);
+    return `<span class="chip logo-chip ${on?'on':''}" style="--c:${color(co)}" onclick="toggleCompany('${co}')">${logoHTML(co)}${co} ${seriesCount[co]||0}</span>`;
   }).join('');
 }
 

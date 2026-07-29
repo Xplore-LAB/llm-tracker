@@ -43,5 +43,18 @@
   {"model": "InternLM2", "company": "InternLM", "date": "2024-01-17", "url": "https://arxiv.org/abs/2403.17297", "note": "书生·浦语二代，20 万上下文"},
   {"model": "OLMo 2", "company": "AllenAI", "date": "2024-11-26", "url": "https://arxiv.org/abs/2501.00656", "note": "数据/代码/权重全公开的真开源"},
   {"model": "Phi-2", "company": "Microsoft", "date": "2023-12-12", "url": "https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/", "note": "2.7B 小钢炮，教科书数据策略的起点"},
-  {"model": "Mistral Large 2", "company": "Mistral", "date": "2024-07-24", "url": "https://mistral.ai/news/mistral-large-2407", "note": "123B 旗舰，80+ 编程语言"}
+  {"model": "Mistral Large 2", "company": "Mistral", "date": "2024-07-24", "url": "https://mistral.ai/news/mistral-large-2407", "note": "123B 旗舰，80+ 编程语言"},
+  {"model": "PaddleOCR-VL", "company": "Baidu", "date": "2025-10-16", "url": "https://github.com/PaddlePaddle/PaddleOCR", "note": "0.9B 超紧凑文档解析模型，109 种语言，OCR 开源新标杆"},
+  {"model": "MiniCPM", "company": "ModelBest", "date": "2024-02-05", "url": "https://github.com/OpenBMB/MiniCPM", "note": "面壁智能端侧小钢炮系列起点，2B 打 7B"},
+  {"model": "MiniCPM-V", "company": "ModelBest", "date": "2024-05-20", "url": "https://github.com/OpenBMB/MiniCPM-V", "note": "端侧多模态标杆，手机可跑的高清图理解"},
+  {"model": "MiniCPM4", "company": "ModelBest", "date": "2025-06-06", "url": "https://github.com/OpenBMB/MiniCPM", "note": "端侧 8B 新旗舰，稀疏注意力长文本提速"},
+  {"model": "Step-3", "company": "StepFun", "date": "2025-07-31", "url": "https://github.com/stepfun-ai", "note": "321B MoE 原生多模态推理，为芯片级推理效率优化"},
+  {"model": "Seed-OSS-36B", "company": "ByteDance", "date": "2025-08-20", "url": "https://github.com/ByteDance-Seed/seed-oss", "note": "字节 Seed 开源首发，512K 长上下文 + 思考预算控制"},
+  {"model": "LongCat-Flash", "company": "Meituan", "date": "2025-09-01", "url": "https://arxiv.org/abs/2509.01322", "note": "560B MoE，零计算专家 + ScMoE，Agent 场景特化"},
+  {"model": "LongCat-2.0", "company": "Meituan", "date": "2026-06-30", "url": "https://github.com/meituan-longcat/LongCat-2.0", "note": "1.6T 参数，全程纯国产卡训练"},
+  {"model": "Ling-1T", "company": "AntGroup", "date": "2025-10-09", "url": "https://huggingface.co/inclusionAI", "note": "蚂蚁百灵万亿参数非思考旗舰，高效推理"},
+  {"model": "Ring-1T", "company": "AntGroup", "date": "2025-10-14", "url": "https://huggingface.co/inclusionAI", "note": "万亿思考模型，RLVR 训练，IMO 题能力"},
+  {"model": "GLM-4.6", "company": "Zhipu", "date": "2025-09-30", "url": "https://github.com/zai-org/GLM-4.5", "note": "智谱开源旗舰再升级，编码与 Agent 强化"},
+  {"model": "Pangu Pro MoE", "company": "Huawei", "date": "2025-05-27", "url": "https://arxiv.org/abs/2505.21411", "note": "719 亿总参 / 167 亿激活，分组专家架构，昇腾训练"},
+  {"model": "Hunyuan-T1", "company": "Tencent", "date": "2025-03-21", "url": "https://github.com/Tencent/llm.hunyuan.T1", "note": "腾讯混元推理旗舰，Hybrid-Mamba-Transformer 架构"}
 ]
