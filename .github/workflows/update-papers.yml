@@ -1,0 +1,64 @@
+name: Update Papers Daily
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest papers
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+        run: |
+          pip install --quiet pymupdf
+          python3 scripts/fetch_papers.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add papers.json company-papers.json timeline-data.json models.json models-extra.json pdfs-index.json models-figures.json learning-path.json models/img/
+          git diff --staged --quiet || git commit -m "chore: update papers $(date +%Y-%m-%d)"
+          git push
+
+      - name: Publish PDFs to orphan branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Stage PDFs aside first: on master the source dir is pdfs/, the
+          # same name as the target dir on the orphan branch.
+          mkdir -p _stage && cp pdfs/*.pdf _stage/ 2>/dev/null || true
+          git checkout --orphan pdfs-tmp
+          git rm -rf --cached . 2>/dev/null || true
+          rm -rf pdfs && mv _stage pdfs
+          git add pdfs/
+          git diff --staged --quiet || git commit -m "chore: pdf archive $(date +%Y-%m-%d)"
+          git push -f origin HEAD:pdfs
+          git checkout -f master
+          git clean -fd
+
+      - name: Send Feishu notification
+        if: env.FEISHU_WEBHOOK != ''
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+        run: |
+          if [ -f daily_summary.txt ]; then
+            MSG=$(cat daily_summary.txt)
+            python3 << 'PYEOF'
+          import urllib.request, json, os
+          webhook = os.environ['FEISHU_WEBHOOK']
+          msg = open('daily_summary.txt').read()
+          text = '📚 LLM Papers 每日更新\n' + msg + '\n查看：https://xplore-lab.github.io/llm-tracker/'
+          data = json.dumps({'msg_type':'text','content':{'text':text}}).encode()
+          req = urllib.request.Request(webhook, data=data, headers={'Content-Type':'application/json'})
+          res = urllib.request.urlopen(req).read()
+          print(res.decode())
+          PYEOF
+          fi

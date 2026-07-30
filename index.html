@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="每日自动追踪 arXiv 最新大模型论文，按主题与公司分类，附中文一句话点评。">
+<meta property="og:title" content="LLM Papers Tracker">
+<meta property="og:description" content="每日自动追踪 arXiv 最新大模型论文，按主题与公司分类，附中文一句话点评。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xplore-lab.github.io/llm-tracker/">
+<meta property="og:image" content="https://xplore-lab.github.io/llm-tracker/docs/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#302b63">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 <title>LLM Papers Tracker</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -215,7 +224,7 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
     <div id="favorites" class="section"></div>
   </div>
 </div>
-<footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB" style="color:#302b63">GitHub</a></footer>
+<footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB/llm-tracker" style="color:#302b63">GitHub</a></footer>
 <script>
 const TOPICS=[
   {key:"RAG",icon:"🔍",name:"RAG 检索增强",desc:"检索增强生成，解决 LLM 幻觉和知识过时问题"},
@@ -298,7 +307,7 @@ function renderCard(p){
       <span class="badge cite ${p.cite>=1000?'high':''}">📊 ${(p.cite||0).toLocaleString()}</span>
       <span class="badge date">📅 ${p.date||String(p.year)||''}</span>
       <a class="arxiv-link" href="https://arxiv.org/abs/${p.id}" target="_blank">arXiv ↗</a>
-      ${PDFS.has(p.id)?`<a class="arxiv-link" href="https://raw.githubusercontent.com/Xplore-LAB/Xplore-LAB.github.io/pdfs/pdfs/${p.id}.pdf" target="_blank">📄 PDF</a>`:''}
+      ${PDFS.has(p.id)?`<a class="arxiv-link" href="https://raw.githubusercontent.com/Xplore-LAB/llm-tracker/pdfs/pdfs/${p.id}.pdf" target="_blank">📄 PDF</a>`:''}
     </div>
     <h3>${p.title}</h3>
     ${p.title_zh?`<div class="title-zh">📖 ${p.title_zh}</div>`:''}
@@ -460,7 +469,7 @@ function triggerUpdate() {
   btn.textContent = '⏳ 提交中...';
   btn.disabled = true;
 
-  fetch('https://api.github.com/repos/Xplore-LAB/Xplore-LAB.github.io/actions/workflows/update-papers.yml/dispatches', {
+  fetch('https://api.github.com/repos/Xplore-LAB/llm-tracker/actions/workflows/update-papers.yml/dispatches', {
     method: 'POST',
     headers: {
       'Accept': 'application/vnd.github+json',
@@ -478,7 +487,7 @@ function triggerUpdate() {
     } else if (res.status === 401 || res.status === 403) {
       // Not logged in — open GitHub Actions page
       showToast('🔑 请先登录 GitHub，已为您打开页面', 4000);
-      window.open('https://github.com/Xplore-LAB/Xplore-LAB.github.io/actions', '_blank');
+      window.open('https://github.com/Xplore-LAB/llm-tracker/actions', '_blank');
       btn.textContent = '⚡ 更新数据';
       btn.disabled = false;
     } else {
@@ -486,7 +495,7 @@ function triggerUpdate() {
     }
   }).catch(() => {
     showToast('❌ 触发失败，请手动前往 GitHub Actions', 5000);
-    window.open('https://github.com/Xplore-LAB/Xplore-LAB.github.io/actions', '_blank');
+    window.open('https://github.com/Xplore-LAB/llm-tracker/actions', '_blank');
     btn.textContent = '⚡ 更新数据';
     btn.disabled = false;
   });
