@@ -298,7 +298,7 @@ function renderCard(p){
       <span class="badge cite ${p.cite>=1000?'high':''}">📊 ${(p.cite||0).toLocaleString()}</span>
       <span class="badge date">📅 ${p.date||String(p.year)||''}</span>
       <a class="arxiv-link" href="https://arxiv.org/abs/${p.id}" target="_blank">arXiv ↗</a>
-      ${PDFS.has(p.id)?`<a class="arxiv-link" href="pdfs/${p.id}.pdf" target="_blank">📄 PDF</a>`:''}
+      ${PDFS.has(p.id)?`<a class="arxiv-link" href="https://raw.githubusercontent.com/Xplore-LAB/Xplore-LAB.github.io/pdfs/pdfs/${p.id}.pdf" target="_blank">📄 PDF</a>`:''}
     </div>
     <h3>${p.title}</h3>
     ${p.title_zh?`<div class="title-zh">📖 ${p.title_zh}</div>`:''}

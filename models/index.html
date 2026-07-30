@@ -393,7 +393,7 @@ function seriesCard(s){
 
 function paperRow(p){
   return `<div class="paper-row">
-    <div class="p-meta">📅 ${p.date||''} · <a href="https://arxiv.org/abs/${p.id}" target="_blank" style="font-weight:400;color:#302b63">arXiv:${p.id} ↗</a>${PDFS.has(p.id)?` · <a href="../pdfs/${p.id}.pdf" target="_blank" style="font-weight:400;color:#302b63">📄 PDF</a>`:''}</div>
+    <div class="p-meta">📅 ${p.date||''} · <a href="https://arxiv.org/abs/${p.id}" target="_blank" style="font-weight:400;color:#302b63">arXiv:${p.id} ↗</a>${PDFS.has(p.id)?` · <a href="https://raw.githubusercontent.com/Xplore-LAB/Xplore-LAB.github.io/pdfs/pdfs/${p.id}.pdf" target="_blank" style="font-weight:400;color:#302b63">📄 PDF</a>`:''}</div>
     <a href="https://arxiv.org/abs/${p.id}" target="_blank">${hl(p.title)}</a>
     ${p.note?`<div class="learn-note">📌 ${hl(p.note)}</div>`:''}
   </div>`;
@@ -433,7 +433,7 @@ function showDetail(key){
   const buttons=[
     reportUrl?`<a class="btn" href="${reportUrl}" target="_blank">📑 技术报告/官方发布 ↗</a>`:'',
     gh?`<a class="btn" href="${gh}" target="_blank">💻 代码/权重 ↗</a>`:'',
-    (m.id&&PDFS.has(m.id))?`<a class="btn" href="../pdfs/${m.id}.pdf" target="_blank">📄 本地 PDF</a>`:'',
+    (m.id&&PDFS.has(m.id))?`<a class="btn" href="https://raw.githubusercontent.com/Xplore-LAB/Xplore-LAB.github.io/pdfs/pdfs/${m.id}.pdf" target="_blank">📄 本地 PDF</a>`:'',
     m.id?`<a class="btn" href="https://arxiv.org/abs/${m.id}" target="_blank">arXiv:${m.id} ↗</a>`:'',
   ].filter(Boolean).join('');
   document.getElementById('modal').innerHTML=`
