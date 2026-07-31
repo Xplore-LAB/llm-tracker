@@ -1,7 +1,14 @@
 <!DOCTYPE html>
+<!--
+  大模型情报局 · LLM Papers Tracker
+  https://xplore-lab.github.io/llm-tracker
+  GitHub: https://github.com/Xplore-LAB/llm-tracker
+  Original project by Xplore-LAB. Forkers: please keep this attribution.
+-->
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="author" content="Xplore-LAB (github.com/Xplore-LAB/llm-tracker)">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="每日自动追踪 arXiv 最新大模型论文，按主题与公司分类，附中文一句话点评。">
 <meta property="og:title" content="大模型情报局 · LLM Papers Tracker">
@@ -224,8 +231,17 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
     <div id="favorites" class="section"></div>
   </div>
 </div>
-<footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB/llm-tracker" style="color:#302b63">GitHub</a></footer>
+<footer>🤖 <a href="https://xplore-lab.github.io/llm-tracker/" style="color:#302b63;font-weight:600;">大模型情报局</a> © 2026 <a href="https://github.com/Xplore-LAB" style="color:#302b63;">Xplore-LAB</a> · Data from arXiv · <a href="https://github.com/Xplore-LAB/llm-tracker" style="color:#302b63">GitHub</a></footer>
 <script>
+console.log(
+  '%c🤖 大模型情报局 %c· LLM Papers Tracker\n%c📄 xplore-lab.github.io/llm-tracker %c| %c⭐ github.com/Xplore-LAB/llm-tracker',
+  'font-size:18px;font-weight:bold;color:#302b63;',
+  'font-size:12px;color:#666;',
+  'font-size:13px;color:#d97706;',
+  'color:#aaa;',
+  'font-size:13px;color:#302b63;'
+);
+console.log('%cBuilt with ❤️ by Xplore-LAB — open source, free forever.','font-style:italic;color:#999;');
 const TOPICS=[
   {key:"RAG",icon:"🔍",name:"RAG 检索增强",desc:"检索增强生成，解决 LLM 幻觉和知识过时问题"},
   {key:"Agent",icon:"🤖",name:"AI Agent 智能体",desc:"自主规划、工具调用、多智能体协作"},

@@ -265,9 +265,10 @@ Data errors, paper suggestions, new features — see [CONTRIBUTING.md](CONTRIBUT
 
 ## 📜 License & Acknowledgements
 
-- Code: [MIT License](LICENSE)
+- Code: [MIT License](LICENSE) — you're welcome to fork, modify, and deploy your own instance. Please keep visible attribution (footer, README) linking back to the original project.
 - Paper metadata: [arXiv](https://arxiv.org/) — please respect its terms of use
 - Chinese notes are LLM-generated and for reference only
+- Original project by [Xplore-LAB](https://github.com/Xplore-LAB) · [xplore-lab.github.io/llm-tracker](https://xplore-lab.github.io/llm-tracker/)
 
 <div align="center">
 

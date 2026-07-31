@@ -1,7 +1,14 @@
 <!DOCTYPE html>
+<!--
+  大模型情报局 · LLM Papers Tracker — 模型发布时序
+  https://xplore-lab.github.io/llm-tracker/models/
+  GitHub: https://github.com/Xplore-LAB/llm-tracker
+  Original project by Xplore-LAB. Forkers: please keep this attribution.
+-->
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="author" content="Xplore-LAB (github.com/Xplore-LAB/llm-tracker)">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="全球主流大模型发布时序图谱，覆盖 OpenAI、Google、DeepSeek、Qwen 等公司的官方技术报告。">
 <meta property="og:title" content="模型发布时序 · 大模型情报局">
@@ -141,8 +148,17 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
 <div class="modal-mask" id="modal-mask" onclick="if(event.target===this)closeDetail()">
   <div class="modal" id="modal"></div>
 </div>
-<footer>Curated by Kevin · Data from arXiv · <a href="https://github.com/Xplore-LAB/llm-tracker" style="color:#302b63">GitHub</a></footer>
+<footer>🤖 <a href="https://xplore-lab.github.io/llm-tracker/" style="color:#302b63;font-weight:600;">大模型情报局</a> © 2026 <a href="https://github.com/Xplore-LAB" style="color:#302b63;">Xplore-LAB</a> · Data from arXiv · <a href="https://github.com/Xplore-LAB/llm-tracker" style="color:#302b63">GitHub</a></footer>
 <script>
+console.log(
+  '%c🤖 大模型情报局 %c· LLM Papers Tracker\n%c📄 xplore-lab.github.io/llm-tracker %c| %c⭐ github.com/Xplore-LAB/llm-tracker',
+  'font-size:18px;font-weight:bold;color:#302b63;',
+  'font-size:12px;color:#666;',
+  'font-size:13px;color:#d97706;',
+  'color:#aaa;',
+  'font-size:13px;color:#302b63;'
+);
+console.log('%cBuilt with ❤️ by Xplore-LAB — open source, free forever.','font-style:italic;color:#999;');
 const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d',ByteDance:'#1e37ff',StepFun:'#6d28d9',Meituan:'#eab308',AntGroup:'#1677ff',ModelBest:'#84cc16',Huawei:'#c7000b',Skywork:'#0ea5e9',SenseTime:'#0284c7'};
 // region: cn/us/other ; open: open/mixed/closed ; dom: logo domain
 const META={
