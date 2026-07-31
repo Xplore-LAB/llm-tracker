@@ -249,8 +249,11 @@ console.log('%cBuilt with ❤️ by Xplore-LAB — open source, free forever.','
 const API_BASE = '';
 
 function api(path) {
+  // When API_BASE is a Worker URL, use absolute path.
+  // When empty, use relative path for GitHub Pages.
   const base = API_BASE || '';
-  return base + '/api' + path + (path.includes('?') ? '&' : '?') + 't=' + Date.now();
+  const prefix = base ? '/api' : 'api';
+  return base + prefix + path + (path.includes('?') ? '&' : '?') + 't=' + Date.now();
 }
 
 const TOPICS=[
