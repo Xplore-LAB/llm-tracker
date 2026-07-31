@@ -243,9 +243,10 @@ const PAGE_SIZE=12;
 let DATA=null, PDFS=new Set(), FIGS={}, NODE_MAP={}, SERIES_MAP={}, SEL=new Set(), REGION=null, OPEN=null, RANGE='1y', query='', page=1;
 
 Promise.all([
-  fetch('../models.json?t='+Date.now()).then(r=>r.json()),
-  fetch('../pdfs-index.json?t='+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[]),
-  fetch('../models-figures.json?t='+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
+var API_BASE='';
+  fetch((API_BASE||'..')+'/api/models.json?t='+Date.now()).then(r=>r.json()),
+  fetch((API_BASE||'..')+'/api/pdfs-index.json?t='+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch((API_BASE||'..')+'/api/models-figures.json?t='+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
 ]).then(([data,pdfIds,figs])=>{
   DATA=data;
   PDFS=new Set(pdfIds);

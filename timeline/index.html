@@ -259,7 +259,8 @@ function clearRight(){
   document.getElementById('right-panel').innerHTML='<div class="list-header">点击图表查看论文</div><div class="empty-tip">👆 点击格子或条形</div>';
 }
 
-fetch('../timeline-data.json?t='+Date.now()).then(r=>r.json()).then(data=>{
+var API_BASE='';
+fetch((API_BASE||'..')+'/api/timeline-data.json?t='+Date.now()).then(r=>r.json()).then(data=>{
   PAPERS=data;buildIndex();renderStats();renderYear();
 });
 </script>

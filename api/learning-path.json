@@ -1,0 +1,108 @@
+{
+  "stages": [
+    {
+      "id": "foundations",
+      "icon": "🧱",
+      "title": "奠基：Transformer 与预训练",
+      "intro": "一切从这里开始。先搞懂 Transformer 的自注意力机制，再看 BERT 和 GPT 两条预训练路线如何分道扬镳——理解了这一步，后面所有论文都只是它的变体。",
+      "concepts": [
+        { "term": "Self-Attention", "desc": "让每个 token 直接与序列中所有 token 交互并加权聚合，是 Transformer 的核心" },
+        { "term": "预训练 + 微调", "desc": "先在海量无标注文本上学习通用表示，再针对下游任务微调" },
+        { "term": "自回归 vs 自编码", "desc": "GPT 从左到右预测下一个词；BERT 遮住部分词让其还原，路线差异决定擅长任务不同" },
+        { "term": "Few-Shot / In-Context Learning", "desc": "模型规模足够大后，仅在提示中给几个例子就能完成新任务，无需更新参数" }
+      ],
+      "papers": [
+        { "id": "1706.03762", "title": "Attention Is All You Need", "note": "Transformer 原始论文，抛弃 RNN/CNN 纯靠注意力机制，现代所有大模型的架构起点，必读中的必读" },
+        { "id": "1810.04805", "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding", "note": "双向编码器路线的巅峰，确立了『预训练+微调』范式" },
+        { "id": "2005.14165", "title": "Language Models are Few-Shot Learners (GPT-3)", "note": "1750 亿参数证明规模即能力，Few-Shot 提示学习开启大模型时代" }
+      ]
+    },
+    {
+      "id": "architecture",
+      "icon": "⚡",
+      "title": "核心架构与效率",
+      "intro": "工业界如何让 Transformer 跑得更快、更长、更省。位置编码、注意力加速、KV Cache 优化、MoE 稀疏化——这是阅读现代模型技术报告前必须补齐的四块拼图。",
+      "concepts": [
+        { "term": "RoPE 旋转位置编码", "desc": "用旋转矩阵把位置信息注入注意力，外推性好，LLaMA/Qwen/DeepSeek 都在用" },
+        { "term": "KV Cache / GQA", "desc": "推理时缓存历史 Key/Value 避免重复计算；GQA 让多个 Query 头共享 KV，省显存提速" },
+        { "term": "FlashAttention", "desc": "不重算不近似，仅靠 GPU 显存层级优化 IO 就把注意力提速数倍，是工程优化的典范" },
+        { "term": "MoE 混合专家", "desc": "每次前向只激活少数『专家』子网络，用稀疏计算换超大参数量" }
+      ],
+      "papers": [
+        { "id": "2104.09864", "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding", "note": "RoPE 出处，当今主流开源模型几乎标配的位置编码方案" },
+        { "id": "2205.14135", "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness", "note": "训练/推理加速的事实标准，读懂它就知道『系统优化』如何反哺算法" },
+        { "id": "2305.13245", "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints", "note": "5 页纸的小改进，推理显存大砍，LLaMA-2/3 均采用" },
+        { "id": "2101.03961", "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity", "note": "MoE 实用化的关键一步：每次只路由到 1 个专家，万亿参数不再是噱头" },
+        { "id": "2401.04088", "title": "Mixtral of Experts", "note": "开源 MoE 的标杆之作，8×7B 激活仅 13B 却打平 LLaMA-2 70B" }
+      ]
+    },
+    {
+      "id": "training",
+      "icon": "🎯",
+      "title": "训练与对齐",
+      "intro": "模型为什么『听话』？从规模定律理解算力投入的回报，再到 RLHF 让模型对齐人类偏好、DPO 把对齐简化成监督学习、LoRA 让个人也能微调大模型。",
+      "concepts": [
+        { "term": "Scaling Laws", "desc": "损失随模型规模、数据量、算力呈幂律下降，指导『钱该花在参数还是数据上』" },
+        { "term": "RLHF", "desc": "先训奖励模型打分，再用 PPO 强化学习微调，让模型输出符合人类偏好" },
+        { "term": "DPO", "desc": "跳过奖励模型和 RL，直接用偏好对做监督式优化，稳定又简单" },
+        { "term": "LoRA / PEFT", "desc": "冻结原权重，只训练低秩增量矩阵，单卡即可微调大模型" }
+      ],
+      "papers": [
+        { "id": "2001.08361", "title": "Scaling Laws for Neural Language Models", "note": "OpenAI 的规模定律，大模型军备竞赛的理论弹药" },
+        { "id": "2203.02155", "title": "Training language models to follow instructions with human feedback (InstructGPT)", "note": "RLHF 三阶段流程的完整教科书，ChatGPT 的技术前身" },
+        { "id": "2106.09685", "title": "LoRA: Low-Rank Adaptation of Large Language Models", "note": "参数高效微调的代名词，个人微调大模型的入场券" },
+        { "id": "2305.18290", "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model", "note": "用一行损失函数替代整套 RLHF 流水线，如今对齐的主流做法" }
+      ]
+    },
+    {
+      "id": "reasoning",
+      "icon": "🧠",
+      "title": "推理能力",
+      "intro": "从『直接给答案』到『先想再说』。思维链提示打开了推理的大门，而 DeepSeek-R1 证明纯强化学习就能涌现出长链推理——这是近两年最重要的范式跃迁。",
+      "concepts": [
+        { "term": "Chain-of-Thought (CoT)", "desc": "在提示中加入中间推理步骤，显著提升数学/逻辑题表现" },
+        { "term": "Self-Consistency", "desc": "采样多条推理路径再投票取多数答案，廉价的准确率提升" },
+        { "term": "Test-Time Compute", "desc": "推理时花更多计算（更长的思考链）换更好的答案，o1/R1 的核心思想" },
+        { "term": "RL 涌现推理", "desc": "不教步骤只奖结果，模型自己学会反思与验证（Aha Moment）" }
+      ],
+      "papers": [
+        { "id": "2201.11903", "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models", "note": "一句『Let's think step by step』背后的正式研究，推理时代的开篇" },
+        { "id": "2203.11171", "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models", "note": "多采样投票机制，至今仍是提升推理准确率的标配技巧" },
+        { "id": "2501.12948", "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning", "note": "纯 RL 训出顶级推理能力并完全开源，复现 o1 的路线说明书" }
+      ]
+    },
+    {
+      "id": "rag-agent",
+      "icon": "🔧",
+      "title": "检索、工具与 Agent",
+      "intro": "让模型突破自身知识的边界：RAG 外挂知识库解决幻觉与过时，Toolformer/ReAct 教会模型使用工具、交替思考与行动——这是构建一切 LLM 应用的地基。",
+      "concepts": [
+        { "term": "RAG 检索增强生成", "desc": "先从外部知识库检索相关段落，再让模型基于检索结果生成答案" },
+        { "term": "ReAct", "desc": "Thought→Action→Observation 循环，推理与工具调用交替进行" },
+        { "term": "Tool Learning", "desc": "模型自己学会何时调用哪个 API、传什么参数" },
+        { "term": "Agent", "desc": "以 LLM 为大脑，具备规划、记忆、工具使用能力的自主系统" }
+      ],
+      "papers": [
+        { "id": "2005.11401", "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks", "note": "RAG 概念的原始论文，理解检索与生成的两种耦合方式" },
+        { "id": "2302.04761", "title": "Toolformer: Language Models Can Teach Themselves to Use Tools", "note": "模型自学调用计算器/搜索/翻译等 API，工具使用的奠基工作" },
+        { "id": "2210.03629", "title": "ReAct: Synergizing Reasoning and Acting in Language Models", "note": "Agent 提示工程的事实标准框架，写 Agent 前必读" }
+      ]
+    },
+    {
+      "id": "open-models",
+      "icon": "🌐",
+      "title": "开源基座模型",
+      "intro": "站在巨人肩膀上：LLaMA 点燃了开源生态，Qwen 和 DeepSeek 把中国开源推到世界第一梯队。读技术报告的重点是看数据配比、训练流程和踩坑记录。",
+      "concepts": [
+        { "term": "基座模型 vs 指令模型", "desc": "Base 模型只做续写；Instruct/Chat 版经过 SFT+对齐才能对话" },
+        { "term": "技术报告 (Technical Report)", "desc": "模型发布时附带的训练细节文档，比论文更偏工程，信息密度极高" },
+        { "term": "开源权重 vs 开源代码", "desc": "多数『开源模型』只开放权重与推理代码，训练数据/流程通常不公开" }
+      ],
+      "papers": [
+        { "id": "2302.13971", "title": "LLaMA: Open and Efficient Foundation Language Models", "note": "开源大模型生态的引爆点，证明了小模型喂足数据可以超越大模型" },
+        { "id": "2412.15115", "title": "Qwen2.5 Technical Report", "note": "国产开源之光，18T token 预训练 + 多阶段 RL 的完整配方" },
+        { "id": "2412.19437", "title": "DeepSeek-V3 Technical Report", "note": "用约 1/10 的成本训出顶级模型，MLA + MoE + FP8 训练的工程教科书" }
+      ]
+    }
+  ]
+}

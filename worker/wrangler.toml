@@ -1,0 +1,17 @@
+# Cloudflare Worker configuration — 大模型情报局 API proxy
+# Deploy: cd worker && npx wrangler deploy
+
+name = "llm-tracker-api"
+main = "index.js"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Free tier: 100k requests/day — more than enough
+workers_dev = true
+
+# Observability (free tier: limited)
+observability = { enabled = true }
+
+[env.production]
+# Add custom domain binding if desired:
+# routes = [{ pattern = "api.your-domain.com", custom_domain = true }]

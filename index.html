@@ -242,6 +242,17 @@ console.log(
   'font-size:13px;color:#302b63;'
 );
 console.log('%cBuilt with ❤️ by Xplore-LAB — open source, free forever.','font-style:italic;color:#999;');
+
+// ── API config ───────────────────────────────────────────
+// Change API_BASE to your Cloudflare Worker URL after deploy.
+// Leave empty to load from GitHub Pages directly (fallback).
+const API_BASE = '';
+
+function api(path) {
+  const base = API_BASE || '';
+  return base + '/api' + path + (path.includes('?') ? '&' : '?') + 't=' + Date.now();
+}
+
 const TOPICS=[
   {key:"RAG",icon:"🔍",name:"RAG 检索增强",desc:"检索增强生成，解决 LLM 幻觉和知识过时问题"},
   {key:"Agent",icon:"🤖",name:"AI Agent 智能体",desc:"自主规划、工具调用、多智能体协作"},
@@ -254,7 +265,12 @@ const TOPICS=[
 ];
 const COLORS={OpenAI:'#10a37f',Google:'#4285f4',Meta:'#0866ff',Anthropic:'#d97706',Mistral:'#7c3aed',Qwen:'#dc2626',DeepSeek:'#0891b2',Baidu:'#e11d48',Zhipu:'#0d9488',Moonshot:'#4f46e5',MiniMax:'#a21caf',Xiaomi:'#ff6900',Tencent:'#0052d9',Microsoft:'#107c10',Nvidia:'#76b900',IBM:'#0f62fe',AllenAI:'#ea580c',TII:'#8b5cf6',xAI:'#1f2937','01.AI':'#14b8a6',Baichuan:'#f59e0b',InternLM:'#6366f1',Databricks:'#ff3621',AI21:'#d946ef',LG:'#a50034',Cohere:'#39594d',ByteDance:'#1e37ff',StepFun:'#6d28d9',Meituan:'#eab308',AntGroup:'#1677ff',ModelBest:'#84cc16',Huawei:'#c7000b',Skywork:'#0ea5e9',SenseTime:'#0284c7'};
 const PAGE_SIZE=8;
-let PAPERS=[], currentTab='latest', currentPage=1;
+const API_PAGE_SIZE=100; // papers per API chunk
+
+let PAPERS=[], PAPER_MAP={}, SEARCH_INDEX=[];
+let currentTab='latest', currentPage=1;
+let totalPapers=0, totalApiPages=0;
+let loadedApiPages=new Set();
 let PDFS=new Set();
 let favorites=new Set(JSON.parse(localStorage.getItem('llm_favs')||'[]'));
 
@@ -285,7 +301,7 @@ function renderTimeline(papers){
   document.getElementById('timeline-list').innerHTML=html;
 }
 function loadCompanyTimeline(){
-  fetch('company-papers.json?t='+Date.now()).then(r=>r.json()).then(papers=>{
+  fetch(api('/company-papers.json')).then(r=>r.json()).then(papers=>{
     ALL_COMPANY_PAPERS=papers;
     renderTimeline(papers);
   });
@@ -298,19 +314,69 @@ function toggleFav(id){
   if(currentTab==='favorites')renderSection(1);
 }
 
-function filterData(){
+async function filterData(){
   const q=document.getElementById('q').value.toLowerCase();
   const tagF=document.getElementById('tag-filter').value;
   const sortF=document.getElementById('sort').value;
   const yearF=document.getElementById('year').value;
-  let data=currentTab==='favorites'?PAPERS.filter(p=>favorites.has(p.id)):[...PAPERS];
-  if(currentTab==='hot')data=data.filter(p=>p.cite>=500);
-  if(q)data=data.filter(p=>p.title.toLowerCase().includes(q)||(p.title_zh||'').includes(q)||p.authors.toLowerCase().includes(q)||(p.tags||[]).join(' ').toLowerCase().includes(q));
-  if(tagF)data=data.filter(p=>(p.tags||[]).includes(tagF));
-  if(yearF)data=data.filter(p=>p.year==yearF);
-  if(sortF==='cite')data.sort((a,b)=>b.cite-a.cite);
-  else if(sortF==='title')data.sort((a,b)=>a.title.localeCompare(b.title));
-  else data.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+
+  // If no filter and data is loaded: use in-memory PAPERS (fast path)
+  const noFilter = !q && !tagF && !yearF && currentTab !== 'hot' && currentTab !== 'favorites';
+  if (noFilter && PAPERS.length >= totalPapers) {
+    let data = [...PAPERS];
+    if (sortF === 'cite') data.sort((a, b) => b.cite - a.cite);
+    else if (sortF === 'title') data.sort((a, b) => a.title.localeCompare(b.title));
+    else data.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    return data;
+  }
+
+  // Search: use search index to find matching IDs, then load needed pages
+  let matches;
+  if (currentTab === 'favorites') {
+    matches = SEARCH_INDEX.filter(si => favorites.has(si.id));
+  } else if (currentTab === 'hot') {
+    matches = SEARCH_INDEX.filter(si => si.c >= 500);
+  } else {
+    matches = [...SEARCH_INDEX];
+  }
+
+  if (q) {
+    matches = matches.filter(si =>
+      (si.t || '').toLowerCase().includes(q) ||
+      (si.tz || '').includes(q) ||
+      (si.tg || []).join(' ').toLowerCase().includes(q)
+    );
+  }
+  if (tagF) matches = matches.filter(si => (si.tg || []).includes(tagF));
+  if (yearF) matches = matches.filter(si => si.y == yearF);
+
+  // Sort
+  if (sortF === 'cite') {
+    matches.sort((a, b) => b.c - a.c);
+  } else if (sortF === 'title') {
+    matches.sort((a, b) => (a.t || '').localeCompare(b.t || ''));
+  }
+  // default: newest first (search index is already in date order)
+
+  // Load needed pages for results
+  const neededPages = new Set();
+  matches.forEach(si => {
+    const idx = PAPERS.findIndex(p => p.id === si.id);
+    if (idx === -1) {
+      // Paper not loaded yet — figure out which API page it's on
+      // Search index order matches PAPERS order (both newest-first)
+      const siIdx = SEARCH_INDEX.findIndex(x => x.id === si.id);
+      neededPages.add(apiPageForIndex(siIdx));
+    }
+  });
+
+  // Load all needed pages in parallel
+  if (neededPages.size > 0) {
+    await Promise.all([...neededPages].map(p => loadApiPage(p).catch(() => {})));
+  }
+
+  // Now build the result from PAPER_MAP
+  let data = matches.map(si => PAPER_MAP[si.id]).filter(Boolean);
   return data;
 }
 
@@ -353,9 +419,9 @@ function renderPagination(total, page){
   return html;
 }
 
-function renderSection(page){
+async function renderSection(page){
   currentPage=page||1;
-  const data=filterData();
+  const data=await filterData();
   const total=data.length;
   const slice=data.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
   document.getElementById('result-info').textContent=`共 ${total} 篇`;
@@ -380,7 +446,7 @@ function showTab(tab,el){
 
 function renderTopics(){
   document.getElementById('topics').innerHTML='<div class="topic-grid">'+TOPICS.map(t=>{
-    const count=PAPERS.filter(p=>(p.tags||[]).includes(t.key)).length;
+    const count=SEARCH_INDEX.filter(si=>(si.tg||[]).includes(t.key)).length;
     return `<div class="topic-card" onclick="selectTopic('${t.key}')">
       <h4>${t.icon} ${t.name} <span class="topic-count">${count}</span></h4>
       <p>${t.desc}</p></div>`;
@@ -399,7 +465,7 @@ function renderLearn(){
   const el=document.getElementById('learn');
   if(LEARN_PATH){el.innerHTML=buildLearnHtml();return;}
   el.innerHTML='<div class="loading">加载中...</div>';
-  fetch('learning-path.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+  fetch(api('/learning-path.json')).then(r=>r.json()).then(d=>{
     LEARN_PATH=d;
     el.innerHTML=buildLearnHtml();
   }).catch(()=>{
@@ -407,8 +473,7 @@ function renderLearn(){
   });
 }
 function buildLearnHtml(){
-  const idMap={};
-  PAPERS.forEach(p=>{idMap[p.id]=p;});
+  const idMap=PAPER_MAP;
   return LEARN_PATH.stages.map((s,i)=>{
     const concepts=(s.concepts||[]).map(c=>`<span class="concept-chip" title="${c.desc}">💡 ${c.term}</span>`).join('');
     const papers=(s.papers||[]).map(p=>{
@@ -433,18 +498,55 @@ function buildLearnHtml(){
   }).join('');
 }
 
-Promise.all([
-  fetch('papers.json?t='+Date.now()).then(r=>r.json()),
-  fetch('pdfs-index.json?t='+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[])
-]).then(([data,pdfIds])=>{
-  PAPERS=data;
-  PDFS=new Set(pdfIds);
-  document.getElementById('header-sub').textContent=`AI 大模型前沿论文追踪 · 共 ${PAPERS.length} 篇 · 每日自动更新`;
-  renderSection(1);
-  loadCompanyTimeline();
-}).catch(()=>{
-  document.getElementById('latest').innerHTML='<div class="empty">数据加载失败，请刷新重试</div>';
-});
+// ── API data loading ──────────────────────────────────────
+async function loadApiPage(pageNum) {
+  if (loadedApiPages.has(pageNum)) return;
+  const url = api('/papers/page-' + String(pageNum).padStart(3, '0') + '.json');
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error('Failed to load page ' + pageNum);
+  const page = await resp.json();
+  page.forEach(p => {
+    if (!PAPER_MAP[p.id]) {
+      PAPER_MAP[p.id] = p;
+      PAPERS.push(p);
+    }
+  });
+  loadedApiPages.add(pageNum);
+}
+
+async function loadData() {
+  try {
+    // 1. Load index (metadata)
+    const idxResp = await fetch(api('/index.json'));
+    if (idxResp.ok) {
+      const idx = await idxResp.json();
+      totalPapers = idx.total;
+      totalApiPages = idx.totalPages;
+    }
+    // 2. Load search index (~2MB, enables client-side search)
+    const siResp = await fetch(api('/search-index.json'));
+    if (siResp.ok) {
+      SEARCH_INDEX = await siResp.json();
+      if (!totalPapers) totalPapers = SEARCH_INDEX.length;
+      if (!totalApiPages) totalApiPages = Math.ceil(totalPapers / API_PAGE_SIZE);
+    }
+    // 3. Load first page of papers
+    await loadApiPage(1);
+    document.getElementById('header-sub').textContent =
+      'AI 大模型前沿论文追踪 · 共 ' + totalPapers + ' 篇 · 每日自动更新';
+    renderSection(1);
+    loadCompanyTimeline();
+  } catch (e) {
+    console.error('Data load failed:', e);
+    document.getElementById('latest').innerHTML =
+      '<div class="empty">数据加载失败，请刷新重试</div>';
+  }
+}
+
+// Need to load a specific API page for a given paper index
+function apiPageForIndex(idx) {
+  return Math.floor(idx / API_PAGE_SIZE) + 1;
+}
 
 // ── Manual update ──────────────────────────────────────────
 function showToast(msg, duration) {
@@ -462,22 +564,39 @@ function showToast(msg, duration) {
   t._timer = setTimeout(() => { t.style.opacity = '0'; }, duration);
 }
 
-function refreshData() {
+async function refreshData() {
   showToast('🔄 正在刷新数据...');
-  const ts = Date.now();
-  Promise.all([
-    fetch('papers.json?t=' + ts).then(r => r.json()),
-    fetch('company-papers.json?t=' + ts).then(r => r.json())
-  ]).then(([papers, companyPapers]) => {
-    PAPERS = papers;
-    ALL_COMPANY_PAPERS = companyPapers;
-    document.getElementById('header-sub').textContent = `AI 大模型前沿论文追踪 · 共 ${PAPERS.length} 篇 · 每日自动更新`;
-    filterTimeline();
+  try {
+    // Clear caches
+    PAPERS = [];
+    PAPER_MAP = {};
+    SEARCH_INDEX = [];
+    loadedApiPages.clear();
+    // Reload index
+    const idxResp = await fetch(api('/index.json'));
+    if (idxResp.ok) {
+      const idx = await idxResp.json();
+      totalPapers = idx.total;
+      totalApiPages = idx.totalPages;
+    }
+    // Reload search index
+    const siResp = await fetch(api('/search-index.json'));
+    if (siResp.ok) SEARCH_INDEX = await siResp.json();
+    // Reload first page
+    await loadApiPage(1);
+    // Reload company data
+    const coResp = await fetch(api('/company-papers.json'));
+    if (coResp.ok) {
+      ALL_COMPANY_PAPERS = await coResp.json();
+      filterTimeline();
+    }
+    document.getElementById('header-sub').textContent =
+      'AI 大模型前沿论文追踪 · 共 ' + totalPapers + ' 篇 · 每日自动更新';
     renderSection(currentPage);
-    showToast('✅ 数据已刷新！共 ' + PAPERS.length + ' 篇论文');
-  }).catch(() => {
+    showToast('✅ 数据已刷新！共 ' + totalPapers + ' 篇论文');
+  } catch (e) {
     showToast('❌ 刷新失败，请稍后重试', 5000);
-  });
+  }
 }
 
 function triggerUpdate() {
@@ -516,6 +635,9 @@ function triggerUpdate() {
     btn.disabled = false;
   });
 }
+
+// ── Init ──────────────────────────────────────────────────
+loadData();
 </script>
 </body>
 </html>
