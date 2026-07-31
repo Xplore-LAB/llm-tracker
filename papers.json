@@ -162684,6 +162684,20 @@
     "company": "OpenAI"
   },
   {
+    "id": "2506.14245",
+    "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs",
+    "authors": "Xumeng Wen, Zihan Liu, Shun Zheng et al.",
+    "year": 2025,
+    "date": "2025-06-17",
+    "cite": 240,
+    "abstract": "Recent advancements in long chain-of-thought (CoT) reasoning, particularly through the Group Relative Policy Optimization algorithm used by DeepSeek-R1, have led to significant interest in the potential of Reinforcement Learning with Verifiable Rewards (RLVR) for Large Language Models (LLMs). While RLVR promises to improve reasoning by allowing models to learn from free exploration, there remains debate over whether it truly enhances reasoning abilities or simply boosts sampling efficiency. This",
+    "tags": [
+      "Reasoning",
+      "Fine-tuning",
+      "LLM"
+    ]
+  },
+  {
     "id": "2506.13596",
     "title": "Qwen vs. Gemma Integration with Whisper: A Comparative Study in Multilingual SpeechLLM Systems",
     "authors": "Tuan Nguyen, Long-Vu Hoang, Huy-Dat Tran",
@@ -163443,7 +163457,7 @@
     "authors": "An Yang, Anfeng Li, Baosong Yang et al.",
     "year": 2025,
     "date": "2025-05-14",
-    "cite": 0,
+    "cite": 6857,
     "abstract": "In this work, we present Qwen3, the latest version of the Qwen model family. Qwen3 comprises a series of large language models (LLMs) designed to advance performance, efficiency, and multilingual capabilities. The Qwen3 series includes models of both dense and Mixture-of-Expert (MoE) architectures, with parameter scales ranging from 0.6 to 235 billion. A key innovation in Qwen3 is the integration of thinking mode (for complex, multi-step reasoning) and non-thinking mode (for rapid, context-drive",
     "company": "Qwen",
     "tags": [
@@ -164021,6 +164035,20 @@
     ],
     "abstract": "Large Language Models (LLMs) have rapidly transformed software development, especially in code generation. However, their inconsistent performance, prone to hallucinations and quality issues, complicates program comprehension and hinders maintainability. Research indicates that prompt engineering-the practice of designing inputs to direct LLMs toward generating relevant outputs-may help address these challenges. In this regard, researchers have introduced prompt patterns, structured templates in",
     "company": "OpenAI"
+  },
+  {
+    "id": "2504.13837",
+    "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?",
+    "authors": "Yang Yue, Zhiqi Chen, Rui Lu et al.",
+    "year": 2025,
+    "date": "2025-04-18",
+    "cite": 935,
+    "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) has recently demonstrated notable success in enhancing the reasoning performance of large language models (LLMs), particularly on mathematics and programming tasks. Similar to how traditional RL helps agents explore and learn new strategies, RLVR is believed to enable LLMs to continuously self-improve, thus acquiring novel reasoning abilities beyond those of the corresponding base models. In this study we critically examine the current state ",
+    "tags": [
+      "Agent",
+      "Reasoning",
+      "LLM"
+    ]
   },
   {
     "id": "2504.13161",
@@ -165187,6 +165215,19 @@
     "company": "DeepSeek"
   },
   {
+    "id": "2502.14768",
+    "title": "Logic-RL: Unleashing LLM Reasoning with Rule-Based Reinforcement Learning",
+    "authors": "Tian Xie, Zitian Gao, Qingnan Ren et al.",
+    "year": 2025,
+    "date": "2025-02-20",
+    "cite": 223,
+    "abstract": "Inspired by the success of DeepSeek-R1, we explore the potential of rule-based reinforcement learning (RL) in large reasoning models. To analyze reasoning dynamics, we use synthetic logic puzzles as training data due to their controllable complexity and straightforward answer verification. We make some key technical contributions that lead to effective and stable RL training: a system prompt that emphasizes the thinking and answering process, a stringent format reward function that penalizes out",
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ]
+  },
+  {
     "id": "2503.16451",
     "title": "Think-Then-React: Towards Unconstrained Human Action-to-Reaction Generation",
     "authors": "Wenhui Tan, Boyuan Li, Chuhao Jin et al.",
@@ -165718,7 +165759,7 @@
     "authors": "DeepSeek AI",
     "year": 2025,
     "date": "2025-01-22",
-    "cite": 800,
+    "cite": 5453,
     "tags": [
       "Reasoning",
       "RL",
@@ -168561,6 +168602,18 @@
     "company": "Huawei"
   },
   {
+    "id": "2402.03300",
+    "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+    "authors": "Zhihong Shao, Peiyi Wang, Qihao Zhu et al.",
+    "year": 2024,
+    "date": "2024-02-05",
+    "cite": 7855,
+    "abstract": "Mathematical reasoning poses a significant challenge for language models due to its complex and structured nature. In this paper, we introduce DeepSeekMath 7B, which continues pre-training DeepSeek-Coder-Base-v1.5 7B with 120B math-related tokens sourced from Common Crawl, together with natural language and code data. DeepSeekMath 7B has achieved an impressive score of 51.7% on the competition-level MATH benchmark without relying on external toolkits and voting techniques, approaching the perfor",
+    "tags": [
+      "Reasoning"
+    ]
+  },
+  {
     "id": "2402.00738",
     "title": "FM3Q: Factorized Multi-Agent MiniMax Q-Learning for Two-Team Zero-Sum Markov Game",
     "authors": "Guangzheng Hu, Yuanheng Zhu, Haoran Li et al.",
@@ -169563,6 +169616,33 @@
     "note": "提出RefinedWeb数据集，证明仅用大规模过滤网络数据预训练的大语言模型性能可超越精选语料库"
   },
   {
+    "id": "2305.20050",
+    "title": "Let's Verify Step by Step",
+    "authors": "Hunter Lightman, Vineet Kosaraju, Yura Burda et al.",
+    "year": 2023,
+    "date": "2023-05-31",
+    "cite": 3982,
+    "abstract": "In recent years, large language models have greatly improved in their ability to perform complex multi-step reasoning. However, even state-of-the-art models still regularly produce logical mistakes. To train more reliable models, we can turn either to outcome supervision, which provides feedback for a final result, or process supervision, which provides feedback for each intermediate reasoning step. Given the importance of training reliable models, and given the high cost of human feedback, it i",
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "LLM"
+    ]
+  },
+  {
+    "id": "2305.18290",
+    "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+    "authors": "Rafael Rafailov, Archit Sharma, Eric Mitchell et al.",
+    "year": 2023,
+    "date": "2023-05-29",
+    "cite": 9843,
+    "abstract": "While large-scale unsupervised language models (LMs) learn broad world knowledge and some reasoning skills, achieving precise control of their behavior is difficult due to the completely unsupervised nature of their training. Existing methods for gaining such steerability collect human labels of the relative quality of model generations and fine-tune the unsupervised LM to align with these preferences, often with reinforcement learning from human feedback (RLHF). However, RLHF is a complex and o",
+    "tags": [
+      "Reasoning",
+      "Fine-tuning"
+    ]
+  },
+  {
     "id": "2305.14314",
     "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
     "authors": "Dettmers et al.",
@@ -169576,6 +169656,18 @@
     ],
     "abstract": "We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance.",
     "title_zh": "QLoRA：量化 LLM 的高效微调"
+  },
+  {
+    "id": "2305.13245",
+    "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints",
+    "authors": "Joshua Ainslie, James Lee-Thorp, Michiel de Jong et al.",
+    "year": 2023,
+    "date": "2023-05-22",
+    "cite": 0,
+    "abstract": "Multi-query attention (MQA), which only uses a single key-value head, drastically speeds up decoder inference. However, MQA can lead to quality degradation, and moreover it may not be desirable to train a separate model just for faster inference. We (1) propose a recipe for uptraining existing multi-head language model checkpoints into models with MQA using 5% of original pre-training compute, and (2) introduce grouped-query attention (GQA), a generalization of multi-query attention which uses a",
+    "tags": [
+      "LLM"
+    ]
   },
   {
     "id": "2305.10403",
@@ -169902,7 +169994,7 @@
     "authors": "Yao et al., Princeton & Google",
     "year": 2022,
     "date": "2022-10-06",
-    "cite": 4000,
+    "cite": 9268,
     "tags": [
       "Agent",
       "Reasoning",
@@ -170004,6 +170096,18 @@
     "note": "分析带生成模型的KL熵正则化强化学习，证明镜像下降值迭代达到极小极大最优。"
   },
   {
+    "id": "2205.14135",
+    "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "authors": "Tri Dao, Daniel Y. Fu, Stefano Ermon et al.",
+    "year": 2022,
+    "date": "2022-05-27",
+    "cite": 4898,
+    "abstract": "Transformers are slow and memory-hungry on long sequences, since the time and memory complexity of self-attention are quadratic in sequence length. Approximate attention methods have attempted to address this problem by trading off model quality to reduce the compute complexity, but often do not achieve wall-clock speedup. We argue that a missing principle is making attention algorithms IO-aware -- accounting for reads and writes between levels of GPU memory. We propose FlashAttention, an IO-awa",
+    "tags": [
+      "LLM"
+    ]
+  },
+  {
     "id": "2205.13094",
     "title": "Undersampling is a Minimax Optimal Robustness Intervention in Nonparametric Classification",
     "authors": "Niladri S. Chatterji, Saminul Haque, Tatsunori Hashimoto",
@@ -170097,6 +170201,19 @@
     "abstract": "Sparse Transformer has recently attracted a lot of attention since the ability for reducing the quadratic dependency on the sequence length. We argue that two factors, information bottleneck sensitivity and inconsistency between different attention topologies, could affect the performance of the Sparse Transformer. This paper proposes a well-designed model named ERNIE-Sparse. It consists of two distinctive parts: (i) Hierarchical Sparse Transformer (HST) to sequentially unify local and global in",
     "company": "Baidu",
     "note": "ERNIE-SPARSE基于正则化自注意力构建层次化稀疏Transformer，缓解信息瓶颈与拓扑不一致问题。"
+  },
+  {
+    "id": "2203.11171",
+    "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+    "authors": "Xuezhi Wang, Jason Wei, Dale Schuurmans et al.",
+    "year": 2022,
+    "date": "2022-03-21",
+    "cite": 7316,
+    "abstract": "Chain-of-thought prompting combined with pre-trained large language models has achieved encouraging results on complex reasoning tasks. In this paper, we propose a new decoding strategy, self-consistency, to replace the naive greedy decoding used in chain-of-thought prompting. It first samples a diverse set of reasoning paths instead of only taking the greedy one, and then selects the most consistent answer by marginalizing out the sampled reasoning paths. Self-consistency leverages the intuitio",
+    "tags": [
+      "Reasoning",
+      "LLM"
+    ]
   },
   {
     "id": "2203.09127",
@@ -170254,6 +170371,18 @@
     "company": "Huawei"
   },
   {
+    "id": "2104.09864",
+    "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+    "authors": "Jianlin Su, Yu Lu, Shengfeng Pan et al.",
+    "year": 2021,
+    "date": "2021-04-20",
+    "cite": 5973,
+    "abstract": "Position encoding recently has shown effective in the transformer architecture. It enables valuable supervision for dependency modeling between elements at different positions of the sequence. In this paper, we first investigate various methods to integrate positional information into the learning process of transformer-based language models. Then, we propose a novel method named Rotary Position Embedding(RoPE) to effectively leverage the positional information. Specifically, the proposed RoPE e",
+    "tags": [
+      "Multimodal"
+    ]
+  },
+  {
     "id": "2103.04132",
     "title": "A Real-time Low-cost Artificial Intelligence System for Autonomous Spraying in Palm Plantations",
     "authors": "Zhenwang Qin, Wensheng Wang, Karl-Heinz Dammer et al.",
@@ -170280,6 +170409,18 @@
     "abstract": "We train a single, goal-conditioned policy that can solve many robotic manipulation tasks, including tasks with previously unseen goals and objects. We rely on asymmetric self-play for goal discovery, where two agents, Alice and Bob, play a game. Alice is asked to propose challenging goals and Bob aims to solve them. We show that this method can discover highly diverse and complex goals without any human priors. Bob can be trained with only sparse rewards, because the interaction between Alice a",
     "company": "OpenAI",
     "title_zh": "机器人操作中自动目标发现的非对称自我对弈"
+  },
+  {
+    "id": "2101.03961",
+    "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+    "authors": "William Fedus, Barret Zoph, Noam Shazeer",
+    "year": 2021,
+    "date": "2021-01-11",
+    "cite": 0,
+    "abstract": "In deep learning, models typically reuse the same parameters for all inputs. Mixture of Experts (MoE) defies this and instead selects different parameters for each incoming example. The result is a sparsely-activated model -- with outrageous numbers of parameters -- but a constant computational cost. However, despite several notable successes of MoE, widespread adoption has been hindered by complexity, communication costs and training instability -- we address these with the Switch Transformer. ",
+    "tags": [
+      "LLM"
+    ]
   },
   {
     "id": "2012.15688",
@@ -170366,12 +170507,24 @@
     "note": "ERNIE-ViL引入场景图结构知识增强视觉-语言联合表征，建模对象、属性与关系，提升多模态细粒度语义对齐能力。"
   },
   {
+    "id": "2005.14165",
+    "title": "Language Models are Few-Shot Learners",
+    "authors": "Tom B. Brown, Benjamin Mann, Nick Ryder et al.",
+    "year": 2020,
+    "date": "2020-05-28",
+    "cite": 61434,
+    "abstract": "Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to",
+    "tags": [
+      "Fine-tuning"
+    ]
+  },
+  {
     "id": "2005.11401",
     "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
     "authors": "Lewis et al., Facebook AI",
     "year": 2020,
     "date": "2020-05-22",
-    "cite": 8000,
+    "cite": 16507,
     "tags": [
       "RAG",
       "Retrieval",
@@ -170393,6 +170546,18 @@
     "abstract": "Current pre-training works in natural language generation pay little attention to the problem of exposure bias on downstream tasks. To address this issue, we propose an enhanced multi-flow sequence to sequence pre-training and fine-tuning framework named ERNIE-GEN, which bridges the discrepancy between training and inference with an infilling generation mechanism and a noise-aware generation method. To make generation closer to human writing patterns, this framework introduces a span-by-span gen",
     "company": "Baidu",
     "note": "ERNIE-GEN提出多流序列到序列预训练与微调框架，通过填空式生成机制缓解曝光偏差问题，提升自然语言生成效果。"
+  },
+  {
+    "id": "2001.08361",
+    "title": "Scaling Laws for Neural Language Models",
+    "authors": "Jared Kaplan, Sam McCandlish, Tom Henighan et al.",
+    "year": 2020,
+    "date": "2020-01-23",
+    "cite": 0,
+    "abstract": "We study empirical scaling laws for language model performance on the cross-entropy loss. The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude. Other architectural details such as network width or depth have minimal effects within a wide range. Simple equations govern the dependence of overfitting on model/dataset size and the dependence of training speed on model size. These relat",
+    "tags": [
+      "LLM"
+    ]
   },
   {
     "id": "1912.11270",
@@ -170465,6 +170630,18 @@
     "note": "ERNIE设计实体级与短语级知识掩码策略，使模型在预训练中隐式习得知识，提升语言表示能力。"
   },
   {
+    "id": "1810.04805",
+    "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    "authors": "Jacob Devlin, Ming-Wei Chang, Kenton Lee et al.",
+    "year": 2018,
+    "date": "2018-10-11",
+    "cite": 0,
+    "abstract": "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such a",
+    "tags": [
+      "Fine-tuning"
+    ]
+  },
+  {
     "id": "1808.00177",
     "title": "Learning Dexterous In-Hand Manipulation",
     "authors": " OpenAI, Marcin Andrychowicz, Bowen Baker et al.",
@@ -170477,6 +170654,18 @@
     "abstract": "We use reinforcement learning (RL) to learn dexterous in-hand manipulation policies which can perform vision-based object reorientation on a physical Shadow Dexterous Hand. The training is performed in a simulated environment in which we randomize many of the physical properties of the system like friction coefficients and an object's appearance. Our policies transfer to the physical robot despite being trained entirely in simulation. Our method does not rely on any human demonstrations, but man",
     "company": "OpenAI",
     "title_zh": "学习灵巧的手部操作"
+  },
+  {
+    "id": "1706.03762",
+    "title": "Attention Is All You Need",
+    "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar et al.",
+    "year": 2017,
+    "date": "2017-06-12",
+    "cite": 0,
+    "abstract": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more ",
+    "tags": [
+      "LLM"
+    ]
   },
   {
     "id": "cs/0412066",

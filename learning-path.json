@@ -12,9 +12,9 @@
         { "term": "Few-Shot / In-Context Learning", "desc": "模型规模足够大后，仅在提示中给几个例子就能完成新任务，无需更新参数" }
       ],
       "papers": [
-        { "id": "1706.03762", "title": "Attention Is All You Need", "note": "Transformer 原始论文，抛弃 RNN/CNN 纯靠注意力机制，现代所有大模型的架构起点，必读中的必读" },
-        { "id": "1810.04805", "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding", "note": "双向编码器路线的巅峰，确立了『预训练+微调』范式" },
-        { "id": "2005.14165", "title": "Language Models are Few-Shot Learners (GPT-3)", "note": "1750 亿参数证明规模即能力，Few-Shot 提示学习开启大模型时代" }
+        { "id": "1706.03762", "title": "Attention Is All You Need", "note": "Transformer 原始论文，抛弃 RNN/CNN 纯靠注意力机制，现代所有大模型的架构起点，必读中的必读", "venue": { "type": "conference", "name": "NeurIPS 2017", "ccf": "A" } },
+        { "id": "1810.04805", "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding", "note": "双向编码器路线的巅峰，确立了『预训练+微调』范式", "venue": { "type": "conference", "name": "NAACL-HLT 2019", "ccf": "B" } },
+        { "id": "2005.14165", "title": "Language Models are Few-Shot Learners (GPT-3)", "note": "1750 亿参数证明规模即能力，Few-Shot 提示学习开启大模型时代", "venue": { "type": "conference", "name": "NeurIPS 2020", "ccf": "A" }, "cite": 61434 }
       ]
     },
     {
@@ -29,11 +29,11 @@
         { "term": "MoE 混合专家", "desc": "每次前向只激活少数『专家』子网络，用稀疏计算换超大参数量" }
       ],
       "papers": [
-        { "id": "2104.09864", "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding", "note": "RoPE 出处，当今主流开源模型几乎标配的位置编码方案" },
-        { "id": "2205.14135", "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness", "note": "训练/推理加速的事实标准，读懂它就知道『系统优化』如何反哺算法" },
-        { "id": "2305.13245", "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints", "note": "5 页纸的小改进，推理显存大砍，LLaMA-2/3 均采用" },
-        { "id": "2101.03961", "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity", "note": "MoE 实用化的关键一步：每次只路由到 1 个专家，万亿参数不再是噱头" },
-        { "id": "2401.04088", "title": "Mixtral of Experts", "note": "开源 MoE 的标杆之作，8×7B 激活仅 13B 却打平 LLaMA-2 70B" }
+        { "id": "2104.09864", "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding", "note": "RoPE 出处，当今主流开源模型几乎标配的位置编码方案", "venue": { "type": "journal", "name": "Neurocomputing", "if": 6.5, "ifYear": 2024 }, "cite": 5973 },
+        { "id": "2205.14135", "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness", "note": "训练/推理加速的事实标准，读懂它就知道『系统优化』如何反哺算法", "venue": { "type": "conference", "name": "NeurIPS 2022", "ccf": "A" }, "cite": 4898 },
+        { "id": "2305.13245", "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints", "note": "5 页纸的小改进，推理显存大砍，LLaMA-2/3 均采用", "venue": { "type": "conference", "name": "EMNLP 2023", "ccf": "B" } },
+        { "id": "2101.03961", "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity", "note": "MoE 实用化的关键一步：每次只路由到 1 个专家，万亿参数不再是噱头", "venue": { "type": "journal", "name": "JMLR", "ccf": "A", "if": 5.2, "ifYear": 2024 } },
+        { "id": "2401.04088", "title": "Mixtral of Experts", "note": "开源 MoE 的标杆之作，8×7B 激活仅 13B 却打平 LLaMA-2 70B", "venue": { "type": "preprint", "name": "arXiv 预印本" } }
       ]
     },
     {
@@ -48,10 +48,10 @@
         { "term": "LoRA / PEFT", "desc": "冻结原权重，只训练低秩增量矩阵，单卡即可微调大模型" }
       ],
       "papers": [
-        { "id": "2001.08361", "title": "Scaling Laws for Neural Language Models", "note": "OpenAI 的规模定律，大模型军备竞赛的理论弹药" },
-        { "id": "2203.02155", "title": "Training language models to follow instructions with human feedback (InstructGPT)", "note": "RLHF 三阶段流程的完整教科书，ChatGPT 的技术前身" },
-        { "id": "2106.09685", "title": "LoRA: Low-Rank Adaptation of Large Language Models", "note": "参数高效微调的代名词，个人微调大模型的入场券" },
-        { "id": "2305.18290", "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model", "note": "用一行损失函数替代整套 RLHF 流水线，如今对齐的主流做法" }
+        { "id": "2001.08361", "title": "Scaling Laws for Neural Language Models", "note": "OpenAI 的规模定律，大模型军备竞赛的理论弹药", "venue": { "type": "preprint", "name": "arXiv 预印本" } },
+        { "id": "2203.02155", "title": "Training language models to follow instructions with human feedback (InstructGPT)", "note": "RLHF 三阶段流程的完整教科书，ChatGPT 的技术前身", "venue": { "type": "conference", "name": "NeurIPS 2022", "ccf": "A" }, "cite": 12000 },
+        { "id": "2106.09685", "title": "LoRA: Low-Rank Adaptation of Large Language Models", "note": "参数高效微调的代名词，个人微调大模型的入场券", "venue": { "type": "conference", "name": "ICLR 2022", "ccf": "A" }, "cite": 12000 },
+        { "id": "2305.18290", "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model", "note": "用一行损失函数替代整套 RLHF 流水线，如今对齐的主流做法", "venue": { "type": "conference", "name": "NeurIPS 2023", "ccf": "A" }, "cite": 9843 }
       ]
     },
     {
@@ -66,9 +66,29 @@
         { "term": "RL 涌现推理", "desc": "不教步骤只奖结果，模型自己学会反思与验证（Aha Moment）" }
       ],
       "papers": [
-        { "id": "2201.11903", "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models", "note": "一句『Let's think step by step』背后的正式研究，推理时代的开篇" },
-        { "id": "2203.11171", "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models", "note": "多采样投票机制，至今仍是提升推理准确率的标配技巧" },
-        { "id": "2501.12948", "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning", "note": "纯 RL 训出顶级推理能力并完全开源，复现 o1 的路线说明书" }
+        { "id": "2201.11903", "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models", "note": "一句『Let's think step by step』背后的正式研究，推理时代的开篇", "venue": { "type": "conference", "name": "NeurIPS 2022", "ccf": "A" }, "cite": 9000 },
+        { "id": "2203.11171", "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models", "note": "多采样投票机制，至今仍是提升推理准确率的标配技巧", "venue": { "type": "conference", "name": "ICLR 2023", "ccf": "A" }, "cite": 7316 },
+        { "id": "2501.12948", "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning", "note": "纯 RL 训出顶级推理能力并完全开源，复现 o1 的路线说明书，已正式发表于 Nature", "venue": { "type": "journal", "name": "Nature", "if": 48.5, "ifYear": 2024 }, "cite": 5453 }
+      ]
+    },
+    {
+      "id": "rl-reasoning",
+      "icon": "🔬",
+      "title": "强化学习驱动推理前沿",
+      "intro": "2025-2026 年最热的方向：用可验证奖励的强化学习（RLVR）训练推理模型。GRPO 替代 PPO 成为标配，过程奖励模型细粒度校验每一步，o1/R1 开启『推理时扩展』——这一阶段帮你把 RL 在推理中的核心玩法一次看清。",
+      "concepts": [
+        { "term": "GRPO", "desc": "组相对策略优化，去掉价值模型，用同一组采样结果的相对优劣计算优势，DeepSeek 系列标配" },
+        { "term": "RLVR", "desc": "可验证奖励强化学习，用代码/数学等『对错可判』的任务做奖励，绕开奖励模型训练" },
+        { "term": "过程奖励模型 PRM", "desc": "对每一步推理打分而非只看最终答案，细粒度引导模型修正中间错误" },
+        { "term": "推理时扩展", "desc": "测试时让模型多生成几步思考再作答，计算量换准确率，o1/o3 的核心思想" }
+      ],
+      "papers": [
+        { "id": "2402.03300", "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models", "note": "GRPO 出处：去掉 critic 的相对优势优化，数学推理开箱即用，后续所有 RL 推理模型的基石", "venue": { "type": "preprint", "name": "arXiv 预印本" }, "cite": 7855 },
+        { "id": "2305.20050", "title": "Let's Verify Step by Step", "note": "过程奖励模型代表：对推理每一步校验胜过只看答案，过程监督的奠基工作", "venue": { "type": "conference", "name": "ICLR 2024", "ccf": "A" }, "cite": 3982 },
+        { "id": "2502.14768", "title": "Logic-RL: Unleashing LLM Reasoning with Rule-Based Reinforcement Learning", "note": "用合成逻辑谜题做规则化 RL，5K 样本即可涌现反思与验证行为并泛化到数学", "venue": { "type": "preprint", "name": "arXiv 预印本" }, "cite": 223 },
+        { "id": "2412.16720", "title": "OpenAI o1 System Card", "note": "首个主流『推理模型』的系统文档：私有思维链 + 推理时扩展，闭源模型的推理参考基线", "venue": { "type": "preprint", "name": "arXiv 预印本" } },
+        { "id": "2504.13837", "title": "Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs Beyond the Base Model?", "note": "2025 关键反方论文：RL 提升 Pass@1 但推理能力受基座模型约束，『elicits 而非 creates』，与微软反驳论形成 RLV 之争", "venue": { "type": "conference", "name": "NeurIPS 2025", "ccf": "A" }, "cite": 935 },
+        { "id": "2506.14245", "title": "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs", "note": "对反方观点的直接回应：提出 Pass@K-CoT 指标后，RLVR 在所有 K 上稳健激励正确推理", "venue": { "type": "preprint", "name": "arXiv 预印本" }, "cite": 240 }
       ]
     },
     {
@@ -83,9 +103,9 @@
         { "term": "Agent", "desc": "以 LLM 为大脑，具备规划、记忆、工具使用能力的自主系统" }
       ],
       "papers": [
-        { "id": "2005.11401", "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks", "note": "RAG 概念的原始论文，理解检索与生成的两种耦合方式" },
-        { "id": "2302.04761", "title": "Toolformer: Language Models Can Teach Themselves to Use Tools", "note": "模型自学调用计算器/搜索/翻译等 API，工具使用的奠基工作" },
-        { "id": "2210.03629", "title": "ReAct: Synergizing Reasoning and Acting in Language Models", "note": "Agent 提示工程的事实标准框架，写 Agent 前必读" }
+        { "id": "2005.11401", "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks", "note": "RAG 概念的原始论文，理解检索与生成的两种耦合方式", "venue": { "type": "conference", "name": "NeurIPS 2020", "ccf": "A" }, "cite": 16507 },
+        { "id": "2302.04761", "title": "Toolformer: Language Models Can Teach Themselves to Use Tools", "note": "模型自学调用计算器/搜索/翻译等 API，工具使用的奠基工作", "venue": { "type": "conference", "name": "NeurIPS 2023", "ccf": "A" }, "cite": 2500 },
+        { "id": "2210.03629", "title": "ReAct: Synergizing Reasoning and Acting in Language Models", "note": "Agent 提示工程的事实标准框架，写 Agent 前必读", "venue": { "type": "conference", "name": "ICLR 2023", "ccf": "A" }, "cite": 9268 }
       ]
     },
     {
@@ -99,9 +119,10 @@
         { "term": "开源权重 vs 开源代码", "desc": "多数『开源模型』只开放权重与推理代码，训练数据/流程通常不公开" }
       ],
       "papers": [
-        { "id": "2302.13971", "title": "LLaMA: Open and Efficient Foundation Language Models", "note": "开源大模型生态的引爆点，证明了小模型喂足数据可以超越大模型" },
-        { "id": "2412.15115", "title": "Qwen2.5 Technical Report", "note": "国产开源之光，18T token 预训练 + 多阶段 RL 的完整配方" },
-        { "id": "2412.19437", "title": "DeepSeek-V3 Technical Report", "note": "用约 1/10 的成本训出顶级模型，MLA + MoE + FP8 训练的工程教科书" }
+        { "id": "2302.13971", "title": "LLaMA: Open and Efficient Foundation Language Models", "note": "开源大模型生态的引爆点，证明了小模型喂足数据可以超越大模型", "venue": { "type": "preprint", "name": "arXiv 预印本" }, "cite": 15000 },
+        { "id": "2412.15115", "title": "Qwen2.5 Technical Report", "note": "国产开源之光，18T token 预训练 + 多阶段 RL 的完整配方", "venue": { "type": "preprint", "name": "arXiv 预印本" } },
+        { "id": "2412.19437", "title": "DeepSeek-V3 Technical Report", "note": "用约 1/10 的成本训出顶级模型，MLA + MoE + FP8 训练的工程教科书", "venue": { "type": "preprint", "name": "arXiv 预印本" } },
+        { "id": "2505.09388", "title": "Qwen3 Technical Report", "note": "2025 开源推理标杆：思考/非思考双模式切换 + SFT 与 RLVR 混合训练", "venue": { "type": "preprint", "name": "arXiv 预印本" }, "cite": 6857 }
       ]
     }
   ]

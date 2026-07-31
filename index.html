@@ -63,6 +63,11 @@ header p{opacity:.8;font-size:.85rem}
 .badge.cite{background:#fff3e0;color:#e65100}
 .badge.cite.high{background:#e8f5e9;color:#2e7d32}
 .badge.date{background:#ede7f6;color:#4527a0}
+.badge.venue-conf{background:#e3f2fd;color:#1565c0}
+.badge.venue-journal{background:#e8f5e9;color:#2e7d32}
+.badge.venue-preprint{background:#f5f5f5;color:#757575}
+.badge.if{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7}
+.badge.ccf{background:#fff8e1;color:#f57f17;border:1px solid #ffe082}
 .badge.tag{background:#e3f2fd;color:#1565c0;cursor:pointer}
 .badge.tag:hover{background:#1565c0;color:white}
 .arxiv-link{font-size:.8rem;color:#302b63;text-decoration:none;font-weight:600}
@@ -498,6 +503,18 @@ function renderLearn(){
     el.innerHTML='<div class="empty">学习路径数据加载失败，请刷新重试</div>';
   });
 }
+function venueBadge(p){
+  const v=p.venue;
+  if(!v) return '';
+  if(v.type==='conference'){
+    return `<span class="badge venue-conf">🏛️ ${v.name}${v.ccf?' · CCF-'+v.ccf:''}</span>`;
+  }
+  if(v.type==='journal'){
+    let ifs=v.if?`<span class="badge if">影响因子 ${v.if}${v.ifYear?' ('+v.ifYear+')':''}</span>`:'';
+    return `<span class="badge venue-journal">📖 ${v.name}</span>${ifs}`;
+  }
+  return `<span class="badge venue-preprint">📄 ${v.name||'arXiv 预印本'}</span>`;
+}
 function buildLearnHtml(){
   const idMap=PAPER_MAP;
   return LEARN_PATH.stages.map((s,i)=>{
@@ -505,10 +522,15 @@ function buildLearnHtml(){
     const papers=(s.papers||[]).map(p=>{
       const hit=idMap[p.id];
       const fav=hit&&favorites.has(p.id);
+      // 引用量：优先学习路径内嵌的权威值，其次数据库中的值；0 或缺失则不显示
+      let citeBadge='';
+      const cite=p.cite!=null?p.cite:(hit?hit.cite:null);
+      if(cite>0) citeBadge=`<span class="badge cite ${cite>=1000?'high':''}">📊 ${cite.toLocaleString()}</span>`;
       return `<div class="card">
         ${hit?`<button class="fav-btn ${fav?'active':''}" data-id="${p.id}" onclick="toggleFav('${p.id}')">⭐</button>`:''}
         <div class="card-meta">
-          ${hit?`<span class="badge cite ${hit.cite>=1000?'high':''}">📊 ${(hit.cite||0).toLocaleString()}</span>`:''}
+          ${citeBadge}
+          ${venueBadge(p)}
           <a class="arxiv-link" href="https://arxiv.org/abs/${p.id}" target="_blank">arXiv:${p.id} ↗</a>
         </div>
         <h3>${p.title}</h3>
