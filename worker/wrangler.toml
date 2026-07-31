@@ -1,5 +1,10 @@
 # Cloudflare Worker configuration — 大模型情报局 API proxy
 # Deploy: cd worker && npx wrangler deploy
+#
+# REQUIRED secret for favorites persistence:
+#   npx wrangler secret put GITHUB_TOKEN
+# The token must be a fine-grained PAT with "Contents" read & write
+# on Xplore-LAB/llm-tracker (only favorites.json needs it).
 
 name = "llm-tracker-api"
 main = "index.js"

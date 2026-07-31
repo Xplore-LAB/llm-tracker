@@ -305,6 +305,43 @@ let loadedApiPages=new Set();
 let PDFS=new Set();
 let favorites=new Set(JSON.parse(localStorage.getItem('llm_favs')||'[]'));
 
+// ── Favorites cloud sync (persists to GitHub repo via Worker) ──
+function saveFavsLocal(){
+  localStorage.setItem('llm_favs',JSON.stringify([...favorites]));
+}
+function syncFavsURL(){
+  return API_BASE ? (API_BASE + '/api/favorites') : '';
+}
+function pushFavs(){
+  const u=syncFavsURL();
+  if(!u) return;
+  fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify([...favorites])})
+    .then(r=>{if(!r.ok)console.warn('收藏同步失败',r.status)})
+    .catch(e=>console.warn('收藏同步网络错误',e));
+}
+let favSyncTimer=null;
+function scheduleFavSync(){
+  saveFavsLocal();
+  clearTimeout(favSyncTimer);
+  favSyncTimer=setTimeout(pushFavs,800); // debounce
+}
+async function loadCloudFavs(){
+  const u=syncFavsURL();
+  if(!u) return;
+  try{
+    const resp=await fetch(u);
+    if(!resp.ok) return;
+    const cloud=await resp.json();
+    if(!Array.isArray(cloud)) return;
+    // Merge: union of local + cloud (cloud is authoritative source)
+    let changed=false;
+    cloud.forEach(id=>{if(!favorites.has(id)){favorites.add(id);changed=true;}});
+    // If local had items cloud lacks, push local up (someone starred on this device)
+    if(changed) saveFavsLocal();
+    if(changed||favorites.size>cloud.length) scheduleFavSync();
+  }catch(e){console.warn('云端收藏拉取失败',e);}
+}
+
 // Drag-to-scroll sidebar
 const tl=document.getElementById('timeline-list');
 let isDragging=false,startY=0,scrollTop=0;
@@ -340,7 +377,7 @@ function loadCompanyTimeline(){
 
 function toggleFav(id){
   favorites.has(id)?favorites.delete(id):favorites.add(id);
-  localStorage.setItem('llm_favs',JSON.stringify([...favorites]));
+  scheduleFavSync();
   document.querySelectorAll(`.fav-btn[data-id="${id}"]`).forEach(b=>b.classList.toggle('active',favorites.has(id)));
   if(currentTab==='favorites')renderSection(1);
 }
@@ -577,7 +614,13 @@ async function loadData() {
       if (!totalPapers) totalPapers = SEARCH_INDEX.length;
       if (!totalApiPages) totalApiPages = Math.ceil(totalPapers / API_PAGE_SIZE);
     }
-    // 3. Load first page of papers
+    // 3. Load PDF availability index (enables 📄 PDF links on cards)
+    const pdfResp = await apiFetch('/pdfs-index.json');
+    if (pdfResp.ok) {
+      const pdfIds = await pdfResp.json();
+      PDFS = new Set(pdfIds);
+    }
+    // 4. Load first page of papers
     await loadApiPage(1);
     document.getElementById('header-sub').textContent =
       'AI 大模型前沿论文追踪 · 共 ' + totalPapers + ' 篇 · 每日自动更新';
@@ -685,6 +728,7 @@ function triggerUpdate() {
 
 // ── Init ──────────────────────────────────────────────────
 loadData();
+loadCloudFavs(); // pull cloud favorites (merge with local) on startup
 </script>
 </body>
 </html>

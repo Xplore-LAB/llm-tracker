@@ -17,26 +17,16 @@ from fetch_papers import auto_tag
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UA = "XploreLAB-PaperTracker/1.0 (contact: github.com/Xplore-LAB)"
 
-# Papers to backfill: id -> (title hint for sanity check)
-WANT = {
-    # Classic papers missing from the main dataset
-    "1706.03762": "Attention Is All You Need",
-    "1810.04805": "BERT",
-    "2005.14165": "Language Models are Few-Shot Learners",
-    "2104.09864": "RoFormer",
-    "2205.14135": "FlashAttention",
-    "2305.13245": "GQA",
-    "2101.03961": "Switch Transformers",
-    "2001.08361": "Scaling Laws",
-    "2305.18290": "DPO",
-    "2203.11171": "Self-Consistency",
-    # New RL / reasoning papers for the learning path
-    "2402.03300": "DeepSeekMath",
-    "2305.20050": "Let's Verify Step by Step",
-    "2502.14768": "Logic-RL",
-    "2504.13837": "Does RL Really Incentivize",
-    "2506.14245": "RLVR Implicitly",
-}
+
+def learning_path_ids():
+    """Read all paper ids referenced in learning-path.json (dynamic, no hardcoding)."""
+    lp = json.load(open(os.path.join(ROOT, "learning-path.json"), encoding="utf-8"))
+    ids = []
+    for stage in lp.get("stages", []):
+        for p in stage.get("papers", []):
+            if p.get("id"):
+                ids.append(p["id"])
+    return ids
 
 
 def fetch_arxiv(ids):
@@ -100,11 +90,34 @@ def main():
     cp_path = os.path.join(ROOT, "company-papers.json")
     company_map = {p["id"]: p for p in json.load(open(cp_path, encoding="utf-8"))}
 
-    missing = [i for i in WANT if i not in existing_map]
+    want = learning_path_ids()
+
+    # Sync embedded cite values for learning-path papers already in the dataset
+    lp = json.load(open(os.path.join(ROOT, "learning-path.json"), encoding="utf-8"))
+    embedded = {}
+    for stage in lp.get("stages", []):
+        for p in stage.get("papers", []):
+            if p.get("id") and p.get("cite"):
+                embedded[p["id"]] = p["cite"]
+    cite_fixed = 0
+    for pid, cite in embedded.items():
+        if pid in existing_map and existing_map[pid].get("cite", 0) == 0 and cite > 0:
+            existing_map[pid]["cite"] = cite
+            cite_fixed += 1
+    if cite_fixed:
+        print(f"  Synced {cite_fixed} embedded citation counts")
+
+    missing = [i for i in want if i not in existing_map]
     if not missing:
-        print("All papers already present. Skipping fetch.")
+        print("All learning-path papers already present. Skipping fetch.")
+        if cite_fixed:
+            all_papers = sorted(existing_map.values(), key=lambda p: p.get("date", ""), reverse=True)
+            json.dump(all_papers, open(os.path.join(ROOT, "papers.json"), "w", encoding="utf-8"),
+                      ensure_ascii=False, indent=2)
+            print("papers.json: citation counts synced")
         return
 
+    print(f"Learning-path papers: {len(want)}, missing from dataset: {len(missing)}")
     print(f"Fetching {len(missing)} papers from arXiv...")
     fetched = fetch_arxiv(missing)
     print(f"Fetched {len(fetched)}. Querying Semantic Scholar for citations...")
@@ -125,10 +138,12 @@ def main():
               ensure_ascii=False, indent=2)
     print(f"papers.json: {len(all_papers)} entries (+{added})")
 
-    # Re-split api/ so the frontend serves updated chunks
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    from split_api import main as split_main
-    split_main()
+    # Re-split api/ so the frontend serves updated chunks (unless --no-split,
+    # used when the workflow runs split_api.py separately right after)
+    if "--no-split" not in sys.argv:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from split_api import main as split_main
+        split_main()
 
 
 if __name__ == "__main__":

@@ -20,6 +20,9 @@ jobs:
           pip install --quiet pymupdf
           python3 scripts/fetch_papers.py
 
+      - name: Sync learning-path papers into dataset
+        run: python3 scripts/backfill_learning_path.py --no-split
+
       - name: Split data into API chunks
         run: python3 scripts/split_api.py
 

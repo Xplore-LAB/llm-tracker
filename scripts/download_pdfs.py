@@ -18,6 +18,14 @@ UA = "XploreLAB-PaperTracker/1.0 (contact: github.com/Xplore-LAB)"
 def main():
     cp = json.load(open(os.path.join(TRACKER, "company-papers.json"), encoding="utf-8"))
     keep_ids = [p["id"] for p in cp[:KEEP]]
+
+    # Also keep every paper referenced in the learning path (the "gems"):
+    # they must always have a local PDF so users can open them directly.
+    lp = json.load(open(os.path.join(TRACKER, "learning-path.json"), encoding="utf-8"))
+    for stage in lp.get("stages", []):
+        for p in stage.get("papers", []):
+            if p.get("id") and p["id"] not in keep_ids:
+                keep_ids.append(p["id"])
     keep_set = set(keep_ids)
     os.makedirs(PDF_DIR, exist_ok=True)
 
