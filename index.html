@@ -244,9 +244,11 @@ console.log(
 console.log('%cBuilt with ❤️ by Xplore-LAB — open source, free forever.','font-style:italic;color:#999;');
 
 // ── API config ───────────────────────────────────────────
-// Change API_BASE to your Cloudflare Worker URL after deploy.
-// Leave empty to load from GitHub Pages directly (fallback).
-const API_BASE = '';
+// Cloudflare Worker URL — proxies api/ from GitHub Pages with
+// referer check + rate limiting. Set empty to load directly.
+// If the Worker is unreachable (e.g. workers.dev blocked in some
+// regions), apiFetch() automatically falls back to GitHub Pages.
+const API_BASE = 'https://llm-tracker-api.llm-tracker-api.workers.dev';
 
 function api(path) {
   // When API_BASE is a Worker URL, use absolute path.
@@ -254,6 +256,27 @@ function api(path) {
   const base = API_BASE || '';
   const prefix = base ? '/api' : 'api';
   return base + prefix + path + (path.includes('?') ? '&' : '?') + 't=' + Date.now();
+}
+
+async function apiFetch(path) {
+  // Try the Worker first, then fall back to GitHub Pages.
+  const attempts = [api(path)];
+  if (API_BASE) {
+    // Relative GitHub Pages path as fallback
+    attempts.push('api' + path + (path.includes('?') ? '&' : '?') + 't=' + Date.now());
+  }
+  let lastErr = null;
+  for (const url of attempts) {
+    try {
+      const resp = await fetch(url);
+      if (resp.ok) return resp;
+      if (resp.status !== 403 && resp.status !== 429) return resp;
+      lastErr = new Error('HTTP ' + resp.status);
+    } catch (e) {
+      lastErr = e; // network error → try next
+    }
+  }
+  throw lastErr || new Error('All API endpoints failed for ' + path);
 }
 
 const TOPICS=[
@@ -304,7 +327,7 @@ function renderTimeline(papers){
   document.getElementById('timeline-list').innerHTML=html;
 }
 function loadCompanyTimeline(){
-  fetch(api('/company-papers.json')).then(r=>r.json()).then(papers=>{
+  apiFetch('/company-papers.json').then(r=>r.json()).then(papers=>{
     ALL_COMPANY_PAPERS=papers;
     renderTimeline(papers);
   });
@@ -468,7 +491,7 @@ function renderLearn(){
   const el=document.getElementById('learn');
   if(LEARN_PATH){el.innerHTML=buildLearnHtml();return;}
   el.innerHTML='<div class="loading">加载中...</div>';
-  fetch(api('/learning-path.json')).then(r=>r.json()).then(d=>{
+  apiFetch('/learning-path.json').then(r=>r.json()).then(d=>{
     LEARN_PATH=d;
     el.innerHTML=buildLearnHtml();
   }).catch(()=>{
@@ -504,8 +527,7 @@ function buildLearnHtml(){
 // ── API data loading ──────────────────────────────────────
 async function loadApiPage(pageNum) {
   if (loadedApiPages.has(pageNum)) return;
-  const url = api('/papers/page-' + String(pageNum).padStart(3, '0') + '.json');
-  const resp = await fetch(url);
+  const resp = await apiFetch('/papers/page-' + String(pageNum).padStart(3, '0') + '.json');
   if (!resp.ok) throw new Error('Failed to load page ' + pageNum);
   const page = await resp.json();
   page.forEach(p => {
@@ -520,14 +542,14 @@ async function loadApiPage(pageNum) {
 async function loadData() {
   try {
     // 1. Load index (metadata)
-    const idxResp = await fetch(api('/index.json'));
+    const idxResp = await apiFetch('/index.json');
     if (idxResp.ok) {
       const idx = await idxResp.json();
       totalPapers = idx.total;
       totalApiPages = idx.totalPages;
     }
     // 2. Load search index (~2MB, enables client-side search)
-    const siResp = await fetch(api('/search-index.json'));
+    const siResp = await apiFetch('/search-index.json');
     if (siResp.ok) {
       SEARCH_INDEX = await siResp.json();
       if (!totalPapers) totalPapers = SEARCH_INDEX.length;
@@ -576,19 +598,19 @@ async function refreshData() {
     SEARCH_INDEX = [];
     loadedApiPages.clear();
     // Reload index
-    const idxResp = await fetch(api('/index.json'));
+    const idxResp = await apiFetch('/index.json');
     if (idxResp.ok) {
       const idx = await idxResp.json();
       totalPapers = idx.total;
       totalApiPages = idx.totalPages;
     }
     // Reload search index
-    const siResp = await fetch(api('/search-index.json'));
+    const siResp = await apiFetch('/search-index.json');
     if (siResp.ok) SEARCH_INDEX = await siResp.json();
     // Reload first page
     await loadApiPage(1);
     // Reload company data
-    const coResp = await fetch(api('/company-papers.json'));
+    const coResp = await apiFetch('/company-papers.json');
     if (coResp.ok) {
       ALL_COMPANY_PAPERS = await coResp.json();
       filterTimeline();

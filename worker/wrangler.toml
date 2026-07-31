@@ -12,6 +12,5 @@ workers_dev = true
 # Observability (free tier: limited)
 observability = { enabled = true }
 
-[env.production]
-# Add custom domain binding if desired:
+# To bind a custom domain later, uncomment:
 # routes = [{ pattern = "api.your-domain.com", custom_domain = true }]
