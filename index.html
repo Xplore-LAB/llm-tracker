@@ -316,8 +316,11 @@ function pushFavs(){
   const u=syncFavsURL();
   if(!u) return;
   fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify([...favorites])})
-    .then(r=>{if(!r.ok)console.warn('收藏同步失败',r.status)})
-    .catch(e=>console.warn('收藏同步网络错误',e));
+    .then(r=>{
+      if(r.ok){showToast('⭐ 收藏已同步到云端');}
+      else{console.warn('收藏同步失败',r.status);showToast('⚠️ 收藏同步失败('+r.status+')，稍后重试',4000);}
+    })
+    .catch(e=>{console.warn('收藏同步网络错误',e);showToast('⚠️ 云端不可达，收藏仅存本机',4000);});
 }
 let favSyncTimer=null;
 function scheduleFavSync(){

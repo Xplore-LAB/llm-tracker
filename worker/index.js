@@ -32,22 +32,27 @@ const ALLOWED_REFERERS = [
   "http://127.0.0.1:8080/",
   "http://127.0.0.1:3000/",
 ];
-const RATE_LIMIT = 60; // requests per minute per IP
+// Data proxy is cache-friendly (a page load fires ~6 GETs); be generous.
+// Favorites writes hit the GitHub API, so throttle those harder.
+const DATA_LIMIT = 600;   // GET proxy: requests per minute per IP
+const FAV_LIMIT = 30;     // favorites POST: per minute per IP
 const RATE_WINDOW_MS = 60_000;
 
 // ── Rate limiter (in-memory Map) ─────────────────────────
-// Note: resets on Worker cold start; for production use KV
-const ipHits = new Map();
+// Separate buckets for data GETs vs favorites writes.
+// Note: resets on Worker cold start; for production use KV.
+const ipBuckets = new Map();
 
-function isRateLimited(ip) {
+function hit(ip, bucketKey, limit) {
   const now = Date.now();
-  const record = ipHits.get(ip);
+  const key = ip + "|" + bucketKey;
+  const record = ipBuckets.get(key);
   if (!record || now - record.resetAt > RATE_WINDOW_MS) {
-    ipHits.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    ipBuckets.set(key, { count: 1, resetAt: now + RATE_WINDOW_MS });
     return false;
   }
   record.count++;
-  return record.count > RATE_LIMIT;
+  return record.count > limit;
 }
 
 // ── CORS ────────────────────────────────────────────────
@@ -200,12 +205,36 @@ export default {
       );
     }
 
-    // Rate limit
-    if (isRateLimited(clientIP)) {
+    // ── Favorites endpoints ─────────────────────────────
+    const isFav = path === "/api/favorites" || path === "/favorites";
+    if (isFav) {
+      const limit = request.method === "POST" ? FAV_LIMIT : DATA_LIMIT;
+      if (hit(clientIP, "fav", limit)) {
+        return jsonResponse(
+          {
+            error: "Too Many Requests",
+            message: `Favorites rate limit reached. Please slow down.`,
+            retryAfter: "60 seconds",
+          },
+          429,
+          { ...corsHeaders(origin), "Retry-After": "60" }
+        );
+      }
+      if (request.method === "GET") {
+        return handleFavoritesGET(env);
+      }
+      if (request.method === "POST") {
+        return handleFavoritesPOST(request, env);
+      }
+      return jsonResponse({ error: "Method not allowed" }, 405, corsHeaders(origin));
+    }
+
+    // Rate limit (data proxy)
+    if (hit(clientIP, "data", DATA_LIMIT)) {
       return jsonResponse(
         {
           error: "Too Many Requests",
-          message: `Rate limit: ${RATE_LIMIT} requests per minute. Please slow down.`,
+          message: `Rate limit: ${DATA_LIMIT} requests per minute. Please slow down.`,
           retryAfter: "60 seconds",
         },
         429,
@@ -214,17 +243,6 @@ export default {
           "Retry-After": "60",
         }
       );
-    }
-
-    // ── Favorites endpoints ─────────────────────────────
-    if (path === "/api/favorites" || path === "/favorites") {
-      if (request.method === "GET") {
-        return handleFavoritesGET(env);
-      }
-      if (request.method === "POST") {
-        return handleFavoritesPOST(request, env);
-      }
-      return jsonResponse({ error: "Method not allowed" }, 405, corsHeaders(origin));
     }
 
     // ── Data proxy (GET only) ───────────────────────────
