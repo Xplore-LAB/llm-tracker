@@ -128,7 +128,12 @@ async function handleFavoritesGET(env, origin) {
   if (!env.GITHUB_TOKEN) {
     return jsonResponse({ error: "Server not configured (no GITHUB_TOKEN)" }, 500, cors, false);
   }
-  const resp = await githubGet(env.GITHUB_TOKEN, FAV_PATH);
+  let resp;
+  try {
+    resp = await githubGet(env.GITHUB_TOKEN, FAV_PATH);
+  } catch (e) {
+    return jsonResponse({ error: "GitHub API threw", detail: String(e) }, 500, cors, false);
+  }
   if (resp.status === 404) {
     return jsonResponse([], 200, cors, false); // never starred yet
   }
@@ -165,16 +170,24 @@ async function handleFavoritesPOST(request, env, origin) {
     return jsonResponse({ error: "Invalid JSON body" }, 400, cors, false);
   }
   const dedup = [...new Set(ids)];
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(dedup))));
-  const resp = await githubPut(
-    env.GITHUB_TOKEN,
-    FAV_PATH,
-    content,
-    `chore: update favorites (${dedup.length} papers)`
-  );
+  // JSON.stringify of ids is pure ASCII; btoa needs no unescape/UTF-8 dance.
+  const content = btoa(JSON.stringify(dedup));
+  let resp;
+  try {
+    resp = await githubPut(
+      env.GITHUB_TOKEN,
+      FAV_PATH,
+      content,
+      `chore: update favorites (${dedup.length} papers)`
+    );
+  } catch (e) {
+    return jsonResponse({ error: "GitHub API threw", detail: String(e) }, 500, cors, false);
+  }
   if (!resp.ok) {
+    let body = "";
+    try { body = JSON.stringify(await resp.json()); } catch {}
     return jsonResponse(
-      { error: "GitHub write failed", status: resp.status },
+      { error: "GitHub write failed", status: resp.status, body },
       resp.status === 409 ? 409 : 502,
       cors,
       false
