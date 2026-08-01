@@ -259,14 +259,14 @@ function clearRight(){
   document.getElementById('right-panel').innerHTML='<div class="list-header">点击图表查看论文</div><div class="empty-tip">👆 点击格子或条形</div>';
 }
 
-var API_BASE='https://llm-tracker-api.llm-tracker-api.workers.dev';
+var FAV_API='https://llm-tracker-api.llm-tracker-api.workers.dev';
 function apiFetch(path){
   const urls=[];
-  if(API_BASE) urls.push(API_BASE+'/api'+path+'?t='+Date.now());
-  urls.push('../api'+path+'?t='+Date.now()); // GH Pages fallback
+  urls.push('../api'+path+'?t='+Date.now()); // GH Pages first (fast, same-CD)
+  urls.push(FAV_API+'/api'+path+'?t='+Date.now()); // Worker fallback
   return (async()=>{
     for(const u of urls){
-      try{const r=await fetch(u);if(r.ok)return r;if(r.status!==403&&r.status!==429)return r;}
+      try{const r=await fetch(u);if(r.ok)return r;}
       catch(e){}
     }
     throw new Error('apiFetch failed: '+path);

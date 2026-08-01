@@ -242,20 +242,20 @@ const nkey=(co,model)=>co+'|'+dkey(model);
 const PAGE_SIZE=12;
 let DATA=null, PDFS=new Set(), FIGS={}, NODE_MAP={}, SERIES_MAP={}, SEL=new Set(), REGION=null, OPEN=null, RANGE='1y', query='', page=1;
 
-Promise.all([
-var API_BASE='https://llm-tracker-api.llm-tracker-api.workers.dev';
+var FAV_API='https://llm-tracker-api.llm-tracker-api.workers.dev';
 function apiFetch(path){
   const urls=[];
-  if(API_BASE) urls.push(API_BASE+'/api'+path+'?t='+Date.now());
-  urls.push('../api'+path+'?t='+Date.now()); // GH Pages fallback
+  urls.push('../api'+path+'?t='+Date.now()); // GH Pages first (fast, same-CD)
+  urls.push(FAV_API+'/api'+path+'?t='+Date.now()); // Worker fallback
   return (async()=>{
     for(const u of urls){
-      try{const r=await fetch(u);if(r.ok)return r;if(r.status!==403&&r.status!==429)return r;}
+      try{const r=await fetch(u);if(r.ok)return r;}
       catch(e){}
     }
     throw new Error('apiFetch failed: '+path);
   })();
 }
+Promise.all([
   apiFetch('/models.json').then(r=>r.json()),
   apiFetch('/pdfs-index.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
   apiFetch('/models-figures.json').then(r=>r.ok?r.json():{}).catch(()=>({}))

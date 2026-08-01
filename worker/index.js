@@ -123,42 +123,46 @@ async function githubPut(token, path, contentBase64, message) {
 }
 
 // ── Favorites handlers ───────────────────────────────────
-async function handleFavoritesGET(env) {
+async function handleFavoritesGET(env, origin) {
+  const cors = corsHeaders(origin);
   if (!env.GITHUB_TOKEN) {
-    return jsonResponse({ error: "Server not configured (no GITHUB_TOKEN)" }, 500, {}, false);
+    return jsonResponse({ error: "Server not configured (no GITHUB_TOKEN)" }, 500, cors, false);
   }
   const resp = await githubGet(env.GITHUB_TOKEN, FAV_PATH);
   if (resp.status === 404) {
-    return jsonResponse([], 200, {}, false); // never starred yet
+    return jsonResponse([], 200, cors, false); // never starred yet
   }
   if (!resp.ok) {
-    return jsonResponse({ error: "GitHub API error", status: resp.status }, 502, {}, false);
+    return jsonResponse({ error: "GitHub API error", status: resp.status }, 502, cors, false);
   }
   const meta = await resp.json();
-  const content = atob(meta.content);
+  let content = meta.content || "";
+  // GitHub returns base64 that may include newlines; strip them.
+  content = content.replace(/\s+/g, "");
   try {
-    const ids = JSON.parse(content);
-    return jsonResponse(Array.isArray(ids) ? ids : [], 200, {}, false);
+    const ids = JSON.parse(atob(content));
+    return jsonResponse(Array.isArray(ids) ? ids : [], 200, cors, false);
   } catch {
-    return jsonResponse([], 200, {}, false);
+    return jsonResponse([], 200, cors, false);
   }
 }
 
-async function handleFavoritesPOST(request, env) {
+async function handleFavoritesPOST(request, env, origin) {
+  const cors = corsHeaders(origin);
   if (!env.GITHUB_TOKEN) {
-    return jsonResponse({ error: "Server not configured (no GITHUB_TOKEN)" }, 500, {}, false);
+    return jsonResponse({ error: "Server not configured (no GITHUB_TOKEN)" }, 500, cors, false);
   }
   let ids;
   try {
     const body = await request.json();
     if (!Array.isArray(body) && !Array.isArray(body?.ids)) {
-      return jsonResponse({ error: "Expected an array of paper IDs" }, 400, {}, false);
+      return jsonResponse({ error: "Expected an array of paper IDs" }, 400, cors, false);
     }
     ids = (Array.isArray(body) ? body : body.ids).filter(
       (x) => typeof x === "string" && x.length > 0
     );
   } catch {
-    return jsonResponse({ error: "Invalid JSON body" }, 400, {}, false);
+    return jsonResponse({ error: "Invalid JSON body" }, 400, cors, false);
   }
   const dedup = [...new Set(ids)];
   const content = btoa(unescape(encodeURIComponent(JSON.stringify(dedup))));
@@ -172,11 +176,11 @@ async function handleFavoritesPOST(request, env) {
     return jsonResponse(
       { error: "GitHub write failed", status: resp.status },
       resp.status === 409 ? 409 : 502,
-      {},
+      cors,
       false
     );
   }
-  return jsonResponse({ ok: true, count: dedup.length }, 200, {}, false);
+  return jsonResponse({ ok: true, count: dedup.length }, 200, cors, false);
 }
 
 // ── Main handler ─────────────────────────────────────────
@@ -221,10 +225,10 @@ export default {
         );
       }
       if (request.method === "GET") {
-        return handleFavoritesGET(env);
+        return handleFavoritesGET(env, origin);
       }
       if (request.method === "POST") {
-        return handleFavoritesPOST(request, env);
+        return handleFavoritesPOST(request, env, origin);
       }
       return jsonResponse({ error: "Method not allowed" }, 405, corsHeaders(origin));
     }
