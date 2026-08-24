@@ -52,6 +52,18 @@ header p{opacity:.8;font-size:.85rem}
 .tchip .cnt{opacity:.6;font-weight:400;font-size:.68rem;margin-left:.2rem}
 .result-info a{color:#302b63;text-decoration:none;margin-left:.5rem}
 .result-info a:hover{text-decoration:underline}
+/* Changelog modal */
+.modal-mask{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:flex-start;justify-content:center;padding:4vh 1rem}
+.modal-mask.open{display:flex}
+.modal{background:white;border-radius:14px;max-width:640px;width:100%;max-height:84vh;overflow-y:auto;padding:1.2rem 1.4rem;position:relative}
+.modal-close{position:absolute;top:.7rem;right:.9rem;background:none;border:none;font-size:1.1rem;cursor:pointer;color:#999}
+.cl-entry{margin-bottom:1.1rem}
+.cl-entry h3{font-size:.95rem;color:#302b63;margin-bottom:.15rem}
+.cl-date{font-size:.72rem;color:#999;margin-bottom:.35rem}
+.cl-entry li{font-size:.82rem;color:#444;margin-left:1.1rem;line-height:1.7}
+html.dark .modal{background:#1e2233;color:#d6d9e2}
+html.dark .cl-entry h3{color:#b3ade6}
+html.dark .cl-entry li{color:#b9bdca}
 /* Main layout */
 .main-layout{display:grid;grid-template-columns:260px 1fr;gap:0;max-width:1200px;margin:0 auto;padding:1rem}
 /* Company timeline sidebar */
@@ -205,10 +217,14 @@ html.dark .arxiv-link{color:#9d95e8}
     <a class="tab page-link" href="models/">🧬 模型</a>
   </div>
   <div class="nav-group">
+    <button class="tab action" onclick="openChangelog()" title="查看版本更新说明">📝</button>
     <button class="tab action" id="btn-theme" onclick="toggleTheme()" title="切换深色 / 浅色模式">🌙</button>
     <button class="tab action" onclick="refreshData()" title="重新加载数据">🔄</button>
     <button class="tab action" id="btn-update" onclick="triggerUpdate()" title="触发 GitHub Actions 抓取最新论文（每日北京时间 09:00 自动执行）">⚡</button>
   </div>
+</div>
+<div class="modal-mask" id="cl-mask" onclick="if(event.target===this)closeChangelog()">
+  <div class="modal" id="cl-modal"></div>
 </div>
 <div class="main-layout">
   <!-- Left sidebar: company timeline -->
@@ -384,8 +400,8 @@ function relTime(iso){
 }
 function updateFreshLine(){
   if(!DATA_UPDATED) return;
-  document.getElementById('header-fresh').textContent=
-    '数据更新于 '+relTime(DATA_UPDATED)+' · 每日北京时间 09:00 自动更新';
+  document.getElementById('header-fresh').innerHTML=
+    '数据更新于 '+relTime(DATA_UPDATED)+' · 每日北京时间 09:00 自动更新 · <a href="javascript:openChangelog()" style="color:inherit;text-decoration:underline">📝 版本更新</a>';
 }
 function buildTodayBar(){
   const bar=document.getElementById('today-bar');
@@ -930,6 +946,33 @@ function triggerUpdate() {
     btn.disabled = false;
   });
 }
+
+// ── Changelog modal (changelog.json) ──────────────────────
+let CHANGELOG=null;
+function openChangelog(){
+  const mask=document.getElementById('cl-mask');
+  mask.classList.add('open');
+  document.body.style.overflow='hidden';
+  if(CHANGELOG){renderChangelog();return;}
+  document.getElementById('cl-modal').innerHTML='<div class="loading">加载中...</div>';
+  fetch('changelog.json?t='+Date.now()).then(r=>r.ok?r.json():[]).then(d=>{
+    CHANGELOG=d;renderChangelog();
+  }).catch(()=>{
+    document.getElementById('cl-modal').innerHTML='<div class="empty">更新日志加载失败</div>';
+  });
+}
+function renderChangelog(){
+  document.getElementById('cl-modal').innerHTML='<button class="modal-close" onclick="closeChangelog()">✕</button>'
+    +'<h2 style="font-size:1.05rem;color:#302b63;margin-bottom:.8rem">📝 版本更新说明</h2>'
+    +CHANGELOG.map(e=>'<div class="cl-entry"><h3>'+e.title+'</h3><div class="cl-date">'
+      +(e.version||'')+' · '+(e.date||'')+'</div><ul>'
+      +e.items.map(i=>'<li>'+i+'</li>').join('')+'</ul></div>').join('');
+}
+function closeChangelog(){
+  document.getElementById('cl-mask').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeChangelog();});
 
 // ── Init ──────────────────────────────────────────────────
 // P1-4: theme toggle
