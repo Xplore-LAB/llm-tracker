@@ -111,6 +111,28 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
 .btn:hover{background:#302b63;color:white}
 .modal-papers{border-top:1px solid #f0f0f0;margin-top:.7rem;padding-top:.5rem}
 .modal-papers h4{font-size:.85rem;color:#302b63;margin-bottom:.2rem}
+/* ── P1-1: table view ── */
+.list-bar{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.view-toggle{margin-left:auto;display:flex;gap:.3rem}
+.vt-btn{padding:.25rem .7rem;border:1.5px solid #302b63;border-radius:1rem;background:white;color:#302b63;font-size:.75rem;font-weight:600;cursor:pointer}
+.vt-btn.on{background:#302b63;color:white}
+.mtable{width:100%;border-collapse:collapse;background:white;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden;font-size:.82rem;min-width:760px}
+.mtable th{padding:.55rem .7rem;text-align:left;font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.03em;border-bottom:2px solid #eee;cursor:pointer;user-select:none;white-space:nowrap}
+.mtable th:hover{color:#302b63}
+.mtable th .arrow{font-size:.6rem}
+.mtable td{padding:.5rem .7rem;border-bottom:1px solid #f3f3f6;vertical-align:middle}
+.mtable tbody tr:hover td{background:#faf9ff;cursor:pointer}
+.mtable .co-cell{display:flex;align-items:center;gap:.35rem;font-weight:600;font-size:.78rem;white-space:nowrap}
+/* ── P1-5: tech profile card ── */
+.tech-card{border:1px solid #e6e2f5;border-radius:10px;padding:.7rem .9rem;margin:.5rem 0;background:#faf9ff}
+.tech-card h5{font-size:.8rem;color:#302b63;margin-bottom:.45rem;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+.tech-src{font-size:.64rem;font-weight:400;background:#e8f5e9;color:#2e7d32;border-radius:1rem;padding:.08rem .5rem}
+.tech-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.6rem}
+.tech-group h6{font-size:.7rem;color:#999;margin-bottom:.25rem}
+.tech-row{font-size:.76rem;color:#444;line-height:1.55;margin-bottom:.2rem}
+.tech-row b{color:#302b63;font-weight:600}
+.tech-ref{font-size:.66rem;color:#302b63;text-decoration:none;margin-left:.25rem}
+.tech-ref:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -141,7 +163,13 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
     <span class="lbl-t" style="margin-left:auto">● arXiv 论文　○ 官方发布（报告/仓库/博客）</span>
   </div>
   <div class="chart-wrap"><div class="chart" id="chart"><div class="loading">加载中...</div></div></div>
-  <div class="list-info" id="list-info"></div>
+  <div class="list-bar">
+    <div class="list-info" id="list-info"></div>
+    <div class="view-toggle">
+      <button class="vt-btn on" id="vt-cards" onclick="setView('cards')">☰ 卡片</button>
+      <button class="vt-btn" id="vt-table" onclick="setView('table')">▦ 表格</button>
+    </div>
+  </div>
   <div id="list"></div>
   <div id="pager"></div>
 </div>
@@ -241,6 +269,7 @@ const dkey=m=>m.replace(/[\s\-.]/g,'').toLowerCase();
 const nkey=(co,model)=>co+'|'+dkey(model);
 const PAGE_SIZE=12;
 let DATA=null, PDFS=new Set(), FIGS={}, NODE_MAP={}, SERIES_MAP={}, SEL=new Set(), REGION=null, OPEN=null, RANGE='1y', query='', page=1;
+let VIEW='cards', SORT_KEY='latest', SORT_DIR=-1, TECH={}; // P1-1 / P1-5 state
 
 var FAV_API='https://llm-tracker-api.llm-tracker-api.workers.dev';
 function apiFetch(path){
@@ -258,11 +287,13 @@ function apiFetch(path){
 Promise.all([
   apiFetch('/models.json').then(r=>r.json()),
   apiFetch('/pdfs-index.json').then(r=>r.ok?r.json():[]).catch(()=>[]),
-  apiFetch('/models-figures.json').then(r=>r.ok?r.json():{}).catch(()=>({}))
-]).then(([data,pdfIds,figs])=>{
+  apiFetch('/models-figures.json').then(r=>r.ok?r.json():{}).catch(()=>({})),
+  fetch('../model-tech.json?t='+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({})) // P1-5: hand-curated tech profiles (repo root)
+]).then(([data,pdfIds,figs,tech])=>{
   DATA=data;
   PDFS=new Set(pdfIds);
   FIGS=figs;
+  TECH=tech;
   DATA.models.forEach(m=>{NODE_MAP[nkey(m.company,m.model)]=m;});
   DATA.groups.forEach(g=>g.series.forEach(s=>{SERIES_MAP[nkey(g.company,s.model)]=s;}));
   const n=data.models.length;
@@ -404,6 +435,7 @@ function renderList(){
     g.series.forEach(s=>series.push({company:g.company,model:s.model,papers:s.papers}));
   });
   if(query)series=series.filter(s=>matchSeries(s,query));
+  if(VIEW==='table'){renderTable(series);return;} // P1-1
   series.sort((a,b)=>latestDate(b).localeCompare(latestDate(a)));
   const total=series.length;
   const totalPages=Math.max(1,Math.ceil(total/PAGE_SIZE));
@@ -412,6 +444,72 @@ function renderList(){
   document.getElementById('list-info').textContent=`共 ${total} 个模型系列 · 第 ${page}/${totalPages} 页`;
   document.getElementById('list').innerHTML=slice.length?slice.map(seriesCard).join(''):'<div class="empty">没有匹配的模型 📭</div>';
   renderPager(totalPages);
+}
+
+// ── P1-1: sortable table view ─────────────────────────────
+function setView(v){
+  VIEW=v;
+  document.getElementById('vt-cards').classList.toggle('on',v==='cards');
+  document.getElementById('vt-table').classList.toggle('on',v==='table');
+  renderList();
+}
+function setSort(k){
+  if(SORT_KEY===k)SORT_DIR*=-1;
+  else{SORT_KEY=k;SORT_DIR=k==='model'?1:-1;}
+  renderList();
+}
+function sortSeries(series){
+  const d=SORT_DIR;
+  const spanMs=s=>{
+    const ds=s.papers.map(p=>p.date).filter(Boolean).sort();
+    return ds.length>1?Date.parse(ds[ds.length-1])-Date.parse(ds[0]):0;
+  };
+  const val={
+    model:s=>s.model.toLowerCase(),
+    company:s=>s.company,
+    latest:s=>latestDate(s),
+    count:s=>s.papers.length,
+    span:s=>spanMs(s)
+  }[SORT_KEY];
+  return [...series].sort((a,b)=>{const x=val(a),y=val(b);return (x>y?1:x<y?-1:0)*d;});
+}
+function renderTable(series){
+  series=sortSeries(series);
+  document.getElementById('list-info').textContent=`共 ${series.length} 个模型系列 · 表格视图，点击列头排序`;
+  document.getElementById('pager').innerHTML='';
+  const arrow=k=>SORT_KEY===k?(SORT_DIR===1?'▲':'▼'):'';
+  const head=[['model','模型系列'],['company','厂商'],['latest','最新论文'],['count','论文数'],['span','时间跨度']]
+    .map(([k,l])=>`<th onclick="setSort('${k}')">${l} <span class="arrow">${arrow(k)}</span></th>`).join('');
+  const rows=series.map(s=>{
+    const key=nkey(s.company,s.model);
+    const dates=s.papers.map(p=>p.date).filter(Boolean).sort();
+    const span=dates.length>1?Math.round((Date.parse(dates[dates.length-1])-Date.parse(dates[0]))/86400000)+' 天':'';
+    const marks=(FIGS[key]?'<span title="有架构图">🖼</span>':'')+(TECH[key]?'<span title="有技术档案">📋</span>':'');
+    return `<tr onclick="showDetail('${key}')">
+      <td style="font-weight:700;color:${color(s.company)}">${hl(s.model)} ${marks}</td>
+      <td><span class="co-cell" style="color:${color(s.company)}">${logoHTML(s.company)}${s.company} ${flagOf(s.company)}</span></td>
+      <td>${dates[dates.length-1]||''}</td>
+      <td>${s.papers.length}</td>
+      <td>${dates.length?dates[0]+' ~ '+dates[dates.length-1]:''}${span?'（'+span+'）':''}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('list').innerHTML=series.length
+    ?`<div style="overflow-x:auto"><table class="mtable"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div>`
+    :'<div class="empty">没有匹配的模型 📭</div>';
+}
+
+// ── P1-5: tech profile (model-tech.json) ──────────────────
+function buildTechHTML(t){
+  const groups=[['arch','🏛 架构'],['decode','⚡ 解码与推理'],['infra','🖥 训练基建']];
+  const ghtml=groups.map(([g,label])=>{
+    const rows=(t[g]||[]).map(r=>
+      `<div class="tech-row"><b>${esc(r.k)}</b>：${esc(r.v)}${r.ref?`<a class="tech-ref" href="https://arxiv.org/abs/${r.ref}" target="_blank">📎 ${r.ref}</a>`:''}</div>`
+    ).join('');
+    return rows?`<div class="tech-group"><h6>${label}</h6>${rows}</div>`:'';
+  }).filter(Boolean).join('');
+  if(!ghtml)return '';
+  const rel=t.release&&t.release.open?` · ${esc(t.release.open)}`:'';
+  return `<div class="tech-card"><h5>🧬 技术档案 <span class="tech-src">${t.source==='manual'?'已人工核对':'自动抽取'} · 更新于 ${t.updated_at||'未知'}${rel}</span></h5><div class="tech-groups">${ghtml}</div></div>`;
 }
 
 function seriesCard(s){
@@ -485,6 +583,7 @@ function showDetail(key){
     <div class="modal-date">📅 发布日期 ${m.date||'未知'}${papers.length?` · 追踪到 ${papers.length} 篇相关论文`:''}${m.extra?' · 官方发布（暂无 arXiv 论文）':''}</div>
     ${fig?`<img class="arch" src="${fig}" alt="${esc(m.model)} 结构图" loading="lazy"><div class="arch-cap">模型结构图 · 截自技术报告</div>`:''}
     ${m.note?`<div class="modal-note">📌 ${esc(m.note)}</div>`:''}
+    ${TECH[key]?buildTechHTML(TECH[key]):''}
     ${m.title?`<div style="font-size:.82rem;color:#666;margin:.3rem 0">📄 ${esc(m.title)}</div>`:''}
     <div class="btn-row">${buttons}</div>
     ${papers.length?`<div class="modal-papers"><h4>系列论文（${papers.length}）</h4>${papers.map(paperRow).join('')}</div>`:''}

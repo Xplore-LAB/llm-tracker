@@ -1,0 +1,75 @@
+{
+  "_schema": {
+    "key": "company|dkey(model)，dkey = 模型名去除空格/点/横线后转小写，与 models/index.html 的 nkey() 一致",
+    "source": "manual = 已人工核对；auto = 管线自动抽取",
+    "groups": "arch 架构 / decode 解码与推理 / infra 训练基建，每组为 {k 技术点, v 内容, ref arXiv 论文ID} 列表",
+    "release": "发布信息：open 开放程度、license 协议"
+  },
+  "Moonshot|kimik3": {
+    "updated_at": "2026-08-24",
+    "source": "manual",
+    "arch": [
+      {"k": "注意力", "v": "Delta Attention（线性注意力变体）", "ref": "2607.24653"},
+      {"k": "架构", "v": "稳定潜在 MoE", "ref": "2607.24653"},
+      {"k": "上下文", "v": "百万级 token 长上下文", "ref": "2607.24653"},
+      {"k": "模态", "v": "原生视觉多模态", "ref": "2607.24653"}
+    ],
+    "decode": [],
+    "infra": [],
+    "release": {"date": "2026-07-27", "open": "开放权重"}
+  },
+  "DeepSeek|deepseekv4": {
+    "updated_at": "2026-08-24",
+    "source": "manual",
+    "arch": [
+      {"k": "型号线", "v": "Pro 与 Flash 两款 MoE 模型", "ref": "2606.19348"},
+      {"k": "上下文", "v": "百万级 token", "ref": "2606.19348"},
+      {"k": "架构升级", "v": "面向高效率长上下文智能的多项架构升级", "ref": "2606.19348"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "后训练", "v": "SLAI T-Rex：万亿参数 MoE 全参数后训练", "ref": "2607.20145"},
+      {"k": "硬件平台", "v": "昇腾超节点（Ascend SuperPOD）", "ref": "2607.20145"},
+      {"k": "工程目标", "v": "缓解内存压力、通信开销与内核效率瓶颈", "ref": "2607.20145"}
+    ],
+    "release": {"date": "2026-04-26", "open": "开放权重"}
+  },
+  "Nvidia|nemotronlabsdiffusion": {
+    "updated_at": "2026-08-24",
+    "source": "manual",
+    "arch": [
+      {"k": "定位", "v": "统一多种解码范式的三模态语言模型", "ref": "2607.05722"}
+    ],
+    "decode": [
+      {"k": "解码范式", "v": "自回归 / 扩散 / 自推测（self-speculation）三模态统一", "ref": "2607.05722"},
+      {"k": "目标", "v": "兼顾不同场景的高吞吐", "ref": "2607.05722"}
+    ],
+    "infra": [],
+    "release": {"date": "2026-07-07"}
+  },
+  "Nvidia|nemotronlabs3puzzle75ba9b": {
+    "updated_at": "2026-08-24",
+    "source": "manual",
+    "arch": [
+      {"k": "定位", "v": "Hybrid MoE LLM 的压缩变体 Puzzle-75B-A9B", "ref": "2607.04371"}
+    ],
+    "decode": [
+      {"k": "部署优化", "v": "面向交互式部署优化 MoE 混合架构", "ref": "2607.04371"},
+      {"k": "吞吐", "v": "单节点 8xB200 上服务吞吐较原版提升约 2 倍", "ref": "2607.04371"}
+    ],
+    "infra": [],
+    "release": {"date": "2026-07-05"}
+  },
+  "Xiaomi|mimov25": {
+    "updated_at": "2026-08-24",
+    "source": "manual",
+    "arch": [
+      {"k": "注意力", "v": "Hybrid SWA（混合滑动窗口注意力）", "ref": "2607.13095"}
+    ],
+    "decode": [
+      {"k": "推理优化", "v": "全链路推理优化，将 Hybrid SWA 效率推至极限", "ref": "2607.13095"}
+    ],
+    "infra": [],
+    "release": {"date": "2026-07-14"}
+  }
+}

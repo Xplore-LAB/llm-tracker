@@ -20,15 +20,38 @@
 <meta name="theme-color" content="#302b63">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 <title>大模型情报局 · LLM Papers Tracker</title>
+<script>/* P1-4: apply saved/system theme before first paint */
+try{if(localStorage.getItem('llm_theme')==='dark'||(!localStorage.getItem('llm_theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#333}
 header{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;padding:1.5rem 2rem;text-align:center}
 header h1{font-size:1.8rem;margin-bottom:.3rem}
 header p{opacity:.8;font-size:.85rem}
-.tabs{display:flex;justify-content:center;gap:.6rem;padding:.8rem;background:white;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.tabs{display:flex;justify-content:space-between;gap:.6rem;padding:.8rem;background:white;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.nav-group{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;justify-content:center}
+.nav-group.pages{border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8;padding:0 .7rem}
 .tab{padding:.45rem 1.1rem;border-radius:2rem;cursor:pointer;border:2px solid #302b63;background:white;font-weight:600;transition:all .2s;font-size:.82rem;text-decoration:none;color:#302b63}
 .tab.active,.tab:hover{background:#302b63;color:white}
+.tab.page-link{background:#f6f4fd;border-color:#d9d2f0}
+.tab.page-link:hover{background:#302b63;border-color:#302b63;color:white}
+.tab.action{padding:.45rem .65rem;border-color:#e3e3e3;color:#999;font-size:.88rem;font-weight:400}
+.tab.action:hover{border-color:#302b63;color:#302b63;background:#f6f4fd}
+/* Today-update bar */
+.today-bar{display:flex;align-items:center;gap:.55rem;background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;border-radius:10px;padding:.5rem .9rem;font-size:.8rem;margin-bottom:.7rem;flex-wrap:wrap}
+.today-bar.stale{background:#f8fafc;border-color:#e2e8f0;color:#64748b}
+.today-bar b{font-weight:700}
+.pulse{width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+/* Topic multi-select chips */
+.tag-chips{display:flex;flex-wrap:wrap;gap:.35rem;flex-basis:100%;align-items:center}
+.tag-chips .lbl{font-size:.68rem;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-right:.15rem}
+.tchip{padding:.2rem .65rem;border-radius:1rem;font-size:.74rem;font-weight:600;cursor:pointer;border:1.5px solid #d8d3f0;color:#302b63;background:white;transition:all .15s;user-select:none}
+.tchip:hover{border-color:#302b63}
+.tchip.on{background:#302b63;color:white;border-color:#302b63}
+.tchip .cnt{opacity:.6;font-weight:400;font-size:.68rem;margin-left:.2rem}
+.result-info a{color:#302b63;text-decoration:none;margin-left:.5rem}
+.result-info a:hover{text-decoration:underline}
 /* Main layout */
 .main-layout{display:grid;grid-template-columns:260px 1fr;gap:0;max-width:1200px;margin:0 auto;padding:1rem}
 /* Company timeline sidebar */
@@ -61,7 +84,10 @@ header p{opacity:.8;font-size:.85rem}
 .card-meta{display:flex;gap:.35rem;flex-wrap:wrap;align-items:center;margin-bottom:.4rem}
 .badge{font-size:.72rem;padding:.15rem .55rem;border-radius:1rem;font-weight:600;white-space:nowrap}
 .badge.cite{background:#fff3e0;color:#e65100}
-.badge.cite.high{background:#e8f5e9;color:#2e7d32}
+.badge.cite.warm{background:#fff3e0;color:#e65100;border:1.5px solid #ff9800}
+.badge.cite.high{background:#e8f5e9;color:#2e7d32;border:1.5px solid #66bb6a}
+.badge.company{font-size:.72rem;padding:.15rem .55rem;border-radius:1rem;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:.3rem}
+.badge.company .cdot{width:7px;height:7px;border-radius:50%;display:inline-block}
 .badge.date{background:#ede7f6;color:#4527a0}
 .badge.venue-conf{background:#e3f2fd;color:#1565c0}
 .badge.venue-journal{background:#e8f5e9;color:#2e7d32}
@@ -119,23 +145,70 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
 .concept-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.7rem}
 .concept-chip{font-size:.72rem;background:#ede7f6;color:#4527a0;border-radius:1rem;padding:.2rem .6rem;cursor:help}
 .learn-note{font-size:.82rem;color:#2e7d32;background:#f1f8e9;border-radius:6px;padding:.4rem .6rem;line-height:1.5}
+/* ── P1-4: dark mode overrides ── */
+html.dark body{background:#12141f;color:#d6d9e2}
+html.dark header{background:linear-gradient(135deg,#0a0918,#1c1840,#161628)}
+html.dark .tabs{background:#1a1d2c;border-color:#2b2f45}
+html.dark .tab{background:#1a1d2c;color:#b3ade6;border-color:#4c4783}
+html.dark .tab.active,html.dark .tab:hover{background:#5b54b8;color:#fff;border-color:#5b54b8}
+html.dark .tab.page-link{background:#232741;border-color:#3c4060}
+html.dark .tab.action{border-color:#3c4060;color:#8a8fa8}
+html.dark .tab.action:hover{background:#232741;color:#b3ade6;border-color:#5b54b8}
+html.dark .nav-group.pages{border-color:#2b2f45}
+html.dark .sidebar,html.dark .card,html.dark .topic-card{background:#1e2233;box-shadow:0 2px 8px rgba(0,0,0,.35)}
+html.dark .sidebar h3{color:#b3ade6}
+html.dark .tl-item{border-left-color:#3c4060}
+html.dark .tl-item:hover{background:#262a40;border-left-color:#5b54b8}
+html.dark .tl-title{color:#c6c9d6}
+html.dark .tl-zh{color:#7d8197}
+html.dark .fg label{color:#7d8197}
+html.dark .fg input,html.dark .fg select,html.dark .sidebar-filters select{background:#232741;border-color:#3c4060;color:#d6d9e2}
+html.dark .tchip{background:#232741;border-color:#3c4060;color:#b3ade6}
+html.dark .tchip:hover{border-color:#5b54b8}
+html.dark .tchip.on{background:#5b54b8;color:#fff;border-color:#5b54b8}
+html.dark .today-bar{background:#14261c;border-color:#1f5138;color:#7ee2ae}
+html.dark .today-bar.stale{background:#1a1d2c;border-color:#2b2f45;color:#8a8fa8}
+html.dark .card h3{color:#e4e6ee}
+html.dark .title-zh{color:#b9bdca}
+html.dark .authors{color:#9aa0b4}
+html.dark .abstract{color:#a9adbd;border-top-color:#2b2f45}
+html.dark .learn-note{background:#17251c;color:#7ee2ae}
+html.dark .result-info,html.dark .page-jump{color:#7d8197}
+html.dark .page-btn{background:#232741;border-color:#3c4060;color:#c6c9d6}
+html.dark .page-btn:hover,html.dark .page-btn.active{background:#5b54b8;color:#fff;border-color:#5b54b8}
+html.dark .page-jump input{background:#232741;border-color:#3c4060;color:#d6d9e2}
+html.dark .topic-card p{color:#9aa0b4}
+html.dark .concept-chip{background:#2b2545;color:#c9b8f5}
+html.dark .stage-head h2{color:#b3ade6}
+html.dark .stage-intro{color:#a9adbd}
+html.dark .empty,html.dark .loading{color:#6b7086}
+html.dark footer{color:#565b70}
+html.dark .arxiv-link{color:#9d95e8}
 </style>
 </head>
 <body>
 <header>
   <h1>🤖 大模型情报局</h1>
   <p id="header-sub">AI 大模型前沿论文追踪 · 每日自动更新</p>
+  <p id="header-fresh" style="font-size:.72rem;opacity:.6;margin-top:.25rem"></p>
 </header>
 <div class="tabs">
-  <button class="tab active" onclick="showTab('latest',this)">🆕 最新</button>
-  <button class="tab" onclick="showTab('hot',this)">🔥 高引用</button>
-  <button class="tab" onclick="showTab('topics',this)">🏷️ 主题</button>
-  <button class="tab" onclick="showTab('learn',this)">📚 学习路径</button>
-  <button class="tab" onclick="showTab('favorites',this)">⭐ 收藏</button>
-  <a class="tab" href="timeline/">📅 时间轴</a>
-  <a class="tab" href="models/">🧬 模型</a>
-  <button class="tab" onclick="refreshData()" title="重新加载数据">🔄 刷新</button>
-  <button class="tab" id="btn-update" onclick="triggerUpdate()" title="触发 GitHub Actions 自动抓取最新论文">⚡ 更新数据</button>
+  <div class="nav-group">
+    <button class="tab active" data-tab="latest" onclick="showTab('latest',this)">🆕 最新</button>
+    <button class="tab" data-tab="hot" onclick="showTab('hot',this)">🔥 高引用</button>
+    <button class="tab" data-tab="topics" onclick="showTab('topics',this)">🏷️ 主题</button>
+    <button class="tab" data-tab="learn" onclick="showTab('learn',this)">📚 学习路径</button>
+    <button class="tab" data-tab="favorites" onclick="showTab('favorites',this)">⭐ 收藏</button>
+  </div>
+  <div class="nav-group pages">
+    <a class="tab page-link" href="timeline/">📅 时间轴</a>
+    <a class="tab page-link" href="models/">🧬 模型</a>
+  </div>
+  <div class="nav-group">
+    <button class="tab action" id="btn-theme" onclick="toggleTheme()" title="切换深色 / 浅色模式">🌙</button>
+    <button class="tab action" onclick="refreshData()" title="重新加载数据">🔄</button>
+    <button class="tab action" id="btn-update" onclick="triggerUpdate()" title="触发 GitHub Actions 抓取最新论文（每日北京时间 09:00 自动执行）">⚡</button>
+  </div>
 </div>
 <div class="main-layout">
   <!-- Left sidebar: company timeline -->
@@ -195,19 +268,13 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
   </div>
   <!-- Right content -->
   <div class="content">
+    <div class="today-bar" id="today-bar" style="display:none"></div>
     <div class="toolbar" id="toolbar">
       <div class="fg grow"><label>搜索</label><input type="text" id="q" placeholder="标题、作者、关键词（支持中文）..." oninput="applyFilter()"></div>
-      <div class="fg"><label>主题</label>
-        <select id="tag-filter" onchange="applyFilter()">
+      <div class="tag-chips" id="tag-chips"><span class="lbl">主题</span></div>
+      <div class="fg"><label>公司</label>
+        <select id="company-filter" onchange="applyFilter()" title="覆盖近期公司论文索引（company-papers.json）">
           <option value="">全部</option>
-          <option value="RAG">RAG</option>
-          <option value="Agent">Agent</option>
-          <option value="MCP">MCP</option>
-          <option value="Reasoning">Reasoning</option>
-          <option value="Multimodal">Multimodal</option>
-          <option value="Fine-tuning">Fine-tuning</option>
-          <option value="Safety">Safety</option>
-          <option value="LLM">LLM</option>
         </select>
       </div>
       <div class="fg"><label>排序</label>
@@ -300,6 +367,85 @@ let totalPapers=0, totalApiPages=0;
 let loadedApiPages=new Set();
 let PDFS=new Set();
 let favorites=new Set(JSON.parse(localStorage.getItem('llm_favs')||'[]'));
+let selectedTags=new Set();       // P0-3: topic multi-select state
+let COMPANY_IDS={};               // P0-3: company -> Set(paper ids), from company-papers.json
+let DATA_UPDATED=null;            // P0-2: api/index.json "updated" timestamp
+
+// ── P0-2: freshness helpers ──────────────────────────────
+function relTime(iso){
+  if(!iso) return '';
+  const d=Date.now()-new Date(iso).getTime();
+  const m=Math.floor(d/60000);
+  if(m<1) return '刚刚';
+  if(m<60) return m+' 分钟前';
+  const h=Math.floor(m/60);
+  if(h<24) return h+' 小时前';
+  return Math.floor(h/24)+' 天前';
+}
+function updateFreshLine(){
+  if(!DATA_UPDATED) return;
+  document.getElementById('header-fresh').textContent=
+    '数据更新于 '+relTime(DATA_UPDATED)+' · 每日北京时间 09:00 自动更新';
+}
+function buildTodayBar(){
+  const bar=document.getElementById('today-bar');
+  if(!PAPERS.length){bar.style.display='none';return;}
+  const newest=PAPERS.reduce((a,b)=>((b.date||'')>(a.date||'')?b:a));
+  const D=newest.date;
+  if(!D){bar.style.display='none';return;}
+  const same=PAPERS.filter(p=>p.date===D);
+  const hitBoundary=same.length>=API_PAGE_SIZE; // newest date may continue beyond page 1
+  const topics=new Set(); same.forEach(p=>(p.tags||[]).forEach(t=>topics.add(t)));
+  const hot=same.filter(p=>(p.cite||0)>=100).length;
+  const today=new Date().toISOString().slice(0,10);
+  const yest=new Date(Date.now()-864e5).toISOString().slice(0,10);
+  const fresh=(D===today||D===yest);
+  bar.className='today-bar'+(fresh?'':' stale');
+  bar.innerHTML=(fresh?'<span class="pulse"></span>':'')
+    +'<b>📈 最近更新 '+D+'</b>'
+    +'<span>新增 '+same.length+(hitBoundary?'+':'')+' 篇 · 覆盖 '+topics.size+' 个主题'+(hot?' · 高引 '+hot+' 篇':'')+'</span>'
+    +'<span style="margin-left:auto;opacity:.7">全库 '+totalPapers.toLocaleString()+' 篇</span>';
+  bar.style.display='flex';
+}
+
+// ── P0-3: topic chips (multi-select) ─────────────────────
+function renderTagChips(){
+  const el=document.getElementById('tag-chips');
+  if(!el) return;
+  const counts={};
+  SEARCH_INDEX.forEach(si=>(si.tg||[]).forEach(t=>counts[t]=(counts[t]||0)+1));
+  el.innerHTML='<span class="lbl">主题</span>'+TOPICS.map(t=>
+    '<span class="tchip '+(selectedTags.has(t.key)?'on':'')+'" onclick="toggleTag(\''+t.key+'\')">'
+    +t.icon+' '+t.key+'<span class="cnt">'+(counts[t.key]||0)+'</span></span>'
+  ).join('');
+}
+function toggleTag(k){
+  selectedTags.has(k)?selectedTags.delete(k):selectedTags.add(k);
+  renderTagChips();applyFilter();
+}
+function isFiltered(){
+  return !!(document.getElementById('q').value.trim()
+    || selectedTags.size
+    || document.getElementById('company-filter').value
+    || document.getElementById('year').value);
+}
+function clearFilters(){
+  document.getElementById('q').value='';
+  selectedTags.clear();
+  document.getElementById('company-filter').value='';
+  document.getElementById('year').value='';
+  renderTagChips();applyFilter();
+}
+function populateCompanyFilter(papers){
+  const cnt={}; papers.forEach(p=>{if(p.company)cnt[p.company]=(cnt[p.company]||0)+1;});
+  const sel=document.getElementById('company-filter');
+  const cur=PENDING_COMPANY||sel.value;
+  sel.innerHTML='<option value="">全部</option>'+Object.entries(cnt).sort((a,b)=>b[1]-a[1])
+    .map(([c,n])=>'<option value="'+c+'">'+c+' ('+n+')</option>').join('');
+  sel.value=cur;
+  if(sel.value!==cur){sel.value='';} // company from URL not in index: fall back to 全部
+  if(sel.value){PENDING_COMPANY='';applyFilter();}
+}
 
 // ── Favorites cloud sync (persists to GitHub repo via Worker) ──
 function saveFavsLocal(){
@@ -370,6 +516,10 @@ function renderTimeline(papers){
 function loadCompanyTimeline(){
   apiFetch('/company-papers.json').then(r=>r.json()).then(papers=>{
     ALL_COMPANY_PAPERS=papers;
+    // P0-3: build company -> id set for the toolbar company filter
+    COMPANY_IDS={};
+    papers.forEach(p=>{if(p.company){(COMPANY_IDS[p.company]=COMPANY_IDS[p.company]||new Set()).add(p.id);}});
+    populateCompanyFilter(papers);
     renderTimeline(papers);
   });
 }
@@ -383,12 +533,13 @@ function toggleFav(id){
 
 async function filterData(){
   const q=document.getElementById('q').value.toLowerCase();
-  const tagF=document.getElementById('tag-filter').value;
+  const tagF=[...selectedTags]; // multi-select topics (OR)
+  const coF=document.getElementById('company-filter').value;
   const sortF=document.getElementById('sort').value;
   const yearF=document.getElementById('year').value;
 
   // If no filter and data is loaded: use in-memory PAPERS (fast path)
-  const noFilter = !q && !tagF && !yearF && currentTab !== 'hot' && currentTab !== 'favorites';
+  const noFilter = !q && !tagF.length && !coF && !yearF && currentTab !== 'hot' && currentTab !== 'favorites';
   if (noFilter && PAPERS.length >= totalPapers) {
     let data = [...PAPERS];
     if (sortF === 'cite') data.sort((a, b) => b.cite - a.cite);
@@ -414,7 +565,11 @@ async function filterData(){
       (si.tg || []).join(' ').toLowerCase().includes(q)
     );
   }
-  if (tagF) matches = matches.filter(si => (si.tg || []).includes(tagF));
+  if (tagF.length) matches = matches.filter(si => tagF.some(t => (si.tg || []).includes(t)));
+  if (coF) {
+    const set = COMPANY_IDS[coF];
+    matches = set ? matches.filter(si => set.has(si.id)) : [];
+  }
   if (yearF) matches = matches.filter(si => si.y == yearF);
 
   // Sort
@@ -449,19 +604,24 @@ async function filterData(){
 
 function renderCard(p){
   const fav=favorites.has(p.id);
+  // P1-2: tags lead the meta row; cite badge tiered (>=100 warm outline, >=1000 green);
+  // company papers get a brand-colored badge linking to the company dimension.
   const tags=(p.tags||[]).map(t=>`<span class="badge tag tag-${t}" onclick="filterByTag('${t}')">${t}</span>`).join(' ');
+  const citeCls=p.cite>=1000?'high':(p.cite>=100?'warm':'');
+  const co=p.company?`<span class="badge company" style="background:${COLORS[p.company]||'#302b63'}14;color:${COLORS[p.company]||'#302b63'};border:1px solid ${COLORS[p.company]||'#302b63'}40" title="公司论文"><span class="cdot" style="background:${COLORS[p.company]||'#302b63'}"></span>${p.company}</span>`:'';
   return `<div class="card">
     <button class="fav-btn ${fav?'active':''}" data-id="${p.id}" onclick="toggleFav('${p.id}')">⭐</button>
     <div class="card-meta">
-      <span class="badge cite ${p.cite>=1000?'high':''}">📊 ${(p.cite||0).toLocaleString()}</span>
+      ${tags}
+      <span class="badge cite ${citeCls}">📊 ${(p.cite||0).toLocaleString()}</span>
       <span class="badge date">📅 ${p.date||String(p.year)||''}</span>
+      ${co}
       <a class="arxiv-link" href="https://arxiv.org/abs/${p.id}" target="_blank">arXiv ↗</a>
       ${PDFS.has(p.id)?`<a class="arxiv-link" href="https://raw.githubusercontent.com/Xplore-LAB/llm-tracker/pdfs/pdfs/${p.id}.pdf" target="_blank">📄 PDF</a>`:''}
     </div>
     <h3>${p.title}</h3>
     ${p.title_zh?`<div class="title-zh">📖 ${p.title_zh}</div>`:''}
     <div class="authors">👤 ${p.authors}</div>
-    <div style="margin-bottom:.3rem">${tags}</div>
     ${p.note?`<div class="learn-note">📌 ${p.note}</div>`:''}
     <div class="abstract">${p.abstract}</div>
   </div>`;
@@ -491,23 +651,58 @@ async function renderSection(page){
   const data=await filterData();
   const total=data.length;
   const slice=data.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
-  document.getElementById('result-info').textContent=`共 ${total} 篇`;
+  const filtered=isFiltered();
+  document.getElementById('result-info').innerHTML=filtered
+    ?'当前 <b>'+total.toLocaleString()+'</b> / '+totalPapers.toLocaleString()+' 篇 <a href="javascript:clearFilters()">✕ 清除筛选</a>'
+    :'共 '+total.toLocaleString()+' 篇';
   let html=slice.length?slice.map(renderCard).join(''):'<div class="empty">暂无论文 📭</div>';
   html+=renderPagination(total,currentPage);
   document.getElementById(currentTab).innerHTML=html;
 }
 
-function filterByTag(tag){document.getElementById('tag-filter').value=tag;applyFilter();}
-function applyFilter(){if(currentTab!=='topics')renderSection(1);}
+function filterByTag(tag){
+  selectedTags=new Set([tag]);
+  renderTagChips();applyFilter();
+}
+
+// ── P1-3: URL state sync (shareable filter views) ────────
+let PENDING_COMPANY='';
+function syncURL(){
+  const p=new URLSearchParams();
+  if(currentTab!=='latest')p.set('tab',currentTab);
+  const q=document.getElementById('q').value.trim();if(q)p.set('q',q);
+  if(selectedTags.size)p.set('tags',[...selectedTags].join(','));
+  const co=document.getElementById('company-filter').value;if(co)p.set('company',co);
+  const y=document.getElementById('year').value;if(y)p.set('year',y);
+  const s=document.getElementById('sort').value;if(s!=='date')p.set('sort',s);
+  const qs=p.toString();
+  history.replaceState(null,'',location.pathname+(qs?'?'+qs:''));
+}
+function restoreFromURL(){
+  const p=new URLSearchParams(location.search);
+  if(p.get('q'))document.getElementById('q').value=p.get('q');
+  if(p.get('tags'))selectedTags=new Set(p.get('tags').split(',').filter(t=>TOPICS.some(x=>x.key===t)));
+  if(p.get('year'))document.getElementById('year').value=p.get('year');
+  if(p.get('sort'))document.getElementById('sort').value=p.get('sort');
+  if(p.get('company'))PENDING_COMPANY=p.get('company'); // applied once the company select is populated
+  renderTagChips();
+  const tab=p.get('tab');
+  const valid=['latest','hot','topics','learn','favorites'];
+  const t=valid.includes(tab)?tab:'latest';
+  const btn=document.querySelector('.tab[data-tab="'+t+'"]');
+  showTab(t,btn);
+}
+function applyFilter(){syncURL();if(currentTab!=='topics')renderSection(1);}
 
 function showTab(tab,el){
   currentTab=tab;
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab[data-tab]').forEach(t=>t.classList.remove('active'));
   document.getElementById(tab).classList.add('active');
   el.classList.add('active');
   document.getElementById('toolbar').style.display=(tab==='topics'||tab==='learn')?'none':'flex';
   document.getElementById('result-info').textContent='';
+  syncURL();
   if(tab==='topics')renderTopics();else if(tab==='learn')renderLearn();else renderSection(1);
 }
 
@@ -521,8 +716,9 @@ function renderTopics(){
 }
 
 function selectTopic(tag){
-  document.getElementById('tag-filter').value=tag;
-  const btn=document.querySelector('.tab');
+  selectedTags=new Set([tag]);
+  renderTagChips();
+  const btn=document.querySelector('.tab[data-tab="latest"]');
   showTab('latest',btn);btn.classList.add('active');
 }
 
@@ -605,6 +801,8 @@ async function loadData() {
       const idx = await idxResp.json();
       totalPapers = idx.total;
       totalApiPages = idx.totalPages;
+      DATA_UPDATED = idx.updated || null;
+      updateFreshLine();
     }
     // 2. Load search index (~2MB, enables client-side search)
     const siResp = await apiFetch('/search-index.json');
@@ -612,6 +810,7 @@ async function loadData() {
       SEARCH_INDEX = await siResp.json();
       if (!totalPapers) totalPapers = SEARCH_INDEX.length;
       if (!totalApiPages) totalApiPages = Math.ceil(totalPapers / API_PAGE_SIZE);
+      renderTagChips();
     }
     // 3. Load PDF availability index (enables 📄 PDF links on cards)
     const pdfResp = await apiFetch('/pdfs-index.json');
@@ -623,7 +822,8 @@ async function loadData() {
     await loadApiPage(1);
     document.getElementById('header-sub').textContent =
       'AI 大模型前沿论文追踪 · 共 ' + totalPapers + ' 篇 · 每日自动更新';
-    renderSection(1);
+    buildTodayBar();
+    restoreFromURL(); // P1-3: honor shared ?tab=&q=&tags=&company=&year=&sort= links
     loadCompanyTimeline();
   } catch (e) {
     console.error('Data load failed:', e);
@@ -667,16 +867,22 @@ async function refreshData() {
       const idx = await idxResp.json();
       totalPapers = idx.total;
       totalApiPages = idx.totalPages;
+      DATA_UPDATED = idx.updated || DATA_UPDATED;
+      updateFreshLine();
     }
     // Reload search index
     const siResp = await apiFetch('/search-index.json');
-    if (siResp.ok) SEARCH_INDEX = await siResp.json();
+    if (siResp.ok) { SEARCH_INDEX = await siResp.json(); renderTagChips(); }
     // Reload first page
     await loadApiPage(1);
+    buildTodayBar();
     // Reload company data
     const coResp = await apiFetch('/company-papers.json');
     if (coResp.ok) {
       ALL_COMPANY_PAPERS = await coResp.json();
+      COMPANY_IDS={};
+      ALL_COMPANY_PAPERS.forEach(p=>{if(p.company){(COMPANY_IDS[p.company]=COMPANY_IDS[p.company]||new Set()).add(p.id);}});
+      populateCompanyFilter(ALL_COMPANY_PAPERS);
       filterTimeline();
     }
     document.getElementById('header-sub').textContent =
@@ -726,6 +932,16 @@ function triggerUpdate() {
 }
 
 // ── Init ──────────────────────────────────────────────────
+// P1-4: theme toggle
+function toggleTheme(){
+  const dark=!document.documentElement.classList.contains('dark');
+  document.documentElement.classList.toggle('dark',dark);
+  try{localStorage.setItem('llm_theme',dark?'dark':'light');}catch(e){}
+  document.getElementById('btn-theme').textContent=dark?'☀️':'🌙';
+}
+if(document.documentElement.classList.contains('dark')){
+  document.getElementById('btn-theme').textContent='☀️';
+}
 loadData();
 loadCloudFavs(); // pull cloud favorites (merge with local) on startup
 </script>
