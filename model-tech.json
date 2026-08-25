@@ -2,74 +2,123 @@
   "_schema": {
     "key": "company|dkey(model)，dkey = 模型名去除空格/点/横线后转小写，与 models/index.html 的 nkey() 一致",
     "source": "manual = 已人工核对；auto = 管线自动抽取",
-    "groups": "arch 架构 / decode 解码与推理 / infra 训练基建，每组为 {k 技术点, v 内容, ref arXiv 论文ID} 列表",
-    "release": "发布信息：open 开放程度、license 协议"
+    "groups": "arch 架构 / decode 解码与推理 / infra 训练基建，每组为 {k 技术点, v 内容, ref arXiv 论文ID} 列表；ref 可空，无 ref 的条目以来源链接组为准",
+    "release": "发布信息：date 发布日期、open 开放程度、license 协议",
+    "links": "信息源链接组：{label 名称, url 地址}，渲染在档案卡底部"
   },
   "Moonshot|kimik3": {
-    "updated_at": "2026-08-24",
+    "updated_at": "2026-08-25",
     "source": "manual",
     "arch": [
-      {"k": "注意力", "v": "Delta Attention（线性注意力变体）", "ref": "2607.24653"},
-      {"k": "架构", "v": "稳定潜在 MoE", "ref": "2607.24653"},
-      {"k": "上下文", "v": "百万级 token 长上下文", "ref": "2607.24653"},
-      {"k": "模态", "v": "原生视觉多模态", "ref": "2607.24653"}
-    ],
-    "decode": [],
-    "infra": [],
-    "release": {"date": "2026-07-27", "open": "开放权重"}
-  },
-  "DeepSeek|deepseekv4": {
-    "updated_at": "2026-08-24",
-    "source": "manual",
-    "arch": [
-      {"k": "型号线", "v": "Pro 与 Flash 两款 MoE 模型", "ref": "2606.19348"},
-      {"k": "上下文", "v": "百万级 token", "ref": "2606.19348"},
-      {"k": "架构升级", "v": "面向高效率长上下文智能的多项架构升级", "ref": "2606.19348"}
-    ],
-    "decode": [],
-    "infra": [
-      {"k": "后训练", "v": "SLAI T-Rex：万亿参数 MoE 全参数后训练", "ref": "2607.20145"},
-      {"k": "硬件平台", "v": "昇腾超节点（Ascend SuperPOD）", "ref": "2607.20145"},
-      {"k": "工程目标", "v": "缓解内存压力、通信开销与内核效率瓶颈", "ref": "2607.20145"}
-    ],
-    "release": {"date": "2026-04-26", "open": "开放权重"}
-  },
-  "Nvidia|nemotronlabsdiffusion": {
-    "updated_at": "2026-08-24",
-    "source": "manual",
-    "arch": [
-      {"k": "定位", "v": "统一多种解码范式的三模态语言模型", "ref": "2607.05722"}
+      {"k": "参数规模", "v": "2.8T 总参，每 token 激活约 104B（896 专家中激活 16 个）", "ref": "2607.24653"},
+      {"k": "注意力", "v": "69 层 Kimi Delta Attention（KDA 混合线性注意力）+ 24 层 Gated MLA，配 Attention Residuals", "ref": "2607.24653"},
+      {"k": "MoE 框架", "v": "Stable LatentMoE，稀疏度较 K2 进一步扩大", "ref": "2607.24653"},
+      {"k": "视觉", "v": "MoonViT-V2 视觉编码器（约 4 亿参数），原生视觉多模态", "ref": "2607.24653"},
+      {"k": "上下文", "v": "1,048,576 token（百万级），93 层，160K 词表", "ref": "2607.24653"}
     ],
     "decode": [
-      {"k": "解码范式", "v": "自回归 / 扩散 / 自推测（self-speculation）三模态统一", "ref": "2607.05722"},
-      {"k": "目标", "v": "兼顾不同场景的高吞吐", "ref": "2607.05722"}
+      {"k": "解码提速", "v": "KDA 在百万 token 上下文下解码速度最高提升约 6.3 倍"},
+      {"k": "量化", "v": "MXFP4 权重 + MXFP8 激活的量化感知训练"}
     ],
-    "infra": [],
-    "release": {"date": "2026-07-07"}
+    "infra": [
+      {"k": "开源基建", "v": "MoonEP（MoE 通信库）、FlashKDA（注意力内核）、AgentEnv（智能体环境）随模型一同开源"},
+      {"k": "扩展效率", "v": "结构性改进使整体扩展效率较 K2 提升约 2.5 倍"}
+    ],
+    "release": {"date": "2026-07-27", "open": "开放权重", "license": "Kimi K3 License"},
+    "links": [
+      {"label": "官方模型页", "url": "https://www.kimi.com/ai-models/kimi-k3"},
+      {"label": "技术报告（PDF）", "url": "https://github.com/MoonshotAI/Kimi-K3"},
+      {"label": "HuggingFace 权重", "url": "https://huggingface.co/moonshotai/Kimi-K3"},
+      {"label": "GitHub 仓库", "url": "https://github.com/MoonshotAI/Kimi-K3"}
+    ]
   },
-  "Nvidia|nemotronlabs3puzzle75ba9b": {
-    "updated_at": "2026-08-24",
+  "DeepSeek|deepseekv4": {
+    "updated_at": "2026-08-25",
     "source": "manual",
     "arch": [
-      {"k": "定位", "v": "Hybrid MoE LLM 的压缩变体 Puzzle-75B-A9B", "ref": "2607.04371"}
+      {"k": "型号线", "v": "Pro（1.6T 总参 / 49B 激活）与 Flash（284B / 13B），均支持百万 token 上下文", "ref": "2606.19348"},
+      {"k": "注意力", "v": "混合注意力架构：压缩稀疏注意力 CSA + 高压缩注意力 HCA", "ref": "2606.19348"},
+      {"k": "长上下文效率", "v": "1M 上下文下 Pro 单 token 推理 FLOPs 仅为 V3.2 的 27%，KV cache 为 10%", "ref": "2606.19348"},
+      {"k": "连接结构", "v": "流形约束超连接 mHC 替代传统残差连接，增强跨层信号传播稳定性"},
+      {"k": "精度", "v": "FP4 + FP8 混合（MoE 专家参数 FP4，其余 FP8）"}
+    ],
+    "decode": [
+      {"k": "DSpark 投机解码", "v": "GA 检查点内置 DSpark 模块（搭载后 Pro 1.7T / Flash 304B），小模型起草、主模型单步验证，吞吐提升且输出质量不变"},
+      {"k": "独立变体", "v": "2026-07-04 发布 V4-Pro-DSpark（1.7T）与 V4-Flash-DSpark（165B）独立投机解码版本"}
+    ],
+    "infra": [
+      {"k": "预训练", "v": "超 32T token，采用 Muon 优化器（首次验证于 1.6T 参数规模）"},
+      {"k": "后训练", "v": "两阶段范式：领域专家经 SFT 与 GRPO 强化学习独立培养，再经 on-policy 蒸馏统一融合"},
+      {"k": "全参数后训练", "v": "SLAI T-Rex 在昇腾超节点完成万亿参数 MoE 全参数后训练", "ref": "2607.20145"}
+    ],
+    "release": {"date": "2026-04-26", "open": "开放权重", "license": "MIT"},
+    "links": [
+      {"label": "HuggingFace 模型卡（含技术报告）", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"},
+      {"label": "DeepSeek 官网", "url": "https://deepseek.com"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2606.19348"}
+    ]
+  },
+  "Nvidia|nemotronlabsdiffusion": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "系列", "v": "3B / 8B / 14B 稠密模型族，含 base、instruct 与视觉语言变体", "ref": "2607.05722"},
+      {"k": "切换机制", "v": "同一模型仅切换注意力模式即可在自回归与扩散并行解码间转换", "ref": "2607.05722"}
+    ],
+    "decode": [
+      {"k": "三模态解码", "v": "自回归 / 扩散并行解码 / 自推测（扩散起草 + AR 验证，共享 KV cache）", "ref": "2607.05722"},
+      {"k": "对比 MTP", "v": "自推测接受长度 3 倍，较 Qwen3-8B-Eagle3 提速 2.2 倍（SGLang 实测）"},
+      {"k": "单前向产出", "v": "8B 单前向 token 数为 Qwen3-8B 的 5.9 倍且精度更高", "ref": "2607.05722"},
+      {"k": "实测吞吐", "v": "GB200 上 8B 达 850 tok/s（AR 基线 253），定制 CUDA 内核达 1015 tok/s（约 4 倍）"}
+    ],
+    "infra": [
+      {"k": "训练目标", "v": "AR 与扩散联合目标训练：扩散改善前瞻规划，AR 提供从左到右语言先验", "ref": "2607.05722"}
+    ],
+    "release": {"date": "2026-07-07", "license": "NVIDIA Nemotron Open Model License"},
+    "links": [
+      {"label": "HF 模型合集", "url": "https://huggingface.co/collections/nvidia/nemotron-labs-diffusion"},
+      {"label": "NVIDIA Research 页面", "url": "https://research.nvidia.com/index.php/publication/2026-05_nemotron-labs-diffusion-tri-mode-language-model-unifying-autoregressive"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2607.05722"}
+    ]
+  },
+  "Nvidia|nemotronlabs3puzzle75ba9b": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "定位", "v": "Hybrid MoE LLM 的压缩变体 Puzzle-75B-A9B（Puzzle 压缩方法）", "ref": "2607.04371"}
     ],
     "decode": [
       {"k": "部署优化", "v": "面向交互式部署优化 MoE 混合架构", "ref": "2607.04371"},
       {"k": "吞吐", "v": "单节点 8xB200 上服务吞吐较原版提升约 2 倍", "ref": "2607.04371"}
     ],
     "infra": [],
-    "release": {"date": "2026-07-05"}
+    "release": {"date": "2026-07-05"},
+    "links": [
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2607.04371"}
+    ]
   },
   "Xiaomi|mimov25": {
-    "updated_at": "2026-08-24",
+    "updated_at": "2026-08-25",
     "source": "manual",
     "arch": [
-      {"k": "注意力", "v": "Hybrid SWA（混合滑动窗口注意力）", "ref": "2607.13095"}
+      {"k": "参数规模", "v": "310B 总参 / 15B 激活，稀疏 MoE（256 路由专家，每 token 激活 8 个；另有 1.02T / 42B 的 Pro 版）"},
+      {"k": "注意力", "v": "滑动窗口注意力 SWA 与全局注意力 GA 按 5:1 交错，窗口 128，KV cache 降低近 6 倍", "ref": "2607.13095"},
+      {"k": "模态", "v": "原生全模态（文本 / 图像 / 视频 / 音频）：729M 参数 ViT 视觉编码器 + 261M 参数音频编码器"},
+      {"k": "上下文", "v": "最高 1M token"}
     ],
     "decode": [
-      {"k": "推理优化", "v": "全链路推理优化，将 Hybrid SWA 效率推至极限", "ref": "2607.13095"}
+      {"k": "多 token 预测", "v": "3 个轻量 MTP 模块（329M 参数），以投机解码加速推理并提升 RL 训练效率"}
     ],
-    "infra": [],
-    "release": {"date": "2026-07-14"}
+    "infra": [
+      {"k": "预训练", "v": "约 48T token，FP8 混合精度"},
+      {"k": "后训练", "v": "SFT → 大规模 agentic RL → 多教师 on-policy 蒸馏（MOPD），上下文窗口从 32K 渐进扩展至 1M"},
+      {"k": "推理优化", "v": "Hybrid SWA 全链路推理优化，效率推至极限", "ref": "2607.13095"}
+    ],
+    "release": {"date": "2026-04-28", "open": "开放权重", "license": "MIT"},
+    "links": [
+      {"label": "HuggingFace 模型卡", "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5"},
+      {"label": "HF 权重合集", "url": "https://huggingface.co/collections/XiaomiMiMo/mimo-v25"},
+      {"label": "官方开源公告", "url": "https://mimo.mi.com/docs/zh-CN/news/latest/v2.5-open-sourced"}
+    ]
   }
 }

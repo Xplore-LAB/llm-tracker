@@ -133,6 +133,10 @@ footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;margin-top:1
 .tech-row b{color:#302b63;font-weight:600}
 .tech-ref{font-size:.66rem;color:#302b63;text-decoration:none;margin-left:.25rem}
 .tech-ref:hover{text-decoration:underline}
+.tech-links{margin-top:.5rem;border-top:1px dashed #e6e2f5;padding-top:.45rem;display:flex;gap:.45rem;flex-wrap:wrap;align-items:center}
+.tech-links .lbl{font-size:.7rem;color:#999}
+.tech-links a{font-size:.72rem;color:#302b63;text-decoration:none;background:white;border:1px solid #d9d2f0;border-radius:1rem;padding:.12rem .55rem}
+.tech-links a:hover{background:#302b63;color:white}
 </style>
 </head>
 <body>
@@ -508,8 +512,10 @@ function buildTechHTML(t){
     return rows?`<div class="tech-group"><h6>${label}</h6>${rows}</div>`:'';
   }).filter(Boolean).join('');
   if(!ghtml)return '';
-  const rel=t.release&&t.release.open?` · ${esc(t.release.open)}`:'';
-  return `<div class="tech-card"><h5>🧬 技术档案 <span class="tech-src">${t.source==='manual'?'已人工核对':'自动抽取'} · 更新于 ${t.updated_at||'未知'}${rel}</span></h5><div class="tech-groups">${ghtml}</div></div>`;
+  const rel=t.release?` · ${[t.release.open,t.release.license].filter(Boolean).map(esc).join(' · ')}`:'';
+  const links=(t.links||[]).map(l=>`<a href="${l.url}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join('');
+  const linksHTML=links?`<div class="tech-links"><span class="lbl">🔗 信息源</span>${links}</div>`:'';
+  return `<div class="tech-card"><h5>🧬 技术档案 <span class="tech-src">${t.source==='manual'?'已人工核对':'自动抽取'} · 更新于 ${t.updated_at||'未知'}${rel}</span></h5><div class="tech-groups">${ghtml}</div>${linksHTML}</div>`;
 }
 
 function seriesCard(s){
