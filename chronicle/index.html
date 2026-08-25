@@ -123,6 +123,15 @@ header p{opacity:.75;font-size:.85rem;margin-top:.45rem;letter-spacing:.14em;col
 .ev-link:hover{border-bottom-color:#6b5138}
 .ev-link.pdf{color:#9c5a44}
 .ev-link.pdf:hover{border-bottom-color:#9c5a44}
+/* expandable knowledge detail */
+.kw-toggle{display:inline-flex;margin-top:.5rem;font-size:.72rem;font-weight:700;color:#8a6d4f;cursor:pointer;user-select:none;border-bottom:1px dashed #b09a72;padding-bottom:.05rem}
+.kw-toggle:hover{color:#9c5a44}
+.ev-detail{display:none;margin-top:.45rem;border-top:1px dashed #d8c8a8;padding-top:.45rem}
+.ev-detail.open{display:block}
+.ev-detail h6{font-size:.67rem;color:#9c5a44;letter-spacing:.08em;margin:.35rem 0 .12rem}
+.ev-detail h6:first-child{margin-top:0}
+.ev-detail p,.ev-detail li{font-size:.76rem;color:#6d5f4c;line-height:1.62}
+.ev-detail ul{padding-left:1rem}
 footer{text-align:center;padding:1.5rem;color:#a08e6d;font-size:.78rem;position:relative;z-index:1}
 footer a{color:#6b5138}
 /* dark leather */
@@ -164,6 +173,11 @@ html.dark .ev-link{color:#cbb897}
 html.dark .ev-link:hover{border-bottom-color:#cbb897}
 html.dark .ev-link.pdf{color:#c98a70}
 html.dark .ev-link.pdf:hover{border-bottom-color:#c98a70}
+html.dark .kw-toggle{color:#cbb897;border-bottom-color:#6b5b40}
+html.dark .kw-toggle:hover{color:#c98a70}
+html.dark .ev-detail{border-top-color:#4a3d2c}
+html.dark .ev-detail h6{color:#c98a70}
+html.dark .ev-detail p,html.dark .ev-detail li{color:#c2b394}
 /* mobile: spine to the left */
 @media(max-width:700px){
   .era-card{width:100%;transform:none!important;align-self:stretch!important}
@@ -260,6 +274,12 @@ function exportEvents(title,evs){
       '- 简介：'+e.note,
       '- 来源：'+e.url);
     if(pdf)lines.push('- PDF：'+pdf);
+    if(e.detail){
+      lines.push('- 背景：'+e.detail.bg);
+      (e.detail.points||[]).forEach(p=>lines.push('- 要点：'+p));
+      (e.detail.stats||[]).forEach(s=>lines.push('- 关键数字：'+s));
+      lines.push('- 影响：'+e.detail.impact);
+    }
     lines.push('');
   });
   return lines.join('\n');
@@ -381,6 +401,15 @@ function renderTree(range){
       const div=document.createElement('div');
       div.className='ev '+(i%2===0?'left':'right');
       div.style.setProperty('--c',c.color);
+      const d=e.detail;
+      const detailHtml=d?`
+          <span class="kw-toggle" onclick="this.classList.toggle('on');this.nextElementSibling.classList.toggle('open');this.textContent=this.classList.contains('on')?'🧠 收起知识 ▴':'🧠 细化知识 ▾'">🧠 细化知识 ▾</span>
+          <div class="ev-detail">
+            <h6>背 景</h6><p>${d.bg}</p>
+            <h6>要 点</h6><ul>${(d.points||[]).map(p=>`<li>${p}</li>`).join('')}</ul>
+            ${(d.stats&&d.stats.length)?`<h6>关键数字</h6><p>${d.stats.join('；')}</p>`:''}
+            <h6>影 响</h6><p>${d.impact}</p>
+          </div>`:'';
       div.innerHTML=`
         <svg class="branch" viewBox="0 0 70 46" preserveAspectRatio="none">
           <path d="${branchPath(i+y)}"/><circle cx="3" cy="${20+((i+y)%2?4:-4)}" r="3"/>
@@ -394,7 +423,7 @@ function renderTree(range){
           <div class="ev-links">
             <a class="ev-link" href="${e.url}" target="_blank" rel="noopener">论文 / 官方来源 ↗</a>
             ${pdf?`<a class="ev-link pdf" href="${pdf}" target="_blank" rel="noopener">📥 PDF 下载 ↗</a>`:''}
-          </div>
+          </div>${detailHtml}
         </div>`;
       tree.appendChild(div);
     });

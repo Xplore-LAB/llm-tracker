@@ -1,90 +1,1628 @@
 {
   "categories": {
-    "arch":      {"label": "架构突破", "icon": "🧱", "color": "#8a6d4f"},
-    "train":     {"label": "训练范式", "icon": "🎯", "color": "#8a6d4f"},
-    "rl":        {"label": "强化学习", "icon": "🕹️", "color": "#9c5a44"},
-    "scaling":   {"label": "缩放定律", "icon": "📈", "color": "#7a7a52"},
-    "sys":       {"label": "系统基建", "icon": "⚙️", "color": "#6e6259"},
-    "reason":    {"label": "推理范式", "icon": "🧠", "color": "#9c5a44"},
-    "mm":        {"label": "多模态",   "icon": "🖼️", "color": "#7a7a52"},
-    "open":      {"label": "开源生态", "icon": "🔓", "color": "#7a7a52"},
-    "milestone": {"label": "里程碑",   "icon": "🚀", "color": "#6e6259"}
+    "arch": {
+      "label": "架构突破",
+      "icon": "🧱",
+      "color": "#8a6d4f"
+    },
+    "train": {
+      "label": "训练范式",
+      "icon": "🎯",
+      "color": "#8a6d4f"
+    },
+    "rl": {
+      "label": "强化学习",
+      "icon": "🕹️",
+      "color": "#9c5a44"
+    },
+    "scaling": {
+      "label": "缩放定律",
+      "icon": "📈",
+      "color": "#7a7a52"
+    },
+    "sys": {
+      "label": "系统基建",
+      "icon": "⚙️",
+      "color": "#6e6259"
+    },
+    "reason": {
+      "label": "推理范式",
+      "icon": "🧠",
+      "color": "#9c5a44"
+    },
+    "mm": {
+      "label": "多模态",
+      "icon": "🖼️",
+      "color": "#7a7a52"
+    },
+    "open": {
+      "label": "开源生态",
+      "icon": "🔓",
+      "color": "#7a7a52"
+    },
+    "milestone": {
+      "label": "里程碑",
+      "icon": "🚀",
+      "color": "#6e6259"
+    }
   },
   "events": [
-    {"date": "1959-07-01", "year": 1959, "title": "Samuel 跳棋程序", "org": "IBM", "cat": "rl", "note": "机器学习的源头实践，程序通过自我对弈超越编写者", "url": "https://doi.org/10.1147/36874.15705"},
-    {"date": "1989-05-01", "year": 1989, "title": "Watkins Q-learning 博士论文", "org": "Cambridge", "cat": "rl", "note": "时序差分与值函数迭代的奠基，离线策略学习的起点", "url": "http://www.cs.rhul.ac.uk/~chrisw/new_thesis.pdf"},
-    {"date": "1992-09-01", "year": 1992, "title": "TD-Gammon", "org": "IBM", "cat": "rl", "note": "时序差分学习在西洋双陆棋达到大师水准，强化学习早期高光", "url": "https://dl.acm.org/doi/10.1145/203330.203343"},
-    {"date": "1998-03-01", "year": 1998, "title": "Sutton & Barto《强化学习导论》", "org": "UMass", "cat": "rl", "note": "强化学习标准教科书，定义了整个学科的问题框架", "url": "http://incompleteideas.net/book/the-book-2nd.html"},
-    {"date": "2001-06-01", "year": 2001, "title": "Banko & Brill 缩放研究", "org": "Microsoft Research", "cat": "scaling", "note": "数据规模胜过算法精巧，缩放思想的最早系统表述", "url": "https://aclanthology.org/P01-1005/"},
-    {"date": "2006-08-04", "year": 2006, "title": "Hinton 深度信念网络", "org": "University of Toronto", "cat": "train", "note": "逐层预训练深网登上 Science，深度学习复兴的起点", "url": "https://www.cs.toronto.edu/~hinton/science.pdf"},
-    {"date": "2012-12-03", "year": 2012, "title": "AlexNet", "org": "University of Toronto", "cat": "milestone", "note": "GPU 训练深度 CNN 夺冠 ImageNet，深度学习时代开幕", "url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html"},
-    {"date": "2013-12-19", "year": 2013, "title": "DQN", "org": "DeepMind", "cat": "rl", "note": "深度 Q 网络玩通 Atari，深度强化学习诞生", "url": "https://arxiv.org/abs/1312.5602"},
-    {"date": "2014-09-01", "year": 2014, "title": "Bahdanau 注意力", "org": "Université de Montréal", "cat": "arch", "note": "注意力机制首次用于神经机器翻译，Transformer 的思想前驱", "url": "https://arxiv.org/abs/1409.0473"},
-    {"date": "2015-12-09", "year": 2015, "title": "Deep Speech 2", "org": "Baidu SVAIL", "cat": "arch", "note": "端到端深度语音识别，百度规模化训练的早期实践", "url": "https://arxiv.org/abs/1512.02595"},
-    {"date": "2017-01-23", "year": 2017, "title": "Shazeer MoE", "org": "Google", "cat": "arch", "note": "条件计算与稀疏门控，MoE 架构的原始出处", "url": "https://arxiv.org/abs/1701.06538"},
-    {"date": "2017-06-12", "year": 2017, "title": "Attention Is All You Need", "org": "Google", "cat": "arch", "note": "Transformer 诞生，自注意力机制成为此后所有大模型的统一骨架", "url": "https://arxiv.org/abs/1706.03762"},
-    {"date": "2017-06-13", "year": 2017, "title": "Christiano 人类偏好强化学习", "org": "OpenAI / DeepMind", "cat": "rl", "note": "从人类偏好学习奖励模型，RLHF 的源头论文", "url": "https://arxiv.org/abs/1706.03741"},
-    {"date": "2017-08-28", "year": 2017, "title": "PPO", "org": "OpenAI", "cat": "rl", "note": "近端策略优化，此后多年强化学习训练的主力算法", "url": "https://arxiv.org/abs/1707.06347"},
-    {"date": "2017-12-01", "year": 2017, "title": "Hestness 缩放测量", "org": "Baidu SVAIL", "cat": "scaling", "note": "深度学习缩放可预测，幂律曲线的系统性测量", "url": "https://arxiv.org/abs/1712.00409"},
-    {"date": "2017-12-05", "year": 2017, "title": "AlphaZero", "org": "DeepMind", "cat": "rl", "note": "自我对弈强化学习通吃棋类，完全不依赖人类棋谱", "url": "https://arxiv.org/abs/1712.01815"},
-    {"date": "2018-06-11", "year": 2018, "title": "GPT-1：生成式预训练", "org": "OpenAI", "cat": "train", "note": "首次验证生成式预训练加任务微调的两阶段范式", "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf"},
-    {"date": "2018-10-11", "year": 2018, "title": "BERT", "org": "Google", "cat": "arch", "note": "双向掩码预训练横扫 11 项 NLP 任务，编码器路线的高光时刻", "url": "https://arxiv.org/abs/1810.04805"},
-    {"date": "2019-02-14", "year": 2019, "title": "GPT-2", "org": "OpenAI", "cat": "train", "note": "15 亿参数展示零样本多任务能力，曾因风险担忧分阶段开放", "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"},
-    {"date": "2019-06-19", "year": 2019, "title": "XLNet", "org": "CMU / Google", "cat": "arch", "note": "排列语言模型融合自回归与双向上下文，杨植麟一作", "url": "https://arxiv.org/abs/1906.08237"},
-    {"date": "2019-09-17", "year": 2019, "title": "Megatron-LM", "org": "NVIDIA", "cat": "sys", "note": "张量并行训练超大模型，分布式训练基建的起点", "url": "https://arxiv.org/abs/1909.08053"},
-    {"date": "2019-09-27", "year": 2019, "title": "Rosenfeld 跨尺度泛化", "org": "MIT / Harvard", "cat": "scaling", "note": "跨尺度泛化误差建模，缩放定律的理论化尝试", "url": "https://arxiv.org/abs/1909.12673"},
-    {"date": "2019-10-23", "year": 2019, "title": "T5", "org": "Google", "cat": "arch", "note": "把一切 NLP 任务统一为文本到文本，系统比较了各预训练目标", "url": "https://arxiv.org/abs/1910.10683"},
-    {"date": "2020-01-23", "year": 2020, "title": "Kaplan 缩放定律", "org": "OpenAI", "cat": "scaling", "note": "神经语言模型缩放定律，损失随算力与数据呈幂律下降", "url": "https://arxiv.org/abs/2001.08361"},
-    {"date": "2020-05-28", "year": 2020, "title": "GPT-3", "org": "OpenAI", "cat": "train", "note": "1750 亿参数确立缩放定律时代，上下文学习成为新交互范式", "url": "https://arxiv.org/abs/2005.14165"},
-    {"date": "2020-09-02", "year": 2020, "title": "Stiennon 人类反馈摘要", "org": "OpenAI", "cat": "rl", "note": "人类反馈学习摘要，RLHF 在真实任务上的首个完整落地", "url": "https://arxiv.org/abs/2009.01325"},
-    {"date": "2021-01-01", "year": 2021, "title": "The Pile", "org": "EleutherAI", "cat": "open", "note": "800GB 开放预训练语料，社区数据基建的里程碑", "url": "https://arxiv.org/abs/2101.00027"},
-    {"date": "2021-01-11", "year": 2021, "title": "Switch Transformer", "org": "Google", "cat": "arch", "note": "稀疏专家混合走向万亿参数，MoE 进入主流视野", "url": "https://arxiv.org/abs/2101.03961"},
-    {"date": "2021-03-18", "year": 2021, "title": "GLM", "org": "清华 KEG", "cat": "arch", "note": "自回归空白填充统一理解与生成，智谱 GLM 系列的起点", "url": "https://arxiv.org/abs/2103.10360"},
-    {"date": "2021-04-20", "year": 2021, "title": "RoPE 旋转位置编码", "org": "苏剑林", "cat": "arch", "note": "旋转位置编码提出，如今几乎所有大模型的默认位置方案", "url": "https://arxiv.org/abs/2104.09864"},
-    {"date": "2021-06-17", "year": 2021, "title": "LoRA", "org": "Microsoft", "cat": "train", "note": "低秩适配微调，以极低参数成本定制大模型", "url": "https://arxiv.org/abs/2106.09685"},
-    {"date": "2021-08-26", "year": 2021, "title": "Codex", "org": "OpenAI", "cat": "milestone", "note": "代码大模型落地 GitHub Copilot，开启 AI 编程时代", "url": "https://arxiv.org/abs/2107.03374"},
-    {"date": "2021-12-08", "year": 2021, "title": "RETRO", "org": "DeepMind", "cat": "arch", "note": "检索增强预训练，把外部知识库变成模型的外置记忆", "url": "https://arxiv.org/abs/2112.04426"},
-    {"date": "2021-12-17", "year": 2021, "title": "WebGPT", "org": "OpenAI", "cat": "reason", "note": "浏览器辅助问答，工具使用与联网检索的早期探索", "url": "https://arxiv.org/abs/2112.09332"},
-    {"date": "2021-12-21", "year": 2021, "title": "Gopher", "org": "DeepMind", "cat": "train", "note": "2800 亿稠密模型，规模化路线的重要参照", "url": "https://arxiv.org/abs/2112.11446"},
-    {"date": "2022-01-28", "year": 2022, "title": "Chain-of-Thought", "org": "Google", "cat": "reason", "note": "思维链提示激发逐步推理，推理范式的起点", "url": "https://arxiv.org/abs/2201.11903"},
-    {"date": "2022-03-04", "year": 2022, "title": "InstructGPT", "org": "OpenAI", "cat": "train", "note": "RLHF 人类反馈强化学习定型，对齐成为标准工序", "url": "https://arxiv.org/abs/2203.02155"},
-    {"date": "2022-03-29", "year": 2022, "title": "Chinchilla", "org": "DeepMind", "cat": "scaling", "note": "计算最优缩放，修正为数据与参数应同比扩张", "url": "https://arxiv.org/abs/2203.15556"},
-    {"date": "2022-05-02", "year": 2022, "title": "OPT", "org": "Meta", "cat": "open", "note": "全开放 175B，开放权重复现 GPT-3 规模的重要尝试", "url": "https://arxiv.org/abs/2205.01068"},
-    {"date": "2022-05-27", "year": 2022, "title": "FlashAttention", "org": "Stanford / Tri Dao", "cat": "sys", "note": "IO 感知的精确注意力，长序列训练的系统基石", "url": "https://arxiv.org/abs/2205.14135"},
-    {"date": "2022-10-05", "year": 2022, "title": "GLM-130B", "org": "智谱 / 清华", "cat": "open", "note": "中英双语千亿开源模型，国产大模型的重要早期坐标", "url": "https://arxiv.org/abs/2210.02414"},
-    {"date": "2022-11-09", "year": 2022, "title": "BLOOM", "org": "BigScience", "cat": "open", "note": "46 种语言的国际科研协作开源大模型", "url": "https://arxiv.org/abs/2211.05100"},
-    {"date": "2022-11-30", "year": 2022, "title": "ChatGPT", "org": "OpenAI", "cat": "milestone", "note": "两个月破亿用户，大模型从研究课题变成全民产品", "url": "https://openai.com/index/chatgpt/"},
-    {"date": "2022-12-15", "year": 2022, "title": "Constitutional AI", "org": "Anthropic", "cat": "train", "note": "用原则清单替代部分人类标注，对齐工程的新路径", "url": "https://arxiv.org/abs/2212.08073"},
-    {"date": "2023-02-24", "year": 2023, "title": "Llama", "org": "Meta", "cat": "open", "note": "高质量小尺寸基座外泄后引爆社区，开源生态的起点", "url": "https://arxiv.org/abs/2302.13971"},
-    {"date": "2023-03-14", "year": 2023, "title": "GPT-4", "org": "OpenAI", "cat": "milestone", "note": "多模态能力与基准全面跃升，前沿闭源标杆", "url": "https://arxiv.org/abs/2303.08774"},
-    {"date": "2023-05-29", "year": 2023, "title": "DPO", "org": "Stanford", "cat": "rl", "note": "无需奖励模型的直接偏好优化，对齐流程大幅简化", "url": "https://arxiv.org/abs/2305.18290"},
-    {"date": "2023-07-18", "year": 2023, "title": "Llama 2", "org": "Meta", "cat": "open", "note": "首个可商用许可的 Llama，开源进入企业应用", "url": "https://arxiv.org/abs/2307.09288"},
-    {"date": "2023-09-12", "year": 2023, "title": "vLLM PagedAttention", "org": "UC Berkeley", "cat": "sys", "note": "分页管理 KV cache，高吞吐推理的事实标准", "url": "https://arxiv.org/abs/2309.06180"},
-    {"date": "2023-09-25", "year": 2023, "title": "Qwen", "org": "阿里巴巴", "cat": "open", "note": "通义千问开源，日后成长为全球衍生模型最多的开源家族", "url": "https://arxiv.org/abs/2309.16609"},
-    {"date": "2023-10-10", "year": 2023, "title": "Mistral 7B", "org": "Mistral AI", "cat": "open", "note": "7B 越级挑战 13B，欧洲高效模型路线登场", "url": "https://arxiv.org/abs/2310.06825"},
-    {"date": "2023-12-11", "year": 2023, "title": "Mixtral 8x7B", "org": "Mistral AI", "cat": "arch", "note": "首个主流开源稀疏 MoE，top-2 路由成为经典配置", "url": "https://arxiv.org/abs/2401.04088"},
-    {"date": "2023-12-12", "year": 2023, "title": "SGLang", "org": "UC Berkeley / LMSYS", "cat": "sys", "note": "RadixAttention 前缀复用与结构化生成语言", "url": "https://arxiv.org/abs/2312.07104"},
-    {"date": "2024-01-11", "year": 2024, "title": "DeepSeekMoE", "org": "DeepSeek", "cat": "arch", "note": "细粒度专家加共享专家，国产 MoE 架构范式确立", "url": "https://arxiv.org/abs/2401.06066"},
-    {"date": "2024-02-05", "year": 2024, "title": "DeepSeekMath / GRPO", "org": "DeepSeek", "cat": "rl", "note": "组相对策略优化 GRPO 首次公开，R1 的算法前身", "url": "https://arxiv.org/abs/2402.03300"},
-    {"date": "2024-04-23", "year": 2024, "title": "Phi-3", "org": "Microsoft", "cat": "open", "note": "小模型加高质量合成数据路线，教科书级数据配方", "url": "https://arxiv.org/abs/2404.14219"},
-    {"date": "2024-05-07", "year": 2024, "title": "DeepSeek-V2", "org": "DeepSeek", "cat": "arch", "note": "MLA 隐式注意力加 DeepSeekMoE，确立后续系列架构底座", "url": "https://arxiv.org/abs/2405.04434"},
-    {"date": "2024-05-13", "year": 2024, "title": "GPT-4o", "org": "OpenAI", "cat": "mm", "note": "原生端到端多模态，文本语音视觉单一模型打通", "url": "https://openai.com/index/hello-gpt-4o/"},
-    {"date": "2024-07-23", "year": 2024, "title": "Llama 3.1 405B", "org": "Meta", "cat": "open", "note": "首个前沿级开源模型，许可首次允许输出用于改进他模", "url": "https://arxiv.org/abs/2407.21783"},
-    {"date": "2024-09-12", "year": 2024, "title": "OpenAI o1", "org": "OpenAI", "cat": "reason", "note": "推理时计算正式登场，思考链从提示技巧变成训练目标", "url": "https://openai.com/index/learning-to-reason-with-llms/"},
-    {"date": "2024-10-21", "year": 2024, "title": "Mooncake", "org": "Moonshot AI", "cat": "sys", "note": "KV cache 中心化推理服务平台，获 FAST 2025 最佳论文", "url": "https://www.usenix.org/conference/fast25/presentation/qin"},
-    {"date": "2024-12-26", "year": 2024, "title": "DeepSeek-V3", "org": "DeepSeek", "cat": "open", "note": "671B 开源旗舰，FP8 训练与 MTP 目标，成本神话引发行业震动", "url": "https://arxiv.org/abs/2412.19437"},
-    {"date": "2025-01-20", "year": 2025, "title": "DeepSeek-R1", "org": "DeepSeek", "cat": "reason", "note": "纯强化学习激励推理并全面开源，推理平权改变世界线", "url": "https://arxiv.org/abs/2501.12948"},
-    {"date": "2025-01-22", "year": 2025, "title": "Kimi k1.5", "org": "Moonshot AI", "cat": "rl", "note": "long2short 强化学习，压缩长思维链而不损失性能", "url": "https://arxiv.org/abs/2501.12599"},
-    {"date": "2025-03-18", "year": 2025, "title": "DAPO", "org": "字节 Seed / 清华 / 港大", "cat": "rl", "note": "大规模 RL 训练系统与算法细节全公开", "url": "https://arxiv.org/abs/2503.14476"},
-    {"date": "2025-04-29", "year": 2025, "title": "Qwen3", "org": "阿里巴巴", "cat": "open", "note": "混合推理单模型双模式，思考与非思考无缝切换", "url": "https://arxiv.org/abs/2505.09388"},
-    {"date": "2025-05-30", "year": 2025, "title": "ProRL", "org": "NVIDIA", "cat": "rl", "note": "延长 RL 训练时长突破推理能力天花板", "url": "https://arxiv.org/abs/2505.24864"},
-    {"date": "2025-06-16", "year": 2025, "title": "MiniMax-M1", "org": "MiniMax", "cat": "arch", "note": "闪电注意力支撑百万上下文，CISPO 强化学习配方", "url": "https://arxiv.org/abs/2506.13585"},
-    {"date": "2025-07-11", "year": 2025, "title": "Kimi K2", "org": "Moonshot AI", "cat": "open", "note": "万亿参数开源 agentic 模型，MuonClip 解决大规模训练失稳", "url": "https://arxiv.org/abs/2507.20534"},
-    {"date": "2025-07-24", "year": 2025, "title": "GSPO", "org": "阿里巴巴 Qwen", "cat": "rl", "note": "序列级重要性采样，对 GRPO 稳定性的关键改进", "url": "https://arxiv.org/abs/2507.18071"},
-    {"date": "2025-10-15", "year": 2025, "title": "ScaleRL", "org": "Meta", "cat": "scaling", "note": "系统研究 RL 算力缩放曲线，后训练时代的缩放定律", "url": "https://arxiv.org/abs/2510.13786"},
-    {"date": "2026-04-26", "year": 2026, "title": "DeepSeek-V4", "org": "DeepSeek", "cat": "arch", "note": "CSA 加 HCA 混合注意力攻克百万上下文成本，DSpark 投机解码内置", "url": "https://arxiv.org/abs/2606.19348"},
-    {"date": "2026-07-07", "year": 2026, "title": "Nemotron-Labs-Diffusion", "org": "NVIDIA", "cat": "arch", "note": "自回归、扩散、自推测三模态解码统一于单一架构", "url": "https://arxiv.org/abs/2607.05722"},
-    {"date": "2026-07-14", "year": 2026, "title": "MiMo-V2.5", "org": "小米", "cat": "mm", "note": "原生全模态模型，文本图像视频音频统一架构", "url": "https://arxiv.org/abs/2607.13095"},
-    {"date": "2026-07-27", "year": 2026, "title": "Kimi K3", "org": "Moonshot AI", "cat": "arch", "note": "2.8T 参数最大开源模型，KDA 线性注意力加 Stable LatentMoE", "url": "https://arxiv.org/abs/2607.24653"}
+    {
+      "date": "1959-07-01",
+      "year": 1959,
+      "title": "Samuel 跳棋程序",
+      "org": "IBM",
+      "cat": "rl",
+      "note": "机器学习的源头实践，程序通过自我对弈超越编写者",
+      "url": "https://doi.org/10.1147/36874.15705",
+      "detail": {
+        "bg": "达特茅斯会议提出人工智能仅三年，机器学习一词尚无定义。",
+        "points": [
+          "跳棋程序以评分函数自我改进",
+          "通过自我对弈积累经验并修正权重",
+          "区分死记硬背学习与泛化学习两条路线"
+        ],
+        "stats": [
+          "其后战胜康涅狄格州跳棋冠军"
+        ],
+        "impact": "定义了「机器学习」术语，自我对弈思想在 AlphaZero 中回响。"
+      }
+    },
+    {
+      "date": "1989-05-01",
+      "year": 1989,
+      "title": "Watkins Q-learning 博士论文",
+      "org": "Cambridge",
+      "cat": "rl",
+      "note": "时序差分与值函数迭代的奠基，离线策略学习的起点",
+      "url": "http://www.cs.rhul.ac.uk/~chrisw/new_thesis.pdf",
+      "detail": {
+        "bg": "动态规划求解马尔可夫决策过程需要环境模型，现实往往拿不到。",
+        "points": [
+          "提出 Q-learning，无模型估计动作值函数",
+          "证明表格情形下收敛",
+          "离线策略：行为策略与学习目标可以不同"
+        ],
+        "stats": [
+          "博士论文 Learning from Delayed Rewards（1989）"
+        ],
+        "impact": "与时序差分思想汇合构成现代强化学习核心，DQN 的直接前身。"
+      }
+    },
+    {
+      "date": "1992-09-01",
+      "year": 1992,
+      "title": "TD-Gammon",
+      "org": "IBM",
+      "cat": "rl",
+      "note": "时序差分学习在西洋双陆棋达到大师水准，强化学习早期高光",
+      "url": "https://dl.acm.org/doi/10.1145/203330.203343",
+      "detail": {
+        "bg": "强化学习长期被认为难以处理复杂博弈。",
+        "points": [
+          "时序差分 TD(λ) 训练局面评估网络",
+          "自我对弈生成全部训练数据",
+          "输入仅为原始棋局特征"
+        ],
+        "stats": [
+          "约 150 万局自我对弈后达到世界级水平"
+        ],
+        "impact": "证明自我对弈加时序差分可超越人类，AlphaGo 方法论的原型。"
+      }
+    },
+    {
+      "date": "1998-03-01",
+      "year": 1998,
+      "title": "Sutton & Barto《强化学习导论》",
+      "org": "UMass",
+      "cat": "rl",
+      "note": "强化学习标准教科书，定义了整个学科的问题框架",
+      "url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "detail": {
+        "bg": "强化学习散落在控制论、心理学与运筹学多个传统中。",
+        "points": [
+          "统一 MDP 框架：状态、动作、奖励、折扣",
+          "系统整理动态规划、蒙特卡洛、时序差分三类方法",
+          "涵盖资格迹与函数逼近"
+        ],
+        "stats": [
+          "1998 年初版，2018 年第二版"
+        ],
+        "impact": "领域标准教材，几乎所有强化学习论文的引用底座。"
+      }
+    },
+    {
+      "date": "2001-06-01",
+      "year": 2001,
+      "title": "Banko & Brill 缩放研究",
+      "org": "Microsoft Research",
+      "cat": "scaling",
+      "note": "数据规模胜过算法精巧，缩放思想的最早系统表述",
+      "url": "https://aclanthology.org/P01-1005/",
+      "detail": {
+        "bg": "自然语言消歧算法经多年微调收益递减。",
+        "points": [
+          "在同一任务上对比多算法随数据量增长的曲线",
+          "数据从百万词到十亿词性能持续上升",
+          "提出数据规模可能比算法选择更重要"
+        ],
+        "stats": [
+          "十亿词语料下各算法性能趋于相近"
+        ],
+        "impact": "缩放思想最早的系统实验证据之一。"
+      }
+    },
+    {
+      "date": "2006-08-04",
+      "year": 2006,
+      "title": "Hinton 深度信念网络",
+      "org": "University of Toronto",
+      "cat": "train",
+      "note": "逐层预训练深网登上 Science，深度学习复兴的起点",
+      "url": "https://www.cs.toronto.edu/~hinton/science.pdf",
+      "detail": {
+        "bg": "深层网络因梯度消失长期难以训练。",
+        "points": [
+          "受限玻尔兹曼机逐层贪心预训练",
+          "自编码器降维效果优于 PCA",
+          "登上 Science"
+        ],
+        "stats": [
+          "784-1000-500-250-30 自编码结构"
+        ],
+        "impact": "点燃深度学习复兴，预训练加微调范式的原型。"
+      }
+    },
+    {
+      "date": "2012-12-03",
+      "year": 2012,
+      "title": "AlexNet",
+      "org": "University of Toronto",
+      "cat": "milestone",
+      "note": "GPU 训练深度 CNN 夺冠 ImageNet，深度学习时代开幕",
+      "url": "https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
+      "detail": {
+        "bg": "ImageNet 千万级图像分类待解，GPU 算力刚刚可用。",
+        "points": [
+          "5 层卷积加 3 层全连接",
+          "ReLU 首次大规模应用，训练数倍加速",
+          "Dropout 与数据增强抗过拟合",
+          "双 GPU 并行训练"
+        ],
+        "stats": [
+          "6000 万参数；top-5 错误率 15.3%，亚军 26.2%"
+        ],
+        "impact": "深度学习工业化起点，视觉、语音、NLP 被全面接管的信号。"
+      }
+    },
+    {
+      "date": "2013-12-19",
+      "year": 2013,
+      "title": "DQN",
+      "org": "DeepMind",
+      "cat": "rl",
+      "note": "深度 Q 网络玩通 Atari，深度强化学习诞生",
+      "url": "https://arxiv.org/abs/1312.5602",
+      "detail": {
+        "bg": "高维感知输入下强化学习训练极不稳定。",
+        "points": [
+          "经验回放打破样本相关性",
+          "目标网络延迟更新稳定目标值",
+          "端到端从像素直接到动作"
+        ],
+        "stats": [
+          "49 款 Atari 游戏过半达到或超过人类水平"
+        ],
+        "impact": "深度强化学习诞生，DeepMind 路线的奠基之作。"
+      }
+    },
+    {
+      "date": "2014-09-01",
+      "year": 2014,
+      "title": "Bahdanau 注意力",
+      "org": "Université de Montréal",
+      "cat": "arch",
+      "note": "注意力机制首次用于神经机器翻译，Transformer 的思想前驱",
+      "url": "https://arxiv.org/abs/1409.0473",
+      "detail": {
+        "bg": "编码器-解码器把整句压成固定向量，长句信息瓶颈明显。",
+        "points": [
+          "解码时动态软对齐源序列各位置",
+          "双向 RNN 编码上下文",
+          "注意力权重可可视化解释"
+        ],
+        "stats": [
+          "英法翻译任务显著超越传统流水线"
+        ],
+        "impact": "注意力机制元年，Transformer 的直接思想前驱。"
+      }
+    },
+    {
+      "date": "2015-12-09",
+      "year": 2015,
+      "title": "Deep Speech 2",
+      "org": "Baidu SVAIL",
+      "cat": "arch",
+      "note": "端到端深度语音识别，百度规模化训练的早期实践",
+      "url": "https://arxiv.org/abs/1512.02595",
+      "detail": {
+        "bg": "语音识别依赖人工特征与音素级流水线。",
+        "points": [
+          "端到端 CTC 直接输出字符",
+          "深度卷积加双向 RNN",
+          "BatchNorm 与 SortaGrad 课程式训练"
+        ],
+        "stats": [
+          "上万小时训练数据，中英文双语系统"
+        ],
+        "impact": "端到端语音路线确立，规模化训练的工程范本。"
+      }
+    },
+    {
+      "date": "2017-01-23",
+      "year": 2017,
+      "title": "Shazeer MoE",
+      "org": "Google",
+      "cat": "arch",
+      "note": "条件计算与稀疏门控，MoE 架构的原始出处",
+      "url": "https://arxiv.org/abs/1701.06538",
+      "detail": {
+        "bg": "模型容量受限于每个 token 都要经过全部参数的顺序计算。",
+        "points": [
+          "稀疏门控：每次只激活少数专家",
+          "噪声 top-k 门控加负载均衡损失",
+          "LSTM 堆叠专家达到 1370 亿参数"
+        ],
+        "stats": [
+          "137B 总参数"
+        ],
+        "impact": "条件计算原型，Switch 与后续一切 MoE 的源头。"
+      }
+    },
+    {
+      "date": "2017-06-12",
+      "year": 2017,
+      "title": "Attention Is All You Need",
+      "org": "Google",
+      "cat": "arch",
+      "note": "Transformer 诞生，自注意力机制成为此后所有大模型的统一骨架",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "detail": {
+        "bg": "RNN 的顺序计算限制并行度与长程依赖建模。",
+        "points": [
+          "纯自注意力替代循环与卷积",
+          "多头注意力并行捕捉多种关系",
+          "位置编码注入顺序信息",
+          "缩放点积稳定梯度"
+        ],
+        "stats": [
+          "WMT14 英德 28.4 BLEU 创新高，训练成本大幅下降"
+        ],
+        "impact": "此后所有大模型的统一骨架。"
+      }
+    },
+    {
+      "date": "2017-06-13",
+      "year": 2017,
+      "title": "Christiano 人类偏好强化学习",
+      "org": "OpenAI / DeepMind",
+      "cat": "rl",
+      "note": "从人类偏好学习奖励模型，RLHF 的源头论文",
+      "url": "https://arxiv.org/abs/1706.03741",
+      "detail": {
+        "bg": "复杂任务的奖励函数难以手工设计。",
+        "points": [
+          "人类对轨迹片段做两两偏好比较",
+          "学习奖励模型再训策略",
+          "在 Atari 与机器人任务复现目标行为"
+        ],
+        "stats": [
+          "少量人类反馈即可对齐复杂行为"
+        ],
+        "impact": "RLHF 方法论源头，InstructGPT 与对齐工程的起点。"
+      }
+    },
+    {
+      "date": "2017-08-28",
+      "year": 2017,
+      "title": "PPO",
+      "org": "OpenAI",
+      "cat": "rl",
+      "note": "近端策略优化，此后多年强化学习训练的主力算法",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "detail": {
+        "bg": "策略梯度方差大，TRPO 理论优雅但实现复杂。",
+        "points": [
+          "裁剪目标函数限制每次更新幅度",
+          "一阶优化即可多轮复用样本",
+          "实现简单而性能对标 TRPO"
+        ],
+        "stats": [
+          "2017 年发布"
+        ],
+        "impact": "此后多年强化学习训练的默认算法，InstructGPT 用它完成对齐。"
+      }
+    },
+    {
+      "date": "2017-12-01",
+      "year": 2017,
+      "title": "Hestness 缩放测量",
+      "org": "Baidu SVAIL",
+      "cat": "scaling",
+      "note": "深度学习缩放可预测，幂律曲线的系统性测量",
+      "url": "https://arxiv.org/abs/1712.00409",
+      "detail": {
+        "bg": "深度学习的性能提升是否可预测，当时没有答案。",
+        "points": [
+          "跨机器翻译、语音、图像任务测量损失随数据量的曲线",
+          "发现普遍的幂律形式",
+          "支持按数据量外推性能"
+        ],
+        "stats": [
+          "百度 SVAIL 2017 年发布"
+        ],
+        "impact": "缩放定律的实证先驱，Kaplan 定律的直接前奏。"
+      }
+    },
+    {
+      "date": "2017-12-05",
+      "year": 2017,
+      "title": "AlphaZero",
+      "org": "DeepMind",
+      "cat": "rl",
+      "note": "自我对弈强化学习通吃棋类，完全不依赖人类棋谱",
+      "url": "https://arxiv.org/abs/1712.01815",
+      "detail": {
+        "bg": "AlphaGo 依赖人类棋谱与手工特征。",
+        "points": [
+          "纯自我对弈从零开始学习",
+          "蒙特卡洛树搜索与价值策略网络互相引导",
+          "单一算法通吃围棋、将棋、国际象棋"
+        ],
+        "stats": [
+          "数小时训练即超越 AlphaGo Lee"
+        ],
+        "impact": "自我对弈范式的顶点，R1-Zero 精神的先声。"
+      }
+    },
+    {
+      "date": "2018-06-11",
+      "year": 2018,
+      "title": "GPT-1：生成式预训练",
+      "org": "OpenAI",
+      "cat": "train",
+      "note": "首次验证生成式预训练加任务微调的两阶段范式",
+      "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+      "detail": {
+        "bg": "NLP 任务各自为战，标注数据稀缺。",
+        "points": [
+          "Transformer 解码器做无监督预训练",
+          "统一框架适配多种下游任务微调",
+          "展示零样本迁移迹象"
+        ],
+        "stats": [
+          "1.17 亿参数，BooksCorpus 约 8000 本书"
+        ],
+        "impact": "生成式预训练路线确立，GPT 系列起点。"
+      }
+    },
+    {
+      "date": "2018-10-11",
+      "year": 2018,
+      "title": "BERT",
+      "org": "Google",
+      "cat": "arch",
+      "note": "双向掩码预训练横扫 11 项 NLP 任务，编码器路线的高光时刻",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "detail": {
+        "bg": "单向语言模型无法利用右侧上下文。",
+        "points": [
+          "掩码语言模型双向建模",
+          "下一句预测任务（后续研究证明非必需）",
+          "预训练加微调统一 11 项任务"
+        ],
+        "stats": [
+          "Large 3.4 亿参数；GLUE 80.5%"
+        ],
+        "impact": "编码器路线巅峰，启发 RoBERTa 等一系列改进。"
+      }
+    },
+    {
+      "date": "2019-02-14",
+      "year": 2019,
+      "title": "GPT-2",
+      "org": "OpenAI",
+      "cat": "train",
+      "note": "15 亿参数展示零样本多任务能力，曾因风险担忧分阶段开放",
+      "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+      "detail": {
+        "bg": "更大规模的自回归模型能否涌现新能力。",
+        "points": [
+          "15 亿参数纯自回归",
+          "WebText 高质量网页语料",
+          "零样本完成阅读理解、翻译、摘要"
+        ],
+        "stats": [
+          "1.5B 参数；初期因滥用担忧分阶段开放"
+        ],
+        "impact": "规模即能力的宣言，也是模型发布伦理讨论的起点。"
+      }
+    },
+    {
+      "date": "2019-06-19",
+      "year": 2019,
+      "title": "XLNet",
+      "org": "CMU / Google",
+      "cat": "arch",
+      "note": "排列语言模型融合自回归与双向上下文，杨植麟一作",
+      "url": "https://arxiv.org/abs/1906.08237",
+      "detail": {
+        "bg": "BERT 的掩码破坏了输入分布，自回归与自编码各有所长。",
+        "points": [
+          "排列语言模型在期望意义下建模双向上下文",
+          "双流注意力机制",
+          "引入 Transformer-XL 长程记忆"
+        ],
+        "stats": [
+          "20 项任务超越 BERT"
+        ],
+        "impact": "杨植麟成名作，预训练目标设计的高峰讨论。"
+      }
+    },
+    {
+      "date": "2019-09-17",
+      "year": 2019,
+      "title": "Megatron-LM",
+      "org": "NVIDIA",
+      "cat": "sys",
+      "note": "张量并行训练超大模型，分布式训练基建的起点",
+      "url": "https://arxiv.org/abs/1909.08053",
+      "detail": {
+        "bg": "单张 GPU 显存装不下超大模型。",
+        "points": [
+          "层内张量并行切分矩阵乘",
+          "与流水线并行互补",
+          "训练 83 亿参数 GPT-2 级模型"
+        ],
+        "stats": [
+          "8.3B 参数，512 张 GPU"
+        ],
+        "impact": "大模型训练系统范式，后续所有分布式训练框架的基础。"
+      }
+    },
+    {
+      "date": "2019-09-27",
+      "year": 2019,
+      "title": "Rosenfeld 跨尺度泛化",
+      "org": "MIT / Harvard",
+      "cat": "scaling",
+      "note": "跨尺度泛化误差建模，缩放定律的理论化尝试",
+      "url": "https://arxiv.org/abs/1909.12673",
+      "detail": {
+        "bg": "缩放规律缺乏理论解释。",
+        "points": [
+          "泛化误差随模型规模与数据量双变量建模",
+          "预测最优的模型与数据配比",
+          "跨任务验证公式"
+        ],
+        "stats": [
+          "2019 年发布"
+        ],
+        "impact": "缩放定律理论化的早期尝试，Chinchilla 的思想先声。"
+      }
+    },
+    {
+      "date": "2019-10-23",
+      "year": 2019,
+      "title": "T5",
+      "org": "Google",
+      "cat": "arch",
+      "note": "把一切 NLP 任务统一为文本到文本，系统比较了各预训练目标",
+      "url": "https://arxiv.org/abs/1910.10683",
+      "detail": {
+        "bg": "预训练目标与迁移学习方法碎片化。",
+        "points": [
+          "全部 NLP 任务统一为文本到文本",
+          "系统对照预训练目标、架构与语料",
+          "C4 清洗语料公开"
+        ],
+        "stats": [
+          "110 亿参数；GLUE、SQuAD、CNN/DM 同时领先"
+        ],
+        "impact": "统一任务接口的范式书，为指令微调思想铺路。"
+      }
+    },
+    {
+      "date": "2020-01-23",
+      "year": 2020,
+      "title": "Kaplan 缩放定律",
+      "org": "OpenAI",
+      "cat": "scaling",
+      "note": "神经语言模型缩放定律，损失随算力与数据呈幂律下降",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "detail": {
+        "bg": "大模型该多大、训多久，当时无章可循。",
+        "points": [
+          "损失对算力、参数、数据量呈幂律关系",
+          "给出计算最优的资源分配",
+          "提出大模型比大数据更欠缺的结论（后被 Chinchilla 修正）"
+        ],
+        "stats": [
+          "拟合跨越 7 个数量级"
+        ],
+        "impact": "缩放时代的方法论圣经。"
+      }
+    },
+    {
+      "date": "2020-05-28",
+      "year": 2020,
+      "title": "GPT-3",
+      "org": "OpenAI",
+      "cat": "train",
+      "note": "1750 亿参数确立缩放定律时代，上下文学习成为新交互范式",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "detail": {
+        "bg": "逐任务微调成本高，能否免微调适配任务。",
+        "points": [
+          "1750 亿参数自回归",
+          "few-shot 上下文学习，无需梯度更新",
+          "提示词即接口"
+        ],
+        "stats": [
+          "175B 参数，300B token 训练"
+        ],
+        "impact": "规模时代的宣言书，提示工程由此而起。"
+      }
+    },
+    {
+      "date": "2020-09-02",
+      "year": 2020,
+      "title": "Stiennon 人类反馈摘要",
+      "org": "OpenAI",
+      "cat": "rl",
+      "note": "人类反馈学习摘要，RLHF 在真实任务上的首个完整落地",
+      "url": "https://arxiv.org/abs/2009.01325",
+      "detail": {
+        "bg": "摘要质量没有可对齐的自动指标。",
+        "points": [
+          "用人类偏好训练奖励模型",
+          "PPO 微调生成策略",
+          "RLHF 在真实 NLP 任务上首次胜过强监督基线"
+        ],
+        "stats": [
+          "2020 年发布"
+        ],
+        "impact": "InstructGPT 的直接前身，RLHF 落地范式验证。"
+      }
+    },
+    {
+      "date": "2021-01-01",
+      "year": 2021,
+      "title": "The Pile",
+      "org": "EleutherAI",
+      "cat": "open",
+      "note": "800GB 开放预训练语料，社区数据基建的里程碑",
+      "url": "https://arxiv.org/abs/2101.00027",
+      "detail": {
+        "bg": "开源社区缺少大规模多样化的预训练语料。",
+        "points": [
+          "22 个子集共 800GB",
+          "学术、代码、对话多源混合",
+          "公开成分消融研究"
+        ],
+        "stats": [
+          "800GB 开放语料"
+        ],
+        "impact": "GPT-Neo/NeoX 与开源复现浪潮的数据底座。"
+      }
+    },
+    {
+      "date": "2021-01-11",
+      "year": 2021,
+      "title": "Switch Transformer",
+      "org": "Google",
+      "cat": "arch",
+      "note": "稀疏专家混合走向万亿参数，MoE 进入主流视野",
+      "url": "https://arxiv.org/abs/2101.03961",
+      "detail": {
+        "bg": "MoE 训练不稳定、专家通信昂贵。",
+        "points": [
+          "每个 token 只路由到 1 个专家，简化调度",
+          "容量因子与负载均衡损失",
+          "稀疏化推到 1.6 万亿参数"
+        ],
+        "stats": [
+          "1.6T 参数，预训练速度提升约 7 倍"
+        ],
+        "impact": "稀疏化工程范式，GLaM 与后续 MoE 的蓝本。"
+      }
+    },
+    {
+      "date": "2021-03-18",
+      "year": 2021,
+      "title": "GLM",
+      "org": "清华 KEG",
+      "cat": "arch",
+      "note": "自回归空白填充统一理解与生成，智谱 GLM 系列的起点",
+      "url": "https://arxiv.org/abs/2103.10360",
+      "detail": {
+        "bg": "自编码与自回归预训练目标长期分裂。",
+        "points": [
+          "自回归空白填充统一理解与生成",
+          "2D 位置编码",
+          "多任务预训练"
+        ],
+        "stats": [
+          "同规模下超过 BERT 与 T5"
+        ],
+        "impact": "智谱 GLM 系列的起点，国产预训练路线代表。"
+      }
+    },
+    {
+      "date": "2021-04-20",
+      "year": 2021,
+      "title": "RoPE 旋转位置编码",
+      "org": "苏剑林",
+      "cat": "arch",
+      "note": "旋转位置编码提出，如今几乎所有大模型的默认位置方案",
+      "url": "https://arxiv.org/abs/2104.09864",
+      "detail": {
+        "bg": "绝对位置编码外推差，相对位置编码计算贵。",
+        "points": [
+          "用旋转矩阵编码相对位置",
+          "远程衰减带来天然外推性",
+          "苏剑林在博客长期打磨后成文"
+        ],
+        "stats": [
+          "2021 年发布"
+        ],
+        "impact": "Llama、Qwen、DeepSeek 等几乎所有现代模型的默认位置方案。"
+      }
+    },
+    {
+      "date": "2021-06-17",
+      "year": 2021,
+      "title": "LoRA",
+      "org": "Microsoft",
+      "cat": "train",
+      "note": "低秩适配微调，以极低参数成本定制大模型",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "detail": {
+        "bg": "全参数微调成本随模型规模爆炸。",
+        "points": [
+          "低秩矩阵近似权重增量",
+          "冻结主干只训练旁路",
+          "推理时可合并权重，零额外延迟"
+        ],
+        "stats": [
+          "训练参数量降至万分之一量级"
+        ],
+        "impact": "参数高效微调的事实标准，社区定制生态的起点。"
+      }
+    },
+    {
+      "date": "2021-08-26",
+      "year": 2021,
+      "title": "Codex",
+      "org": "OpenAI",
+      "cat": "milestone",
+      "note": "代码大模型落地 GitHub Copilot，开启 AI 编程时代",
+      "url": "https://arxiv.org/abs/2107.03374",
+      "detail": {
+        "bg": "GPT 的代码能力未被产品化验证。",
+        "points": [
+          "GitHub 公开代码上微调",
+          "提出 HumanEval 功能正确性评测",
+          "直接驱动 GitHub Copilot"
+        ],
+        "stats": [
+          "12B 参数；HumanEval 初代 28.8%，后续大幅提升"
+        ],
+        "impact": "AI 编程助手元年，代码模型独立赛道形成。"
+      }
+    },
+    {
+      "date": "2021-12-08",
+      "year": 2021,
+      "title": "RETRO",
+      "org": "DeepMind",
+      "cat": "arch",
+      "note": "检索增强预训练，把外部知识库变成模型的外置记忆",
+      "url": "https://arxiv.org/abs/2112.04426",
+      "detail": {
+        "bg": "模型知识封存在参数中，难以更新与溯源。",
+        "points": [
+          "检索邻近文本块增强预训练",
+          "跨注意力融合检索文档",
+          "小模型借助检索比肩大模型"
+        ],
+        "stats": [
+          "7B 模型表现可比肩 25 倍大的模型"
+        ],
+        "impact": "RAG 从系统技巧进入模型架构层。"
+      }
+    },
+    {
+      "date": "2021-12-17",
+      "year": 2021,
+      "title": "WebGPT",
+      "org": "OpenAI",
+      "cat": "reason",
+      "note": "浏览器辅助问答，工具使用与联网检索的早期探索",
+      "url": "https://arxiv.org/abs/2112.09332",
+      "detail": {
+        "bg": "语言模型无法核实事实与给出引用。",
+        "points": [
+          "在浏览器环境中用强化学习学习检索与引用",
+          "答案附带出处",
+          "用人类偏好对齐引用质量"
+        ],
+        "stats": [
+          "2021 年发布"
+        ],
+        "impact": "联网检索与引用范式，搜索增强型产品的前身。"
+      }
+    },
+    {
+      "date": "2021-12-21",
+      "year": 2021,
+      "title": "Gopher",
+      "org": "DeepMind",
+      "cat": "train",
+      "note": "2800 亿稠密模型，规模化路线的重要参照",
+      "url": "https://arxiv.org/abs/2112.11446",
+      "detail": {
+        "bg": "规模与能力边界的探索期。",
+        "points": [
+          "2800 亿稠密 Transformer",
+          "系统分析数据构成对能力的影响",
+          "涵盖对话与事实性评估"
+        ],
+        "stats": [
+          "280B 参数"
+        ],
+        "impact": "为 Chinchilla 实验铺路，DeepMind 规模化路线的重要参照。"
+      }
+    },
+    {
+      "date": "2022-01-28",
+      "year": 2022,
+      "title": "Chain-of-Thought",
+      "org": "Google",
+      "cat": "reason",
+      "note": "思维链提示激发逐步推理，推理范式的起点",
+      "url": "https://arxiv.org/abs/2201.11903",
+      "detail": {
+        "bg": "大模型做推理题直接给答案表现差。",
+        "points": [
+          "提示中加入中间推理步骤",
+          "足够规模下推理能力涌现",
+          "零样本一句「让我们逐步思考」即可激发"
+        ],
+        "stats": [
+          "540B 模型在 GSM8K 上大幅跃升"
+        ],
+        "impact": "推理范式的起点，o1 与 R1 的远祖。"
+      }
+    },
+    {
+      "date": "2022-03-04",
+      "year": 2022,
+      "title": "InstructGPT",
+      "org": "OpenAI",
+      "cat": "train",
+      "note": "RLHF 人类反馈强化学习定型，对齐成为标准工序",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "detail": {
+        "bg": "模型训练目标与用户真实意图错位。",
+        "points": [
+          "SFT、奖励模型、PPO 三段式管线",
+          "1.3B 对齐后比 175B GPT-3 更受欢迎",
+          "公开标注规范与毒性评估"
+        ],
+        "stats": [
+          "2022 年发布"
+        ],
+        "impact": "RLHF 工程定型，ChatGPT 的直接母体。"
+      }
+    },
+    {
+      "date": "2022-03-29",
+      "year": 2022,
+      "title": "Chinchilla",
+      "org": "DeepMind",
+      "cat": "scaling",
+      "note": "计算最优缩放，修正为数据与参数应同比扩张",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "detail": {
+        "bg": "Kaplan 结论使各厂模型过大而数据不足。",
+        "points": [
+          "等比例扫描算力、参数与数据",
+          "计算最优配比约 20 token 每参数",
+          "70B 数据充足反超 280B Gopher"
+        ],
+        "stats": [
+          "1.4T token 训练 70B 模型"
+        ],
+        "impact": "训练配方大修正，此后模型普遍加数据、减参数。"
+      }
+    },
+    {
+      "date": "2022-05-02",
+      "year": 2022,
+      "title": "OPT",
+      "org": "Meta",
+      "cat": "open",
+      "note": "全开放 175B，开放权重复现 GPT-3 规模的重要尝试",
+      "url": "https://arxiv.org/abs/2205.01068",
+      "detail": {
+        "bg": "超大模型复现门槛极高。",
+        "points": [
+          "全开放 175B 权重与训练日志",
+          "完整公开训练过程包括失败记录",
+          "附碳排放报告"
+        ],
+        "stats": [
+          "175B 参数全量开放"
+        ],
+        "impact": "开放科学标杆，研究者可复现的前沿基线。"
+      }
+    },
+    {
+      "date": "2022-05-27",
+      "year": 2022,
+      "title": "FlashAttention",
+      "org": "Stanford / Tri Dao",
+      "cat": "sys",
+      "note": "IO 感知的精确注意力，长序列训练的系统基石",
+      "url": "https://arxiv.org/abs/2205.14135",
+      "detail": {
+        "bg": "注意力机制的显存读写是长序列瓶颈。",
+        "points": [
+          "分块计算避免显存反复读写",
+          "在线 softmax 保持精确等价",
+          "反向传播重计算省显存"
+        ],
+        "stats": [
+          "训练提速 2 至 4 倍，显存占用降为线性"
+        ],
+        "impact": "长上下文时代的基础设施，几乎所有训练推理框架内置。"
+      }
+    },
+    {
+      "date": "2022-10-05",
+      "year": 2022,
+      "title": "GLM-130B",
+      "org": "智谱 / 清华",
+      "cat": "open",
+      "note": "中英双语千亿开源模型，国产大模型的重要早期坐标",
+      "url": "https://arxiv.org/abs/2210.02414",
+      "detail": {
+        "bg": "中文世界缺少千亿级开源模型。",
+        "points": [
+          "中英双语 130B 全量开源",
+          "INT4 量化后低成本推理",
+          "公开训练稳定性经验"
+        ],
+        "stats": [
+          "130B 参数"
+        ],
+        "impact": "国产开源的信心坐标，GLM 系列规模化起点。"
+      }
+    },
+    {
+      "date": "2022-11-09",
+      "year": 2022,
+      "title": "BLOOM",
+      "org": "BigScience",
+      "cat": "open",
+      "note": "46 种语言的国际科研协作开源大模型",
+      "url": "https://arxiv.org/abs/2211.05100",
+      "detail": {
+        "bg": "大模型能力集中于少数公司。",
+        "points": [
+          "70 国研究者协作训练 176B",
+          "46 种语言的多语平衡",
+          "开放治理与负责任使用许可"
+        ],
+        "stats": [
+          "176B 参数"
+        ],
+        "impact": "全球协作开源的里程碑，多语言研究基座。"
+      }
+    },
+    {
+      "date": "2022-11-30",
+      "year": 2022,
+      "title": "ChatGPT",
+      "org": "OpenAI",
+      "cat": "milestone",
+      "note": "两个月破亿用户，大模型从研究课题变成全民产品",
+      "url": "https://openai.com/index/chatgpt/",
+      "detail": {
+        "bg": "技术已经就绪，但缺少消费级入口。",
+        "points": [
+          "InstructGPT 同款 RLHF 对话化",
+          "免费网页产品形态",
+          "用户反馈形成数据飞轮"
+        ],
+        "stats": [
+          "发布两个月用户破亿"
+        ],
+        "impact": "大模型大众化奇点，全行业随之转向。"
+      }
+    },
+    {
+      "date": "2022-12-15",
+      "year": 2022,
+      "title": "Constitutional AI",
+      "org": "Anthropic",
+      "cat": "train",
+      "note": "用原则清单替代部分人类标注，对齐工程的新路径",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "detail": {
+        "bg": "RLHF 标注昂贵且价值观难以统一。",
+        "points": [
+          "用原则清单让模型自我批评与修订",
+          "AI 反馈替代部分人类标注",
+          "无害性与有用性分阶段对齐"
+        ],
+        "stats": [
+          "2022 年发布"
+        ],
+        "impact": "RLAIF 路线开创，Claude 的对齐框架。"
+      }
+    },
+    {
+      "date": "2023-02-24",
+      "year": 2023,
+      "title": "Llama",
+      "org": "Meta",
+      "cat": "open",
+      "note": "高质量小尺寸基座外泄后引爆社区，开源生态的起点",
+      "url": "https://arxiv.org/abs/2302.13971",
+      "detail": {
+        "bg": "前沿能力被闭源模型锁定。",
+        "points": [
+          "7B 至 65B 高质量小模型",
+          "1.4T token 公开数据训练",
+          "权重泄露引爆社区二次开发"
+        ],
+        "stats": [
+          "13B 在多数基准超过 GPT-3"
+        ],
+        "impact": "开源生态的寒武纪，Alpaca 与 LoRA 浪潮的起点。"
+      }
+    },
+    {
+      "date": "2023-03-14",
+      "year": 2023,
+      "title": "GPT-4",
+      "org": "OpenAI",
+      "cat": "milestone",
+      "note": "多模态能力与基准全面跃升，前沿闭源标杆",
+      "url": "https://arxiv.org/abs/2303.08774",
+      "detail": {
+        "bg": "纯文本模型能力逼近瓶颈。",
+        "points": [
+          "多模态输入能力",
+          "系统卡公开风险分析",
+          "对齐与幻觉控制工程"
+        ],
+        "stats": [
+          "模拟律师资格考试进入前 10%"
+        ],
+        "impact": "前沿标杆，闭源与开源差距讨论的焦点。"
+      }
+    },
+    {
+      "date": "2023-05-29",
+      "year": 2023,
+      "title": "DPO",
+      "org": "Stanford",
+      "cat": "rl",
+      "note": "无需奖励模型的直接偏好优化，对齐流程大幅简化",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "detail": {
+        "bg": "RLHF 三阶段流程复杂且训练不稳定。",
+        "points": [
+          "偏好数据直接闭式优化",
+          "无需奖励模型与在线采样",
+          "数学上与 RLHF 目标等价"
+        ],
+        "stats": [
+          "2023 年发布"
+        ],
+        "impact": "对齐流程简化的事实标准之一。"
+      }
+    },
+    {
+      "date": "2023-07-18",
+      "year": 2023,
+      "title": "Llama 2",
+      "org": "Meta",
+      "cat": "open",
+      "note": "首个可商用许可的 Llama，开源进入企业应用",
+      "url": "https://arxiv.org/abs/2307.09288",
+      "detail": {
+        "bg": "初代 Llama 的许可限制阻碍商业落地。",
+        "points": [
+          "可商用许可",
+          "对话版 RLHF 流程全公开",
+          "附安全红队报告"
+        ],
+        "stats": [
+          "2T token 训练"
+        ],
+        "impact": "开源进入企业生产环境，商用生态闸门开启。"
+      }
+    },
+    {
+      "date": "2023-09-12",
+      "year": 2023,
+      "title": "vLLM PagedAttention",
+      "org": "UC Berkeley",
+      "cat": "sys",
+      "note": "分页管理 KV cache，高吞吐推理的事实标准",
+      "url": "https://arxiv.org/abs/2309.06180",
+      "detail": {
+        "bg": "推理吞吐受 KV cache 显存碎片限制。",
+        "points": [
+          "借鉴操作系统分页思想管理 KV cache",
+          "连续批处理调度",
+          "显存浪费降到接近零"
+        ],
+        "stats": [
+          "吞吐较 HuggingFace 方案提升一个数量级"
+        ],
+        "impact": "推理服务框架的事实标准之一。"
+      }
+    },
+    {
+      "date": "2023-09-25",
+      "year": 2023,
+      "title": "Qwen",
+      "org": "阿里巴巴",
+      "cat": "open",
+      "note": "通义千问开源，日后成长为全球衍生模型最多的开源家族",
+      "url": "https://arxiv.org/abs/2309.16609",
+      "detail": {
+        "bg": "中文开源基座存在竞争空白。",
+        "points": [
+          "多尺寸全量开放",
+          "工具调用与代码能力内置",
+          "中文评测全面领先"
+        ],
+        "stats": [
+          "2023 年开源"
+        ],
+        "impact": "日后衍生模型数量全球第一的开源家族的起点。"
+      }
+    },
+    {
+      "date": "2023-10-10",
+      "year": 2023,
+      "title": "Mistral 7B",
+      "org": "Mistral AI",
+      "cat": "open",
+      "note": "7B 越级挑战 13B，欧洲高效模型路线登场",
+      "url": "https://arxiv.org/abs/2310.06825",
+      "detail": {
+        "bg": "小模型的效率未被充分挖掘。",
+        "points": [
+          "分组查询注意力降低 KV 开销",
+          "滑动窗口注意力",
+          "Apache 2.0 许可"
+        ],
+        "stats": [
+          "多项评测超过 Llama-2-13B"
+        ],
+        "impact": "小模型效率标杆，欧洲高效路线登场。"
+      }
+    },
+    {
+      "date": "2023-12-11",
+      "year": 2023,
+      "title": "Mixtral 8x7B",
+      "org": "Mistral AI",
+      "cat": "arch",
+      "note": "首个主流开源稀疏 MoE，top-2 路由成为经典配置",
+      "url": "https://arxiv.org/abs/2401.04088",
+      "detail": {
+        "bg": "MoE 此前只在闭源大模型上得到验证。",
+        "points": [
+          "8 个专家 top-2 路由",
+          "46.7B 总参仅 12.9B 激活",
+          "Apache 2.0 开源"
+        ],
+        "stats": [
+          "多数基准超 Llama-2-70B，推理快约 6 倍"
+        ],
+        "impact": "开源 MoE 主流化，稀疏架构的教科书。"
+      }
+    },
+    {
+      "date": "2023-12-12",
+      "year": 2023,
+      "title": "SGLang",
+      "org": "UC Berkeley / LMSYS",
+      "cat": "sys",
+      "note": "RadixAttention 前缀复用与结构化生成语言",
+      "url": "https://arxiv.org/abs/2312.07104",
+      "detail": {
+        "bg": "复杂智能体推理负载难以高效编排。",
+        "points": [
+          "RadixAttention 前缀树复用 KV",
+          "前后端分离的结构化生成语言",
+          "约束解码高效执行"
+        ],
+        "stats": [
+          "2023 年发布"
+        ],
+        "impact": "智能体推理编排框架的代表。"
+      }
+    },
+    {
+      "date": "2024-01-11",
+      "year": 2024,
+      "title": "DeepSeekMoE",
+      "org": "DeepSeek",
+      "cat": "arch",
+      "note": "细粒度专家加共享专家，国产 MoE 架构范式确立",
+      "url": "https://arxiv.org/abs/2401.06066",
+      "detail": {
+        "bg": "MoE 专家粒度粗、知识冗余。",
+        "points": [
+          "细粒度专家切分",
+          "共享专家捕获通用知识",
+          "小算力对标大模型"
+        ],
+        "stats": [
+          "2B 激活参数对标 3B 稠密模型"
+        ],
+        "impact": "DeepSeek 架构范式确立，V2 与 V3 的底座。"
+      }
+    },
+    {
+      "date": "2024-02-05",
+      "year": 2024,
+      "title": "DeepSeekMath / GRPO",
+      "org": "DeepSeek",
+      "cat": "rl",
+      "note": "组相对策略优化 GRPO 首次公开，R1 的算法前身",
+      "url": "https://arxiv.org/abs/2402.03300",
+      "detail": {
+        "bg": "数学推理的 RL 训练成本高。",
+        "points": [
+          "GRPO 组内相对优势，免价值网络",
+          "数学语料精选",
+          "7B 规模数学能力突出"
+        ],
+        "stats": [
+          "GSM8K 与 MATH 同规模领先"
+        ],
+        "impact": "GRPO 首次公开，R1 训练算法的直接前身。"
+      }
+    },
+    {
+      "date": "2024-04-23",
+      "year": 2024,
+      "title": "Phi-3",
+      "org": "Microsoft",
+      "cat": "open",
+      "note": "小模型加高质量合成数据路线，教科书级数据配方",
+      "url": "https://arxiv.org/abs/2404.14219",
+      "detail": {
+        "bg": "小模型能力天花板被认为很低。",
+        "points": [
+          "教科书级合成数据配方",
+          "3.8B 对标大得多模型",
+          "完整安全对齐"
+        ],
+        "stats": [
+          "3.8B 参数"
+        ],
+        "impact": "数据质量胜过数据规模争论的关键证据。"
+      }
+    },
+    {
+      "date": "2024-05-07",
+      "year": 2024,
+      "title": "DeepSeek-V2",
+      "org": "DeepSeek",
+      "cat": "arch",
+      "note": "MLA 隐式注意力加 DeepSeekMoE，确立后续系列架构底座",
+      "url": "https://arxiv.org/abs/2405.04434",
+      "detail": {
+        "bg": "KV cache 与训练成本双高。",
+        "points": [
+          "MLA 低秩压缩 KV cache",
+          "DeepSeekMoE 经济训练",
+          "开源对标 GPT-3.5 以上"
+        ],
+        "stats": [
+          "236B 总参 / 21B 激活"
+        ],
+        "impact": "架构底座确立，行业价格战的导火索。"
+      }
+    },
+    {
+      "date": "2024-05-13",
+      "year": 2024,
+      "title": "GPT-4o",
+      "org": "OpenAI",
+      "cat": "mm",
+      "note": "原生端到端多模态，文本语音视觉单一模型打通",
+      "url": "https://openai.com/index/hello-gpt-4o/",
+      "detail": {
+        "bg": "多模态系统此前是多模型拼接流水线。",
+        "points": [
+          "单一模型端到端处理文本、音频、视觉",
+          "原生实时语音交互",
+          "音频响应进入 320 毫秒级"
+        ],
+        "stats": [
+          "2024 年 5 月发布"
+        ],
+        "impact": "全模态交互范式确立。"
+      }
+    },
+    {
+      "date": "2024-07-23",
+      "year": 2024,
+      "title": "Llama 3.1 405B",
+      "org": "Meta",
+      "cat": "open",
+      "note": "首个前沿级开源模型，许可首次允许输出用于改进他模",
+      "url": "https://arxiv.org/abs/2407.21783",
+      "detail": {
+        "bg": "开源与闭源的差距始终未消除。",
+        "points": [
+          "405B 前沿级开源",
+          "15T token 在 1.6 万张 H100 上训练",
+          "许可首次允许用输出改进其他模型"
+        ],
+        "stats": [
+          "官方评测对标 GPT-4 与 Claude 3.5"
+        ],
+        "impact": "开源天花板抬升，蒸馏与合成数据工作流合法化。"
+      }
+    },
+    {
+      "date": "2024-09-12",
+      "year": 2024,
+      "title": "OpenAI o1",
+      "org": "OpenAI",
+      "cat": "reason",
+      "note": "推理时计算正式登场，思考链从提示技巧变成训练目标",
+      "url": "https://openai.com/index/learning-to-reason-with-llms/",
+      "detail": {
+        "bg": "推理能力此前依赖提示技巧外置。",
+        "points": [
+          "长思维链内化进训练目标",
+          "推理时计算随思考时长扩展",
+          "隐藏思考过程的产品化决策"
+        ],
+        "stats": [
+          "2024 年 9 月发布"
+        ],
+        "impact": "推理时计算元年开启，DeepSeek-R1 随后跟进并开源。"
+      }
+    },
+    {
+      "date": "2024-10-21",
+      "year": 2024,
+      "title": "Mooncake",
+      "org": "Moonshot AI",
+      "cat": "sys",
+      "note": "KV cache 中心化推理服务平台，获 FAST 2025 最佳论文",
+      "url": "https://www.usenix.org/conference/fast25/presentation/qin",
+      "detail": {
+        "bg": "长上下文推理服务的成本集中爆发。",
+        "points": [
+          "KV cache 中心化池化调度",
+          "预填充与解码分离部署",
+          "支撑 Kimi 生产环境负载"
+        ],
+        "stats": [
+          "获 FAST 2025 最佳论文"
+        ],
+        "impact": "推理服务架构的论文范本，PD 分离范式普及。"
+      }
+    },
+    {
+      "date": "2024-12-26",
+      "year": 2024,
+      "title": "DeepSeek-V3",
+      "org": "DeepSeek",
+      "cat": "open",
+      "note": "671B 开源旗舰，FP8 训练与 MTP 目标，成本神话引发行业震动",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "detail": {
+        "bg": "前沿开源模型需要成本可行性的证明。",
+        "points": [
+          "无辅助损失负载均衡",
+          "MTP 多 token 预测训练目标",
+          "FP8 混合精度全链路训练"
+        ],
+        "stats": [
+          "671B/37B，完整训练仅 2.788M H800 小时"
+        ],
+        "impact": "成本叙事改变行业预期，R1 的基座。"
+      }
+    },
+    {
+      "date": "2025-01-20",
+      "year": 2025,
+      "title": "DeepSeek-R1",
+      "org": "DeepSeek",
+      "cat": "reason",
+      "note": "纯强化学习激励推理并全面开源，推理平权改变世界线",
+      "url": "https://arxiv.org/abs/2501.12948",
+      "detail": {
+        "bg": "o1 的训练配方完全闭源。",
+        "points": [
+          "纯强化学习涌现推理（R1-Zero）",
+          "冷启动加多阶段管线",
+          "权重、蒸馏族与报告全开源"
+        ],
+        "stats": [
+          "AIME 2024 79.8%，对标 o1"
+        ],
+        "impact": "推理平权，全球复现潮的起点。"
+      }
+    },
+    {
+      "date": "2025-01-22",
+      "year": 2025,
+      "title": "Kimi k1.5",
+      "org": "Moonshot AI",
+      "cat": "rl",
+      "note": "long2short 强化学习，压缩长思维链而不损失性能",
+      "url": "https://arxiv.org/abs/2501.12599",
+      "detail": {
+        "bg": "长思维链推理成本高。",
+        "points": [
+          "long2short 把长思维链压缩进短输出",
+          "长上下文强化学习",
+          "部分轨迹复用提升效率"
+        ],
+        "stats": [
+          "2025 年 1 月发布"
+        ],
+        "impact": "推理成本控制路线的代表。"
+      }
+    },
+    {
+      "date": "2025-03-18",
+      "year": 2025,
+      "title": "DAPO",
+      "org": "字节 Seed / 清华 / 港大",
+      "cat": "rl",
+      "note": "大规模 RL 训练系统与算法细节全公开",
+      "url": "https://arxiv.org/abs/2503.14476",
+      "detail": {
+        "bg": "大规模 RL 的关键细节被头部实验室封存。",
+        "points": [
+          "解耦裁剪、动态采样等四项关键技术",
+          "训练系统与算法细节全公开",
+          "基于 Qwen2.5-32B 复现 AIME 50 分"
+        ],
+        "stats": [
+          "2025 年 3 月发布"
+        ],
+        "impact": "RL 训练民主化，开源社区对齐配方。"
+      }
+    },
+    {
+      "date": "2025-04-29",
+      "year": 2025,
+      "title": "Qwen3",
+      "org": "阿里巴巴",
+      "cat": "open",
+      "note": "混合推理单模型双模式，思考与非思考无缝切换",
+      "url": "https://arxiv.org/abs/2505.09388",
+      "detail": {
+        "bg": "思考与非思考此前需要两个模型。",
+        "points": [
+          "单模型双模式无缝切换",
+          "四阶段后训练管线",
+          "36T token 预训练"
+        ],
+        "stats": [
+          "旗舰 235B-A22B 加全系八款开源"
+        ],
+        "impact": "混合推理成为主流形态。"
+      }
+    },
+    {
+      "date": "2025-05-30",
+      "year": 2025,
+      "title": "ProRL",
+      "org": "NVIDIA",
+      "cat": "rl",
+      "note": "延长 RL 训练时长突破推理能力天花板",
+      "url": "https://arxiv.org/abs/2505.24864",
+      "detail": {
+        "bg": "RL 阶段训练多久才算够没有答案。",
+        "points": [
+          "延长 RL 训练突破基座模型上限",
+          "给出训练曲线未饱和的证据",
+          "跨任务验证增益"
+        ],
+        "stats": [
+          "NVIDIA 2025 年发布"
+        ],
+        "impact": "推理时计算向训练时计算的反向延伸。"
+      }
+    },
+    {
+      "date": "2025-06-16",
+      "year": 2025,
+      "title": "MiniMax-M1",
+      "org": "MiniMax",
+      "cat": "arch",
+      "note": "闪电注意力支撑百万上下文，CISPO 强化学习配方",
+      "url": "https://arxiv.org/abs/2506.13585",
+      "detail": {
+        "bg": "长上下文智能体成本高。",
+        "points": [
+          "闪电注意力实现近线性复杂度",
+          "原生 45.6 万上下文，可扩展至百万",
+          "CISPO 算法稳定大规模 RL"
+        ],
+        "stats": [
+          "支持 1M token 上下文"
+        ],
+        "impact": "长上下文智能体的开源样本。"
+      }
+    },
+    {
+      "date": "2025-07-11",
+      "year": 2025,
+      "title": "Kimi K2",
+      "org": "Moonshot AI",
+      "cat": "open",
+      "note": "万亿参数开源 agentic 模型，MuonClip 解决大规模训练失稳",
+      "url": "https://arxiv.org/abs/2507.20534",
+      "detail": {
+        "bg": "智能体能力的训练数据稀缺。",
+        "points": [
+          "MuonClip 稳定万亿参数训练",
+          "大规模工具使用轨迹合成管线",
+          "1T 总参 32B 激活开源"
+        ],
+        "stats": [
+          "SWE-bench Verified 65.8%，开源领先"
+        ],
+        "impact": "智能体开源标杆。"
+      }
+    },
+    {
+      "date": "2025-07-24",
+      "year": 2025,
+      "title": "GSPO",
+      "org": "阿里巴巴 Qwen",
+      "cat": "rl",
+      "note": "序列级重要性采样，对 GRPO 稳定性的关键改进",
+      "url": "https://arxiv.org/abs/2507.18071",
+      "detail": {
+        "bg": "GRPO 在长序列上训练不稳定。",
+        "points": [
+          "序列级重要性采样替代 token 级",
+          "显著降低方差",
+          "成为 Qwen 训练标配"
+        ],
+        "stats": [
+          "2025 年 7 月发布"
+        ],
+        "impact": "RL 算法迭代进入工程深水区。"
+      }
+    },
+    {
+      "date": "2025-10-15",
+      "year": 2025,
+      "title": "ScaleRL",
+      "org": "Meta",
+      "cat": "scaling",
+      "note": "系统研究 RL 算力缩放曲线，后训练时代的缩放定律",
+      "url": "https://arxiv.org/abs/2510.13786",
+      "detail": {
+        "bg": "RL 阶段的算力该如何扩张没有规律可循。",
+        "points": [
+          "拟合 RL 计算的缩放曲线",
+          "给出预算分配建议",
+          "多任务验证可迁移性"
+        ],
+        "stats": [
+          "Meta 2025 年发布"
+        ],
+        "impact": "后训练时代的缩放定律框架。"
+      }
+    },
+    {
+      "date": "2026-04-26",
+      "year": 2026,
+      "title": "DeepSeek-V4",
+      "org": "DeepSeek",
+      "cat": "arch",
+      "note": "CSA 加 HCA 混合注意力攻克百万上下文成本，DSpark 投机解码内置",
+      "url": "https://arxiv.org/abs/2606.19348",
+      "detail": {
+        "bg": "百万上下文的推理成本不可承受。",
+        "points": [
+          "CSA 压缩稀疏注意力加 HCA 高压缩注意力",
+          "mHC 流形约束超连接",
+          "DSpark 投机解码内置"
+        ],
+        "stats": [
+          "1M 上下文下单 token FLOPs 仅为 V3.2 的 27%，KV cache 为 10%"
+        ],
+        "impact": "长上下文工程范式刷新。"
+      }
+    },
+    {
+      "date": "2026-07-07",
+      "year": 2026,
+      "title": "Nemotron-Labs-Diffusion",
+      "org": "NVIDIA",
+      "cat": "arch",
+      "note": "自回归、扩散、自推测三模态解码统一于单一架构",
+      "url": "https://arxiv.org/abs/2607.05722",
+      "detail": {
+        "bg": "自回归解码的串行瓶颈难以突破。",
+        "points": [
+          "仅切换注意力模式即可在自回归与扩散间转换",
+          "扩散起草加自回归验证的自推测",
+          "3B、8B、14B 模型族"
+        ],
+        "stats": [
+          "GB200 上 8B 达 850 tok/s，定制内核破千"
+        ],
+        "impact": "解码范式的第三条路。"
+      }
+    },
+    {
+      "date": "2026-07-14",
+      "year": 2026,
+      "title": "MiMo-V2.5",
+      "org": "小米",
+      "cat": "mm",
+      "note": "原生全模态模型，文本图像视频音频统一架构",
+      "url": "https://arxiv.org/abs/2607.13095",
+      "detail": {
+        "bg": "全模态模型多为编码器拼接。",
+        "points": [
+          "原生全模态统一架构",
+          "滑动窗口与全局注意力 5:1 混合",
+          "MTP 模块加速推理与 RL"
+        ],
+        "stats": [
+          "310B/15B，约 48T token 训练"
+        ],
+        "impact": "端云通用的全模态开源样本。"
+      }
+    },
+    {
+      "date": "2026-07-27",
+      "year": 2026,
+      "title": "Kimi K3",
+      "org": "Moonshot AI",
+      "cat": "arch",
+      "note": "2.8T 参数最大开源模型，KDA 线性注意力加 Stable LatentMoE",
+      "url": "https://arxiv.org/abs/2607.24653",
+      "detail": {
+        "bg": "开源模型在规模与效率上的双重极限探索。",
+        "points": [
+          "KDA 混合线性注意力",
+          "Stable LatentMoE 896 专家激活 16",
+          "MoonViT-V2 原生视觉"
+        ],
+        "stats": [
+          "2.8T 总参 / 104B 激活，百万 token 上下文"
+        ],
+        "impact": "迄今最大开源模型，架构效率叙事的顶点。"
+      }
+    }
   ]
 }
