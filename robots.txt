@@ -1,29 +1,2 @@
-# 大模型情报局 · LLM Papers Tracker
-# https://xplore-lab.github.io/llm-tracker
-# Data files are protected — do not scrape. Use the website directly.
-
 User-agent: *
-Disallow: /papers.json
-Disallow: /company-papers.json
-Disallow: /models.json
-Disallow: /models-extra.json
-Disallow: /models-figures.json
-Disallow: /learning-path.json
-Disallow: /timeline-data.json
-Disallow: /pdfs-index.json
-Disallow: /api/
-
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Google-Extended
 Disallow: /
