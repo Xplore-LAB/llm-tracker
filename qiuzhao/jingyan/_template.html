@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex, nosnippet">
+<!--
+  ═══════════════════════════════════════════════════════════════
+  面试经验文章模板 · 使用说明
+  ═══════════════════════════════════════════════════════════════
+  1. 复制本文件到 jingyan/<公司拼音-年份>/index.html
+  2. 全局替换以下占位符：
+       【公司名】   如：字节跳动
+       【届别】     如：2027 届校招 / 2026 暑期实习
+       【标题】     如：四大重点 AI 岗位解读
+       【原文链接】 微信/博客等来源 URL
+  3. 每个岗位复制一个 <section>，改 id 和配色类（all/eng/fse/pm，
+     也可在 :root 下新增 --c1/--c2 自定义色）
+  4. 面试真题用 .qa-card（点击展开），答案里用 <span class="lb">考察点</span> 标注
+  5. 完成后在 jingyan/index.html 的 grid 中加一张卡片（见该文件顶部注释）
+  ═══════════════════════════════════════════════════════════════
+-->
+<title>【公司名】【届别】·【标题】</title>
+<style>
+:root{
+  --paper:#f7f6f2; --panel:#ffffff; --ink:#2a2721; --ink2:#6b6759; --ink3:#a39e8f;
+  --line:#e7e4dc; --line2:#efece4;
+  --accent:#3d5a99; --accent-deep:#2c4271; --accent-soft:#eef2fa;
+  --gold:#b08d57; --gold-soft:#faf5ec;
+  --ok:#3d8a5a; --ok-soft:#edf6f0; --warn:#c05348; --warn-soft:#faf0ef;
+  --purple:#7a4dad; --purple-soft:#f3eef9;
+  --teal:#2a7a7a; --teal-soft:#e8f3f3;
+  --pink:#b04a6e; --pink-soft:#f9eef2;
+  --radius:10px; --shadow:0 1px 2px rgba(42,39,33,.05),0 6px 20px rgba(42,39,33,.06);
+  --serif:"Noto Serif SC","Songti SC","STSong",serif;
+  --sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.75}
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:0 24px;height:56px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+header .logo{font-family:var(--serif);font-size:16px;font-weight:700}
+header .logo em{font-style:normal;color:var(--accent)}
+header .crumb{font-size:13px;color:var(--ink2)}
+header .crumb a{color:var(--accent);text-decoration:none}
+header .crumb a:hover{text-decoration:underline}
+header .ext{margin-left:auto;display:flex;gap:8px}
+header .ext a{font-size:12px;color:var(--ink2);text-decoration:none;padding:5px 10px;border:1px solid var(--line);border-radius:6px}
+header .ext a:hover{border-color:var(--accent);color:var(--accent)}
+.page{max-width:940px;margin:0 auto;padding:28px 28px 100px}
+.hero{text-align:center;padding:30px 0 26px;border-bottom:2px solid var(--ink);margin-bottom:24px}
+.hero .en{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-family:var(--serif);font-size:30px;font-weight:800;letter-spacing:1px;line-height:1.4}
+.hero .sub{color:var(--ink2);margin-top:12px;font-size:14px}
+.hero .meta{margin-top:18px;font-size:12.5px;color:var(--ink3)}
+.hero .meta a{color:var(--accent);text-decoration:none}
+.hero .meta a:hover{text-decoration:underline}
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:0 0 36px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.toc a{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500}
+.toc a:hover{background:var(--accent-soft);color:var(--accent)}
+.toc .ico{font-size:18px}
+.toc .cnt{margin-left:auto;font-size:11px;color:var(--ink3);font-variant-numeric:tabular-nums}
+section{margin-bottom:48px;scroll-margin-top:70px}
+.pos-hero{display:flex;align-items:center;gap:18px;padding:24px;background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:24px;position:relative;overflow:hidden}
+.pos-hero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--accent)}
+.pos-hero.c2::before{background:var(--purple)}
+.pos-hero.c3::before{background:var(--teal)}
+.pos-hero.c4::before{background:var(--pink)}
+.pos-hero .ph-icon{font-size:42px;flex-shrink:0}
+.pos-hero .ph-info{flex:1}
+.pos-hero .ph-num{font-family:var(--serif);font-size:11px;letter-spacing:4px;color:var(--gold);margin-bottom:6px}
+.pos-hero h2{font-family:var(--serif);font-size:24px;font-weight:800;letter-spacing:1px;margin-bottom:4px}
+.pos-hero .ph-sub{font-size:13px;color:var(--ink2)}
+.pos-hero .ph-tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-top:8px;background:var(--accent-soft);color:var(--accent)}
+.pos-hero.c2 .ph-tag{background:var(--purple-soft);color:var(--purple)}
+.pos-hero.c3 .ph-tag{background:var(--teal-soft);color:var(--teal)}
+.pos-hero.c4 .ph-tag{background:var(--pink-soft);color:var(--pink)}
+.pos-hero .ph-stat{text-align:right;flex-shrink:0}
+.pos-hero .ph-stat .big{font-family:var(--serif);font-size:36px;font-weight:800;color:var(--accent);line-height:1}
+.pos-hero.c2 .ph-stat .big{color:var(--purple)}
+.pos-hero.c3 .ph-stat .big{color:var(--teal)}
+.pos-hero.c4 .ph-stat .big{color:var(--pink)}
+.pos-hero .ph-stat .lbl{font-size:11px;color:var(--ink3);margin-top:4px}
+.tags-line{display:flex;flex-wrap:wrap;gap:6px;padding:14px 18px;background:var(--paper);border:1px dashed var(--line);border-radius:8px;margin-bottom:18px}
+.tags-line .tag{font-size:12px;padding:3px 10px;background:var(--panel);border:1px solid var(--line2);border-radius:12px;color:var(--ink2)}
+.tags-line .tag.lead{background:var(--gold-soft);border-color:#e6d4a8;color:#7a5a2a;font-weight:600}
+h3{font-family:var(--serif);font-size:18px;font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--line2)}
+h3 .n{color:var(--gold);font-size:15px}
+.jd-intro{color:var(--ink2);font-size:14px;margin-bottom:16px;line-height:1.85}
+.jd-intro b{color:var(--ink)}
+.jd-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:18px}
+.jd-list ol{padding-left:24px}
+.jd-list li{margin-bottom:10px;font-size:14px;line-height:1.85}
+.jd-list li:last-child{margin-bottom:0}
+.jd-list li b{color:var(--accent);font-weight:600}
+.tips-card{background:var(--gold-soft);border:1px solid #e6d4a8;border-radius:var(--radius);padding:16px 20px;margin-bottom:18px}
+.tips-card .tt{font-family:var(--serif);font-size:13px;font-weight:700;color:#7a5a2a;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.tips-card ol{padding-left:22px}
+.tips-card li{margin-bottom:6px;font-size:14px;line-height:1.8}
+.qa-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px;overflow:hidden;transition:box-shadow .2s}
+.qa-card:hover{box-shadow:var(--shadow)}
+.qa-card .q{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
+.qa-card .q .idx{font-family:var(--serif);color:var(--gold);font-size:13px;font-weight:700;flex-shrink:0;margin-top:3px;font-variant-numeric:tabular-nums;min-width:32px}
+.qa-card .q .qt{font-weight:600;flex:1;font-size:14.5px;line-height:1.75}
+.qa-card .q .arrow{color:var(--ink3);flex-shrink:0;transition:transform .2s;font-size:11px;margin-top:6px}
+.qa-card.open .q .arrow{transform:rotate(90deg)}
+.qa-card .a{display:none;padding:14px 18px 16px 62px;border-top:1px dashed var(--line);background:#fdfdfc;font-size:14px;line-height:1.85}
+.qa-card.open .a{display:block}
+.qa-card .a b{color:var(--accent)}
+.qa-card .a .lb{display:block;font-size:11.5px;font-weight:700;letter-spacing:2px;color:var(--gold);margin:11px 0 4px}
+.qa-card .a .lb:first-child{margin-top:0}
+.qa-card .a .warn{display:inline-block;background:var(--warn-soft);color:var(--warn);font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:4px;margin-top:8px}
+.summary{background:linear-gradient(135deg,#eef2fa,#f3eef9);border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin-top:36px}
+.summary h3{font-family:var(--serif);font-size:17px;border:none;margin:0 0 10px;padding:0}
+.summary p{font-size:13.5px;color:var(--ink2);line-height:1.85;margin-bottom:8px}
+.summary p:last-child{margin-bottom:0}
+.foot{text-align:center;color:#8a94a6;font-size:.78rem;padding:2rem 1rem 1rem}
+.foot a{color:inherit}
+@media (max-width:720px){
+  .pos-hero{flex-direction:column;align-items:flex-start;text-align:left}
+  .pos-hero .ph-stat{text-align:left}
+  .page{padding:18px 16px 60px}
+  .hero h1{font-size:22px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">大模型情报局<em>·</em>校招</div>
+  <div class="crumb"><a href="../">面试经验库</a> / <span>【公司名】【届别】</span></div>
+  <div class="ext">
+    <a href="../../handbook/index.html">秋招手册</a>
+    <a href="../../arch/index.html">架构演进</a>
+    <a href="https://github.com/Xplore-LAB/llm-tracker" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</header>
+
+<div class="page">
+  <!-- ══ 文章头部：替换标题/副标题/来源链接 ══ -->
+  <div class="hero" id="top">
+    <div class="en">INTERVIEW EXPERIENCE</div>
+    <h1>【公司名】【届别】·【标题】</h1>
+    <div class="sub">一句话概述本文内容（岗位范围 / 内容类型）</div>
+    <div class="meta">整理日期 YYYY-MM-DD · 来源：<a href="【原文链接】" target="_blank" rel="noopener">原文标题 ↗</a></div>
+  </div>
+
+  <!-- ══ 目录：每个岗位一条，cnt 填该岗位真题数 ══ -->
+  <nav class="toc">
+    <a href="#p1"><span class="ico">🧠</span>岗位一名称<span class="cnt">N 题</span></a>
+    <a href="#p2"><span class="ico">⚡</span>岗位二名称<span class="cnt">N 题</span></a>
+    <!-- 更多岗位按需增加 -->
+  </nav>
+
+  <!-- ══════════ 岗位一（复制整个 section 可增加岗位）══════════ -->
+  <section id="p1">
+    <div class="pos-hero">
+      <div class="ph-icon">🧠</div>
+      <div class="ph-info">
+        <div class="ph-num">POSITION 01</div>
+        <h2>岗位名称</h2>
+        <div class="ph-sub">业务方向 / 团队一句话介绍</div>
+        <span class="ph-tag">标签</span>
+      </div>
+      <div class="ph-stat"><div class="big">N</div><div class="lbl">面试真题</div></div>
+    </div>
+
+    <div class="tags-line">
+      <span class="tag lead">重点方向</span>
+      <span class="tag">方向 A</span><span class="tag">方向 B</span><span class="tag">方向 C</span>
+    </div>
+
+    <h3><span class="n">01</span>招聘解读</h3>
+    <p class="jd-intro">岗位整体解读，<b>加粗关键结论</b>。</p>
+
+    <h3><span class="n">02</span>职位要求</h3>
+    <div class="jd-list">
+      <ol>
+        <li><b>要求一</b>：说明</li>
+        <li><b>要求二</b>：说明</li>
+      </ol>
+    </div>
+
+    <h3><span class="n">03</span>求职 Tips</h3>
+    <div class="tips-card">
+      <div class="tt">💡 备考建议</div>
+      <ol>
+        <li>建议一</li>
+        <li>建议二</li>
+      </ol>
+    </div>
+
+    <h3><span class="n">04</span>面试真题</h3>
+    <!-- 每道题一个 qa-card；点击展开；.lb 标注「考察点」「回答要点」 -->
+    <div class="qa-card">
+      <div class="q"><span class="idx">Q1</span><span class="qt">面试问题原文？</span><span class="arrow">▶</span></div>
+      <div class="a">
+        <span class="lb">考察点</span>该题考察什么
+        <span class="lb">回答要点</span><b>要点一</b>：展开说明。要点二：展开说明。
+        <span class="warn">⚠️ 常见误区（可选）</span>
+      </div>
+    </div>
+    <!-- 更多 qa-card ... -->
+  </section>
+
+  <!-- ══════════ 岗位二（class 换 c2，图标/编号同步改）══════════ -->
+  <section id="p2">
+    <div class="pos-hero c2">
+      <div class="ph-icon">⚡</div>
+      <div class="ph-info">
+        <div class="ph-num">POSITION 02</div>
+        <h2>岗位名称</h2>
+        <div class="ph-sub">业务方向</div>
+        <span class="ph-tag">标签</span>
+      </div>
+      <div class="ph-stat"><div class="big">N</div><div class="lbl">面试真题</div></div>
+    </div>
+    <!-- 结构同上，内容按需增删 -->
+  </section>
+
+  <!-- ══ 总结（可选）══ -->
+  <div class="summary">
+    <h3>📌 一句话总结</h3>
+    <p>本文核心结论。</p>
+  </div>
+
+  <div class="foot">🤖 <a href="https://xplore-lab.github.io/llm-tracker/">大模型情报局</a> · LLM 秋招资料包 · 原文：<a href="【原文链接】" target="_blank" rel="noopener">【原文标题】</a></div>
+</div>
+
+<script>
+/* 真题卡片点击展开/收起 */
+document.querySelectorAll('.qa-card .q').forEach(function(q){
+  q.addEventListener('click', function(){ q.closest('.qa-card').classList.toggle('open'); });
+});
+</script>
+</body>
+</html>
