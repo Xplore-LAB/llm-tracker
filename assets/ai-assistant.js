@@ -1,7 +1,9 @@
 /* ============================================================
-   可拖拽 AI 助手（大模型情报局）
-   · 悬浮球可拖到页面任意位置，点击展开对话面板
-   · 接入自己的 LLM API：修改下方 AI_CONFIG（OpenAI 兼容格式）
+   AI 助手 v2（大模型情报局）
+   · 深色玻璃悬浮球（右下角，可拖拽），点击展开毛玻璃对话面板
+   · 流式输出 + Markdown 渲染 + 快捷提问 + 页面上下文感知
+   · 自动适配深色 / 浅色页面
+   接入 LLM API：修改下方 AI_CONFIG（OpenAI 兼容格式）
    用法：页面 </body> 前引入
    <script src="/llm-tracker/assets/ai-assistant.js"></script>
    ============================================================ */
@@ -13,64 +15,157 @@
     endpoint: '',       // 例：https://your-proxy.com/v1/chat/completions
     apiKey: '',         // 浏览器直连会暴露 key，建议走自建中转/网关
     model: '',          // 例：deepseek-chat / gpt-4o-mini / qwen-plus
-    systemPrompt: '你是「大模型情报局」网站的 AI 助手，用简洁的中文回答用户关于大模型、AI 求职与面试的问题。',
-    welcome: '你好呀 👋 我是站内 AI 助手，可以把我拖到任何角落～\n目前还没有接入大模型 API：把配置填到 assets/ai-assistant.js 顶部的 AI_CONFIG（OpenAI 兼容格式），我就能真正回答问题了。'
+    systemPrompt: '你是「大模型情报局」网站的 AI 助手。用简洁的中文回答用户关于大模型、AI 求职与面试的问题；涉及代码时给出关键片段即可，回答控制在必要长度。',
+    welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。**按住我可以拖到任何角落**，面板标题栏也能拖动。\n\n（站点主人：把 API 配置填到 `assets/ai-assistant.js` 顶部的 `AI_CONFIG`，我就能真正回答问题了。）',
+    chips: [
+      { label: '🧠 Pre-Norm vs Post-Norm', text: '讲讲 Pre-Norm 和 Post-Norm 的区别，各自优缺点？' },
+      { label: '🎯 字节校招考什么', text: '字节 2027 校招大模型算法岗重点考察什么？' },
+      { label: '📚 RAG 原理', text: '用通俗的语言讲讲 RAG 的原理和典型流程？' }
+    ]
   };
   /* ============================================================= */
+
+  var CONFIGURED = !!(AI_CONFIG.endpoint && AI_CONFIG.model);
+  var ACCENT = 'linear-gradient(135deg,#6366f1,#8b5cf6)';
 
   /* ---------- 样式 ---------- */
   var css = document.createElement('style');
   css.textContent = [
-    '#ai-orb{position:fixed;right:26px;bottom:32px;z-index:2147483000;width:54px;height:54px;border-radius:50%;',
-    'background:linear-gradient(135deg,#4f6ef7,#8b5cf6);display:flex;align-items:center;justify-content:center;',
-    'box-shadow:0 6px 20px rgba(79,110,247,.45);cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;',
-    'transition:transform .18s ease,box-shadow .18s ease,background .18s ease;}',
-    '#ai-orb:hover{transform:scale(1.08);box-shadow:0 8px 26px rgba(79,110,247,.55);}',
-    '#ai-orb.on{transform:scale(.92);background:linear-gradient(135deg,#334155,#475569);}',
-    '#ai-orb.ai-dragging{cursor:grabbing;transform:scale(1.12);}',
-    '#ai-orb .ai-orb-ico{font-size:24px;line-height:1;pointer-events:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.2));}',
-    '',
-    '#ai-panel{position:fixed;right:26px;bottom:96px;z-index:2147483000;',
-    'width:min(340px,calc(100vw - 20px));height:min(480px,72vh);display:none;flex-direction:column;',
-    'border-radius:16px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,.08);',
-    'box-shadow:0 12px 40px rgba(15,23,42,.18);',
-    'font:13px/1.6 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#26303d;}',
-    '#ai-panel.show{display:flex;}',
-    '.ai-head{display:flex;align-items:center;gap:8px;padding:10px 12px;flex:none;',
-    'background:linear-gradient(135deg,#4f6ef7,#8b5cf6);color:#fff;cursor:grab;touch-action:none;',
-    'user-select:none;-webkit-user-select:none;}',
-    '.ai-head.ai-dragging{cursor:grabbing;}',
-    '.ai-head-ico{font-size:16px;}',
-    '.ai-head-title{font-weight:600;font-size:14px;}',
-    '.ai-head-hint{font-size:10px;opacity:.75;margin-left:auto;}',
-    '.ai-close{border:0;background:rgba(255,255,255,.18);color:#fff;width:22px;height:22px;border-radius:6px;',
-    'font-size:14px;line-height:1;cursor:pointer;padding:0;flex:none;}',
-    '.ai-close:hover{background:rgba(255,255,255,.32);}',
-    '.ai-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#fafbfd;}',
-    '.ai-m{max-width:84%;padding:8px 12px;border-radius:12px;white-space:pre-wrap;word-break:break-word;font-size:13px;}',
-    '.ai-m.u{align-self:flex-end;background:#4f6ef7;color:#fff;border-bottom-right-radius:4px;}',
-    '.ai-m.b{align-self:flex-start;background:#eef1f7;color:#26303d;border-bottom-left-radius:4px;}',
-    '.ai-typing{display:flex;gap:4px;align-items:center;padding:12px;}',
-    '.ai-typing span{width:6px;height:6px;border-radius:50%;background:#9aa6bd;animation:aiBlink 1.2s infinite;}',
-    '.ai-typing span:nth-child(2){animation-delay:.2s;}',
-    '.ai-typing span:nth-child(3){animation-delay:.4s;}',
+    /* ----- 悬浮球：深色玻璃 + 自绘星形图标 ----- */
+    '#ai-orb{position:fixed;right:26px;bottom:32px;z-index:2147483000;width:56px;height:56px;border-radius:50%;',
+    'background:radial-gradient(120% 120% at 30% 25%,#2b2f3f 0%,#16181f 55%,#101218 100%);',
+    'border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;',
+    'box-shadow:0 10px 28px rgba(8,10,18,.4),0 2px 6px rgba(8,10,18,.3),inset 0 1px 0 rgba(255,255,255,.14);',
+    'cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none;',
+    'transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s ease;}',
+    '#ai-orb:hover{transform:translateY(-3px) scale(1.06);',
+    'box-shadow:0 14px 34px rgba(99,102,241,.35),0 3px 8px rgba(8,10,18,.3),inset 0 1px 0 rgba(255,255,255,.18);}',
+    '#ai-orb:active{cursor:grabbing;}',
+    '#ai-orb.on{transform:scale(.9);opacity:.92;}',
+    '#ai-orb.ai-dragging{transform:scale(1.14);cursor:grabbing;}',
+    '#ai-orb svg{pointer-events:none;filter:drop-shadow(0 1px 3px rgba(0,0,0,.35));}',
+    '#ai-orb .ai-orb-ring{position:absolute;inset:-3px;border-radius:50%;pointer-events:none;',
+    'background:conic-gradient(from 210deg,rgba(99,102,241,.65),rgba(139,92,246,.5),rgba(99,102,241,.65));',
+    'opacity:.55;transition:opacity .25s ease;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2px));',
+    'mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2px));}',
+    '#ai-orb:hover .ai-orb-ring{opacity:1;}',
+
+    /* ----- 面板：毛玻璃 ----- */
+    '#ai-panel{position:fixed;right:26px;bottom:100px;z-index:2147483000;',
+    'width:min(380px,calc(100vw - 16px));height:min(540px,76vh);display:none;flex-direction:column;',
+    'border-radius:20px;overflow:hidden;',
+    'background:rgba(252,253,255,.88);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);',
+    'border:1px solid rgba(15,23,42,.1);box-shadow:0 24px 64px rgba(15,23,42,.22),0 4px 14px rgba(15,23,42,.08);',
+    'font:13px/1.65 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#26303d;',
+    'transform-origin:100% 100%;}',
+    '#ai-panel.show{display:flex;animation:aiPop .22s cubic-bezier(.34,1.3,.64,1);}',
+    '@keyframes aiPop{from{opacity:0;transform:scale(.94) translateY(8px);}to{opacity:1;transform:scale(1) translateY(0);}}',
+
+    /* ----- 头部 ----- */
+    '.ai-head{display:flex;align-items:center;gap:10px;padding:12px 14px;flex:none;cursor:grab;touch-action:none;',
+    'user-select:none;-webkit-user-select:none;background:rgba(255,255,255,.4);border-bottom:1px solid rgba(15,23,42,.07);}',
+    '.ai-head.ai-dragging{cursor:grabbing;background:rgba(255,255,255,.7);}',
+    '.ai-ava{width:32px;height:32px;border-radius:10px;flex:none;display:flex;align-items:center;justify-content:center;',
+    'background:' + ACCENT + ';box-shadow:0 3px 10px rgba(99,102,241,.4);}',
+    '.ai-tt{display:flex;flex-direction:column;gap:1px;min-width:0;}',
+    '.ai-name{font-weight:650;font-size:13.5px;letter-spacing:.2px;}',
+    '.ai-st{display:flex;align-items:center;gap:5px;font-size:10.5px;color:#6b7686;}',
+    '.ai-dot{width:6px;height:6px;border-radius:50%;flex:none;}',
+    '.ai-dot.ok{background:#10b981;box-shadow:0 0 6px rgba(16,185,129,.8);}',
+    '.ai-dot.off{background:#f59e0b;box-shadow:0 0 6px rgba(245,158,11,.7);}',
+    '.ai-close{border:0;background:transparent;color:#8a94a6;width:28px;height:28px;border-radius:8px;',
+    'font-size:16px;line-height:1;cursor:pointer;padding:0;flex:none;margin-left:auto;',
+    'transition:background .15s ease,color .15s ease;}',
+    '.ai-close:hover{background:rgba(15,23,42,.08);color:#26303d;}',
+
+    /* ----- 消息区 ----- */
+    '.ai-msgs{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:12px;',
+    'scrollbar-width:thin;scrollbar-color:rgba(120,130,150,.35) transparent;}',
+    '.ai-msgs::-webkit-scrollbar{width:5px;}',
+    '.ai-msgs::-webkit-scrollbar-thumb{background:rgba(120,130,150,.3);border-radius:3px;}',
+    '.ai-m{max-width:86%;padding:9px 13px;border-radius:14px;word-break:break-word;font-size:13px;}',
+    '.ai-m.u{align-self:flex-end;color:#fff;background:' + ACCENT + ';',
+    'border-bottom-right-radius:5px;box-shadow:0 3px 10px rgba(99,102,241,.3);white-space:pre-wrap;}',
+    '.ai-m.b{align-self:flex-start;background:rgba(15,23,42,.055);border-bottom-left-radius:5px;}',
+    '.ai-m.b p{margin:0 0 6px;}.ai-m.b p:last-child{margin-bottom:0;}',
+    '.ai-m.b .ai-br{height:6px;}',
+    '.ai-m.b .ai-h{font-weight:650;margin:4px 0 2px;font-size:13.5px;}',
+    '.ai-m.b .ai-ul{margin:2px 0;padding-left:18px;}',
+    '.ai-m.b .ai-ul li{margin:2px 0;}',
+    '.ai-ic{font-family:ui-monospace,Consolas,Menlo,monospace;font-size:12px;background:rgba(99,102,241,.12);',
+    'color:#4f46e5;padding:1px 5px;border-radius:5px;}',
+    '.ai-m.u .ai-ic{background:rgba(255,255,255,.22);color:#fff;}',
+    '.ai-code{background:#151820;color:#dbe2f0;border-radius:10px;padding:10px 12px;margin:6px 0;',
+    'overflow-x:auto;font:12px/1.55 ui-monospace,Consolas,Menlo,monospace;}',
+    '.ai-m.b a{color:#4f46e5;}',
+    '.ai-caret{display:inline-block;width:7px;height:14px;vertical-align:-2px;margin-left:2px;border-radius:2px;',
+    'background:#6366f1;animation:aiCaret .9s steps(2) infinite;}',
+    '@keyframes aiCaret{0%,49%{opacity:1;}50%,100%{opacity:0;}}',
+    '.ai-typing{display:flex;gap:5px;align-items:center;padding:12px 14px;background:rgba(15,23,42,.055);}',
+    '.ai-typing i{width:7px;height:7px;border-radius:50%;background:#8a94a6;animation:aiBlink 1.2s infinite;}',
+    '.ai-typing i:nth-child(2){animation-delay:.18s;}',
+    '.ai-typing i:nth-child(3){animation-delay:.36s;}',
     '@keyframes aiBlink{0%,80%,100%{opacity:.25;transform:translateY(0);}40%{opacity:1;transform:translateY(-3px);}}',
-    '.ai-input{display:flex;gap:8px;padding:10px;border-top:1px solid #edf0f5;background:#fff;flex:none;}',
-    '.ai-input textarea{flex:1;resize:none;border:1px solid #dde3ec;border-radius:10px;padding:9px 12px;',
-    'font-family:inherit;font-size:13px;line-height:1.5;outline:none;max-height:96px;color:#26303d;background:#fff;}',
-    '.ai-input textarea:focus{border-color:#4f6ef7;}',
-    '.ai-send{border:0;width:40px;height:40px;flex:none;border-radius:10px;cursor:pointer;',
-    'background:linear-gradient(135deg,#4f6ef7,#8b5cf6);color:#fff;font-size:15px;line-height:1;}',
-    '.ai-send:hover{filter:brightness(1.08);}',
-    '.ai-send:disabled{opacity:.5;cursor:default;}'
+
+    /* ----- 快捷提问 ----- */
+    '.ai-chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 10px;flex:none;}',
+    '.ai-chip{border:1px solid rgba(99,102,241,.35);background:rgba(99,102,241,.07);color:#4f46e5;',
+    'border-radius:999px;padding:5px 11px;font-size:11.5px;cursor:pointer;font-family:inherit;line-height:1.3;',
+    'transition:background .15s ease,transform .15s ease;}',
+    '.ai-chip:hover{background:rgba(99,102,241,.14);transform:translateY(-1px);}',
+
+    /* ----- 输入区 ----- */
+    '.ai-input{display:flex;gap:8px;align-items:flex-end;padding:10px 12px 12px;flex:none;',
+    'background:rgba(255,255,255,.5);border-top:1px solid rgba(15,23,42,.07);}',
+    '.ai-input textarea{flex:1;resize:none;border:1.5px solid rgba(15,23,42,.12);border-radius:13px;',
+    'padding:9px 12px;font-family:inherit;font-size:13px;line-height:1.5;outline:none;max-height:100px;',
+    'color:#26303d;background:rgba(255,255,255,.75);transition:border-color .15s ease,box-shadow .15s ease;}',
+    '.ai-input textarea:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12);}',
+    '.ai-send{border:0;width:38px;height:38px;flex:none;border-radius:12px;cursor:pointer;',
+    'background:' + ACCENT + ';color:#fff;display:flex;align-items:center;justify-content:center;',
+    'box-shadow:0 3px 10px rgba(99,102,241,.35);transition:transform .15s ease,filter .15s ease;}',
+    '.ai-send:hover{filter:brightness(1.1);transform:translateY(-1px);}',
+    '.ai-send:disabled{opacity:.45;cursor:default;transform:none;}',
+
+    /* ----- 深色页面适配 ----- */
+    '.ai-dark #ai-panel{background:rgba(21,24,33,.9);border-color:rgba(255,255,255,.1);color:#dde3ef;',
+    'box-shadow:0 24px 64px rgba(0,0,0,.55),0 4px 14px rgba(0,0,0,.3);}',
+    '.ai-dark .ai-head{background:rgba(255,255,255,.04);border-bottom-color:rgba(255,255,255,.08);}',
+    '.ai-dark .ai-head.ai-dragging{background:rgba(255,255,255,.08);}',
+    '.ai-dark .ai-name{color:#f1f4fa;}',
+    '.ai-dark .ai-st{color:#9aa5b8;}',
+    '.ai-dark .ai-close{color:#9aa5b8;}',
+    '.ai-dark .ai-close:hover{background:rgba(255,255,255,.1);color:#fff;}',
+    '.ai-dark .ai-m.b{background:rgba(255,255,255,.07);}',
+    '.ai-dark .ai-ic{background:rgba(129,140,248,.18);color:#a5b4fc;}',
+    '.ai-dark .ai-m.b a{color:#a5b4fc;}',
+    '.ai-dark .ai-chip{border-color:rgba(129,140,248,.4);background:rgba(129,140,248,.1);color:#a5b4fc;}',
+    '.ai-dark .ai-chip:hover{background:rgba(129,140,248,.18);}',
+    '.ai-dark .ai-input{background:rgba(255,255,255,.03);border-top-color:rgba(255,255,255,.08);}',
+    '.ai-dark .ai-input textarea{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#e6eaf4;}',
+    '.ai-dark .ai-input textarea:focus{border-color:#818cf8;box-shadow:0 0 0 3px rgba(129,140,248,.15);}',
+    '.ai-dark .ai-msgs{scrollbar-color:rgba(255,255,255,.2) transparent;}',
+    '.ai-dark .ai-msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);}'
   ].join('\n');
   (document.head || document.documentElement).appendChild(css);
+
+  /* ---------- 图标 ---------- */
+  function iconSparkle(size, fill) {
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none">' +
+      '<path d="M11 3.5c.3 3.4 2.1 5.2 5.5 5.5-3.4.3-5.2 2.1-5.5 5.5-.3-3.4-2.1-5.2-5.5-5.5 3.4-.3 5.2-2.1 5.5-5.5z" fill="' + fill + '"/>' +
+      '<path d="M17.5 13.5c.18 2 .18 2 2.5 2.3-2 .18-2 .18-2.3 2.5-.18-2-.18-2-2.5-2.3 2-.18 2-.18 2.3-2.5z" fill="' + fill + '" opacity=".6"/>' +
+      '<circle cx="5.5" cy="17.5" r="1.6" fill="' + fill + '" opacity=".45"/></svg>';
+  }
+  function iconSend() {
+    return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none">' +
+      '<path d="M12 19V5M5 12l7-7 7 7" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
 
   /* ---------- 悬浮球 ---------- */
   var orb = document.createElement('div');
   orb.id = 'ai-orb';
   orb.title = 'AI 助手（按住可拖拽）';
-  orb.innerHTML = '<span class="ai-orb-ico">🤖</span>';
+  orb.innerHTML = '<span class="ai-orb-ring"></span>' + iconSparkle(27, '#e8ebff');
   document.body.appendChild(orb);
 
   /* ---------- 对话面板 ---------- */
@@ -78,19 +173,24 @@
   panel.id = 'ai-panel';
   panel.innerHTML =
     '<div class="ai-head">' +
-    '<span class="ai-head-ico">🤖</span>' +
-    '<span class="ai-head-title">AI 助手</span>' +
-    '<span class="ai-head-hint">按住可拖拽</span>' +
-    '<button class="ai-close" title="收起">×</button>' +
+    '<div class="ai-ava">' + iconSparkle(18, '#fff') + '</div>' +
+    '<div class="ai-tt">' +
+    '<span class="ai-name">情报局 AI 助手</span>' +
+    '<span class="ai-st"><i class="ai-dot ' + (CONFIGURED ? 'ok' : 'off') + '"></i>' +
+    (CONFIGURED ? '在线 · 可对话' : '未接入 API') + ' · 按住标题拖动</span>' +
+    '</div>' +
+    '<button class="ai-close" title="收起（Esc）">×</button>' +
     '</div>' +
     '<div class="ai-msgs"></div>' +
+    '<div class="ai-chips"></div>' +
     '<div class="ai-input">' +
-    '<textarea rows="1" placeholder="有问题尽管问…（Enter 发送）"></textarea>' +
-    '<button class="ai-send" title="发送">➤</button>' +
+    '<textarea rows="1" placeholder="问点什么…（Enter 发送 / Shift+Enter 换行）"></textarea>' +
+    '<button class="ai-send" title="发送">' + iconSend() + '</button>' +
     '</div>';
   document.body.appendChild(panel);
 
   var msgs = panel.querySelector('.ai-msgs');
+  var chipsBox = panel.querySelector('.ai-chips');
   var ta = panel.querySelector('textarea');
   var sendBtn = panel.querySelector('.ai-send');
   var closeBtn = panel.querySelector('.ai-close');
@@ -102,6 +202,21 @@
 
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
 
+  /* ---------- 深浅色检测 ---------- */
+  function pageIsDark() {
+    var el = document.body;
+    var bg = getComputedStyle(el).backgroundColor;
+    var m = bg && bg.match(/\d+(\.\d+)?/g);
+    if (!m || m.length < 3) {
+      el = document.documentElement;
+      bg = getComputedStyle(el).backgroundColor;
+      m = bg && bg.match(/\d+(\.\d+)?/g);
+    }
+    if (!m || m.length < 3) return false;
+    return (0.299 * +m[0] + 0.587 * +m[1] + 0.114 * +m[2]) / 255 < 0.45;
+  }
+  if (pageIsDark()) document.documentElement.classList.add('ai-dark');
+
   /* 恢复上次拖放的位置 */
   try {
     var p = JSON.parse(localStorage.getItem(POS_KEY) || 'null');
@@ -112,7 +227,7 @@
     }
   } catch (e) {}
 
-  /* ---------- 拖拽 + 点击（位移超过 6px 视为拖拽，否则视为点击） ---------- */
+  /* ---------- 拖拽 + 点击 ---------- */
   function draggable(el, handle, onClick) {
     handle.addEventListener('pointerdown', function (e) {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
@@ -154,22 +269,24 @@
   function openPanel() {
     panel.classList.add('show');
     orb.classList.add('on');
-    if (!msgs.childElementCount) addMsg('b', AI_CONFIG.welcome);
+    if (!msgs.childElementCount) {
+      addMsg('b', AI_CONFIG.welcome);
+      renderChips();
+    }
     if (!panel.style.left) {
-      /* 首次打开：面板出现在悬浮球附近（小屏居中） */
       var r = orb.getBoundingClientRect();
-      var w = panel.offsetWidth || 340, h = panel.offsetHeight || 460;
+      var w = panel.offsetWidth || 380, h = panel.offsetHeight || 540;
       var x, y;
-      if (window.innerWidth < 480) { x = (window.innerWidth - w) / 2; y = 60; }
-      else { x = clamp(r.left - w + 54, 8, window.innerWidth - w - 8); y = clamp(r.top - h, 8, window.innerHeight - h - 8); }
+      if (window.innerWidth < 480) { x = (window.innerWidth - w) / 2; y = clamp((window.innerHeight - h) / 2, 8, 60); }
+      else { x = clamp(r.left - w + 56, 8, window.innerWidth - w - 8); y = clamp(r.top - h - 12, 8, window.innerHeight - h - 8); }
       panel.style.left = x + 'px'; panel.style.top = y + 'px';
     }
     try { ta.focus(); } catch (e) {}
   }
   function closePanel() { panel.classList.remove('show'); orb.classList.remove('on'); }
 
-  draggable(orb, orb, openPanel);   // 球：点击开面板
-  draggable(panel, head, null);     // 面板：拖标题栏移动
+  draggable(orb, orb, openPanel);
+  draggable(panel, head, null);
   closeBtn.addEventListener('click', closePanel);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePanel(); });
   window.addEventListener('resize', function () {
@@ -178,11 +295,51 @@
     orb.style.top = clamp(r.top, 0, Math.max(0, window.innerHeight - r.height)) + 'px';
   });
 
+  /* ---------- Markdown 简易渲染 ---------- */
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function inline(s) {
+    return s
+      .replace(/`([^`]+)`/g, '<code class="ai-ic">$1</code>')
+      .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+      .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  }
+  function md(src) {
+    var out = '', inCode = false, codeBuf = '';
+    var lines = esc(src).split('\n');
+    var listOpen = false;
+    function closeList() { if (listOpen) { out += '</ul>'; listOpen = false; } }
+    for (var i = 0; i < lines.length; i++) {
+      var l = lines[i];
+      if (/^\s*```/.test(l)) {
+        if (!inCode) { closeList(); inCode = true; codeBuf = ''; }
+        else { inCode = false; out += '<pre class="ai-code"><code>' + codeBuf + '</code></pre>'; }
+        continue;
+      }
+      if (inCode) { codeBuf += l + '\n'; continue; }
+      var h = l.match(/^\s*#{1,4}\s+(.*)$/);
+      if (h) { closeList(); out += '<div class="ai-h">' + inline(h[1]) + '</div>'; continue; }
+      var li = l.match(/^\s*(?:[-*•]|\d+[.)])\s+(.*)$/);
+      if (li) {
+        if (!listOpen) { out += '<ul class="ai-ul">'; listOpen = true; }
+        out += '<li>' + inline(li[1]) + '</li>'; continue;
+      }
+      closeList();
+      if (l.trim() === '') out += '<div class="ai-br"></div>';
+      else out += '<p>' + inline(l) + '</p>';
+    }
+    if (inCode) out += '<pre class="ai-code"><code>' + codeBuf + '</code></pre>';
+    closeList();
+    return out;
+  }
+
   /* ---------- 消息 ---------- */
   function addMsg(role, text) {
     var d = document.createElement('div');
     d.className = 'ai-m ' + (role === 'u' ? 'u' : 'b');
-    d.textContent = text;
+    if (role === 'u') d.textContent = text;
+    else d.innerHTML = md(text);
     msgs.appendChild(d);
     msgs.scrollTop = msgs.scrollHeight;
     return d;
@@ -190,60 +347,149 @@
   function addTyping() {
     var d = document.createElement('div');
     d.className = 'ai-m b ai-typing';
-    d.innerHTML = '<span></span><span></span><span></span>';
+    d.innerHTML = '<i></i><i></i><i></i>';
     msgs.appendChild(d);
     msgs.scrollTop = msgs.scrollHeight;
     return d;
+  }
+  function renderChips() {
+    if (!AI_CONFIG.chips || !AI_CONFIG.chips.length) return;
+    AI_CONFIG.chips.forEach(function (c) {
+      var b = document.createElement('button');
+      b.className = 'ai-chip';
+      b.textContent = c.label;
+      b.addEventListener('click', function () {
+        chipsBox.innerHTML = '';
+        ta.value = c.text;
+        send();
+      });
+      chipsBox.appendChild(b);
+    });
+  }
+
+  /* ---------- 页面上下文 ---------- */
+  function systemWithPage() {
+    var t = (document.title || '').slice(0, 80);
+    return AI_CONFIG.systemPrompt + '\n\n当前用户正在浏览的页面：' + t + '（' + location.href + '）。回答时可结合该页面内容。';
+  }
+
+  /* ---------- 流式请求 ---------- */
+  function streamChat(payloadMsgs, onDelta, onDone, onErr) {
+    var headers = { 'Content-Type': 'application/json' };
+    if (AI_CONFIG.apiKey) headers['Authorization'] = 'Bearer ' + AI_CONFIG.apiKey;
+    fetch(AI_CONFIG.endpoint, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify({ model: AI_CONFIG.model, messages: payloadMsgs, stream: true })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      var ct = r.headers.get('content-type') || '';
+      /* 非流式接口：直接读 JSON */
+      if (ct.indexOf('event-stream') === -1) {
+        return r.json().then(function (d) {
+          var m = d && d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content;
+          if (m) onDelta(m);
+          onDone();
+        });
+      }
+      var reader = r.body.getReader();
+      var dec = new TextDecoder();
+      var buf = '';
+      function pump() {
+        reader.read().then(function (res) {
+          if (res.done) { onDone(); return; }
+          buf += dec.decode(res.value, { stream: true });
+          var lines = buf.split('\n');
+          buf = lines.pop();
+          for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
+            if (line.indexOf('data:') !== 0) continue;
+            var data = line.slice(5).trim();
+            if (data === '[DONE]') { onDone(); return; }
+            try {
+              var j = JSON.parse(data);
+              var c = j.choices && j.choices[0];
+              var delta = (c && ((c.delta && c.delta.content) || (c.message && c.message.content))) || '';
+              if (delta) onDelta(delta);
+            } catch (e) {}
+          }
+          pump();
+        }).catch(onErr);
+      }
+      pump();
+    }).catch(onErr);
   }
 
   /* ---------- 发送 ---------- */
   function send() {
     var text = ta.value.trim();
     if (!text || busy) return;
+    chipsBox.innerHTML = '';
     addMsg('u', text);
     ta.value = '';
+    ta.style.height = 'auto';
     history.push({ role: 'user', content: text });
     busy = true; sendBtn.disabled = true;
-    var tip = addTyping();
 
-    function done(reply) {
-      tip.remove();
+    /* 未配置 API：友好提示 */
+    if (!CONFIGURED) {
+      var tip = addTyping();
+      setTimeout(function () {
+        tip.remove();
+        var reply = '收到：「' + (text.length > 40 ? text.slice(0, 40) + '…' : text) + '」\n\n' +
+          '我还没接入 LLM API。\n站点主人请打开 `assets/ai-assistant.js`，填好顶部 `AI_CONFIG` 的 endpoint / apiKey / model（OpenAI 兼容格式），我就能认真回答了。';
+        addMsg('b', reply);
+        history.push({ role: 'assistant', content: reply });
+        busy = false; sendBtn.disabled = false;
+      }, 600);
+      return;
+    }
+
+    var payloadMsgs = [{ role: 'system', content: systemWithPage() }].concat(history.slice(-20));
+    var bubble = null, acc = '', finished = false;
+
+    function ensureBubble() {
+      if (!bubble) bubble = addMsg('b', '');
+    }
+    function onDelta(delta) {
+      ensureBubble();
+      acc += delta;
+      bubble.innerHTML = md(acc) + '<span class="ai-caret"></span>';
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+    function onDone() {
+      if (finished) return;
+      finished = true;
+      ensureBubble();
+      bubble.innerHTML = md(acc || '（接口未返回内容）');
+      history.push({ role: 'assistant', content: acc });
+      busy = false; sendBtn.disabled = false;
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+    function onErr(err) {
+      if (finished) return;
+      finished = true;
+      if (bubble) bubble.remove();
+      var reply = '⚠️ 请求失败：' + err.message + '\n\n请检查 `AI_CONFIG` 里的 endpoint / apiKey / model 是否正确，或稍后重试。';
       addMsg('b', reply);
       history.push({ role: 'assistant', content: reply });
       busy = false; sendBtn.disabled = false;
     }
 
-    /* 未配置 API：给出友好提示 */
-    if (!AI_CONFIG.endpoint || !AI_CONFIG.model) {
-      setTimeout(function () {
-        done('收到：「' + (text.length > 40 ? text.slice(0, 40) + '…' : text) + '」\n\n' +
-          '我还没接入 LLM API 😅\n打开 assets/ai-assistant.js，填好顶部 AI_CONFIG 的 endpoint / apiKey / model（OpenAI 兼容格式），我就能认真回答了。');
-      }, 600);
-      return;
-    }
+    var tip = addTyping();
+    /* 收到首个 delta 时移除打字动画 */
+    var origOnDelta = onDelta;
+    onDelta = function (d) { if (tip) { tip.remove(); tip = null; } origOnDelta(d); };
 
-    /* 已配置：调用 OpenAI 兼容接口 */
-    var payloadMsgs = [{ role: 'system', content: AI_CONFIG.systemPrompt }].concat(history.slice(-20));
-    var headers = { 'Content-Type': 'application/json' };
-    if (AI_CONFIG.apiKey) headers['Authorization'] = 'Bearer ' + AI_CONFIG.apiKey;
-
-    fetch(AI_CONFIG.endpoint, {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify({ model: AI_CONFIG.model, messages: payloadMsgs })
-    }).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    }).then(function (d) {
-      var m = d && d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content;
-      done(m || '（接口返回了无法识别的格式）');
-    }).catch(function (err) {
-      done('⚠️ 请求失败：' + err.message);
-    });
+    streamChat(payloadMsgs, onDelta, onDone, onErr);
   }
 
   sendBtn.addEventListener('click', send);
   ta.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+  });
+  ta.addEventListener('input', function () {
+    ta.style.height = 'auto';
+    ta.style.height = Math.min(ta.scrollHeight, 100) + 'px';
   });
 })();
