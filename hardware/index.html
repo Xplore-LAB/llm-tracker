@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--
+  硬件志 · GPU 基础 — 大模型情报局
+  https://xplore-lab.github.io/llm-tracker/hardware/
+  GitHub: https://github.com/Xplore-LAB/llm-tracker
+  Original project by Xplore-LAB. Forkers: please keep this attribution.
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="Xplore-LAB (github.com/Xplore-LAB/llm-tracker)">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GPU 硬件基础：术语速查、发展时间线、厂商格局、显卡分类、硬件深挖、常见问题与显存计算器。">
+<meta property="og:title" content="硬件志 · 大模型情报局">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5b4632">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧮</text></svg>">
+<title>硬件志 · 大模型情报局</title>
+<script>try{if(localStorage.getItem('llm_theme')==='dark'||(!localStorage.getItem('llm_theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#ece1cb;color:#3b3128;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.52 0 0 0 0 0.44 0 0 0 0 0.31 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.bg{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(640px 420px at 12% 6%,rgba(156,90,68,.10),transparent 60%),radial-gradient(720px 520px at 88% 30%,rgba(122,122,82,.10),transparent 60%),radial-gradient(620px 520px at 18% 88%,rgba(138,109,79,.10),transparent 60%)}
+header{background:linear-gradient(160deg,#3d2f23,#5b4632 55%,#3d2f23);color:#f3e8d2;padding:2.2rem 2rem 1.8rem;text-align:center;position:relative;z-index:1;border-bottom:4px solid #8a6d4f}
+header h1{font-family:Georgia,'Songti SC','SimSun',serif;font-size:2rem;letter-spacing:.14em;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+header p{opacity:.75;font-size:.85rem;margin-top:.4rem;letter-spacing:.12em;color:#d9c8a6}
+.tabs{display:flex;justify-content:center;gap:.6rem;padding:.8rem;background:rgba(243,234,216,.93);backdrop-filter:blur(8px);border-bottom:1px solid #d8c8a8;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.tab{padding:.45rem 1.1rem;border-radius:2rem;border:2px solid #8a6d4f;background:rgba(248,242,228,.9);font-weight:600;font-size:.82rem;text-decoration:none;color:#6b5138;transition:all .2s}
+.tab:hover,.tab.active{background:#6b5138;color:#f3e8d2}
+/* overview */
+.stats{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;padding:1rem 1rem .2rem;position:relative;z-index:1}
+.stat{background:rgba(248,242,228,.88);border:1px solid #e0d2b4;border-radius:1rem;padding:.35rem 1rem;font-size:.78rem;color:#6d5f4c;box-shadow:0 2px 8px rgba(107,81,56,.08)}
+.stat b{color:#6b5138;font-size:.95rem;margin-right:.15rem}
+.era-grid{display:flex;flex-direction:column;max-width:980px;margin:1.2rem auto 3rem;padding:0 1.2rem;position:relative;z-index:1}
+.era-card{position:relative;width:46%;background:rgba(248,242,228,.88);border:1px solid #e0d2b4;border-radius:14px;padding:1rem 1.15rem;cursor:pointer;box-shadow:0 5px 18px rgba(107,81,56,.12),inset 3px 0 0 var(--ec);transition:transform .25s,box-shadow .25s}
+.era-card:nth-of-type(odd){align-self:flex-start;transform:rotate(-.6deg)}
+.era-card:nth-of-type(even){align-self:flex-end;transform:rotate(.5deg)}
+.era-card:hover{transform:translateY(-3px) rotate(0deg);box-shadow:0 12px 28px rgba(107,81,56,.22),inset 3px 0 0 var(--ec)}
+.era-link{display:block;height:56px;position:relative;pointer-events:none}
+.era-link svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.era-link path{fill:none;stroke:#b09a72;stroke-width:2.2;stroke-dasharray:7 7;stroke-linecap:round}
+.era-link circle{fill:#b09a72}
+.era-name{font-family:Georgia,'Songti SC',serif;font-size:1.08rem;font-weight:700;color:#3b3128;padding-right:3rem}
+.era-span{font-size:.7rem;color:var(--ec);font-weight:700;letter-spacing:.06em;margin:.1rem 0 .3rem}
+.era-desc{font-size:.76rem;color:#8a7a5f;line-height:1.5}
+.era-go{position:absolute;top:.95rem;right:1rem;font-size:.72rem;font-weight:700;color:var(--ec)}
+/* chapter head + generic section */
+.era-head{max-width:980px;margin:1.2rem auto .8rem;padding:0 1.2rem;position:relative;z-index:1;display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+.back-btn{font-size:.78rem;font-weight:600;color:#6b5138;background:rgba(248,242,228,.9);border:1.5px solid #8a6d4f;border-radius:1rem;padding:.35rem .9rem;cursor:pointer;align-self:center}
+.back-btn:hover{background:#6b5138;color:#f3e8d2}
+.era-head h2{font-family:Georgia,'Songti SC',serif;font-size:1.35rem;color:#3b3128}
+.era-head .sub{font-size:.78rem;color:#8a7a5f}
+.wrap{max-width:980px;margin:0 auto 3rem;padding:0 1.2rem;position:relative;z-index:1}
+.panel{background:rgba(248,242,228,.9);border:1px solid #e0d2b4;border-radius:14px;padding:1rem 1.2rem;margin-bottom:1rem;box-shadow:0 5px 18px rgba(107,81,56,.1)}
+.panel h3{font-family:Georgia,'Songti SC',serif;font-size:1rem;color:#3b3128;margin-bottom:.5rem}
+.panel .intro{font-size:.8rem;color:#6d5f4c;line-height:1.65;margin-bottom:.5rem}
+.note-line{font-size:.78rem;color:#9c5a44;line-height:1.6;border-top:1px dashed #d8c8a8;padding-top:.5rem;margin-top:.5rem}
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:.78rem;background:rgba(255,252,245,.6)}
+.tbl th{background:rgba(138,109,79,.14);color:#6b5138;font-weight:700;text-align:left;padding:.45rem .6rem;border:1px solid #e0d2b4;white-space:nowrap}
+.tbl td{padding:.45rem .6rem;border:1px solid #e8dcc4;color:#5d4f3d;line-height:1.5;vertical-align:top}
+.tbl tr:nth-child(even) td{background:rgba(138,109,79,.05)}
+.tbl-wrap{overflow-x:auto}
+/* term search */
+.term-search{width:100%;max-width:340px;padding:.5rem .9rem;border:1.5px solid #c9b48c;border-radius:1.5rem;background:rgba(255,252,245,.9);font-size:.85rem;outline:none;color:#3b3128;margin-bottom:.7rem}
+.term-search:focus{border-color:#8a6d4f}
+/* vendor cards */
+.vendor{background:rgba(248,242,228,.9);border:1px solid #e0d2b4;border-radius:14px;padding:1rem 1.2rem;margin-bottom:1rem;box-shadow:0 5px 18px rgba(107,81,56,.1),inset 3px 0 0 #8a6d4f}
+.vendor h3{font-family:Georgia,'Songti SC',serif;font-size:1.1rem;color:#3b3128}
+.vendor .vpos{font-size:.76rem;color:#9c5a44;font-weight:600;margin:.15rem 0 .5rem;line-height:1.5}
+.vendor h6{font-size:.7rem;color:#8a6d4f;letter-spacing:.08em;margin:.5rem 0 .2rem}
+.vendor li,.vendor p{font-size:.79rem;color:#6d5f4c;line-height:1.65}
+.vendor ul{padding-left:1.1rem}
+.vendor .vstory{font-size:.79rem;color:#6d5f4c;line-height:1.65;border-top:1px dashed #d8c8a8;padding-top:.5rem;margin-top:.5rem;font-style:italic}
+/* faq */
+.faq{background:rgba(248,242,228,.9);border:1px solid #e0d2b4;border-radius:14px;margin-bottom:.8rem;box-shadow:0 4px 14px rgba(107,81,56,.09);overflow:hidden}
+.faq-q{padding:.85rem 1.1rem;cursor:pointer;font-weight:700;font-size:.9rem;color:#3b3128;display:flex;align-items:center;gap:.5rem;user-select:none;font-family:Georgia,'Songti SC',serif}
+.faq-q:hover{background:rgba(138,109,79,.06)}
+.faq-q .arr{margin-left:auto;color:#8a6d4f;transition:transform .2s}
+.faq.open .faq-q .arr{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 1.1rem .9rem}
+.faq.open .faq-a{display:block}
+.faq-concl{font-size:.82rem;color:#9c5a44;font-weight:700;line-height:1.6;margin-bottom:.4rem}
+.faq-a p{font-size:.79rem;color:#6d5f4c;line-height:1.65;margin-bottom:.4rem}
+/* timeline tree (simplified reuse) */
+.tree{position:relative;max-width:860px;margin:1rem auto 0;padding:1rem 0 3rem}
+.spine{position:absolute;left:50%;top:0;bottom:0;width:4px;transform:translateX(-50%);border-radius:4px;background:linear-gradient(180deg,#8a6d4f,#9c5a44,#7a7a52,#6e6259,#8a6d4f);box-shadow:0 0 10px rgba(107,81,56,.35)}
+.year-node{position:relative;display:flex;justify-content:center;margin:2rem 0 1.2rem;z-index:2}
+.medal{min-width:76px;height:52px;border-radius:2rem;display:flex;align-items:center;justify-content:center;padding:0 1rem;background:radial-gradient(circle at 34% 30%,#f8f0dd,#eadcbc 72%,#ddcda6);border:3px solid #8a6d4f;box-shadow:0 0 0 5px rgba(138,109,79,.14),0 6px 16px rgba(107,81,56,.25)}
+.medal span{font-family:Georgia,'Songti SC',serif;font-size:1.05rem;font-weight:700;color:#6b5138}
+.ev{position:relative;width:50%;padding:.4rem 2.8rem 1.2rem;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;z-index:2}
+.ev.show{opacity:1;transform:none}
+.ev.left{left:0;text-align:right}
+.ev.right{left:50%;text-align:left}
+.vnode{position:absolute;top:1.2rem;width:15px;height:15px;border-radius:50%;background:var(--c);border:3px solid #f3ead8;box-shadow:0 0 0 2.5px var(--c),0 0 10px rgba(107,81,56,.4)}
+.ev.left .vnode{right:-8px}
+.ev.right .vnode{left:-8px}
+.card{display:inline-block;max-width:100%;text-align:left;border-radius:12px;padding:.7rem 1rem;background:rgba(248,242,228,.9);border:1px solid #e0d2b4;box-shadow:0 4px 14px rgba(107,81,56,.1),inset 3px 0 0 var(--c)}
+.ev.right .card{box-shadow:0 4px 14px rgba(107,81,56,.1),inset -3px 0 0 var(--c)}
+.ev-cat{font-size:.64rem;font-weight:700;color:var(--c);background:rgba(138,109,79,.1);border-radius:.5rem;padding:.1rem .45rem}
+.ev-title{font-family:Georgia,'Songti SC',serif;font-size:.92rem;font-weight:700;color:#3b3128;line-height:1.4;margin:.25rem 0 .1rem}
+.ev-org{font-size:.7rem;font-weight:700;color:var(--c)}
+.ev-note{font-size:.76rem;color:#6d5f4c;line-height:1.55;margin-top:.2rem}
+.ev-top{display:flex;align-items:center;gap:.5rem}
+.ev-date{font-size:.66rem;color:#a08e6d;letter-spacing:.06em}
+.ev-cat{margin-left:auto}
+/* legend */
+.legend{display:flex;justify-content:center;gap:.45rem;flex-wrap:wrap;padding:.6rem 1rem;position:relative;z-index:1}
+.lg-chip{display:inline-flex;align-items:center;gap:.3rem;font-size:.72rem;font-weight:600;padding:.22rem .7rem;border-radius:1rem;border:1.5px solid var(--c);color:var(--c);background:rgba(248,242,228,.85);cursor:pointer;user-select:none;transition:all .15s}
+.lg-chip.on{background:var(--c);color:#f8f2e4}
+.lg-chip.all{border-color:#6b5138;color:#6b5138}
+.lg-chip.all.on{background:#6b5138;color:#f3e8d2}
+/* calculator */
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.7rem;margin-bottom:.8rem}
+.cg{display:flex;flex-direction:column;gap:3px}
+.cg label{font-size:.7rem;color:#8a7a5f;letter-spacing:.04em}
+.cg input,.cg select{padding:.45rem .6rem;border:1.5px solid #c9b48c;border-radius:8px;font-size:.84rem;background:rgba(255,252,245,.9);outline:none;color:#3b3128}
+.cg input:focus,.cg select:focus{border-color:#8a6d4f}
+.calc-btn{background:#6b5138;color:#f3e8d2;border:none;border-radius:1rem;padding:.55rem 1.6rem;font-size:.86rem;font-weight:700;cursor:pointer}
+.calc-btn:hover{background:#8a6d4f}
+.calc-result{display:none;margin-top:.8rem;border-top:1px dashed #d8c8a8;padding-top:.7rem}
+.calc-result.show{display:block}
+.cr-line{font-size:.8rem;color:#6d5f4c;line-height:1.7}
+.cr-total{font-size:1.05rem;font-weight:800;color:#9c5a44;margin:.3rem 0;font-family:Georgia,'Songti SC',serif}
+.cr-rec{font-size:.84rem;font-weight:700;color:#6b5138;background:rgba(122,122,82,.12);border-radius:8px;padding:.45rem .7rem;margin-top:.3rem}
+footer{text-align:center;padding:1.5rem;color:#a08e6d;font-size:.78rem;position:relative;z-index:1}
+footer a{color:#6b5138}
+/* dark leather */
+html.dark body{background:#211a13;color:#e6d9bf}
+html.dark body::before{opacity:.25}
+html.dark .bg{background:radial-gradient(640px 420px at 12% 6%,rgba(156,90,68,.14),transparent 60%),radial-gradient(720px 520px at 88% 30%,rgba(122,122,82,.12),transparent 60%),radial-gradient(620px 520px at 18% 88%,rgba(138,109,79,.13),transparent 60%)}
+html.dark header{background:linear-gradient(160deg,#241c12,#3a2d1d 55%,#241c12);border-bottom-color:#6b5138}
+html.dark .tabs{background:rgba(36,28,18,.93);border-color:#4a3d2c}
+html.dark .tab{background:#2b2318;color:#cbb897;border-color:#6b5138}
+html.dark .tab:hover,html.dark .tab.active{background:#6b5138;color:#f3e8d2;border-color:#8a6d4f}
+html.dark .stat,html.dark .era-card,html.dark .panel,html.dark .vendor,html.dark .faq,html.dark .card{background:#2b2318;border-color:#4a3d2c}
+html.dark .stat{color:#a89a7c}
+html.dark .stat b,html.dark .era-name,html.dark .panel h3,html.dark .vendor h3,html.dark .faq-q,html.dark .ev-title,html.dark .era-head h2{color:#e6d9bf}
+html.dark .era-desc,html.dark .era-head .sub,html.dark .cg label{color:#a89a7c}
+html.dark .era-link path{stroke:#6b5b40}
+html.dark .era-link circle{fill:#6b5b40}
+html.dark .back-btn{background:#2b2318;color:#cbb897}
+html.dark .tbl th{background:rgba(138,109,79,.3);color:#d9c8a6;border-color:#4a3d2c}
+html.dark .tbl td{border-color:#3d3222;color:#c2b394}
+html.dark .tbl tr:nth-child(even) td{background:rgba(138,109,79,.1)}
+html.dark .tbl{background:rgba(43,35,24,.6)}
+html.dark .term-search,html.dark .cg input,html.dark .cg select{background:#241c12;border-color:#4a3d2c;color:#e6d9bf}
+html.dark .vendor li,html.dark .vendor p,html.dark .vendor .vstory,html.dark .panel .intro,html.dark .faq-a p,html.dark .cr-line{color:#c2b394}
+html.dark .medal{background:radial-gradient(circle at 34% 30%,#3a2f20,#2b2318 72%,#241c12);border-color:#8a6d4f}
+html.dark .medal span{color:#d9c8a6}
+html.dark .vnode{border-color:#2b2318}
+html.dark .note-line,html.dark .vendor .vstory,html.dark .calc-result{border-top-color:#4a3d2c}
+html.dark .cr-total{color:#c98a70}
+html.dark .cr-rec{color:#d9c8a6;background:rgba(122,122,82,.25)}
+html.dark .lg-chip{background:#2b2318}
+html.dark .lg-chip.on{color:#f8f2e4}
+@media(max-width:700px){
+  .era-card{width:100%;transform:none!important;align-self:stretch!important}
+  .era-link{display:none}
+  .spine{left:14px}
+  .year-node{justify-content:flex-start;padding-left:40px}
+  .ev{width:100%;left:0!important;text-align:left!important;padding:.4rem .8rem 1.1rem 40px}
+  .ev .vnode{left:8px!important;right:auto!important}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<header>
+  <h1>🧮 硬件志</h1>
+  <p id="header-sub">GPU 基础：从一颗芯片到一座机柜 · 术语、时间线、厂商、分类、深挖与实战</p>
+</header>
+<div class="tabs">
+  <a class="tab" href="../">📄 论文追踪</a>
+  <a class="tab" href="../models/">🧬 模型时序</a>
+  <a class="tab" href="../timeline/">📅 时间轴</a>
+  <a class="tab" href="../chronicle/">📜 编年史</a>
+  <a class="tab active" href="./">🧮 硬件志</a>
+</div>
+<div id="overview"></div>
+<div id="chapter"></div>
+<div id="content" class="wrap" style="display:none"></div>
+<footer>🤖 <a href="https://xplore-lab.github.io/llm-tracker/" style="font-weight:600;">大模型情报局</a> © 2026 <a href="https://github.com/Xplore-LAB">Xplore-LAB</a> · Data from arXiv · <a href="https://github.com/Xplore-LAB/llm-tracker">GitHub</a></footer>
+<script>
+let HW=null, TCATS={}, ACTIVE=new Set();
+const CHAPTERS=[
+  {key:'terms',name:'术语速查',color:'#8a6d4f',desc:'22 个高频缩写，可搜索，进城之前先看一眼地图'},
+  {key:'timeline',name:'发展时间线',color:'#9c5a44',desc:'1999 至 2026，GPU 如何从游戏卡长成 AI 核心资产'},
+  {key:'vendors',name:'厂商格局',color:'#6e6259',desc:'一超多强：NVIDIA、AMD、Intel 与国产七家'},
+  {key:'classes',name:'显卡分类',color:'#7a7a52',desc:'形态、场景、显存、精度，四个维度拆开看'},
+  {key:'deep',name:'硬件深挖',color:'#8a6d4f',desc:'芯片内部、HBM 带宽、NVLink、供电散热与显存估算'},
+  {key:'faq',name:'常见问题',color:'#9c5a44',desc:'A800 是不是更好、4090 能不能训练、显存与算力谁重要'},
+  {key:'calc',name:'显存计算器',color:'#6e6259',desc:'输入参数量与场景，一分钟估出推理与训练显存'},
+];
+let view='overview', CH=null;
+
+fetch('../hardware.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+  HW=d; TCATS=d.timeline_cats;
+  Object.keys(TCATS).forEach(c=>ACTIVE.add(c));
+  renderOverview();
+}).catch(()=>{
+  document.getElementById('overview').innerHTML='<div style="text-align:center;color:#999;padding:3rem">硬件数据加载失败</div>';
+});
+
+function tbl(headers,rows){
+  return '<div class="tbl-wrap"><table class="tbl"><thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'
+    +rows.map(r=>'<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+}
+function renderOverview(){
+  view='overview';
+  document.getElementById('content').style.display='none';
+  document.getElementById('chapter').innerHTML='';
+  document.getElementById('overview').innerHTML=`
+    <div class="stats">
+      <span class="stat"><b>${HW.terms.length}</b>条术语</span>
+      <span class="stat"><b>${HW.timeline.length}</b>个时间线节点</span>
+      <span class="stat"><b>4+${HW.cn_vendors.length}</b>家厂商</span>
+      <span class="stat"><b>${HW.faq.length}</b>个高频问题</span>
+      <span class="stat"><b>1</b>个显存计算器</span>
+    </div>
+    <div class="era-grid">${(()=>{
+      const cards=CHAPTERS.map(c=>`<div class="era-card" style="--ec:${c.color}" onclick="openChapter('${c.key}')">
+        <span class="era-go">展开 →</span>
+        <div class="era-name">${c.name}</div>
+        <div class="era-desc" style="margin-top:.3rem">${c.desc}</div>
+      </div>`);
+      const link=(i)=>{
+        const l2r=i%2===0;
+        const x1=l2r?23:77,x2=l2r?77:23;
+        const c=26+(i%3)*5;
+        return `<span class="era-link"><svg viewBox="0 0 100 56" preserveAspectRatio="none"><path d="M${x1},0 C${x1},${c} ${x2},${c-6} ${x2},56"/><circle cx="${x2}" cy="52" r="3"/></svg></span>`;
+      };
+      return cards.map((c,i)=>i<cards.length-1?c+link(i):c).join('');
+    })()}</div>`;
+}
+function openChapter(key){
+  CH=CHAPTERS.find(c=>c.key===key);
+  view='chapter';
+  document.getElementById('overview').innerHTML='';
+  document.getElementById('chapter').innerHTML=`
+    <div class="era-head">
+      <button class="back-btn" onclick="backToOverview()">← 返回总览</button>
+      <h2>${CH.name}</h2>
+      <span class="sub">${CH.desc}</span>
+    </div>`;
+  const el=document.getElementById('content');
+  el.style.display='block';
+  el.innerHTML=RENDER[CH.key]();
+  if(CH.key==='timeline')observe();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function backToOverview(){
+  renderOverview();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+const RENDER={
+  terms(){
+    return `<div class="panel">
+      <input class="term-search" id="term-q" placeholder="搜索术语，如 HBM、NVLink、FP8..." oninput="filterTerms()">
+      <div id="term-tbl">${tbl(['术语','全称 / 含义','一句话解释'],HW.terms.map(t=>[t.term,t.full,t.desc]))}</div>
+    </div>`;
+  },
+  timeline(){
+    const legend='<div class="legend">'
+      +`<span class="lg-chip all ${ACTIVE.size===Object.keys(TCATS).length?'on':''}" onclick="toggleAll()">全部</span>`
+      +Object.entries(TCATS).map(([k,c])=>`<span class="lg-chip ${ACTIVE.has(k)?'on':''}" style="--c:${c.color}" onclick="toggleCat('${k}')">${c.icon} ${c.label}</span>`).join('')+'</div>';
+    return legend+'<div id="tl-tree">'+buildTree()+'</div>';
+  },
+  vendors(){
+    const big=HW.vendors.map(v=>`<div class="vendor">
+      <h3>${v.name}</h3><div class="vpos">${v.pos}</div>
+      ${v.lines.length?'<h6>代表产品线</h6><ul>'+v.lines.map(l=>'<li>'+l+'</li>').join('')+'</ul>':''}
+      <h6>技术特点</h6><ul>${v.points.map(p=>'<li>'+p+'</li>').join('')}</ul>
+      <div class="vstory">${v.story}</div>
+    </div>`).join('');
+    return big+`<div class="panel"><h3>国产厂商速览</h3>${tbl(['厂商','代表产品','定位','生态'],HW.cn_vendors.map(v=>[v.name,v.product,v.pos,v.eco]))}</div>`;
+  },
+  classes(){
+    const c=HW;
+    const sec=(t)=>`<div class="panel"><h3>${t.title}</h3>${tbl(t.headers,t.rows)}<div class="note-line">${t.note}</div></div>`;
+    return sec(c.class_form)+sec(c.class_scene)+sec(c.class_mem)
+      +`<div class="panel"><h3>${c.precision.title}</h3>${tbl(c.precision.headers,c.precision.rows)}
+        <h3 style="margin-top:.7rem">参考：H100 SXM 各精度算力</h3>${tbl(['精度 / 项目','数值'],c.precision.h100)}
+        <div class="note-line">${c.precision.note}</div></div>`;
+  },
+  deep(){
+    const d=HW;
+    return `<div class="panel"><h3>${d.deep_chip.title}</h3><p class="intro">${d.deep_chip.intro}</p>
+        ${tbl(d.deep_chip.headers,d.deep_chip.rows)}
+        <h3 style="margin-top:.7rem">三代旗舰芯片物理数字</h3>${tbl(d.deep_chip.chips_headers,d.deep_chip.chips_rows)}
+        <div class="note-line">${d.deep_chip.note}</div></div>`
+      +`<div class="panel"><h3>${d.deep_hbm.title}</h3><p class="intro"><b>${d.deep_hbm.formula}</b></p>
+        ${tbl(d.deep_hbm.headers,d.deep_hbm.rows)}<div class="note-line">${d.deep_hbm.note}</div></div>`
+      +`<div class="panel"><h3>${d.deep_nvlink.title}</h3>${tbl(d.deep_nvlink.headers,d.deep_nvlink.rows)}
+        <h3 style="margin-top:.7rem">机间网络</h3>${tbl(d.deep_nvlink.net_headers,d.deep_nvlink.net_rows)}
+        <div class="note-line">${d.deep_nvlink.note}</div></div>`
+      +`<div class="panel"><h3>${d.deep_power.title}</h3>${tbl(d.deep_power.headers,d.deep_power.rows)}
+        <h3 style="margin-top:.7rem">散热三档</h3>${tbl(d.deep_power.cool_headers,d.deep_power.cool_rows)}
+        <div class="note-line">${d.deep_power.note}</div></div>`
+      +`<div class="panel"><h3>${d.deep_estimation.title}</h3>
+        ${d.deep_estimation.cases.map(cs=>'<p class="intro"><b>'+cs.name+'</b></p><ul style="padding-left:1.1rem">'+cs.steps.map(s=>'<li style="font-size:.79rem;color:#6d5f4c;line-height:1.6">'+s+'</li>').join('')+'</ul>').join('')}
+        <div class="note-line">${d.deep_estimation.note}</div></div>`;
+  },
+  faq(){
+    return HW.faq.map((f,i)=>`<div class="faq" id="faq-${i}">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>Q${i+1}</span>${f.q}<span class="arr">▾</span></div>
+      <div class="faq-a">
+        <div class="faq-concl">结论：${f.conclusion}</div>
+        ${f.paras.map(p=>'<p>'+p+'</p>').join('')}
+        ${f.table?tbl(f.table.headers,f.table.rows):''}
+      </div>
+    </div>`).join('');
+  },
+  calc(){
+    return `<div class="panel"><h3>显存计算器</h3>
+      <p class="intro">输入模型规模与使用场景，估算推理或训练所需显存，并对照主流卡档给出建议。公式来自「硬件深挖」章的两笔账。</p>
+      <div class="calc-grid">
+        <div class="cg"><label>参数量（B，十亿）</label><input id="c-params" type="number" value="7" min="0.1" step="0.1"></div>
+        <div class="cg"><label>精度（每参数字节）</label><select id="c-precision">
+          <option value="2" selected>BF16 / FP16（2 字节）</option>
+          <option value="4">FP32（4 字节）</option>
+          <option value="1">FP8（1 字节）</option>
+          <option value="0.5">INT4（0.5 字节）</option>
+        </select></div>
+        <div class="cg"><label>使用场景</label><select id="c-scene">
+          <option value="infer" selected>推理</option>
+          <option value="lora">LoRA 微调</option>
+          <option value="train">全参数训练</option>
+        </select></div>
+        <div class="cg"><label>上下文长度（tokens）</label><input id="c-ctx" type="number" value="8192" step="1024"></div>
+        <div class="cg"><label>层数</label><input id="c-layers" type="number" value="32"></div>
+        <div class="cg"><label>隐藏维</label><input id="c-hidden" type="number" value="4096"></div>
+      </div>
+      <button class="calc-btn" onclick="calcVRAM()">计算</button>
+      <div class="calc-result" id="calc-result"></div>
+    </div>`;
+  }
+};
+
+function filterTerms(){
+  const q=document.getElementById('term-q').value.trim().toLowerCase();
+  const rows=HW.terms.filter(t=>!q||t.term.toLowerCase().includes(q)||t.full.toLowerCase().includes(q)||t.desc.includes(q));
+  document.getElementById('term-tbl').innerHTML=tbl(['术语','全称 / 含义','一句话解释'],rows.map(t=>[t.term,t.full,t.desc]));
+}
+function toggleCat(k){ACTIVE.has(k)?ACTIVE.delete(k):ACTIVE.add(k);document.getElementById('tl-tree').innerHTML=buildTree();observe();document.querySelectorAll('.legend .lg-chip').forEach(()=>{});openChapterRefreshLegend();}
+function toggleAll(){
+  if(ACTIVE.size===Object.keys(TCATS).length)ACTIVE.clear();
+  else Object.keys(TCATS).forEach(c=>ACTIVE.add(c));
+  document.getElementById('tl-tree').innerHTML=buildTree();observe();openChapterRefreshLegend();
+}
+function openChapterRefreshLegend(){
+  // re-render legend chips state
+  const chips=document.querySelectorAll('.legend .lg-chip');
+  chips.forEach(ch=>{
+    if(ch.classList.contains('all')){ch.classList.toggle('on',ACTIVE.size===Object.keys(TCATS).length);}
+  });
+  Object.entries(TCATS).forEach(([k,c],i)=>{
+    const ch=[...document.querySelectorAll('.legend .lg-chip:not(.all)')][i];
+    if(ch)ch.classList.toggle('on',ACTIVE.has(k));
+  });
+}
+function buildTree(){
+  const years=[...new Set(HW.timeline.map(e=>e.year))].sort((a,b)=>a-b);
+  let html='<div class="tree"><div class="spine"></div>';
+  years.forEach(y=>{
+    const evs=HW.timeline.filter(e=>e.year===y&&ACTIVE.has(e.cat));
+    if(!evs.length)return;
+    html+=`<div class="year-node"><div class="medal"><span>${y}</span></div></div>`;
+    evs.forEach((e,i)=>{
+      const c=TCATS[e.cat];
+      html+=`<div class="ev ${i%2===0?'left':'right'}" style="--c:${c.color}">
+        <span class="vnode"></span>
+        <div class="card">
+          <div class="ev-top"><span class="ev-date">${e.date}</span><span class="ev-cat">${c.icon} ${c.label}</span></div>
+          <div class="ev-title">${e.title}</div>
+          <div class="ev-org">${e.org}</div>
+          <div class="ev-note">${e.note}</div>
+        </div></div>`;
+    });
+  });
+  return html+'</div>';
+}
+let IO=null;
+function observe(){
+  if(IO)IO.disconnect();
+  IO=new IntersectionObserver(es=>{
+    es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('show');IO.unobserve(x.target);}});
+  },{threshold:.1});
+  document.querySelectorAll('.ev').forEach(el=>IO.observe(el));
+}
+
+// ── VRAM calculator ──
+function calcVRAM(){
+  const P=parseFloat(document.getElementById('c-params').value);
+  const bytes=parseFloat(document.getElementById('c-precision').value);
+  const scene=document.getElementById('c-scene').value;
+  const ctx=parseInt(document.getElementById('c-ctx').value)||0;
+  const layers=parseInt(document.getElementById('c-layers').value)||32;
+  const hidden=parseInt(document.getElementById('c-hidden').value)||4096;
+  const out=document.getElementById('calc-result');
+  if(!P||P<=0){out.className='calc-result show';out.innerHTML='<div class="cr-line">请输入有效的参数量。</div>';return;}
+  const kv=2*layers*hidden*ctx*2/1e9; // BF16 KV cache, GB
+  let total, lines=[];
+  if(scene==='infer'){
+    const w=P*bytes;
+    total=(w+kv)*1.1;
+    lines=['权重：'+P+'B × '+bytes+' 字节 = '+w.toFixed(1)+' GB',
+      'KV cache（BF16）：2 × '+layers+' 层 × '+hidden+' × '+ctx+' tokens ≈ '+kv.toFixed(1)+' GB（GQA 模型可再降）',
+      '另预留约 10% 运行时开销'];
+  }else if(scene==='lora'){
+    const w=P*2, opt=P*0.01*16, act=P*1;
+    total=w+opt+act+kv*0.5;
+    lines=['权重（BF16 常驻）：'+w.toFixed(1)+' GB',
+      'LoRA 可训参数优化器状态（按 1% × 16 字节）：约 '+opt.toFixed(1)+' GB',
+      '激活与工作区：约 '+act.toFixed(1)+' GB，KV cache 折半估 '+(kv*0.5).toFixed(1)+' GB',
+      '经验对照：7B 的 LoRA 微调通常落在 20 至 30GB'];
+  }else{
+    const st=P*16, act=P*2;
+    total=st+act;
+    lines=['训练状态：'+P+'B × 16 字节 = '+st.toFixed(0)+' GB（FP16 权重 2 + FP32 副本 4 + Adam 动量 8 + 梯度 2）',
+      '中间激活：约 '+act.toFixed(1)+' GB 起（随 batch 与序列长度上涨）',
+      '降显存手段：梯度检查点、ZeRO 优化器状态切分、或者直接多卡'];
+  }
+  const cards=[[16,'16GB 消费卡（如 RTX 4060 Ti 16G）'],[24,'RTX 4090（24GB）'],[32,'RTX 5090（32GB）'],[48,'RTX PRO 5000（48GB）'],[80,'A100 / H100（80GB）'],[96,'H20（96GB）'],[141,'H200（141GB）'],[192,'MI300X / B200（192GB）'],[256,'MI325X（256GB）']];
+  const fit=cards.find(c=>c[0]>=total);
+  const rec=fit?('单卡可装：'+fit[1]+' 或更高')
+    :('单卡装不下：约需 '+Math.ceil(total/80)+' 张 80GB 级卡，或采用 ZeRO / 量化 / 梯度检查点把单卡需求压下来');
+  out.className='calc-result show';
+  out.innerHTML=lines.map(l=>'<div class="cr-line">· '+l+'</div>').join('')
+    +'<div class="cr-total">估算显存需求 ≈ '+total.toFixed(1)+' GB</div>'
+    +'<div class="cr-rec">'+rec+'</div>';
+}
+</script>
+</body>
+</html>

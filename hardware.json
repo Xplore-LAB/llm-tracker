@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "title": "硬件志 · GPU 基础",
+    "source": "内容整理自《高性能显卡GPU基础介绍》（2026-08 核实），原始锚点：NVIDIA/AMD/Intel 官方 datasheet、华为昇腾社区、美国商务部 BIS 公告",
+    "updated_at": "2026-08-25"
+  },
+  "terms": [
+    {"term": "GPU", "full": "Graphics Processing Unit", "desc": "图形处理器，本质是大规模并行计算芯片"},
+    {"term": "CUDA", "full": "Compute Unified Device Architecture", "desc": "NVIDIA 的并行计算平台与编程模型，AI 生态事实标准"},
+    {"term": "ROCm", "full": "Radeon Open Compute", "desc": "AMD 对标 CUDA 的开源计算平台"},
+    {"term": "oneAPI", "full": "无中文全称", "desc": "Intel 的跨架构统一编程模型"},
+    {"term": "CANN", "full": "Compute Architecture for Neural Networks", "desc": "华为昇腾的异构计算架构"},
+    {"term": "SM", "full": "Streaming Multiprocessor", "desc": "GPU 内部的计算单元集群，一张卡由几十上百个 SM 组成"},
+    {"term": "CUDA Core", "full": "通用计算核心", "desc": "处理 FP32 与整数等常规运算"},
+    {"term": "Tensor Core", "full": "张量核心", "desc": "专为矩阵乘法设计，是 AI 训练与推理的主力"},
+    {"term": "RT Core", "full": "Ray Tracing Core", "desc": "硬件光追单元，只有 RTX 系列有"},
+    {"term": "GDDR", "full": "Graphics DDR", "desc": "消费级与工作站卡的显存类型，如 GDDR6、GDDR6X、GDDR7"},
+    {"term": "HBM", "full": "High Bandwidth Memory", "desc": "3D 堆叠显存，带宽极高，用于数据中心卡（HBM2e / 3 / 3e）"},
+    {"term": "VRAM", "full": "Video RAM", "desc": "显存的通用叫法"},
+    {"term": "NVLink", "full": "无中文全称", "desc": "NVIDIA 的高速卡间互联协议，比 PCIe 快 5 至 10 倍"},
+    {"term": "NVSwitch", "full": "无中文全称", "desc": "NVLink 的交换芯片，让 8 卡或 16 卡实现全互联"},
+    {"term": "PCIe", "full": "Peripheral Component Interconnect Express", "desc": "通用总线，CPU 与 GPU、GPU 与 GPU 之间的默认通道"},
+    {"term": "SXM", "full": "Server PCI Express Module", "desc": "NVIDIA 数据中心卡的专用接口形态，可插 NVLink"},
+    {"term": "FP32/FP16/BF16/FP8/INT8", "full": "不同数据精度", "desc": "位宽越低算力越大、误差越大"},
+    {"term": "TF32", "full": "TensorFloat-32", "desc": "NVIDIA Ampere 起引入的混合精度格式，训练常用"},
+    {"term": "TDP", "full": "Thermal Design Power", "desc": "热设计功耗，粗略等同于满载功耗"},
+    {"term": "DGX / HGX", "full": "NVIDIA 服务器方案", "desc": "DGX 是整机，HGX 是主板参考设计"},
+    {"term": "MI 系列", "full": "AMD Instinct", "desc": "AMD 数据中心 GPU 产品线，如 MI300X、MI325X"},
+    {"term": "昇腾 / MLU / MTT", "full": "国产 AI 加速卡", "desc": "分别指华为、寒武纪、摩尔线程的产品线"}
+  ],
+  "timeline_cats": {
+    "tech":      {"label": "技术单元", "icon": "🧱", "color": "#8a6d4f"},
+    "dc":        {"label": "数据中心", "icon": "🏢", "color": "#6e6259"},
+    "consumer":  {"label": "消费级",   "icon": "🎮", "color": "#7a7a52"},
+    "policy":    {"label": "出口管制", "icon": "📜", "color": "#9c5a44"},
+    "cn":        {"label": "国产突围", "icon": "🇨🇳", "color": "#8a6d4f"},
+    "milestone": {"label": "里程碑",   "icon": "🚀", "color": "#6e6259"}
+  },
+  "timeline": [
+    {"date": "1999", "year": 1999, "title": "GeForce 256 发布", "org": "NVIDIA", "cat": "milestone", "note": "首次提出 GPU 概念，图形硬件从加速卡升级为独立处理器"},
+    {"date": "2006", "year": 2006, "title": "CUDA 推出", "org": "NVIDIA", "cat": "tech", "note": "GPU 从只画图走向通用并行计算，AI 时代的地基"},
+    {"date": "2012", "year": 2012, "title": "AlexNet 用两张 GTX 580 夺冠", "org": "University of Toronto", "cat": "milestone", "note": "GPU 训练神经网络第一次破圈"},
+    {"date": "2016", "year": 2016, "title": "Pascal 架构 P100", "org": "NVIDIA", "cat": "dc", "note": "首搭 HBM2 与 NVLink，数据中心卡与消费卡从此分家"},
+    {"date": "2017", "year": 2017, "title": "Volta 架构 V100 引入 Tensor Core", "org": "NVIDIA", "cat": "tech", "note": "专为矩阵乘设计的硬件单元诞生"},
+    {"date": "2018", "year": 2018, "title": "Turing 架构 RTX 20 系", "org": "NVIDIA", "cat": "consumer", "note": "RT Core 硬件光追走进游戏，消费卡开始有 AI 单元（DLSS）"},
+    {"date": "2020", "year": 2020, "title": "Ampere 架构 A100 与 RTX 30 系", "org": "NVIDIA", "cat": "dc", "note": "A100 成为 AI 训练主力，TF32 精度出现"},
+    {"date": "2022", "year": 2022, "title": "Hopper 架构 H100 与 Ada RTX 40 系", "org": "NVIDIA", "cat": "dc", "note": "H100 与 FP8 支撑起大模型爆发，同年 ChatGPT 发布"},
+    {"date": "2022-2023", "year": 2022, "title": "美国对华出口管制升级", "org": "美国商务部 / NVIDIA", "cat": "policy", "note": "NVIDIA 推出 A800、H800 特供降规版，国产替代路线加速"},
+    {"date": "2023", "year": 2023, "title": "MI300X 与 Gaudi 2 上市", "org": "AMD / Intel", "cat": "dc", "note": "MI300X 配 192GB HBM3，AI 训练卡格局出现第二、第三选手"},
+    {"date": "2024", "year": 2024, "title": "Blackwell 架构 B100 / B200 / GB200 NVL72", "org": "NVIDIA", "cat": "dc", "note": "单卡显存 192GB、FP4 精度、超节点互联"},
+    {"date": "2024", "year": 2024, "title": "MI325X 与 Gaudi 3 跟进", "org": "AMD / Intel", "cat": "dc", "note": "挑战者阵营完成新一代跟进，MI325X 配 256GB HBM3e"},
+    {"date": "2025", "year": 2025, "title": "RTX 50 系与 RTX PRO 6000 Blackwell", "org": "NVIDIA", "cat": "consumer", "note": "消费级 GDDR7 首发，专业卡显存升至 96GB"},
+    {"date": "2025-2026", "year": 2025, "title": "昇腾 910C 大规模出货，MTT S4000 与 BR104 商用", "org": "华为 / 摩尔线程 / 壁仞", "cat": "cn", "note": "国产 AI 芯片形成规模化替代，国内数据中心 AI 卡国产化比例过半"}
+  ],
+  "vendors": [
+    {"name": "NVIDIA", "pos": "全球 GPU 龙头，AI 训练卡份额长期高于 80%",
+     "lines": ["游戏卡：GeForce RTX 50 系（5090 / 5080 / 5070 Ti / 5070 / 5060）", "专业工作站：RTX PRO 6000 Blackwell、RTX PRO 5000 / 4500 / 4000", "数据中心：H100、H200、B100、B200、GB200 NVL72 超节点", "特供中国版：A800、H800、H20", "边缘与机器人：Jetson Orin、Jetson Thor"],
+     "points": ["软件生态是最深护城河：CUDA、cuDNN、TensorRT、NCCL、Triton 已成默认工具箱", "硬件持续引入 Tensor Core、Transformer Engine、FP8、FP4 等 AI 专用能力", "NVLink 加 NVSwitch 把多卡做成一张大卡"],
+     "story": "硬件上每代快对手半步，软件上 CUDA 培养了二十年的开发者习惯。追赶者的难点从来不只是造出更强的芯片，而是说服开发者换掉跑了十几年的工具链。"},
+    {"name": "AMD", "pos": "游戏卡长期第二，数据中心近两年靠大显存成为唯一可规模化替代",
+     "lines": ["游戏卡：Radeon RX 9000 系（RDNA 4，如 RX 9070 XT）", "专业工作站：Radeon PRO W7900、W7800", "数据中心：MI300X（192GB HBM3）、MI325X（256GB HBM3e）、MI350"],
+     "points": ["显存容量做到极致：MI300X 192GB 时 H100 只有 80GB", "ROCm 开源路线，PyTorch 已官方支持，成熟度与 CUDA 仍有差距", "MI300A 把 Zen 4 CPU 与 CDNA 3 GPU 封在一起的 APU 差异化路线"],
+     "story": "转折点在 2023 年的 MI300X，大显存戳中大模型推理痛点，微软与 Meta 立刻下了大单。当前市场对它的判断是「买显存换生态成熟度」。"},
+    {"name": "Intel", "pos": "集成显卡市占率极高，独显与数据中心 AI 卡是追赶者",
+     "lines": ["集成显卡：Iris Xe、Arc iGPU（Core Ultra 系列）", "独立显卡：Arc B 系列（Battlemage，如 B580）", "数据中心：Gaudi 2、Gaudi 3（收购 Habana Labs 而来）", "通用计算：Data Center GPU Max 系列"],
+     "points": ["oneAPI 跨架构统一编程模型，理念先进落地早期", "Gaudi 3 主打性价比加以太网互联，避开 NVLink 护城河", "独显定位主流入门到中端，主打同价位显存更大"],
+     "story": "CPU 霸主在独显上三次立项三次搁置，Gaudi 用以太网互联加更低定价，成了想控成本的云厂商的备选。"},
+    {"name": "国产厂商", "pos": "出口管制画出市场空白线，硬件参数追得快、软件生态还得熬",
+     "lines": [],
+     "points": ["2025 年国内数据中心 AI 卡国产化比例已经过半", "共同问题：跑主流开源模型的适配工作量比 NVIDIA 大得多", "典型评价：买昇腾不是买卡，是买卡再送两个原厂工程师"],
+     "story": "华为昇腾走得最靠前，摩尔线程坚持全功能 GPU 的差异化路线，壁仞堆训练卡参数，寒武纪从推理转训练，海光借 AMD 授权兼容 ROCm，沐曦与天数智芯各有细分订单。"}
+  ],
+  "cn_vendors": [
+    {"name": "华为", "product": "昇腾 910B、910C", "pos": "AI 训练与推理，对标 A100 / H100", "eco": "CANN + MindSpore，PyTorch 通过适配层支持"},
+    {"name": "摩尔线程", "product": "MTT S4000、S3000", "pos": "AI 训练推理 + 图形渲染，全功能 GPU 路线", "eco": "MUSA 自研 + PyTorch / CUDA 兼容层"},
+    {"name": "壁仞科技", "product": "BR100、BR104", "pos": "数据中心 AI 训练", "eco": "自研 BIRENSUPA + PyTorch 适配"},
+    {"name": "寒武纪", "product": "思元 MLU370、MLU590", "pos": "云端 AI 训练与推理", "eco": "自研 Neuware"},
+    {"name": "海光", "product": "深算 DCU K100、K100 AI", "pos": "通用 GPU，AMD 授权路线", "eco": "兼容 ROCm"},
+    {"name": "沐曦", "product": "曦云 C500", "pos": "AI 训练", "eco": "自研 MXMACA + CUDA 兼容"},
+    {"name": "天数智芯", "product": "天垓 100、智铠 100", "pos": "AI 训练与推理", "eco": "自研"}
+  ],
+  "class_form": {
+    "title": "按形态：集成显卡与独立显卡",
+    "headers": ["维度", "集成显卡（iGPU）", "独立显卡（dGPU）"],
+    "rows": [
+      ["物理形态", "与 CPU 封装在同一芯片", "独立 PCB，自带风扇与供电"],
+      ["显存", "与 CPU 共享系统内存", "自带专属显存（GDDR / HBM）"],
+      ["功耗", "通常 5 至 30 瓦", "消费卡 100 至 600 瓦，数据中心卡 300 至 1000 瓦"],
+      ["典型场景", "办公、网页、影音、轻度游戏", "3D 游戏、渲染、AI、科学计算"],
+      ["代表", "Intel Iris Xe、Apple M 系、AMD 780M", "NVIDIA RTX 系、AMD RX 系、Intel Arc B 系"]
+    ],
+    "note": "集成卡够用就好，独立卡才谈得上性能两个字。"
+  },
+  "class_scene": {
+    "title": "按场景：消费级 / 工作站 / 数据中心",
+    "headers": ["维度", "消费级游戏卡", "专业工作站卡", "数据中心 AI 卡"],
+    "rows": [
+      ["代表型号", "RTX 5090、RX 9070 XT", "RTX PRO 6000、Radeon PRO W7900", "H100、B200、MI300X、Gaudi 3、昇腾 910C"],
+      ["主要用途", "3A 游戏、直播、剪辑、个人 AI 玩票", "CAD、三维建模、影视渲染、医学影像", "大模型训练推理、HPC、科学计算"],
+      ["显存类型", "GDDR6X / GDDR7", "GDDR6 ECC / GDDR7", "HBM2e / HBM3 / HBM3e"],
+      ["显存容量", "8 至 32GB", "24 至 96GB", "80 至 256GB"],
+      ["双精度 FP64", "极弱（阉割）", "中等", "强（科学计算款）"],
+      ["互联", "不支持 NVLink", "部分支持 NVLink", "NVLink / NVSwitch / Infinity Fabric / HCCS"],
+      ["驱动", "Game Ready", "Studio / Enterprise（ISV 认证）", "数据中心驱动（长期支持）"],
+      ["参考价位", "2500 至 20000 元", "15000 至 80000 元", "15 至 30 万元每卡，特供 H20 约 8 至 12 万元"]
+    ],
+    "note": "消费卡是私家车，工作站卡是商用车，数据中心卡是工程重卡。价格随政策与渠道波动很大，表中只给量级。"
+  },
+  "class_mem": {
+    "title": "显存类型：GDDR 与 HBM",
+    "headers": ["维度", "GDDR", "HBM"],
+    "rows": [
+      ["封装", "平面封装，颗粒焊在 PCB 上", "3D 堆叠，TSV 硅通孔加硅中介层"],
+      ["主流版本", "GDDR6、GDDR6X、GDDR7", "HBM2e、HBM3、HBM3e"],
+      ["单卡带宽", "约 0.5 至 1.8 TB/s", "约 2 至 8 TB/s，为同代 GDDR 的 3 至 5 倍"],
+      ["容量", "做不大，单卡 8 至 32GB", "单卡 80 至 256GB"],
+      ["成本", "便宜、成熟、良品率高", "贵、良品率低，供应受制于 SK 海力士、三星、美光"]
+    ],
+    "note": "GDDR 像排屋沿街排开，HBM 像 CBD 摩天楼。HBM 产能是这两年 AI 硬件行业最大的瓶颈。"
+  },
+  "precision": {
+    "title": "算力精度：先看精度再看数字",
+    "headers": ["精度", "位宽", "典型用途", "说明"],
+    "rows": [
+      ["FP64", "64bit", "科学计算、气象、CFD", "数据中心卡才有强 FP64，消费卡阉割到 1/32 或更低"],
+      ["FP32", "32bit", "通用计算、传统深度学习", "长期是 GPU 主流精度"],
+      ["TF32", "19bit 有效位", "AI 训练默认（Ampere 起）", "精度接近 FP32，速度接近 FP16"],
+      ["BF16", "16bit", "大模型训练主流", "数值范围与 FP32 相同，精度低"],
+      ["FP16", "16bit", "训练与推理混合精度", "精细度高但数值范围小，需 loss scaling"],
+      ["FP8", "8bit", "Hopper 起训练与推理加速", "需要硬件 Transformer Engine 配合"],
+      ["FP4", "4bit", "Blackwell 推理极限压缩", "第二代 Transformer Engine"],
+      ["INT8 / INT4", "8 / 4bit", "量化推理", "移动端与边缘推理默认精度"]
+    ],
+    "h100": [
+      ["FP64", "34 TFLOPS"], ["FP32", "67 TFLOPS"], ["TF32", "989 TFLOPS（含稀疏）"],
+      ["BF16 / FP16", "1979 TFLOPS"], ["FP8", "3958 TFLOPS"], ["显存", "HBM3 80GB，带宽 3.35 TB/s"]
+    ],
+    "note": "同一张 H100，FP64 与 FP8 相差 116 倍。发布会上的算力数字几乎都是按最低精度讲的，先看小字里的精度标注。"
+  },
+  "deep_chip": {
+    "title": "一颗芯片里装了什么",
+    "intro": "一张显卡是个三明治：散热器、基板、主芯片加一圈显存颗粒与供电模块。主芯片内部由几十到一百多个 SM 组成，每个 SM 是一座独立小工厂。",
+    "headers": ["组成部分", "角色", "类比"],
+    "rows": [
+      ["SM（流式多处理器）", "计算单元集群，全卡几十上百个", "工厂里的独立车间"],
+      ["CUDA Core", "SM 内通用计算核心，做 FP32 与整数运算", "车间里的普通工人"],
+      ["Tensor Core", "SM 内矩阵乘专用单元，AI 的主力", "车间里的专用机床"],
+      ["调度器与寄存器堆", "给成千上万个线程分配活计", "车间主任"],
+      ["L1 / 共享内存", "SM 内的高速小缓存", "车间手边的工具台"],
+      ["L2 缓存", "全卡共享的大缓存（H100 为 50MB）", "厂区中央仓库"],
+      ["显存控制器", "连接显存颗粒的通道", "仓库的装卸码头"]
+    ],
+    "chips_headers": ["芯片", "制程", "晶体管", "SM 数量", "L2 缓存"],
+    "chips_rows": [
+      ["GA100（A100）", "TSMC 7nm", "540 亿", "108", "40MB"],
+      ["GH100（H100）", "TSMC 4N", "800 亿", "132", "50MB"],
+      ["GB100（B200）", "TSMC 4NP 双 die", "2080 亿（合计）", "144（合计）", "126MB（合计）"]
+    ],
+    "note": "单 die 逼近光刻极限后，拼接成为主流扩容路线：B200 用 NV-HBI 把两颗 die 封成一颗，MI300 走的也是 Chiplet 思路。"
+  },
+  "deep_hbm": {
+    "title": "显存带宽为什么卡脖子",
+    "formula": "显存带宽 = 接口位宽 × 传输速率 ÷ 8",
+    "headers": ["显存方案", "位宽", "速率", "算出来的带宽"],
+    "rows": [
+      ["GDDR6X（RTX 4090）", "384 bit（12 颗粒）", "21 Gbps", "约 1008 GB/s"],
+      ["HBM3 单堆栈", "1024 bit", "6.4 Gbps", "约 819 GB/s"],
+      ["H100（5 堆栈 HBM3）", "5 × 1024 bit", "6.4 Gbps", "约 3.35 TB/s"],
+      ["HBM3e 单堆栈", "1024 bit", "9.2 Gbps", "约 1.2 TB/s"],
+      ["B200（8 堆栈 HBM3e）", "8 × 1024 bit", "9.2 Gbps", "约 8 TB/s"]
+    ],
+    "note": "HBM 一个堆栈的位宽就是 GDDR 单颗粒的 32 倍，这就是堆出来的带宽。推理 decode 阶段每生成一个 token 要把全部权重读一遍，瓶颈全在显存带宽（memory bound），这就是推理芯片拼命堆 HBM 的原因。"
+  },
+  "deep_nvlink": {
+    "title": "从单机到超节点",
+    "headers": ["代际", "搭载架构", "单卡总带宽", "说明"],
+    "rows": [
+      ["NVLink 1", "Pascal（P100）", "160 GB/s", "首次绕开 PCIe 的卡间直连"],
+      ["NVLink 2", "Volta（V100）", "300 GB/s", "配合 DGX-1 的 8 卡机型"],
+      ["NVLink 3", "Ampere（A100）", "600 GB/s", "A800 被砍到 400 GB/s 的那根线"],
+      ["NVLink 4", "Hopper（H100）", "900 GB/s", "配合第三代 NVSwitch"],
+      ["NVLink 5", "Blackwell（B200）", "1.8 TB/s", "配合 NVL72 超节点"]
+    ],
+    "net_headers": ["网络", "单端口带宽", "特点"],
+    "net_rows": [
+      ["InfiniBand NDR", "400 Gb/s（约 50 GB/s）", "延迟极低，AI 集群标配，价格贵"],
+      ["InfiniBand XDR", "800 Gb/s（约 100 GB/s）", "2024 年后新集群主流"],
+      ["RoCE v2（以太网）", "200 至 800 Gb/s", "成本低，调优门槛高，国内厂商主推"],
+      ["光模块", "800G / 1.6T", "跨楼远距离传输的物理载体"]
+    ],
+    "note": "GB200 NVL72 把 72 张 B200 与 36 颗 Grace CPU 装进一个液冷机柜，聚合带宽约 130 TB/s，功耗约 120 kW。现代 AI 集群标准拓扑三层：机柜内 NVLink 加 NVSwitch，机房内 InfiniBand 或 RoCE，跨园区光纤。"
+  },
+  "deep_power": {
+    "title": "供电与散热：算力的尽头是电力",
+    "headers": ["卡", "TDP 满载功耗", "供电接口"],
+    "rows": [
+      ["RTX 4090", "450W", "16 pin（12VHPWR）"],
+      ["RTX 5090", "575W", "16 pin（12V-2x6）"],
+      ["A100 SXM", "400W", "主板供电"],
+      ["H100 SXM", "700W", "主板供电"],
+      ["B200", "1000W", "主板供电"],
+      ["GB200 NVL72 整柜", "约 120 kW", "机柜级三相供电"]
+    ],
+    "cool_headers": ["方案", "原理", "适用", "说明"],
+    "cool_rows": [
+      ["风冷", "风扇加散热鳍片", "消费卡、工作站、低密度机房", "便宜省心，功耗墙约单柜 20 kW"],
+      ["冷板式液冷", "冷却液流经贴合芯片的冷板", "DGX、NVL72、现代 AI 机房", "单柜可支撑 100 kW 级以上"],
+      ["浸没式液冷", "整机泡进绝缘冷却液", "少数超算与矿场", "散热极限最高，维护麻烦"]
+    ],
+    "note": "PUE 等于机房总能耗除以 IT 设备能耗，风冷老机房常在 1.5 以上，先进液冷机房能压到 1.1 至 1.2。单柜 120 kW 的时代，PUE 每差 0.1，一年电费六位数起步。"
+  },
+  "deep_estimation": {
+    "title": "实战：显存估算的两笔账",
+    "cases": [
+      {"name": "推理场景：7B 模型 BF16", "steps": ["权重：70 亿参数 × 2 字节 = 14GB", "KV cache：30 层、隐藏维 4096、上下文 8K，约 1 至 2GB", "结论：16GB 显存刚好起步，24GB 的 4090 很从容"]},
+      {"name": "训练场景：7B 全参数微调", "steps": ["每参数账单：FP16 权重 2 字节 + FP32 副本 4 字节 + Adam 动量 8 字节 + 梯度 2 字节，约 16 字节", "70 亿参数 × 16 字节 ≈ 112GB，还没算中间激活值", "结论：单张 80GB A100 装不下，需要梯度检查点、ZeRO 切分，或者直接上多卡"]}
+    ],
+    "note": "记住这两笔账，面对「这个模型需要几张卡」的问题，你至少能算出下限。下面的计算器帮你直接算。"
+  },
+  "faq": [
+    {"q": "A800 是不是比 A100 更好？",
+     "conclusion": "不是。A800 与 A100 使用同一颗 GA100 芯片，是出口管制下的降规版，性能整体低于或等于 A100。",
+     "paras": ["2022 年 10 月美国商务部对高端 GPU 出口中国实施管制，阈值涉及算力与卡间互联带宽。NVIDIA 把 A100 的 NVLink 带宽从 600 GB/s 降到 400 GB/s 得到 A800，芯片、显存、算力均不变。", "单卡跑两者几乎没差，组集群跑大模型时 A100 通信更快。这个 800 的命名带着黑色幽默：数字变大了，能力却缩水了。"],
+     "table": {"headers": ["参数", "A100 SXM", "A800 SXM"], "rows": [["架构", "Ampere（GA100）", "Ampere（GA100）"], ["显存", "80GB HBM2e", "80GB HBM2e"], ["FP16 算力", "312 TFLOPS", "312 TFLOPS"], ["NVLink 带宽", "600 GB/s", "400 GB/s"]]}},
+    {"q": "H100 / H800 / A100 / A800 的定位关系？",
+     "conclusion": "按代际与同代降规两条线看：A 系列上一代，H 系列当前代，B 系列新一代；特供版均为同代降规。",
+     "paras": ["代际关系：A100 上一代，H100 与 H200 当前代，B100 与 B200 新一代。同代内数字越大越强。特供版 A800 对 A100、H800 对 H100、H20 对 H100，都是同代降规。换算感：一张 H100 约等于 2 至 3 张 A100（BF16 训练），一张 B200 约等于 2 张 H100（FP8 场景，官方口径）。"],
+     "table": {"headers": ["型号", "架构", "显存", "面向市场", "关键特征"], "rows": [["A100", "Ampere（2020）", "40 / 80GB HBM2e", "全球", "上一代 AI 训练主力"], ["A800", "Ampere", "80GB HBM2e", "中国特供", "NVLink 降至 400GB/s"], ["H100", "Hopper（2022）", "80GB HBM3", "全球", "FP8 与 Transformer Engine"], ["H800", "Hopper", "80GB HBM3", "中国特供", "NVLink 400GB/s，后被禁售"], ["H20", "Hopper", "96GB HBM3", "中国特供（2024）", "算力大幅砍减，主打推理"], ["H200", "Hopper", "141GB HBM3e", "全球", "H100 显存升级版"], ["B100 / B200", "Blackwell（2024）", "192GB HBM3e", "全球", "双 die 封装，支持 FP4"]]}},
+    {"q": "RTX 4090 能否用于 AI 训练？",
+     "conclusion": "可以，但仅适合个人研究、模型微调、小规模训练；生产环境的大模型训练用不上也用不起。",
+     "paras": ["能做的事：7B 或 13B 模型的 LoRA / QLoRA 微调、7B 至 70B 量化模型推理、Stable Diffusion 等图像模型的训练与推理。", "做不了的事：RTX 40 与 50 系已取消 NVLink，多卡只能走 PCIe；24GB 或 32GB 显存装不下 70B 以上模型的优化器状态；消费卡不为 7×24 小时设计，数据中心也不允许上架 GeForce（EULA 明文禁止）；FP64 被阉割到约 1/64。"],
+     "table": {"headers": ["维度", "RTX 4090", "H100 SXM"], "rows": [["显存", "24GB GDDR6X", "80GB HBM3"], ["显存带宽", "1 TB/s", "3.35 TB/s"], ["FP16 / BF16", "165 TFLOPS", "989 TFLOPS"], ["FP8", "不支持", "1979 TFLOPS"], ["NVLink", "无", "900 GB/s"], ["ECC 显存", "无", "有"], ["参考单卡价", "1.5 万元左右", "20 万元以上（渠道价）"]]}},
+    {"q": "显存容量与算力，哪个更重要？",
+     "conclusion": "显存决定能不能跑，算力决定跑得快不快。显存永远是第一道过滤器。",
+     "paras": ["判断顺序：模型参数加优化器状态加激活值能不能装进显存（硬门槛）；装下之后算力决定速度；多卡场景通信成为新瓶颈。这也是 MI300X（192GB）和 H200（141GB）在推理市场卖得动的原因，容量本身就是产品力。"],
+     "table": {"headers": ["场景", "显存需求（BF16 粗估）"], "rows": [["7B 模型推理", "14GB"], ["7B 模型 LoRA 微调", "20 至 30GB"], ["7B 模型全参训练", "80GB 起"], ["70B 模型推理", "140GB"], ["70B 模型 LoRA 微调", "需 2 张 A100 80G 或 1 张 MI300X"], ["175B 模型训练", "至少一个 8×H100 节点"]]}},
+    {"q": "多卡互联，NVLink 与 PCIe 的差距有多大？",
+     "conclusion": "单机内 NVLink 等效带宽约是 PCIe 的 20 倍以上，出口管制盯着互联带宽砍，正因为它是多卡训大模型的胜负手。",
+     "paras": ["PCIe 像公共道路，NVLink 是专属高速专线。跨节点靠 InfiniBand 或高速以太网，比 NVLink 慢一个数量级，因此「节点内 NVLink 加节点间 IB」的两级拓扑成为标配。A800 与 H800 的降规可以理解为专线只让修到 400GB/s：单卡算力差不多，组成集群就拉不出一样的效能。"],
+     "table": {"headers": ["互联方式", "带宽", "典型场景"], "rows": [["PCIe 4.0 x16", "32 GB/s", "消费卡默认互联"], ["PCIe 5.0 x16", "64 GB/s", "RTX 50 系、工作站卡"], ["NVLink 4（Hopper）", "900 GB/s", "H100 卡间"], ["NVLink 5（Blackwell）", "1.8 TB/s", "B200 卡间"], ["Infinity Fabric（AMD）", "896 GB/s", "MI300X 之间"], ["HCCS（华为昇腾）", "每链路 56 GB/s 全互联", "昇腾 910 服务器"], ["InfiniBand HDR / NDR", "400 至 800 Gb/s", "跨节点"], ["RoCE / 以太网", "100 至 800 Gb/s", "跨节点，成本更低"]]}}
+  ]
+}
