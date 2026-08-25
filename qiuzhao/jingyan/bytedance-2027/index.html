@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex, nosnippet">
+<title>字节跳动 2027 校招真题 · 四大重点 AI 岗位解读</title>
+<style>
+:root{
+  --paper:#f7f6f2; --panel:#ffffff; --ink:#2a2721; --ink2:#6b6759; --ink3:#a39e8f;
+  --line:#e7e4dc; --line2:#efece4;
+  --accent:#3d5a99; --accent-deep:#2c4271; --accent-soft:#eef2fa;
+  --gold:#b08d57; --gold-soft:#faf5ec;
+  --ok:#3d8a5a; --ok-soft:#edf6f0; --warn:#c05348; --warn-soft:#faf0ef;
+  --purple:#7a4dad; --purple-soft:#f3eef9;
+  --teal:#2a7a7a; --teal-soft:#e8f3f3;
+  --pink:#b04a6e; --pink-soft:#f9eef2;
+  --radius:10px; --shadow:0 1px 2px rgba(42,39,33,.05),0 6px 20px rgba(42,39,33,.06);
+  --serif:"Noto Serif SC","Songti SC","STSong",serif;
+  --sans:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  --mono:"SF Mono",Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.75}
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;padding:0 24px;height:56px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+header .logo{font-family:var(--serif);font-size:16px;font-weight:700}
+header .logo em{font-style:normal;color:var(--accent)}
+header .crumb{font-size:13px;color:var(--ink2)}
+header .crumb a{color:var(--accent);text-decoration:none}
+header .crumb a:hover{text-decoration:underline}
+header .ext{margin-left:auto;display:flex;gap:8px}
+header .ext a{font-size:12px;color:var(--ink2);text-decoration:none;padding:5px 10px;border:1px solid var(--line);border-radius:6px}
+header .ext a:hover{border-color:var(--accent);color:var(--accent)}
+.page{max-width:940px;margin:0 auto;padding:28px 28px 100px}
+.hero{text-align:center;padding:30px 0 26px;border-bottom:2px solid var(--ink);margin-bottom:24px}
+.hero .en{font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-family:var(--serif);font-size:30px;font-weight:800;letter-spacing:1px;line-height:1.4}
+.hero .sub{color:var(--ink2);margin-top:12px;font-size:14px}
+.hero .meta{margin-top:18px;font-size:12.5px;color:var(--ink3)}
+.hero .meta a{color:var(--accent);text-decoration:none}
+.hero .meta a:hover{text-decoration:underline}
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:0 0 36px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.toc a{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500}
+.toc a:hover{background:var(--accent-soft);color:var(--accent)}
+.toc .ico{font-size:18px}
+.toc .cnt{margin-left:auto;font-size:11px;color:var(--ink3);font-variant-numeric:tabular-nums}
+section{margin-bottom:48px;scroll-margin-top:70px}
+.pos-hero{display:flex;align-items:center;gap:18px;padding:24px;background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:24px;position:relative;overflow:hidden}
+.pos-hero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--accent)}
+.pos-hero.eng::before{background:var(--purple)}
+.pos-hero.fse::before{background:var(--teal)}
+.pos-hero.pm::before{background:var(--pink)}
+.pos-hero .ph-icon{font-size:42px;flex-shrink:0}
+.pos-hero .ph-info{flex:1}
+.pos-hero .ph-num{font-family:var(--serif);font-size:11px;letter-spacing:4px;color:var(--gold);margin-bottom:6px}
+.pos-hero h2{font-family:var(--serif);font-size:24px;font-weight:800;letter-spacing:1px;margin-bottom:4px}
+.pos-hero .ph-sub{font-size:13px;color:var(--ink2)}
+.pos-hero .ph-tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-top:8px}
+.pos-hero .ph-tag.all{background:var(--accent-soft);color:var(--accent)}
+.pos-hero .ph-tag.eng{background:var(--purple-soft);color:var(--purple)}
+.pos-hero .ph-tag.fse{background:var(--teal-soft);color:var(--teal)}
+.pos-hero .ph-tag.pm{background:var(--pink-soft);color:var(--pink)}
+.pos-hero .ph-stat{text-align:right;flex-shrink:0}
+.pos-hero .ph-stat .big{font-family:var(--serif);font-size:36px;font-weight:800;color:var(--accent);line-height:1}
+.pos-hero.eng .ph-stat .big{color:var(--purple)}
+.pos-hero.fse .ph-stat .big{color:var(--teal)}
+.pos-hero.pm .ph-stat .big{color:var(--pink)}
+.pos-hero .ph-stat .lbl{font-size:11px;color:var(--ink3);margin-top:4px}
+.tags-line{display:flex;flex-wrap:wrap;gap:6px;padding:14px 18px;background:var(--paper);border:1px dashed var(--line);border-radius:8px;margin-bottom:18px}
+.tags-line .tag{font-size:12px;padding:3px 10px;background:var(--panel);border:1px solid var(--line2);border-radius:12px;color:var(--ink2)}
+.tags-line .tag.lead{background:var(--gold-soft);border-color:#e6d4a8;color:#7a5a2a;font-weight:600}
+h3{font-family:var(--serif);font-size:18px;font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:1px solid var(--line2)}
+h3 .n{color:var(--gold);font-size:15px}
+.jd-intro{color:var(--ink2);font-size:14px;margin-bottom:16px;line-height:1.85}
+.jd-intro b{color:var(--ink)}
+.jd-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:18px}
+.jd-list ol{padding-left:24px}
+.jd-list li{margin-bottom:10px;font-size:14px;line-height:1.85}
+.jd-list li:last-child{margin-bottom:0}
+.jd-list li b{color:var(--accent);font-weight:600}
+.tips-card{background:var(--gold-soft);border:1px solid #e6d4a8;border-radius:var(--radius);padding:16px 20px;margin-bottom:18px}
+.tips-card .tt{font-family:var(--serif);font-size:13px;font-weight:700;color:#7a5a2a;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.tips-card ol{padding-left:22px}
+.tips-card li{margin-bottom:6px;font-size:14px;line-height:1.8}
+.qa-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px;overflow:hidden;transition:box-shadow .2s}
+.qa-card:hover{box-shadow:var(--shadow)}
+.qa-card .q{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
+.qa-card .q .idx{font-family:var(--serif);color:var(--gold);font-size:13px;font-weight:700;flex-shrink:0;margin-top:3px;font-variant-numeric:tabular-nums;min-width:32px}
+.qa-card .q .qt{font-weight:600;flex:1;font-size:14.5px;line-height:1.75}
+.qa-card .q .arrow{color:var(--ink3);flex-shrink:0;transition:transform .2s;font-size:11px;margin-top:6px}
+.qa-card.open .q .arrow{transform:rotate(90deg)}
+.qa-card .a{display:none;padding:14px 18px 16px 62px;border-top:1px dashed var(--line);background:#fdfdfc;font-size:14px;line-height:1.85}
+.qa-card.open .a{display:block}
+.qa-card .a b{color:var(--accent)}
+.qa-card .a .lb{display:block;font-size:11.5px;font-weight:700;letter-spacing:2px;color:var(--gold);margin:11px 0 4px}
+.qa-card .a .lb:first-child{margin-top:0}
+.qa-card .a .warn{display:inline-block;background:var(--warn-soft);color:var(--warn);font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:4px;margin-top:8px}
+.summary{background:linear-gradient(135deg,#eef2fa,#f3eef9);border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin-top:36px}
+.summary h3{font-family:var(--serif);font-size:17px;border:none;margin:0 0 10px;padding:0}
+.summary p{font-size:13.5px;color:var(--ink2);line-height:1.85;margin-bottom:8px}
+.summary p:last-child{margin-bottom:0}
+.foot{text-align:center;color:#8a94a6;font-size:.78rem;padding:2rem 1rem 1rem}
+.foot a{color:inherit}
+@media (max-width:720px){
+  .pos-hero{flex-direction:column;align-items:flex-start;text-align:left}
+  .pos-hero .ph-stat{text-align:left}
+  .page{padding:18px 16px 60px}
+  .hero h1{font-size:22px}
+  h2{font-size:20px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">大模型情报局<em>·</em>校招</div>
+  <div class="crumb"><a href="../">面试经验库</a> / <span>字节 2027 校招真题</span></div>
+  <div class="ext">
+    <a href="../../handbook/index.html">秋招手册</a>
+    <a href="../../arch/index.html">架构演进</a>
+    <a href="https://github.com/Xplore-LAB/llm-tracker" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</header>
+
+<div class="page">
+
+<div class="hero">
+  <div class="en">BYTEDANCE 2027 CAMPUS RECRUITMENT</div>
+  <h1>字节跳动 2027 校招真题 · 四大重点 AI 岗位</h1>
+  <p class="sub">大模型应用算法工程师 · AI 全栈工程师 · AI Agent 工程师 · AI 产品经理</p>
+  <p class="meta">原文来源：<a href="https://mp.weixin.qq.com/s/FSjjm-2RztVXrU9to3bAhw" target="_blank" rel="noopener">字节跳动招聘（微信公众号）</a> · 整理日期 2026-08-25</p>
+</div>
+
+<nav class="toc">
+  <a href="#p1"><span class="ico">🧠</span>大模型应用算法工程师<span class="cnt">5+ 方向</span></a>
+  <a href="#p2"><span class="ico">⚡</span>AI 全栈工程师<span class="cnt">12+ 方向</span></a>
+  <a href="#p3"><span class="ico">🤖</span>AI Agent 工程师<span class="cnt">校招重点</span></a>
+  <a href="#p4"><span class="ico">💼</span>AI 产品经理<span class="cnt">评估能力</span></a>
+</nav>
+
+<!-- ========== 岗位 1：大模型应用算法工程师 ========== -->
+<section id="p1">
+  <div class="pos-hero all">
+    <div class="ph-icon">🧠</div>
+    <div class="ph-info">
+      <div class="ph-num">POSITION 01</div>
+      <h2>大模型应用算法工程师</h2>
+      <div class="ph-sub">字节跳动模型应用算法相关岗位 · 2027 届校招</div>
+      <span class="ph-tag all">ALGORITHM</span>
+    </div>
+    <div class="ph-stat">
+      <div class="big">5+</div>
+      <div class="lbl">业务方向</div>
+    </div>
+  </div>
+
+  <div class="tags-line">
+    <span class="tag lead">方向</span>
+    <span class="tag">NLP</span>
+    <span class="tag">多模态</span>
+    <span class="tag">知识图谱</span>
+    <span class="tag">大模型训练与应用</span>
+    <span class="tag">后训练</span>
+    <span class="tag">RAG</span>
+    <span class="tag">Agent 自演化</span>
+    <span class="tag">SFT/RL</span>
+    <span class="tag">LLMs/VLMs/AIGC/Agent</span>
+  </div>
+
+  <h3><span class="n">▍</span>招聘解读</h3>
+  <p class="jd-intro">大模型应用算法工程师岗位的考察，不只看论文、开源项目或竞赛经历，也会重点关注候选人在大模型<b>训练、评测、效果优化和应用落地</b>中的实际经验。</p>
+
+  <h3><span class="n">▍</span>职位要求</h3>
+  <div class="jd-list">
+    <ol>
+      <li>2027 届统本科及以上学历，<b>计算机、机器学习等相关专业优先</b></li>
+      <li>在 <b>NLP 算法、多模态算法、大模型训练和应用、知识图谱</b>等领域有实际的开发和实习经验者优先</li>
+      <li>思维开阔，具备优秀的逻辑思考能力，面对挑战性问题充满热情，具有良好的团队合作、沟通协调能力，执行力和自驱力强</li>
+      <li>学习能力强，对前沿技术持续关注，能够洞察技术和业务的结合点</li>
+    </ol>
+  </div>
+
+  <h3><span class="n">▍</span>求职 Tips</h3>
+  <div class="tips-card">
+    <div class="tt">✦ 简历与投递建议</div>
+    <ol>
+      <li><b>扎实的基本功必不可少</b>，除具体项目外，面试官也可能会考察机器学习、深度学习、概率统计等基础概念</li>
+      <li>对研究背景方向并<b>没有硬性限制</b>，也欢迎上下游相关专业并对模型应用感兴趣的同学积极投递</li>
+    </ol>
+  </div>
+
+  <h3><span class="n">▍</span>面试真题测一测</h3>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q1</div>
+      <div class="qt">简历中的这个项目/论文里，哪部分是你独立完成的？能否讲清楚从数据处理、模型训练、评测到上线（或实验结果）的全过程？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人对项目的<b>真实思考</b>。字节跳动的工作风格务实，期待候选人有比较扎实的项目基础，对项目细节——比如样本如何生成、脏数据如何处理、训练评测怎么做、过程中踩过哪些坑均有<b>复盘和思考</b>。
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q2</div>
+      <div class="qt">在这个项目中，SFT 和 RL 分别解决什么问题？有什么实验能够证明这两个阶段的必要性？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人对<b>技术的理解</b>。候选人对模型训练的理解非常重要，我们期待候选人对这些技术有比较深入的理解，并在自己的场景<b>做过验证</b>，而不只是跟风、为了做而做。
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q3</div>
+      <div class="qt">Pre-Norm 和 Post-Norm 有什么区别？项目用了哪个，为什么？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人的<b>技术基础是否扎实</b>。不只能够说清两者区别，更要讲清楚为什么 Pre-Norm 更稳定、为什么 Post-Norm 最终性能可能更好。当然，如果你还能进一步指出 Pre-Norm 稳定性背后的缺点，以及<b>如何改进</b>和业内开源模型的具体做法，那就更好啦。
+    </div>
+  </div>
+</section>
+
+<!-- ========== 岗位 2：AI 全栈工程师 ========== -->
+<section id="p2">
+  <div class="pos-hero fse">
+    <div class="ph-icon">⚡</div>
+    <div class="ph-info">
+      <div class="ph-num">POSITION 02</div>
+      <h2>AI 全栈工程师</h2>
+      <div class="ph-sub">字节跳动 AI 相关研发岗位 · 2027 届校招</div>
+      <span class="ph-tag fse">FULL-STACK</span>
+    </div>
+    <div class="ph-stat">
+      <div class="big">12+</div>
+      <div class="lbl">业务方向</div>
+    </div>
+  </div>
+
+  <div class="tags-line">
+    <span class="tag lead">以下团队正在热招中</span>
+    <span class="tag">抖音研发</span>
+    <span class="tag">国际化商业产品技术</span>
+    <span class="tag">安全风控</span>
+    <span class="tag">中国广告交易</span>
+    <span class="tag">Tiktok 研发</span>
+    <span class="tag">剪映 CapCut</span>
+    <span class="tag">集团信息系统</span>
+  </div>
+
+  <h3><span class="n">▍</span>招聘解读</h3>
+  <p class="jd-intro">AI 全栈工程师岗位的考察，不只看候选人对 AI 的理解，也会通过代码题、项目深挖或前置 AI 作业等，进一步考察候选人是否具备借助 AI 完成实际开发任务，并对 AI 生成结果进行判断验证和修改。</p>
+
+  <h3><span class="n">▍</span>职位要求</h3>
+  <div class="jd-list">
+    <ol>
+      <li>2027 届统本科及以上学历，<b>计算机、通信和电子信息科学、数字等相关专业</b></li>
+      <li>具备良好的计算机基础（<b>数据结构、算法、计算机网络、操作系统</b>等），并熟练使用至少一门编程语言</li>
+      <li>熟练使用 <b>HTML5/CSS3/JavaScript/TypeScript/Vue/React</b> 等前端技术，完成页面布局交互式开发，有全栈（GoLang）开发经验者优先</li>
+      <li>熟练使用 <b>TRAE、Claude Code、Codex、Cursor</b> 等任一 AI Coding 工具，练习过 Rules、MCP、Skills <b>并了解底层机制与基本原理</b>者加分</li>
+      <li><b>认知 AI Coder 定位</b>：明确自身长期发展规划，具备模块的学习能力和动手能力，能快速上手新领域技术，适配业务活动的开发模式</li>
+      <li>积极乐观，责任心强，具备良好的沟通协作能力，<b>逻辑思维能力强</b>以及服务意识</li>
+    </ol>
+  </div>
+
+  <h3><span class="n">▍</span>求职 Tips</h3>
+  <div class="tips-card">
+    <div class="tt">✦ 简历与项目建议</div>
+    <ol>
+      <li>简历里<b>最好有一个完整项目</b>，能讲清楚从前端交互、后端接口、模型接入到效果验证的全链路</li>
+      <li>表达尽量细致，如果你做过的项目涉及<b>调用大模型 API</b>，可以进一步说明你如何提升回答质量、降低延迟、控制成本和处理异常</li>
+      <li>如有相关经历，可以重点突出自己使用 <b>AI 推动产品功能上线</b>的项目，并复盘其中的技术选型、实际踩坑和后续优化方向</li>
+    </ol>
+  </div>
+
+  <h3><span class="n">▍</span>面试真题测一测</h3>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q1</div>
+      <div class="qt">如果让你用 AI 工具完成一个真实业务需求，例如设计一个广告投放工具调用 Agent，你会如何理解项目、拆分需求，并设计前后端和模型调用链路？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人的<b>端到端业务理解与工程落地能力</b>。AI 全栈工程师不仅要写代码，还要懂业务和用户场景，拆解需求、设计架构，并善用 AI 工具提效。回答时建议更加全面，例如从业务流程、页面交互、前后端接口、Agent 决策逻辑、工具调用等环节整体说明。若能进一步说明各模块的<b>职责边界、关键技术选型</b>和完整的数据流转过程，会更加分。
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q2</div>
+      <div class="qt">如果要求你的 agent 的回复必须是符合 JSON Schema 的结构化内容，但用户反馈约 10% 的请求会出现"解析失败"或"字段缺失"，你如何把解析失败率降到 1% 以下？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人是否解决过实际工程中经常出现的<b>边 case</b>。建议同学可以先分析有可能的失败原因，再从以下角度作答：
+      <ul style="margin-top:6px;padding-left:20px">
+        <li>上下文与提示词优化</li>
+        <li>工具调用策略改进</li>
+        <li>二次模型校验</li>
+        <li>切换更稳定的模型</li>
+        <li>工程链路兜底（fallback 解析、规则补全）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q3</div>
+      <div class="qt">Agent 运行过程中经常会遇到幻觉，你会如何排查这类问题？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人的<b>知识广度</b>。它是一个开放性问题，没有正确答案。大家可以结合自身优势，从模型输出、上下文拼接、Skill 召回等多个环节展开。
+    </div>
+  </div>
+</section>
+
+<!-- ========== 岗位 3：AI Agent 工程师 ========== -->
+<section id="p3">
+  <div class="pos-hero eng">
+    <div class="ph-icon">🤖</div>
+    <div class="ph-info">
+      <div class="ph-num">POSITION 03</div>
+      <h2>AI Agent 开发工程师</h2>
+      <div class="ph-sub">字节跳动 · 2027 届校招</div>
+      <span class="ph-tag eng">AGENT</span>
+    </div>
+    <div class="ph-stat">
+      <div class="big">★</div>
+      <div class="lbl">校招重点</div>
+    </div>
+  </div>
+
+  <h3><span class="n">▍</span>招聘解读</h3>
+  <p class="jd-intro">AI Agent 工程师岗位的考察，重点关注候选人对 Agent <b>运行机制和工程落地</b>的理解，而不只是是否做过简单 Demo。部分团队会提前布置 Agent 相关作业，考察候选人能否在真实场景中完成需求拆解、技术选型、方案实现和问题排查。</p>
+
+  <h3><span class="n">▍</span>职位要求</h3>
+  <div class="jd-list">
+    <ol>
+      <li>2027 届统本科及以上学历，<b>计算机、软件工程等相关专业优先</b></li>
+      <li>开发语言和技术栈不限，熟悉 <b>Golang/Python/TypeScript</b> 优先，并熟悉常见的软件开发模式</li>
+      <li>对 AI 应用方向有强烈的兴趣，熟悉 Agent 相关的<b>常见范式架构</b>（如 Plan&Execute、ReAct、Workflow 等），熟悉模型的工作原理和特性，并能结合原理和特性做稳定化、成本和效果优化优先</li>
+      <li>业务理解能力强，能够针对业务上的需求<b>梳理业务边界</b>并快速匹配最合适的 Agent 工作流范式</li>
+      <li>对行业流行的常见模型优缺点有大致了解，并了解如何<b>系统科学的评测</b>帮助模型选型</li>
+      <li><b>掌握模型原理优先</b>：对常见的 CNN、RNN、Transformer 模型结构及推理架构有一定的了解，对模型的二次训练原理及方法了解优先，如 <b>SFT、LoRA-SFT、DPO</b> 等</li>
+    </ol>
+  </div>
+
+  <h3><span class="n">▍</span>求职 Tips</h3>
+  <div class="tips-card">
+    <div class="tt">✦ 项目与表达建议</div>
+    <ol>
+      <li>简历里最好写一个<b>完整 Agent 项目</b>：任务目标是什么、接了哪些工具、如何处理失败、最终效果如何评估</li>
+      <li>面试中<b>不要只讲框架名</b>。更重要的是讲清楚你为什么这样拆任务，为什么需要这个工具，以及异常情况怎么处理</li>
+      <li>如果做过 <b>RAG、自动化工作流、智能客服、代码助手、数据分析助手</b>等项目，可以重点准备链路设计和效果评估</li>
+    </ol>
+  </div>
+
+  <h3><span class="n">▍</span>面试真题测一测</h3>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q1</div>
+      <div class="qt">现在很多信息抽取任务可以用 LLM 完成，你会如何判断该用专用小模型，还是直接调用 LLM？两者怎么结合更划算？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人对<b>信息抽取任务技术选型的判断能力</b>。希望同学能从 <b>成本、延迟、数据量、schema 稳定性</b>等维度综合判断，而不是简单认为专用小模型或 LLM 一定更优。如果能进一步想到一些组合方案，比如用 LLM 蒸馏小模型，或采用<b>"小模型 + LLM 复核"</b>等方式，那就更好啦。
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q2</div>
+      <div class="qt">你的论文做了 AI 生成文本检测，也提到方法在水印扰动、跨模型、跨领域下容易失效。如果要把这套论文方法做成线上检测服务，工程落地会遇到什么问题？遇到没见过的新模型时，你会怎么处理？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人能否理解<b>学术 benchmark 和真实开放世界之间的差距</b>。学术数据集往往分布更干净，但线上场景会遇到跨模型、跨领域、水印扰动和未知模型等问题。因此，回答时建议不要只关注论文中的 SOTA 指标。如果能进一步结合线上落地场景，提出一些能真实落地的组合方案，比如<b>"持续更新 + 概率输出 + 人工兜底"</b>会更好。
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q3</div>
+      <div class="qt">作为 Agent 工程师，如果用户根据不同细分场景定义了几百个 Skill，导致 Skill 召回准确率下降，你怎么解决？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人是否真的思考过如何<b>落地 Agent 类项目</b>，并理解真实 Agent 使用中会遇到的问题。随着 Skill 数量增加，召回准确率下降是实际落地中常见的问题。如果同学能从业树优化和召回质量两个方向作答，例如<b>分层召回、上下文感知、召回策略优化和 query 优化</b>等，回答会更完整。
+    </div>
+  </div>
+</section>
+
+<!-- ========== 岗位 4：AI 产品经理 ========== -->
+<section id="p4">
+  <div class="pos-hero pm">
+    <div class="ph-icon">💼</div>
+    <div class="ph-info">
+      <div class="ph-num">POSITION 04</div>
+      <h2>AI 产品经理</h2>
+      <div class="ph-sub">字节跳动 · 2027 届校招</div>
+      <span class="ph-tag pm">PRODUCT</span>
+    </div>
+    <div class="ph-stat">
+      <div class="big">PM</div>
+      <div class="lbl">评估能力</div>
+    </div>
+  </div>
+
+  <h3><span class="n">▍</span>招聘解读</h3>
+  <p class="jd-intro">AI 产品经理岗位的核心考察点是候选人<b>对大模型的评估能力、产品化思维以及动手实践</b>。期待同学既能用产品视角量化效果，又能用工程视角快速验证。</p>
+
+  <h3><span class="n">▍</span>求职 Tips</h3>
+  <div class="tips-card">
+    <div class="tt">✦ 评估与动手建议</div>
+    <ol>
+      <li>准备一两个自己用 <b>vibe coding</b> 或 AI 工具搭出来的产品 demo，体现动手能力</li>
+      <li>面对复杂问题时能<b>积极拆解</b>、喜欢快速迭代的模型和工具，并能主动跟进并应用到业务中</li>
+      <li>展示对业务指标的<b>量化思考</b>（准确率、误判率、漏判率等）和迭代改进思路</li>
+    </ol>
+  </div>
+
+  <h3><span class="n">▍</span>面试真题测一测</h3>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q1</div>
+      <div class="qt">如果你要把一个大模型能力引入业务场景（如内容治理），你会如何判断它是否好用？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人的 <b>AI 产品评估能力</b>。回答时建议大家除了"准确率高""用户满意"之外，也尽量指出治理场景的<b>具体指标</b>，比如准确率、误判率、漏判率、误判情况等，并说明这些指标和<b>业务目标之间</b>的关联。如果还有时间，还可以进一步分享一下效果不好的自己的例化思路（如提示词、Agent、工作流等），让面试官看到你的更多思考。
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q2</div>
+      <div class="qt">你自己用过什么 AI 工具或产品？过程中遇到过什么问题，怎么解决的？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人的<b>动手能力和学习速度</b>。如果面试前能展示一个自己用 vibe coding 做出来的产品，会是一个加分项。但建议进一步整理清楚：<b>为什么做这个产品，解决了谁的问题，功能如何设计、遇到了哪些具体问题、怎么一步步改进</b>，以及有没有真实用户使用或推广。
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="q" onclick="this.parentElement.classList.toggle('open')">
+      <div class="idx">Q3</div>
+      <div class="qt">AI 技术日新月异，你如何学习和跟进最新技术？</div>
+      <div class="arrow">▶</div>
+    </div>
+    <div class="a">
+      <span class="lb">◈ 考察点</span>
+      这道题考察候选人的<b>韧性和适应能力</b>。AI 技术日新月异，期待大家和我们一起可以持续学习。遇到复杂问题时能积极拆解、喜欢快速迭代的模型和工具能主动跟进并应用到业务中。
+    </div>
+  </div>
+</section>
+
+<!-- ========== 收尾 ========== -->
+<div class="summary">
+  <h3>📌 总结</h3>
+  <p>字节跳动 2027 校招四大重点 AI 岗位（大模型应用算法、AI 全栈、AI Agent、AI 产品经理）的核心考察点：</p>
+  <p><b>① 算法岗</b>强调项目真实思考与训练技术深度（SFT/RL/Pre-Norm 等）；<b>② 全栈岗</b>看重端到端业务理解与 AI Coding 工具的实际使用；<b>③ Agent 岗</b>重点考察范式选择、技术选型与工程落地（幻觉、Skill 召回、模型选型）；<b>④ PM 岗</b>评估指标量化、动手能力与持续学习。</p>
+  <p>希望这份整理对 2027 届校招的同学有帮助，祝大家都能拿到自己心仪的 offer 🎉</p>
+</div>
+
+</div>
+
+<footer class="foot">
+  🤖 <a href="https://xplore-lab.github.io/llm-tracker/">大模型情报局</a> © 2026 <a href="https://github.com/Xplore-LAB">Xplore-LAB</a> · 原创内容保留所有权利 · 禁止未授权转载与抓取
+</footer>
+
+</body>
+</html>
