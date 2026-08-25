@@ -20,89 +20,126 @@
 <script>try{if(localStorage.getItem('llm_theme')==='dark'||(!localStorage.getItem('llm_theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#333;min-height:100vh}
-/* ambient background */
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#333;min-height:100vh;overflow-x:hidden}
+/* ambient background + floating particles */
 .bg{position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
-    radial-gradient(600px 400px at 15% 8%,rgba(124,58,237,.08),transparent 60%),
-    radial-gradient(700px 500px at 85% 30%,rgba(8,145,178,.07),transparent 60%),
-    radial-gradient(600px 500px at 20% 85%,rgba(217,119,6,.06),transparent 60%)}
-header{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;padding:2.2rem 2rem 1.8rem;text-align:center;position:relative;z-index:1}
-header h1{font-size:2rem;letter-spacing:.08em;background:linear-gradient(90deg,#ffd89e,#fff,#b8c6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-header p{opacity:.75;font-size:.85rem;margin-top:.4rem}
-.tabs{display:flex;justify-content:center;gap:.6rem;padding:.8rem;background:white;border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+    radial-gradient(620px 420px at 12% 6%,rgba(124,58,237,.09),transparent 60%),
+    radial-gradient(720px 520px at 88% 28%,rgba(8,145,178,.08),transparent 60%),
+    radial-gradient(620px 520px at 18% 88%,rgba(217,119,6,.07),transparent 60%)}
+.pt{position:absolute;border-radius:50%;filter:blur(1px);opacity:.5;animation:drift var(--dur,14s) ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(var(--dx,20px),var(--dy,-30px))}}
+header{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;padding:2.4rem 2rem 2rem;text-align:center;position:relative;z-index:1}
+header h1{font-family:Georgia,'Songti SC','SimSun',serif;font-size:2.1rem;letter-spacing:.14em;background:linear-gradient(90deg,#ffd89e,#fff 45%,#b8c6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+header p{opacity:.72;font-size:.85rem;margin-top:.45rem;letter-spacing:.12em}
+.tabs{display:flex;justify-content:center;gap:.6rem;padding:.8rem;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:10;flex-wrap:wrap}
 .tab{padding:.45rem 1.1rem;border-radius:2rem;border:2px solid #302b63;background:white;font-weight:600;font-size:.82rem;text-decoration:none;color:#302b63;transition:all .2s}
 .tab:hover,.tab.active{background:#302b63;color:white}
-/* legend */
 .legend{display:flex;justify-content:center;gap:.45rem;flex-wrap:wrap;padding:1rem 1rem .4rem;position:relative;z-index:1}
-.lg-chip{display:inline-flex;align-items:center;gap:.3rem;font-size:.74rem;font-weight:600;padding:.25rem .75rem;border-radius:1rem;border:1.5px solid var(--c);color:var(--c);background:white;cursor:pointer;user-select:none;transition:all .15s}
-.lg-chip.on{background:var(--c);color:white}
+.lg-chip{display:inline-flex;align-items:center;gap:.3rem;font-size:.74rem;font-weight:600;padding:.25rem .75rem;border-radius:1rem;border:1.5px solid var(--c);color:var(--c);background:rgba(255,255,255,.85);cursor:pointer;user-select:none;transition:all .15s}
+.lg-chip.on{background:var(--c);color:white;box-shadow:0 2px 10px color-mix(in srgb,var(--c) 45%,transparent)}
 .lg-chip.all{border-color:#302b63;color:#302b63}
 .lg-chip.all.on{background:#302b63;color:white}
 /* ── the tree ── */
-.tree{position:relative;max-width:960px;margin:1rem auto 0;padding:1rem 0 4rem;z-index:1}
-.spine{position:absolute;left:50%;top:0;bottom:0;width:4px;transform:translateX(-50%);border-radius:4px;
-  background:linear-gradient(180deg,#7c3aed,#0891b2,#d97706,#db2777,#16a34a,#302b63);
-  box-shadow:0 0 12px rgba(48,43,99,.35),0 0 30px rgba(124,58,237,.18)}
-/* year chapter */
-.year-node{position:relative;text-align:center;margin:2.6rem 0 1.6rem;z-index:2}
-.year-node .yr{display:inline-block;font-size:2rem;font-weight:800;letter-spacing:.06em;color:#302b63;background:white;border:3px solid #302b63;border-radius:2rem;padding:.15rem 1.4rem;box-shadow:0 4px 18px rgba(48,43,99,.18)}
-/* event row: alternate sides */
-.ev{position:relative;width:50%;padding:.5rem 3rem 1.4rem;opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;z-index:2}
+.tree{position:relative;max-width:980px;margin:1rem auto 0;padding:1rem 0 5rem;z-index:1}
+.spine{position:absolute;left:50%;top:0;bottom:0;width:5px;transform:translateX(-50%);border-radius:4px;
+  background:linear-gradient(180deg,#7c3aed,#0891b2,#d97706,#db2777,#16a34a,#302b63,#7c3aed);
+  background-size:100% 260%;animation:flow 14s linear infinite;
+  box-shadow:0 0 14px rgba(48,43,99,.4),0 0 34px rgba(124,58,237,.22)}
+@keyframes flow{from{background-position:50% 0}to{background-position:50% 260%}}
+/* year medallion */
+.year-node{position:relative;display:flex;justify-content:center;margin:2.8rem 0 1.8rem;z-index:2}
+.medal{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;
+  background:radial-gradient(circle at 32% 28%,#ffffff,#ece9fb 70%,#d9d3f2);
+  border:3px solid #302b63;
+  box-shadow:0 0 0 5px rgba(48,43,99,.12),0 0 0 9px rgba(48,43,99,.05),0 8px 24px rgba(48,43,99,.25)}
+.medal::before{content:'';position:absolute;inset:5px;border-radius:50%;border:1.5px dashed rgba(48,43,99,.35)}
+.medal span{font-family:Georgia,'Songti SC',serif;font-size:1.45rem;font-weight:700;letter-spacing:.04em;
+  background:linear-gradient(135deg,#302b63,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* event rows */
+.ev{position:relative;width:50%;padding:.55rem 3.4rem 1.5rem;opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;z-index:2}
 .ev.show{opacity:1;transform:none}
 .ev.left{left:0;text-align:right}
 .ev.right{left:50%;text-align:left}
-/* branch connector */
-.ev::before{content:'';position:absolute;top:1.35rem;width:2.2rem;height:2px;background:var(--c);opacity:.75}
-.ev.left::before{right:.8rem}
-.ev.right::before{left:.8rem}
-.ev::after{content:'';position:absolute;top:calc(1.35rem - 7px);width:16px;height:16px;border-radius:50%;background:var(--c);border:3px solid white;
-  box-shadow:0 0 0 3px var(--c),0 0 14px var(--c)}
-.ev.left::after{right:-8px}
-.ev.right::after{left:-8px}
-.card{display:inline-block;background:white;border-radius:14px;padding:.8rem 1.05rem;box-shadow:0 4px 16px rgba(0,0,0,.08);border:1px solid #eee;max-width:100%;text-align:left;transition:transform .25s,box-shadow .25s;border-top:3px solid var(--c)}
-.card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(48,43,99,.18)}
-.ev-date{font-size:.7rem;color:#999;letter-spacing:.04em;margin-bottom:.2rem}
-.ev-cat{display:inline-block;font-size:.66rem;font-weight:700;color:var(--c);background:color-mix(in srgb,var(--c) 10%,white);border-radius:1rem;padding:.1rem .5rem;margin-bottom:.3rem}
-.ev-title{font-size:.95rem;font-weight:700;color:#23203d;line-height:1.4}
-.ev-org{font-size:.74rem;font-weight:600;color:var(--c);margin:.15rem 0 .25rem}
-.ev-note{font-size:.8rem;color:#555;line-height:1.6}
-.ev-link{display:inline-block;margin-top:.4rem;font-size:.74rem;font-weight:600;color:#302b63;text-decoration:none}
-.ev-link:hover{text-decoration:underline}
+/* curved branch (svg) */
+.branch{position:absolute;top:1.5rem;width:3.4rem;height:46px;overflow:visible;pointer-events:none}
+.ev.left .branch{right:0}
+.ev.right .branch{left:0;transform:scaleX(-1)}
+.branch path{fill:none;stroke:var(--c);stroke-width:2;opacity:.75;stroke-linecap:round}
+.branch circle{fill:var(--c);opacity:.9}
+/* spine node */
+.vnode{position:absolute;top:calc(1.5rem + 15px);width:18px;height:18px;border-radius:50%;background:var(--c);border:3px solid #fff;
+  box-shadow:0 0 0 2.5px var(--c),0 0 16px color-mix(in srgb,var(--c) 80%,transparent)}
+.ev.left .vnode{right:-9px}
+.ev.right .vnode{left:-9px}
+.vnode::before{content:'';position:absolute;inset:3px;border-radius:50%;background:rgba(255,255,255,.85)}
+.vnode.big{width:24px;height:24px;top:calc(1.5rem + 12px)}
+.ev.left .vnode.big{right:-12px}
+.ev.right .vnode.big{left:-12px}
+.vnode.big::after{content:'';position:absolute;inset:-9px;border-radius:50%;border:2px solid var(--c);animation:ring 2.6s ease-out infinite}
+@keyframes ring{0%{transform:scale(.55);opacity:.9}100%{transform:scale(1.45);opacity:0}}
+/* glass card */
+.card{display:inline-block;position:relative;max-width:100%;text-align:left;border-radius:16px;padding:.85rem 1.1rem .8rem;
+  background:rgba(255,255,255,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 6px 22px rgba(48,43,99,.1),inset 3px 0 0 var(--c);
+  transition:transform .25s,box-shadow .25s}
+.ev.right .card{box-shadow:0 6px 22px rgba(48,43,99,.1),inset -3px 0 0 var(--c)}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(48,43,99,.2),inset 3px 0 0 var(--c)}
+.ev.right .card:hover{box-shadow:0 14px 34px rgba(48,43,99,.2),inset -3px 0 0 var(--c)}
+.ev-top{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem}
+.ev-date{font-size:.68rem;color:#9a97ad;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.ev-cat{margin-left:auto;display:inline-flex;align-items:center;gap:.25rem;font-size:.66rem;font-weight:700;color:var(--c);
+  background:color-mix(in srgb,var(--c) 10%,white);border-radius:.55rem;padding:.14rem .5rem}
+.ev-title{font-family:Georgia,'Songti SC',serif;font-size:1.02rem;font-weight:700;color:#23203d;line-height:1.42;letter-spacing:.01em}
+.ev-title .star{color:var(--c);margin-right:.2rem}
+.ev-org{font-size:.73rem;font-weight:700;color:var(--c);margin:.18rem 0 .3rem;letter-spacing:.03em}
+.ev-note{font-size:.8rem;color:#555;line-height:1.65}
+.ev-link{display:inline-flex;align-items:center;gap:.2rem;margin-top:.45rem;font-size:.74rem;font-weight:600;color:#302b63;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+.ev-link:hover{border-bottom-color:#302b63}
 footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;position:relative;z-index:1}
 /* dark mode */
 html.dark body{background:#12141f;color:#d6d9e2}
 html.dark .bg{background:
-  radial-gradient(600px 400px at 15% 8%,rgba(124,58,237,.16),transparent 60%),
-  radial-gradient(700px 500px at 85% 30%,rgba(8,145,178,.13),transparent 60%),
-  radial-gradient(600px 500px at 20% 85%,rgba(217,119,6,.1),transparent 60%)}
-html.dark .tabs{background:#1a1d2c;border-color:#2b2f45}
+  radial-gradient(620px 420px at 12% 6%,rgba(124,58,237,.17),transparent 60%),
+  radial-gradient(720px 520px at 88% 28%,rgba(8,145,178,.14),transparent 60%),
+  radial-gradient(620px 520px at 18% 88%,rgba(217,119,6,.11),transparent 60%)}
+html.dark .tabs{background:rgba(26,29,44,.92);border-color:#2b2f45}
 html.dark .tab{background:#1a1d2c;color:#b3ade6;border-color:#4c4783}
 html.dark .tab:hover,html.dark .tab.active{background:#5b54b8;color:#fff;border-color:#5b54b8}
 html.dark .lg-chip{background:#1e2233}
 html.dark .lg-chip.on{color:#fff}
-html.dark .year-node .yr{background:#1e2233;color:#b3ade6;border-color:#5b54b8}
-html.dark .card{background:#1e2233;border-color:#2b2f45}
-html.dark .ev-title{color:#e4e6ee}
+html.dark .medal{background:radial-gradient(circle at 32% 28%,#2b2f4a,#1e2233 70%,#181b2c);border-color:#5b54b8;
+  box-shadow:0 0 0 5px rgba(91,84,184,.18),0 0 0 9px rgba(91,84,184,.07),0 8px 24px rgba(0,0,0,.45)}
+html.dark .medal::before{border-color:rgba(179,173,230,.4)}
+html.dark .medal span{background:linear-gradient(135deg,#b3ade6,#8f86e0);-webkit-background-clip:text;background-clip:text}
+html.dark .card{background:rgba(30,34,51,.82);border-color:rgba(70,74,110,.5)}
+html.dark .ev-title{color:#e8eaf4}
 html.dark .ev-note{color:#a9adbd}
-html.dark .ev::after{border-color:#1e2233}
+html.dark .ev-date{color:#6b7086}
 html.dark .ev-cat{background:color-mix(in srgb,var(--c) 22%,#1e2233)}
+html.dark .vnode{border-color:#1e2233}
+html.dark .vnode::before{background:rgba(30,34,51,.85)}
 html.dark .ev-link{color:#9d95e8}
+html.dark .ev-link:hover{border-bottom-color:#9d95e8}
 /* mobile: spine to the left */
 @media(max-width:700px){
-  .spine{left:16px}
-  .year-node{text-align:left;padding-left:44px}
-  .ev{width:100%;left:0!important;text-align:left!important;padding:.5rem .8rem 1.3rem 44px}
-  .ev::before{left:20px;width:1.1rem}
-  .ev::after{left:9px;right:auto!important}
+  .spine{left:18px}
+  .year-node{justify-content:flex-start;padding-left:56px}
+  .medal{width:76px;height:76px}
+  .medal span{font-size:1.2rem}
+  .ev{width:100%;left:0!important;text-align:left!important;padding:.5rem .9rem 1.4rem 56px}
+  .ev .branch{left:18px!important;right:auto!important;transform:scaleX(-1);width:1.6rem}
+  .ev .vnode{left:10px!important;right:auto!important}
+  .ev .card,.ev .card:hover{box-shadow:0 6px 22px rgba(48,43,99,.1),inset 3px 0 0 var(--c)}
 }
 </style>
 </head>
 <body>
-<div class="bg"></div>
+<div class="bg" id="bg"></div>
 <header>
-  <h1>📜 大模型编年史</h1>
-  <p id="header-sub">从 Transformer 到百万上下文 · 一棵纵向生长的时间树</p>
+  <h1>大模型编年史</h1>
+  <p>从 Transformer 到百万上下文 · 一棵纵向生长的时间树</p>
 </header>
 <div class="tabs">
   <a class="tab" href="../">📄 论文追踪</a>
@@ -115,6 +152,22 @@ html.dark .ev-link{color:#9d95e8}
 <footer>🤖 <a href="https://xplore-lab.github.io/llm-tracker/" style="color:#302b63;font-weight:600;">大模型情报局</a> © 2026 <a href="https://github.com/Xplore-LAB" style="color:#302b63;">Xplore-LAB</a> · Data from arXiv · <a href="https://github.com/Xplore-LAB/llm-tracker" style="color:#302b63">GitHub</a></footer>
 <script>
 let CATS={}, EVENTS=[], ACTIVE=new Set();
+
+// ambient floating particles
+(function(){
+  const bg=document.getElementById('bg');
+  const colors=['#7c3aed','#0891b2','#d97706','#db2777','#16a34a','#302b63'];
+  for(let i=0;i<16;i++){
+    const p=document.createElement('span');
+    p.className='pt';
+    const s=3+Math.random()*4;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;top:${Math.random()*100}%;`
+      +`background:${colors[i%colors.length]};--dx:${(Math.random()*60-30).toFixed(0)}px;--dy:${(Math.random()*-50-10).toFixed(0)}px;--dur:${(10+Math.random()*10).toFixed(1)}s;`
+      +`animation-delay:${(-Math.random()*10).toFixed(1)}s`;
+    bg.appendChild(p);
+  }
+})();
+
 fetch('../chronicle.json?t='+Date.now()).then(r=>r.json()).then(d=>{
   CATS=d.categories; EVENTS=d.events;
   Object.keys(CATS).forEach(c=>ACTIVE.add(c));
@@ -139,6 +192,14 @@ function toggleAll(){
   renderLegend(); renderTree();
 }
 
+// organic bezier branch, varies slightly per index
+function branchPath(i){
+  const midY=12+(i%3)*5;
+  const endY=20+((i%2)?4:-4);
+  const c1x=52-(i%3)*4, c1y=22+((i%2)?6:-6);
+  return `M70,22 C${c1x},${c1y} 40,${midY} 26,${midY} S8,${endY} 3,${endY}`;
+}
+
 function renderTree(){
   const tree=document.getElementById('tree');
   tree.innerHTML='<div class="spine"></div>';
@@ -148,21 +209,26 @@ function renderTree(){
     if(!evs.length)return;
     const yn=document.createElement('div');
     yn.className='year-node';
-    yn.innerHTML=`<span class="yr">${y}</span>`;
+    yn.innerHTML=`<div class="medal"><span>${y}</span></div>`;
     tree.appendChild(yn);
     evs.forEach((e,i)=>{
       const c=CATS[e.cat];
+      const big=e.cat==='milestone';
       const div=document.createElement('div');
       div.className='ev '+(i%2===0?'left':'right');
       div.style.setProperty('--c',c.color);
-      div.innerHTML=`<div class="card">
-        <div class="ev-date">${e.date}</div>
-        <span class="ev-cat">${c.icon} ${c.label}</span>
-        <div class="ev-title">${e.title}</div>
-        <div class="ev-org">${e.org}</div>
-        <div class="ev-note">${e.note}</div>
-        <a class="ev-link" href="${e.url}" target="_blank" rel="noopener">论文 / 官方来源 ↗</a>
-      </div>`;
+      div.innerHTML=`
+        <svg class="branch" viewBox="0 0 70 46" preserveAspectRatio="none">
+          <path d="${branchPath(i+y)}"/><circle cx="3" cy="${20+((i+y)%2?4:-4)}" r="3"/>
+        </svg>
+        <span class="vnode${big?' big':''}"></span>
+        <div class="card">
+          <div class="ev-top"><span class="ev-date">${e.date}</span><span class="ev-cat">${c.icon} ${c.label}</span></div>
+          <div class="ev-title">${big?'<span class="star">✦</span>':''}${e.title}</div>
+          <div class="ev-org">${e.org}</div>
+          <div class="ev-note">${e.note}</div>
+          <a class="ev-link" href="${e.url}" target="_blank" rel="noopener">论文 / 官方来源 ↗</a>
+        </div>`;
       tree.appendChild(div);
     });
   });
@@ -173,7 +239,7 @@ function observe(){
   if(IO)IO.disconnect();
   IO=new IntersectionObserver(es=>{
     es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('show');IO.unobserve(x.target);}});
-  },{threshold:.12});
+  },{threshold:.1});
   document.querySelectorAll('.ev').forEach(el=>IO.observe(el));
 }
 </script>
