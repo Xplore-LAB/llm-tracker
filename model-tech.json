@@ -120,5 +120,305 @@
       {"label": "HF 权重合集", "url": "https://huggingface.co/collections/XiaomiMiMo/mimo-v25"},
       {"label": "官方开源公告", "url": "https://mimo.mi.com/docs/zh-CN/news/latest/v2.5-open-sourced"}
     ]
+  },
+  "DeepSeek|deepseekr1": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "定位", "v": "第一代开源推理模型，性能对标 OpenAI o1", "ref": "2501.12948"},
+      {"k": "参数规模", "v": "671B 总参 / 37B 激活，基于 DeepSeek-V3-Base 训练，128K 上下文", "ref": "2501.12948"},
+      {"k": "架构", "v": "继承 V3 的 MLA + DeepSeekMoE 稀疏架构", "ref": "2501.12948"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "R1-Zero", "v": "纯大规模强化学习（GRPO）激励推理，无 SFT 前置，自发涌现长思维链、自我验证与反思", "ref": "2501.12948"},
+      {"k": "R1 管线", "v": "冷启动 SFT + 两阶段 RL（推理模式发现 + 人类偏好对齐）+ 两阶段 SFT", "ref": "2501.12948"},
+      {"k": "蒸馏家族", "v": "基于 Qwen2.5 与 Llama3 蒸馏 1.5B 至 70B 六款稠密模型，32B 蒸馏版超越 o1-mini", "ref": "2501.12948"}
+    ],
+    "release": {"date": "2025-01-20", "open": "开放权重", "license": "MIT"},
+    "links": [
+      {"label": "HuggingFace 模型卡", "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1"},
+      {"label": "GitHub 仓库（含技术报告）", "url": "https://github.com/deepseek-ai/DeepSeek-R1"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2501.12948"}
+    ]
+  },
+  "DeepSeek|deepseekv3": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "参数规模", "v": "671B 总参 / 37B 激活，128K 上下文", "ref": "2412.19437"},
+      {"k": "注意力", "v": "MLA 多头隐式注意力，KV cache 大幅压缩", "ref": "2412.19437"},
+      {"k": "MoE", "v": "DeepSeekMoE 细粒度专家 + 共享专家，首创无辅助损失负载均衡", "ref": "2412.19437"},
+      {"k": "训练目标", "v": "MTP 多 token 预测，提升训练信号密度并可服务投机解码", "ref": "2412.19437"}
+    ],
+    "decode": [
+      {"k": "推理部署", "v": "技术报告给出 Prefilling 与 Decoding 分离部署方案及对硬件设计的建议", "ref": "2412.19437"}
+    ],
+    "infra": [
+      {"k": "预训练", "v": "14.8T token，全程仅 2.788M H800 GPU 小时，无不可恢复 loss 尖峰", "ref": "2412.19437"},
+      {"k": "FP8 训练", "v": "首次在超大规模模型上验证 FP8 混合精度训练框架", "ref": "2412.19437"},
+      {"k": "训练框架", "v": "DualPipe 流水线并行 + 跨节点 All-to-All 通信优化 + 极致显存节省", "ref": "2412.19437"}
+    ],
+    "release": {"date": "2024-12-26", "open": "开放权重", "license": "MIT（代码）+ 模型协议"},
+    "links": [
+      {"label": "HuggingFace 模型卡", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3"},
+      {"label": "GitHub 仓库", "url": "https://github.com/deepseek-ai/DeepSeek-V3"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2412.19437"}
+    ]
+  },
+  "Qwen|qwen3": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "系列", "v": "6 款稠密（0.6B 至 32B）+ 2 款 MoE（30B-A3B、235B-A22B）"},
+      {"k": "旗舰配置", "v": "235B-A22B：94 层、GQA（64Q/4KV）、128 专家激活 8 个", "ref": "2505.09388"},
+      {"k": "上下文", "v": "原生 32K，YaRN 扩展至 131K；支持 119 种语言及方言", "ref": "2505.09388"}
+    ],
+    "decode": [
+      {"k": "混合推理", "v": "单模型内无缝切换思考 / 非思考模式，API 可精细控制思考时长（最高 38K token）", "ref": "2505.09388"}
+    ],
+    "infra": [
+      {"k": "预训练", "v": "36T token（较 Qwen2.5 翻倍），三阶段渐进式数据课程", "ref": "2505.09388"},
+      {"k": "后训练", "v": "四阶段：长 CoT 冷启动 → 长 CoT 强化学习 → 思维模式融合 → 通用强化学习", "ref": "2505.09388"},
+      {"k": "Agent", "v": "原生支持 MCP 与函数调用，复杂智能体任务居开源模型首位", "ref": "2505.09388"}
+    ],
+    "release": {"date": "2025-04-29", "open": "开放权重", "license": "Apache 2.0"},
+    "links": [
+      {"label": "Qwen 官方博客", "url": "https://qwenlm.github.io/blog/qwen3/"},
+      {"label": "GitHub 仓库", "url": "https://github.com/QwenLM/Qwen3"},
+      {"label": "HF 模型卡（235B-A22B）", "url": "https://huggingface.co/Qwen/Qwen3-235B-A22B"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2505.09388"}
+    ]
+  },
+  "Meta|llama31": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "系列", "v": "8B / 70B / 405B 三档稠密模型，128K 上下文，8 种语言"},
+      {"k": "架构", "v": "标准 decoder-only 稠密 Transformer + GQA，为训练稳定性刻意不采用 MoE", "ref": "2407.21783"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "预训练", "v": "超 15T token，405B 在超 1.6 万张 H100 上训练（30.84M GPU 小时）", "ref": "2407.21783"},
+      {"k": "后训练", "v": "迭代式 SFT + DPO 多轮流程，每轮产出高质量合成数据"},
+      {"k": "许可创新", "v": "首次允许使用模型输出改进其他模型，开启 405B 合成数据与蒸馏工作流"}
+    ],
+    "release": {"date": "2024-07-23", "open": "开放权重", "license": "Llama 3.1 Community License"},
+    "links": [
+      {"label": "Meta 官方博客", "url": "https://ai.meta.com/blog/meta-llama-3-1/"},
+      {"label": "HuggingFace 合集", "url": "https://huggingface.co/meta-llama"},
+      {"label": "arXiv 论文（Llama 3 系列）", "url": "https://arxiv.org/abs/2407.21783"}
+    ]
+  },
+  "Moonshot|kimik2": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "参数规模", "v": "1T 总参 / 32B 激活，61 层，128K 上下文，160K 词表", "ref": "2507.20534"},
+      {"k": "注意力", "v": "MLA（注意力头从 128 降至 64 以减少推理开销）", "ref": "2507.20534"},
+      {"k": "MoE", "v": "384 专家每 token 选 8 + 1 共享专家，稀疏度较 DeepSeek-V3 进一步提高", "ref": "2507.20534"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "预训练", "v": "15.5T token 全程零训练尖峰；改写流水线扩增高质量 token", "ref": "2507.20534"},
+      {"k": "MuonClip", "v": "Muon 优化器 + qk-clip 权重裁剪，从源头抑制注意力 logits 爆炸", "ref": "2507.20534"},
+      {"k": "Agentic 数据", "v": "3000+ 真实 MCP 工具与 2 万+ 合成工具的大规模智能体数据合成管线，可验证奖励 + 自评机制 RL", "ref": "2507.20534"}
+    ],
+    "release": {"date": "2025-07-11", "open": "开放权重", "license": "Modified MIT"},
+    "links": [
+      {"label": "官方博客", "url": "https://kimi.moonshot.cn/en/blog/kimi-k2"},
+      {"label": "GitHub 仓库（含技术报告）", "url": "https://github.com/MoonshotAI/Kimi-K2"},
+      {"label": "HuggingFace 模型卡", "url": "https://huggingface.co/moonshotai/Kimi-K2-Instruct"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2507.20534"}
+    ]
+  },
+  "Google|gemma4": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "系列", "v": "E2B / E4B（端侧，有效激活约 2B / 4B）+ 31B Dense + 26B-A4B MoE（激活约 3.8B）"},
+      {"k": "模态", "v": "文本 + 图像全系，E2B / E4B 原生支持音视频；图像按原始宽高比处理（可配置 soft token 预算）"},
+      {"k": "上下文", "v": "小模型 128K，其余 256K；支持 140+ 语言"},
+      {"k": "结构创新", "v": "Per-Layer Embeddings（PLE）向每个解码层注入辅助残差信号；可配置思考模式"}
+    ],
+    "decode": [
+      {"k": "端侧推理", "v": "E 系列与 Pixel、高通、联发科联合优化，手机 / 树莓派 / Jetson 离线近零延迟运行"}
+    ],
+    "infra": [
+      {"k": "安全与生态", "v": "与闭源模型同套基础设施安全协议；首日支持 HF、vLLM、llama.cpp、Ollama、SGLang 等全工具链"}
+    ],
+    "release": {"date": "2026-03-12", "open": "开放权重", "license": "Apache 2.0"},
+    "links": [
+      {"label": "Google 官方博客", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4"},
+      {"label": "HF Transformers 文档", "url": "https://huggingface.co/docs/transformers/model_doc/gemma4"},
+      {"label": "HuggingFace 权重", "url": "https://huggingface.co/google"}
+    ]
+  },
+  "Mistral|mixtral8x7b": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "定位", "v": "首个主流开源稀疏 MoE，性能对标 GPT-3.5 而推理快 6 倍", "ref": "2401.04088"},
+      {"k": "参数规模", "v": "46.7B 总参 / 12.9B 激活，32 层，32K 上下文", "ref": "2401.04088"},
+      {"k": "MoE", "v": "每层 8 个专家，路由器每 token 选 2 个并加权求和", "ref": "2401.04088"},
+      {"k": "注意力", "v": "继承 Mistral-7B 的 GQA + 滑动窗口注意力", "ref": "2401.04088"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "多语言", "v": "原生支持英法德西意五语，代码生成能力突出", "ref": "2401.04088"}
+    ],
+    "release": {"date": "2023-12-11", "open": "开放权重", "license": "Apache 2.0"},
+    "links": [
+      {"label": "Mistral 官方博客", "url": "https://mistral.ai/news/mixtral-of-experts/"},
+      {"label": "HuggingFace 权重", "url": "https://huggingface.co/mistralai/Mixtral-8x7B-v0.1"},
+      {"label": "arXiv 论文", "url": "https://arxiv.org/abs/2401.04088"}
+    ]
+  },
+  "Zhipu|glm4": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "开源款", "v": "GLM-4-9B：稠密 9B，40 层，GQA（32Q/2KV），词表扩至 150K（编码效率 +30%）"},
+      {"k": "预训练目标", "v": "延续 GLM 自回归空白填充（结合自编码与自回归）", "ref": "2406.12793"},
+      {"k": "上下文", "v": "Chat 版 128K，另有 1M 长上下文版与 GLM-4V-9B 多模态版"},
+      {"k": "多语言", "v": "支持 26 种语言"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "预训练", "v": "10T 高质量多语言 token（引入大模型参与数据筛选，为前代 3 倍）", "ref": "2406.12793"},
+      {"k": "训练效率", "v": "FP8 高效预训练，较第三代效率提升 3.5 倍"},
+      {"k": "All Tools", "v": "原生网页浏览、代码执行与函数调用，BFCL 上 Function Call 能力与 GPT-4 相当"}
+    ],
+    "release": {"date": "2024-06-05", "open": "开放权重", "license": "GLM-4 License（开放权重）"},
+    "links": [
+      {"label": "GitHub 仓库", "url": "https://github.com/THUDM/GLM-4"},
+      {"label": "HuggingFace 合集", "url": "https://huggingface.co/collections/THUDM/glm-4-665fcf188c414b03c2f7e3b7"},
+      {"label": "arXiv 系列论文", "url": "https://arxiv.org/abs/2406.12793"}
+    ]
+  },
+  "Baichuan|baichuanm1": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "领域", "v": "医疗增强大模型，覆盖 20+ 医疗科室的专业建模", "ref": "2502.12671"},
+      {"k": "定位", "v": "有别于继续预训练或通用基座后训练，从预训练开始即以医疗能力为目标从零训练", "ref": "2502.12671"},
+      {"k": "开源款", "v": "Baichuan-M1-14B（Base + Instruct），32K 上下文，单卡 4090 可部署", "ref": "2502.12671"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "预训练", "v": "20T token（14T 英文 + 4T 中文 + 2T 覆盖 30 种语言），医疗增强语料与通用能力平衡", "ref": "2502.12671"},
+      {"k": "能力特征", "v": "数学、代码等通用能力保持的同时，医疗专科能力超越更大参数模型", "ref": "2502.12671"}
+    ],
+    "release": {"date": "2025-02-18", "open": "开放权重（开源可商用）"},
+    "links": [
+      {"label": "GitHub 仓库", "url": "https://github.com/baichuan-inc/Baichuan-M1-14B"},
+      {"label": "HuggingFace 权重", "url": "https://huggingface.co/baichuan-inc/Baichuan-M1-14B-Base"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2502.12671"}
+    ]
+  },
+  "LG|exaonepath20": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "领域", "v": "病理学基础模型，处理十亿像素级全切片图像（WSI）", "ref": "2507.06639"},
+      {"k": "架构", "v": "三阶段层次化图像金字塔 Transformer（HIPT），约 1.75 亿参数", "ref": "2507.06639"},
+      {"k": "训练范式", "v": "直接在切片级监督下学习 patch 表征（替代主流的自监督 + MIL 聚合路线）", "ref": "2507.06639"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "预训练数据", "v": "37,195 张 FFPE H&E 染色 WSI，生成 144,450 个图像-标签对，覆盖 16 个训练任务", "ref": "2507.06639"},
+      {"k": "数据效率", "v": "仅用 37k 张 WSI 即在 10 项生物标志物预测任务上达到 SOTA 平均性能", "ref": "2507.06639"},
+      {"k": "课程学习", "v": "两阶段渐进分辨率课程 + 激活检查点与 CPU offload 的显存管理", "ref": "2507.06639"}
+    ],
+    "release": {"date": "2025-07-09", "open": "开放权重（非商用）", "license": "EXAONEPath AI Model License 1.0-NC"},
+    "links": [
+      {"label": "HuggingFace 模型卡", "url": "https://huggingface.co/LGAI-EXAONE/EXAONE-Path-2.0"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2507.06639"}
+    ]
+  },
+  "Huawei|panguweather": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "领域", "v": "气象预报基础模型，首个精度超越数值天气预报（NWP）的 AI 方法（Nature 正刊）", "ref": "2211.02556"},
+      {"k": "架构", "v": "3D Earth-Specific Transformer（3DEST），将气压层高度信息建模为第三维并引入地球位置偏置，约 2.56 亿参数", "ref": "2211.02556"},
+      {"k": "输入输出", "v": "0.25° 分辨率，13 个气压层 × 5 种高空要素 + 4 种地表要素", "ref": "2211.02556"}
+    ],
+    "decode": [
+      {"k": "推理速度", "v": "单张 V100 约 1.4 秒完成 24 小时全球预报，较传统数值方法快一万倍以上", "ref": "2211.02556"}
+    ],
+    "infra": [
+      {"k": "预训练数据", "v": "ERA5 再分析数据 43 年（1979 至 2021），约 60TB，逐小时采样", "ref": "2211.02556"},
+      {"k": "训练策略", "v": "层次化时间聚合：分别训练 1h / 3h / 6h / 24h 四个预报间隔模型，缓解迭代累积误差", "ref": "2211.02556"},
+      {"k": "训练成本", "v": "每个模型 100 epoch，192 张 V100 约 15 至 16 天"}
+    ],
+    "release": {"date": "2023-07-05", "open": "模型与代码公开"},
+    "links": [
+      {"label": "Nature 论文页（华为官方新闻）", "url": "https://www.huawei.com/en/news/2023/7/pangu-ai-model-nature-publish"},
+      {"label": "arXiv 论文", "url": "https://arxiv.org/abs/2211.02556"}
+    ]
+  },
+  "DeepSeek|deepseekcoder": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "领域", "v": "代码大模型，从零预训练（非通用基座续训）", "ref": "2401.14196"},
+      {"k": "系列", "v": "1.3B / 5.7B / 6.7B / 33B 四档，Base 与 Instruct 双版本", "ref": "2401.14196"},
+      {"k": "上下文", "v": "16K 窗口 + FIM 填空任务，支持仓库级代码补全与插入", "ref": "2401.14196"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "预训练", "v": "2T token：87% 代码 + 13% 中英文自然语言，覆盖 80+ 编程语言", "ref": "2401.14196"},
+      {"k": "数据工程", "v": "仓库内文件依赖解析重排 + repo 级 MinHash 去重 + 语法与可读性过滤", "ref": "2401.14196"},
+      {"k": "两阶段训练", "v": "1.8T token @4K 窗口预训练 → 200B token @16K 窗口扩展 → 2B token 指令微调", "ref": "2401.14196"}
+    ],
+    "release": {"date": "2024-01-25", "open": "开放权重（支持商用）", "license": "MIT（代码）+ 模型协议"},
+    "links": [
+      {"label": "项目主页", "url": "https://deepseekcoder.github.io/"},
+      {"label": "GitHub 仓库", "url": "https://github.com/deepseek-ai/DeepSeek-Coder"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2401.14196"}
+    ]
+  },
+  "Skywork|skyworkmath": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "领域", "v": "数学推理增强模型（7B 档）", "ref": "2407.08348"},
+      {"k": "路线", "v": "在通用 7B 基座上做两阶段 SFT（与从零预训练路线形成对照），验证数学数据的扩展定律远未饱和", "ref": "2407.08348"}
+    ],
+    "decode": [],
+    "infra": [
+      {"k": "数据合成", "v": "GPT-4 生成 2.5M 条 Skywork-MathQA 合成数据，三种增强方法 + 多难度种子题集", "ref": "2407.08348"},
+      {"k": "两阶段 SFT", "v": "先常规合成题再难题合成题，缓解数据量递增的收益递减", "ref": "2407.08348"},
+      {"k": "成绩", "v": "仅 SFT 即达 MATH 51.2%、GSM8K 83.9%，超越早期 GPT-4 的 MATH 成绩", "ref": "2407.08348"}
+    ],
+    "release": {"date": "2024-07-11", "open": "开放权重"},
+    "links": [
+      {"label": "arXiv 论文", "url": "https://arxiv.org/abs/2407.08348"},
+      {"label": "GitHub 组织", "url": "https://github.com/SkyworkAI"}
+    ]
+  },
+  "Tencent|hunyuanmt": {
+    "updated_at": "2026-08-25",
+    "source": "manual",
+    "arch": [
+      {"k": "领域", "v": "轻量级翻译大模型（7B），支持 33 语种 + 5 种民汉语言/方言互译", "ref": "2509.05209"},
+      {"k": "成绩", "v": "WMT2025 国际机器翻译比赛 31 个语种赛道中拿下 30 个第一", "ref": "2509.05209"},
+      {"k": "配套", "v": "同步开源 Hunyuan-MT-Chimera-7B，业界首个翻译集成模型，可融合多模型译文再生成更优结果"}
+    ],
+    "decode": [
+      {"k": "推理优化", "v": "腾讯自研 AngelSlim 工具 FP8 量化压缩，推理性能再提升约 30%"}
+    ],
+    "infra": [
+      {"k": "全链条范式", "v": "预训练 → CPT 继续预训练 → 监督调参 → 翻译强化 → 集成强化的完整翻译训练范式", "ref": "2509.05209"},
+      {"k": "语言簇预训练", "v": "33 种语言按语法特征分 8 簇共享语义表征，小语种翻译准确率提升约 22%"},
+      {"k": "竞赛约束", "v": "WMT25 要求开源且仅用公开数据训练，7B 规模击败更大参数模型", "ref": "2509.05209"}
+    ],
+    "release": {"date": "2025-09-01", "open": "开放权重"},
+    "links": [
+      {"label": "HuggingFace 权重", "url": "https://huggingface.co/tencent/Hunyuan-MT-7B"},
+      {"label": "GitHub 仓库", "url": "https://github.com/Tencent-Hunyuan/Hunyuan-MT"},
+      {"label": "arXiv 技术报告", "url": "https://arxiv.org/abs/2509.05209"}
+    ]
   }
 }
