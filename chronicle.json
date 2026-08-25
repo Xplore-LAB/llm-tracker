@@ -1,0 +1,42 @@
+{
+  "categories": {
+    "arch":      {"label": "架构突破", "icon": "🧱", "color": "#7c3aed"},
+    "train":     {"label": "训练范式", "icon": "🎯", "color": "#0891b2"},
+    "reason":    {"label": "推理范式", "icon": "🧠", "color": "#d97706"},
+    "mm":        {"label": "多模态",   "icon": "🖼️", "color": "#db2777"},
+    "open":      {"label": "开源生态", "icon": "🔓", "color": "#16a34a"},
+    "milestone": {"label": "里程碑",   "icon": "🚀", "color": "#302b63"}
+  },
+  "events": [
+    {"date": "2017-06-12", "year": 2017, "title": "Attention Is All You Need", "org": "Google", "cat": "arch", "note": "Transformer 诞生，自注意力机制成为此后所有大模型的统一骨架", "url": "https://arxiv.org/abs/1706.03762"},
+    {"date": "2018-06-11", "year": 2018, "title": "GPT-1：生成式预训练", "org": "OpenAI", "cat": "train", "note": "首次验证生成式预训练加任务微调的两阶段范式", "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf"},
+    {"date": "2018-10-11", "year": 2018, "title": "BERT", "org": "Google", "cat": "arch", "note": "双向掩码预训练横扫 11 项 NLP 任务，编码器路线的高光时刻", "url": "https://arxiv.org/abs/1810.04805"},
+    {"date": "2019-02-14", "year": 2019, "title": "GPT-2", "org": "OpenAI", "cat": "train", "note": "15 亿参数展示零样本多任务能力，曾因风险担忧分阶段开放", "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"},
+    {"date": "2019-10-23", "year": 2019, "title": "T5", "org": "Google", "cat": "arch", "note": "把一切 NLP 任务统一为文本到文本，系统比较了各预训练目标", "url": "https://arxiv.org/abs/1910.10683"},
+    {"date": "2020-05-28", "year": 2020, "title": "GPT-3", "org": "OpenAI", "cat": "train", "note": "1750 亿参数确立缩放定律时代，上下文学习成为新交互范式", "url": "https://arxiv.org/abs/2005.14165"},
+    {"date": "2021-01-11", "year": 2021, "title": "Switch Transformer", "org": "Google", "cat": "arch", "note": "稀疏专家混合走向万亿参数，MoE 进入主流视野", "url": "https://arxiv.org/abs/2101.03961"},
+    {"date": "2021-08-26", "year": 2021, "title": "Codex", "org": "OpenAI", "cat": "milestone", "note": "代码大模型落地 GitHub Copilot，开启 AI 编程时代", "url": "https://arxiv.org/abs/2107.03374"},
+    {"date": "2022-01-28", "year": 2022, "title": "Chain-of-Thought", "org": "Google", "cat": "reason", "note": "思维链提示激发逐步推理，推理范式的起点", "url": "https://arxiv.org/abs/2201.11903"},
+    {"date": "2022-03-04", "year": 2022, "title": "InstructGPT", "org": "OpenAI", "cat": "train", "note": "RLHF 人类反馈强化学习定型，对齐成为标准工序", "url": "https://arxiv.org/abs/2203.02155"},
+    {"date": "2022-10-05", "year": 2022, "title": "GLM-130B", "org": "智谱 / 清华", "cat": "open", "note": "中英双语千亿开源模型，国产大模型的重要早期坐标", "url": "https://arxiv.org/abs/2210.02414"},
+    {"date": "2022-11-30", "year": 2022, "title": "ChatGPT", "org": "OpenAI", "cat": "milestone", "note": "两个月破亿用户，大模型从研究课题变成全民产品", "url": "https://openai.com/index/chatgpt/"},
+    {"date": "2023-02-24", "year": 2023, "title": "Llama", "org": "Meta", "cat": "open", "note": "高质量小尺寸基座外泄后引爆社区，开源生态的起点", "url": "https://arxiv.org/abs/2302.13971"},
+    {"date": "2023-03-14", "year": 2023, "title": "GPT-4", "org": "OpenAI", "cat": "milestone", "note": "多模态能力与基准全面跃升，前沿闭源标杆", "url": "https://arxiv.org/abs/2303.08774"},
+    {"date": "2023-07-18", "year": 2023, "title": "Llama 2", "org": "Meta", "cat": "open", "note": "首个可商用许可的 Llama，开源进入企业应用", "url": "https://arxiv.org/abs/2307.09288"},
+    {"date": "2023-09-25", "year": 2023, "title": "Qwen", "org": "阿里巴巴", "cat": "open", "note": "通义千问开源，日后成长为全球衍生模型最多的开源家族", "url": "https://arxiv.org/abs/2309.16609"},
+    {"date": "2023-10-10", "year": 2023, "title": "Mistral 7B", "org": "Mistral AI", "cat": "open", "note": "7B 越级挑战 13B，欧洲高效模型路线登场", "url": "https://arxiv.org/abs/2310.06825"},
+    {"date": "2023-12-11", "year": 2023, "title": "Mixtral 8x7B", "org": "Mistral AI", "cat": "arch", "note": "首个主流开源稀疏 MoE，top-2 路由成为经典配置", "url": "https://arxiv.org/abs/2401.04088"},
+    {"date": "2024-05-07", "year": 2024, "title": "DeepSeek-V2", "org": "DeepSeek", "cat": "arch", "note": "MLA 隐式注意力加 DeepSeekMoE，确立后续系列架构底座", "url": "https://arxiv.org/abs/2405.04434"},
+    {"date": "2024-05-13", "year": 2024, "title": "GPT-4o", "org": "OpenAI", "cat": "mm", "note": "原生端到端多模态，文本语音视觉单一模型打通", "url": "https://openai.com/index/hello-gpt-4o/"},
+    {"date": "2024-07-23", "year": 2024, "title": "Llama 3.1 405B", "org": "Meta", "cat": "open", "note": "首个前沿级开源模型，许可首次允许输出用于改进他模", "url": "https://arxiv.org/abs/2407.21783"},
+    {"date": "2024-09-12", "year": 2024, "title": "OpenAI o1", "org": "OpenAI", "cat": "reason", "note": "推理时计算正式登场，思考链从提示技巧变成训练目标", "url": "https://openai.com/index/learning-to-reason-with-llms/"},
+    {"date": "2024-12-26", "year": 2024, "title": "DeepSeek-V3", "org": "DeepSeek", "cat": "open", "note": "671B 开源旗舰，FP8 训练与 MTP 目标，成本神话引发行业震动", "url": "https://arxiv.org/abs/2412.19437"},
+    {"date": "2025-01-20", "year": 2025, "title": "DeepSeek-R1", "org": "DeepSeek", "cat": "reason", "note": "纯强化学习激励推理并全面开源，推理平权改变世界线", "url": "https://arxiv.org/abs/2501.12948"},
+    {"date": "2025-04-29", "year": 2025, "title": "Qwen3", "org": "阿里巴巴", "cat": "open", "note": "混合推理单模型双模式，思考与非思考无缝切换", "url": "https://arxiv.org/abs/2505.09388"},
+    {"date": "2025-07-11", "year": 2025, "title": "Kimi K2", "org": "Moonshot AI", "cat": "open", "note": "万亿参数开源 agentic 模型，MuonClip 解决大规模训练失稳", "url": "https://arxiv.org/abs/2507.20534"},
+    {"date": "2026-04-26", "year": 2026, "title": "DeepSeek-V4", "org": "DeepSeek", "cat": "arch", "note": "CSA 加 HCA 混合注意力攻克百万上下文成本，DSpark 投机解码内置", "url": "https://arxiv.org/abs/2606.19348"},
+    {"date": "2026-07-07", "year": 2026, "title": "Nemotron-Labs-Diffusion", "org": "NVIDIA", "cat": "arch", "note": "自回归、扩散、自推测三模态解码统一于单一架构", "url": "https://arxiv.org/abs/2607.05722"},
+    {"date": "2026-07-14", "year": 2026, "title": "MiMo-V2.5", "org": "小米", "cat": "mm", "note": "原生全模态模型，文本图像视频音频统一架构", "url": "https://arxiv.org/abs/2607.13095"},
+    {"date": "2026-07-27", "year": 2026, "title": "Kimi K3", "org": "Moonshot AI", "cat": "arch", "note": "2.8T 参数最大开源模型，KDA 线性注意力加 Stable LatentMoE", "url": "https://arxiv.org/abs/2607.24653"}
+  ]
+}
