@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--
+  DGX Spark 专题 — 大模型情报局
+  https://xplore-lab.github.io/llm-tracker/dgx-spark/
+  GitHub: https://github.com/Xplore-LAB/llm-tracker
+  Original project by Xplore-LAB. Forkers: please keep this attribution.
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="Xplore-LAB (github.com/Xplore-LAB/llm-tracker)">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NVIDIA DGX Spark 专题：桌面级 AI 超算的规格、能力边界、带宽账本与选购判断。">
+<meta property="og:title" content="DGX Spark 专题 · 大模型情报局">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5b4632">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%20font-size=%2290%22>✨</text></svg>">
+<title>DGX Spark 专题 · 大模型情报局</title>
+<script>try{if(localStorage.getItem('llm_theme')==='dark'||(!localStorage.getItem('llm_theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#ece1cb;color:#3b3128;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.52 0 0 0 0 0.44 0 0 0 0 0.31 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.bg{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(640px 420px at 12% 6%,rgba(156,90,68,.10),transparent 60%),radial-gradient(720px 520px at 88% 30%,rgba(122,122,82,.10),transparent 60%),radial-gradient(620px 520px at 18% 88%,rgba(138,109,79,.10),transparent 60%)}
+header{background:linear-gradient(160deg,#3d2f23,#5b4632 55%,#3d2f23);color:#f3e8d2;padding:2.2rem 2rem 1.8rem;text-align:center;position:relative;z-index:1;border-bottom:4px solid #8a6d4f}
+header h1{font-family:Georgia,'Songti SC','SimSun',serif;font-size:2rem;letter-spacing:.1em;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+header p{opacity:.75;font-size:.85rem;margin-top:.4rem;letter-spacing:.1em;color:#d9c8a6}
+.badges{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-top:.9rem}
+.badge{font-size:.74rem;font-weight:700;background:rgba(243,232,210,.14);border:1px solid rgba(217,200,166,.5);color:#f3e8d2;border-radius:1rem;padding:.25rem .8rem}
+.tabs{display:flex;justify-content:center;gap:.6rem;padding:.8rem;background:rgba(243,234,216,.93);backdrop-filter:blur(8px);border-bottom:1px solid #d8c8a8;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.tab{padding:.45rem 1.1rem;border-radius:2rem;border:2px solid #8a6d4f;background:rgba(248,242,228,.9);font-weight:600;font-size:.82rem;text-decoration:none;color:#6b5138;transition:all .2s}
+.tab:hover,.tab.active{background:#6b5138;color:#f3e8d2}
+.wrap{max-width:920px;margin:0 auto 3rem;padding:1.2rem 1.2rem 0;position:relative;z-index:1}
+.panel{background:rgba(248,242,228,.9);border:1px solid #e0d2b4;border-radius:14px;padding:1.1rem 1.25rem;margin-bottom:1rem;box-shadow:0 5px 18px rgba(107,81,56,.1)}
+.panel h2{font-family:Georgia,'Songti SC',serif;font-size:1.15rem;color:#3b3128;margin-bottom:.5rem;display:flex;align-items:center;gap:.45rem}
+.panel h3{font-size:.88rem;color:#6b5138;margin:.7rem 0 .35rem}
+.panel p,.panel li{font-size:.82rem;color:#6d5f4c;line-height:1.7}
+.panel ul{padding-left:1.15rem}
+.note-line{font-size:.78rem;color:#9c5a44;line-height:1.65;border-top:1px dashed #d8c8a8;padding-top:.55rem;margin-top:.6rem}
+.lede{font-size:.88rem;color:#5d4f3d;line-height:1.75}
+.tbl{width:100%;border-collapse:collapse;font-size:.78rem;background:rgba(255,252,245,.6)}
+.tbl th{background:rgba(138,109,79,.14);color:#6b5138;font-weight:700;text-align:left;padding:.45rem .6rem;border:1px solid #e0d2b4;white-space:nowrap}
+.tbl td{padding:.45rem .6rem;border:1px solid #e8dcc4;color:#5d4f3d;line-height:1.5;vertical-align:top}
+.tbl tr:nth-child(even) td{background:rgba(138,109,79,.05)}
+.tbl-wrap{overflow-x:auto}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin:.4rem 0}
+.kv .cell{background:rgba(138,109,79,.08);border:1px solid #e0d2b4;border-radius:10px;padding:.55rem .7rem;text-align:center}
+.kv .num{font-size:1.05rem;font-weight:800;color:#6b5138;font-family:Georgia,'Songti SC',serif}
+.kv .lbl{font-size:.68rem;color:#8a7a5f;margin-top:.1rem}
+.callout{background:rgba(156,90,68,.08);border:1px solid rgba(156,90,68,.3);border-radius:10px;padding:.6rem .8rem;font-size:.8rem;color:#7c4433;line-height:1.65;margin:.5rem 0}
+.good,.bad{padding-left:1.1rem}
+.good li::marker{content:'✓  ';color:#6f7a56}
+.bad li::marker{content:'✗  ';color:#9c5a44}
+.src{font-size:.72rem;color:#a08e6d;line-height:1.6}
+.src a{color:#6b5138}
+footer{text-align:center;padding:1.5rem;color:#a08e6d;font-size:.78rem;position:relative;z-index:1}
+footer a{color:#6b5138}
+html.dark body{background:#211a13;color:#e6d9bf}
+html.dark body::before{opacity:.25}
+html.dark .bg{background:radial-gradient(640px 420px at 12% 6%,rgba(156,90,68,.14),transparent 60%),radial-gradient(720px 520px at 88% 30%,rgba(122,122,82,.12),transparent 60%),radial-gradient(620px 520px at 18% 88%,rgba(138,109,79,.13),transparent 60%)}
+html.dark header{background:linear-gradient(160deg,#241c12,#3a2d1d 55%,#241c12);border-bottom-color:#6b5138}
+html.dark .tabs{background:rgba(36,28,18,.93);border-color:#4a3d2c}
+html.dark .tab{background:#2b2318;color:#cbb897;border-color:#6b5138}
+html.dark .tab:hover,html.dark .tab.active{background:#6b5138;color:#f3e8d2;border-color:#8a6d4f}
+html.dark .panel{background:#2b2318;border-color:#4a3d2c}
+html.dark .panel h2,html.dark .kv .num{color:#e6d9bf}
+html.dark .panel h3{color:#d9c8a6}
+html.dark .panel p,html.dark .panel li,html.dark .lede{color:#c2b394}
+html.dark .tbl th{background:rgba(138,109,79,.3);color:#d9c8a6;border-color:#4a3d2c}
+html.dark .tbl td{border-color:#3d3222;color:#c2b394}
+html.dark .tbl tr:nth-child(even) td{background:rgba(138,109,79,.1)}
+html.dark .tbl{background:rgba(43,35,24,.6)}
+html.dark .kv .cell{background:rgba(138,109,79,.18);border-color:#4a3d2c}
+html.dark .kv .lbl{color:#a89a7c}
+html.dark .callout{background:rgba(156,90,68,.16);border-color:rgba(156,90,68,.45);color:#d8a793}
+html.dark .note-line{border-top-color:#4a3d2c}
+html.dark .src{color:#8a7a5f}
+html.dark .src a{color:#cbb897}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<header>
+  <h1>✨ DGX Spark 专题</h1>
+  <p>一升体积的桌面 AI 超算：规格、能力边界与带宽账本</p>
+  <div class="badges">
+    <span class="badge">$3,999</span>
+    <span class="badge">128GB 统一内存</span>
+    <span class="badge">1 PFLOP FP4</span>
+    <span class="badge">约 1 升体积 / 240W</span>
+    <span class="badge">2025-10 上市</span>
+  </div>
+</header>
+<div class="tabs">
+  <a class="tab" href="../">📄 论文追踪</a>
+  <a class="tab" href="../models/">🧬 模型时序</a>
+  <a class="tab" href="../timeline/">📅 时间轴</a>
+  <a class="tab" href="../chronicle/">📜 编年史</a>
+  <a class="tab" href="../hardware/">🧮 硬件志</a>
+  <a class="tab active" href="./">✨ DGX Spark</a>
+</div>
+<div class="wrap">
+
+<div class="panel">
+  <h2>📌 它是什么</h2>
+  <p class="lede">DGX Spark 是 NVIDIA 面向个人开发者的桌面级 AI 计算机，2025 年 1 月以 Project DIGITS 之名发布，2025 年 10 月中旬正式开卖。它把 GB10 Grace Blackwell 超级芯片、128GB CPU 与 GPU 一致性统一内存、ConnectX-7 200Gb/s 网卡和完整 NVIDIA AI 软件栈，装进一个与 Mac mini 相仿、约 1 升体积、重约 1.18 kg 的盒子里。</p>
+  <p class="lede" style="margin-top:.4rem">官方定位很明确：这不是游戏 PC，也不是数据中心替代品，而是「把 AI 开发平台放回桌面」的设备。原型开发、开源大模型微调、本地推理、边缘与机器人应用预研，是它的四个主场景。交付当天，黄仁勋把首台机器亲手交给马斯克，呼应 2016 年首台 DGX-1 的交接。</p>
+</div>
+
+<div class="panel">
+  <h2>🧱 核心规格</h2>
+  <div class="kv">
+    <div class="cell"><div class="num">1 PFLOP</div><div class="lbl">FP4（NVFP4 含稀疏）AI 算力</div></div>
+    <div class="cell"><div class="num">128GB</div><div class="lbl">LPDDR5x 一致性统一内存</div></div>
+    <div class="cell"><div class="num">273 GB/s</div><div class="lbl">内存带宽（短板，见账本）</div></div>
+    <div class="cell"><div class="num">200Gb/s</div><div class="lbl">ConnectX-7 网卡，双机互联</div></div>
+    <div class="cell"><div class="num">4TB</div><div class="lbl">NVMe 存储（自加密）</div></div>
+    <div class="cell"><div class="num">240W</div><div class="lbl">整机功耗</div></div>
+  </div>
+  <div class="tbl-wrap"><table class="tbl">
+    <thead><tr><th>项目</th><th>规格</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>芯片</td><td>GB10 Grace Blackwell 超级芯片</td><td>CPU 与 GPU 通过 NVLink-C2C 互联，带宽约为 PCIe 5 的 5 倍</td></tr>
+      <tr><td>CPU</td><td>20 核 Arm（10× Cortex-X925 + 10× Cortex-A725）</td><td>Arm64 架构，运行 DGX OS（Linux）</td></tr>
+      <tr><td>GPU</td><td>Blackwell 架构，6144 CUDA 核心</td><td>第五代 Tensor Core、第四代 RT Core，支持 NVFP4</td></tr>
+      <tr><td>内存</td><td>128GB LPDDR5x 统一内存</td><td>CPU 与 GPU 共享同一内存池，无静态分区</td></tr>
+      <tr><td>网络</td><td>ConnectX-7 200Gb/s + 10GbE + WiFi 7 + 蓝牙 5.4</td><td>NCCL、RDMA、GPUDirect，两台可互联跑 405B 模型</td></tr>
+      <tr><td>接口</td><td>4× USB-C（20Gbps）、HDMI 2.1a</td><td>其中一个 USB-C 被 240W 电源占用</td></tr>
+      <tr><td>体积</td><td>约 15 × 15 × 5 cm，约 1.18 kg</td><td>桌面放置，风冷安静</td></tr>
+      <tr><td>软件</td><td>DGX OS + NVIDIA AI 软件栈 + NIM 微服务</td><td>开箱即用，Playbooks 教程覆盖 Flux.1、Cosmos Reason、Qwen3 等</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">规格来源：NVIDIA 官方博客、NVIDIA 开发者论坛开箱解析、HotHardware 评测（2025-10）。</p>
+</div>
+
+<div class="panel">
+  <h2>🎯 能干什么</h2>
+  <ul>
+    <li><b>本地推理大模型</b>：NVFP4 格式下，单机可装入最高约 200B 参数的模型。</li>
+    <li><b>微调开源模型</b>：官方口径支持最高约 70B 参数模型的微调（LoRA 类高效方法）。</li>
+    <li><b>双机互联</b>：两台通过 ConnectX-7 互联，可把最高约 405B 参数的模型分摊到两颗 GB10 上运行。</li>
+    <li><b>AI 原型开发</b>：NIM、CUDA、PyTorch 全家桶开箱即用，适合本地快速迭代与验证。</li>
+    <li><b>边缘与机器人预研</b>：Isaac 机器人、Metropolis 智慧城市应用的开发跳板（正式部署另有 Jetson 系列）。</li>
+  </ul>
+</div>
+
+<div class="panel">
+  <h2>🧮 带宽账本：273 GB/s 意味着什么</h2>
+  <p>这台机器最大的争议点不在算力，而在内存带宽。128GB 统一内存解决了「装得下」的问题，但 LPDDR5x 的 273 GB/s 决定了「跑不快」的上限。推理 decode 阶段每生成一个 token 都要把全部权重读一遍，理论速度上限可以直接算：</p>
+  <div class="tbl-wrap"><table class="tbl">
+    <thead><tr><th>模型规模</th><th>权重占用</th><th>理论 decode 上限（273 GB/s ÷ 权重）</th><th>直观结论</th></tr></thead>
+    <tbody>
+      <tr><td>8B（INT4 量化）</td><td>约 4 至 5GB</td><td>约 55 至 68 tok/s</td><td>小模型体验流畅</td></tr>
+      <tr><td>70B（FP8）</td><td>约 70GB</td><td>约 3.9 tok/s</td><td>能跑但慢，适合离线批处理</td></tr>
+      <tr><td>200B（FP4）</td><td>约 100GB</td><td>约 2.7 tok/s</td><td>装得下是主要价值，速度别期待</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout">提升 decode 速度的另一条路是换解码范式。Nemotron-Labs-Diffusion 技术报告实测：8B 模型在 DGX Spark 上以扩散并行解码达到 112 tok/s，是自回归基线 41.8 tok/s 的 2.7 倍（w4a16）。这正好印证了「带宽受限场景下，并行解码的收益最大」。</div>
+  <p class="src">带宽公式与 memory bound 原理见本站「硬件志 · 硬件深挖」章；实测数据来自 Nemotron-Labs-Diffusion 技术报告（arXiv 2607.05722）。</p>
+</div>
+
+<div class="panel">
+  <h2>⚖️ 和谁比</h2>
+  <div class="tbl-wrap"><table class="tbl">
+    <thead><tr><th>对比对象</th><th>价格量级</th><th>DGX Spark 赢在哪</th><th>输在哪</th></tr></thead>
+    <tbody>
+      <tr><td>RTX 5090 台式机（32GB）</td><td>整机约 2.5 至 4 万元</td><td>内存大 4 倍且统一；可装 200B 模型；开箱即用的 DGX 软件栈</td><td>绝对算力与显存带宽（GDDR7 约 1.8 TB/s）远低于 5090；小模型推理和游戏不在一个量级</td></tr>
+      <tr><td>H100（80GB HBM3）</td><td>20 万元以上 / 卡</td><td>价格约为其 1/7；桌面可用</td><td>带宽 273 GB/s 对 3.35 TB/s；无 NVLink 多卡扩展能力</td></tr>
+      <tr><td>Mac Studio（Apple 统一内存）</td><td>1.6 至 4 万元</td><td>CUDA 生态、NVFP4、双机互联、DGX 软件栈</td><td>内存带宽低于 M 系高配（546 GB/s 级）；macOS 生态与能效口碑</td></tr>
+      <tr><td>Jetson AGX Thor 开发套件</td><td>约 2 万元级</td><td>通用 AI 开发定位、4TB 存储、更强 CPU 与功耗预算</td><td>机器人实时系统与传感器接口是 Thor 的主场</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="panel">
+  <h2>🧭 适合谁，不适合谁</h2>
+  <h3>适合</h3>
+  <ul class="good">
+    <li>需要在本地完整跑通大模型工作流的算法工程师与研究者</li>
+    <li>想做 70B 级微调、200B 级推理验证，但不想排队等集群的独立开发者</li>
+    <li>高校实验室与教学场景：一台机器覆盖从 CUDA 到 NIM 的全栈教学</li>
+    <li>边缘与机器人应用的预研团队</li>
+  </ul>
+  <h3>不适合</h3>
+  <ul class="bad">
+    <li>追求小模型高并发推理速度的场景（带宽天花板明显，台式 dGPU 更合适）</li>
+    <li>大模型预训练或大规模多卡训练（它不是干这个的）</li>
+    <li>游戏与图形创作（没有显示输出取向，也不装 Windows 游戏生态）</li>
+    <li>只需要聊天级使用的普通用户（云 API 便宜得多）</li>
+  </ul>
+</div>
+
+<div class="panel">
+  <h2>💰 版本与价格</h2>
+  <ul>
+    <li><b>Founders Edition</b>：官方版 $3,999（2025 年 10 月中旬通过 NVIDIA 官网与零售商开售）。CES 发布时曾预告 $3,000，正式发售调价。</li>
+    <li><b>合作伙伴版本</b>：华硕、戴尔、惠普、联想、微星、技嘉等厂商基于同一 GB10 平台的定制机型陆续跟进。</li>
+  </ul>
+  <p class="note-line">价格为官方发布口径（2025-10），国内行货与渠道价以实际为准。本文只做技术介绍，不构成选购建议。</p>
+</div>
+
+</div>
+<footer>🤖 <a href="https://xplore-lab.github.io/llm-tracker/" style="font-weight:600;">大模型情报局</a> © 2026 <a href="https://github.com/Xplore-LAB">Xplore-LAB</a> · <a href="../hardware/">🧮 硬件志</a> · <a href="https://github.com/Xplore-LAB/llm-tracker">GitHub</a></footer>
+</body>
+</html>

@@ -194,6 +194,7 @@ const CHAPTERS=[
   {key:'deep',name:'硬件深挖',color:'#8a6d4f',desc:'芯片内部、HBM 带宽、NVLink、供电散热与显存估算'},
   {key:'faq',name:'常见问题',color:'#9c5a44',desc:'A800 是不是更好、4090 能不能训练、显存与算力谁重要'},
   {key:'calc',name:'显存计算器',color:'#6e6259',desc:'输入参数量与场景，一分钟估出推理与训练显存'},
+  {key:'dgx',name:'专题 ✨ DGX Spark',color:'#9c5a44',desc:'一升体积的桌面 AI 超算：规格、带宽账本与选购判断',external:'../dgx-spark/'},
 ];
 let view='overview', CH=null;
 
@@ -222,7 +223,7 @@ function renderOverview(){
       <span class="stat"><b>1</b>个显存计算器</span>
     </div>
     <div class="era-grid">${(()=>{
-      const cards=CHAPTERS.map(c=>`<div class="era-card" style="--ec:${c.color}" onclick="openChapter('${c.key}')">
+      const cards=CHAPTERS.map(c=>`<div class="era-card" style="--ec:${c.color}" onclick="${c.external?`location.href='${c.external}'`:`openChapter('${c.key}')`}">
         <span class="era-go">展开 →</span>
         <div class="era-name">${c.name}</div>
         <div class="era-desc" style="margin-top:.3rem">${c.desc}</div>

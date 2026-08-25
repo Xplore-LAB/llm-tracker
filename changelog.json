@@ -1,5 +1,16 @@
 [
   {
+    "version": "v2026.08.25l",
+    "date": "2026-08-25",
+    "title": "新专题页「DGX Spark」：桌面 AI 超算深度解读",
+    "items": [
+      "新增 /dgx-spark/ 专题页：定位、核心规格（GB10 芯片、20 核 Arm CPU、128GB LPDDR5x 统一内存、ConnectX-7、4TB）、能力边界（200B 推理 / 70B 微调 / 双机 405B）",
+      "独家「带宽账本」：按 273 GB/s 内存带宽逐档估算 decode 理论上限（8B 约 60 tok/s、70B FP8 约 3.9、200B FP4 约 2.7），并引 Nemotron-Diffusion 在 DGX Spark 上 112 tok/s 的实测印证并行解码价值",
+      "四向对比（RTX 5090 台式机 / H100 / Mac Studio / Jetson Thor）+ 适合谁不适合谁清单 + 版本价格（$3,999 FE 与合作伙伴版）",
+      "硬件志总览新增「专题 ✨ DGX Spark」入口卡，规格均经 NVIDIA 官方博客与评测核实"
+    ]
+  },
+  {
     "version": "v2026.08.25k",
     "date": "2026-08-25",
     "title": "新页面「硬件志」：GPU 硬件基础七章",
