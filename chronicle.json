@@ -1,14 +1,14 @@
 {
   "categories": {
-    "arch":      {"label": "架构突破", "icon": "🧱", "color": "#7c3aed"},
-    "train":     {"label": "训练范式", "icon": "🎯", "color": "#0891b2"},
-    "rl":        {"label": "强化学习", "icon": "🕹️", "color": "#dc2626"},
-    "scaling":   {"label": "缩放定律", "icon": "📈", "color": "#65a30d"},
-    "sys":       {"label": "系统基建", "icon": "⚙️", "color": "#475569"},
-    "reason":    {"label": "推理范式", "icon": "🧠", "color": "#d97706"},
-    "mm":        {"label": "多模态",   "icon": "🖼️", "color": "#db2777"},
-    "open":      {"label": "开源生态", "icon": "🔓", "color": "#16a34a"},
-    "milestone": {"label": "里程碑",   "icon": "🚀", "color": "#302b63"}
+    "arch":      {"label": "架构突破", "icon": "🧱", "color": "#8a6d4f"},
+    "train":     {"label": "训练范式", "icon": "🎯", "color": "#8a6d4f"},
+    "rl":        {"label": "强化学习", "icon": "🕹️", "color": "#9c5a44"},
+    "scaling":   {"label": "缩放定律", "icon": "📈", "color": "#7a7a52"},
+    "sys":       {"label": "系统基建", "icon": "⚙️", "color": "#6e6259"},
+    "reason":    {"label": "推理范式", "icon": "🧠", "color": "#9c5a44"},
+    "mm":        {"label": "多模态",   "icon": "🖼️", "color": "#7a7a52"},
+    "open":      {"label": "开源生态", "icon": "🔓", "color": "#7a7a52"},
+    "milestone": {"label": "里程碑",   "icon": "🚀", "color": "#6e6259"}
   },
   "events": [
     {"date": "1959-07-01", "year": 1959, "title": "Samuel 跳棋程序", "org": "IBM", "cat": "rl", "note": "机器学习的源头实践，程序通过自我对弈超越编写者", "url": "https://doi.org/10.1147/36874.15705"},

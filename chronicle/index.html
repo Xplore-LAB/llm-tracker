@@ -14,143 +14,148 @@
 <meta property="og:title" content="大模型编年史 · 大模型情报局">
 <meta property="og:description" content="从 Transformer 到百万上下文，大模型十年里程碑的纵向时间树。">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#302b63">
+<meta name="theme-color" content="#5b4632">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
 <title>大模型编年史 · 大模型情报局</title>
 <script>try{if(localStorage.getItem('llm_theme')==='dark'||(!localStorage.getItem('llm_theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f7fa;color:#333;min-height:100vh;overflow-x:hidden}
-/* ambient background + floating particles */
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#ece1cb;color:#3b3128;min-height:100vh;overflow-x:hidden}
+/* kraft paper texture */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.52 0 0 0 0 0.44 0 0 0 0 0.31 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
 .bg{position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
-    radial-gradient(620px 420px at 12% 6%,rgba(124,58,237,.09),transparent 60%),
-    radial-gradient(720px 520px at 88% 28%,rgba(8,145,178,.08),transparent 60%),
-    radial-gradient(620px 520px at 18% 88%,rgba(217,119,6,.07),transparent 60%)}
-.pt{position:absolute;border-radius:50%;filter:blur(1px);opacity:.5;animation:drift var(--dur,14s) ease-in-out infinite alternate}
+    radial-gradient(640px 420px at 12% 6%,rgba(156,90,68,.10),transparent 60%),
+    radial-gradient(720px 520px at 88% 30%,rgba(122,122,82,.10),transparent 60%),
+    radial-gradient(620px 520px at 18% 88%,rgba(138,109,79,.10),transparent 60%)}
+.pt{position:absolute;border-radius:50%;filter:blur(.5px);opacity:.22;animation:drift var(--dur,14s) ease-in-out infinite alternate}
 @keyframes drift{from{transform:translate(0,0)}to{transform:translate(var(--dx,20px),var(--dy,-30px))}}
-header{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:white;padding:2.4rem 2rem 2rem;text-align:center;position:relative;z-index:1}
-header h1{font-family:Georgia,'Songti SC','SimSun',serif;font-size:2.1rem;letter-spacing:.14em;background:linear-gradient(90deg,#ffd89e,#fff 45%,#b8c6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-header p{opacity:.72;font-size:.85rem;margin-top:.45rem;letter-spacing:.12em}
-.tabs{display:flex;justify-content:center;gap:.6rem;padding:.8rem;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #e0e0e0;position:sticky;top:0;z-index:10;flex-wrap:wrap}
-.tab{padding:.45rem 1.1rem;border-radius:2rem;border:2px solid #302b63;background:white;font-weight:600;font-size:.82rem;text-decoration:none;color:#302b63;transition:all .2s}
-.tab:hover,.tab.active{background:#302b63;color:white}
+header{background:linear-gradient(160deg,#3d2f23,#5b4632 55%,#3d2f23);color:#f3e8d2;padding:2.4rem 2rem 2rem;text-align:center;position:relative;z-index:1;border-bottom:4px solid #8a6d4f}
+header h1{font-family:Georgia,'Songti SC','SimSun',serif;font-size:2.1rem;letter-spacing:.16em;color:#f3e8d2;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+header p{opacity:.75;font-size:.85rem;margin-top:.45rem;letter-spacing:.14em;color:#d9c8a6}
+.tabs{display:flex;justify-content:center;gap:.6rem;padding:.8rem;background:rgba(243,234,216,.93);backdrop-filter:blur(8px);border-bottom:1px solid #d8c8a8;position:sticky;top:0;z-index:10;flex-wrap:wrap}
+.tab{padding:.45rem 1.1rem;border-radius:2rem;border:2px solid #8a6d4f;background:rgba(248,242,228,.9);font-weight:600;font-size:.82rem;text-decoration:none;color:#6b5138;transition:all .2s}
+.tab:hover,.tab.active{background:#6b5138;color:#f3e8d2}
 .legend{display:flex;justify-content:center;gap:.45rem;flex-wrap:wrap;padding:1rem 1rem .4rem;position:relative;z-index:1}
-.lg-chip{display:inline-flex;align-items:center;gap:.3rem;font-size:.74rem;font-weight:600;padding:.25rem .75rem;border-radius:1rem;border:1.5px solid var(--c);color:var(--c);background:rgba(255,255,255,.85);cursor:pointer;user-select:none;transition:all .15s}
-.lg-chip.on{background:var(--c);color:white;box-shadow:0 2px 10px color-mix(in srgb,var(--c) 45%,transparent)}
-.lg-chip.all{border-color:#302b63;color:#302b63}
-.lg-chip.all.on{background:#302b63;color:white}
-/* ── the tree ── */
+.lg-chip{display:inline-flex;align-items:center;gap:.3rem;font-size:.74rem;font-weight:600;padding:.25rem .75rem;border-radius:1rem;border:1.5px solid var(--c);color:var(--c);background:rgba(248,242,228,.85);cursor:pointer;user-select:none;transition:all .15s}
+.lg-chip.on{background:var(--c);color:#f8f2e4}
+.lg-chip.all{border-color:#6b5138;color:#6b5138}
+.lg-chip.all.on{background:#6b5138;color:#f3e8d2}
+/* overview */
+.stats{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;padding:.4rem 1rem .2rem;position:relative;z-index:1;align-items:center}
+.stat{background:rgba(248,242,228,.88);border:1px solid #e0d2b4;border-radius:1rem;padding:.35rem 1rem;font-size:.78rem;color:#6d5f4c;box-shadow:0 2px 8px rgba(107,81,56,.08)}
+.stat b{color:#6b5138;font-size:.95rem;margin-right:.15rem}
+.stat-link{font-size:.74rem;font-weight:600;color:#9c5a44;cursor:pointer;border-bottom:1px dashed #9c5a44;padding:.2rem .1rem}
+.stat-link:hover{opacity:.75}
+.era-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.9rem;max-width:980px;margin:1.2rem auto 3rem;padding:0 1.2rem;position:relative;z-index:1}
+.era-card{position:relative;background:rgba(248,242,228,.88);border:1px solid #e0d2b4;border-radius:14px;padding:1rem 1.15rem;cursor:pointer;box-shadow:0 5px 18px rgba(107,81,56,.12),inset 3px 0 0 var(--ec);transition:transform .25s,box-shadow .25s}
+.era-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(107,81,56,.22),inset 3px 0 0 var(--ec)}
+.era-name{font-family:Georgia,'Songti SC',serif;font-size:1.08rem;font-weight:700;color:#3b3128;padding-right:3rem}
+.era-span{font-size:.7rem;color:var(--ec);font-weight:700;letter-spacing:.06em;margin:.1rem 0 .3rem}
+.era-desc{font-size:.76rem;color:#8a7a5f;margin-bottom:.5rem;line-height:1.5}
+.era-hi{font-size:.74rem;color:#6d5f4c;line-height:1.7}
+.era-hi i{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:.35rem;vertical-align:1px}
+.era-go{position:absolute;top:.95rem;right:1rem;font-size:.72rem;font-weight:700;color:var(--ec)}
+.era-count{display:inline-block;font-size:.68rem;background:rgba(138,109,79,.12);color:var(--ec);border-radius:1rem;padding:.1rem .55rem;font-weight:700;margin-top:.45rem}
+/* chapter head */
+.era-head{max-width:980px;margin:1.2rem auto 0;padding:0 1.2rem;position:relative;z-index:1;display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+.back-btn,.exp-btn{font-size:.78rem;font-weight:600;color:#6b5138;background:rgba(248,242,228,.9);border:1.5px solid #8a6d4f;border-radius:1rem;padding:.35rem .9rem;cursor:pointer;align-self:center}
+.back-btn:hover,.exp-btn:hover{background:#6b5138;color:#f3e8d2}
+.exp-btn{border-color:#9c5a44;color:#9c5a44}
+.exp-btn:hover{background:#9c5a44;color:#f8f2e4}
+.era-head h2{font-family:Georgia,'Songti SC',serif;font-size:1.35rem;color:#3b3128}
+.era-head .sub{font-size:.78rem;color:#8a7a5f}
+/* the tree */
 .tree{position:relative;max-width:980px;margin:1rem auto 0;padding:1rem 0 5rem;z-index:1}
-.spine{position:absolute;left:50%;top:0;bottom:0;width:5px;transform:translateX(-50%);border-radius:4px;
-  background:linear-gradient(180deg,#7c3aed,#0891b2,#d97706,#db2777,#16a34a,#302b63,#7c3aed);
-  background-size:100% 260%;animation:flow 14s linear infinite;
-  box-shadow:0 0 14px rgba(48,43,99,.4),0 0 34px rgba(124,58,237,.22)}
-@keyframes flow{from{background-position:50% 0}to{background-position:50% 260%}}
-/* year medallion */
+.spine{position:absolute;left:50%;top:0;bottom:0;width:4px;transform:translateX(-50%);border-radius:4px;
+  background:linear-gradient(180deg,#8a6d4f,#9c5a44,#7a7a52,#6e6259,#8a6d4f);
+  box-shadow:0 0 10px rgba(107,81,56,.35)}
 .year-node{position:relative;display:flex;justify-content:center;margin:2.8rem 0 1.8rem;z-index:2}
 .medal{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;
-  background:radial-gradient(circle at 32% 28%,#ffffff,#ece9fb 70%,#d9d3f2);
-  border:3px solid #302b63;
-  box-shadow:0 0 0 5px rgba(48,43,99,.12),0 0 0 9px rgba(48,43,99,.05),0 8px 24px rgba(48,43,99,.25)}
-.medal::before{content:'';position:absolute;inset:5px;border-radius:50%;border:1.5px dashed rgba(48,43,99,.35)}
-.medal span{font-family:Georgia,'Songti SC',serif;font-size:1.45rem;font-weight:700;letter-spacing:.04em;
-  background:linear-gradient(135deg,#302b63,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-/* event rows */
+  background:radial-gradient(circle at 34% 30%,#f8f0dd,#eadcbc 72%,#ddcda6);
+  border:3px solid #8a6d4f;
+  box-shadow:0 0 0 5px rgba(138,109,79,.14),0 0 0 9px rgba(138,109,79,.05),0 8px 20px rgba(107,81,56,.28)}
+.medal::before{content:'';position:absolute;inset:5px;border-radius:50%;border:1.5px dashed rgba(138,109,79,.45)}
+.medal span{font-family:Georgia,'Songti SC',serif;font-size:1.45rem;font-weight:700;letter-spacing:.04em;color:#6b5138}
 .ev{position:relative;width:50%;padding:.55rem 3.4rem 1.5rem;opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;z-index:2}
 .ev.show{opacity:1;transform:none}
 .ev.left{left:0;text-align:right}
 .ev.right{left:50%;text-align:left}
-/* curved branch (svg) */
 .branch{position:absolute;top:1.5rem;width:3.4rem;height:46px;overflow:visible;pointer-events:none}
 .ev.left .branch{right:0}
 .ev.right .branch{left:0;transform:scaleX(-1)}
-.branch path{fill:none;stroke:var(--c);stroke-width:2;opacity:.75;stroke-linecap:round}
-.branch circle{fill:var(--c);opacity:.9}
-/* spine node */
-.vnode{position:absolute;top:calc(1.5rem + 15px);width:18px;height:18px;border-radius:50%;background:var(--c);border:3px solid #fff;
-  box-shadow:0 0 0 2.5px var(--c),0 0 16px color-mix(in srgb,var(--c) 80%,transparent)}
+.branch path{fill:none;stroke:var(--c);stroke-width:2;opacity:.7;stroke-linecap:round}
+.branch circle{fill:var(--c);opacity:.85}
+.vnode{position:absolute;top:calc(1.5rem + 15px);width:18px;height:18px;border-radius:50%;background:var(--c);border:3px solid #f3ead8;
+  box-shadow:0 0 0 2.5px var(--c),0 0 12px rgba(107,81,56,.4)}
 .ev.left .vnode{right:-9px}
 .ev.right .vnode{left:-9px}
-.vnode::before{content:'';position:absolute;inset:3px;border-radius:50%;background:rgba(255,255,255,.85)}
+.vnode::before{content:'';position:absolute;inset:3px;border-radius:50%;background:rgba(248,242,228,.9)}
 .vnode.big{width:24px;height:24px;top:calc(1.5rem + 12px)}
 .ev.left .vnode.big{right:-12px}
 .ev.right .vnode.big{left:-12px}
 .vnode.big::after{content:'';position:absolute;inset:-9px;border-radius:50%;border:2px solid var(--c);animation:ring 2.6s ease-out infinite}
-@keyframes ring{0%{transform:scale(.55);opacity:.9}100%{transform:scale(1.45);opacity:0}}
-/* glass card */
-.card{display:inline-block;position:relative;max-width:100%;text-align:left;border-radius:16px;padding:.85rem 1.1rem .8rem;
-  background:rgba(255,255,255,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.7);
-  box-shadow:0 6px 22px rgba(48,43,99,.1),inset 3px 0 0 var(--c);
+@keyframes ring{0%{transform:scale(.55);opacity:.85}100%{transform:scale(1.45);opacity:0}}
+.card{display:inline-block;position:relative;max-width:100%;text-align:left;border-radius:14px;padding:.85rem 1.1rem .8rem;
+  background:rgba(248,242,228,.9);border:1px solid #e0d2b4;
+  box-shadow:0 5px 18px rgba(107,81,56,.12),inset 3px 0 0 var(--c);
   transition:transform .25s,box-shadow .25s}
-.ev.right .card{box-shadow:0 6px 22px rgba(48,43,99,.1),inset -3px 0 0 var(--c)}
-.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(48,43,99,.2),inset 3px 0 0 var(--c)}
-.ev.right .card:hover{box-shadow:0 14px 34px rgba(48,43,99,.2),inset -3px 0 0 var(--c)}
+.ev.right .card{box-shadow:0 5px 18px rgba(107,81,56,.12),inset -3px 0 0 var(--c)}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(107,81,56,.22),inset 3px 0 0 var(--c)}
+.ev.right .card:hover{box-shadow:0 12px 28px rgba(107,81,56,.22),inset -3px 0 0 var(--c)}
 .ev-top{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem}
-.ev-date{font-size:.68rem;color:#9a97ad;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.ev-date{font-size:.68rem;color:#a08e6d;letter-spacing:.08em;font-variant-numeric:tabular-nums}
 .ev-cat{margin-left:auto;display:inline-flex;align-items:center;gap:.25rem;font-size:.66rem;font-weight:700;color:var(--c);
-  background:color-mix(in srgb,var(--c) 10%,white);border-radius:.55rem;padding:.14rem .5rem}
-.ev-title{font-family:Georgia,'Songti SC',serif;font-size:1.02rem;font-weight:700;color:#23203d;line-height:1.42;letter-spacing:.01em}
-.ev-title .star{color:var(--c);margin-right:.2rem}
+  background:rgba(138,109,79,.1);border-radius:.55rem;padding:.14rem .5rem}
+.ev-title{font-family:Georgia,'Songti SC',serif;font-size:1.02rem;font-weight:700;color:#3b3128;line-height:1.42;letter-spacing:.01em}
+.ev-title .star{color:#9c5a44;margin-right:.2rem}
 .ev-org{font-size:.73rem;font-weight:700;color:var(--c);margin:.18rem 0 .3rem;letter-spacing:.03em}
-.ev-note{font-size:.8rem;color:#555;line-height:1.65}
-.ev-link{display:inline-flex;align-items:center;gap:.2rem;margin-top:.45rem;font-size:.74rem;font-weight:600;color:#302b63;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
-.ev-link:hover{border-bottom-color:#302b63}
-footer{text-align:center;padding:1.5rem;color:#aaa;font-size:.78rem;position:relative;z-index:1}
-/* dark mode */
-html.dark body{background:#12141f;color:#d6d9e2}
+.ev-note{font-size:.8rem;color:#6d5f4c;line-height:1.65}
+.ev-links{display:flex;gap:.9rem;margin-top:.45rem}
+.ev-link{display:inline-flex;align-items:center;gap:.2rem;font-size:.74rem;font-weight:600;color:#6b5138;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+.ev-link:hover{border-bottom-color:#6b5138}
+.ev-link.pdf{color:#9c5a44}
+.ev-link.pdf:hover{border-bottom-color:#9c5a44}
+footer{text-align:center;padding:1.5rem;color:#a08e6d;font-size:.78rem;position:relative;z-index:1}
+footer a{color:#6b5138}
+/* dark leather */
+html.dark body{background:#211a13;color:#e6d9bf}
+html.dark body::before{opacity:.25}
 html.dark .bg{background:
-  radial-gradient(620px 420px at 12% 6%,rgba(124,58,237,.17),transparent 60%),
-  radial-gradient(720px 520px at 88% 28%,rgba(8,145,178,.14),transparent 60%),
-  radial-gradient(620px 520px at 18% 88%,rgba(217,119,6,.11),transparent 60%)}
-html.dark .tabs{background:rgba(26,29,44,.92);border-color:#2b2f45}
-html.dark .tab{background:#1a1d2c;color:#b3ade6;border-color:#4c4783}
-html.dark .tab:hover,html.dark .tab.active{background:#5b54b8;color:#fff;border-color:#5b54b8}
-html.dark .lg-chip{background:#1e2233}
-html.dark .lg-chip.on{color:#fff}
-html.dark .medal{background:radial-gradient(circle at 32% 28%,#2b2f4a,#1e2233 70%,#181b2c);border-color:#5b54b8;
-  box-shadow:0 0 0 5px rgba(91,84,184,.18),0 0 0 9px rgba(91,84,184,.07),0 8px 24px rgba(0,0,0,.45)}
-html.dark .medal::before{border-color:rgba(179,173,230,.4)}
-html.dark .medal span{background:linear-gradient(135deg,#b3ade6,#8f86e0);-webkit-background-clip:text;background-clip:text}
-html.dark .card{background:rgba(30,34,51,.82);border-color:rgba(70,74,110,.5)}
-html.dark .ev-title{color:#e8eaf4}
-html.dark .ev-note{color:#a9adbd}
-html.dark .ev-date{color:#6b7086}
-html.dark .ev-cat{background:color-mix(in srgb,var(--c) 22%,#1e2233)}
-html.dark .vnode{border-color:#1e2233}
-html.dark .vnode::before{background:rgba(30,34,51,.85)}
-html.dark .ev-link{color:#9d95e8}
-html.dark .ev-link:hover{border-bottom-color:#9d95e8}
-/* overview: stats + chapter cards */
-.stats{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;padding:.4rem 1rem .2rem;position:relative;z-index:1}
-.stat{background:rgba(255,255,255,.85);border:1px solid #eee;border-radius:1rem;padding:.35rem 1rem;font-size:.78rem;color:#666;box-shadow:0 2px 8px rgba(48,43,99,.06)}
-.stat b{color:#302b63;font-size:.95rem;margin-right:.15rem}
-.era-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.9rem;max-width:980px;margin:1.2rem auto 3rem;padding:0 1.2rem;position:relative;z-index:1}
-.era-card{position:relative;background:rgba(255,255,255,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.7);border-radius:16px;padding:1rem 1.15rem;cursor:pointer;box-shadow:0 6px 22px rgba(48,43,99,.1),inset 3px 0 0 var(--ec);transition:transform .25s,box-shadow .25s}
-.era-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(48,43,99,.2),inset 3px 0 0 var(--ec)}
-.era-name{font-family:Georgia,'Songti SC',serif;font-size:1.08rem;font-weight:700;color:#23203d;padding-right:3rem}
-.era-span{font-size:.7rem;color:var(--ec);font-weight:700;letter-spacing:.06em;margin:.1rem 0 .3rem}
-.era-desc{font-size:.76rem;color:#777;margin-bottom:.5rem;line-height:1.5}
-.era-hi{font-size:.74rem;color:#555;line-height:1.7}
-.era-hi i{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:.35rem;vertical-align:1px}
-.era-go{position:absolute;top:.95rem;right:1rem;font-size:.72rem;font-weight:700;color:var(--ec)}
-.era-count{display:inline-block;font-size:.68rem;background:color-mix(in srgb,var(--ec) 12%,white);color:var(--ec);border-radius:1rem;padding:.1rem .55rem;font-weight:700;margin-top:.45rem}
-html.dark .stat{background:#1e2233;border-color:#2b2f45;color:#8a8fa8}
-html.dark .stat b{color:#b3ade6}
-html.dark .era-card{background:rgba(30,34,51,.82);border-color:rgba(70,74,110,.5)}
-html.dark .era-name{color:#e8eaf4}
-html.dark .era-desc{color:#8a8fa8}
-html.dark .era-hi{color:#a9adbd}
-/* chapter head */
-.era-head{max-width:980px;margin:1.2rem auto 0;padding:0 1.2rem;position:relative;z-index:1;display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
-.back-btn{font-size:.78rem;font-weight:600;color:#302b63;background:white;border:1.5px solid #302b63;border-radius:1rem;padding:.35rem .9rem;cursor:pointer;align-self:center}
-.back-btn:hover{background:#302b63;color:white}
-.era-head h2{font-family:Georgia,'Songti SC',serif;font-size:1.35rem;color:#23203d}
-.era-head .sub{font-size:.78rem;color:#888}
-html.dark .era-head h2{color:#e8eaf4}
-html.dark .back-btn{background:#232741;color:#b3ade6;border-color:#5b54b8}
-html.dark .back-btn:hover{background:#5b54b8;color:#fff}
+  radial-gradient(640px 420px at 12% 6%,rgba(156,90,68,.14),transparent 60%),
+  radial-gradient(720px 520px at 88% 30%,rgba(122,122,82,.12),transparent 60%),
+  radial-gradient(620px 520px at 18% 88%,rgba(138,109,79,.13),transparent 60%)}
+html.dark header{background:linear-gradient(160deg,#241c12,#3a2d1d 55%,#241c12);border-bottom-color:#6b5138}
+html.dark .tabs{background:rgba(36,28,18,.93);border-color:#4a3d2c}
+html.dark .tab{background:#2b2318;color:#cbb897;border-color:#6b5138}
+html.dark .tab:hover,html.dark .tab.active{background:#6b5138;color:#f3e8d2;border-color:#8a6d4f}
+html.dark .lg-chip{background:#2b2318}
+html.dark .lg-chip.on{color:#f8f2e4}
+html.dark .stat,html.dark .era-card{background:#2b2318;border-color:#4a3d2c}
+html.dark .stat{color:#a89a7c}
+html.dark .stat b{color:#d9c8a6}
+html.dark .era-name{color:#e6d9bf}
+html.dark .era-desc{color:#a89a7c}
+html.dark .era-hi{color:#c2b394}
+html.dark .era-count{background:rgba(138,109,79,.25)}
+html.dark .back-btn,html.dark .exp-btn{background:#2b2318}
+html.dark .era-head h2{color:#e6d9bf}
+html.dark .era-head .sub{color:#a89a7c}
+html.dark .medal{background:radial-gradient(circle at 34% 30%,#3a2f20,#2b2318 72%,#241c12);border-color:#8a6d4f}
+html.dark .medal::before{border-color:rgba(203,184,151,.4)}
+html.dark .medal span{color:#d9c8a6}
+html.dark .card{background:rgba(43,35,24,.92);border-color:#4a3d2c}
+html.dark .ev-title{color:#e8ddc4}
+html.dark .ev-note{color:#c2b394}
+html.dark .ev-date{color:#8a7a5f}
+html.dark .ev-cat{background:rgba(138,109,79,.25)}
+html.dark .vnode{border-color:#2b2318}
+html.dark .vnode::before{background:rgba(43,35,24,.9)}
+html.dark .ev-link{color:#cbb897}
+html.dark .ev-link:hover{border-bottom-color:#cbb897}
+html.dark .ev-link.pdf{color:#c98a70}
+html.dark .ev-link.pdf:hover{border-bottom-color:#c98a70}
 /* mobile: spine to the left */
 @media(max-width:700px){
   .spine{left:18px}
@@ -160,7 +165,7 @@ html.dark .back-btn:hover{background:#5b54b8;color:#fff}
   .ev{width:100%;left:0!important;text-align:left!important;padding:.5rem .9rem 1.4rem 56px}
   .ev .branch{left:18px!important;right:auto!important;transform:scaleX(-1);width:1.6rem}
   .ev .vnode{left:10px!important;right:auto!important}
-  .ev .card,.ev .card:hover{box-shadow:0 6px 22px rgba(48,43,99,.1),inset 3px 0 0 var(--c)}
+  .ev .card,.ev .card:hover{box-shadow:0 5px 18px rgba(107,81,56,.12),inset 3px 0 0 var(--c)}
 }
 </style>
 </head>
@@ -168,7 +173,7 @@ html.dark .back-btn:hover{background:#5b54b8;color:#fff}
 <div class="bg" id="bg"></div>
 <header>
   <h1>大模型编年史</h1>
-  <p>从 Transformer 到百万上下文 · 一棵纵向生长的时间树</p>
+  <p>从 Transformer 到百万上下文 · 牛皮卷上的七十年</p>
 </header>
 <div class="tabs">
   <a class="tab" href="../">📄 论文追踪</a>
@@ -180,24 +185,38 @@ html.dark .back-btn:hover{background:#5b54b8;color:#fff}
 <div id="overview"></div>
 <div id="chapter"></div>
 <div class="tree" id="tree" style="display:none"><div class="spine"></div></div>
-<footer>🤖 <a href="https://xplore-lab.github.io/llm-tracker/" style="color:#302b63;font-weight:600;">大模型情报局</a> © 2026 <a href="https://github.com/Xplore-LAB" style="color:#302b63;">Xplore-LAB</a> · Data from arXiv · <a href="https://github.com/Xplore-LAB/llm-tracker" style="color:#302b63">GitHub</a></footer>
+<footer>🤖 <a href="https://xplore-lab.github.io/llm-tracker/" style="font-weight:600;">大模型情报局</a> © 2026 <a href="https://github.com/Xplore-LAB">Xplore-LAB</a> · Data from arXiv · <a href="https://github.com/Xplore-LAB/llm-tracker">GitHub</a></footer>
 <script>
 let CATS={}, EVENTS=[], ACTIVE=new Set();
 
-// ambient floating particles
+// faint paper-fleck particles
 (function(){
   const bg=document.getElementById('bg');
-  const colors=['#7c3aed','#0891b2','#d97706','#db2777','#16a34a','#302b63'];
-  for(let i=0;i<16;i++){
+  const colors=['#8a6d4f','#9c5a44','#7a7a52','#6e6259'];
+  for(let i=0;i<12;i++){
     const p=document.createElement('span');
     p.className='pt';
-    const s=3+Math.random()*4;
+    const s=2.5+Math.random()*3;
     p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;top:${Math.random()*100}%;`
-      +`background:${colors[i%colors.length]};--dx:${(Math.random()*60-30).toFixed(0)}px;--dy:${(Math.random()*-50-10).toFixed(0)}px;--dur:${(10+Math.random()*10).toFixed(1)}s;`
+      +`background:${colors[i%colors.length]};--dx:${(Math.random()*50-25).toFixed(0)}px;--dy:${(Math.random()*-40-10).toFixed(0)}px;--dur:${(10+Math.random()*10).toFixed(1)}s;`
       +`animation-delay:${(-Math.random()*10).toFixed(1)}s`;
     bg.appendChild(p);
   }
 })();
+
+// chapter (幕) structure: overview first, drill into one era at a time
+const ERAS=[
+  {key:'pre',name:'序章',span:[1957,2011],color:'#8a6d4f',desc:'强化学习与深度学习的史前基石：从跳棋程序到逐层预训练'},
+  {key:'e1',name:'第一幕',span:[2012,2016],color:'#7a7a52',desc:'深度学习开幕：AlexNet、DQN 与注意力前驱'},
+  {key:'e2',name:'第二幕',span:[2017,2019],color:'#8a6d4f',desc:'Transformer 与预训练范式确立'},
+  {key:'e3',name:'第三幕',span:[2020,2021],color:'#7a7a52',desc:'缩放定律时代与工具化萌芽'},
+  {key:'e4',name:'第四幕',span:[2022,2022],color:'#6e6259',desc:'对齐之年与 ChatGPT 时刻'},
+  {key:'e5',name:'第五幕',span:[2023,2023],color:'#7a7a52',desc:'开源生态爆发'},
+  {key:'e6',name:'第六幕',span:[2024,2024],color:'#9c5a44',desc:'效率革命：架构、训练与推理基建'},
+  {key:'e7',name:'第七幕',span:[2025,2025],color:'#9c5a44',desc:'推理元年与国产旗舰'},
+  {key:'e8',name:'第八幕',span:[2026,2026],color:'#8a6d4f',desc:'百万上下文与新架构'},
+];
+let view='overview', ERA=null;
 
 fetch('../chronicle.json?t='+Date.now()).then(r=>r.json()).then(d=>{
   CATS=d.categories; EVENTS=d.events;
@@ -207,19 +226,41 @@ fetch('../chronicle.json?t='+Date.now()).then(r=>r.json()).then(d=>{
   document.getElementById('overview').innerHTML='<div style="text-align:center;color:#999;padding:3rem">编年史数据加载失败</div>';
 });
 
-// chapter (幕) structure: overview first, drill into one era at a time
-const ERAS=[
-  {key:'pre',name:'序章',span:[1957,2011],color:'#8b5cf6',desc:'强化学习与深度学习的史前基石：从跳棋程序到逐层预训练'},
-  {key:'e1',name:'第一幕',span:[2012,2016],color:'#0891b2',desc:'深度学习开幕：AlexNet、DQN 与注意力前驱'},
-  {key:'e2',name:'第二幕',span:[2017,2019],color:'#7c3aed',desc:'Transformer 与预训练范式确立'},
-  {key:'e3',name:'第三幕',span:[2020,2021],color:'#65a30d',desc:'缩放定律时代与工具化萌芽'},
-  {key:'e4',name:'第四幕',span:[2022,2022],color:'#302b63',desc:'对齐之年与 ChatGPT 时刻'},
-  {key:'e5',name:'第五幕',span:[2023,2023],color:'#16a34a',desc:'开源生态爆发'},
-  {key:'e6',name:'第六幕',span:[2024,2024],color:'#d97706',desc:'效率革命：架构、训练与推理基建'},
-  {key:'e7',name:'第七幕',span:[2025,2025],color:'#dc2626',desc:'推理元年与国产旗舰'},
-  {key:'e8',name:'第八幕',span:[2026,2026],color:'#db2777',desc:'百万上下文与新架构'},
-];
-let view='overview', ERA=null;
+// derive a direct PDF link when possible (arXiv abs -> pdf, or already a .pdf)
+function pdfOf(u){
+  if(!u)return null;
+  if(u.includes('arxiv.org/abs/'))return u.replace('/abs/','/pdf/');
+  if(/\.pdf(\?|#|$)/i.test(u))return u;
+  return null;
+}
+function download(name,text){
+  const blob=new Blob(['\ufeff'+text],{type:'text/markdown;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download=name;a.click();
+  URL.revokeObjectURL(a.href);
+}
+function exportEvents(title,evs){
+  const lines=['# 大模型编年史 · '+title,'',
+    '> 导出于 '+new Date().toLocaleString('zh-CN')+' · 共 '+evs.length+' 篇 · 来源 xplore-lab.github.io/llm-tracker/chronicle/',''];
+  evs.forEach(e=>{
+    const pdf=pdfOf(e.url);
+    lines.push('## '+e.date+'　'+e.title,
+      '- 机构：'+e.org,
+      '- 类别：'+CATS[e.cat].label,
+      '- 简介：'+e.note,
+      '- 来源：'+e.url);
+    if(pdf)lines.push('- PDF：'+pdf);
+    lines.push('');
+  });
+  return lines.join('\n');
+}
+function exportAll(){
+  download('大模型编年史-全部论文清单.md',exportEvents('全部（1959 至 2026）',EVENTS));
+}
+function exportEra(){
+  const evs=EVENTS.filter(e=>e.year>=ERA.span[0]&&e.year<=ERA.span[1]);
+  download('编年史-'+ERA.name+'.md',exportEvents(ERA.name,evs));
+}
 
 function renderLegend(){
   const el=document.getElementById('legend');
@@ -251,6 +292,7 @@ function renderOverview(){
       <span class="stat"><b>${EVENTS.length}</b>个里程碑事件</span>
       <span class="stat"><b>${Object.keys(CATS).length}</b>个类别</span>
       <span class="stat"><b>${ERAS.length}</b>个章节 · ${Math.min(...years)} 至 ${Math.max(...years)}</span>
+      <span class="stat-link" onclick="exportAll()">📥 导出全部清单</span>
     </div>
     <div class="era-grid">${ERAS.map(era=>{
       const evs=EVENTS.filter(e=>ACTIVE.has(e.cat)&&e.year>=era.span[0]&&e.year<=era.span[1]);
@@ -284,6 +326,7 @@ function renderChapter(){
       <button class="back-btn" onclick="backToOverview()">← 返回总览</button>
       <h2>${ERA.name} · ${ERA.span[0]}${ERA.span[0]!==ERA.span[1]?' 至 '+ERA.span[1]:''}</h2>
       <span class="sub">${ERA.desc}</span>
+      <button class="exp-btn" onclick="exportEra()">📥 导出本章清单</button>
     </div>`;
   renderTree(ERA.span);
 }
@@ -311,6 +354,7 @@ function renderTree(range){
     evs.forEach((e,i)=>{
       const c=CATS[e.cat];
       const big=e.cat==='milestone';
+      const pdf=pdfOf(e.url);
       const div=document.createElement('div');
       div.className='ev '+(i%2===0?'left':'right');
       div.style.setProperty('--c',c.color);
@@ -324,7 +368,10 @@ function renderTree(range){
           <div class="ev-title">${big?'<span class="star">✦</span>':''}${e.title}</div>
           <div class="ev-org">${e.org}</div>
           <div class="ev-note">${e.note}</div>
-          <a class="ev-link" href="${e.url}" target="_blank" rel="noopener">论文 / 官方来源 ↗</a>
+          <div class="ev-links">
+            <a class="ev-link" href="${e.url}" target="_blank" rel="noopener">论文 / 官方来源 ↗</a>
+            ${pdf?`<a class="ev-link pdf" href="${pdf}" target="_blank" rel="noopener">📥 PDF 下载 ↗</a>`:''}
+          </div>
         </div>`;
       tree.appendChild(div);
     });
