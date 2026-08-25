@@ -11,8 +11,9 @@
  *     node tools/build_protect.js [SRC_DIR]
  *
  * SRC_DIR 默认为 ../_llm-tracker-src（仓库外的本地可读源码镜像）。
- * 注意：发布产物（仓库根下的六个 HTML 与四个 JSON）禁止手工编辑，
+ * 注意：发布产物（仓库根下的 HTML 与 JSON）禁止手工编辑，
  *       一切修改在 SRC_DIR 中进行后重新运行本脚本。
+ *       qiuzhao/handbook/lib/vs/ 为 Monaco 第三方静态资源，不在本流程内。
  */
 const fs = require('fs');
 const path = require('path');
@@ -32,6 +33,9 @@ const PAGES = [
   'deploy/index.html',
   'glossary/index.html',
   'lab/index.html',
+  'qiuzhao/index.html',
+  'qiuzhao/handbook/index.html',
+  'qiuzhao/arch/index.html',
 ];
 const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json'];
 
