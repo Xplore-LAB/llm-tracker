@@ -20,6 +20,8 @@
   .back { display:inline-block; margin-bottom:24px; color:#8fd3fe; font-size:13px; text-decoration:none; }
   .back:hover { text-decoration:underline; }
   .foot { text-align:center; color:#5b6b7c; font-size:12px; margin-top:40px; }
+  .sec { margin-top:34px; margin-bottom:14px; font-size:13px; letter-spacing:2px; color:#7f95ad; display:flex; align-items:center; gap:10px; }
+  .sec::after { content:""; flex:1; height:1px; background:rgba(255,255,255,.12); }
 html{-webkit-user-select:none;user-select:none}input,textarea,[contenteditable],.monaco-editor,.monaco-editor *{-webkit-user-select:text!important;user-select:text!important}
 </style>
 </head>
@@ -29,17 +31,24 @@ html{-webkit-user-select:none;user-select:none}input,textarea,[contenteditable],
   <a class="back" href="../">← 返回大模型情报局</a>
   <h1>📚 LLM 秋招资料包</h1>
   <p class="sub">2027 届秋招 · 大模型应用研发 / LLM Agent 工程师 · 2026-08-07 版</p>
+  <div class="sec">核心手册</div>
   <div class="grid">
     <a class="card" href="handbook/index.html">
       <div class="name">📖 LLM 秋招手册</div>
       <div class="desc">8 章 + 附录 157 条 · 五段式规范（必会徽章→核心回答→追问→陷阱→简历钩子）<br>阅读模式 + 闪卡模式，进度自动保存</div>
       <span class="tag">主文件 · 从这里开始</span>
     </a>
-    <a class="card" href="bytedance-2027/index.html">
-      <div class="name">🎯 字节 2027 校招真题</div>
-      <div class="desc">四大重点 AI 岗位 · 大模型算法 / AI 全栈 / AI Agent / AI 产品经理<br>招聘解读 + 职位要求 + 求职Tips + 面试真题（含考察点分析）</div>
-      <span class="tag">2027 届校招 · 字节跳动</span>
+  </div>
+  <div class="sec">面试经验</div>
+  <div class="grid">
+    <a class="card" href="jingyan/index.html">
+      <div class="name">🎯 面试经验库</div>
+      <div class="desc">各公司校招/实习面试真题与攻略 · 按公司归档、可筛选<br>现有：字节跳动 2027 校招真题（四大 AI 岗位 · 含考察点分析）</div>
+      <span class="tag">持续更新 · 新经验都放这里</span>
     </a>
+  </div>
+  <div class="sec">原理进阶</div>
+  <div class="grid">
     <a class="card" href="arch/index.html">
       <div class="name">🏗️ 大模型架构演进</div>
       <div class="desc">注意力/位置编码/归一化/FFN 四轴演进 · 5 模型单层对比 · KV Cache · 显存计算器</div>
