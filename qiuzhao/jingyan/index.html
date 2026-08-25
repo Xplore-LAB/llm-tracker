@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex, nosnippet">
+<title>面试经验库 · LLM 秋招资料包</title>
+<!--
+  ═══════════════════════════════════════════════════════════════
+  面试经验库 · 新增文章方法（3 步）
+  ═══════════════════════════════════════════════════════════════
+  1. 复制 _template.html 到 qiuzhao/jingyan/<公司拼音-年份>/index.html
+     例如: jingyan/bytedance-2027/index.html
+  2. 按模板内的 HTML 注释填写内容（岗位 / JD / Tips / 面试真题）
+  3. 在下方 <div class="grid"> 里新增一张卡片，格式：
+     <a class="card" data-co="字节跳动" data-date="2026-08" href="bytedance-2027/index.html">
+       <div class="name">🎯 字节 2027 校招真题</div>
+       <div class="desc">四大重点 AI 岗位 · ...</div>
+       <span class="tag">2027 届校招</span>
+     </a>
+     公司筛选按钮会根据 data-co 自动生成，无需手动维护。
+  ═══════════════════════════════════════════════════════════════
+-->
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"PingFang SC","Microsoft YaHei",sans-serif; background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460); min-height:100vh; color:#fff; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 20px; }
+  h1 { font-size:26px; text-align:center; margin-bottom:8px; letter-spacing:1px; }
+  .sub { text-align:center; color:#9fb3c8; font-size:14px; margin-bottom:28px; }
+  .filters { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:28px; }
+  .filters button { font-size:12.5px; padding:5px 14px; border-radius:20px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.05); color:#aab8c8; cursor:pointer; transition:.2s; }
+  .filters button:hover { color:#fff; border-color:rgba(255,255,255,.4); }
+  .filters button.on { background:rgba(143,211,254,.18); border-color:#8fd3fe; color:#8fd3fe; font-weight:600; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:18px; }
+  .card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:24px; text-decoration:none; color:#fff; transition:.25s; display:block; }
+  .card:hover { background:rgba(255,255,255,.12); transform:translateY(-3px); border-color:rgba(255,255,255,.3); }
+  .card .name { font-size:18px; font-weight:600; margin-bottom:10px; }
+  .card .desc { font-size:13px; color:#aab8c8; line-height:1.6; }
+  .card .tag { display:inline-block; margin-top:14px; font-size:11px; background:rgba(255,255,255,.1); padding:3px 10px; border-radius:20px; color:#8fd3fe; }
+  .card .co { display:inline-block; margin-top:14px; margin-left:6px; font-size:11px; background:rgba(176,141,87,.2); padding:3px 10px; border-radius:20px; color:#d9b98a; }
+  .back { display:inline-block; margin-bottom:24px; color:#8fd3fe; font-size:13px; text-decoration:none; }
+  .back:hover { text-decoration:underline; }
+  .foot { text-align:center; color:#5b6b7c; font-size:12px; margin-top:40px; }
+  .empty { text-align:center; color:#5b6b7c; font-size:13px; padding:40px 0; display:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../">← 返回秋招资料包</a>
+  <h1>🎯 面试经验库</h1>
+  <p class="sub">校招 / 实习面试真题与攻略 · 按公司归档 · 持续更新</p>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid">
+
+    <!-- ▼▼▼ 新卡片从这里往下加 ▼▼▼ -->
+    <a class="card" data-co="字节跳动" data-date="2026-08" href="bytedance-2027/index.html">
+      <div class="name">🎯 字节 2027 校招真题</div>
+      <div class="desc">四大重点 AI 岗位 · 大模型算法 / AI 全栈 / AI Agent / AI 产品经理<br>招聘解读 + 职位要求 + 求职Tips + 面试真题（含考察点分析）</div>
+      <span class="tag">2027 届校招</span><span class="co">字节跳动</span>
+    </a>
+    <!-- ▲▲▲ 新卡片加在这里上方 ▲▲▲ -->
+
+  </div>
+  <p class="empty" id="empty">该公司暂无文章</p>
+  <p class="foot">面试经验库 · Powered by Kevin</p>
+</div>
+<footer style="text-align:center;padding:1.5rem;color:#8a94a6;font-size:.78rem">🤖 <a href="https://xplore-lab.github.io/llm-tracker/">大模型情报局</a> © 2026 <a href="https://github.com/Xplore-LAB">Xplore-LAB</a> · 原创内容保留所有权利 · 禁止未授权转载与抓取</footer>
+<script>
+/* 公司筛选按钮：根据卡片 data-co 自动生成，无需手动维护 */
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .card'));
+  var companies = [];
+  cards.forEach(function(c){
+    var co = c.getAttribute('data-co');
+    if (co && companies.indexOf(co) === -1) companies.push(co);
+  });
+  companies.sort(function(a,b){
+    return (cards.filter(function(c){return c.getAttribute('data-co')===b;}).length)
+         - (cards.filter(function(c){return c.getAttribute('data-co')===a;}).length);
+  });
+  var box = document.getElementById('filters');
+  function mkBtn(label, val){
+    var b = document.createElement('button');
+    b.textContent = label;
+    b.setAttribute('data-v', val);
+    b.onclick = function(){
+      box.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      var n = 0;
+      cards.forEach(function(c){
+        var show = (val === '__all__') || (c.getAttribute('data-co') === val);
+        c.style.display = show ? '' : 'none';
+        if (show) n++;
+      });
+      document.getElementById('empty').style.display = n ? 'none' : 'block';
+    };
+    return b;
+  }
+  var all = mkBtn('全部 (' + cards.length + ')', '__all__');
+  all.classList.add('on');
+  box.appendChild(all);
+  companies.forEach(function(co){
+    var n = cards.filter(function(c){ return c.getAttribute('data-co') === co; }).length;
+    box.appendChild(mkBtn(co + ' (' + n + ')', co));
+  });
+})();
+</script>
+</body>
+</html>
