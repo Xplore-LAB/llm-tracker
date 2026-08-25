@@ -29,8 +29,9 @@ const PAGES = [
   'chronicle/index.html',
   'hardware/index.html',
   'dgx-spark/index.html',
+  'deploy/index.html',
 ];
-const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json'];
+const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json'];
 
 const OPT = {
   compact: true,
