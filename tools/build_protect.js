@@ -31,6 +31,7 @@ const PAGES = [
   'dgx-spark/index.html',
   'deploy/index.html',
   'glossary/index.html',
+  'lab/index.html',
 ];
 const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json'];
 
