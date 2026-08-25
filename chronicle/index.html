@@ -48,9 +48,15 @@ header p{opacity:.75;font-size:.85rem;margin-top:.45rem;letter-spacing:.14em;col
 .stat b{color:#6b5138;font-size:.95rem;margin-right:.15rem}
 .stat-link{font-size:.74rem;font-weight:600;color:#9c5a44;cursor:pointer;border-bottom:1px dashed #9c5a44;padding:.2rem .1rem}
 .stat-link:hover{opacity:.75}
-.era-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.9rem;max-width:980px;margin:1.2rem auto 3rem;padding:0 1.2rem;position:relative;z-index:1}
-.era-card{position:relative;background:rgba(248,242,228,.88);border:1px solid #e0d2b4;border-radius:14px;padding:1rem 1.15rem;cursor:pointer;box-shadow:0 5px 18px rgba(107,81,56,.12),inset 3px 0 0 var(--ec);transition:transform .25s,box-shadow .25s}
-.era-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(107,81,56,.22),inset 3px 0 0 var(--ec)}
+.era-grid{display:flex;flex-direction:column;max-width:980px;margin:1.2rem auto 3rem;padding:0 1.2rem;position:relative;z-index:1}
+.era-card{position:relative;width:46%;background:rgba(248,242,228,.88);border:1px solid #e0d2b4;border-radius:14px;padding:1rem 1.15rem;cursor:pointer;box-shadow:0 5px 18px rgba(107,81,56,.12),inset 3px 0 0 var(--ec);transition:transform .25s,box-shadow .25s}
+.era-card:nth-of-type(odd){align-self:flex-start;transform:rotate(-.6deg)}
+.era-card:nth-of-type(even){align-self:flex-end;transform:rotate(.5deg)}
+.era-card:hover{transform:translateY(-3px) rotate(0deg);box-shadow:0 12px 28px rgba(107,81,56,.22),inset 3px 0 0 var(--ec)}
+.era-link{display:block;height:56px;position:relative;pointer-events:none}
+.era-link svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.era-link path{fill:none;stroke:#b09a72;stroke-width:2.2;stroke-dasharray:7 7;stroke-linecap:round}
+.era-link circle{fill:#b09a72}
 .era-name{font-family:Georgia,'Songti SC',serif;font-size:1.08rem;font-weight:700;color:#3b3128;padding-right:3rem}
 .era-span{font-size:.7rem;color:var(--ec);font-weight:700;letter-spacing:.06em;margin:.1rem 0 .3rem}
 .era-desc{font-size:.76rem;color:#8a7a5f;margin-bottom:.5rem;line-height:1.5}
@@ -133,6 +139,8 @@ html.dark .tab:hover,html.dark .tab.active{background:#6b5138;color:#f3e8d2;bord
 html.dark .lg-chip{background:#2b2318}
 html.dark .lg-chip.on{color:#f8f2e4}
 html.dark .stat,html.dark .era-card{background:#2b2318;border-color:#4a3d2c}
+html.dark .era-link path{stroke:#6b5b40}
+html.dark .era-link circle{fill:#6b5b40}
 html.dark .stat{color:#a89a7c}
 html.dark .stat b{color:#d9c8a6}
 html.dark .era-name{color:#e6d9bf}
@@ -158,6 +166,8 @@ html.dark .ev-link.pdf{color:#c98a70}
 html.dark .ev-link.pdf:hover{border-bottom-color:#c98a70}
 /* mobile: spine to the left */
 @media(max-width:700px){
+  .era-card{width:100%;transform:none!important;align-self:stretch!important}
+  .era-link{display:none}
   .spine{left:18px}
   .year-node{justify-content:flex-start;padding-left:56px}
   .medal{width:76px;height:76px}
@@ -294,19 +304,32 @@ function renderOverview(){
       <span class="stat"><b>${ERAS.length}</b>个章节 · ${Math.min(...years)} 至 ${Math.max(...years)}</span>
       <span class="stat-link" onclick="exportAll()">📥 导出全部清单</span>
     </div>
-    <div class="era-grid">${ERAS.map(era=>{
-      const evs=EVENTS.filter(e=>ACTIVE.has(e.cat)&&e.year>=era.span[0]&&e.year<=era.span[1]);
-      if(!evs.length)return '';
-      const his=evs.slice(0,3).map(e=>`<div class="era-hi"><i style="background:${CATS[e.cat].color}"></i>${e.title}</div>`).join('');
-      return `<div class="era-card" style="--ec:${era.color}" onclick="openEra('${era.key}')">
-        <span class="era-go">展开 →</span>
-        <div class="era-name">${era.name}</div>
-        <div class="era-span">${era.span[0]}${era.span[0]!==era.span[1]?' 至 '+era.span[1]:''}</div>
-        <div class="era-desc">${era.desc}</div>
-        ${his}
-        <span class="era-count">${evs.length} 个事件</span>
-      </div>`;
-    }).join('')}</div>`;
+    <div class="era-grid">${(()=>{
+      const cards=ERAS.map(era=>{
+        const evs=EVENTS.filter(e=>ACTIVE.has(e.cat)&&e.year>=era.span[0]&&e.year<=era.span[1]);
+        if(!evs.length)return null;
+        const his=evs.slice(0,3).map(e=>`<div class="era-hi"><i style="background:${CATS[e.cat].color}"></i>${e.title}</div>`).join('');
+        return `<div class="era-card" style="--ec:${era.color}" onclick="openEra('${era.key}')">
+          <span class="era-go">展开 →</span>
+          <div class="era-name">${era.name}</div>
+          <div class="era-span">${era.span[0]}${era.span[0]!==era.span[1]?' 至 '+era.span[1]:''}</div>
+          <div class="era-desc">${era.desc}</div>
+          ${his}
+          <span class="era-count">${evs.length} 个事件</span>
+        </div>`;
+      }).filter(Boolean);
+      // dashed serpentine connectors between consecutive chapters
+      const link=(i)=>{
+        const leftToRight=i%2===0;
+        const x1=leftToRight?23:77, x2=leftToRight?77:23;
+        const c=26+(i%3)*5;
+        return `<span class="era-link"><svg viewBox="0 0 100 56" preserveAspectRatio="none">
+          <path d="M${x1},0 C${x1},${c} ${x2},${c-6} ${x2},56"/>
+          <circle cx="${x2}" cy="52" r="3"/>
+        </svg></span>`;
+      };
+      return cards.map((c,i)=>i<cards.length-1?c+link(i):c).join('');
+    })()}</div>`;
 }
 function openEra(key){
   ERA=ERAS.find(e=>e.key===key);
