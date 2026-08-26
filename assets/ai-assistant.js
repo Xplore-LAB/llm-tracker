@@ -13,9 +13,9 @@
 
   /* ========== 在这里接入你的 LLM API（OpenAI 兼容格式） ========== */
   var AI_CONFIG = {
-    endpoint: '',       // 例：https://your-proxy.com/v1/chat/completions
-    apiKey: '',         // 浏览器直连会暴露 key，建议走自建中转/网关
-    model: '',          // 例：deepseek-chat / gpt-4o-mini / qwen-plus
+    endpoint: 'https://api.minimaxi.com/v1/chat/completions', // MiniMax 国内站；国际站用 https://api.minimax.io/v1/chat/completions
+    apiKey: '',         // ⚠️ 本仓库公开，真实 key 切勿提交进来；推荐走 assets/llm-proxy-worker.js 中转
+    model: 'MiniMax-M2.5',  // 性价比款；可换 MiniMax-M2.7（更强）/ MiniMax-M2.5-highspeed（更快）/ MiniMax-M3（旗舰 1M 上下文）
     systemPrompt: '你是「大模型情报局」网站的 AI 助手。用简洁的中文回答用户关于大模型、AI 求职与面试的问题；涉及代码时给出关键片段即可，回答控制在必要长度。',
     welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。**按住我可以拖到任何角落**，面板标题栏也能拖动。\n\n（站点主人：点旁边的 **? 按钮**查看接入指南，把 API 配置填好我就能真正回答问题了。）',
     chips: [
@@ -456,7 +456,7 @@
     fetch(AI_CONFIG.endpoint, {
       method: 'POST',
       headers: headers,
-      body: JSON.stringify({ model: AI_CONFIG.model, messages: payloadMsgs, stream: true })
+      body: JSON.stringify({ model: AI_CONFIG.model, messages: payloadMsgs, stream: true, reasoning_split: true })
     }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       var ct = r.headers.get('content-type') || '';
