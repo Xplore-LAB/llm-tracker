@@ -11,7 +11,7 @@
 (function () {
   'use strict';
 
-  /* ========== 在这里接入你的 LLM API（OpenAI 兼容格式） ========== */
+  /* ========== LLM 调用配置（OpenAI 兼容格式） ========== */
   var AI_CONFIG = {
     endpoint: 'https://llmapi.vip.cpolar.cn/v1/chat/completions',  // cpolar VIP 固定子域 → 本地 8787 端口 llm-proxy-server.js（节点：/home/lab434/.config/llm-proxy/env）
     apiKey: 'd117f48efcdcc0fada68718007e444cac633541ef17537c61392dc76f3d33673',  // PROXY_KEY（自编口令，可公开）；真实 MiniMax key 仅存服务器 env
