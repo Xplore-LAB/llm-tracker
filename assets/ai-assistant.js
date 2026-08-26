@@ -13,8 +13,8 @@
 
   /* ========== 在这里接入你的 LLM API（OpenAI 兼容格式） ========== */
   var AI_CONFIG = {
-    endpoint: '',       // 待填 Worker 地址：https://你的worker名.你的子域.workers.dev/v1/chat/completions（MiniMax 上游已预置在 Worker 里）
-    apiKey: '',         // 待填 Worker 的 PROXY_KEY（自编口令，可公开）；真实 MiniMax key 只存 Cloudflare 加密变量，切勿填进本文件
+    endpoint: 'https://llmapi.vip.cpolar.cn/v1/chat/completions',  // cpolar VIP 固定子域 → 本地 8787 端口 llm-proxy-server.js（节点：/home/lab434/.config/llm-proxy/env）
+    apiKey: 'd117f48efcdcc0fada68718007e444cac633541ef17537c61392dc76f3d33673',  // PROXY_KEY（自编口令，可公开）；真实 MiniMax key 仅存服务器 env
     model: 'MiniMax-M2.5',  // 性价比款；可换 MiniMax-M2.7（更强）/ MiniMax-M2.5-highspeed（更快）/ MiniMax-M3（旗舰 1M 上下文）
     systemPrompt: '你是「大模型情报局」网站的 AI 助手。用简洁的中文回答用户关于大模型、AI 求职与面试的问题；涉及代码时给出关键片段即可，回答控制在必要长度。',
     welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。**按住我可以拖到任何角落**，面板标题栏也能拖动。\n\n（站点主人：点旁边的 **? 按钮**查看接入指南，把 API 配置填好我就能真正回答问题了。）',
