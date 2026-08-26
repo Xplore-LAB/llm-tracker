@@ -1,7 +1,8 @@
 /* ============================================================
-   AI 助手 v2（大模型情报局）
+   AI 助手 v2.1（大模型情报局）
    · 深色玻璃悬浮球（右下角，可拖拽），点击展开毛玻璃对话面板
    · 流式输出 + Markdown 渲染 + 快捷提问 + 页面上下文感知
+   · 悬浮球旁带「?」帮助按钮，弹出 API 接入指南
    · 自动适配深色 / 浅色页面
    接入 LLM API：修改下方 AI_CONFIG（OpenAI 兼容格式）
    用法：页面 </body> 前引入
@@ -16,7 +17,7 @@
     apiKey: '',         // 浏览器直连会暴露 key，建议走自建中转/网关
     model: '',          // 例：deepseek-chat / gpt-4o-mini / qwen-plus
     systemPrompt: '你是「大模型情报局」网站的 AI 助手。用简洁的中文回答用户关于大模型、AI 求职与面试的问题；涉及代码时给出关键片段即可，回答控制在必要长度。',
-    welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。**按住我可以拖到任何角落**，面板标题栏也能拖动。\n\n（站点主人：把 API 配置填到 `assets/ai-assistant.js` 顶部的 `AI_CONFIG`，我就能真正回答问题了。）',
+    welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。**按住我可以拖到任何角落**，面板标题栏也能拖动。\n\n（站点主人：点旁边的 **? 按钮**查看接入指南，把 API 配置填好我就能真正回答问题了。）',
     chips: [
       { label: '🧠 Pre-Norm vs Post-Norm', text: '讲讲 Pre-Norm 和 Post-Norm 的区别，各自优缺点？' },
       { label: '🎯 字节校招考什么', text: '字节 2027 校招大模型算法岗重点考察什么？' },
@@ -31,8 +32,11 @@
   /* ---------- 样式 ---------- */
   var css = document.createElement('style');
   css.textContent = [
+    /* ----- 停靠区：悬浮球 + 帮助按钮 ----- */
+    '#ai-dock{position:fixed;right:26px;bottom:32px;z-index:2147483000;}',
+
     /* ----- 悬浮球：深色玻璃 + 自绘星形图标 ----- */
-    '#ai-orb{position:fixed;right:26px;bottom:32px;z-index:2147483000;width:56px;height:56px;border-radius:50%;',
+    '#ai-orb{position:relative;width:56px;height:56px;border-radius:50%;',
     'background:radial-gradient(120% 120% at 30% 25%,#2b2f3f 0%,#16181f 55%,#101218 100%);',
     'border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;',
     'box-shadow:0 10px 28px rgba(8,10,18,.4),0 2px 6px rgba(8,10,18,.3),inset 0 1px 0 rgba(255,255,255,.14);',
@@ -42,13 +46,20 @@
     'box-shadow:0 14px 34px rgba(99,102,241,.35),0 3px 8px rgba(8,10,18,.3),inset 0 1px 0 rgba(255,255,255,.18);}',
     '#ai-orb:active{cursor:grabbing;}',
     '#ai-orb.on{transform:scale(.9);opacity:.92;}',
-    '#ai-orb.ai-dragging{transform:scale(1.14);cursor:grabbing;}',
+    '#ai-dock.ai-dragging #ai-orb{transform:scale(1.14);cursor:grabbing;}',
     '#ai-orb svg{pointer-events:none;filter:drop-shadow(0 1px 3px rgba(0,0,0,.35));}',
     '#ai-orb .ai-orb-ring{position:absolute;inset:-3px;border-radius:50%;pointer-events:none;',
     'background:conic-gradient(from 210deg,rgba(99,102,241,.65),rgba(139,92,246,.5),rgba(99,102,241,.65));',
     'opacity:.55;transition:opacity .25s ease;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2px));',
     'mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 2px));}',
     '#ai-orb:hover .ai-orb-ring{opacity:1;}',
+
+    /* ----- 帮助按钮 ----- */
+    '#ai-help{position:absolute;right:5px;bottom:calc(100% + 10px);width:34px;height:34px;border-radius:50%;',
+    'border:1px solid rgba(15,23,42,.14);background:rgba(255,255,255,.9);backdrop-filter:blur(8px);',
+    '-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;',
+    'cursor:pointer;box-shadow:0 4px 14px rgba(15,23,42,.14);transition:transform .18s ease,box-shadow .18s ease;}',
+    '#ai-help:hover{transform:translateY(-2px) scale(1.08);box-shadow:0 6px 18px rgba(99,102,241,.3);}',
 
     /* ----- 面板：毛玻璃 ----- */
     '#ai-panel{position:fixed;right:26px;bottom:100px;z-index:2147483000;',
@@ -127,6 +138,50 @@
     '.ai-send:hover{filter:brightness(1.1);transform:translateY(-1px);}',
     '.ai-send:disabled{opacity:.45;cursor:default;transform:none;}',
 
+    /* ----- 帮助弹窗 ----- */
+    '.ai-mask{position:fixed;inset:0;z-index:2147483600;background:rgba(10,12,20,.45);',
+    'backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);display:none;',
+    'align-items:center;justify-content:center;padding:18px;}',
+    '.ai-mask.show{display:flex;animation:aiFade .18s ease;}',
+    '@keyframes aiFade{from{opacity:0;}to{opacity:1;}}',
+    '.ai-doc{width:min(660px,100%);max-height:86vh;overflow-y:auto;border-radius:18px;',
+    'background:#fdfdfe;border:1px solid rgba(15,23,42,.1);box-shadow:0 28px 80px rgba(8,10,18,.45);',
+    'font:13.5px/1.75 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:#2a3342;',
+    'scrollbar-width:thin;}',
+    '.ai-doc::-webkit-scrollbar{width:6px;}',
+    '.ai-doc::-webkit-scrollbar-thumb{background:rgba(120,130,150,.3);border-radius:3px;}',
+    '.ai-doc-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:10px;padding:14px 18px;',
+    'background:rgba(253,253,254,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(15,23,42,.08);}',
+    '.ai-doc-head .ai-t{font-weight:700;font-size:15px;}',
+    '.ai-doc-body{padding:18px 22px 24px;}',
+    '.ai-badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;padding:4px 10px;border-radius:999px;',
+    'font-weight:600;letter-spacing:.2px;}',
+    '.ai-badge.ok{background:rgba(16,185,129,.12);color:#059669;}',
+    '.ai-badge.off{background:rgba(245,158,11,.14);color:#b45309;}',
+    '.ai-doc h4{margin:22px 0 8px;font-size:14px;display:flex;align-items:center;gap:7px;}',
+    '.ai-doc h4:first-of-type{margin-top:6px;}',
+    '.ai-doc h4 .n{width:19px;height:19px;border-radius:6px;background:' + ACCENT + ';color:#fff;',
+    'font-size:11px;display:inline-flex;align-items:center;justify-content:center;flex:none;}',
+    '.ai-doc p{margin:6px 0;}',
+    '.ai-doc ol,.ai-doc ul{margin:6px 0;padding-left:22px;}',
+    '.ai-doc li{margin:4px 0;}',
+    '.ai-doc table{border-collapse:collapse;width:100%;margin:10px 0;font-size:12.5px;}',
+    '.ai-doc th,.ai-doc td{border:1px solid rgba(15,23,42,.12);padding:6px 10px;text-align:left;vertical-align:top;}',
+    '.ai-doc th{background:rgba(99,102,241,.08);font-weight:650;white-space:nowrap;}',
+    '.ai-doc .ai-ic{font-size:11.5px;}',
+    '.ai-doc .tip{background:rgba(99,102,241,.07);border-left:3px solid #6366f1;border-radius:0 10px 10px 0;',
+    'padding:9px 13px;margin:12px 0;font-size:12.5px;}',
+    '.ai-doc .warn{background:rgba(245,158,11,.09);border-left:3px solid #f59e0b;border-radius:0 10px 10px 0;',
+    'padding:9px 13px;margin:12px 0;font-size:12.5px;}',
+    '.ai-doc .acts{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px;}',
+    '.ai-copy{border:0;border-radius:10px;padding:8px 16px;font-size:12.5px;font-family:inherit;cursor:pointer;',
+    'background:' + ACCENT + ';color:#fff;font-weight:600;box-shadow:0 3px 10px rgba(99,102,241,.3);',
+    'transition:filter .15s ease,transform .15s ease;}',
+    '.ai-copy:hover{filter:brightness(1.1);transform:translateY(-1px);}',
+    '.ai-copy.done{background:linear-gradient(135deg,#10b981,#059669);box-shadow:0 3px 10px rgba(16,185,129,.3);}',
+    '.ai-copy.ghost{background:transparent;color:#4f46e5;border:1.5px solid rgba(99,102,241,.4);box-shadow:none;}',
+    '.ai-copy.ghost:hover{background:rgba(99,102,241,.08);}',
+
     /* ----- 深色页面适配 ----- */
     '.ai-dark #ai-panel{background:rgba(21,24,33,.9);border-color:rgba(255,255,255,.1);color:#dde3ef;',
     'box-shadow:0 24px 64px rgba(0,0,0,.55),0 4px 14px rgba(0,0,0,.3);}',
@@ -145,7 +200,14 @@
     '.ai-dark .ai-input textarea{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#e6eaf4;}',
     '.ai-dark .ai-input textarea:focus{border-color:#818cf8;box-shadow:0 0 0 3px rgba(129,140,248,.15);}',
     '.ai-dark .ai-msgs{scrollbar-color:rgba(255,255,255,.2) transparent;}',
-    '.ai-dark .ai-msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);}'
+    '.ai-dark .ai-msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);}',
+    '.ai-dark #ai-help{background:rgba(30,33,44,.92);border-color:rgba(255,255,255,.16);}',
+    '.ai-dark .ai-doc{background:#171a22;border-color:rgba(255,255,255,.1);color:#dde3ef;}',
+    '.ai-dark .ai-doc-head{background:rgba(23,26,34,.92);border-bottom-color:rgba(255,255,255,.08);}',
+    '.ai-dark .ai-doc th{background:rgba(129,140,248,.12);}',
+    '.ai-dark .ai-doc th,.ai-dark .ai-doc td{border-color:rgba(255,255,255,.12);}',
+    '.ai-dark .ai-doc .tip{background:rgba(129,140,248,.1);}',
+    '.ai-dark .ai-copy.ghost{color:#a5b4fc;border-color:rgba(129,140,248,.4);}'
   ].join('\n');
   (document.head || document.documentElement).appendChild(css);
 
@@ -160,13 +222,28 @@
     return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none">' +
       '<path d="M12 19V5M5 12l7-7 7 7" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   }
+  function iconHelp() {
+    return '<svg width="17" height="17" viewBox="0 0 24 24" fill="none">' +
+      '<path d="M9.2 9a3 3 0 1 1 4.6 2.5c-.9.6-1.8 1.1-1.8 2.4" stroke="#6366f1" stroke-width="1.9" stroke-linecap="round"/>' +
+      '<circle cx="12" cy="17.6" r="1.15" fill="#6366f1"/></svg>';
+  }
 
-  /* ---------- 悬浮球 ---------- */
+  /* ---------- 停靠区（球 + 帮助按钮） ---------- */
+  var dock = document.createElement('div');
+  dock.id = 'ai-dock';
+  document.body.appendChild(dock);
+
   var orb = document.createElement('div');
   orb.id = 'ai-orb';
   orb.title = 'AI 助手（按住可拖拽）';
   orb.innerHTML = '<span class="ai-orb-ring"></span>' + iconSparkle(27, '#e8ebff');
-  document.body.appendChild(orb);
+  dock.appendChild(orb);
+
+  var helpBtn = document.createElement('div');
+  helpBtn.id = 'ai-help';
+  helpBtn.title = 'AI 助手接入指南';
+  helpBtn.innerHTML = iconHelp();
+  dock.appendChild(helpBtn);
 
   /* ---------- 对话面板 ---------- */
   var panel = document.createElement('div');
@@ -221,9 +298,9 @@
   try {
     var p = JSON.parse(localStorage.getItem(POS_KEY) || 'null');
     if (p && typeof p.x === 'number') {
-      orb.style.right = 'auto'; orb.style.bottom = 'auto';
-      orb.style.left = clamp(p.x, 0, window.innerWidth - 60) + 'px';
-      orb.style.top = clamp(p.y, 0, window.innerHeight - 60) + 'px';
+      dock.style.right = 'auto'; dock.style.bottom = 'auto';
+      dock.style.left = clamp(p.x, 0, window.innerWidth - 60) + 'px';
+      dock.style.top = clamp(p.y, 0, window.innerHeight - 100) + 'px';
     }
   } catch (e) {}
 
@@ -252,7 +329,7 @@
         handle.removeEventListener('pointerup', up);
         handle.classList.remove('ai-dragging');
         if (!moved && onClick) onClick();
-        if (moved && el === orb) {
+        if (moved && el === dock) {
           try {
             localStorage.setItem(POS_KEY,
               JSON.stringify({ x: parseInt(el.style.left, 10), y: parseInt(el.style.top, 10) }));
@@ -285,14 +362,13 @@
   }
   function closePanel() { panel.classList.remove('show'); orb.classList.remove('on'); }
 
-  draggable(orb, orb, openPanel);
+  draggable(dock, orb, openPanel);
   draggable(panel, head, null);
   closeBtn.addEventListener('click', closePanel);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePanel(); });
   window.addEventListener('resize', function () {
-    var r = orb.getBoundingClientRect();
-    orb.style.left = clamp(r.left, 0, Math.max(0, window.innerWidth - r.width)) + 'px';
-    orb.style.top = clamp(r.top, 0, Math.max(0, window.innerHeight - r.height)) + 'px';
+    var r = dock.getBoundingClientRect();
+    dock.style.left = clamp(r.left, 0, Math.max(0, window.innerWidth - r.width)) + 'px';
+    dock.style.top = clamp(r.top, 0, Math.max(0, window.innerHeight - r.height)) + 'px';
   });
 
   /* ---------- Markdown 简易渲染 ---------- */
@@ -437,7 +513,7 @@
       setTimeout(function () {
         tip.remove();
         var reply = '收到：「' + (text.length > 40 ? text.slice(0, 40) + '…' : text) + '」\n\n' +
-          '我还没接入 LLM API。\n站点主人请打开 `assets/ai-assistant.js`，填好顶部 `AI_CONFIG` 的 endpoint / apiKey / model（OpenAI 兼容格式），我就能认真回答了。';
+          '我还没接入 LLM API。\n站点主人请点旁边的 **? 按钮** 查看接入指南，或打开 `assets/ai-assistant.js` 填好顶部 `AI_CONFIG`（OpenAI 兼容格式）。';
         addMsg('b', reply);
         history.push({ role: 'assistant', content: reply });
         busy = false; sendBtn.disabled = false;
@@ -491,5 +567,109 @@
   ta.addEventListener('input', function () {
     ta.style.height = 'auto';
     ta.style.height = Math.min(ta.scrollHeight, 100) + 'px';
+  });
+
+  /* ============================================================
+     帮助弹窗：AI 助手接入指南
+     ============================================================ */
+  var mask = null;
+
+  function openHelp() {
+    if (!mask) buildHelp();
+    mask.classList.add('show');
+  }
+  function closeHelp() {
+    if (mask) mask.classList.remove('show');
+  }
+
+  function buildHelp() {
+    mask = document.createElement('div');
+    mask.className = 'ai-mask';
+    mask.innerHTML =
+      '<div class="ai-doc" role="dialog" aria-label="AI 助手接入指南">' +
+      '<div class="ai-doc-head">' +
+      '<div class="ai-ava" style="width:26px;height:26px;border-radius:8px;">' + iconSparkle(15, '#fff') + '</div>' +
+      '<span class="ai-t">AI 助手接入指南</span>' +
+      '<span class="ai-badge ' + (CONFIGURED ? 'ok' : 'off') + '">' +
+      (CONFIGURED ? '● 已接入 · ' + AI_CONFIG.model : '● 当前未接入 API') + '</span>' +
+      '<button class="ai-close" title="关闭（Esc）" style="margin-left:auto;">×</button>' +
+      '</div>' +
+      '<div class="ai-doc-body">' +
+
+      '<p>本站 AI 助手支持任何 <b>OpenAI 兼容接口</b>（DeepSeek / 硅基流动 / Kimi / 智谱 / OpenAI / OpenRouter 等）。配置集中在 <code class="ai-ic">assets/ai-assistant.js</code> 顶部的 <code class="ai-ic">AI_CONFIG</code>，改这一个文件，全站 15+ 页面同时生效。</p>' +
+
+      '<h4><span class="n">A</span>方式一 · 直连（简单，5 分钟）</h4>' +
+      '<p>直接把 API 信息填进 <code class="ai-ic">AI_CONFIG</code> 的三个字段：</p>' +
+      '<table><tr><th>字段</th><th>填什么</th></tr>' +
+      '<tr><td><code class="ai-ic">endpoint</code></td><td>接口地址 + <code class="ai-ic">/v1/chat/completions</code></td></tr>' +
+      '<tr><td><code class="ai-ic">apiKey</code></td><td>你的 API Key</td></tr>' +
+      '<tr><td><code class="ai-ic">model</code></td><td>模型名，如 <code class="ai-ic">deepseek-chat</code></td></tr></table>' +
+      '<p>常用平台对照：</p>' +
+      '<table><tr><th>平台</th><th>endpoint 前缀</th><th>示例模型</th></tr>' +
+      '<tr><td>DeepSeek</td><td><code class="ai-ic">https://api.deepseek.com</code></td><td><code class="ai-ic">deepseek-chat</code></td></tr>' +
+      '<tr><td>硅基流动</td><td><code class="ai-ic">https://api.siliconflow.cn</code></td><td><code class="ai-ic">Qwen/Qwen2.5-7B-Instruct</code></td></tr>' +
+      '<tr><td>Kimi</td><td><code class="ai-ic">https://api.moonshot.cn</code></td><td><code class="ai-ic">moonshot-v1-8k</code></td></tr>' +
+      '<tr><td>智谱 GLM</td><td><code class="ai-ic">https://open.bigmodel.cn</code></td><td><code class="ai-ic">glm-4-flash</code></td></tr>' +
+      '<tr><td>OpenRouter</td><td><code class="ai-ic">https://openrouter.ai</code></td><td>任选</td></tr></table>' +
+      '<div class="warn">⚠️ 直连意味着 <b>Key 明文出现在网页源码里</b>（F12 可见），任何人都能拿去刷你的额度。适合用<b>免费额度 / 低额度小号</b>的场景；主力 Key 请用方式 B。</div>' +
+
+      '<h4><span class="n">B</span>方式二 · Cloudflare Worker 中转（推荐，保护 Key）</h4>' +
+      '<p>原理：<b>浏览器 → 你的 Worker（不带真 Key）→ LLM API（带真 Key）→ 原路返回</b>。真 Key 只存在 Worker 的加密变量里，网页源码永远不出现。脚本已内置：来源白名单（只允许本站）、口令校验、每 IP 每分钟限 10 次、流式透传。</p>' +
+      '<ol>' +
+      '<li>注册/登录 <a href="https://dash.cloudflare.com" target="_blank" rel="noopener">dash.cloudflare.com</a>（免费，无需绑卡）</li>' +
+      '<li>左侧 <b>Workers 和 Pages</b> → 创建 Worker，起名如 <code class="ai-ic">llm-proxy</code></li>' +
+      '<li>点「编辑代码」，粘贴下方脚本 → 右上角「部署」</li>' +
+      '<li>设置 → 变量和机密，添加 4 个变量：</li>' +
+      '</ol>' +
+      '<table><tr><th>变量名</th><th>填什么</th></tr>' +
+      '<tr><td><code class="ai-ic">API_KEY</code></td><td>真实 LLM Key（选「加密」类型）</td></tr>' +
+      '<tr><td><code class="ai-ic">BASE_URL</code></td><td>上游根地址，如 <code class="ai-ic">https://api.deepseek.com</code></td></tr>' +
+      '<tr><td><code class="ai-ic">MODEL</code></td><td>默认模型，如 <code class="ai-ic">deepseek-chat</code></td></tr>' +
+      '<tr><td><code class="ai-ic">PROXY_KEY</code></td><td>随便编一串口令（浏览器端需带上，防别人白嫖）</td></tr></table>' +
+      '<ol start="5">' +
+      '<li>部署后得到地址 <code class="ai-ic">https://llm-proxy.你的子域.workers.dev</code>，把它填进 <code class="ai-ic">AI_CONFIG.endpoint</code>（记得补上 <code class="ai-ic">/v1/chat/completions</code>），<code class="ai-ic">apiKey</code> 填你编的 <code class="ai-ic">PROXY_KEY</code>，<code class="ai-ic">model</code> 填模型名</li>' +
+      '</ol>' +
+      '<div class="acts">' +
+      '<button class="ai-copy" id="ai-copy-worker">📋 复制 Worker 脚本</button>' +
+      '<a class="ai-copy ghost" style="text-decoration:none;display:inline-flex;align-items:center;" ' +
+      'href="https://github.com/Xplore-LAB/llm-tracker/blob/master/assets/llm-proxy-worker.js" ' +
+      'target="_blank" rel="noopener">在 GitHub 打开脚本</a>' +
+      '</div>' +
+      '<div class="tip">💡 配置完成后，欢迎语里的「未接入」提示和头部状态点会自动变成「在线 · 可对话」，快捷提问、流式打字、Markdown 渲染即刻可用。</div>' +
+      '</div>' +
+      '</div>';
+    document.body.appendChild(mask);
+
+    mask.addEventListener('click', function (e) { if (e.target === mask) closeHelp(); });
+    mask.querySelector('.ai-close').addEventListener('click', closeHelp);
+
+    /* 复制 Worker 脚本 */
+    var copyBtn = mask.querySelector('#ai-copy-worker');
+    copyBtn.addEventListener('click', function () {
+      var btn = copyBtn;
+      fetch('/llm-tracker/assets/llm-proxy-worker.js')
+        .then(function (r) { return r.text(); })
+        .then(function (t) { return navigator.clipboard.writeText(t); })
+        .then(function () {
+          btn.classList.add('done');
+          btn.textContent = '✓ 已复制，去 Worker 编辑器粘贴';
+          setTimeout(function () {
+            btn.classList.remove('done');
+            btn.textContent = '📋 复制 Worker 脚本';
+          }, 2500);
+        })
+        .catch(function () {
+          window.open('https://github.com/Xplore-LAB/llm-tracker/blob/master/assets/llm-proxy-worker.js', '_blank');
+        });
+    });
+  }
+
+  helpBtn.addEventListener('click', openHelp);
+
+  /* Esc：先关帮助弹窗，再关对话面板 */
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (mask && mask.classList.contains('show')) { closeHelp(); return; }
+    closePanel();
   });
 })();
