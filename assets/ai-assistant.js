@@ -16,7 +16,7 @@
     endpoint: 'https://llmapi.vip.cpolar.cn/v1/chat/completions',  // cpolar VIP 固定子域 → 本地 8787 端口 llm-proxy-server.js（节点：/home/lab434/.config/llm-proxy/env）
     apiKey: 'd117f48efcdcc0fada68718007e444cac633541ef17537c61392dc76f3d33673',  // PROXY_KEY（自编口令，可公开）；真实 MiniMax key 仅存服务器 env
     model: 'MiniMax-M2.5',  // 性价比款；可换 MiniMax-M2.7（更强）/ MiniMax-M2.5-highspeed（更快）/ MiniMax-M3（旗舰 1M 上下文）
-    systemPrompt: '你是「大模型情报局」网站的 AI 助手。用简洁的中文回答用户关于大模型、AI 求职与面试的问题；涉及代码时给出关键片段即可，回答控制在必要长度。',
+    systemPrompt: '你是「大模型情报局」（llm-tracker.github.io / xplore-lab.github.io/llm-tracker）的 AI 助手，专长于大语言模型（LLM）与 AI 求职面试方向。\n\n【身份与领域】\n- 服务对象：浏览本站的用户，主要关心 LLM 基础知识、前沿研究、主流模型、训练/微调/推理技术、AI 行业动态、秋招/校招面试题与职业路径。\n- 站点内容覆盖：模型卡片（GPT/Claude/Gemini/DeepSeek/Qwen/GLM/Mistral/Llama 等）、技术专题（Transformer / MoE / RLHF / 推理时计算 / 长上下文 / RAG / Agent）、求职资料（秋招时间线、面经、笔试题、岗位选择）。\n\n【回答风格】\n- 默认中文，简明、结构化（要点 + 必要时小标题 + 必要时表格/列表）。\n- 涉及代码只给关键片段，不要大段堆砌；注释行用中文。\n- 涉及论文 / 模型 / 数据集，给出来源（作者+年份+arXiv/DOI），不确定就明说「未核实」。\n- 涉及时间敏感信息（榜单、API 价格、模型版本），提醒「请以官网最新为准」。\n\n【页面上下文】\n- 用户当前所在页面会追加在 system 消息末尾，请结合该页面内容优先回答；如果用户的问题与页面无关，正常回答即可。\n\n【边界】\n- 拒绝涉政、涉黄、暴力违法内容。\n- 不冒充真实人物、不提供医疗/法律/金融的最终结论（给方向不给结论）。\n- 涉及 MiniMax / Anthropic / OpenAI / Google 等厂商内部信息，明确「未公开 / 未核实」。',
     welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。**按住我可以拖到任何角落**，面板标题栏也能拖动。',
     chips: [
       { label: '🧠 Pre-Norm vs Post-Norm', text: '讲讲 Pre-Norm 和 Post-Norm 的区别，各自优缺点？' },
@@ -88,6 +88,11 @@
     'font-size:16px;line-height:1;cursor:pointer;padding:0;flex:none;margin-left:auto;',
     'transition:background .15s ease,color .15s ease;}',
     '.ai-close:hover{background:rgba(15,23,42,.08);color:#26303d;}',
+    '.ai-clear{border:0;background:transparent;color:#8a94a6;width:28px;height:28px;border-radius:8px;',
+    'font-size:14px;line-height:1;cursor:pointer;padding:0;flex:none;display:inline-flex;align-items:center;justify-content:center;',
+    'transition:background .15s ease,color .15s ease;}',
+    '.ai-clear:hover{background:rgba(239,68,68,.1);color:#dc2626;}',
+    '.ai-clear:disabled{opacity:.35;cursor:default;background:transparent;color:#8a94a6;}',
 
     /* ----- 消息区 ----- */
     '.ai-msgs{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:12px;',
@@ -191,6 +196,9 @@
     '.ai-dark .ai-st{color:#9aa5b8;}',
     '.ai-dark .ai-close{color:#9aa5b8;}',
     '.ai-dark .ai-close:hover{background:rgba(255,255,255,.1);color:#fff;}',
+    '.ai-dark .ai-clear{color:#9aa5b8;}',
+    '.ai-dark .ai-clear:hover{background:rgba(239,68,68,.18);color:#fca5a5;}',
+    '.ai-dark .ai-clear:disabled{color:#9aa5b8;background:transparent;}',
     '.ai-dark .ai-m.b{background:rgba(255,255,255,.07);}',
     '.ai-dark .ai-ic{background:rgba(129,140,248,.18);color:#a5b4fc;}',
     '.ai-dark .ai-m.b a{color:#a5b4fc;}',
@@ -227,6 +235,10 @@
       '<path d="M9.2 9a3 3 0 1 1 4.6 2.5c-.9.6-1.8 1.1-1.8 2.4" stroke="#6366f1" stroke-width="1.9" stroke-linecap="round"/>' +
       '<circle cx="12" cy="17.6" r="1.15" fill="#6366f1"/></svg>';
   }
+  function iconTrash() {
+    return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none">' +
+      '<path d="M5 7h14M10 7V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
 
   /* ---------- 停靠区（球 + 帮助按钮） ---------- */
   var dock = document.createElement('div');
@@ -256,6 +268,7 @@
     '<span class="ai-st"><i class="ai-dot ' + (CONFIGURED ? 'ok' : 'off') + '"></i>' +
     (CONFIGURED ? '在线 · 可对话' : '未接入 API') + ' · 按住标题拖动</span>' +
     '</div>' +
+    '<button class="ai-clear" title="清空当前对话" aria-label="清空当前对话">' + iconTrash() + '</button>' +
     '<button class="ai-close" title="收起（Esc）">×</button>' +
     '</div>' +
     '<div class="ai-msgs"></div>' +
@@ -271,6 +284,8 @@
   var ta = panel.querySelector('textarea');
   var sendBtn = panel.querySelector('.ai-send');
   var closeBtn = panel.querySelector('.ai-close');
+  var clearBtn = panel.querySelector('.ai-clear');
+  clearBtn.disabled = true;
   var head = panel.querySelector('.ai-head');
 
   var POS_KEY = 'ai_orb_pos';
@@ -365,6 +380,17 @@
   draggable(dock, orb, openPanel);
   draggable(panel, head, null);
   closeBtn.addEventListener('click', closePanel);
+
+  /* ---------- 清空对话 ---------- */
+  function clearChat() {
+    history = [];
+    msgs.innerHTML = '';
+    addMsg('b', AI_CONFIG.welcome);
+    renderChips();
+    clearBtn.disabled = true;
+    try { ta.focus(); } catch (e) {}
+  }
+  clearBtn.addEventListener('click', clearChat);
   window.addEventListener('resize', function () {
     var r = dock.getBoundingClientRect();
     dock.style.left = clamp(r.left, 0, Math.max(0, window.innerWidth - r.width)) + 'px';
@@ -505,6 +531,7 @@
     ta.value = '';
     ta.style.height = 'auto';
     history.push({ role: 'user', content: text });
+    clearBtn.disabled = false;
     busy = true; sendBtn.disabled = true;
 
     /* 未配置 API：友好提示 */
