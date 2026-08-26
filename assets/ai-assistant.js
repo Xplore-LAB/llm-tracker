@@ -610,6 +610,7 @@
       '<tr><td>硅基流动</td><td><code class="ai-ic">https://api.siliconflow.cn</code></td><td><code class="ai-ic">Qwen/Qwen2.5-7B-Instruct</code></td></tr>' +
       '<tr><td>Kimi</td><td><code class="ai-ic">https://api.moonshot.cn</code></td><td><code class="ai-ic">moonshot-v1-8k</code></td></tr>' +
       '<tr><td>智谱 GLM</td><td><code class="ai-ic">https://open.bigmodel.cn</code></td><td><code class="ai-ic">glm-4-flash</code></td></tr>' +
+      '<tr><td>MiniMax</td><td><code class="ai-ic">https://api.minimaxi.com</code></td><td><code class="ai-ic">MiniMax-M2.5</code></td></tr>' +
       '<tr><td>OpenRouter</td><td><code class="ai-ic">https://openrouter.ai</code></td><td>任选</td></tr></table>' +
       '<div class="warn">⚠️ 直连意味着 <b>Key 明文出现在网页源码里</b>（F12 可见），任何人都能拿去刷你的额度。适合用<b>免费额度 / 低额度小号</b>的场景；主力 Key 请用方式 B。</div>' +
 
@@ -635,6 +636,25 @@
       'href="https://github.com/Xplore-LAB/llm-tracker/blob/master/assets/llm-proxy-worker.js" ' +
       'target="_blank" rel="noopener">在 GitHub 打开脚本</a>' +
       '</div>' +
+
+      '<h4><span class="n">C</span>方式三 · 自托管服务器中转（自己的服务器 + 公网域名）</h4>' +
+      '<p>与方式 B 等价，适合不想用 Cloudflare 的场景。原理相同：<b>真实 Key 只存在你服务器的环境变量里</b>，不写进任何文件、不发给任何人；网页端只放公网地址和自编口令。脚本是 Node 零依赖版（Node ≥ 18），与 Worker 版逻辑一致：来源白名单、口令校验、每 IP 每分钟限 10 次、流式透传。</p>' +
+      '<ol>' +
+      '<li>把脚本 <code class="ai-ic">assets/llm-proxy-server.js</code> 拷到你的服务器，启动（换成你的真实值）：<br>' +
+      '<code class="ai-ic">MINIMAX_API_KEY=你的真实key PROXY_KEY=自编口令 PORT=8787 node llm-proxy-server.js</code></li>' +
+      '<li>把本机 8787 端口暴露成 <b>https</b> 公网域名（二选一）：<br>' +
+      '<code class="ai-ic">cpolar http 8787</code>（最省事，自动给 https 域名）<br>' +
+      '<code class="ai-ic">caddy reverse-proxy --from 你的域名 --to localhost:8787</code>（有自己的域名和常开服务器时更稳）</li>' +
+      '<li>验证隧道通了：<code class="ai-ic">curl https://你的公网域名/health</code>，返回 <code class="ai-ic">{"ok":true}</code> 即成</li>' +
+      '<li>把公网地址填进 <code class="ai-ic">AI_CONFIG.endpoint</code>（补上 <code class="ai-ic">/v1/chat/completions</code>），<code class="ai-ic">apiKey</code> 填你编的 <code class="ai-ic">PROXY_KEY</code></li>' +
+      '</ol>' +
+      '<div class="warn">⚠️ 必须 <b>https</b>：GitHub Pages 是 https，浏览器会拦截发往 http 接口的请求。另外可用性跟着你的机器走：跑在自己电脑上时，合盖睡眠期间全站助手下线。</div>' +
+      '<div class="acts">' +
+      '<button class="ai-copy" id="ai-copy-server">📋 复制自托管脚本</button>' +
+      '<a class="ai-copy ghost" style="text-decoration:none;display:inline-flex;align-items:center;" ' +
+      'href="https://github.com/Xplore-LAB/llm-tracker/blob/master/assets/llm-proxy-server.js" ' +
+      'target="_blank" rel="noopener">在 GitHub 打开脚本</a>' +
+      '</div>' +
       '<div class="tip">💡 配置完成后，欢迎语里的「未接入」提示和头部状态点会自动变成「在线 · 可对话」，快捷提问、流式打字、Markdown 渲染即刻可用。</div>' +
       '</div>' +
       '</div>';
@@ -643,25 +663,33 @@
     mask.addEventListener('click', function (e) { if (e.target === mask) closeHelp(); });
     mask.querySelector('.ai-close').addEventListener('click', closeHelp);
 
-    /* 复制 Worker 脚本 */
-    var copyBtn = mask.querySelector('#ai-copy-worker');
-    copyBtn.addEventListener('click', function () {
-      var btn = copyBtn;
-      fetch('/llm-tracker/assets/llm-proxy-worker.js')
-        .then(function (r) { return r.text(); })
-        .then(function (t) { return navigator.clipboard.writeText(t); })
-        .then(function () {
-          btn.classList.add('done');
-          btn.textContent = '✓ 已复制，去 Worker 编辑器粘贴';
-          setTimeout(function () {
-            btn.classList.remove('done');
-            btn.textContent = '📋 复制 Worker 脚本';
-          }, 2500);
-        })
-        .catch(function () {
-          window.open('https://github.com/Xplore-LAB/llm-tracker/blob/master/assets/llm-proxy-worker.js', '_blank');
-        });
-    });
+    /* 复制中转脚本（Worker 版 / 自托管版通用） */
+    function wireCopy(id, path, label, doneLabel, githubUrl) {
+      var btn = mask.querySelector('#' + id);
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        fetch(path)
+          .then(function (r) { return r.text(); })
+          .then(function (t) { return navigator.clipboard.writeText(t); })
+          .then(function () {
+            btn.classList.add('done');
+            btn.textContent = doneLabel;
+            setTimeout(function () {
+              btn.classList.remove('done');
+              btn.textContent = label;
+            }, 2500);
+          })
+          .catch(function () {
+            window.open(githubUrl, '_blank');
+          });
+      });
+    }
+    wireCopy('ai-copy-worker', '/llm-tracker/assets/llm-proxy-worker.js',
+      '📋 复制 Worker 脚本', '✓ 已复制，去 Worker 编辑器粘贴',
+      'https://github.com/Xplore-LAB/llm-tracker/blob/master/assets/llm-proxy-worker.js');
+    wireCopy('ai-copy-server', '/llm-tracker/assets/llm-proxy-server.js',
+      '📋 复制自托管脚本', '✓ 已复制，拷到你的服务器运行',
+      'https://github.com/Xplore-LAB/llm-tracker/blob/master/assets/llm-proxy-server.js');
   }
 
   helpBtn.addEventListener('click', openHelp);
