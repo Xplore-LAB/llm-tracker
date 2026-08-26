@@ -2,7 +2,7 @@
    AI 助手 v2.1（大模型情报局）
    · 深色玻璃悬浮球（右下角，可拖拽），点击展开毛玻璃对话面板
    · 流式输出 + Markdown 渲染 + 快捷提问 + 页面上下文感知
-   · 悬浮球旁带「?」帮助按钮，弹出 API 接入指南
+   · 悬浮球旁带「?」帮助按钮，弹出使用指南
    · 自动适配深色 / 浅色页面
    接入 LLM API：修改下方 AI_CONFIG（OpenAI 兼容格式）
    用法：页面 </body> 前引入
@@ -17,7 +17,7 @@
     apiKey: 'd117f48efcdcc0fada68718007e444cac633541ef17537c61392dc76f3d33673',  // PROXY_KEY（自编口令，可公开）；真实 MiniMax key 仅存服务器 env
     model: 'MiniMax-M2.5',  // 性价比款；可换 MiniMax-M2.7（更强）/ MiniMax-M2.5-highspeed（更快）/ MiniMax-M3（旗舰 1M 上下文）
     systemPrompt: '你是「大模型情报局」网站的 AI 助手。用简洁的中文回答用户关于大模型、AI 求职与面试的问题；涉及代码时给出关键片段即可，回答控制在必要长度。',
-    welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。**按住我可以拖到任何角落**，面板标题栏也能拖动。\n\n（站点主人：点旁边的 **? 按钮**查看接入指南，把 API 配置填好我就能真正回答问题了。）',
+    welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。**按住我可以拖到任何角落**，面板标题栏也能拖动。',
     chips: [
       { label: '🧠 Pre-Norm vs Post-Norm', text: '讲讲 Pre-Norm 和 Post-Norm 的区别，各自优缺点？' },
       { label: '🎯 字节校招考什么', text: '字节 2027 校招大模型算法岗重点考察什么？' },
@@ -241,7 +241,7 @@
 
   var helpBtn = document.createElement('div');
   helpBtn.id = 'ai-help';
-  helpBtn.title = 'AI 助手接入指南';
+  helpBtn.title = 'AI 助手使用指南';
   helpBtn.innerHTML = iconHelp();
   dock.appendChild(helpBtn);
 
@@ -570,7 +570,7 @@
   });
 
   /* ============================================================
-     帮助弹窗：AI 助手接入指南
+     帮助弹窗：AI 助手使用指南
      ============================================================ */
   var mask = null;
 
@@ -586,10 +586,10 @@
     mask = document.createElement('div');
     mask.className = 'ai-mask';
     mask.innerHTML =
-      '<div class="ai-doc" role="dialog" aria-label="AI 助手接入指南">' +
+      '<div class="ai-doc" role="dialog" aria-label="AI 助手使用指南">' +
       '<div class="ai-doc-head">' +
       '<div class="ai-ava" style="width:26px;height:26px;border-radius:8px;">' + iconSparkle(15, '#fff') + '</div>' +
-      '<span class="ai-t">AI 助手接入指南</span>' +
+      '<span class="ai-t">AI 助手使用指南</span>' +
       '<span class="ai-badge ' + (CONFIGURED ? 'ok' : 'off') + '">' +
       (CONFIGURED ? '● 已接入 · ' + AI_CONFIG.model : '● 当前未接入 API') + '</span>' +
       '<button class="ai-close" title="关闭（Esc）" style="margin-left:auto;">×</button>' +
