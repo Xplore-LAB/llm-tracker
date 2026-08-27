@@ -752,6 +752,15 @@
       'href="https://github.com/Xplore-LAB/llm-tracker/blob/master/assets/llm-proxy-server.js" ' +
       'target="_blank" rel="noopener">在 GitHub 打开脚本</a>' +
       '</div>' +
+
+      '<h4><span class="n">D</span>更新待办</h4>' +
+      '<table><tr><th>事项</th><th>状态</th><th>说明</th></tr>' +
+      '<tr>' +
+      '<td>飞书推送接入</td>' +
+      '<td>⏳ 待配置</td>' +
+      '<td>「Agent 前线」每日自动搜寻管线的可选通知 <code class="ai-ic">FEISHU_WEBHOOK</code> 尚未配置，不影响抓取与自动合入。配置后每天的运行摘要会推送到飞书群：群内添加自定义机器人取得 Webhook 地址，在仓库 Settings → Secrets and variables → Actions 新建 <code class="ai-ic">FEISHU_WEBHOOK</code> 填入该地址即可。</td>' +
+      '</tr></table>' +
+
       '<div class="tip">💡 配置完成后，欢迎语里的「未接入」提示和头部状态点会自动变成「在线 · 可对话」，快捷提问、流式打字、Markdown 渲染即刻可用。</div>' +
       '</div>' +
       '</div>';
