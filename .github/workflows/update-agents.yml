@@ -29,7 +29,7 @@ jobs:
           git diff --staged --quiet || (git commit -m "chore(agents): daily discover $(date +%Y-%m-%d)" && git pull --rebase && git push)
 
       - name: Send Feishu notification
-        if: env.FEISHU_WEBHOOK != ''
+        if: ${{ secrets.FEISHU_WEBHOOK != '' }}
         env:
           FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
         run: |
