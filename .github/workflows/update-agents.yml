@@ -14,11 +14,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Extract shared LLM config from ai-assistant.js
+        run: |
+          python3 << 'PYEOF'
+          import re, os
+          s = open('assets/ai-assistant.js', encoding='utf-8').read()
+          def pick(key):
+              m = re.search(key + r"\s*:\s*'([^']*)'", s)
+              return m.group(1) if m else ''
+          endpoint, key, model = pick('endpoint'), pick('apiKey'), pick('model')
+          assert endpoint and key and model, 'AI_CONFIG 解析失败'
+          base = endpoint.replace('/chat/completions', '').rstrip('/')
+          with open(os.environ['GITHUB_ENV'], 'a') as f:
+              f.write(f"LLM_BASE_URL={base}\nLLM_API_KEY={key}\nLLM_MODEL={model}\n")
+          print('LLM config loaded from ai-assistant.js:', base, model)
+          PYEOF
+
       - name: Discover agent news (RSS + Google News + HN)
-        env:
-          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
-          LLM_MODEL: ${{ vars.LLM_MODEL }}
         run: python3 scripts/discover_agent_news.py
 
       - name: Commit and push

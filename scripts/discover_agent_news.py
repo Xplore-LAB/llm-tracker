@@ -257,7 +257,10 @@ def llm_curate(items, known_titles):
         print('  LLM_API_KEY not set -> raw 模式（全部进候选池）')
         return None
     base = os.environ.get('LLM_BASE_URL', 'https://api.moonshot.cn/v1').rstrip('/')
+    if base.endswith('/chat/completions'):        # 兼容传入完整 endpoint（如 ai-assistant.js 的配置）
+        base = base[:-len('/chat/completions')].rstrip('/')
     model = os.environ.get('LLM_MODEL', 'moonshot-v1-8k')
+    origin = os.environ.get('LLM_ORIGIN', 'https://xplore-lab.github.io')  # llm-proxy 有来源校验
     results = []
     for i in range(0, len(items), LLM_BATCH):
         batch = items[i:i + LLM_BATCH]
@@ -275,10 +278,12 @@ def llm_curate(items, known_titles):
         }).encode()
         req = urllib.request.Request(base + '/chat/completions', data=body,
                                      headers={'Content-Type': 'application/json',
-                                              'Authorization': 'Bearer ' + api_key})
+                                              'Authorization': 'Bearer ' + api_key,
+                                              'Origin': origin})
         try:
-            resp = json.loads(urllib.request.urlopen(req, timeout=120).read().decode('utf-8'))
+            resp = json.loads(urllib.request.urlopen(req, timeout=180).read().decode('utf-8'))
             txt = resp['choices'][0]['message']['content'].strip()
+            txt = re.sub(r'<think>.*?</think>', '', txt, flags=re.S).strip()  # 剥离推理模型的思考块
             m = re.search(r'\[.*\]', txt, re.S)
             arr = json.loads(m.group(0)) if m else []
             for r in arr:
