@@ -39,7 +39,7 @@ const PAGES = [
   'qiuzhao/pm/index.html',
   'agents/index.html',
 ];
-const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json', 'agents.json'];
+const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json', 'agents.json', 'site-index.json'];
 
 const OPT = {
   compact: true,
@@ -64,6 +64,14 @@ function encodeData(text) {
 if (!fs.existsSync(SRC)) {
   console.error('可读源码目录不存在: ' + SRC);
   process.exit(1);
+}
+
+// 先重建全站搜索索引（改了 data/ 下任一内容源都会自动反映）
+try {
+  require('child_process').execSync(
+    'python3 ' + path.join(__dirname, 'build_site_index.py'), { stdio: 'inherit' });
+} catch (e) {
+  console.warn('⚠ site-index 生成失败，沿用已有索引文件');
 }
 
 for (const p of PAGES) {
