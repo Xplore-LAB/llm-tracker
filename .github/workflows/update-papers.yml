@@ -20,6 +20,13 @@ jobs:
           pip install --quiet pymupdf
           python3 scripts/fetch_papers.py
 
+      - name: Discover new models (HF + OpenRouter)
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+        run: python3 scripts/discover_models.py
+
       - name: Sync learning-path papers into dataset
         run: python3 scripts/backfill_learning_path.py --no-split
 
@@ -30,7 +37,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add papers.json company-papers.json timeline-data.json models.json models-extra.json pdfs-index.json models-figures.json learning-path.json models/img/ api/
+          git add papers.json company-papers.json timeline-data.json models.json models-extra.json models_with_size.json models-discovered.json pdfs-index.json models-figures.json learning-path.json models/img/ api/
           git diff --staged --quiet || git commit -m "chore: update papers $(date +%Y-%m-%d)"
           git push
 

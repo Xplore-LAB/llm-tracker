@@ -37,8 +37,9 @@ const PAGES = [
   'qiuzhao/handbook/index.html',
   'qiuzhao/arch/index.html',
   'qiuzhao/pm/index.html',
+  'agents/index.html',
 ];
-const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json'];
+const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json', 'agents.json'];
 
 const OPT = {
   compact: true,

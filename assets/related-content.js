@@ -18,7 +18,8 @@
     lab: { icon: '🧪', title: '实验室', href: 'lab/', note: '用交互工具理解核心原理与估算方法' },
     qiuzhao: { icon: '🎯', title: '秋招资料包', href: 'qiuzhao/', note: '将学习路径组织为面试准备行动' },
     handbook: { icon: '📖', title: 'LLM 秋招手册', href: 'qiuzhao/handbook/', note: '系统梳理高频问题、追问与简历钩子' },
-    arch: { icon: '🏗️', title: '架构演进', href: 'qiuzhao/arch/', note: '从结构差异理解模型能力与工程权衡' }
+    arch: { icon: '🏗️', title: '架构演进', href: 'qiuzhao/arch/', note: '从结构差异理解模型能力与工程权衡' },
+    agents: { icon: '📡', title: 'Agent 前线', href: 'agents/', note: '工业界大模型 Agent 动态与协议基建' }
   };
 
   var related = {
@@ -86,6 +87,11 @@
       ['qiuzhao', '回到秋招资料包，组织完整备战路径'],
       ['handbook', '将结构知识转化为面试回答'],
       ['lab', '继续用工具理解 KV Cache 与注意力机制']
+    ],
+    agents: [
+      ['lab', '在实验室用交互工具理解 Agent 工作机制'],
+      ['models', '把工业动态映射到模型能力演进'],
+      ['glossary', '查清 Agent 与协议相关术语']
     ]
   };
 
@@ -101,7 +107,8 @@
     lab: ['#263a30', '#ece9dc', '#577060'],
     qiuzhao: ['#182542', '#e8f4ff', '#38567c'],
     handbook: ['#ffffff', '#2c4271', '#e7e4dc'],
-    arch: ['#ffffff', '#2c4271', '#e7e4dc']
+    arch: ['#ffffff', '#2c4271', '#e7e4dc'],
+    agents: ['#f5f0e1', '#26221c', '#d6cfb8']
   };
 
   var theme = themes[page] || themes.home;

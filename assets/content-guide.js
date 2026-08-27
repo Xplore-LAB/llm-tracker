@@ -9,7 +9,8 @@
     dgx:{title:'DGX Spark 实战路径',desc:'先理解规格和互联，再结合模型规模与部署约束判断是否适配。',items:[['硬件深挖',ROOT+'hardware/?chapter=deep','理解带宽账本'],['显存计算器',ROOT+'hardware/?chapter=calc','估算模型容量'],['部署实战',ROOT+'deploy/?section=parallel','选择多卡与多机方案'],['模型时序',ROOT+'models/','对照目标模型规模']]},
     deploy:{title:'部署决策路径',desc:'按框架、精度、Serving、并行和上线检查的顺序完成一次部署决策。',items:[['选择框架',ROOT+'deploy/?section=frameworks','确定服务底座'],['量化与格式',ROOT+'deploy/?section=quant','平衡显存与质量'],['Serving 参数',ROOT+'deploy/?section=serving','控制 TTFT 与吞吐'],['并行方案',ROOT+'deploy/?section=parallel','规划扩展路径'],['上线检查',ROOT+'deploy/?section=checklist','按清单压测上线']]},
     glossary:{title:'概念学习路径',desc:'术语按七个知识层连续组织，建议沿架构、训练、对齐、推理到系统效率阅读。',items:[['架构与注意力',ROOT+'glossary/#glossary-arch','模型如何计算'],['训练与扩展',ROOT+'glossary/#glossary-train','能力如何获得'],['后训练与对齐',ROOT+'glossary/#glossary-align','行为如何塑形'],['推理与解码',ROOT+'glossary/#glossary-infer','答案如何生成'],['系统与效率',ROOT+'glossary/#glossary-sys','服务如何运行']]},
-    lab:{title:'实验路径',desc:'先把容量和吞吐算清楚，再用原理实验验证机制，最后到检索、Agent 与评测做工程演练。',items:[['KV Cache 实验室',ROOT+'lab/?tool=kv','算清显存与上下文上限'],['LoRA 微调预算器',ROOT+'lab/?tool=lora','对比全量与 QLoRA'],['采样策略实验室',ROOT+'lab/?tool=temp','看参数如何改变输出'],['RAG 检索实验台',ROOT+'lab/?tool=rag','调切块与 top-k'],['评测指标演练场',ROOT+'lab/?tool=metrics','用对指标再下结论']]}
+    lab:{title:'实验路径',desc:'先把容量和吞吐算清楚，再用原理实验验证机制，最后到检索、Agent 与评测做工程演练。',items:[['KV Cache 实验室',ROOT+'lab/?tool=kv','算清显存与上下文上限'],['LoRA 微调预算器',ROOT+'lab/?tool=lora','对比全量与 QLoRA'],['采样策略实验室',ROOT+'lab/?tool=temp','看参数如何改变输出'],['RAG 检索实验台',ROOT+'lab/?tool=rag','调切块与 top-k'],['评测指标演练场',ROOT+'lab/?tool=metrics','用对指标再下结论']]},
+    agents:{title:'Agent 动态阅读路径',desc:'沿协议基建、编程智能体、消费级与企业平台四条线，看工业界 Agent 落地的真实节奏。',items:[['时间线视图',ROOT+'agents/','按时间倒序纵览全部动态'],['按公司浏览',ROOT+'agents/','聚焦单一厂商的动作脉络'],['按类型浏览',ROOT+'agents/','四条赛道分层阅读'],['实验室 Agent 台',ROOT+'lab/?tool=agent','动手理解 Agent 执行机制']]}
   };
   const key=document.body&&document.body.dataset.contentGuide;
   const guide=GUIDES[key];

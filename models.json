@@ -484,6 +484,17 @@
    "url": "https://www.anthropic.com/news/claude-3-family"
   },
   {
+   "model": "Claude 3",
+   "company": "Anthropic",
+   "date": "2024-03-04",
+   "id": "",
+   "title": "",
+   "note": "Opus/Sonnet/Haiku 三档家族，首次追平 GPT-4",
+   "papers": 0,
+   "url": "https://www.anthropic.com/news/claude-3-family",
+   "extra": true
+  },
+  {
    "model": "DeepSeek-VL",
    "company": "DeepSeek",
    "date": "2024-03-08",
@@ -702,6 +713,17 @@
    "note": "构建基准测试集对Claude 3.5 Computer Use GUI智能体在真实环境中的能力进行初步案例研究。",
    "papers": 1,
    "url": "https://www.anthropic.com/news/claude-3-5-sonnet"
+  },
+  {
+   "model": "Claude 3.5 Sonnet",
+   "company": "Anthropic",
+   "date": "2024-06-20",
+   "id": "",
+   "title": "",
+   "note": "编码能力的口碑之作，Computer Use 首秀",
+   "papers": 0,
+   "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+   "extra": true
   },
   {
    "model": "InternLM-Law",
@@ -994,6 +1016,17 @@
    "url": "https://deepmind.google/technologies/gemini/"
   },
   {
+   "model": "Gemini 2.0",
+   "company": "Google",
+   "date": "2024-12-11",
+   "id": "",
+   "title": "",
+   "note": "Agent 时代的 Gemini，原生工具调用",
+   "papers": 0,
+   "url": "https://deepmind.google/technologies/gemini/",
+   "extra": true
+  },
+  {
    "model": "Phi-4",
    "company": "Microsoft",
    "date": "2024-12-12",
@@ -1214,6 +1247,17 @@
    "note": "发布Gemini 2.5 Pro与Flash模型，在编码与推理基准上达到最先进水平，主打推理、多模态与智能体能力。",
    "papers": 1,
    "url": "https://deepmind.google/technologies/gemini/"
+  },
+  {
+   "model": "Gemini 2.5 Pro",
+   "company": "Google",
+   "date": "2025-03-25",
+   "id": "",
+   "title": "",
+   "note": "思考型 Gemini，长期霸榜 LMArena",
+   "papers": 0,
+   "url": "https://deepmind.google/technologies/gemini/",
+   "extra": true
   },
   {
    "model": "InternVL-X",
@@ -2343,6 +2387,126 @@
    "title": "Kimi K3: Open Frontier Intelligence",
    "note": "推出Kimi K3，结合Delta Attention与稳定潜在MoE架构，具备原生视觉与百万级长上下文能力。",
    "papers": 1
+  },
+  {
+   "model": "Nemotron-3.5-Lightning",
+   "company": "Nvidia",
+   "date": "2026-08-11",
+   "id": "",
+   "title": "",
+   "note": "开源 MoE（30B 总参/3B 激活），面向高吞吐 Agent 负载",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3.8",
+   "company": "Qwen",
+   "date": "2026-08-12",
+   "id": "",
+   "title": "",
+   "note": "开源 MoE（2.4T 总参/95B 激活），Qwen3.8 Max 的开放权重版",
+   "papers": 0,
+   "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Grok-4.6",
+   "company": "xAI",
+   "date": "2026-08-12",
+   "id": "",
+   "title": "",
+   "note": "xAI 旗舰，编码、知识工作与 STEM 方向的前沿性能",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Gemini-3.7-Flash",
+   "company": "Google",
+   "date": "2026-08-13",
+   "id": "",
+   "title": "",
+   "note": "面向快速 Agent 工作流、编码与多步推理的多模态模型",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GLM-5.3",
+   "company": "Zhipu",
+   "date": "2026-08-18",
+   "id": "",
+   "title": "",
+   "note": "大规模推理模型，1M 上下文，面向复杂软件工程与长程 Agent",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Hy-MT2",
+   "company": "Tencent",
+   "date": "2026-08-19",
+   "id": "",
+   "title": "",
+   "note": "混元翻译系列，支持 33 语对与五种方言/民族语言，主打术语与风格受控翻译",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "DeepSeek-V4-Flash-Vision",
+   "company": "DeepSeek",
+   "date": "2026-08-21",
+   "id": "",
+   "title": "",
+   "note": "V4 Flash 的实验性视觉版本，新增图像理解且文本能力不减",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3.8-Flash",
+   "company": "Qwen",
+   "date": "2026-08-26",
+   "id": "",
+   "title": "",
+   "note": "多模态推理模型，面向编码辅助、Agent 工作流与长视频分析",
+   "papers": 0,
+   "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GLM-5.3-Flash",
+   "company": "Zhipu",
+   "date": "2026-08-26",
+   "id": "2602.15763",
+   "title": "",
+   "note": "原生多模态，稀疏+线性混合注意力保长上下文精度，主打高效编码与长程 Agent",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "UI-Venus-2",
+   "company": "AntGroup",
+   "date": "2026-08-26",
+   "id": "2602.09082",
+   "title": "",
+   "note": "蚂蚁 UI 视觉理解系列第二代，服务界面 Agent 与 GUI-to-Code 场景",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/UI-Venus-2-9B",
+   "source": "huggingface",
+   "discovered": true
   }
  ],
  "groups": [
