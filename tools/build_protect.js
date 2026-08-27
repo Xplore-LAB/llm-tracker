@@ -26,6 +26,7 @@ const KEY = 'XploreLAB#2026$Chronicle';
 const PAGES = [
   'index.html',
   'models/index.html',
+  'models/qwen38-flash-report.html',
   'timeline/index.html',
   'chronicle/index.html',
   'hardware/index.html',
