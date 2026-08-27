@@ -36,6 +36,7 @@ const PAGES = [
   'qiuzhao/index.html',
   'qiuzhao/handbook/index.html',
   'qiuzhao/arch/index.html',
+  'qiuzhao/pm/index.html',
 ];
 const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json'];
 
