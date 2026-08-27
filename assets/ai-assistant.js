@@ -93,6 +93,12 @@
     'transition:background .15s ease,color .15s ease;}',
     '.ai-clear:hover{background:rgba(239,68,68,.1);color:#dc2626;}',
     '.ai-clear:disabled{opacity:.35;cursor:default;background:transparent;color:#8a94a6;}',
+    '.ai-maxbtn{border:0;background:transparent;color:#8a94a6;width:28px;height:28px;border-radius:8px;',
+    'font-size:14px;line-height:1;cursor:pointer;padding:0;flex:none;display:inline-flex;align-items:center;justify-content:center;',
+    'transition:background .15s ease,color .15s ease;}',
+    '.ai-maxbtn:hover{background:rgba(15,23,42,.08);color:#26303d;}',
+    '.ai-resize{position:absolute;right:0;bottom:0;width:20px;height:20px;cursor:nwse-resize;z-index:6;',
+    'background:linear-gradient(135deg,transparent 52%,rgba(120,130,150,.5) 52%);}',
 
     /* ----- 消息区 ----- */
     '.ai-msgs{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:12px;',
@@ -199,6 +205,9 @@
     '.ai-dark .ai-clear{color:#9aa5b8;}',
     '.ai-dark .ai-clear:hover{background:rgba(239,68,68,.18);color:#fca5a5;}',
     '.ai-dark .ai-clear:disabled{color:#9aa5b8;background:transparent;}',
+    '.ai-dark .ai-maxbtn{color:#9aa5b8;}',
+    '.ai-dark .ai-maxbtn:hover{background:rgba(255,255,255,.1);color:#fff;}',
+    '.ai-dark .ai-resize{background:linear-gradient(135deg,transparent 52%,rgba(255,255,255,.28) 52%);}',
     '.ai-dark .ai-m.b{background:rgba(255,255,255,.07);}',
     '.ai-dark .ai-ic{background:rgba(129,140,248,.18);color:#a5b4fc;}',
     '.ai-dark .ai-m.b a{color:#a5b4fc;}',
@@ -239,6 +248,14 @@
     return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none">' +
       '<path d="M5 7h14M10 7V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   }
+  function iconMax() {
+    return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none">' +
+      '<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+  function iconRestore() {
+    return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none">' +
+      '<path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
 
   /* ---------- 停靠区（球 + 帮助按钮） ---------- */
   var dock = document.createElement('div');
@@ -268,6 +285,7 @@
     '<span class="ai-st"><i class="ai-dot ' + (CONFIGURED ? 'ok' : 'off') + '"></i>' +
     (CONFIGURED ? '在线 · 可对话' : '未接入 API') + ' · 按住标题拖动</span>' +
     '</div>' +
+    '<button class="ai-maxbtn" title="放大" aria-label="放大">' + iconMax() + '</button>' +
     '<button class="ai-clear" title="清空当前对话" aria-label="清空当前对话">' + iconTrash() + '</button>' +
     '<button class="ai-close" title="收起（Esc）">×</button>' +
     '</div>' +
@@ -276,7 +294,8 @@
     '<div class="ai-input">' +
     '<textarea rows="1" placeholder="问点什么…（Enter 发送 / Shift+Enter 换行）"></textarea>' +
     '<button class="ai-send" title="发送">' + iconSend() + '</button>' +
-    '</div>';
+    '</div>' +
+    '<div class="ai-resize" title="拖拽调整大小"></div>';
   document.body.appendChild(panel);
 
   var msgs = panel.querySelector('.ai-msgs');
@@ -286,6 +305,8 @@
   var closeBtn = panel.querySelector('.ai-close');
   var clearBtn = panel.querySelector('.ai-clear');
   clearBtn.disabled = true;
+  var maxBtn = panel.querySelector('.ai-maxbtn');
+  var rs = panel.querySelector('.ai-resize');
   var head = panel.querySelector('.ai-head');
 
   var POS_KEY = 'ai_orb_pos';
@@ -376,6 +397,48 @@
     try { ta.focus(); } catch (e) {}
   }
   function closePanel() { panel.classList.remove('show'); orb.classList.remove('on'); }
+
+  /* ---------- 最大化 / 还原 ---------- */
+  function toggleMax() {
+    var willMax = !panel.classList.contains('ai-max');
+    panel.classList.toggle('ai-max', willMax);
+    var vw = window.innerWidth, vh = window.innerHeight;
+    panel.style.width = (willMax ? Math.min(780, vw - 24) : Math.min(380, vw - 16)) + 'px';
+    panel.style.height = (willMax ? Math.min(Math.round(vh * 0.84), 900) : Math.min(540, Math.round(vh * 0.76))) + 'px';
+    var r = panel.getBoundingClientRect();
+    panel.style.right = 'auto'; panel.style.bottom = 'auto';
+    panel.style.left = clamp(r.left, 8, Math.max(8, vw - r.width - 8)) + 'px';
+    panel.style.top = clamp(r.top, 8, Math.max(8, vh - r.height - 8)) + 'px';
+    maxBtn.innerHTML = willMax ? iconRestore() : iconMax();
+    maxBtn.title = willMax ? '还原' : '放大';
+  }
+  maxBtn.addEventListener('click', toggleMax);
+
+  /* ---------- 右下角拖拽调整大小 ---------- */
+  rs.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    e.preventDefault();
+    var r = panel.getBoundingClientRect();
+    panel.style.right = 'auto'; panel.style.bottom = 'auto';
+    panel.style.left = r.left + 'px'; panel.style.top = r.top + 'px';
+    if (panel.classList.contains('ai-max')) {
+      panel.classList.remove('ai-max');
+      maxBtn.innerHTML = iconMax(); maxBtn.title = '放大';
+    }
+    var sw = panel.offsetWidth, sh = panel.offsetHeight, sx = e.clientX, sy = e.clientY;
+    try { rs.setPointerCapture(e.pointerId); } catch (err) {}
+    function mv(ev) {
+      panel.style.width = clamp(sw + ev.clientX - sx, 320, window.innerWidth - 16) + 'px';
+      panel.style.height = clamp(sh + ev.clientY - sy, 420, window.innerHeight - 16) + 'px';
+    }
+    function up(ev) {
+      try { rs.releasePointerCapture(ev.pointerId); } catch (err) {}
+      document.removeEventListener('pointermove', mv);
+      document.removeEventListener('pointerup', up);
+    }
+    document.addEventListener('pointermove', mv);
+    document.addEventListener('pointerup', up);
+  });
 
   draggable(dock, orb, openPanel);
   draggable(panel, head, null);
@@ -549,7 +612,7 @@
     }
 
     var payloadMsgs = [{ role: 'system', content: systemWithPage() }].concat(history.slice(-20));
-    var bubble = null, acc = '', finished = false;
+    var bubble = null, acc = '', finished = false, rafId = null;
 
     function ensureBubble() {
       if (!bubble) bubble = addMsg('b', '');
@@ -557,12 +620,18 @@
     function onDelta(delta) {
       ensureBubble();
       acc += delta;
-      bubble.innerHTML = md(acc) + '<span class="ai-caret"></span>';
-      msgs.scrollTop = msgs.scrollHeight;
+      if (rafId === null) {
+        rafId = requestAnimationFrame(function () {
+          rafId = null;
+          bubble.innerHTML = md(acc) + '<span class="ai-caret"></span>';
+          msgs.scrollTop = msgs.scrollHeight;
+        });
+      }
     }
     function onDone() {
       if (finished) return;
       finished = true;
+      if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
       ensureBubble();
       bubble.innerHTML = md(acc || '（接口未返回内容）');
       history.push({ role: 'assistant', content: acc });
@@ -572,6 +641,7 @@
     function onErr(err) {
       if (finished) return;
       finished = true;
+      if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
       if (bubble) bubble.remove();
       var reply = '⚠️ 请求失败：' + err.message + '\n\n请检查 `AI_CONFIG` 里的 endpoint / apiKey / model 是否正确，或稍后重试。';
       addMsg('b', reply);
