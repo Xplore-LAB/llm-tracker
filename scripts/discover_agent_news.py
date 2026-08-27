@@ -240,10 +240,21 @@ def dedup(cands, existing_urls, inbox_urls):
     return out
 
 # ── LLM 精编 ─────────────────────────────────────────────
+def _bigrams(s):
+    s = re.sub(r'[\s，。、：；·]+', '', s or '')
+    return {s[i:i + 2] for i in range(len(s) - 1)}
+
+def title_sim(a, b):
+    """标题字符二元组重叠系数，用于代码层同事件判重兜底（重复对通常 >0.45，不同事件 <0.40）"""
+    A, B = _bigrams(a), _bigrams(b)
+    if not A or not B:
+        return 0.0
+    return len(A & B) / min(len(A), len(B))
+
 SYSTEM_PROMPT = """你在为中文网站「Agent 前线」栏目精编工业界大模型 Agent 动态。对输入的每条新闻候选做判定与编写，输出 JSON 数组，每项含：
 - id: 原样返回
-- relevant: 是否为工业界大模型 Agent 动态（公司/组织发布的产品、重大更新、融资并购、协议标准；排除纯学术论文、招聘、课程、泛观点评论、与 agent 无关的模型发布）
-- dup: 是否与「已知事件列表」中的事件重复（同一事件的后续报道不算重复，但同一产品同一发布算重复）
+- relevant: 是否为工业界大模型 Agent 动态（公司/组织发布的 Agent 产品、重大更新、融资并购、协议标准）。以下一律判 false：纯学术论文、招聘、课程、泛观点评论、与 Agent 无关的模型发布、纯硬件/芯片/网络设备发布（即使宣传语提到 Agentic AI）、财报股价行情、监管政策例行文件
+- dup: 是否与「已知事件列表」（含本轮已接受条目）中的事件重复。同一事件的不同来源报道算重复（保留信息最全的一条即可）；同一产品同一发布算重复
 - confidence: 0~1 把握度（信息不足、标题模糊、来源可信度低时降低）
 - cat: 五选一 "coding"=AI编程智能体 / "consumer"=通用消费级Agent / "enterprise"=企业级Agent平台 / "infra"=Agent基础设施与协议 / "industry"=工业Agent落地
 - company: 主体公司中文名（参考已知公司名保持一致；合作主体用「 × 」连接）
@@ -262,6 +273,7 @@ def llm_curate(items, known_titles):
     model = os.environ.get('LLM_MODEL', 'moonshot-v1-8k')
     origin = os.environ.get('LLM_ORIGIN', 'https://xplore-lab.github.io')  # llm-proxy 有来源校验
     results = []
+    known = list(known_titles)          # 运行期累积：跨批次去重（同事件异源报道）
     for i in range(0, len(items), LLM_BATCH):
         batch = items[i:i + LLM_BATCH]
         payload = [{'id': j, 'title': c['title'], 'source': c['source'],
@@ -272,7 +284,7 @@ def llm_curate(items, known_titles):
             'messages': [
                 {'role': 'system', 'content': SYSTEM_PROMPT},
                 {'role': 'user', 'content': json.dumps(
-                    {'已知事件列表(近期)': known_titles, '候选新闻': payload},
+                    {'已知事件列表(近期)': known, '候选新闻': payload},
                     ensure_ascii=False)},
             ],
         }).encode()
@@ -289,6 +301,8 @@ def llm_curate(items, known_titles):
             for r in arr:
                 if isinstance(r, dict) and 'id' in r and 0 <= r['id'] < len(batch):
                     results.append((batch[r['id']], r))
+                    if r.get('relevant') and not r.get('dup') and r.get('title_cn'):
+                        known.append(r['title_cn'])   # 供后续批次判重
             print(f'  [llm] batch {i // LLM_BATCH + 1}: {len(arr)}/{len(batch)}')
         except Exception as e:
             print(f'  [llm] batch {i // LLM_BATCH + 1}: FAIL {e}')
@@ -332,6 +346,8 @@ def main():
         curated = raw_fallback(cands)
 
     auto, hold = [], []
+    recent_titles = [e.get('title', '') for e in events[:80]]   # 代码层判重兜底
+    sim_drop = 0
     for c, r in curated:
         if not r.get('relevant') or r.get('dup'):
             continue
@@ -341,6 +357,10 @@ def main():
               'title': r.get('title_cn') or c['title'][:40],
               'note': r.get('note_cn') or (c['snippet'] or '')[:110],
               'url': c['url']}
+        if any(title_sim(ev['title'], t) >= 0.45 for t in recent_titles):
+            sim_drop += 1
+            continue
+        recent_titles.append(ev['title'])
         try:
             conf = float(r.get('confidence', 0))
         except (TypeError, ValueError):
@@ -352,7 +372,7 @@ def main():
                        'found': datetime.now(timezone.utc).date().isoformat()})
             hold.append(ev)
 
-    print(f'  自动上线: {len(auto)}  候选池: {len(hold)}')
+    print(f'  自动上线: {len(auto)}  候选池: {len(hold)}  相似判重丢弃: {sim_drop}')
 
     print('[3/4] 写入 ...')
     if auto:
