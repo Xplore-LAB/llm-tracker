@@ -37,22 +37,49 @@
     '</svg><span class="ghs-count">Star</span>';
   document.body.appendChild(btn);
 
-  /* 实时星数（本地缓存 1 小时） */
+  /* 实时星数（成功缓存 1 小时；失败进入 10 分钟冷却，避免限流后反复空撞） */
   var countEl = btn.querySelector('.ghs-count');
   function setCount(n) { countEl.textContent = n; }
-  try {
-    var c = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
-    if (c && Date.now() - c.t < 3600000 && typeof c.n === 'number') setCount(c.n);
-  } catch (e) {}
-  fetch('https://api.github.com/repos/' + REPO, { headers: { Accept: 'application/vnd.github+json' } })
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (d) {
-      if (d && typeof d.stargazers_count === 'number') {
-        setCount(d.stargazers_count);
-        try { localStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), n: d.stargazers_count })); } catch (e) {}
-      }
-    })
-    .catch(function () {});
+
+  var cached = null;
+  try { cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); } catch (e) {}
+
+  var hasFresh = cached && typeof cached.n === 'number' && Date.now() - cached.t < 3600000;
+  if (hasFresh) setCount(cached.n);
+  /* 有过成功记录但已过期时，先显示旧值避免闪烁，请求成功后再更新 */
+  else if (cached && typeof cached.n === 'number') setCount(cached.n);
+
+  var cooling = cached && cached.failAt && Date.now() - cached.failAt < 600000;
+
+  function remember(patch) {
+    try {
+      var base = {};
+      try { base = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') || {}; } catch (e) {}
+      for (var k in patch) base[k] = patch[k];
+      localStorage.setItem(CACHE_KEY, JSON.stringify(base));
+    } catch (e) {}
+  }
+
+  if (!hasFresh && !cooling) {
+    fetch('https://api.github.com/repos/' + REPO, { headers: { Accept: 'application/vnd.github+json' } })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) {
+        if (d && typeof d.stargazers_count === 'number') {
+          setCount(d.stargazers_count);
+          remember({ t: Date.now(), n: d.stargazers_count, failAt: 0 });
+        } else {
+          return Promise.reject('bad payload');
+        }
+      })
+      .catch(function () {
+        /* 限流或离线：记录冷却时间，保留上次成功的数字；从未成功过则退化为纯入口 */
+        remember({ failAt: Date.now() });
+        if (!(cached && typeof cached.n === 'number')) {
+          countEl.textContent = 'Star';
+          btn.title = '在 GitHub 上 Star 这个项目（星数暂不可用）';
+        }
+      });
+  }
 
   /* 避让吸顶导航栏 */
   function avoidHeader() {
