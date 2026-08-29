@@ -129,7 +129,32 @@ def build():
             "u": "agents/?q=" + quote(e.get("title", ""), safe=""),
         })
 
-    # 5) hardware terms + timeline
+    # 5) leaderboard models
+    lb = load("leaderboard.json")
+    for m in lb.get("models", []):
+        bits = []
+        if m.get("aa") is not None:
+            bits.append("AA Index %s" % m["aa"])
+        if m.get("arena") is not None:
+            bits.append("Arena Elo %s" % m["arena"])
+        text = " ".join(bits)
+        if m.get("params"):
+            text += " " + m["params"]
+        if m.get("license"):
+            text += " " + m["license"]
+        for n in (m.get("notes") or [])[:2]:
+            text += " " + n
+        dk = re.sub(r"[\s.\-]", "", m["model"]).lower()
+        items.append({
+            "t": "rank", "h": m["model"],
+            "s": "排行榜 · %s · %s" % (
+                m.get("company", ""),
+                "开放权重" if m.get("open") == "open" else "闭源"),
+            "x": cut(text),
+            "u": "leaderboard/?open=" + quote("%s|%s" % (m.get("company", ""), dk), safe=""),
+        })
+
+    # 6) hardware terms + timeline
     h = load("hardware.json")
     for t in h.get("terms", []):
         items.append({
@@ -146,7 +171,7 @@ def build():
             "u": "hardware/",
         })
 
-    # 6) deploy sections + docs
+    # 7) deploy sections + docs
     d = load("deploy.json")
     secmap = {"frameworks": "", "quant": "quant", "serving": "serving",
               "parallel": "parallel", "checklist": "checklist"}

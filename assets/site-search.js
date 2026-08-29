@@ -36,6 +36,7 @@
   var GROUPS = [
     ['term',  '📖 术语馆'],
     ['tech',  '🧬 技术档案'],
+    ['rank',  '🏆 排行榜'],
     ['event', '📜 编年史'],
     ['agent', '📡 Agent 前线'],
     ['hard',  '🧮 硬件志'],

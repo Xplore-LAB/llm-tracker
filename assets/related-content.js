@@ -19,16 +19,25 @@
     qiuzhao: { icon: '🎯', title: '秋招资料包', href: 'qiuzhao/', note: '将学习路径组织为面试准备行动' },
     handbook: { icon: '📖', title: 'LLM 秋招手册', href: 'qiuzhao/handbook/', note: '系统梳理高频问题、追问与简历钩子' },
     arch: { icon: '🏗️', title: '架构演进', href: 'qiuzhao/arch/', note: '从结构差异理解模型能力与工程权衡' },
-    agents: { icon: '📡', title: 'Agent 前线', href: 'agents/', note: '工业界大模型 Agent 动态与协议基建' }
+    agents: { icon: '📡', title: 'Agent 前线', href: 'agents/', note: '工业界大模型 Agent 动态与协议基建' },
+    leaderboard: { icon: '🏆', title: '模型排行榜', href: 'leaderboard/', note: '双榜口径看能力高低，雷达图横向对比' }
   };
 
   var related = {
     home: [
+      ['leaderboard', '直接看当前模型的能力排名与对比'],
       ['models', '从论文热点回到模型发布谱系'],
       ['timeline', '按时间回看论文新增与趋势'],
       ['chronicle', '理解当下研究的历史位置']
     ],
+    leaderboard: [
+      ['models', '回到发布时序，看这些模型的论文谱系'],
+      ['deploy', '选定模型后进入部署与推理框架选型'],
+      ['hardware', '把参数规模与上下文换算成显存需求'],
+      ['glossary', '补齐 MoE、上下文、量化等评测相关概念']
+    ],
     models: [
+      ['leaderboard', '从发布谱系转到能力高低与横向对比'],
       ['home', '回到最新论文，查看模型对应研究'],
       ['hardware', '从参数与规模进入算力和显存约束'],
       ['deploy', '继续查看推理框架和上线实践'],
@@ -108,7 +117,8 @@
     qiuzhao: ['#182542', '#e8f4ff', '#38567c'],
     handbook: ['#ffffff', '#2c4271', '#e7e4dc'],
     arch: ['#ffffff', '#2c4271', '#e7e4dc'],
-    agents: ['#f5f0e1', '#26221c', '#d6cfb8']
+    agents: ['#f5f0e1', '#26221c', '#d6cfb8'],
+    leaderboard: ['#f7f8fb', '#302b63', '#e2e4ee']
   };
 
   var theme = themes[page] || themes.home;

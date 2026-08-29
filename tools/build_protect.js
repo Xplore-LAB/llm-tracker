@@ -27,6 +27,7 @@ const PAGES = [
   'index.html',
   'models/index.html',
   'models/qwen38-flash-report.html',
+  'leaderboard/index.html',
   'timeline/index.html',
   'chronicle/index.html',
   'hardware/index.html',
@@ -40,7 +41,7 @@ const PAGES = [
   'qiuzhao/pm/index.html',
   'agents/index.html',
 ];
-const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json', 'agents.json', 'site-index.json'];
+const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json', 'agents.json', 'leaderboard.json', 'site-index.json'];
 
 const OPT = {
   compact: true,
