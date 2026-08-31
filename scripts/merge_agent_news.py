@@ -55,6 +55,7 @@ def merge_indices(events, idx):
         return
     agents['events'].extend(merged)
     agents['events'].sort(key=lambda x: x['date'], reverse=True)
+    agents.setdefault('meta', {})['updated'] = datetime.now(timezone.utc).date().isoformat()
     save_agents(agents)
     sync_src(agents)
     print(f'已合入 {len(merged)} 条，正式 events 总数 {len(agents["events"])}')

@@ -379,6 +379,7 @@ def main():
         events.extend(auto)
         events.sort(key=lambda x: x['date'], reverse=True)
         agents['meta'] = agents.get('meta', {})
+        agents['meta']['updated'] = datetime.now(timezone.utc).date().isoformat()
         save_agents(agents)
         sync_src(agents)
         print(f'  agents.json 已更新（events={len(events)}）')
