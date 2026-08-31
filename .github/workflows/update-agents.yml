@@ -24,6 +24,7 @@ jobs:
               return m.group(1) if m else ''
           endpoint, key, model = pick('endpoint'), pick('apiKey'), pick('model')
           assert endpoint and key and model, 'AI_CONFIG 解析失败'
+          print(f'::add-mask::{key}')
           base = endpoint.replace('/chat/completions', '').rstrip('/')
           with open(os.environ['GITHUB_ENV'], 'a') as f:
               f.write(f"LLM_BASE_URL={base}\nLLM_API_KEY={key}\nLLM_MODEL={model}\n")
