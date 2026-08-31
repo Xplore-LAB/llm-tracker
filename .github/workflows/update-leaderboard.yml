@@ -1,0 +1,25 @@
+name: Update Leaderboard Daily
+
+on:
+  schedule:
+    - cron: '30 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refresh leaderboard from Artificial Analysis API
+        env:
+          AA_API_KEY: ${{ secrets.AA_API_KEY }}
+        run: python3 scripts/update_leaderboard.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add leaderboard.json
+          git diff --staged --quiet || git commit -m "chore(leaderboard): refresh AA scores $(date +%Y-%m-%d)"
+          git push
