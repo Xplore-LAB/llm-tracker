@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-08-27",
-  "total_models": 264,
-  "with_real_size": 115,
-  "coverage": "43.6%",
+  "fetch_time": "2026-08-31",
+  "total_models": 281,
+  "with_real_size": 128,
+  "coverage": "45.6%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -357,9 +357,9 @@
       "title": "Baichuan 2: Open Large-scale Language Models",
       "note": "Baichuan 2开源大规模多语言大模型，以少样本指令在多种自然语言任务上展现强劲泛化能力。",
       "papers": 1,
-      "hf_repo": null,
-      "size_total_gb": null,
-      "source": "no_mapping"
+      "hf_repo": "baichuan-inc/Baichuan2-7B-Chat",
+      "size_total_gb": 13.98,
+      "source": "hf_tree"
     },
     {
       "model": "Mistral-7B",
@@ -855,6 +855,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "MiniCPM-Llama3-V 2.5",
+      "company": "ModelBest",
+      "date": "2024-05-28",
+      "id": "",
+      "url": "https://github.com/OpenBMB/MiniCPM-V",
+      "title": "",
+      "note": "8B 端侧多模态，官方称综合性能超 GPT-4V/Gemini Pro；斯坦福团队抄袭出圈事件主角",
+      "papers": 0,
+      "extra": true,
+      "hf_repo": null,
+      "size_total_gb": null,
+      "source": "no_mapping"
+    },
+    {
       "model": "Skywork-MoE",
       "company": "Skywork",
       "date": "2024-06-03",
@@ -1055,6 +1069,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "MiniCPM-V 2.6",
+      "company": "ModelBest",
+      "date": "2024-08-06",
+      "id": "",
+      "url": "https://github.com/OpenBMB/MiniCPM-V",
+      "title": "",
+      "note": "基于 Qwen2-7B 基座，端侧视频理解 SOTA，单图/多图/视频理解全场景",
+      "papers": 0,
+      "extra": true,
+      "hf_repo": null,
+      "size_total_gb": null,
+      "source": "no_mapping"
+    },
+    {
       "model": "EXAONE-3.0-7.8B",
       "company": "LG",
       "date": "2024-08-07",
@@ -1115,6 +1143,20 @@
       "hf_repo": "ai21labs/AI21-Jamba-Large-1.5",
       "size_total_gb": 742.37,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "MiniCPM3",
+      "company": "ModelBest",
+      "date": "2024-09-05",
+      "id": "",
+      "url": "https://github.com/OpenBMB/MiniCPM",
+      "title": "",
+      "note": "4B 端侧文本旗舰，开启端侧长文本时代，GitHub 与 HuggingFace 趋势双榜登顶",
+      "papers": 0,
+      "extra": true,
+      "hf_repo": null,
+      "size_total_gb": null,
+      "source": "no_mapping"
     },
     {
       "model": "o1",
@@ -1437,6 +1479,20 @@
       "source": "gated"
     },
     {
+      "model": "MiniCPM-o 2.6",
+      "company": "ModelBest",
+      "date": "2025-01-19",
+      "id": "",
+      "url": "https://github.com/OpenBMB/MiniCPM-o",
+      "title": "",
+      "note": "8B 全模态，iPad 上实现媲美 GPT-4o 的实时流式视频理解与高级语音对话",
+      "papers": 0,
+      "extra": true,
+      "hf_repo": null,
+      "size_total_gb": null,
+      "source": "no_mapping"
+    },
+    {
       "model": "DeepSeek-R1",
       "company": "DeepSeek",
       "date": "2025-01-20",
@@ -1521,9 +1577,9 @@
       "title": "Baichuan-M1: Pushing the Medical Capability of Large Language Models",
       "note": "Baichuan-M1聚焦医学垂直领域，探索高效实用的医疗大模型训练方法以提升专业诊疗能力。",
       "papers": 1,
-      "hf_repo": null,
-      "size_total_gb": null,
-      "source": "no_mapping"
+      "hf_repo": "baichuan-inc/Baichuan-M1-14B-Instruct",
+      "size_total_gb": 26.95,
+      "source": "hf_tree"
     },
     {
       "model": "Baichuan-Audio",
@@ -1533,9 +1589,9 @@
       "title": "Baichuan-Audio: A Unified Framework for End-to-End Speech Interaction",
       "note": "Baichuan-Audio构建端到端语音大模型框架，统一语音理解与生成，支持文本引导的实时语音交互。",
       "papers": 1,
-      "hf_repo": null,
-      "size_total_gb": null,
-      "source": "no_mapping"
+      "hf_repo": "baichuan-inc/Baichuan-Audio-Base",
+      "size_total_gb": 19.68,
+      "source": "hf_tree"
     },
     {
       "model": "Claude 3.7 Sonnet",
@@ -2118,6 +2174,20 @@
       "source": "gated"
     },
     {
+      "model": "MiniCPM-V 4.0",
+      "company": "ModelBest",
+      "date": "2025-08-01",
+      "id": "",
+      "url": "https://github.com/OpenBMB/MiniCPM-V",
+      "title": "",
+      "note": "4B 视觉文本模型，首个在手机上可跑的端侧多模态模型",
+      "papers": 0,
+      "extra": true,
+      "hf_repo": null,
+      "size_total_gb": null,
+      "source": "no_mapping"
+    },
+    {
       "model": "GPT-5",
       "company": "OpenAI",
       "date": "2025-08-07",
@@ -2196,6 +2266,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "MiniCPM-V 4.5",
+      "company": "ModelBest",
+      "date": "2025-08-26",
+      "id": "",
+      "url": "https://github.com/OpenBMB/MiniCPM-V",
+      "title": "",
+      "note": "8B 端侧多模态 SOTA，官方称超 GPT-4o-latest、Gemini-2.0 Pro 与 Qwen2.5-VL 72B",
+      "papers": 0,
+      "extra": true,
+      "hf_repo": null,
+      "size_total_gb": null,
+      "source": "no_mapping"
+    },
+    {
       "model": "LongCat-Flash",
       "company": "Meituan",
       "date": "2025-09-01",
@@ -2216,9 +2300,9 @@
       "title": "Baichuan-M2: Scaling Medical Capability with Large Verifier System",
       "note": "Baichuan-M2构建大规模验证器体系，弥合医学大模型静态评测与真实临床决策之间的能力鸿沟。",
       "papers": 1,
-      "hf_repo": null,
-      "size_total_gb": null,
-      "source": "no_mapping"
+      "hf_repo": "baichuan-inc/Baichuan-M2-32B",
+      "size_total_gb": 62.46,
+      "source": "hf_tree"
     },
     {
       "model": "Hunyuan-MT",
@@ -2634,9 +2718,9 @@
       "title": "Baichuan-M3: Modeling Clinical Inquiry for Reliable Medical Decision-Making",
       "note": "Baichuan-M3转向主动式临床决策支持，通过专项训练流水线模拟医生系统化诊疗流程。",
       "papers": 1,
-      "hf_repo": null,
-      "size_total_gb": null,
-      "source": "no_mapping"
+      "hf_repo": "baichuan-inc/Baichuan-M3-235B",
+      "size_total_gb": 439.13,
+      "source": "hf_tree"
     },
     {
       "model": "MiniCPM-SALA",
@@ -2857,6 +2941,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "MiniCPM-V 4.6",
+      "company": "ModelBest",
+      "date": "2026-05-11",
+      "id": "",
+      "url": "https://github.com/OpenBMB/MiniCPM-V",
+      "title": "",
+      "note": "仅 1.3B 的最新 V 系列，intra-ViT 早压缩使视觉编码算力降逾 50%，吞吐约为 Qwen3.5-0.8B 的 1.5 倍，已入 Ollama 官方库",
+      "papers": 0,
+      "extra": true,
+      "hf_repo": null,
+      "size_total_gb": null,
+      "source": "no_mapping"
+    },
+    {
       "model": "Qwen-Scope",
       "company": "Qwen",
       "date": "2026-05-12",
@@ -2998,9 +3096,9 @@
       "title": "Qwen-AgentWorld: Language World Models for General Agents",
       "note": "",
       "papers": 1,
-      "hf_repo": null,
-      "size_total_gb": null,
-      "source": "no_mapping"
+      "hf_repo": "Qwen/Qwen-AgentWorld-35B-A3B",
+      "size_total_gb": 64.56,
+      "source": "hf_tree"
     },
     {
       "model": "Nemotron-Labs-TwoTower",
@@ -3161,6 +3259,118 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Intern-S2-Mobius",
+      "company": "InternLM",
+      "date": "2026-07-29",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/Intern-S2-Mobius",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/Intern-S2-Mobius",
+      "size_total_gb": 67.95
+    },
+    {
+      "model": "K-EXAONE-2.0",
+      "company": "LG",
+      "date": "2026-07-29",
+      "id": "2608.04505",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "LGAI-EXAONE/K-EXAONE-2.0-750B-A37B",
+      "size_total_gb": 1395.79
+    },
+    {
+      "model": "K-EXAONE-2.0-750B-A37B-DSpark",
+      "company": "LG",
+      "date": "2026-07-30",
+      "id": "2608.04505",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B-DSpark",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "LGAI-EXAONE/K-EXAONE-2.0-750B-A37B-DSpark",
+      "size_total_gb": 1399.53
+    },
+    {
+      "model": "Qwen3.8-Max",
+      "company": "Qwen",
+      "date": "2026-08-03",
+      "id": "",
+      "title": "",
+      "note": "Qwen3.8 Max is the flagship model in Alibaba's Qwen3.8 serie",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Muse-Spark-1.2",
+      "company": "Meta",
+      "date": "2026-08-05",
+      "id": "",
+      "title": "",
+      "note": "Muse Spark 1.2 is a reasoning model from Meta, designed for ",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Granite-4.2",
+      "company": "IBM",
+      "date": "2026-08-07",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granite-4.2-30b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granite-4.2-30b",
+      "size_total_gb": 54.53
+    },
+    {
+      "model": "Ling-3.0-flash-dspark",
+      "company": "AntGroup",
+      "date": "2026-08-09",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ling-3.0-flash-dspark",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ling-3.0-flash-dspark",
+      "size_total_gb": 2.54
+    },
+    {
+      "model": "Ling-3.0",
+      "company": "AntGroup",
+      "date": "2026-08-10",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ling-3.0-tiny",
+      "size_total_gb": 14.7
+    },
+    {
       "model": "Nemotron-3.5-Lightning",
       "company": "Nvidia",
       "date": "2026-08-11",
@@ -3225,10 +3435,10 @@
       "note": "大规模推理模型，1M 上下文，面向复杂软件工程与长程 Agent",
       "papers": 0,
       "url": "",
-      "source": "no_mapping",
+      "source": "hf_tree",
       "discovered": true,
-      "hf_repo": null,
-      "size_total_gb": null
+      "hf_repo": "zai-org/GLM-5.3",
+      "size_total_gb": 703.74
     },
     {
       "model": "Hy-MT2",
@@ -3264,7 +3474,7 @@
       "date": "2026-08-26",
       "id": "",
       "title": "",
-      "note": "多模态推理模型，面向编码辅助、Agent 工作流与长视频分析",
+      "note": "Qwen4 架构预览版：125B-A6B 稀疏 MoE + 51B N-gram Embedding，GDN+QSA 混合注意力，原生 262K 上下文",
       "papers": 0,
       "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
       "source": "hf_tree",
@@ -3299,6 +3509,34 @@
       "discovered": true,
       "hf_repo": "inclusionAI/UI-Venus-2-9B",
       "size_total_gb": 17.53
+    },
+    {
+      "model": "Ling-3.0-Flash-Fin",
+      "company": "AntGroup",
+      "date": "2026-08-27",
+      "id": "",
+      "title": "",
+      "note": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts m",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Hy4",
+      "company": "Tencent",
+      "date": "2026-08-28",
+      "id": "",
+      "title": "",
+      "note": "Tencent: Hy4 preview is a mixture-of-experts model from Tenc",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     }
   ]
 }

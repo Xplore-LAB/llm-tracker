@@ -1,5 +1,34 @@
 [
   {
+    "id": "2608.28497",
+    "title": "On the Maintenance and Co-evolution of Agent Plugins: An Empirical Study of Claude Code Plugin Marketplaces",
+    "authors": "Ahmed Hereiz, Yingzhe Lyu, Hao Li et al.",
+    "year": 2026,
+    "date": "2026-08-28",
+    "cite": 0,
+    "tags": [
+      "Agent",
+      "Reasoning"
+    ],
+    "abstract": "AI coding agents, software tools that automate development tasks through reasoning and tool use, are increasingly extended through plugin marketplaces, yet the structure, maintenance, and co-evolution dynamics of these emerging repositories remain empirically unexplored. Unlike traditional software packages that deliver functionality through source code, agent plugins deliver functionality through a combination of natural-language instruction files, scripts, and configuration files, raising the ",
+    "company": "Anthropic"
+  },
+  {
+    "id": "2608.27548",
+    "title": "Nemotron 3.5 Content Safety Moderator: A Compact Multimodal, Multilingual, and Reasoning Enabled Content Safety Moderator",
+    "authors": "Varun Singh, Anuj Doshi, Makesh Narsimhan Sreedhar et al.",
+    "year": 2026,
+    "date": "2026-08-27",
+    "cite": 0,
+    "tags": [
+      "Reasoning",
+      "Multimodal",
+      "Safety"
+    ],
+    "abstract": "Safety moderation for deployed AI applications is moving beyond text-only prompts: systems increasingly need to judge images, documents, screenshots, and generated responses under policies that vary across domains. Existing guardrails usually cover only part of this setting, making it difficult to combine broad coverage, custom policy control, and low compute cost. We present Nemotron 3.5 Content Safety Moderator, also referred to as Nemotron 3.5 CS in this paper for brevity, a compact 4B vision",
+    "company": "Nvidia"
+  },
+  {
     "id": "2608.24764",
     "title": "Evidence Blindness in Direct Corpus Interaction: Persistent Navigation with AtlasNav",
     "authors": "Hongyu Guo, Zhiyu Zheng, Zhao Cao",
@@ -157947,7 +157976,7 @@
       "LLM"
     ],
     "abstract": "Argument mining (AM) is an interdisciplinary research field focused on the automatic identification and classification of argumentative components, such as claims and premises, and the relationships between them. Recent advances in large language models (LLMs) have significantly improved the performance of argument classification compared to traditional machine learning approaches. This study presents a comprehensive evaluation of several state-of-the-art LLMs, including GPT-5.2, Llama 4, and De",
-    "company": "DeepSeek"
+    "company": "Meta"
   },
   {
     "id": "2602.21447",
@@ -160511,7 +160540,7 @@
       "LLM"
     ],
     "abstract": "Large language models (LLMs) show promise for healthcare question answering, but clinical use is limited by weak verification, insufficient evidence grounding, and unreliable confidence signalling. We propose a multi-agent medical QA framework that combines complementary LLMs with evidence retrieval, uncertainty estimation, and bias checks to improve answer reliability. Our approach has two phases. First, we fine-tune three representative LLM families (GPT, LLaMA, and DeepSeek R1) on MedQuAD-der",
-    "company": "DeepSeek",
+    "company": "Meta",
     "title_zh": "医疗 AI 的多代理框架：利用微调的 GPT、LLaMA 和 DeepSeek R1 进行基于证据和偏差感知的临床查询处理"
   },
   {
@@ -174543,7 +174572,7 @@
       "LLM"
     ],
     "abstract": "Argument mining (AM) is an interdisciplinary research field that integrates insights from logic, philosophy, linguistics, rhetoric, law, psychology, and computer science. It involves the automatic identification and extraction of argumentative components, such as premises and claims, and the detection of relationships between them, such as support, attack, or neutrality. Recently, the field has advanced significantly, especially with the advent of large language models (LLMs), which have enhance",
-    "company": "DeepSeek",
+    "company": "Meta",
     "title_zh": "基于 LLM 的论点分类的综合研究：从 LLAMA 到 GPT-4o 到 Deepseek-R1"
   },
   {
