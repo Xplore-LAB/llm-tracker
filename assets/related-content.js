@@ -7,41 +7,37 @@
 
   var base = '/llm-tracker/';
   var pages = {
-    home: { icon: '🤖', title: '论文追踪', href: '', note: '从每日论文、主题与公司动态开始' },
-    models: { icon: '🧬', title: '模型时序', href: 'models/', note: '按公司与系列查看模型发布脉络' },
-    timeline: { icon: '📅', title: '论文时间轴', href: 'timeline/', note: '按日期回看论文增量与研究热度' },
-    chronicle: { icon: '📜', title: '大模型编年史', href: 'chronicle/', note: '沿关键论文回溯能力演进' },
-    hardware: { icon: '🧮', title: '硬件志', href: 'hardware/', note: '理解算力、显存与系统约束' },
-    'dgx-spark': { icon: '✨', title: 'DGX Spark 专题', href: 'dgx-spark/', note: '从桌面 AI 超算看本地推理边界' },
-    deploy: { icon: '🚀', title: '部署实战', href: 'deploy/', note: '把模型、框架与硬件连成可运行链路' },
-    glossary: { icon: '📖', title: '术语馆', href: 'glossary/', note: '快速补齐架构、训练与推理概念' },
-    lab: { icon: '🧪', title: '实验室', href: 'lab/', note: '用交互工具理解核心原理与估算方法' },
-    qiuzhao: { icon: '🎯', title: '秋招资料包', href: 'qiuzhao/', note: '将学习路径组织为面试准备行动' },
-    handbook: { icon: '📖', title: 'LLM 秋招手册', href: 'qiuzhao/handbook/', note: '系统梳理高频问题、追问与简历钩子' },
-    arch: { icon: '🏗️', title: '架构演进', href: 'qiuzhao/arch/', note: '从结构差异理解模型能力与工程权衡' },
-    agents: { icon: '📡', title: 'Agent 前线', href: 'agents/', note: '工业界大模型 Agent 动态与协议基建' },
-    leaderboard: { icon: '🏆', title: '模型排行榜', href: 'leaderboard/', note: '双榜口径看能力高低，雷达图横向对比' }
+    home: { icon: '🤖', title: '论文追踪', href: '' },
+    models: { icon: '🧬', title: '模型时序', href: 'models/' },
+    timeline: { icon: '📅', title: '论文时间轴', href: 'timeline/' },
+    chronicle: { icon: '📜', title: '大模型编年史', href: 'chronicle/' },
+    hardware: { icon: '🧮', title: '硬件志', href: 'hardware/' },
+    'dgx-spark': { icon: '✨', title: 'DGX Spark 专题', href: 'dgx-spark/' },
+    deploy: { icon: '🚀', title: '部署实战', href: 'deploy/' },
+    glossary: { icon: '📖', title: '术语馆', href: 'glossary/' },
+    lab: { icon: '🧪', title: '实验室', href: 'lab/' },
+    qiuzhao: { icon: '🎯', title: '秋招资料包', href: 'qiuzhao/' },
+    handbook: { icon: '📖', title: 'LLM 秋招手册', href: 'qiuzhao/handbook/' },
+    arch: { icon: '🏗️', title: '架构演进', href: 'qiuzhao/arch/' },
+    agents: { icon: '📡', title: 'Agent 前线', href: 'agents/' },
+    leaderboard: { icon: '🏆', title: '模型排行榜', href: 'leaderboard/' }
   };
 
   var related = {
     home: [
       ['leaderboard', '直接看当前模型的能力排名与对比'],
       ['models', '从论文热点回到模型发布谱系'],
-      ['timeline', '按时间回看论文新增与趋势'],
-      ['chronicle', '理解当下研究的历史位置']
+      ['timeline', '按时间回看论文新增与趋势']
     ],
     leaderboard: [
       ['models', '回到发布时序，看这些模型的论文谱系'],
       ['deploy', '选定模型后进入部署与推理框架选型'],
-      ['hardware', '把参数规模与上下文换算成显存需求'],
-      ['glossary', '补齐 MoE、上下文、量化等评测相关概念']
+      ['hardware', '把参数规模与上下文换算成显存需求']
     ],
     models: [
       ['leaderboard', '从发布谱系转到能力高低与横向对比'],
       ['home', '回到最新论文，查看模型对应研究'],
-      ['hardware', '从参数与规模进入算力和显存约束'],
-      ['deploy', '继续查看推理框架和上线实践'],
-      ['dgx-spark', '查看桌面级本地推理的真实边界']
+      ['hardware', '从参数与规模进入算力和显存约束']
     ],
     timeline: [
       ['home', '打开论文追踪，按主题或公司继续筛选'],
@@ -51,14 +47,12 @@
     chronicle: [
       ['home', '查看当前仍在延续的研究前沿'],
       ['timeline', '按时间维度补齐近期发展'],
-      ['glossary', '遇到概念时快速查定义与上下文'],
-      ['lab', '通过交互演示验证核心机制']
+      ['glossary', '遇到概念时快速查定义与上下文']
     ],
     hardware: [
       ['models', '结合模型规模判断资源需求'],
       ['dgx-spark', '查看桌面 AI 超算的完整案例'],
-      ['deploy', '把硬件约束落到部署参数和架构'],
-      ['lab', '用估算工具复核显存与吞吐']
+      ['deploy', '把硬件约束落到部署参数和架构']
     ],
     'dgx-spark': [
       ['hardware', '回到硬件志，补齐 GPU 与显存基础'],
@@ -68,8 +62,7 @@
     deploy: [
       ['models', '先确认模型规模、架构与技术特性'],
       ['hardware', '核对显存、带宽与多卡约束'],
-      ['lab', '通过交互估算辅助参数决策'],
-      ['dgx-spark', '参考桌面本地部署的设备边界']
+      ['lab', '通过交互估算辅助参数决策']
     ],
     glossary: [
       ['chronicle', '看术语在关键论文中的真实演进'],
@@ -79,8 +72,7 @@
     lab: [
       ['glossary', '先查概念定义与关键术语'],
       ['hardware', '将估算结果映射到硬件选择'],
-      ['arch', '继续查看模型结构与参数差异'],
-      ['deploy', '把实验结论带回工程部署决策']
+      ['arch', '继续查看模型结构与参数差异']
     ],
     qiuzhao: [
       ['handbook', '按章节系统学习高频面试题'],
