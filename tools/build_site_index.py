@@ -197,6 +197,37 @@ def build():
             "u": "deploy/?section=docs",
         })
 
+    # 8) research directions
+    r = load("research.json")
+    stmap = {k: v.get("label", "") for k, v in r.get("statuses", {}).items()}
+    for d in r.get("directions", []):
+        text = d.get("summary", "") + " " + " ".join(d.get("keywords", [])) + " " + d.get("next", "")
+        items.append({
+            "t": "res", "h": d.get("title", ""),
+            "s": "科研前线 · 方向看板 · " + stmap.get(d.get("status"), ""),
+            "x": cut(text),
+            "u": "research/#d-" + d.get("key", ""),
+        })
+
+    # 9) conference events + watch list
+    cf = load("conferences.json")
+    cser = cf.get("series", {})
+    for e in cf.get("events", []):
+        s = cser.get(e.get("s"), {})
+        items.append({
+            "t": "conf", "h": (s.get("name", "") + " " + e.get("label", "")).strip(),
+            "s": "科研前线 · 会议时间轴 · " + e.get("d", ""),
+            "x": cut(s.get("full", "") + " " + (e.get("note") or "")),
+            "u": "research/?view=conf#s-" + e.get("s", ""),
+        })
+    for n in cf.get("watch", []):
+        items.append({
+            "t": "conf", "h": n.get("name", ""),
+            "s": "科研前线 · 观望区（日期待公布）",
+            "x": cut(n.get("item", "") + " " + n.get("note", "")),
+            "u": "research/?view=conf",
+        })
+
     out = {
         "meta": {
             "updated": date.today().isoformat(),

@@ -42,6 +42,8 @@
     ['hard',  '🧮 硬件志'],
     ['deploy', '🚀 部署实战'],
     ['doc',   '🚀 部署实战'],
+    ['res',   '🔬 科研方向'],
+    ['conf',  '📅 会议节点'],
   ];
   var TYPE_LABEL = {};
   GROUPS.forEach(function (g) { TYPE_LABEL[g[0]] = g[1]; });
