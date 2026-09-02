@@ -122,9 +122,30 @@
     '.ai-ic{font-family:ui-monospace,Consolas,Menlo,monospace;font-size:12px;background:rgba(99,102,241,.12);',
     'color:#4f46e5;padding:1px 5px;border-radius:5px;}',
     '.ai-m.u .ai-ic{background:rgba(255,255,255,.22);color:#fff;}',
-    '.ai-code{background:#151820;color:#dbe2f0;border-radius:10px;padding:10px 12px;margin:6px 0;',
+    '.ai-code{position:relative;background:#151820;color:#dbe2f0;border-radius:10px;padding:10px 12px;margin:6px 0;',
     'overflow-x:auto;font:12px/1.55 ui-monospace,Consolas,Menlo,monospace;}',
+    '.ai-code-lang{position:absolute;top:5px;right:8px;font-size:10px;letter-spacing:.4px;color:rgba(148,163,184,.75);',
+    'font-family:ui-monospace,Consolas,Menlo,monospace;pointer-events:none;}',
+    '.ai-copy{position:absolute;bottom:5px;right:8px;font-size:10.5px;line-height:1;padding:4px 9px;border-radius:6px;',
+    'border:1px solid rgba(148,163,184,.35);background:rgba(255,255,255,.05);color:#94a3b8;cursor:pointer;',
+    'transition:color .15s ease,border-color .15s ease,background .15s ease;}',
+    '.ai-copy:hover{color:#e2e8f0;border-color:rgba(148,163,184,.65);background:rgba(255,255,255,.1);}',
+    '.ai-copy.ok{color:#34d399;border-color:rgba(52,211,153,.55);}',
     '.ai-m.b a{color:#4f46e5;}',
+    '.ai-m.b .ai-h1{font-size:15px;font-weight:700;margin:10px 0 4px;padding-bottom:3px;',
+    'border-bottom:1px solid rgba(99,102,241,.28);}',
+    '.ai-m.b .ai-h2{font-size:14px;font-weight:700;margin:8px 0 3px;color:#3730a3;}',
+    '.ai-m.b .ai-h3{font-size:13px;font-weight:650;margin:6px 0 2px;color:#4338ca;}',
+    '.ai-m.b .ai-ol{margin:2px 0;padding-left:20px;}',
+    '.ai-m.b .ai-ol li{margin:2px 0;}',
+    '.ai-m.b .ai-bq{margin:6px 0;padding:6px 10px;border-left:3px solid rgba(99,102,241,.5);',
+    'background:rgba(99,102,241,.07);border-radius:0 8px 8px 0;font-size:12.5px;color:#475569;}',
+    '.ai-m.b .ai-hr{height:1px;background:rgba(100,116,139,.22);margin:8px 0;}',
+    '.ai-tblw{overflow-x:auto;margin:6px 0;border:1px solid rgba(100,116,139,.22);border-radius:8px;}',
+    '.ai-tbl{border-collapse:collapse;width:100%;font-size:12px;}',
+    '.ai-tbl th{background:rgba(99,102,241,.1);font-weight:650;padding:5px 9px;text-align:left;white-space:nowrap;}',
+    '.ai-tbl td{padding:4px 9px;border-top:1px solid rgba(100,116,139,.15);vertical-align:top;}',
+    '.ai-tbl tbody tr:nth-child(even){background:rgba(100,116,139,.05);}',
 
     /* ----- 页面上下文徽标（用户消息下方） ----- */
     '.ai-ctx{align-self:flex-end;margin:-7px 2px 2px;font-size:10.5px;color:#8a94a6;cursor:pointer;',
@@ -229,6 +250,15 @@
     '.ai-dark .ai-m.b{background:rgba(255,255,255,.07);}',
     '.ai-dark .ai-ic{background:rgba(129,140,248,.18);color:#a5b4fc;}',
     '.ai-dark .ai-m.b a{color:#a5b4fc;}',
+    '.ai-dark .ai-m.b .ai-h1{border-bottom-color:rgba(129,140,248,.35);}',
+    '.ai-dark .ai-m.b .ai-h2{color:#c7d2fe;}',
+    '.ai-dark .ai-m.b .ai-h3{color:#a5b4fc;}',
+    '.ai-dark .ai-m.b .ai-bq{color:#cbd5e1;background:rgba(129,140,248,.08);border-left-color:rgba(129,140,248,.5);}',
+    '.ai-dark .ai-m.b .ai-hr{background:rgba(148,163,184,.25);}',
+    '.ai-dark .ai-tblw{border-color:rgba(148,163,184,.25);}',
+    '.ai-dark .ai-tbl th{background:rgba(129,140,248,.13);}',
+    '.ai-dark .ai-tbl td{border-top-color:rgba(148,163,184,.15);}',
+    '.ai-dark .ai-tbl tbody tr:nth-child(even){background:rgba(148,163,184,.06);}',
     '.ai-dark .ai-chip{border-color:rgba(129,140,248,.4);background:rgba(129,140,248,.1);color:#a5b4fc;}',
     '.ai-dark .ai-chip:hover{background:rgba(129,140,248,.18);}',
     '.ai-dark .ai-ctx{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#9aa5b8;}',
@@ -481,7 +511,7 @@
     dock.style.top = clamp(r.top, 0, Math.max(0, window.innerHeight - r.height)) + 'px';
   });
 
-  /* ---------- Markdown 简易渲染 ---------- */
+  /* ---------- Markdown 简易渲染（v2.2：标题分级/有序列表/表格/引用/分隔线/斜体删除线） ---------- */
   function esc(s) {
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
@@ -489,35 +519,95 @@
     return s
       .replace(/`([^`]+)`/g, '<code class="ai-ic">$1</code>')
       .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+      .replace(/(^|[^*\w])\*([^*\n]+)\*(?![*\w])/g, '$1<i>$2</i>')
+      .replace(/~~([^~\n]+)~~/g, '<s>$1</s>')
       .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   }
+  function codeBlock(lang, code) {
+    return '<pre class="ai-code">' + (lang ? '<span class="ai-code-lang">' + lang + '</span>' : '') +
+      '<code>' + code + '</code></pre>';
+  }
+  function mdTable(rows) {
+    function cells(r) {
+      return r.trim().replace(/^\|/, '').replace(/\|$/, '').split('|');
+    }
+    var head = cells(rows[0]).map(function (c) { return c.trim(); });
+    var out = '<div class="ai-tblw"><table class="ai-tbl"><thead><tr>';
+    for (var c = 0; c < head.length; c++) out += '<th>' + inline(head[c]) + '</th>';
+    out += '</tr></thead><tbody>';
+    for (var r = 2; r < rows.length; r++) {
+      var cs = cells(rows[r]).map(function (c) { return c.trim(); });
+      out += '<tr>';
+      for (var c2 = 0; c2 < head.length; c2++) out += '<td>' + inline(cs[c2] || '') + '</td>';
+      out += '</tr>';
+    }
+    return out + '</tbody></table></div>';
+  }
   function md(src) {
-    var out = '', inCode = false, codeBuf = '';
+    var out = '', inCode = false, codeBuf = '', codeLang = '';
     var lines = esc(src).split('\n');
-    var listOpen = false;
-    function closeList() { if (listOpen) { out += '</ul>'; listOpen = false; } }
+    var listOpen = null; /* 'ul' | 'ol' */
+    function closeList() { if (listOpen) { out += '</' + listOpen + '>'; listOpen = null; } }
     for (var i = 0; i < lines.length; i++) {
       var l = lines[i];
-      if (/^\s*```/.test(l)) {
-        if (!inCode) { closeList(); inCode = true; codeBuf = ''; }
-        else { inCode = false; out += '<pre class="ai-code"><code>' + codeBuf + '</code></pre>'; }
+      var fence = l.match(/^\s*```(\w*)/);
+      if (fence) {
+        if (!inCode) { closeList(); inCode = true; codeBuf = ''; codeLang = fence[1] || ''; }
+        else { inCode = false; out += codeBlock(codeLang, codeBuf); }
         continue;
       }
       if (inCode) { codeBuf += l + '\n'; continue; }
-      var h = l.match(/^\s*#{1,4}\s+(.*)$/);
-      if (h) { closeList(); out += '<div class="ai-h">' + inline(h[1]) + '</div>'; continue; }
-      var li = l.match(/^\s*(?:[-*•]|\d+[.)])\s+(.*)$/);
+      /* 表格：表头行 + 紧随的分隔行 */
+      if (/^\s*\|.*\|\s*$/.test(l) && i + 1 < lines.length && /^\s*\|[\s:|\-]+\|\s*$/.test(lines[i + 1])) {
+        closeList();
+        var rows = [];
+        while (i < lines.length && /^\s*\|.*\|\s*$/.test(lines[i])) { rows.push(lines[i]); i++; }
+        out += mdTable(rows);
+        i--;
+        continue;
+      }
+      if (/^\s*(?:-{3,}|\*{3,}|_{3,})\s*$/.test(l)) { closeList(); out += '<div class="ai-hr"></div>'; continue; }
+      var h = l.match(/^\s*(#{1,4})\s+(.*)$/);
+      if (h) { closeList(); out += '<div class="ai-h ai-h' + h[1].length + '">' + inline(h[2]) + '</div>'; continue; }
+      var bq = l.match(/^\s*&gt;\s?(.*)$/);
+      if (bq) { closeList(); out += '<blockquote class="ai-bq">' + inline(bq[1]) + '</blockquote>'; continue; }
+      var li = l.match(/^\s*(?:([-*•])|(\d+[.)]))\s+(.*)$/);
       if (li) {
-        if (!listOpen) { out += '<ul class="ai-ul">'; listOpen = true; }
-        out += '<li>' + inline(li[1]) + '</li>'; continue;
+        var tag = li[2] ? 'ol' : 'ul';
+        if (listOpen !== tag) { closeList(); out += '<' + tag + ' class="ai-ul">'; listOpen = tag; }
+        out += '<li>' + inline(li[3]) + '</li>'; continue;
       }
       closeList();
       if (l.trim() === '') out += '<div class="ai-br"></div>';
       else out += '<p>' + inline(l) + '</p>';
     }
-    if (inCode) out += '<pre class="ai-code"><code>' + codeBuf + '</code></pre>';
+    if (inCode) out += codeBlock(codeLang, codeBuf);
     closeList();
     return out;
+  }
+  /* 渲染完成后给代码块挂复制按钮（流式中间帧不挂，最终帧与历史消息挂） */
+  function decorateMd(root) {
+    if (!root || !navigator.clipboard) return;
+    var pres = root.querySelectorAll('.ai-code');
+    for (var i = 0; i < pres.length; i++) {
+      if (pres[i].querySelector('.ai-copy')) continue;
+      var b = document.createElement('button');
+      b.className = 'ai-copy';
+      b.type = 'button';
+      b.textContent = '复制';
+      (function (pre) {
+        b.onclick = function () {
+          var code = pre.querySelector('code');
+          if (!code) return;
+          navigator.clipboard.writeText(code.textContent).then(function () {
+            b.textContent = '已复制 ✓';
+            b.classList.add('ok');
+            setTimeout(function () { b.textContent = '复制'; b.classList.remove('ok'); }, 1600);
+          });
+        };
+      })(pres[i]);
+      pres[i].appendChild(b);
+    }
   }
 
   /* ---------- 消息 ---------- */
@@ -525,7 +615,7 @@
     var d = document.createElement('div');
     d.className = 'ai-m ' + (role === 'u' ? 'u' : 'b');
     if (role === 'u') d.textContent = text;
-    else d.innerHTML = md(text);
+    else { d.innerHTML = md(text); decorateMd(d); }
     msgs.appendChild(d);
     msgs.scrollTop = msgs.scrollHeight;
     return d;
@@ -862,6 +952,7 @@
       if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
       ensureBubble();
       bubble.innerHTML = md(acc || '（接口未返回内容）');
+      decorateMd(bubble);
       history.push({ role: 'assistant', content: acc });
       busy = false; sendBtn.disabled = false;
       msgs.scrollTop = msgs.scrollHeight;
