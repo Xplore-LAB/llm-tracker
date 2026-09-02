@@ -41,6 +41,7 @@ const PAGES = [
   'qiuzhao/pm/index.html',
   'agents/index.html',
   'research/index.html',
+  'research/conf/index.html',
 ];
 const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json', 'agents.json', 'leaderboard.json', 'site-index.json', 'research.json', 'conferences.json'];
 

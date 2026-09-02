@@ -212,6 +212,20 @@ def build():
     # 9) conference events + watch list
     cf = load("conferences.json")
     cser = cf.get("series", {})
+    for sk, sv in cser.items():
+        ab = sv.get("about") or {}
+        text = " ".join([
+            (sv.get("tag") or {}).get("focus", ""),
+            (sv.get("tag") or {}).get("tier", ""),
+            ab.get("intro", ""),
+            (sv.get("hist") or {}).get("text", ""),
+        ])
+        items.append({
+            "t": "conf", "h": sv.get("name", ""),
+            "s": "会议志 · " + (sv.get("tag") or {}).get("tier", ""),
+            "x": cut(text),
+            "u": "research/conf/#c-" + sk,
+        })
     for e in cf.get("events", []):
         s = cser.get(e.get("s"), {})
         items.append({

@@ -21,7 +21,8 @@
     arch: { icon: '🏗️', title: '架构演进', href: 'qiuzhao/arch/' },
     agents: { icon: '📡', title: 'Agent 前线', href: 'agents/' },
     leaderboard: { icon: '🏆', title: '模型排行榜', href: 'leaderboard/' },
-    research: { icon: '🔬', title: '科研前线', href: 'research/' }
+    research: { icon: '🔬', title: '科研前线', href: 'research/' },
+    confintro: { icon: '🏛', title: '会议志', href: 'research/conf/' }
   };
 
   var related = {
@@ -99,6 +100,11 @@
       ['chronicle', '回到里程碑，看方向的历史脉络'],
       ['agents', '对照工业界 Agent 落地的逐条动态'],
       ['timeline', '看论文新增节奏与研究热点']
+    ],
+    confintro: [
+      ['research', '回到时间轴，看各会议节点倒计时'],
+      ['chronicle', '在编年史里看方向的历史脉络'],
+      ['glossary', '查清会议论文里的高频术语']
     ]
   };
 
@@ -117,7 +123,8 @@
     arch: ['#ffffff', '#2c4271', '#e7e4dc'],
     agents: ['#f5f0e1', '#26221c', '#d6cfb8'],
     leaderboard: ['#f7f8fb', '#302b63', '#e2e4ee'],
-    research: ['#f8f4e8', '#26324b', '#d8d2c0']
+    research: ['#f8f4e8', '#26324b', '#d8d2c0'],
+    confintro: ['#f8f4e8', '#26324b', '#d8d2c0']
   };
 
   var theme = themes[page] || themes.home;
