@@ -23,7 +23,8 @@
     leaderboard: { icon: '🏆', title: '模型排行榜', href: 'leaderboard/' },
     research: { icon: '🔬', title: '科研前线', href: 'research/' },
     confintro: { icon: '🏛', title: '会议志', href: 'research/conf/' },
-    museum: { icon: '🏛️', title: 'LLM 博物馆', href: 'museum/' }
+    museum: { icon: '🏛️', title: 'LLM 博物馆', href: 'museum/' },
+    blogs: { icon: '📰', title: '博客志', href: 'blogs/' }
   };
 
   var related = {
@@ -111,6 +112,11 @@
       ['glossary', '查节点的完整术语定义与出处'],
       ['chronicle', '看节点背后的论文与历史演进'],
       ['lab', '用交互实验调参数加深理解']
+    ],
+    blogs: [
+      ['models', '从官方博客回到模型发布谱系'],
+      ['museum', '用主干图定位博客里的架构概念'],
+      ['chronicle', '看官方成果在研究脉络中的位置']
     ]
   };
 
@@ -131,7 +137,8 @@
     leaderboard: ['#f7f8fb', '#302b63', '#e2e4ee'],
     research: ['#f8f4e8', '#26324b', '#d8d2c0'],
     confintro: ['#f8f4e8', '#26324b', '#d8d2c0'],
-    museum: ['#faf6ea', '#37414f', '#d9cfae']
+    museum: ['#faf6ea', '#37414f', '#d9cfae'],
+    blogs: ['#faf6ea', '#37414f', '#d9cfae']
   };
 
   var theme = themes[page] || themes.home;

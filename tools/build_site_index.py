@@ -255,11 +255,22 @@ def build():
             "u": "museum/?node=" + n.get("id", ""),
         })
 
+    # 11) blogs vendors (博客志厂商卡片)
+    bl = load("blogs.json")
+    for v in bl.get("vendors", []):
+        link_text = " ".join(l.get("label", "") for l in (v.get("links") or [])[:4])
+        items.append({
+            "t": "blogs", "h": v.get("name", ""), "e": v.get("en", ""),
+            "s": "博客志 · " + ("国内" if v.get("region") == "cn" else "海外"),
+            "x": cut(v.get("desc", "") + " " + v.get("highlights", "") + " " + " ".join(v.get("tags", [])) + " " + link_text),
+            "u": "blogs/?q=" + v.get("name", ""),
+        })
+
     out = {
         "meta": {
             "updated": date.today().isoformat(),
             "count": len(items),
-            "note": "全站关键词搜索索引：术语馆 / 技术档案 / 编年史 / Agent 前线 / 硬件志 / 部署实战 / LLM 博物馆。由 tools/build_site_index.py 从 _llm-tracker-src/data/ 生成，改内容后重跑再构建。",
+            "note": "全站关键词搜索索引：术语馆 / 技术档案 / 编年史 / Agent 前线 / 硬件志 / 部署实战 / LLM 博物馆 / 博客志。由 tools/build_site_index.py 从 _llm-tracker-src/data/ 生成，改内容后重跑再构建。",
         },
         "items": items,
     }
