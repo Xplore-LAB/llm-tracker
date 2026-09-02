@@ -43,7 +43,7 @@ const PAGES = [
   'research/index.html',
   'research/conf/index.html',
 ];
-const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json', 'agents.json', 'leaderboard.json', 'site-index.json', 'research.json', 'conferences.json'];
+const DATA = ['chronicle.json', 'model-tech.json', 'hardware.json', 'changelog.json', 'deploy.json', 'glossary.json', 'agents.json', 'leaderboard.json', 'site-index.json', 'research.json', 'conferences.json', 'lab-models.json'];
 
 const OPT = {
   compact: true,
