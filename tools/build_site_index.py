@@ -12,6 +12,7 @@ Sources covered:
   - agents.json     -> Agent 前线动态
   - hardware.json   -> 硬件志术语 + 时间线
   - deploy.json     -> 部署实战章节 + docs 长文档
+  - museum.json     -> LLM 博物馆主干图节点
 
 Usage: python3 tools/build_site_index.py   (run from repo root or anywhere)
 """
@@ -242,11 +243,23 @@ def build():
             "u": "research/?view=conf",
         })
 
+    # 10) museum nodes (LLM 博物馆主干图节点)
+    mu = load("museum.json")
+    mu_stages = {s.get("id"): s.get("label", "") for s in mu.get("stages", [])}
+    for n in mu.get("nodes", []):
+        link_text = " ".join(l.get("label", "") for l in (n.get("links") or [])[:6])
+        items.append({
+            "t": "museum", "h": n.get("label", ""), "e": n.get("caption", ""),
+            "s": "LLM 博物馆 · " + mu_stages.get(n.get("stage"), ""),
+            "x": cut(n.get("museum_note", "") + " " + link_text),
+            "u": "museum/?node=" + n.get("id", ""),
+        })
+
     out = {
         "meta": {
             "updated": date.today().isoformat(),
             "count": len(items),
-            "note": "全站关键词搜索索引：术语馆 / 技术档案 / 编年史 / Agent 前线 / 硬件志 / 部署实战。由 tools/build_site_index.py 从 _llm-tracker-src/data/ 生成，改内容后重跑再构建。",
+            "note": "全站关键词搜索索引：术语馆 / 技术档案 / 编年史 / Agent 前线 / 硬件志 / 部署实战 / LLM 博物馆。由 tools/build_site_index.py 从 _llm-tracker-src/data/ 生成，改内容后重跑再构建。",
         },
         "items": items,
     }

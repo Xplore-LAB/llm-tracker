@@ -44,6 +44,7 @@
     ['doc',   '🚀 部署实战'],
     ['res',   '🔬 科研方向'],
     ['conf',  '📅 会议节点'],
+    ['museum', '🏛️ LLM 博物馆'],
   ];
   var TYPE_LABEL = {};
   GROUPS.forEach(function (g) { TYPE_LABEL[g[0]] = g[1]; });

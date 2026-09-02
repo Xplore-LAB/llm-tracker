@@ -22,7 +22,8 @@
     agents: { icon: '📡', title: 'Agent 前线', href: 'agents/' },
     leaderboard: { icon: '🏆', title: '模型排行榜', href: 'leaderboard/' },
     research: { icon: '🔬', title: '科研前线', href: 'research/' },
-    confintro: { icon: '🏛', title: '会议志', href: 'research/conf/' }
+    confintro: { icon: '🏛', title: '会议志', href: 'research/conf/' },
+    museum: { icon: '🏛️', title: 'LLM 博物馆', href: 'museum/' }
   };
 
   var related = {
@@ -67,14 +68,14 @@
       ['lab', '通过交互估算辅助参数决策']
     ],
     glossary: [
+      ['museum', '回到主干图，看术语在架构中的位置'],
       ['chronicle', '看术语在关键论文中的真实演进'],
-      ['lab', '用交互演示加深概念理解'],
-      ['handbook', '转入面试语境，练习高频表达']
+      ['lab', '用交互演示加深概念理解']
     ],
     lab: [
       ['glossary', '先查概念定义与关键术语'],
-      ['hardware', '将估算结果映射到硬件选择'],
-      ['arch', '继续查看模型结构与参数差异']
+      ['museum', '回到模型本体主链，定位实验对应的组件'],
+      ['hardware', '将估算结果映射到硬件选择']
     ],
     qiuzhao: [
       ['handbook', '按章节系统学习高频面试题'],
@@ -105,6 +106,11 @@
       ['research', '回到时间轴，看各会议节点倒计时'],
       ['chronicle', '在编年史里看方向的历史脉络'],
       ['glossary', '查清会议论文里的高频术语']
+    ],
+    museum: [
+      ['glossary', '查节点的完整术语定义与出处'],
+      ['chronicle', '看节点背后的论文与历史演进'],
+      ['lab', '用交互实验调参数加深理解']
     ]
   };
 
@@ -124,7 +130,8 @@
     agents: ['#f5f0e1', '#26221c', '#d6cfb8'],
     leaderboard: ['#f7f8fb', '#302b63', '#e2e4ee'],
     research: ['#f8f4e8', '#26324b', '#d8d2c0'],
-    confintro: ['#f8f4e8', '#26324b', '#d8d2c0']
+    confintro: ['#f8f4e8', '#26324b', '#d8d2c0'],
+    museum: ['#faf6ea', '#37414f', '#d9cfae']
   };
 
   var theme = themes[page] || themes.home;
