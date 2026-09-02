@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-01",
-  "total_models": 301,
-  "with_real_size": 137,
-  "coverage": "45.5%",
+  "fetch_time": "2026-09-02",
+  "total_models": 311,
+  "with_real_size": 144,
+  "coverage": "46.3%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -3075,6 +3075,20 @@
       "source": "gated"
     },
     {
+      "model": "MolmoMotion-4B-H3-F30",
+      "company": "AllenAI",
+      "date": "2026-06-15",
+      "id": "2606.18558",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/MolmoMotion-4B-H3-F30",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "allenai/MolmoMotion-4B-H3-F30",
+      "size_total_gb": 34.69
+    },
+    {
       "model": "GLM-5.2",
       "company": "Zhipu",
       "date": "2026-06-16",
@@ -3089,6 +3103,34 @@
       "source": "hf_tree"
     },
     {
+      "model": "MiniMax-M2.7-DFlash",
+      "company": "Nvidia",
+      "date": "2026-06-16",
+      "id": "2602.06036",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/nvidia/MiniMax-M2.7-DFlash",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/MiniMax-M2.7-DFlash",
+      "size_total_gb": 2.45
+    },
+    {
+      "model": "North-Mini-Code-1.0",
+      "company": "Cohere",
+      "date": "2026-06-16",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/North-Mini-Code-1.0-w4a16",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/North-Mini-Code-1.0",
+      "size_total_gb": 56.78
+    },
+    {
       "model": "Qwen-AgentWorld",
       "company": "Qwen",
       "date": "2026-06-23",
@@ -3101,6 +3143,20 @@
       "source": "hf_tree"
     },
     {
+      "model": "Kimi-K2.6-DFlash",
+      "company": "Nvidia",
+      "date": "2026-06-23",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/nvidia/Kimi-K2.6-DFlash",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/Kimi-K2.6-DFlash",
+      "size_total_gb": 6.48
+    },
+    {
       "model": "Nemotron-Labs-TwoTower",
       "company": "Nvidia",
       "date": "2026-06-25",
@@ -3111,6 +3167,34 @@
       "hf_repo": "nvidia/Nemotron-Labs-TwoTower",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "DeepSeek-V4-Pro-DSpark",
+      "company": "DeepSeek",
+      "date": "2026-06-27",
+      "id": "2606.19348",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-DSpark",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-V4-Pro-DSpark",
+      "size_total_gb": 831.43
+    },
+    {
+      "model": "DeepSeek-V4-Flash-DSpark",
+      "company": "DeepSeek",
+      "date": "2026-06-27",
+      "id": "2606.19348",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "size_total_gb": 155.43
     },
     {
       "model": "Xiaomi-GUI",
@@ -3149,6 +3233,48 @@
       "hf_repo": "meituan-longcat/LongCat-2.0",
       "size_total_gb": 3307.79,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Claude-Sonnet-5",
+      "company": "Anthropic",
+      "date": "2026-06-30",
+      "id": "",
+      "title": "",
+      "note": "Sonnet 5 is Anthropic's most capable Sonnet-class model, wit",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Nano-Banana-2-Lite",
+      "company": "Google",
+      "date": "2026-06-30",
+      "id": "",
+      "title": "",
+      "note": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image) is Google's",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "NVIDIA-Nemotron-Parse-2.0",
+      "company": "Nvidia",
+      "date": "2026-06-30",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Parse-2.0",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/NVIDIA-Nemotron-Parse-2.0",
+      "size_total_gb": 3.36
     },
     {
       "model": "HARC-Qwen2.5",
@@ -3811,6 +3937,20 @@
       "id": "",
       "title": "",
       "note": "Tencent: Hy4 preview is a mixture-of-experts model from Tenc",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Claude-Fable-5.1",
+      "company": "Anthropic",
+      "date": "2026-09-01",
+      "id": "",
+      "title": "",
+      "note": "Claude Fable 5.1 improves on Claude Fable 5 across the board",
       "papers": 0,
       "url": "",
       "source": "no_mapping",
