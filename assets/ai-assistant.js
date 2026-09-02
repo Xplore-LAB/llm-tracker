@@ -22,7 +22,7 @@
     model: 'MiniMax-M2.5',  // 性价比款；可换 MiniMax-M2.7（更强）/ MiniMax-M2.5-highspeed（更快）/ MiniMax-M3（旗舰 1M 上下文）
     systemPrompt: '你是「大模型情报局」（llm-tracker.github.io / xplore-lab.github.io/llm-tracker）的 AI 助手，专长于大语言模型（LLM）与 AI 求职面试方向。\n\n【身份与领域】\n- 服务对象：浏览本站的用户，主要关心 LLM 基础知识、前沿研究、主流模型、训练/微调/推理技术、AI 行业动态、秋招/校招面试题与职业路径。\n- 站点内容覆盖：模型卡片（GPT/Claude/Gemini/DeepSeek/Qwen/GLM/Mistral/Llama 等）、技术专题（Transformer / MoE / RLHF / 推理时计算 / 长上下文 / RAG / Agent）、求职资料（秋招时间线、面经、笔试题、岗位选择）。\n\n【回答风格】\n- 默认中文，简明、结构化（要点 + 必要时小标题 + 必要时表格/列表）。\n- 涉及代码只给关键片段，不要大段堆砌；注释行用中文。\n- 涉及论文 / 模型 / 数据集，给出来源（作者+年份+arXiv/DOI），不确定就明说「未核实」。\n- 涉及时间敏感信息（榜单、API 价格、模型版本），提醒「请以官网最新为准」。\n\n【页面上下文】\n- system 消息末尾附有用户提问瞬间的页面快照：页面标题、路由（含深链参数）、页面小节大纲、当前搜索/筛选状态、视口可见内容摘录、可见表格节选。\n- 回答优先结合快照内容；用户说「这页 / 这个表 / 这一段 / 当前这个模型」等指代时，按快照理解。\n- 快照只覆盖用户当时可见的部分，页面其余内容可能未捕获；若信息不足以回答，请说明并请用户补充。\n\n【边界】\n- 拒绝涉政、涉黄、暴力违法内容。\n- 不冒充真实人物、不提供医疗/法律/金融的最终结论（给方向不给结论）。\n- 涉及 MiniMax / Anthropic / OpenAI / Google 等厂商内部信息，明确「未公开 / 未核实」。',
     welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。我会**自动感知你正在看的页面**，直接问「这个表怎么读」「当前这个模型」就行。**按住我可以拖到任何角落**，面板标题栏也能拖动。',
-    contextChars: 6000,  /* 页面上下文字符预算（标题+大纲约1.2K / 正文摘录约45% / 表格约35%） */
+    contextChars: 3000,  /* 页面上下文字符预算（标题+大纲约0.8K / 正文摘录约45% / 表格约35%），省 token */
     chips: [
       { label: '🧠 Pre-Norm vs Post-Norm', text: '讲讲 Pre-Norm 和 Post-Norm 的区别，各自优缺点？' },
       { label: '🎯 字节校招考什么', text: '字节 2027 校招大模型算法岗重点考察什么？' },
@@ -676,7 +676,7 @@
       }
       if (dup) continue;
       if (!ctxInView(host)) continue;
-      var t = ctxTxt(host, 300);
+      var t = ctxTxt(host, 200);
       if (t.length < 2) continue;
       lines.push((host.tagName === 'SUMMARY' ? '▸ ' : '') + t);
       outer.push(host);
@@ -696,7 +696,7 @@
       if (ctxInView(rows[i])) inView.push(rows[i]);
     }
     var use = inView.length >= 6 ? inView : Array.prototype.slice.call(rows, 0);
-    if (use.length > 24) use = use.slice(0, 24);
+    if (use.length > 12) use = use.slice(0, 12);
     var out = [];
     for (var r = 0; r < use.length; r++) {
       out.push(ctxRowMd(use[r]));
@@ -726,7 +726,7 @@
 
   /* 组装快照，预算分配：基础信息 ≤1200，正文摘录 ≤45%，表格 ≤35% */
   function buildPageContext() {
-    var budget = +AI_CONFIG.contextChars > 500 ? +AI_CONFIG.contextChars : 6000;
+    var budget = +AI_CONFIG.contextChars > 500 ? +AI_CONFIG.contextChars : 3000;
     var title = (document.title || '').replace(/\s+/g, ' ').trim().slice(0, 100);
     var lines = [];
     lines.push('【用户当前页面上下文】（系统于提问时刻自动捕获）');
@@ -737,7 +737,7 @@
     var outline = ctxOutline();
     if (outline.length) {
       var o = outline.join('\n');
-      if (o.length > 1100) o = o.slice(0, 1100) + '\n…（小节过多已截断）';
+      if (o.length > 800) o = o.slice(0, 800) + '\n…（小节过多已截断）';
       lines.push('页面小节结构：\n' + o);
     }
     var tl = ctxTextLines();
