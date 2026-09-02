@@ -1,7 +1,11 @@
 /* ============================================================
-   AI 助手 v2.1（大模型情报局）
+   AI 助手 v2.2（大模型情报局）
    · 深色玻璃悬浮球（右下角，可拖拽），点击展开毛玻璃对话面板
-   · 流式输出 + Markdown 渲染 + 快捷提问 + 页面上下文感知
+   · 流式输出 + Markdown 渲染 + 快捷提问
+   · v2.2 页面上下文感知：提问瞬间快照当前页面
+     （标题 / 路由深链 / 小节大纲 / 搜索筛选状态 / 视口可见正文 /
+      可见表格转 Markdown），拼入 system 消息发给 AI；
+     消息下方 📍 徽标可展开查看实际捕获内容（透明可审计）
    · 悬浮球旁带「?」帮助按钮，弹出使用指南
    · 自动适配深色 / 浅色页面
    接入 LLM API：修改下方 AI_CONFIG（OpenAI 兼容格式）
@@ -16,8 +20,9 @@
     endpoint: 'https://llmapi.vip.cpolar.cn/v1/chat/completions',  // cpolar VIP 固定子域 → 本地 8787 端口 llm-proxy-server.js（节点：/home/lab434/.config/llm-proxy/env）
     apiKey: 'd117f48efcdcc0fada68718007e444cac633541ef17537c61392dc76f3d33673',  // PROXY_KEY（自编口令，可公开）；真实 MiniMax key 仅存服务器 env
     model: 'MiniMax-M2.5',  // 性价比款；可换 MiniMax-M2.7（更强）/ MiniMax-M2.5-highspeed（更快）/ MiniMax-M3（旗舰 1M 上下文）
-    systemPrompt: '你是「大模型情报局」（llm-tracker.github.io / xplore-lab.github.io/llm-tracker）的 AI 助手，专长于大语言模型（LLM）与 AI 求职面试方向。\n\n【身份与领域】\n- 服务对象：浏览本站的用户，主要关心 LLM 基础知识、前沿研究、主流模型、训练/微调/推理技术、AI 行业动态、秋招/校招面试题与职业路径。\n- 站点内容覆盖：模型卡片（GPT/Claude/Gemini/DeepSeek/Qwen/GLM/Mistral/Llama 等）、技术专题（Transformer / MoE / RLHF / 推理时计算 / 长上下文 / RAG / Agent）、求职资料（秋招时间线、面经、笔试题、岗位选择）。\n\n【回答风格】\n- 默认中文，简明、结构化（要点 + 必要时小标题 + 必要时表格/列表）。\n- 涉及代码只给关键片段，不要大段堆砌；注释行用中文。\n- 涉及论文 / 模型 / 数据集，给出来源（作者+年份+arXiv/DOI），不确定就明说「未核实」。\n- 涉及时间敏感信息（榜单、API 价格、模型版本），提醒「请以官网最新为准」。\n\n【页面上下文】\n- 用户当前所在页面会追加在 system 消息末尾，请结合该页面内容优先回答；如果用户的问题与页面无关，正常回答即可。\n\n【边界】\n- 拒绝涉政、涉黄、暴力违法内容。\n- 不冒充真实人物、不提供医疗/法律/金融的最终结论（给方向不给结论）。\n- 涉及 MiniMax / Anthropic / OpenAI / Google 等厂商内部信息，明确「未公开 / 未核实」。',
-    welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。**按住我可以拖到任何角落**，面板标题栏也能拖动。',
+    systemPrompt: '你是「大模型情报局」（llm-tracker.github.io / xplore-lab.github.io/llm-tracker）的 AI 助手，专长于大语言模型（LLM）与 AI 求职面试方向。\n\n【身份与领域】\n- 服务对象：浏览本站的用户，主要关心 LLM 基础知识、前沿研究、主流模型、训练/微调/推理技术、AI 行业动态、秋招/校招面试题与职业路径。\n- 站点内容覆盖：模型卡片（GPT/Claude/Gemini/DeepSeek/Qwen/GLM/Mistral/Llama 等）、技术专题（Transformer / MoE / RLHF / 推理时计算 / 长上下文 / RAG / Agent）、求职资料（秋招时间线、面经、笔试题、岗位选择）。\n\n【回答风格】\n- 默认中文，简明、结构化（要点 + 必要时小标题 + 必要时表格/列表）。\n- 涉及代码只给关键片段，不要大段堆砌；注释行用中文。\n- 涉及论文 / 模型 / 数据集，给出来源（作者+年份+arXiv/DOI），不确定就明说「未核实」。\n- 涉及时间敏感信息（榜单、API 价格、模型版本），提醒「请以官网最新为准」。\n\n【页面上下文】\n- system 消息末尾附有用户提问瞬间的页面快照：页面标题、路由（含深链参数）、页面小节大纲、当前搜索/筛选状态、视口可见内容摘录、可见表格节选。\n- 回答优先结合快照内容；用户说「这页 / 这个表 / 这一段 / 当前这个模型」等指代时，按快照理解。\n- 快照只覆盖用户当时可见的部分，页面其余内容可能未捕获；若信息不足以回答，请说明并请用户补充。\n\n【边界】\n- 拒绝涉政、涉黄、暴力违法内容。\n- 不冒充真实人物、不提供医疗/法律/金融的最终结论（给方向不给结论）。\n- 涉及 MiniMax / Anthropic / OpenAI / Google 等厂商内部信息，明确「未公开 / 未核实」。',
+    welcome: '你好，我是情报局 AI 助手 ✦\n可以问我大模型、秋招面试相关的问题。我会**自动感知你正在看的页面**，直接问「这个表怎么读」「当前这个模型」就行。**按住我可以拖到任何角落**，面板标题栏也能拖动。',
+    contextChars: 6000,  /* 页面上下文字符预算（标题+大纲约1.2K / 正文摘录约45% / 表格约35%） */
     chips: [
       { label: '🧠 Pre-Norm vs Post-Norm', text: '讲讲 Pre-Norm 和 Post-Norm 的区别，各自优缺点？' },
       { label: '🎯 字节校招考什么', text: '字节 2027 校招大模型算法岗重点考察什么？' },
@@ -120,6 +125,19 @@
     '.ai-code{background:#151820;color:#dbe2f0;border-radius:10px;padding:10px 12px;margin:6px 0;',
     'overflow-x:auto;font:12px/1.55 ui-monospace,Consolas,Menlo,monospace;}',
     '.ai-m.b a{color:#4f46e5;}',
+
+    /* ----- 页面上下文徽标（用户消息下方） ----- */
+    '.ai-ctx{align-self:flex-end;margin:-7px 2px 2px;font-size:10.5px;color:#8a94a6;cursor:pointer;',
+    'user-select:none;-webkit-user-select:none;display:inline-flex;align-items:center;gap:3px;max-width:100%;',
+    'padding:2px 9px;border-radius:999px;border:1px solid rgba(15,23,42,.1);background:rgba(255,255,255,.55);',
+    'white-space:nowrap;overflow:hidden;text-overflow:ellipsis;',
+    'transition:color .15s ease,border-color .15s ease;}',
+    '.ai-ctx:hover,.ai-ctx.open{color:#4f46e5;border-color:rgba(99,102,241,.45);}',
+    '.ai-ctx-view{align-self:stretch;margin:0 2px 8px;display:none;max-height:170px;overflow-y:auto;',
+    'background:rgba(99,102,241,.05);border:1px dashed rgba(99,102,241,.35);border-radius:10px;padding:8px 10px;',
+    'font:10.5px/1.55 ui-monospace,Consolas,Menlo,monospace;color:#5b6575;white-space:pre-wrap;word-break:break-word;}',
+    '.ai-ctx-view::-webkit-scrollbar{width:4px;}',
+    '.ai-ctx-view::-webkit-scrollbar-thumb{background:rgba(120,130,150,.3);border-radius:3px;}',
     '.ai-caret{display:inline-block;width:7px;height:14px;vertical-align:-2px;margin-left:2px;border-radius:2px;',
     'background:#6366f1;animation:aiCaret .9s steps(2) infinite;}',
     '@keyframes aiCaret{0%,49%{opacity:1;}50%,100%{opacity:0;}}',
@@ -213,6 +231,9 @@
     '.ai-dark .ai-m.b a{color:#a5b4fc;}',
     '.ai-dark .ai-chip{border-color:rgba(129,140,248,.4);background:rgba(129,140,248,.1);color:#a5b4fc;}',
     '.ai-dark .ai-chip:hover{background:rgba(129,140,248,.18);}',
+    '.ai-dark .ai-ctx{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:#9aa5b8;}',
+    '.ai-dark .ai-ctx:hover,.ai-dark .ai-ctx.open{color:#a5b4fc;border-color:rgba(129,140,248,.45);}',
+    '.ai-dark .ai-ctx-view{background:rgba(129,140,248,.08);border-color:rgba(129,140,248,.35);color:#c3cadb;}',
     '.ai-dark .ai-input{background:rgba(255,255,255,.03);border-top-color:rgba(255,255,255,.08);}',
     '.ai-dark .ai-input textarea{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#e6eaf4;}',
     '.ai-dark .ai-input textarea:focus{border-color:#818cf8;box-shadow:0 0 0 3px rgba(129,140,248,.15);}',
@@ -517,6 +538,26 @@
     msgs.scrollTop = msgs.scrollHeight;
     return d;
   }
+  /* 用户消息下方的「已附页面上下文」徽标：点击展开查看实际捕获内容 */
+  function addCtxBadge(ctx) {
+    if (!ctx || !ctx.text) return;
+    var b = document.createElement('div');
+    b.className = 'ai-ctx';
+    b.textContent = '📍 已附本页上下文 · ' + (ctx.title || location.pathname).slice(0, 30);
+    b.title = '点击查看随这条消息发送给 AI 的页面上下文';
+    var view = document.createElement('div');
+    view.className = 'ai-ctx-view';
+    view.textContent = ctx.text;
+    b.addEventListener('click', function () {
+      var open = view.style.display !== 'block';
+      view.style.display = open ? 'block' : 'none';
+      b.classList.toggle('open', open);
+      if (open) msgs.scrollTop = msgs.scrollHeight;
+    });
+    msgs.appendChild(b);
+    msgs.appendChild(view);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
   function renderChips() {
     if (!AI_CONFIG.chips || !AI_CONFIG.chips.length) return;
     AI_CONFIG.chips.forEach(function (c) {
@@ -532,10 +573,195 @@
     });
   }
 
-  /* ---------- 页面上下文 ---------- */
-  function systemWithPage() {
-    var t = (document.title || '').slice(0, 80);
-    return AI_CONFIG.systemPrompt + '\n\n当前用户正在浏览的页面：' + t + '（' + location.href + '）。回答时可结合该页面内容。';
+  /* ---------- 页面上下文感知（v2.2） ----------
+     提问瞬间对当前页做一次 DOM 快照（每次提问重新捕获，反映滚动/筛选变化）：
+     ① 标题 + 路由（深链参数天然携带搜索/展开状态）
+     ② 页面小节大纲（h1~h3，全页可见即可，无需在视口内）
+     ③ 搜索框 / 下拉 / .active 筛选 chip 的当前值
+     ④ 与视口相交的可见正文块（p/li/blockquote 等，折叠内容天然过滤）
+     ⑤ 可见表格转紧凑 Markdown（视口相交行优先，行×列×单元格均限幅）
+     预算：AI_CONFIG.contextChars（默认 6000），超额优先保标题+表格、截断正文并注明 */
+  var CTX_EXCLUDE = '#ai-dock,#ai-panel,.ai-mask,script,style,noscript,template,nav,footer,.tabs,#related-content';
+
+  function ctxExcluded(el) {
+    return !!(el && el.closest && el.closest(CTX_EXCLUDE));
+  }
+  /* 元素对用户可见：非 display:none，有尺寸，且与视口相交（上下各放宽 120px 缓冲） */
+  function ctxInView(el) {
+    var r = el.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2) return false;
+    return r.bottom > -120 && r.top < window.innerHeight + 120;
+  }
+  /* 元素已渲染（不要求在视口内，用于全页大纲） */
+  function ctxShown(el) {
+    return !!(el.offsetParent || (el.getBoundingClientRect().width > 2));
+  }
+  function ctxTxt(el, cap) {
+    return (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, cap || 200);
+  }
+
+  /* ② 小节大纲 */
+  function ctxOutline() {
+    var out = [], hs = document.querySelectorAll('h1,h2,h3');
+    for (var i = 0; i < hs.length && out.length < 60; i++) {
+      var h = hs[i];
+      if (ctxExcluded(h) || !ctxShown(h)) continue;
+      var t = ctxTxt(h, 60);
+      if (t) out.push(new Array(Math.max(1, +h.tagName.charAt(1))).join('  ') + '- ' + t);
+    }
+    return out;
+  }
+
+  /* ③ 搜索 / 筛选状态 */
+  function ctxState() {
+    var parts = [];
+    var inputs = document.querySelectorAll('input[type=text],input[type=search],input:not([type])');
+    for (var i = 0; i < inputs.length && parts.length < 6; i++) {
+      if (ctxExcluded(inputs[i])) continue;
+      var v = (inputs[i].value || '').trim();
+      if (v) parts.push('搜索「' + v.slice(0, 40) + '」');
+    }
+    var sels = document.querySelectorAll('select');
+    for (var j = 0; j < sels.length && parts.length < 8; j++) {
+      if (ctxExcluded(sels[j])) continue;
+      var so = sels[j].selectedOptions && sels[j].selectedOptions[0];
+      if (so && so.value) parts.push(ctxTxt(sels[j].labels && sels[j].labels[0] || sels[j], 12) + '=' + ctxTxt(so, 30));
+    }
+    var acts = document.querySelectorAll('button.active,.chip.active,.seg.active,.tab.active,.filter.active,[aria-pressed=true]');
+    for (var k = 0; k < acts.length && parts.length < 14; k++) {
+      if (ctxExcluded(acts[k])) continue;
+      var t = ctxTxt(acts[k], 20);
+      if (t) parts.push('选中「' + t + '」');
+    }
+    return parts;
+  }
+
+  /* ④ 视口可见正文：TreeWalker 文本节点归组，兼容纯 DIV/SPAN 结构的页面
+       归宿规则：向上找到 P/LI/H4~H6/BLOCKQUOTE 等细块 → 全文为一行；
+       遇到无块级子元素的 DIV/SECTION（叶子容器）→ 其文本为一行；
+       表格单元格 / 链接 / 按钮 / h1~h3 的文本跳过（表格另有转换，标题走大纲） */
+  var CTX_SKIP_UP = { TABLE: 1, THEAD: 1, TBODY: 1, TFOOT: 1, TR: 1, TD: 1, TH: 1, CAPTION: 1, BUTTON: 1, A: 1, SELECT: 1, OPTION: 1, LABEL: 1, H1: 1, H2: 1, H3: 1, NOSCRIPT: 1 };
+  var CTX_FINE = { P: 1, LI: 1, BLOCKQUOTE: 1, FIGCAPTION: 1, DT: 1, DD: 1, PRE: 1, SUMMARY: 1, H4: 1, H5: 1, H6: 1 };
+  function ctxHostOf(el) {
+    for (var e = el; e && e !== document.body; e = e.parentElement) {
+      var tag = e.tagName;
+      if (CTX_SKIP_UP[tag]) return null;
+      if (CTX_FINE[tag]) return e;
+      if (tag === 'DIV' || tag === 'SECTION') {
+        var blocky = false;
+        for (var c = e.firstElementChild; c; c = c.nextElementSibling) {
+          var ct = c.tagName;
+          if (ct === 'DIV' || ct === 'P' || ct === 'UL' || ct === 'OL' || ct === 'LI' || ct === 'TABLE' ||
+              ct === 'SECTION' || ct === 'H1' || ct === 'H2' || ct === 'H3' || ct === 'H4' ||
+              ct === 'BLOCKQUOTE' || ct === 'PRE') { blocky = true; break; }
+        }
+        if (!blocky) return e;
+      }
+    }
+    return null;
+  }
+  function ctxTextLines() {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var node, lines = [], outer = [], count = 0;
+    while ((node = walker.nextNode()) && count < 8000 && lines.length < 120) {
+      count++;
+      if (!(node.nodeValue || '').trim()) continue;
+      var parent = node.parentElement;
+      if (!parent || ctxExcluded(parent)) continue;
+      var host = ctxHostOf(parent);
+      if (!host || ctxExcluded(host)) continue;
+      var dup = false;
+      for (var j = 0; j < outer.length; j++) {
+        if (outer[j].contains(host)) { dup = true; break; }
+      }
+      if (dup) continue;
+      if (!ctxInView(host)) continue;
+      var t = ctxTxt(host, 300);
+      if (t.length < 2) continue;
+      lines.push((host.tagName === 'SUMMARY' ? '▸ ' : '') + t);
+      outer.push(host);
+    }
+    return lines;
+  }
+
+  /* ⑤ 表格转 Markdown：视口相交行优先，不足则从头补；限 24 行 × 10 列 × 单元格 20 字 */
+  function ctxRowMd(tr) {
+    var cells = tr.querySelectorAll('th,td'), vals = [];
+    for (var c = 0; c < cells.length && c < 10; c++) vals.push(ctxTxt(cells[c], 20));
+    return '| ' + vals.join(' | ') + ' |';
+  }
+  function ctxTableMd(tb) {
+    var rows = tb.querySelectorAll('tr'), inView = [];
+    for (var i = 0; i < rows.length; i++) {
+      if (ctxInView(rows[i])) inView.push(rows[i]);
+    }
+    var use = inView.length >= 6 ? inView : Array.prototype.slice.call(rows, 0);
+    if (use.length > 24) use = use.slice(0, 24);
+    var out = [];
+    for (var r = 0; r < use.length; r++) {
+      out.push(ctxRowMd(use[r]));
+      if (r === 0) {
+        var n = Math.min(use[0].querySelectorAll('th,td').length, 10), sep = [];
+        for (var s = 0; s < n; s++) sep.push('---');
+        out.push('| ' + sep.join(' | ') + ' |');
+      }
+    }
+    return '（共 ' + rows.length + ' 行' + (rows.length > 24 ? '，节选前/可见 ' + use.length + ' 行' : '') + '）\n' + out.join('\n');
+  }
+  function ctxTables() {
+    var tbs = document.querySelectorAll('table'), picked = [];
+    for (var i = 0; i < tbs.length && picked.length < 2; i++) {
+      if (!ctxExcluded(tbs[i]) && tbs[i].rows && tbs[i].rows.length >= 2 && ctxInView(tbs[i])) picked.push(tbs[i]);
+    }
+    if (!picked.length) {  /* 视口无表格时兜底：页面第一个大表（≥6 行）取开头 */
+      for (var k = 0; k < tbs.length; k++) {
+        if (!ctxExcluded(tbs[k]) && tbs[k].rows && tbs[k].rows.length >= 6) { picked.push(tbs[k]); break; }
+      }
+    }
+    if (!picked.length) return '';
+    var out = [];
+    for (var p = 0; p < picked.length; p++) out.push('表格' + (picked.length > 1 ? (p + 1) : '') + ' ' + ctxTableMd(picked[p]));
+    return out.join('\n\n');
+  }
+
+  /* 组装快照，预算分配：基础信息 ≤1200，正文摘录 ≤45%，表格 ≤35% */
+  function buildPageContext() {
+    var budget = +AI_CONFIG.contextChars > 500 ? +AI_CONFIG.contextChars : 6000;
+    var title = (document.title || '').replace(/\s+/g, ' ').trim().slice(0, 100);
+    var lines = [];
+    lines.push('【用户当前页面上下文】（系统于提问时刻自动捕获）');
+    lines.push('页面：' + title);
+    lines.push('路由：' + location.href);
+    var st = ctxState();
+    if (st.length) lines.push('当前搜索/筛选状态：' + st.join('；'));
+    var outline = ctxOutline();
+    if (outline.length) {
+      var o = outline.join('\n');
+      if (o.length > 1100) o = o.slice(0, 1100) + '\n…（小节过多已截断）';
+      lines.push('页面小节结构：\n' + o);
+    }
+    var tl = ctxTextLines();
+    if (tl.length) {
+      var capTxt = Math.round(budget * 0.45), buf = [], used = 0;
+      for (var i = 0; i < tl.length; i++) {
+        if (used + tl[i].length > capTxt) { buf.push('…（可见内容较多已截断）'); break; }
+        buf.push('- ' + tl[i]);
+        used += tl[i].length + 2;
+      }
+      lines.push('用户当前视口可见内容摘录：\n' + buf.join('\n'));
+    }
+    var tbs = ctxTables();
+    if (tbs) {
+      var capTb = Math.round(budget * 0.35);
+      lines.push('页面表格节选：\n' + (tbs.length > capTb ? tbs.slice(0, capTb) + '\n…（表格已截断）' : tbs));
+    }
+    var text = lines.join('\n\n');
+    if (text.length > budget) text = text.slice(0, budget) + '\n…（上下文已达上限，未能全部附上）';
+    return { title: title, text: text };
+  }
+
+  function systemWithPage(ctx) {
+    return AI_CONFIG.systemPrompt + '\n\n' + ctx.text;
   }
 
   /* ---------- 流式请求 ---------- */
@@ -591,6 +817,8 @@
     if (!text || busy) return;
     chipsBox.innerHTML = '';
     addMsg('u', text);
+    var pageCtx = buildPageContext();  /* 提问瞬间快照：滚动/筛选/展开状态最新 */
+    addCtxBadge(pageCtx);
     ta.value = '';
     ta.style.height = 'auto';
     history.push({ role: 'user', content: text });
@@ -611,7 +839,7 @@
       return;
     }
 
-    var payloadMsgs = [{ role: 'system', content: systemWithPage() }].concat(history.slice(-20));
+    var payloadMsgs = [{ role: 'system', content: systemWithPage(pageCtx) }].concat(history.slice(-20));
     var bubble = null, acc = '', finished = false, rafId = null;
 
     function ensureBubble() {
@@ -695,6 +923,8 @@
 
       '<p>本站 AI 助手支持任何 <b>OpenAI 兼容接口</b>（DeepSeek / 硅基流动 / Kimi / 智谱 / OpenAI / OpenRouter 等）。配置集中在 <code class="ai-ic">assets/ai-assistant.js</code> 顶部的 <code class="ai-ic">AI_CONFIG</code>，改这一个文件，全站 15+ 页面同时生效。</p>' +
 
+      '<div class="tip">📍 <b>页面上下文感知（v2.2 已上线）</b>：提问时助手会自动捕获你正在看的页面（标题、路由、小节结构、搜索筛选状态、视口可见内容与表格节选）一并发给 AI，所以可以直接问「这个表怎么读」「当前这个模型」。每条消息下方有 <b>📍 徽标</b>，点击可查看实际发送了哪些上下文。捕获预算由 <code class="ai-ic">AI_CONFIG.contextChars</code> 控制（默认 6000 字符）。</div>' +
+
       '<h4><span class="n">A</span>方式一 · 直连（简单，5 分钟）</h4>' +
       '<p>直接把 API 信息填进 <code class="ai-ic">AI_CONFIG</code> 的三个字段：</p>' +
       '<table><tr><th>字段</th><th>填什么</th></tr>' +
@@ -755,6 +985,11 @@
 
       '<h4><span class="n">D</span>更新待办</h4>' +
       '<table><tr><th>事项</th><th>状态</th><th>说明</th></tr>' +
+      '<tr>' +
+      '<td>页面上下文感知</td>' +
+      '<td>✅ 已上线（2026-09-02）</td>' +
+      '<td>AI 助手 v2.2：提问时自动捕获当前页面（标题 / 路由深链 / 小节大纲 / 搜索筛选状态 / 视口可见内容 / 表格节选）作为回答上下文，消息下方 📍 徽标可展开审计。预算 <code class="ai-ic">contextChars</code> 可调。</td>' +
+      '</tr>' +
       '<tr>' +
       '<td>飞书推送接入</td>' +
       '<td>⏳ 待配置</td>' +
