@@ -192,11 +192,80 @@ def build_html(today, events, more_events, new_models, top_aa, top_arena, stage)
     return ''.join(h)
 
 
+# ── Markdown 组装（发 GitHub Issue，@提及触发官方邮件提醒） ──
+def build_markdown(today, events, more_events, new_models, top_aa, top_arena, stage):
+    week = today.isocalendar()[1]
+    rng = f"{(today - timedelta(days=6)).strftime('%m-%d')} ~ {today.strftime('%m-%d')}"
+    m = ["@Xplore-LAB\n",
+         f"> 📮 情报局周报 · 第 {week} 周 · {rng} · [llm-tracker]({SITE})\n"]
+
+    m.append(f"## 📡 前沿动态（近 7 天 {len(events) + more_events} 条）")
+    if events:
+        for e in events:
+            m.append(f"- **{e.get('date', '')[5:]}** [{trim(e.get('title'), 46)}]({e.get('url') or SITE + 'agents/'}) · {trim(e.get('company'), 14)}")
+        if more_events:
+            m.append(f"\n另有 {more_events} 条，见 [Agent 前线]({SITE}agents/)")
+    else:
+        m.append(f"本周无自动合入事件，可逛 [Agent 前线]({SITE}agents/) 存量 121+ 条")
+    m.append("")
+
+    m.append("## 🧬 新模型与榜单")
+    if new_models:
+        m.append(f"近 7 天新发布 **{len(new_models)}** 个：")
+        for x in new_models[:8]:
+            note = f" — {trim(x.get('note'), 40)}" if x.get('note') else ''
+            m.append(f"- **{x.get('model')}**（{x.get('company')}）· {x.get('date', '')[5:]}{note}")
+    else:
+        m.append("本周无新模型入档")
+    m.append("")
+    if top_aa:
+        m.append("**AA Intelligence Index Top 5**（能力口径）\n")
+        m.append("| # | 模型 | 厂商 | AA |")
+        m.append("|---|---|---|---|")
+        for i, x in enumerate(top_aa, 1):
+            m.append(f"| {i} | {x['model']} | {x.get('company') or ''} | {x['aa']} |")
+        m.append("")
+    if top_arena:
+        m.append("**Arena Elo Top 3**（人类偏好口径）\n")
+        m.append("| # | 模型 | Elo |")
+        m.append("|---|---|---|")
+        for i, x in enumerate(top_arena, 1):
+            m.append(f"| {i} | {x['model']} | {x['arena']} |")
+        m.append("")
+    m.append(f"> 双榜口径不同不可互相换算；完整 50 模型见 [排行榜]({SITE}leaderboard/)，模型时序见 [模型页]({SITE}models/)\n")
+
+    if stage:
+        m.append(f"## 📚 本周学习主题 · {stage.get('icon', '')} {stage.get('title', '')}")
+        m.append(f"{trim(stage.get('intro'), 110)}\n")
+        for c in stage.get('concepts', [])[:MAX_CONCEPTS]:
+            qlink = quote(c.get('term') or '')
+            m.append(f"- 概念：[{c.get('term')}]({SITE}glossary/?q={qlink}) — {trim(c.get('desc'), 44)}")
+        for p in stage.get('papers', [])[:MAX_PAPERS]:
+            pid = p.get('id', '')
+            plink = f"https://arxiv.org/abs/{pid}" if pid else SITE + 'chronicle/'
+            venue = p.get('venue', {})
+            vtxt = f" · {venue.get('name', '')}" if isinstance(venue, dict) and venue.get('name') else ''
+            m.append(f"- 论文：[{p.get('title')}]({plink}){vtxt} · {trim(p.get('note'), 36)}")
+        m.append(f"\n七阶段按周轮换；顺路逛 [LLM 博物馆]({SITE}museum/)，动手见 [实验室]({SITE}lab/)\n")
+
+    m.append("---")
+    m.append(f"事件由每日 Agent 管线自动合入（置信度 ≥ 0.85）；每周五 18:00 由 GitHub Actions 自动发布本 Issue，"
+             f"@提及 即触发 GitHub 官方邮件提醒。")
+    return "\n".join(m)
+
+
 def main():
     today = date.today()
     events, more, new_models, top_aa, top_arena, stage = load_sections(today)
     html = build_html(today, events, more, new_models, top_aa, top_arena, stage)
     subject = f'📮 情报局周报 · 第 {today.isocalendar()[1]} 周（{today.strftime("%m-%d")}）'
+
+    # Markdown 版恒定产出：供 weekly-digest workflow 发 Issue（GitHub 官方提醒）
+    md = build_markdown(today, events, more, new_models, top_aa, top_arena, stage)
+    with open(os.path.join(ROOT, 'weekly_digest.md'), 'w', encoding='utf-8') as f:
+        f.write(md)
+    with open(os.path.join(ROOT, 'weekly_digest_title.txt'), 'w', encoding='utf-8') as f:
+        f.write(subject)
 
     to = os.environ.get('DIGEST_TO', '').strip()
     host = os.environ.get('DIGEST_SMTP_HOST', '').strip()
@@ -205,10 +274,7 @@ def main():
     port = int(os.environ.get('DIGEST_SMTP_PORT', '465'))
 
     if not all([to, host, user, pwd]):
-        prev = os.path.join(ROOT, 'weekly_digest_preview.html')
-        with open(prev, 'w', encoding='utf-8') as f:
-            f.write(f'<meta charset="utf-8"><title>{esc(subject)}</title><body style="background:#f4efe0;padding:24px;">{html}</body>')
-        print(f'[dry-run] 缺 SMTP 配置，未发信。预览已写入 {prev}')
+        print(f'[dry-run] 缺 SMTP 配置，未发邮件。weekly_digest.md / weekly_digest_title.txt 已产出')
         print(f'[dry-run] 主题: {subject}')
         print(f'[dry-run] 近7天: Agent事件 {len(events) + more} 条 / 新模型 {len(new_models)} 个 / '
               f'学习主题 {stage.get("title") if stage else "无"}')

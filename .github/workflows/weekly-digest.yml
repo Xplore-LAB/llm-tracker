@@ -1,12 +1,12 @@
-name: Weekly Digest Email
+name: Weekly Digest (GitHub 官方提醒)
 
 on:
   schedule:
     - cron: '0 10 * * 5'   # UTC 10:00 = 北京 18:00，周五晚
-  workflow_dispatch:        # 手动触发，可配合 secrets 首次调试
+  workflow_dispatch:        # 手动触发
 
 permissions:
-  contents: read
+  issues: write
 
 concurrency:
   group: weekly-digest
@@ -19,19 +19,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build & send weekly digest
-        env:
-          DIGEST_TO:      ${{ secrets.DIGEST_TO }}
-          DIGEST_SMTP_HOST: ${{ secrets.DIGEST_SMTP_HOST }}
-          DIGEST_SMTP_PORT: ${{ secrets.DIGEST_SMTP_PORT }}
-          DIGEST_SMTP_USER: ${{ secrets.DIGEST_SMTP_USER }}
-          DIGEST_SMTP_PASS: ${{ secrets.DIGEST_SMTP_PASS }}
+      - name: Build digest content
         run: python3 scripts/weekly_digest.py
+        # 产出 weekly_digest.md + weekly_digest_title.txt
+        # 若额外配置了 DIGEST_* 系列 SMTP secrets，会同时发送邮件（可选）
 
-      - name: Upload dry-run preview on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: weekly-digest-preview
-          path: weekly_digest_preview.html
-          if-no-files-found: ignore
+      - name: Close previous digest issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "周报" --color "B0883A" --description "每周五 18:00 情报局周报" 2>/dev/null || true
+          for n in $(gh issue list --label "周报" --state open --json number -q '.[].number'); do
+            gh issue close "$n" --comment "本周新周报已发布，归档。" || true
+          done
+
+      - name: Create digest issue (@提及触发官方邮件提醒)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE=$(cat weekly_digest_title.txt)
+          gh issue create --title "$TITLE" --body-file weekly_digest.md --label "周报"
