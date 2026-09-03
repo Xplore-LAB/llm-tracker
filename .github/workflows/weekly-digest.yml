@@ -1,0 +1,37 @@
+name: Weekly Digest Email
+
+on:
+  schedule:
+    - cron: '0 10 * * 5'   # UTC 10:00 = 北京 18:00，周五晚
+  workflow_dispatch:        # 手动触发，可配合 secrets 首次调试
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weekly-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build & send weekly digest
+        env:
+          DIGEST_TO:      ${{ secrets.DIGEST_TO }}
+          DIGEST_SMTP_HOST: ${{ secrets.DIGEST_SMTP_HOST }}
+          DIGEST_SMTP_PORT: ${{ secrets.DIGEST_SMTP_PORT }}
+          DIGEST_SMTP_USER: ${{ secrets.DIGEST_SMTP_USER }}
+          DIGEST_SMTP_PASS: ${{ secrets.DIGEST_SMTP_PASS }}
+        run: python3 scripts/weekly_digest.py
+
+      - name: Upload dry-run preview on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-digest-preview
+          path: weekly_digest_preview.html
+          if-no-files-found: ignore
