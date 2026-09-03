@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-02",
-  "total_models": 311,
-  "with_real_size": 144,
-  "coverage": "46.3%",
+  "fetch_time": "2026-09-03",
+  "total_models": 321,
+  "with_real_size": 150,
+  "coverage": "46.7%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -3039,6 +3039,62 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Ling-2.6",
+      "company": "AntGroup",
+      "date": "2026-06-02",
+      "id": "2606.15079",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ling-2.6-1T-base",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ling-2.6-1T",
+      "size_total_gb": 970.29
+    },
+    {
+      "model": "Ling-2.6-flash",
+      "company": "AntGroup",
+      "date": "2026-06-02",
+      "id": "2606.15079",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ling-2.6-flash-base",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ling-2.6-flash",
+      "size_total_gb": 200.23
+    },
+    {
+      "model": "Qwen3.7-Plus",
+      "company": "Qwen",
+      "date": "2026-06-03",
+      "id": "",
+      "title": "",
+      "note": "Qwen3.7-Plus is a cost-effective model in Alibaba's Qwen3.7 ",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Nemotron-3.5-Content-Safety",
+      "company": "Nvidia",
+      "date": "2026-06-04",
+      "id": "",
+      "title": "",
+      "note": "NVIDIA Nemotron 3.5 Content Safety is a compact 4B-parameter",
+      "papers": 0,
+      "url": "",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/Nemotron-3.5-Content-Safety",
+      "size_total_gb": 8.01
+    },
+    {
       "model": "Baichuan-M4",
       "company": "Baichuan",
       "date": "2026-06-08",
@@ -3063,6 +3119,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Claude-Fable-5",
+      "company": "Anthropic",
+      "date": "2026-06-09",
+      "id": "",
+      "title": "",
+      "note": "Claude Fable 5 is a Mythos-class model from Anthropic, built",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Nemotron-3-Ultra",
       "company": "Nvidia",
       "date": "2026-06-12",
@@ -3073,6 +3143,20 @@
       "hf_repo": "nvidia/Nemotron-3-Ultra-253B",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "Kimi-K2.7-Code",
+      "company": "Moonshot",
+      "date": "2026-06-12",
+      "id": "",
+      "title": "",
+      "note": "MoonshotAI: Kimi K2.7 Code is a coding-focused model in Moon",
+      "papers": 0,
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "moonshotai/Kimi-K2.7-Code",
+      "size_total_gb": 554.3
     },
     {
       "model": "MolmoMotion-4B-H3-F30",
@@ -3086,6 +3170,20 @@
       "source": "hf_tree",
       "discovered": true,
       "hf_repo": "allenai/MolmoMotion-4B-H3-F30",
+      "size_total_gb": 34.69
+    },
+    {
+      "model": "MolmoMotion-4B-H1-F32",
+      "company": "AllenAI",
+      "date": "2026-06-15",
+      "id": "2606.18558",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/MolmoMotion-4B-H1-F32",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "allenai/MolmoMotion-4B-H1-F32",
       "size_total_gb": 34.69
     },
     {
@@ -3931,6 +4029,20 @@
       "size_total_gb": null
     },
     {
+      "model": "Qwen-Drive-1.0",
+      "company": "Qwen",
+      "date": "2026-08-27",
+      "id": "2609.00111",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/Qwen/Qwen-Drive-1.0-4B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "Qwen/Qwen-Drive-1.0-4B",
+      "size_total_gb": 12.79
+    },
+    {
       "model": "Hy4",
       "company": "Tencent",
       "date": "2026-08-28",
@@ -3951,6 +4063,34 @@
       "id": "",
       "title": "",
       "note": "Claude Fable 5.1 improves on Claude Fable 5 across the board",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Muse-Spark-1.3",
+      "company": "Meta",
+      "date": "2026-09-02",
+      "id": "",
+      "title": "",
+      "note": "Muse Spark 1.3 is a multimodal reasoning model from Meta for",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Gemini-3.8-Flash",
+      "company": "Google",
+      "date": "2026-09-02",
+      "id": "",
+      "title": "",
+      "note": "Gemini 3.8 Flash is Google's most intelligent Flash model wi",
       "papers": 0,
       "url": "",
       "source": "no_mapping",
