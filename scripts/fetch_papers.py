@@ -11,7 +11,7 @@ Key improvements:
 Usage: python3 fetch_papers.py
 """
 import urllib.request, urllib.parse, json, os, re, time
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 # ── Topic queries (for general papers) ─────────────────────
 QUERIES = [
@@ -183,12 +183,74 @@ TAG_RULES = [
 MAX_RESULTS_TOPIC = 120
 MAX_RESULTS_COMPANY = 50
 
+# ── Affiliation sweep config ─────────────────────────────
+# arXiv's Atom API does not expose author affiliations, but the LaTeXML HTML
+# rendering (arxiv.org/html/<id>) shows them. The sweep fetches recent
+# LLM-related papers (cs.CL + cs.AI + cs.LG), checks each paper's author
+# block once against per-company affiliation keywords, and claims matched
+# papers into company-papers.json. Catches vendor papers whose titles lack
+# brand names (e.g. Hunyuan's "When Do Larger Batches Help Scale LLM RL?").
+SWEEP_QUERY = (
+    'ti:LLM OR abs:LLM OR ti:"language model" OR abs:"language model" '
+    'OR ti:"language models" OR abs:"language models" '
+    'OR ti:GPT OR abs:GPT OR abs:"foundation model"'
+)
+SWEEP_CATS = "(cat:cs.CL OR cat:cs.AI OR cat:cs.LG)"
+SWEEP_DAYS_DEFAULT = 7
+SWEEP_PAGE = 400            # arXiv API page size for the sweep
+SWEEP_MAX_TOTAL = 1200      # newest-first hard cap per run
+SWEEP_STATE = "papers-affil-checked.json"
+SWEEP_STATE_PRUNE_DAYS = 45
 
-def fetch_arxiv(query, tag, max_results=30, start=0):
+# Conservative affiliation keywords (word-boundary matched for single words,
+# substring matched for phrases). Tighter than COMPANY_CONFIG author_keywords
+# on purpose: an affiliation sweep must not claim academic papers that merely
+# collaborate with or mention a vendor.
+AFFILIATION_KEYWORDS = {
+    "OpenAI":   ["openai"],
+    "Google":   ["google deepmind", "deepmind", "google research", "google brain",
+                 "google llc", "google cloud"],
+    "Anthropic": ["anthropic"],
+    "Meta":     ["meta platforms", "meta ai", "meta fair", "meta reality labs", "facebook"],
+    "DeepSeek": ["deepseek"],
+    "Qwen":     ["qwen", "tongyi", "alibaba", "damo academy", "aliyun"],
+    "Mistral":  ["mistral ai", "mistral"],
+    "Baidu":    ["baidu"],
+    "Xiaomi":   ["xiaomi"],
+    "MiniMax":  ["minimax"],
+    "Zhipu":    ["zhipu", "chatglm"],
+    "Moonshot": ["moonshot"],
+    "Tencent":  ["tencent", "hunyuan"],
+    "Microsoft": ["microsoft"],
+    "Nvidia":   ["nvidia"],
+    "IBM":      ["ibm"],
+    "AllenAI":  ["allen institute", "allenai", "ai2"],
+    "TII":      ["technology innovation institute", "advanced technology research council"],
+    "xAI":      ["xai", "x.ai"],
+    "01.AI":    ["01.ai", "lingyi"],
+    "Baichuan": ["baichuan"],
+    "InternLM": ["shanghai artificial intelligence laboratory", "shanghai ai laboratory",
+                 "shanghai ai lab", "internlm", "shanghai innovation institute"],
+    "Databricks": ["databricks", "mosaicml"],
+    "AI21":     ["ai21"],
+    "LG":       ["lg ai research", "lg electronics"],
+    "Cohere":   ["cohere"],
+    "ByteDance": ["bytedance", "byte dance"],
+    "StepFun":  ["stepfun", "step fun"],
+    "Meituan":  ["meituan"],
+    "AntGroup": ["ant group", "antgroup", "inclusionai"],
+    "ModelBest": ["modelbest", "openbmb"],
+    "Huawei":   ["huawei", "noah's ark"],
+    "Skywork":  ["skywork"],
+    "SenseTime": ["sensetime", "sense time"],
+}
+
+
+def fetch_arxiv(query, tag, max_results=30, start=0, cats="(cat:cs.CL OR cat:cs.AI)"):
     """Fetch papers from arXiv API with correct query syntax and 429 retry."""
     import http.client
     params = urllib.parse.urlencode({
-        "search_query": f"(cat:cs.CL OR cat:cs.AI) AND ({query})",
+        "search_query": f"{cats} AND ({query})",
         "start": start,
         "max_results": max_results,
         "sortBy": "submittedDate",
@@ -493,6 +555,134 @@ def classify_existing_by_title(all_papers):
     return classified
 
 
+def load_sweep_state():
+    if os.path.exists(SWEEP_STATE):
+        try:
+            with open(SWEEP_STATE) as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {}
+
+
+def save_sweep_state(state):
+    cutoff = (datetime.now(timezone.utc)
+              - timedelta(days=SWEEP_STATE_PRUNE_DAYS)).strftime("%Y-%m-%d")
+    state = {pid: d for pid, d in state.items() if d >= cutoff}
+    with open(SWEEP_STATE, "w") as f:
+        json.dump(state, f, ensure_ascii=False)
+
+
+def _kw_hit(text, kw):
+    """Case-insensitive keyword hit: substring for phrases, word-boundary for tokens."""
+    if " " in kw or "." in kw:
+        return kw in text
+    return re.search(r"\b" + re.escape(kw) + r"\b", text) is not None
+
+
+def fetch_author_block(pid):
+    """Fetch the author/affiliation block from arXiv's LaTeXML HTML page.
+
+    Returns (text, permanent): text is the lowercased plain-text author block
+    (or None); permanent=True means the paper has been definitively checked
+    (404 / no author block / parsed OK) and should not be re-fetched.
+    Transient network failures return (None, False) so the next run retries.
+    """
+    url = f"https://arxiv.org/html/{pid}"
+    for attempt in range(2):
+        try:
+            req = urllib.request.Request(
+                url, headers={"User-Agent": "llm-tracker-papers/1.0 (affiliation sweep)"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                html = r.read().decode("utf-8", "ignore")
+            i = html.find("ltx_authors")
+            if i < 0:
+                return None, True   # HTML exists but no author block (rare)
+            j = html.find("ltx_abstract", i)
+            block = html[i:j if j > 0 else i + 12000]
+            return re.sub(r"<[^>]+>", " ", block).lower(), True
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return None, True   # no HTML rendering for this paper
+            time.sleep(3)
+        except Exception:
+            time.sleep(3)
+    return None, False
+
+
+def match_affiliation(text):
+    """Return (company, hits) with the most affiliation keyword hits."""
+    best = (None, 0)
+    for company, kws in AFFILIATION_KEYWORDS.items():
+        hits = sum(1 for kw in kws if _kw_hit(text, kw))
+        if hits > best[1]:
+            best = (company, hits)
+    return best
+
+
+def affiliation_sweep(existing_map, existing_company_map, all_papers,
+                      days=SWEEP_DAYS_DEFAULT):
+    """Claim recent vendor papers via author-affiliation matching.
+
+    Mutates existing_map / existing_company_map / all_papers in place and
+    returns the list of newly claimed company papers. Each paper's HTML page
+    is fetched at most once ever (state in papers-affil-checked.json).
+    """
+    state = load_sweep_state()
+    now = datetime.now(timezone.utc)
+    lo = (now - timedelta(days=days)).strftime("%Y%m%d%H%M")
+    hi = now.strftime("%Y%m%d%H%M")
+    query = f"({SWEEP_QUERY}) AND submittedDate:[{lo} TO {hi}]"
+
+    seen, candidates = set(), []
+    start = 0
+    while start < SWEEP_MAX_TOTAL:
+        page = fetch_arxiv(query, "Sweep", max_results=SWEEP_PAGE,
+                           start=start, cats=SWEEP_CATS)
+        if not page:
+            break
+        for p in page:
+            if p["id"] not in seen:
+                seen.add(p["id"])
+                candidates.append(p)
+        if len(page) < SWEEP_PAGE:
+            break
+        start += SWEEP_PAGE
+        time.sleep(3)
+    cutoff = (now - timedelta(days=days)).strftime("%Y-%m-%d")
+    candidates = [p for p in candidates if p.get("date", "") >= cutoff]
+    todo = [p for p in candidates
+            if p["id"] not in state and p["id"] not in existing_company_map]
+    print(f"\nAffiliation sweep: {len(candidates)} papers in last {days}d, "
+          f"{len(todo)} to check")
+
+    new_company = []
+    for n, p in enumerate(todo, 1):
+        block, permanent = fetch_author_block(p["id"])
+        if permanent:
+            state[p["id"]] = now.strftime("%Y-%m-%d")
+        if block:
+            company, _hits = match_affiliation(block)
+            if company:
+                p["company"] = company
+                p["tags"] = auto_tag(p["title"], p.get("abstract", ""))
+                if p["id"] not in existing_map:
+                    existing_map[p["id"]] = p
+                    all_papers.append(p)
+                elif "company" not in existing_map[p["id"]]:
+                    existing_map[p["id"]]["company"] = company
+                existing_company_map[p["id"]] = p
+                new_company.append(p)
+                print(f"  [{n}/{len(todo)}] {company}: {p['title'][:65]}")
+        if n % 50 == 0:
+            save_sweep_state(state)
+            print(f"  ... {n}/{len(todo)} checked, {len(new_company)} claimed")
+        time.sleep(1.0)
+    save_sweep_state(state)
+    print(f"Sweep done: {len(new_company)} vendor papers claimed")
+    return new_company
+
+
 def generate_notes(papers, batch_size=10):
     """Generate one-line Chinese notes for papers via an OpenAI-compatible LLM API.
 
@@ -573,7 +763,7 @@ def generate_timeline(all_papers):
     return timeline
 
 
-def main():
+def main(days=SWEEP_DAYS_DEFAULT):
     print(f"[{datetime.now().isoformat()}] Starting paper fetch...")
 
     # ── Load existing papers ─────────────────────────────
@@ -649,6 +839,17 @@ def main():
 
         print(f"  Got {len(raw_results)} raw, {confirmed} confirmed")
         time.sleep(8)
+
+    # ── Affiliation sweep (catch vendor papers without brand names) ──
+    sweep_new = affiliation_sweep(existing_map, existing_company_map,
+                                  all_papers, days=days)
+    if sweep_new:
+        company_new.extend(sweep_new)
+        with open("daily_summary.txt", "a") as f:
+            f.write(f"\n机构扫描新增 {len(sweep_new)} 篇厂商论文：\n")
+            for p in sweep_new[:10]:
+                f.write(f"• [{p['company']}] {p['title'][:60]}\n"
+                        f"  https://arxiv.org/abs/{p['id']}\n\n")
 
     # Save company papers (accumulated, newest first)
     company_list = sorted(existing_company_map.values(),
@@ -731,5 +932,65 @@ def main():
     print(f"\n✅ Done! {len(all_papers_final)} total, {len(new_papers)} new today")
 
 
+def sweep_only_main(days):
+    """Run only the affiliation sweep + save data files (backfill / hotfix mode)."""
+    print(f"[{datetime.now().isoformat()}] Sweep-only mode, lookback {days}d")
+    existing = []
+    if os.path.exists("papers.json"):
+        with open("papers.json") as f:
+            existing = json.load(f)
+    existing_map = {p["id"]: p for p in existing}
+    all_papers = list(existing_map.values())
+
+    existing_company = []
+    if os.path.exists("company-papers.json"):
+        with open("company-papers.json") as f:
+            existing_company = json.load(f)
+    existing_company_map = {p["id"]: p for p in existing_company}
+
+    sweep_new = affiliation_sweep(existing_map, existing_company_map,
+                                  all_papers, days=days)
+
+    def dump_papers():
+        with open("papers.json", "w") as f:
+            json.dump(sorted(existing_map.values(),
+                             key=lambda p: p.get("date", ""), reverse=True),
+                      f, ensure_ascii=False, indent=2)
+
+    dump_papers()
+    company_list = sorted(existing_company_map.values(),
+                          key=lambda p: p.get("date", ""), reverse=True)
+    company_out = [{"id": p["id"], "title": p["title"],
+                    "title_zh": p.get("title_zh", ""),
+                    "company": p["company"], "date": p.get("date", ""),
+                    "tags": p.get("tags", [])} for p in company_list[:1200]]
+    with open("company-papers.json", "w") as f:
+        json.dump(company_out, f, ensure_ascii=False)
+
+    timeline_data = generate_timeline(list(existing_map.values()))
+    with open("timeline-data.json", "w") as f:
+        json.dump(timeline_data, f, ensure_ascii=False)
+
+    with open("daily_summary.txt", "w") as f:
+        f.write(f"机构扫描：新增 {len(sweep_new)} 篇厂商论文（回填 {days} 天窗口）\n\n")
+        for p in sweep_new[:15]:
+            f.write(f"• [{p['company']}] {p['title'][:60]}\n"
+                    f"  https://arxiv.org/abs/{p['id']}\n\n")
+
+    print(f"\n✅ Sweep-only done: {len(sweep_new)} claimed, "
+          f"papers={len(existing_map)}, company={len(company_out)}, "
+          f"timeline={len(timeline_data)}")
+
+
 if __name__ == '__main__':
-    main()
+    import argparse
+    ap = argparse.ArgumentParser(description="LLM paper fetcher")
+    ap.add_argument("--sweep-only", action="store_true",
+                    help="run only the affiliation sweep and save data files")
+    ap.add_argument("--days", type=int, default=SWEEP_DAYS_DEFAULT,
+                    help="sweep lookback window in days")
+    args = ap.parse_args()
+    if args.sweep_only:
+        sweep_only_main(args.days)
+    else:
+        main(args.days)

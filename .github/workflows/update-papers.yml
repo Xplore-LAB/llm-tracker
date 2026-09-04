@@ -37,7 +37,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add papers.json company-papers.json timeline-data.json models.json models-extra.json models_with_size.json models-discovered.json pdfs-index.json models-figures.json learning-path.json models/img/ api/
+          git add papers.json company-papers.json papers-affil-checked.json timeline-data.json models.json models-extra.json models_with_size.json models-discovered.json pdfs-index.json models-figures.json learning-path.json models/img/ api/
           git diff --staged --quiet || git commit -m "chore: update papers $(date +%Y-%m-%d)"
           git push
 
