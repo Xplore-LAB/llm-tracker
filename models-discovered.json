@@ -1,118 +1,120 @@
 {
- "updated": "2026-09-03",
+ "updated": "2026-09-04",
  "strategy": "A (high-confidence auto-merge, cap 10/run)",
  "auto_merged_today": [
-  "Muse-Spark-1.3",
-  "Gemini-3.8-Flash",
-  "Qwen-Drive-1.0",
-  "MolmoMotion-4B-H1-F32",
-  "Kimi-K2.7-Code",
-  "Claude-Fable-5",
-  "Nemotron-3.5-Content-Safety",
-  "Qwen3.7-Plus",
-  "Ling-2.6",
-  "Ling-2.6-flash"
+  "Gemma-4-E4B-it-qat-mobile",
+  "Gemma-4-E2B-it-qat-mobile",
+  "MiniMax-M3",
+  "Claude-Opus-4.8",
+  "Step-3.7-Flash",
+  "Qwen3.7-Max",
+  "Grok-Build-0.1",
+  "Gemini-3.5-Flash",
+  "Command-a-plus-05-2026-w4a4",
+  "Ring-2.6"
  ],
  "candidates": [
   {
-   "model": "Muse-Spark-1.3",
-   "company": "Meta",
-   "date": "2026-09-02",
-   "url": "",
-   "source": "openrouter",
-   "confidence": "high",
-   "status": "auto_merged"
-  },
-  {
-   "model": "Gemini-3.8-Flash",
+   "model": "Gemma-4-E4B-it-qat-mobile",
    "company": "Google",
-   "date": "2026-09-02",
-   "url": "",
-   "source": "openrouter",
-   "confidence": "high",
-   "status": "auto_merged"
-  },
-  {
-   "model": "Qwen-Drive-1.0",
-   "company": "Qwen",
-   "date": "2026-08-27",
-   "url": "https://huggingface.co/Qwen/Qwen-Drive-1.0-4B",
+   "date": "2026-06-01",
+   "url": "https://huggingface.co/google/gemma-4-E4B-it-qat-mobile-ct",
    "source": "huggingface",
-   "repo": "Qwen/Qwen-Drive-1.0-4B",
-   "downloads": 0,
-   "arxiv": "2609.00111",
+   "repo": "google/gemma-4-E4B-it-qat-mobile-ct",
+   "downloads": 9453,
+   "arxiv": "2607.02770",
    "confidence": "high",
    "status": "auto_merged"
   },
   {
-   "model": "MolmoMotion-4B-H1-F32",
-   "company": "AllenAI",
-   "date": "2026-06-15",
-   "url": "https://huggingface.co/allenai/MolmoMotion-4B-H1-F32",
+   "model": "Gemma-4-E2B-it-qat-mobile",
+   "company": "Google",
+   "date": "2026-06-01",
+   "url": "https://huggingface.co/google/gemma-4-E2B-it-qat-mobile-ct",
    "source": "huggingface",
-   "repo": "allenai/MolmoMotion-4B-H1-F32",
-   "downloads": 234,
-   "arxiv": "2606.18558",
+   "repo": "google/gemma-4-E2B-it-qat-mobile-ct",
+   "downloads": 42196,
+   "arxiv": "2607.02770",
    "confidence": "high",
    "status": "auto_merged"
   },
   {
-   "model": "Kimi-K2.7-Code",
-   "company": "Moonshot",
-   "date": "2026-06-12",
-   "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+   "model": "MiniMax-M3",
+   "company": "MiniMax",
+   "date": "2026-05-31",
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
    "source": "hf+openrouter",
-   "repo": "moonshotai/Kimi-K2.7-Code",
+   "repo": "MiniMaxAI/MiniMax-M3",
+   "arxiv": "2606.13392",
    "confidence": "high",
    "status": "auto_merged"
   },
   {
-   "model": "Claude-Fable-5",
+   "model": "Claude-Opus-4.8",
    "company": "Anthropic",
-   "date": "2026-06-09",
+   "date": "2026-05-27",
    "url": "",
    "source": "openrouter",
    "confidence": "high",
    "status": "auto_merged"
   },
   {
-   "model": "Nemotron-3.5-Content-Safety",
-   "company": "Nvidia",
-   "date": "2026-06-04",
-   "url": "",
-   "source": "openrouter",
+   "model": "Step-3.7-Flash",
+   "company": "StepFun",
+   "date": "2026-05-23",
+   "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+   "source": "huggingface",
+   "repo": "stepfun-ai/Step-3.7-Flash",
+   "downloads": 19953,
    "confidence": "high",
    "status": "auto_merged"
   },
   {
-   "model": "Qwen3.7-Plus",
+   "model": "Qwen3.7-Max",
    "company": "Qwen",
-   "date": "2026-06-03",
+   "date": "2026-05-21",
    "url": "",
    "source": "openrouter",
    "confidence": "high",
    "status": "auto_merged"
   },
   {
-   "model": "Ling-2.6",
-   "company": "AntGroup",
-   "date": "2026-06-02",
-   "url": "https://huggingface.co/inclusionAI/Ling-2.6-1T-base",
-   "source": "huggingface",
-   "repo": "inclusionAI/Ling-2.6-1T-base",
-   "downloads": 171,
-   "arxiv": "2606.15079",
+   "model": "Grok-Build-0.1",
+   "company": "xAI",
+   "date": "2026-05-20",
+   "url": "",
+   "source": "openrouter",
    "confidence": "high",
    "status": "auto_merged"
   },
   {
-   "model": "Ling-2.6-flash",
-   "company": "AntGroup",
-   "date": "2026-06-02",
-   "url": "https://huggingface.co/inclusionAI/Ling-2.6-flash-base",
+   "model": "Gemini-3.5-Flash",
+   "company": "Google",
+   "date": "2026-05-19",
+   "url": "",
+   "source": "openrouter",
+   "confidence": "high",
+   "status": "auto_merged"
+  },
+  {
+   "model": "Command-a-plus-05-2026-w4a4",
+   "company": "Cohere",
+   "date": "2026-05-18",
+   "url": "https://huggingface.co/CohereLabs/command-a-plus-05-2026-w4a4",
    "source": "huggingface",
-   "repo": "inclusionAI/Ling-2.6-flash-base",
-   "downloads": 550,
+   "repo": "CohereLabs/command-a-plus-05-2026-w4a4",
+   "downloads": 4827,
+   "confidence": "high",
+   "status": "auto_merged"
+  },
+  {
+   "model": "Ring-2.6",
+   "company": "AntGroup",
+   "date": "2026-05-14",
+   "url": "https://huggingface.co/inclusionAI/Ring-2.6-1T",
+   "source": "huggingface",
+   "repo": "inclusionAI/Ring-2.6-1T",
+   "downloads": 572,
    "arxiv": "2606.15079",
    "confidence": "high",
    "status": "auto_merged"
@@ -308,7 +310,7 @@
    "url": "https://huggingface.co/openai/circuit-sparsity",
    "source": "huggingface",
    "repo": "openai/circuit-sparsity",
-   "downloads": 492,
+   "downloads": 489,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -319,7 +321,7 @@
    "url": "https://huggingface.co/google/diffusiongemma-26B-A4B-it",
    "source": "huggingface",
    "repo": "google/diffusiongemma-26B-A4B-it",
-   "downloads": 1290354,
+   "downloads": 1170594,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -330,7 +332,7 @@
    "url": "https://huggingface.co/google/translategemma-27b-it",
    "source": "huggingface",
    "repo": "google/translategemma-27b-it",
-   "downloads": 18341,
+   "downloads": 16068,
    "arxiv": "2601.09012",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -342,7 +344,7 @@
    "url": "https://huggingface.co/google/functiongemma-270m-it",
    "source": "huggingface",
    "repo": "google/functiongemma-270m-it",
-   "downloads": 24193,
+   "downloads": 24490,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -353,7 +355,7 @@
    "url": "https://huggingface.co/google/vaultgemma-1b",
    "source": "huggingface",
    "repo": "google/vaultgemma-1b",
-   "downloads": 9412,
+   "downloads": 8026,
    "arxiv": "1607.00133",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -365,7 +367,7 @@
    "url": "https://huggingface.co/google/medgemma-27b-it",
    "source": "huggingface",
    "repo": "google/medgemma-27b-it",
-   "downloads": 277058,
+   "downloads": 265025,
    "arxiv": "2303.15343",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -377,7 +379,7 @@
    "url": "https://huggingface.co/meta-llama/CodeLlama-34b-Instruct-hf",
    "source": "huggingface",
    "repo": "meta-llama/CodeLlama-34b-Instruct-hf",
-   "downloads": 1108,
+   "downloads": 1099,
    "arxiv": "2308.12950",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -389,7 +391,7 @@
    "url": "https://huggingface.co/meta-llama/LlamaGuard-7b",
    "source": "huggingface",
    "repo": "meta-llama/LlamaGuard-7b",
-   "downloads": 2773,
+   "downloads": 2664,
    "arxiv": "2307.09288",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -401,7 +403,7 @@
    "url": "https://huggingface.co/deepseek-ai/Janus-Pro-1B",
    "source": "huggingface",
    "repo": "deepseek-ai/Janus-Pro-1B",
-   "downloads": 12646,
+   "downloads": 12171,
    "arxiv": "2501.17811",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -413,7 +415,7 @@
    "url": "https://huggingface.co/deepseek-ai/JanusFlow-1.3B",
    "source": "huggingface",
    "repo": "deepseek-ai/JanusFlow-1.3B",
-   "downloads": 1124,
+   "downloads": 1114,
    "arxiv": "2411.07975",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -425,7 +427,7 @@
    "url": "https://huggingface.co/deepseek-ai/Janus-1.3B",
    "source": "huggingface",
    "repo": "deepseek-ai/Janus-1.3B",
-   "downloads": 4007,
+   "downloads": 3979,
    "arxiv": "2410.13848",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -437,7 +439,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-token-summary-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-token-summary-lite",
-   "downloads": 254,
+   "downloads": 258,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -448,7 +450,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-gate-summary-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-gate-summary-lite",
-   "downloads": 230,
+   "downloads": 233,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -459,7 +461,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-token-translation-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-token-translation-lite",
-   "downloads": 254,
+   "downloads": 256,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -470,7 +472,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-gate-translation-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-gate-translation-lite",
-   "downloads": 244,
+   "downloads": 247,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -481,7 +483,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-token-math-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-token-math-lite",
-   "downloads": 247,
+   "downloads": 250,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -492,7 +494,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-gate-math-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-gate-math-lite",
-   "downloads": 228,
+   "downloads": 231,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -503,7 +505,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-token-law-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-token-law-lite",
-   "downloads": 252,
+   "downloads": 255,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -514,7 +516,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-gate-law-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-gate-law-lite",
-   "downloads": 245,
+   "downloads": 248,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -525,7 +527,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-token-code-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-token-code-lite",
-   "downloads": 256,
+   "downloads": 259,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -536,7 +538,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-gate-code-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-gate-code-lite",
-   "downloads": 239,
+   "downloads": 240,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -547,7 +549,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-token-intent-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-token-intent-lite",
-   "downloads": 252,
+   "downloads": 253,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -558,7 +560,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-gate-intent-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-gate-intent-lite",
-   "downloads": 247,
+   "downloads": 248,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -569,7 +571,7 @@
    "url": "https://huggingface.co/deepseek-ai/ESFT-vanilla-lite",
    "source": "huggingface",
    "repo": "deepseek-ai/ESFT-vanilla-lite",
-   "downloads": 274,
+   "downloads": 275,
    "arxiv": "2407.01906",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -581,7 +583,7 @@
    "url": "https://huggingface.co/deepseek-ai/deepseek-math-7b-instruct",
    "source": "huggingface",
    "repo": "deepseek-ai/deepseek-math-7b-instruct",
-   "downloads": 4787,
+   "downloads": 4467,
    "arxiv": "2402.03300",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -593,7 +595,7 @@
    "url": "https://huggingface.co/deepseek-ai/deepseek-moe-16b-chat",
    "source": "huggingface",
    "repo": "deepseek-ai/deepseek-moe-16b-chat",
-   "downloads": 33987,
+   "downloads": 33569,
    "arxiv": "2401.06066",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -605,7 +607,7 @@
    "url": "https://huggingface.co/Qwen/Qwen-Image-Bench",
    "source": "huggingface",
    "repo": "Qwen/Qwen-Image-Bench",
-   "downloads": 42579,
+   "downloads": 41086,
    "arxiv": "2605.28091",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -617,7 +619,7 @@
    "url": "https://huggingface.co/Qwen/WebWorld-32B",
    "source": "huggingface",
    "repo": "Qwen/WebWorld-32B",
-   "downloads": 778,
+   "downloads": 765,
    "arxiv": "2602.14721",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -629,7 +631,7 @@
    "url": "https://huggingface.co/XiaomiMiMo/MiMo-7B-Base",
    "source": "huggingface",
    "repo": "XiaomiMiMo/MiMo-7B-Base",
-   "downloads": 54733,
+   "downloads": 31897,
    "arxiv": "2505.07608",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -641,7 +643,7 @@
    "url": "https://huggingface.co/MiniMaxAI/SynLogic-7B",
    "source": "huggingface",
    "repo": "MiniMaxAI/SynLogic-7B",
-   "downloads": 544,
+   "downloads": 565,
    "arxiv": "2505.19641",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -653,7 +655,7 @@
    "url": "https://huggingface.co/zai-org/GLM-OCR",
    "source": "huggingface",
    "repo": "zai-org/GLM-OCR",
-   "downloads": 2104188,
+   "downloads": 2000195,
    "arxiv": "2603.10910",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -676,7 +678,7 @@
    "url": "https://huggingface.co/zai-org/AutoGLM-Phone-9B",
    "source": "huggingface",
    "repo": "zai-org/AutoGLM-Phone-9B",
-   "downloads": 15085,
+   "downloads": 10045,
    "arxiv": "2411.00820",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -688,7 +690,7 @@
    "url": "https://huggingface.co/zai-org/WebVIA-Agent",
    "source": "huggingface",
    "repo": "zai-org/WebVIA-Agent",
-   "downloads": 223,
+   "downloads": 228,
    "arxiv": "2511.06251",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -700,7 +702,7 @@
    "url": "https://huggingface.co/zai-org/Glyph",
    "source": "huggingface",
    "repo": "zai-org/Glyph",
-   "downloads": 240,
+   "downloads": 237,
    "arxiv": "2510.17800",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -712,7 +714,7 @@
    "url": "https://huggingface.co/zai-org/SWE-Dev-32B",
    "source": "huggingface",
    "repo": "zai-org/SWE-Dev-32B",
-   "downloads": 241,
+   "downloads": 249,
    "arxiv": "2506.07636",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -724,7 +726,7 @@
    "url": "https://huggingface.co/zai-org/cogagent-9b-20241220",
    "source": "huggingface",
    "repo": "zai-org/cogagent-9b-20241220",
-   "downloads": 287,
+   "downloads": 286,
    "arxiv": "2312.08914",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -747,7 +749,7 @@
    "url": "https://huggingface.co/zai-org/VisionReward-Video",
    "source": "huggingface",
    "repo": "zai-org/VisionReward-Video",
-   "downloads": 2315,
+   "downloads": 2438,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -758,7 +760,7 @@
    "url": "https://huggingface.co/zai-org/glm-edge-v-5b",
    "source": "huggingface",
    "repo": "zai-org/glm-edge-v-5b",
-   "downloads": 317,
+   "downloads": 318,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -769,7 +771,7 @@
    "url": "https://huggingface.co/zai-org/glm-edge-4b-chat",
    "source": "huggingface",
    "repo": "zai-org/glm-edge-4b-chat",
-   "downloads": 5189,
+   "downloads": 3876,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -780,7 +782,7 @@
    "url": "https://huggingface.co/zai-org/apar-13b",
    "source": "huggingface",
    "repo": "zai-org/apar-13b",
-   "downloads": 168,
+   "downloads": 170,
    "arxiv": "2401.06761",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -792,7 +794,7 @@
    "url": "https://huggingface.co/moonshotai/Moonlight-16B-A3B-Instruct",
    "source": "huggingface",
    "repo": "moonshotai/Moonlight-16B-A3B-Instruct",
-   "downloads": 62167,
+   "downloads": 56760,
    "arxiv": "2502.16982",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -804,7 +806,7 @@
    "url": "https://huggingface.co/microsoft/Mage-VL",
    "source": "huggingface",
    "repo": "microsoft/Mage-VL",
-   "downloads": 117789,
+   "downloads": 70018,
    "arxiv": "2607.24904",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -828,7 +830,7 @@
    "url": "https://huggingface.co/microsoft/MagenticBrain",
    "source": "huggingface",
    "repo": "microsoft/MagenticBrain",
-   "downloads": 822,
+   "downloads": 781,
    "arxiv": "2505.09388",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -840,7 +842,7 @@
    "url": "https://huggingface.co/microsoft/UniRG-CXR",
    "source": "huggingface",
    "repo": "microsoft/UniRG-CXR",
-   "downloads": 788,
+   "downloads": 876,
    "arxiv": "2601.17151",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -852,7 +854,7 @@
    "url": "https://huggingface.co/microsoft/X-Reasoner-7B",
    "source": "huggingface",
    "repo": "microsoft/X-Reasoner-7B",
-   "downloads": 369,
+   "downloads": 360,
    "arxiv": "2505.03981",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -864,7 +866,7 @@
    "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Teacher-Chat",
    "source": "huggingface",
    "repo": "nvidia/NVIDIA-Nemotron-Labs-Teacher-Chat",
-   "downloads": 1530,
+   "downloads": 1558,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -875,7 +877,7 @@
    "url": "https://huggingface.co/nvidia/Nemotron-Labs-Audex-2B",
    "source": "huggingface",
    "repo": "nvidia/Nemotron-Labs-Audex-2B",
-   "downloads": 1465,
+   "downloads": 1334,
    "arxiv": "2607.05196",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -887,7 +889,7 @@
    "url": "https://huggingface.co/nvidia/SDLLM-EsoLM-1.7B-Base",
    "source": "huggingface",
    "repo": "nvidia/SDLLM-EsoLM-1.7B-Base",
-   "downloads": 6,
+   "downloads": 8,
    "arxiv": "2602.15014",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -899,7 +901,7 @@
    "url": "https://huggingface.co/nvidia/SDLLM-Duo-1.7B-Base",
    "source": "huggingface",
    "repo": "nvidia/SDLLM-Duo-1.7B-Base",
-   "downloads": 5,
+   "downloads": 6,
    "arxiv": "2602.15014",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -911,7 +913,7 @@
    "url": "https://huggingface.co/nvidia/SDLLM-AR-1.7B-Base",
    "source": "huggingface",
    "repo": "nvidia/SDLLM-AR-1.7B-Base",
-   "downloads": 6,
+   "downloads": 7,
    "arxiv": "2602.15014",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -923,7 +925,7 @@
    "url": "https://huggingface.co/nvidia/SDLLM-MDLM-1.7B-Base",
    "source": "huggingface",
    "repo": "nvidia/SDLLM-MDLM-1.7B-Base",
-   "downloads": 8,
+   "downloads": 12,
    "arxiv": "2602.15014",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -935,7 +937,7 @@
    "url": "https://huggingface.co/nvidia/Privasis-Cleaner-0.6B",
    "source": "huggingface",
    "repo": "nvidia/Privasis-Cleaner-0.6B",
-   "downloads": 442,
+   "downloads": 432,
    "arxiv": "2602.03183",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -947,7 +949,7 @@
    "url": "https://huggingface.co/ibm-granite/granite-swash-3b-a600m",
    "source": "huggingface",
    "repo": "ibm-granite/granite-swash-3b-a600m",
-   "downloads": 6477,
+   "downloads": 6492,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -958,7 +960,7 @@
    "url": "https://huggingface.co/allenai/EMO",
    "source": "huggingface",
    "repo": "allenai/EMO",
-   "downloads": 188,
+   "downloads": 190,
    "arxiv": "2605.06663",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -970,7 +972,7 @@
    "url": "https://huggingface.co/allenai/BAR-2x7B-Base",
    "source": "huggingface",
    "repo": "allenai/BAR-2x7B-Base",
-   "downloads": 187,
+   "downloads": 189,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -981,7 +983,7 @@
    "url": "https://huggingface.co/allenai/MolmoWeb-Pretrained-8B",
    "source": "huggingface",
    "repo": "allenai/MolmoWeb-Pretrained-8B",
-   "downloads": 8,
+   "downloads": 7,
    "arxiv": "2601.10611",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -993,7 +995,7 @@
    "url": "https://huggingface.co/tiiuae/Falcon-E-3B-Instruct",
    "source": "huggingface",
    "repo": "tiiuae/Falcon-E-3B-Instruct",
-   "downloads": 476,
+   "downloads": 463,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -1004,7 +1006,7 @@
    "url": "https://huggingface.co/01-ai/Yi-Coder-9B-Chat",
    "source": "huggingface",
    "repo": "01-ai/Yi-Coder-9B-Chat",
-   "downloads": 9786,
+   "downloads": 9891,
    "arxiv": "2403.04652",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1016,7 +1018,7 @@
    "url": "https://huggingface.co/01-ai/Yi-VL-6B",
    "source": "huggingface",
    "repo": "01-ai/Yi-VL-6B",
-   "downloads": 2133,
+   "downloads": 2130,
    "arxiv": "2403.04652",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1028,7 +1030,7 @@
    "url": "https://huggingface.co/baichuan-inc/BaichuanMed-OCR-7B",
    "source": "huggingface",
    "repo": "baichuan-inc/BaichuanMed-OCR-7B",
-   "downloads": 276,
+   "downloads": 280,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -1039,7 +1041,7 @@
    "url": "https://huggingface.co/baichuan-inc/Baichuan-13B-Base",
    "source": "huggingface",
    "repo": "baichuan-inc/Baichuan-13B-Base",
-   "downloads": 517,
+   "downloads": 511,
    "arxiv": "2104.09864",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1051,7 +1053,7 @@
    "url": "https://huggingface.co/internlm/Spatial-SSRL-3B",
    "source": "huggingface",
    "repo": "internlm/Spatial-SSRL-3B",
-   "downloads": 189,
+   "downloads": 187,
    "arxiv": "2510.27606",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1063,7 +1065,7 @@
    "url": "https://huggingface.co/internlm/JanusCoderV-8B",
    "source": "huggingface",
    "repo": "internlm/JanusCoderV-8B",
-   "downloads": 129,
+   "downloads": 130,
    "arxiv": "2510.23538",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1075,7 +1077,7 @@
    "url": "https://huggingface.co/internlm/JanusCoder-14B",
    "source": "huggingface",
    "repo": "internlm/JanusCoder-14B",
-   "downloads": 180,
+   "downloads": 185,
    "arxiv": "2510.23538",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1087,7 +1089,7 @@
    "url": "https://huggingface.co/internlm/CapRL-Eval-3B",
    "source": "huggingface",
    "repo": "internlm/CapRL-Eval-3B",
-   "downloads": 142,
+   "downloads": 133,
    "arxiv": "2509.22647",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1099,7 +1101,7 @@
    "url": "https://huggingface.co/internlm/CapRL-3B",
    "source": "huggingface",
    "repo": "internlm/CapRL-3B",
-   "downloads": 220,
+   "downloads": 221,
    "arxiv": "2509.22647",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1111,7 +1113,7 @@
    "url": "https://huggingface.co/internlm/OREAL-7B-SFT",
    "source": "huggingface",
    "repo": "internlm/OREAL-7B-SFT",
-   "downloads": 165,
+   "downloads": 169,
    "arxiv": "2502.06781",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1123,7 +1125,7 @@
    "url": "https://huggingface.co/internlm/SWE-Fixer-Editor-72B",
    "source": "huggingface",
    "repo": "internlm/SWE-Fixer-Editor-72B",
-   "downloads": 75,
+   "downloads": 78,
    "arxiv": "2501.05040",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1135,7 +1137,7 @@
    "url": "https://huggingface.co/internlm/SWE-Fixer-Retriever-7B",
    "source": "huggingface",
    "repo": "internlm/SWE-Fixer-Retriever-7B",
-   "downloads": 73,
+   "downloads": 79,
    "arxiv": "2501.05040",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1147,7 +1149,7 @@
    "url": "https://huggingface.co/internlm/AlchemistCoder-L-7B",
    "source": "huggingface",
    "repo": "internlm/AlchemistCoder-L-7B",
-   "downloads": 66,
+   "downloads": 70,
    "arxiv": "2405.19265",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1159,7 +1161,7 @@
    "url": "https://huggingface.co/internlm/AlchemistCoder-CL-7B",
    "source": "huggingface",
    "repo": "internlm/AlchemistCoder-CL-7B",
-   "downloads": 47,
+   "downloads": 50,
    "arxiv": "2405.19265",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1171,7 +1173,7 @@
    "url": "https://huggingface.co/internlm/AlchemistCoder-DS-6.7B",
    "source": "huggingface",
    "repo": "internlm/AlchemistCoder-DS-6.7B",
-   "downloads": 77,
+   "downloads": 80,
    "arxiv": "2405.19265",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1183,7 +1185,7 @@
    "url": "https://huggingface.co/internlm/Agent-FLAN-7b",
    "source": "huggingface",
    "repo": "internlm/Agent-FLAN-7b",
-   "downloads": 93,
+   "downloads": 100,
    "arxiv": "2403.12881",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1195,7 +1197,7 @@
    "url": "https://huggingface.co/ai21labs/Jamba-tiny-random",
    "source": "huggingface",
    "repo": "ai21labs/Jamba-tiny-random",
-   "downloads": 4542,
+   "downloads": 4114,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -1206,7 +1208,7 @@
    "url": "https://huggingface.co/CohereLabs/North-Micro-Vision-Instruct",
    "source": "huggingface",
    "repo": "CohereLabs/North-Micro-Vision-Instruct",
-   "downloads": 34193,
+   "downloads": 35575,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -1217,7 +1219,7 @@
    "url": "https://huggingface.co/CohereLabs/tiny-aya-fire",
    "source": "huggingface",
    "repo": "CohereLabs/tiny-aya-fire",
-   "downloads": 736,
+   "downloads": 744,
    "arxiv": "2603.11510",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1229,7 +1231,7 @@
    "url": "https://huggingface.co/CohereLabs/tiny-aya-earth",
    "source": "huggingface",
    "repo": "CohereLabs/tiny-aya-earth",
-   "downloads": 930,
+   "downloads": 762,
    "arxiv": "2603.11510",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1241,7 +1243,7 @@
    "url": "https://huggingface.co/CohereLabs/tiny-aya-water",
    "source": "huggingface",
    "repo": "CohereLabs/tiny-aya-water",
-   "downloads": 375,
+   "downloads": 357,
    "arxiv": "2603.11510",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1253,7 +1255,7 @@
    "url": "https://huggingface.co/CohereLabs/tiny-aya-global",
    "source": "huggingface",
    "repo": "CohereLabs/tiny-aya-global",
-   "downloads": 5283,
+   "downloads": 5169,
    "arxiv": "2603.11510",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1265,7 +1267,7 @@
    "url": "https://huggingface.co/CohereLabs/tiny-aya-base",
    "source": "huggingface",
    "repo": "CohereLabs/tiny-aya-base",
-   "downloads": 12534,
+   "downloads": 12540,
    "arxiv": "2603.11510",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1277,7 +1279,7 @@
    "url": "https://huggingface.co/CohereLabs/aya-vision-32b",
    "source": "huggingface",
    "repo": "CohereLabs/aya-vision-32b",
-   "downloads": 423,
+   "downloads": 411,
    "arxiv": "2412.04261",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1289,7 +1291,7 @@
    "url": "https://huggingface.co/CohereLabs/aya-expanse-32b",
    "source": "huggingface",
    "repo": "CohereLabs/aya-expanse-32b",
-   "downloads": 7291,
+   "downloads": 6814,
    "arxiv": "2408.14960",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1301,7 +1303,7 @@
    "url": "https://huggingface.co/ByteDance-Seed/Cola-DLM",
    "source": "huggingface",
    "repo": "ByteDance-Seed/Cola-DLM",
-   "downloads": 113,
+   "downloads": 111,
    "arxiv": "2605.06548",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1313,7 +1315,7 @@
    "url": "https://huggingface.co/ByteDance-Seed/Stable-DiffCoder-8B-Instruct",
    "source": "huggingface",
    "repo": "ByteDance-Seed/Stable-DiffCoder-8B-Instruct",
-   "downloads": 398,
+   "downloads": 376,
    "arxiv": "2601.15892",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1325,7 +1327,7 @@
    "url": "https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Instruct",
    "source": "huggingface",
    "repo": "ByteDance-Seed/Seed-OSS-36B-Instruct",
-   "downloads": 35117,
+   "downloads": 36857,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -1336,7 +1338,7 @@
    "url": "https://huggingface.co/ByteDance-Seed/cudaLLM-8B",
    "source": "huggingface",
    "repo": "ByteDance-Seed/cudaLLM-8B",
-   "downloads": 86,
+   "downloads": 87,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -1359,7 +1361,7 @@
    "url": "https://huggingface.co/ByteDance-Seed/SAIL-7B",
    "source": "huggingface",
    "repo": "ByteDance-Seed/SAIL-7B",
-   "downloads": 73,
+   "downloads": 68,
    "arxiv": "2504.10462",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1371,7 +1373,7 @@
    "url": "https://huggingface.co/ByteDance-Seed/Seed-Coder-8B-Instruct",
    "source": "huggingface",
    "repo": "ByteDance-Seed/Seed-Coder-8B-Instruct",
-   "downloads": 4109,
+   "downloads": 4122,
    "arxiv": "2506.03524",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1383,7 +1385,7 @@
    "url": "https://huggingface.co/ByteDance-Seed/academic-ds-9B",
    "source": "huggingface",
    "repo": "ByteDance-Seed/academic-ds-9B",
-   "downloads": 39346,
+   "downloads": 37473,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -1394,7 +1396,7 @@
    "url": "https://huggingface.co/ByteDance-Seed/UI-TARS-72B-SFT",
    "source": "huggingface",
    "repo": "ByteDance-Seed/UI-TARS-72B-SFT",
-   "downloads": 69,
+   "downloads": 68,
    "arxiv": "2501.12326",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1406,7 +1408,7 @@
    "url": "https://huggingface.co/stepfun-ai/RLVR-8B-0926",
    "source": "huggingface",
    "repo": "stepfun-ai/RLVR-8B-0926",
-   "downloads": 139,
+   "downloads": 133,
    "arxiv": "2601.05593",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1418,7 +1420,7 @@
    "url": "https://huggingface.co/stepfun-ai/PaCoRe-8B",
    "source": "huggingface",
    "repo": "stepfun-ai/PaCoRe-8B",
-   "downloads": 148,
+   "downloads": 152,
    "arxiv": "2601.05593",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1430,7 +1432,7 @@
    "url": "https://huggingface.co/stepfun-ai/GELab-Zero-4B-preview",
    "source": "huggingface",
    "repo": "stepfun-ai/GELab-Zero-4B-preview",
-   "downloads": 269,
+   "downloads": 290,
    "arxiv": "2512.15431",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1442,7 +1444,7 @@
    "url": "https://huggingface.co/stepfun-ai/StepFun-Formalizer-32B",
    "source": "huggingface",
    "repo": "stepfun-ai/StepFun-Formalizer-32B",
-   "downloads": 163,
+   "downloads": 170,
    "arxiv": "2508.04440",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1454,7 +1456,7 @@
    "url": "https://huggingface.co/stepfun-ai/StepFun-Prover-Preview-32B",
    "source": "huggingface",
    "repo": "stepfun-ai/StepFun-Prover-Preview-32B",
-   "downloads": 131,
+   "downloads": 137,
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -1465,7 +1467,7 @@
    "url": "https://huggingface.co/inclusionAI/ArmorOCR",
    "source": "huggingface",
    "repo": "inclusionAI/ArmorOCR",
-   "downloads": 323,
+   "downloads": 338,
    "arxiv": "2608.20122",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1477,7 +1479,7 @@
    "url": "https://huggingface.co/inclusionAI/SingGuard-NSFA-9B",
    "source": "huggingface",
    "repo": "inclusionAI/SingGuard-NSFA-9B",
-   "downloads": 136,
+   "downloads": 131,
    "arxiv": "2607.13081",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1489,7 +1491,7 @@
    "url": "https://huggingface.co/inclusionAI/VISTA-9B",
    "source": "huggingface",
    "repo": "inclusionAI/VISTA-9B",
-   "downloads": 630,
+   "downloads": 618,
    "arxiv": "2606.14579",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1501,7 +1503,7 @@
    "url": "https://huggingface.co/inclusionAI/SingGuard-2b",
    "source": "huggingface",
    "repo": "inclusionAI/SingGuard-2b",
-   "downloads": 1269,
+   "downloads": 1276,
    "arxiv": "2606.22873",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1525,7 +1527,7 @@
    "url": "https://huggingface.co/inclusionAI/AReaL-SEA-235B-A22B",
    "source": "huggingface",
    "repo": "inclusionAI/AReaL-SEA-235B-A22B",
-   "downloads": 103,
+   "downloads": 108,
    "arxiv": "2601.22607",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1537,7 +1539,7 @@
    "url": "https://huggingface.co/inclusionAI/Ming-flash-omni-Preview",
    "source": "huggingface",
    "repo": "inclusionAI/Ming-flash-omni-Preview",
-   "downloads": 1252,
+   "downloads": 1294,
    "arxiv": "2510.24821",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
@@ -1549,32 +1551,8 @@
    "url": "https://huggingface.co/inclusionAI/Ring-1T",
    "source": "huggingface",
    "repo": "inclusionAI/Ring-1T",
-   "downloads": 313,
+   "downloads": 336,
    "arxiv": "2510.18855",
-   "confidence": "medium",
-   "reason": "名称不像旗舰系列（无版本号）"
-  },
-  {
-   "model": "Ling",
-   "company": "AntGroup",
-   "date": "2025-10-02",
-   "url": "https://huggingface.co/inclusionAI/Ling-1T",
-   "source": "huggingface",
-   "repo": "inclusionAI/Ling-1T",
-   "downloads": 2766,
-   "arxiv": "2507.17702",
-   "confidence": "medium",
-   "reason": "名称不像旗舰系列（无版本号）"
-  },
-  {
-   "model": "Ming-UniVision",
-   "company": "AntGroup",
-   "date": "2025-09-30",
-   "url": "https://huggingface.co/inclusionAI/Ming-UniVision-16B-A3B",
-   "source": "huggingface",
-   "repo": "inclusionAI/Ming-UniVision-16B-A3B",
-   "downloads": 33,
-   "arxiv": "2510.06590",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
@@ -1585,113 +1563,145 @@
    "url": "https://huggingface.co/LGAI-EXAONE/K-EXAONE-236B-A23B",
    "source": "huggingface",
    "repo": "LGAI-EXAONE/K-EXAONE-236B-A23B",
-   "downloads": 20951,
+   "downloads": 18322,
    "arxiv": "2601.01739",
    "confidence": "medium",
    "reason": "名称不像旗舰系列（无版本号）"
   },
   {
-   "model": "Gemma-4-E4B-it-qat-mobile",
-   "company": "Google",
-   "date": "2026-06-01",
-   "url": "https://huggingface.co/google/gemma-4-E4B-it-qat-mobile-ct",
+   "model": "StdMoE_1b14b_1T_EmoAnnealed",
+   "company": "AllenAI",
+   "date": "2026-05-05",
+   "url": "https://huggingface.co/allenai/StdMoE_1b14b_1T_EmoAnnealed",
    "source": "huggingface",
-   "repo": "google/gemma-4-E4B-it-qat-mobile-ct",
-   "downloads": 11225,
-   "arxiv": "2607.02770",
+   "repo": "allenai/StdMoE_1b14b_1T_EmoAnnealed",
+   "downloads": 278,
+   "arxiv": "2605.06663",
    "confidence": "high",
    "reason": "超出单次自动合并上限（>10），待下次或人工"
   },
   {
-   "model": "Gemma-4-E2B-it-qat-mobile",
-   "company": "Google",
-   "date": "2026-06-01",
-   "url": "https://huggingface.co/google/gemma-4-E2B-it-qat-mobile-ct",
+   "model": "StdMoE_1b14b_1T_Preanneal",
+   "company": "AllenAI",
+   "date": "2026-05-05",
+   "url": "https://huggingface.co/allenai/StdMoE_1b14b_1T_Preanneal",
    "source": "huggingface",
-   "repo": "google/gemma-4-E2B-it-qat-mobile-ct",
-   "downloads": 43303,
-   "arxiv": "2607.02770",
+   "repo": "allenai/StdMoE_1b14b_1T_Preanneal",
+   "downloads": 289,
+   "arxiv": "2605.06663",
    "confidence": "high",
    "reason": "超出单次自动合并上限（>10），待下次或人工"
   },
   {
-   "model": "MiniMax-M3",
-   "company": "MiniMax",
-   "date": "2026-05-31",
-   "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
-   "source": "hf+openrouter",
-   "repo": "MiniMaxAI/MiniMax-M3",
-   "arxiv": "2606.13392",
-   "confidence": "high",
-   "reason": "超出单次自动合并上限（>10），待下次或人工"
-  },
-  {
-   "model": "Claude-Opus-4.8",
-   "company": "Anthropic",
-   "date": "2026-05-27",
-   "url": "",
-   "source": "openrouter",
-   "confidence": "high",
-   "reason": "超出单次自动合并上限（>10），待下次或人工"
-  },
-  {
-   "model": "Step-3.7-Flash",
-   "company": "StepFun",
-   "date": "2026-05-23",
-   "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+   "model": "Molmo2-ER",
+   "company": "AllenAI",
+   "date": "2026-05-04",
+   "url": "https://huggingface.co/allenai/Molmo2-ER",
    "source": "huggingface",
-   "repo": "stepfun-ai/Step-3.7-Flash",
-   "downloads": 38049,
+   "repo": "allenai/Molmo2-ER",
+   "downloads": 2586,
+   "arxiv": "2605.02881",
    "confidence": "high",
    "reason": "超出单次自动合并上限（>10），待下次或人工"
   },
   {
-   "model": "Qwen3.7-Max",
-   "company": "Qwen",
-   "date": "2026-05-21",
-   "url": "",
-   "source": "openrouter",
+   "model": "Granite-switch-4.1",
+   "company": "IBM",
+   "date": "2026-05-01",
+   "url": "https://huggingface.co/ibm-granite/granite-switch-4.1-30b-preview",
+   "source": "huggingface",
+   "repo": "ibm-granite/granite-switch-4.1-30b-preview",
+   "downloads": 935,
    "confidence": "high",
    "reason": "超出单次自动合并上限（>10），待下次或人工"
   },
   {
-   "model": "Grok-Build-0.1",
+   "model": "Grok-4.3",
    "company": "xAI",
-   "date": "2026-05-20",
+   "date": "2026-04-30",
    "url": "",
    "source": "openrouter",
    "confidence": "high",
    "reason": "超出单次自动合并上限（>10），待下次或人工"
   },
   {
-   "model": "Gemini-3.5-Flash",
-   "company": "Google",
-   "date": "2026-05-19",
+   "model": "Mistral-Medium-3.5",
+   "company": "Mistral",
+   "date": "2026-04-30",
    "url": "",
    "source": "openrouter",
    "confidence": "high",
    "reason": "超出单次自动合并上限（>10），待下次或人工"
   },
   {
-   "model": "Command-a-plus-05-2026-w4a4",
-   "company": "Cohere",
-   "date": "2026-05-18",
-   "url": "https://huggingface.co/CohereLabs/command-a-plus-05-2026-w4a4",
+   "model": "StdMoE_1b14b_1T",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "url": "https://huggingface.co/allenai/StdMoE_1b14b_1T",
    "source": "huggingface",
-   "repo": "CohereLabs/command-a-plus-05-2026-w4a4",
-   "downloads": 4480,
+   "repo": "allenai/StdMoE_1b14b_1T",
+   "downloads": 301,
+   "arxiv": "2605.06663",
    "confidence": "high",
    "reason": "超出单次自动合并上限（>10），待下次或人工"
   },
   {
-   "model": "Ring-2.6",
-   "company": "AntGroup",
-   "date": "2026-05-14",
-   "url": "https://huggingface.co/inclusionAI/Ring-2.6-1T",
+   "model": "StdMoE_1b14b_130B",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "url": "https://huggingface.co/allenai/StdMoE_1b14b_130B",
    "source": "huggingface",
-   "repo": "inclusionAI/Ring-2.6-1T",
-   "downloads": 615,
-   "arxiv": "2606.15079",
+   "repo": "allenai/StdMoE_1b14b_130B",
+   "downloads": 311,
+   "arxiv": "2605.06663",
+   "confidence": "high",
+   "reason": "超出单次自动合并上限（>10），待下次或人工"
+  },
+  {
+   "model": "StdMoE_1b4b_130B",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "url": "https://huggingface.co/allenai/StdMoE_1b4b_130B",
+   "source": "huggingface",
+   "repo": "allenai/StdMoE_1b4b_130B",
+   "downloads": 563,
+   "arxiv": "2605.06663",
+   "confidence": "high",
+   "reason": "超出单次自动合并上限（>10），待下次或人工"
+  },
+  {
+   "model": "Emo_1b14b_130B",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "url": "https://huggingface.co/allenai/Emo_1b14b_130B",
+   "source": "huggingface",
+   "repo": "allenai/Emo_1b14b_130B",
+   "downloads": 288,
+   "arxiv": "2605.06663",
+   "confidence": "high",
+   "reason": "超出单次自动合并上限（>10），待下次或人工"
+  },
+  {
+   "model": "Emo_1b14b_1T",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "url": "https://huggingface.co/allenai/Emo_1b14b_1T",
+   "source": "huggingface",
+   "repo": "allenai/Emo_1b14b_1T",
+   "downloads": 390,
+   "arxiv": "2605.06663",
+   "confidence": "high",
+   "reason": "超出单次自动合并上限（>10），待下次或人工"
+  },
+  {
+   "model": "Dense_1b_130B",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "url": "https://huggingface.co/allenai/Dense_1b_130B",
+   "source": "huggingface",
+   "repo": "allenai/Dense_1b_130B",
+   "downloads": 282,
+   "arxiv": "2605.06663",
    "confidence": "high",
    "reason": "超出单次自动合并上限（>10），待下次或人工"
   }

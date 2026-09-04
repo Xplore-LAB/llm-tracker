@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-03",
-  "total_models": 321,
-  "with_real_size": 150,
-  "coverage": "46.7%",
+  "fetch_time": "2026-09-04",
+  "total_models": 331,
+  "with_real_size": 157,
+  "coverage": "47.4%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -2967,6 +2967,20 @@
       "source": "no_mapping"
     },
     {
+      "model": "Ring-2.6",
+      "company": "AntGroup",
+      "date": "2026-05-14",
+      "id": "2606.15079",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ring-2.6-1T",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ring-2.6-1T",
+      "size_total_gb": 970.29
+    },
+    {
       "model": "Nemotron-Personas-Korea",
       "company": "Nvidia",
       "date": "2026-05-15",
@@ -2977,6 +2991,62 @@
       "hf_repo": "nvidia/Nemotron-Personas-Korea",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "Command-a-plus-05-2026-w4a4",
+      "company": "Cohere",
+      "date": "2026-05-18",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/command-a-plus-05-2026-w4a4",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/command-a-plus-05-2026-w4a4",
+      "size_total_gb": 122.84
+    },
+    {
+      "model": "Gemini-3.5-Flash",
+      "company": "Google",
+      "date": "2026-05-19",
+      "id": "",
+      "title": "",
+      "note": "Gemini 3.5 Flash is Google's high-efficiency multimodal mode",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Grok-Build-0.1",
+      "company": "xAI",
+      "date": "2026-05-20",
+      "id": "",
+      "title": "",
+      "note": "Grok Build 0.1 is SpaceXAI’s fast coding model trained speci",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Qwen3.7-Max",
+      "company": "Qwen",
+      "date": "2026-05-21",
+      "id": "",
+      "title": "",
+      "note": "Qwen3.7-Max is the flagship model in Alibaba's Qwen3.7 serie",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "Mixtral-MoE",
@@ -2991,6 +3061,20 @@
       "source": "no_mapping"
     },
     {
+      "model": "Step-3.7-Flash",
+      "company": "StepFun",
+      "date": "2026-05-23",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "stepfun-ai/Step-3.7-Flash",
+      "size_total_gb": 375.07
+    },
+    {
       "model": "MiniMax-M2",
       "company": "MiniMax",
       "date": "2026-05-26",
@@ -3001,6 +3085,20 @@
       "hf_repo": "MiniMaxAI/MiniMax-M2",
       "size_total_gb": 214.33,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Claude-Opus-4.8",
+      "company": "Anthropic",
+      "date": "2026-05-27",
+      "id": "",
+      "title": "",
+      "note": "Claude Opus 4.8 is Anthropic's most capable generally availa",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "Claude-3-Sonnet",
@@ -3025,6 +3123,48 @@
       "hf_repo": null,
       "size_total_gb": null,
       "source": "no_mapping"
+    },
+    {
+      "model": "MiniMax-M3",
+      "company": "MiniMax",
+      "date": "2026-05-31",
+      "id": "2606.13392",
+      "title": "",
+      "note": "MiniMax-M3 is a multimodal foundation model from MiniMax. It",
+      "papers": 0,
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "MiniMaxAI/MiniMax-M3",
+      "size_total_gb": 795.51
+    },
+    {
+      "model": "Gemma-4-E4B-it-qat-mobile",
+      "company": "Google",
+      "date": "2026-06-01",
+      "id": "2607.02770",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/google/gemma-4-E4B-it-qat-mobile-ct",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "google/gemma-4-E4B-it-qat-mobile-ct",
+      "size_total_gb": 3.48
+    },
+    {
+      "model": "Gemma-4-E2B-it-qat-mobile",
+      "company": "Google",
+      "date": "2026-06-01",
+      "id": "2607.02770",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/google/gemma-4-E2B-it-qat-mobile-ct",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "google/gemma-4-E2B-it-qat-mobile-ct",
+      "size_total_gb": 2.49
     },
     {
       "model": "Qwen-Image",
@@ -4023,10 +4163,10 @@
       "note": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts m",
       "papers": 0,
       "url": "",
-      "source": "no_mapping",
+      "source": "hf_tree",
       "discovered": true,
-      "hf_repo": null,
-      "size_total_gb": null
+      "hf_repo": "inclusionAI/Ling-3.0-flash-Fin",
+      "size_total_gb": 237.47
     },
     {
       "model": "Qwen-Drive-1.0",

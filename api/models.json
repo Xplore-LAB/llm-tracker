@@ -2246,6 +2246,18 @@
    "papers": 1
   },
   {
+   "model": "Ring-2.6",
+   "company": "AntGroup",
+   "date": "2026-05-14",
+   "id": "2606.15079",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/Ring-2.6-1T",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Nemotron-Personas-Korea",
    "company": "Nvidia",
    "date": "2026-05-15",
@@ -2253,6 +2265,54 @@
    "title": "Marginal Alignment Does Not Guarantee Joint-Distribution Fidelity: An Official-Reference Audit of Nemotron-Personas-Korea with Cross-Locale Replication",
    "note": "提出独立性假设足迹IAF指标，审计合成人物数据集联合分布保真度，揭示边际对齐并不保证跨属性联合结构忠实。",
    "papers": 1
+  },
+  {
+   "model": "Command-a-plus-05-2026-w4a4",
+   "company": "Cohere",
+   "date": "2026-05-18",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/CohereLabs/command-a-plus-05-2026-w4a4",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Gemini-3.5-Flash",
+   "company": "Google",
+   "date": "2026-05-19",
+   "id": "",
+   "title": "",
+   "note": "Gemini 3.5 Flash is Google's high-efficiency multimodal mode",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Grok-Build-0.1",
+   "company": "xAI",
+   "date": "2026-05-20",
+   "id": "",
+   "title": "",
+   "note": "Grok Build 0.1 is SpaceXAI’s fast coding model trained speci",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3.7-Max",
+   "company": "Qwen",
+   "date": "2026-05-21",
+   "id": "",
+   "title": "",
+   "note": "Qwen3.7-Max is the flagship model in Alibaba's Qwen3.7 serie",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
   },
   {
    "model": "Mixtral-MoE",
@@ -2264,6 +2324,18 @@
    "papers": 1
   },
   {
+   "model": "Step-3.7-Flash",
+   "company": "StepFun",
+   "date": "2026-05-23",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "MiniMax-M2",
    "company": "MiniMax",
    "date": "2026-05-26",
@@ -2271,6 +2343,18 @@
    "title": "The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "Claude-Opus-4.8",
+   "company": "Anthropic",
+   "date": "2026-05-27",
+   "id": "",
+   "title": "",
+   "note": "Claude Opus 4.8 is Anthropic's most capable generally availa",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
   },
   {
    "model": "Claude-3-Sonnet",
@@ -2289,6 +2373,42 @@
    "title": "Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "MiniMax-M3",
+   "company": "MiniMax",
+   "date": "2026-05-31",
+   "id": "2606.13392",
+   "title": "",
+   "note": "MiniMax-M3 is a multimodal foundation model from MiniMax. It",
+   "papers": 0,
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Gemma-4-E4B-it-qat-mobile",
+   "company": "Google",
+   "date": "2026-06-01",
+   "id": "2607.02770",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/google/gemma-4-E4B-it-qat-mobile-ct",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Gemma-4-E2B-it-qat-mobile",
+   "company": "Google",
+   "date": "2026-06-01",
+   "id": "2607.02770",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/google/gemma-4-E2B-it-qat-mobile-ct",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Qwen-Image",
