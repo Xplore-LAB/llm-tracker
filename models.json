@@ -2199,6 +2199,18 @@
    "papers": 1
   },
   {
+   "model": "DeepSeek-V4-Pro",
+   "company": "DeepSeek",
+   "date": "2026-04-24",
+   "id": "2606.19348",
+   "title": "",
+   "note": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model fr",
+   "papers": 0,
+   "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
    "model": "DeepSeek-V4",
    "company": "DeepSeek",
    "date": "2026-04-26",
@@ -2217,6 +2229,42 @@
    "papers": 1
   },
   {
+   "model": "Qwen3.6-Flash",
+   "company": "Qwen",
+   "date": "2026-04-27",
+   "id": "",
+   "title": "",
+   "note": "Qwen3.6 Flash is a fast, efficient language model from Aliba",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3.6",
+   "company": "Qwen",
+   "date": "2026-04-27",
+   "id": "",
+   "title": "",
+   "note": "Qwen3.6 27B is a dense 27-billion-parameter language model f",
+   "papers": 0,
+   "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3.6-Max",
+   "company": "Qwen",
+   "date": "2026-04-27",
+   "id": "",
+   "title": "",
+   "note": "Qwen3.6-Max-Preview is a proprietary frontier model from Ali",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "StdMoE_1b14b_1T",
    "company": "AllenAI",
    "date": "2026-04-29",
@@ -2225,6 +2273,66 @@
    "note": "（自动发现收录，待人工补注）",
    "papers": 0,
    "url": "https://huggingface.co/allenai/StdMoE_1b14b_1T",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "StdMoE_1b14b_130B",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "id": "2605.06663",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/StdMoE_1b14b_130B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "StdMoE_1b4b_130B",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "id": "2605.06663",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/StdMoE_1b4b_130B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Emo_1b14b_130B",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "id": "2605.06663",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/Emo_1b14b_130B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Emo_1b14b_1T",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "id": "2605.06663",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/Emo_1b14b_1T",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Dense_1b_130B",
+   "company": "AllenAI",
+   "date": "2026-04-29",
+   "id": "2605.06663",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/Dense_1b_130B",
    "source": "huggingface",
    "discovered": true
   },
@@ -3423,6 +3531,18 @@
    "papers": 0,
    "url": "",
    "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "LLaDA2.2-mini",
+   "company": "AntGroup",
+   "date": "2026-09-05",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/LLaDA2.2-mini",
+   "source": "huggingface",
    "discovered": true
   }
  ],

@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-05",
-  "total_models": 341,
-  "with_real_size": 163,
-  "coverage": "47.8%",
+  "fetch_time": "2026-09-06",
+  "total_models": 351,
+  "with_real_size": 171,
+  "coverage": "48.7%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -2905,6 +2905,20 @@
       "source": "no_mapping"
     },
     {
+      "model": "DeepSeek-V4-Pro",
+      "company": "DeepSeek",
+      "date": "2026-04-24",
+      "id": "2606.19348",
+      "title": "",
+      "note": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model fr",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-V4-Pro",
+      "size_total_gb": 805.33
+    },
+    {
       "model": "DeepSeek-V4",
       "company": "DeepSeek",
       "date": "2026-04-26",
@@ -2929,6 +2943,48 @@
       "source": "gated"
     },
     {
+      "model": "Qwen3.6-Flash",
+      "company": "Qwen",
+      "date": "2026-04-27",
+      "id": "",
+      "title": "",
+      "note": "Qwen3.6 Flash is a fast, efficient language model from Aliba",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Qwen3.6",
+      "company": "Qwen",
+      "date": "2026-04-27",
+      "id": "",
+      "title": "",
+      "note": "Qwen3.6 27B is a dense 27-billion-parameter language model f",
+      "papers": 0,
+      "url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "Qwen/Qwen3.6-35B-A3B",
+      "size_total_gb": 66.97
+    },
+    {
+      "model": "Qwen3.6-Max",
+      "company": "Qwen",
+      "date": "2026-04-27",
+      "id": "",
+      "title": "",
+      "note": "Qwen3.6-Max-Preview is a proprietary frontier model from Ali",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "StdMoE_1b14b_1T",
       "company": "AllenAI",
       "date": "2026-04-29",
@@ -2941,6 +2997,76 @@
       "discovered": true,
       "hf_repo": "allenai/StdMoE_1b14b_1T",
       "size_total_gb": 50.55
+    },
+    {
+      "model": "StdMoE_1b14b_130B",
+      "company": "AllenAI",
+      "date": "2026-04-29",
+      "id": "2605.06663",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/StdMoE_1b14b_130B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "allenai/StdMoE_1b14b_130B",
+      "size_total_gb": 50.55
+    },
+    {
+      "model": "StdMoE_1b4b_130B",
+      "company": "AllenAI",
+      "date": "2026-04-29",
+      "id": "2605.06663",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/StdMoE_1b4b_130B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "allenai/StdMoE_1b4b_130B",
+      "size_total_gb": 14.54
+    },
+    {
+      "model": "Emo_1b14b_130B",
+      "company": "AllenAI",
+      "date": "2026-04-29",
+      "id": "2605.06663",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/Emo_1b14b_130B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "allenai/Emo_1b14b_130B",
+      "size_total_gb": 50.55
+    },
+    {
+      "model": "Emo_1b14b_1T",
+      "company": "AllenAI",
+      "date": "2026-04-29",
+      "id": "2605.06663",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/Emo_1b14b_1T",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "allenai/Emo_1b14b_1T",
+      "size_total_gb": 50.55
+    },
+    {
+      "model": "Dense_1b_130B",
+      "company": "AllenAI",
+      "date": "2026-04-29",
+      "id": "2605.06663",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/Dense_1b_130B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "allenai/Dense_1b_130B",
+      "size_total_gb": 5.53
     },
     {
       "model": "MiniCPM-o",
@@ -4377,6 +4503,20 @@
       "discovered": true,
       "hf_repo": null,
       "size_total_gb": null
+    },
+    {
+      "model": "LLaDA2.2-mini",
+      "company": "AntGroup",
+      "date": "2026-09-05",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/LLaDA2.2-mini",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/LLaDA2.2-mini",
+      "size_total_gb": 30.28
     }
   ]
 }
