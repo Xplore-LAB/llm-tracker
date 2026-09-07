@@ -2190,6 +2190,30 @@
    "papers": 1
   },
   {
+   "model": "BAR-2x7B-Tool-Use",
+   "company": "AllenAI",
+   "date": "2026-04-19",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/BAR-2x7B-Tool-Use",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "BAR-2x7B-Code",
+   "company": "AllenAI",
+   "date": "2026-04-19",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/BAR-2x7B-Code",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Xiaomi-OneVL",
    "company": "Xiaomi",
    "date": "2026-04-20",
@@ -2197,6 +2221,66 @@
    "title": "Xiaomi OneVL: One-Step Latent Reasoning and Planning with Vision-Language Explanation",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "Kimi-K2.6",
+   "company": "Moonshot",
+   "date": "2026-04-20",
+   "id": "2602.02276",
+   "title": "",
+   "note": "Kimi K2.6 is Moonshot AI's next-generation multimodal model,",
+   "papers": 0,
+   "url": "https://huggingface.co/moonshotai/Kimi-K2.6",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.4-Image-2",
+   "company": "OpenAI",
+   "date": "2026-04-21",
+   "id": "",
+   "title": "",
+   "note": "[GPT-5.4](https://openrouter.ai/openai/gpt-5.4) Image 2 comb",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Hy3",
+   "company": "Tencent",
+   "date": "2026-04-22",
+   "id": "",
+   "title": "",
+   "note": "Hy3 preview is a high-efficiency Mixture-of-Experts model fr",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "MiMo-V2.5-Pro",
+   "company": "Xiaomi",
+   "date": "2026-04-22",
+   "id": "",
+   "title": "",
+   "note": "MiMo-V2.5-Pro is Xiaomi’s flagship model, delivering strong ",
+   "papers": 0,
+   "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "LLaDA2.0-Uni",
+   "company": "AntGroup",
+   "date": "2026-04-22",
+   "id": "2604.20796",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/LLaDA2.0-Uni",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "DeepSeek-V4-Pro",
@@ -2208,6 +2292,42 @@
    "papers": 0,
    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
    "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "DeepSeek-V4-Flash",
+   "company": "DeepSeek",
+   "date": "2026-04-24",
+   "id": "2606.19348",
+   "title": "",
+   "note": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Expe",
+   "papers": 0,
+   "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.5-Pro",
+   "company": "OpenAI",
+   "date": "2026-04-24",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.5 Pro is OpenAI’s high-capability model optimized for ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.5",
+   "company": "OpenAI",
+   "date": "2026-04-24",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.5 is OpenAI’s frontier model designed for complex prof",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
    "discovered": true
   },
   {
