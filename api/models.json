@@ -2125,6 +2125,54 @@
    "papers": 1
   },
   {
+   "model": "Grok-4.20-Multi-Agent",
+   "company": "xAI",
+   "date": "2026-03-31",
+   "id": "",
+   "title": "",
+   "note": "Grok 4.20 Multi-Agent is a variant of SpaceXAI’s Grok 4.20 d",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Grok-4.20",
+   "company": "xAI",
+   "date": "2026-03-31",
+   "id": "",
+   "title": "",
+   "note": "Grok 4.20 is a reasoning model from SpaceXAI with industry-l",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GLM-5V-Turbo",
+   "company": "Zhipu",
+   "date": "2026-04-01",
+   "id": "",
+   "title": "",
+   "note": "GLM-5V-Turbo is Z.ai’s first native multimodal agent foundat",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3.6-Plus",
+   "company": "Qwen",
+   "date": "2026-04-02",
+   "id": "",
+   "title": "",
+   "note": "Qwen 3.6 Plus builds on a hybrid architecture that combines ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "DeepSeek-OCR-2",
    "company": "DeepSeek",
    "date": "2026-04-03",
@@ -2132,6 +2180,18 @@
    "title": "Fine-tuning DeepSeek-OCR-2 for Molecular Structure Recognition",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "Granite-4.1",
+   "company": "IBM",
+   "date": "2026-04-06",
+   "id": "2603.17074",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ibm-granite/granite-4.1-30b-base",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "GLM-5.1",
@@ -2190,6 +2250,42 @@
    "papers": 1
   },
   {
+   "model": "Claude-Opus-4.7",
+   "company": "Anthropic",
+   "date": "2026-04-16",
+   "id": "",
+   "title": "",
+   "note": "Opus 4.7 is the next generation of Anthropic's Opus family, ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Granite-guardian-4.1",
+   "company": "IBM",
+   "date": "2026-04-16",
+   "id": "2412.07724",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ibm-granite/granite-guardian-4.1-8b",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Granite-vision-4.1",
+   "company": "IBM",
+   "date": "2026-04-16",
+   "id": "2603.27064",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ibm-granite/granite-vision-4.1-4b",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "BAR-2x7B-Tool-Use",
    "company": "AllenAI",
    "date": "2026-04-19",
@@ -2210,6 +2306,30 @@
    "note": "（自动发现收录，待人工补注）",
    "papers": 0,
    "url": "https://huggingface.co/allenai/BAR-2x7B-Code",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "BAR-2x7B-Safety",
+   "company": "AllenAI",
+   "date": "2026-04-19",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/BAR-2x7B-Safety",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "BAR-2x7B-Math",
+   "company": "AllenAI",
+   "date": "2026-04-19",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/BAR-2x7B-Math-SFT",
    "source": "huggingface",
    "discovered": true
   },

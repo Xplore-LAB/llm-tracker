@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-07",
-  "total_models": 361,
-  "with_real_size": 177,
-  "coverage": "49.0%",
+  "fetch_time": "2026-09-08",
+  "total_models": 371,
+  "with_real_size": 182,
+  "coverage": "49.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -2807,6 +2807,62 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Grok-4.20-Multi-Agent",
+      "company": "xAI",
+      "date": "2026-03-31",
+      "id": "",
+      "title": "",
+      "note": "Grok 4.20 Multi-Agent is a variant of SpaceXAI’s Grok 4.20 d",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Grok-4.20",
+      "company": "xAI",
+      "date": "2026-03-31",
+      "id": "",
+      "title": "",
+      "note": "Grok 4.20 is a reasoning model from SpaceXAI with industry-l",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GLM-5V-Turbo",
+      "company": "Zhipu",
+      "date": "2026-04-01",
+      "id": "",
+      "title": "",
+      "note": "GLM-5V-Turbo is Z.ai’s first native multimodal agent foundat",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Qwen3.6-Plus",
+      "company": "Qwen",
+      "date": "2026-04-02",
+      "id": "",
+      "title": "",
+      "note": "Qwen 3.6 Plus builds on a hybrid architecture that combines ",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "DeepSeek-OCR-2",
       "company": "DeepSeek",
       "date": "2026-04-03",
@@ -2817,6 +2873,20 @@
       "hf_repo": "deepseek-ai/DeepSeek-OCR-2",
       "size_total_gb": 6.31,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Granite-4.1",
+      "company": "IBM",
+      "date": "2026-04-06",
+      "id": "2603.17074",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granite-4.1-30b-base",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granite-4.1-3b",
+      "size_total_gb": 6.34
     },
     {
       "model": "GLM-5.1",
@@ -2893,6 +2963,48 @@
       "source": "no_mapping"
     },
     {
+      "model": "Claude-Opus-4.7",
+      "company": "Anthropic",
+      "date": "2026-04-16",
+      "id": "",
+      "title": "",
+      "note": "Opus 4.7 is the next generation of Anthropic's Opus family, ",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Granite-guardian-4.1",
+      "company": "IBM",
+      "date": "2026-04-16",
+      "id": "2412.07724",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granite-guardian-4.1-8b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granite-guardian-4.1-8b",
+      "size_total_gb": 15.61
+    },
+    {
+      "model": "Granite-vision-4.1",
+      "company": "IBM",
+      "date": "2026-04-16",
+      "id": "2603.27064",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granite-vision-4.1-4b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granite-vision-4.1-4b",
+      "size_total_gb": 7.45
+    },
+    {
       "model": "BAR-2x7B-Tool-Use",
       "company": "AllenAI",
       "date": "2026-04-19",
@@ -2918,6 +3030,34 @@
       "source": "hf_tree",
       "discovered": true,
       "hf_repo": "allenai/BAR-2x7B-Code",
+      "size_total_gb": 21.66
+    },
+    {
+      "model": "BAR-2x7B-Safety",
+      "company": "AllenAI",
+      "date": "2026-04-19",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/BAR-2x7B-Safety",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "allenai/BAR-2x7B-Safety",
+      "size_total_gb": 21.66
+    },
+    {
+      "model": "BAR-2x7B-Math",
+      "company": "AllenAI",
+      "date": "2026-04-19",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/BAR-2x7B-Math-SFT",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "allenai/BAR-2x7B-Math",
       "size_total_gb": 21.66
     },
     {
