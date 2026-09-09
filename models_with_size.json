@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-08",
-  "total_models": 371,
-  "with_real_size": 182,
-  "coverage": "49.1%",
+  "fetch_time": "2026-09-09",
+  "total_models": 382,
+  "with_real_size": 186,
+  "coverage": "48.7%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -2759,6 +2759,48 @@
       "source": "gated"
     },
     {
+      "model": "GPT-5.4-Nano",
+      "company": "OpenAI",
+      "date": "2026-03-17",
+      "id": "",
+      "title": "",
+      "note": "GPT-5.4 nano is the most lightweight and cost-efficient vari",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GPT-5.4-Mini",
+      "company": "OpenAI",
+      "date": "2026-03-17",
+      "id": "",
+      "title": "",
+      "note": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a fa",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "MiniMax-M2.7",
+      "company": "MiniMax",
+      "date": "2026-03-18",
+      "id": "",
+      "title": "",
+      "note": "MiniMax-M2.7 is a next-generation large language model desig",
+      "papers": 0,
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.7",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "MiniMaxAI/MiniMax-M2.7",
+      "size_total_gb": 214.33
+    },
+    {
       "model": "Nemotron-Cascade-2",
       "company": "Nvidia",
       "date": "2026-03-19",
@@ -2783,6 +2825,34 @@
       "source": "gated"
     },
     {
+      "model": "MolmoWeb-4B-Native",
+      "company": "AllenAI",
+      "date": "2026-03-23",
+      "id": "2601.10611",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/MolmoWeb-4B-Native",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": "allenai/MolmoWeb-4B-Native",
+      "size_total_gb": null
+    },
+    {
+      "model": "MolmoWeb-8B-Native",
+      "company": "AllenAI",
+      "date": "2026-03-24",
+      "id": "2601.10611",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/allenai/MolmoWeb-8B-Native",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": "allenai/MolmoWeb-8B-Native",
+      "size_total_gb": null
+    },
+    {
       "model": "Nemotron",
       "company": "Nvidia",
       "date": "2026-03-27",
@@ -2805,6 +2875,34 @@
       "hf_repo": "meituan-longcat/LongCat-Next",
       "size_total_gb": 150.09,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Lyria-3-Pro",
+      "company": "Google",
+      "date": "2026-03-30",
+      "id": "",
+      "title": "",
+      "note": "Full-length songs are priced at $0.08 per song. Lyria 3 is G",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Lyria-3-Clip",
+      "company": "Google",
+      "date": "2026-03-30",
+      "id": "",
+      "title": "",
+      "note": "30 second duration clips are priced at $0.04 per clip. Lyria",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "Grok-4.20-Multi-Agent",
@@ -4743,6 +4841,34 @@
       "size_total_gb": null
     },
     {
+      "model": "Nemotron-3-Labs-Ultra-Math-RL",
+      "company": "Nvidia",
+      "date": "2026-09-02",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/nvidia/Nemotron-3-Labs-Ultra-Math-RL",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/Nemotron-3-Labs-Ultra-Math-RL",
+      "size_total_gb": 1044.06
+    },
+    {
+      "model": "Nemotron-3-Labs-Ultra-Math",
+      "company": "Nvidia",
+      "date": "2026-09-02",
+      "id": "2511.22570",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/nvidia/Nemotron-3-Labs-Ultra-Math-SFT",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/Nemotron-3-Labs-Ultra-Math-SFT",
+      "size_total_gb": 1044.06
+    },
+    {
       "model": "GPT-6-Astra",
       "company": "OpenAI",
       "date": "2026-09-04",
@@ -4785,6 +4911,20 @@
       "size_total_gb": null
     },
     {
+      "model": "Ling-3.0-flash-VL",
+      "company": "AntGroup",
+      "date": "2026-09-04",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ling-3.0-flash-VL",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ling-3.0-flash-VL",
+      "size_total_gb": 232.56
+    },
+    {
       "model": "LLaDA2.2-mini",
       "company": "AntGroup",
       "date": "2026-09-05",
@@ -4797,6 +4937,19 @@
       "discovered": true,
       "hf_repo": "inclusionAI/LLaDA2.2-mini",
       "size_total_gb": 30.28
+    },
+    {
+      "model": "Qwen-Audio-3.0-ASR",
+      "company": "Qwen",
+      "date": "2026-09-07",
+      "id": "2609.07549",
+      "title": "Qwen-Audio-3.0-ASR Technical Report",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 1,
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     }
   ]
 }

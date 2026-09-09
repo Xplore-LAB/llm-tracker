@@ -2089,6 +2089,42 @@
    "papers": 1
   },
   {
+   "model": "GPT-5.4-Nano",
+   "company": "OpenAI",
+   "date": "2026-03-17",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.4 nano is the most lightweight and cost-efficient vari",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.4-Mini",
+   "company": "OpenAI",
+   "date": "2026-03-17",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.4 mini brings the core capabilities of GPT-5.4 to a fa",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "MiniMax-M2.7",
+   "company": "MiniMax",
+   "date": "2026-03-18",
+   "id": "",
+   "title": "",
+   "note": "MiniMax-M2.7 is a next-generation large language model desig",
+   "papers": 0,
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.7",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
    "model": "Nemotron-Cascade-2",
    "company": "Nvidia",
    "date": "2026-03-19",
@@ -2107,6 +2143,30 @@
    "papers": 1
   },
   {
+   "model": "MolmoWeb-4B-Native",
+   "company": "AllenAI",
+   "date": "2026-03-23",
+   "id": "2601.10611",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/MolmoWeb-4B-Native",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "MolmoWeb-8B-Native",
+   "company": "AllenAI",
+   "date": "2026-03-24",
+   "id": "2601.10611",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/MolmoWeb-8B-Native",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Nemotron",
    "company": "Nvidia",
    "date": "2026-03-27",
@@ -2123,6 +2183,30 @@
    "title": "LongCat-Next: Lexicalizing Modalities as Discrete Tokens",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "Lyria-3-Pro",
+   "company": "Google",
+   "date": "2026-03-30",
+   "id": "",
+   "title": "",
+   "note": "Full-length songs are priced at $0.08 per song. Lyria 3 is G",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Lyria-3-Clip",
+   "company": "Google",
+   "date": "2026-03-30",
+   "id": "",
+   "title": "",
+   "note": "30 second duration clips are priced at $0.04 per clip. Lyria",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
   },
   {
    "model": "Grok-4.20-Multi-Agent",
@@ -3738,6 +3822,30 @@
    "discovered": true
   },
   {
+   "model": "Nemotron-3-Labs-Ultra-Math-RL",
+   "company": "Nvidia",
+   "date": "2026-09-02",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/nvidia/Nemotron-3-Labs-Ultra-Math-RL",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Nemotron-3-Labs-Ultra-Math",
+   "company": "Nvidia",
+   "date": "2026-09-02",
+   "id": "2511.22570",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/nvidia/Nemotron-3-Labs-Ultra-Math-SFT",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "GPT-6-Astra",
    "company": "OpenAI",
    "date": "2026-09-04",
@@ -3774,6 +3882,18 @@
    "discovered": true
   },
   {
+   "model": "Ling-3.0-flash-VL",
+   "company": "AntGroup",
+   "date": "2026-09-04",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/Ling-3.0-flash-VL",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "LLaDA2.2-mini",
    "company": "AntGroup",
    "date": "2026-09-05",
@@ -3783,6 +3903,17 @@
    "papers": 0,
    "url": "https://huggingface.co/inclusionAI/LLaDA2.2-mini",
    "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Qwen-Audio-3.0-ASR",
+   "company": "Qwen",
+   "date": "2026-09-07",
+   "id": "2609.07549",
+   "title": "Qwen-Audio-3.0-ASR Technical Report",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 1,
+   "source": "arxiv",
    "discovered": true
   }
  ],
