@@ -1,9 +1,9 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-09",
-  "total_models": 382,
-  "with_real_size": 186,
+  "fetch_time": "2026-09-10",
+  "total_models": 392,
+  "with_real_size": 191,
   "coverage": "48.7%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
@@ -2747,6 +2747,62 @@
       "source": "no_mapping"
     },
     {
+      "model": "Nano-Banana-2",
+      "company": "Google",
+      "date": "2026-02-26",
+      "id": "",
+      "title": "",
+      "note": "Gemini 3.1 Flash Image Preview, a.k.a. \"Nano Banana 2,\" is G",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Step-3.5-Flash",
+      "company": "StepFun",
+      "date": "2026-03-02",
+      "id": "2602.10604",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/stepfun-ai/Step-3.5-Flash-Base",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "stepfun-ai/Step-3.5-Flash",
+      "size_total_gb": 371.38
+    },
+    {
+      "model": "Gemini-3.1-Flash-Lite",
+      "company": "Google",
+      "date": "2026-03-03",
+      "id": "",
+      "title": "",
+      "note": "Gemini 3.1 Flash Lite Preview is Google's high-efficiency mo",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Granite-4.0-3b-vision",
+      "company": "IBM",
+      "date": "2026-03-03",
+      "id": "2603.27064",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granite-4.0-3b-vision",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granite-4.0-3b-vision",
+      "size_total_gb": 8.8
+    },
+    {
       "model": "Phi-4-reasoning-vision-15B",
       "company": "Microsoft",
       "date": "2026-03-04",
@@ -2757,6 +2813,62 @@
       "hf_repo": "microsoft/Phi-4-reasoning-multimodal",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "GPT-5.4-Pro",
+      "company": "OpenAI",
+      "date": "2026-03-05",
+      "id": "",
+      "title": "",
+      "note": "GPT-5.4 Pro is OpenAI's most advanced model, building on GPT",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GPT-5.4",
+      "company": "OpenAI",
+      "date": "2026-03-05",
+      "id": "",
+      "title": "",
+      "note": "GPT-5.4 is OpenAI’s latest frontier model, unifying the Code",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GLM-5-Turbo",
+      "company": "Zhipu",
+      "date": "2026-03-15",
+      "id": "",
+      "title": "",
+      "note": "GLM-5 Turbo is a new model from Z.ai designed for fast infer",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Mistral-Small-4",
+      "company": "Mistral",
+      "date": "2026-03-16",
+      "id": "",
+      "title": "",
+      "note": "Mistral Small 4 is the next major release in the Mistral Sma",
+      "papers": 0,
+      "url": "",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "mistralai/Mistral-Small-4-119B-2603-NVFP4",
+      "size_total_gb": 65.95
     },
     {
       "model": "GPT-5.4-Nano",
@@ -4869,6 +4981,20 @@
       "size_total_gb": 1044.06
     },
     {
+      "model": "Tiny-aya-l2-thinker",
+      "company": "Cohere",
+      "date": "2026-09-02",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/tiny-aya-l2-thinker",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/tiny-aya-l2-thinker",
+      "size_total_gb": 6.24
+    },
+    {
       "model": "GPT-6-Astra",
       "company": "OpenAI",
       "date": "2026-09-04",
@@ -4950,6 +5076,20 @@
       "discovered": true,
       "hf_repo": null,
       "size_total_gb": null
+    },
+    {
+      "model": "DeepSeek-V4.1-Flash",
+      "company": "DeepSeek",
+      "date": "2026-09-10",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "size_total_gb": 475.25
     }
   ]
 }
