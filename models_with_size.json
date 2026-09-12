@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-11",
-  "total_models": 402,
-  "with_real_size": 195,
-  "coverage": "48.5%",
+  "fetch_time": "2026-09-12",
+  "total_models": 412,
+  "with_real_size": 203,
+  "coverage": "49.3%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -2687,6 +2687,20 @@
       "source": "gated"
     },
     {
+      "model": "MiniMax-M2-her",
+      "company": "MiniMax",
+      "date": "2026-01-23",
+      "id": "",
+      "title": "",
+      "note": "MiniMax M2-her is a dialogue-first large language model buil",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Kimi-K2.5",
       "company": "Moonshot",
       "date": "2026-02-02",
@@ -2697,6 +2711,34 @@
       "hf_repo": "moonshotai/Kimi-K2.5",
       "size_total_gb": 554.3,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Granitelib-guardian-r1.0",
+      "company": "IBM",
+      "date": "2026-02-02",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granitelib-guardian-r1.0",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granitelib-guardian-r1.0",
+      "size_total_gb": 5.8
+    },
+    {
+      "model": "Intern-S1-Pro",
+      "company": "InternLM",
+      "date": "2026-02-02",
+      "id": "2603.25040",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/Intern-S1-Pro",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/Intern-S1-Pro",
+      "size_total_gb": 856.14
     },
     {
       "model": "ERNIE-5.0",
@@ -2711,6 +2753,20 @@
       "source": "no_mapping"
     },
     {
+      "model": "Claude-Opus-4.6",
+      "company": "Anthropic",
+      "date": "2026-02-04",
+      "id": "",
+      "title": "",
+      "note": "Opus 4.6 is Anthropic’s strongest model for coding and long-",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Baichuan-M3",
       "company": "Baichuan",
       "date": "2026-02-06",
@@ -2721,6 +2777,90 @@
       "hf_repo": "baichuan-inc/Baichuan-M3-235B",
       "size_total_gb": 439.13,
       "source": "hf_tree"
+    },
+    {
+      "model": "LLaDA2.1-flash",
+      "company": "AntGroup",
+      "date": "2026-02-09",
+      "id": "2602.08676",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/LLaDA2.1-flash",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/LLaDA2.1-flash",
+      "size_total_gb": 191.65
+    },
+    {
+      "model": "UI-Venus-1.5",
+      "company": "AntGroup",
+      "date": "2026-02-09",
+      "id": "2602.09082",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/UI-Venus-1.5-30B-A3B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/UI-Venus-1.5-30B-A3B",
+      "size_total_gb": 57.87
+    },
+    {
+      "model": "LLaDA2.1-mini",
+      "company": "AntGroup",
+      "date": "2026-02-09",
+      "id": "2602.08676",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/LLaDA2.1-mini",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/LLaDA2.1-mini",
+      "size_total_gb": 30.28
+    },
+    {
+      "model": "Ring-2.5",
+      "company": "AntGroup",
+      "date": "2026-02-10",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ring-2.5-1T",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ring-2.5-1T",
+      "size_total_gb": 945.73
+    },
+    {
+      "model": "Ming-flash-omni-2.0",
+      "company": "AntGroup",
+      "date": "2026-02-10",
+      "id": "2506.09344",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ming-flash-omni-2.0",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ming-flash-omni-2.0",
+      "size_total_gb": 219.36
+    },
+    {
+      "model": "GLM-5",
+      "company": "Zhipu",
+      "date": "2026-02-11",
+      "id": "2602.15763",
+      "title": "",
+      "note": "GLM-5 is Z.ai’s flagship open-source foundation model engine",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/GLM-5",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/GLM-5",
+      "size_total_gb": 1404.19
     },
     {
       "model": "MiniCPM-SALA",

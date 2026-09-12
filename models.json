@@ -2035,6 +2035,18 @@
    "papers": 1
   },
   {
+   "model": "MiniMax-M2-her",
+   "company": "MiniMax",
+   "date": "2026-01-23",
+   "id": "",
+   "title": "",
+   "note": "MiniMax M2-her is a dialogue-first large language model buil",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "Kimi-K2.5",
    "company": "Moonshot",
    "date": "2026-02-02",
@@ -2042,6 +2054,30 @@
    "title": "Kimi K2.5: Visual Agentic Intelligence",
    "note": "发布开源多模态智能体模型Kimi K2.5，强调文本与视觉联合预训练及联合强化学习的协同优化。",
    "papers": 2
+  },
+  {
+   "model": "Granitelib-guardian-r1.0",
+   "company": "IBM",
+   "date": "2026-02-02",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ibm-granite/granitelib-guardian-r1.0",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Intern-S1-Pro",
+   "company": "InternLM",
+   "date": "2026-02-02",
+   "id": "2603.25040",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/internlm/Intern-S1-Pro",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "ERNIE-5.0",
@@ -2053,6 +2089,18 @@
    "papers": 1
   },
   {
+   "model": "Claude-Opus-4.6",
+   "company": "Anthropic",
+   "date": "2026-02-04",
+   "id": "",
+   "title": "",
+   "note": "Opus 4.6 is Anthropic’s strongest model for coding and long-",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "Baichuan-M3",
    "company": "Baichuan",
    "date": "2026-02-06",
@@ -2060,6 +2108,78 @@
    "title": "Baichuan-M3: Modeling Clinical Inquiry for Reliable Medical Decision-Making",
    "note": "Baichuan-M3转向主动式临床决策支持，通过专项训练流水线模拟医生系统化诊疗流程。",
    "papers": 1
+  },
+  {
+   "model": "LLaDA2.1-flash",
+   "company": "AntGroup",
+   "date": "2026-02-09",
+   "id": "2602.08676",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/LLaDA2.1-flash",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "UI-Venus-1.5",
+   "company": "AntGroup",
+   "date": "2026-02-09",
+   "id": "2602.09082",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/UI-Venus-1.5-30B-A3B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "LLaDA2.1-mini",
+   "company": "AntGroup",
+   "date": "2026-02-09",
+   "id": "2602.08676",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/LLaDA2.1-mini",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Ring-2.5",
+   "company": "AntGroup",
+   "date": "2026-02-10",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/Ring-2.5-1T",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Ming-flash-omni-2.0",
+   "company": "AntGroup",
+   "date": "2026-02-10",
+   "id": "2506.09344",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/inclusionAI/Ming-flash-omni-2.0",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "GLM-5",
+   "company": "Zhipu",
+   "date": "2026-02-11",
+   "id": "2602.15763",
+   "title": "",
+   "note": "GLM-5 is Z.ai’s flagship open-source foundation model engine",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/GLM-5",
+   "source": "hf+openrouter",
+   "discovered": true
   },
   {
    "model": "MiniCPM-SALA",
