@@ -2994,6 +2994,16 @@
    "papers": 1
   },
   {
+   "model": "VoxCPM",
+   "company": "ModelBest",
+   "date": "2026-06-05",
+   "id": "2606.06928",
+   "title": "VoxCPM2 Technical Report",
+   "note": "",
+   "papers": 2,
+   "url": "https://github.com/OpenBMB/VoxCPM"
+  },
+  {
    "model": "Grok-4.3",
    "company": "xAI",
    "date": "2026-04-30",
@@ -9434,6 +9444,23 @@
        "title": "MiniCPM-o 4.5: Towards Real-Time Full-Duplex Omni-Modal Interaction",
        "date": "2026-04-30",
        "note": ""
+      }
+     ]
+    },
+    {
+     "model": "VoxCPM",
+     "papers": [
+      {
+       "id": "2509.24650",
+       "title": "VoxCPM: Tokenizer-Free TTS for Context-Aware Speech Generation and True-to-Life Voice Cloning",
+       "date": "2025-09-29",
+       "note": "提出无tokenizer层次化语义-声学建模TTS：TSLM生成语义韵律规划、FSQ可微量化瓶颈、RALM恢复声学细节、LocDiT局部扩散解码，0.5B模型经1.8M小时双语语料训练，Apache-2.0开源。"
+      },
+      {
+       "id": "2606.06928",
+       "title": "VoxCPM2 Technical Report",
+       "date": "2026-06-05",
+       "note": "扩展至2B参数与2M+小时多语言语音，统一30种语言与9种中文方言，支持自然语言声音设计与风格可控克隆，非对称AudioVAE以16kHz编码48kHz重建，内部30语言评测平均WER 1.68%。"
       }
      ]
     }
