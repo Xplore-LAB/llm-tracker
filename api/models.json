@@ -2008,6 +2008,102 @@
    "papers": 1
   },
   {
+   "model": "Medgemma-1.5",
+   "company": "Google",
+   "date": "2026-01-07",
+   "id": "2303.15343",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/google/medgemma-1.5-4b-it",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Granite-3.3-8b-math-prm-v2",
+   "company": "IBM",
+   "date": "2026-01-07",
+   "id": "2412.06559",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ibm-granite/granite-3.3-8b-math-prm-v2",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Falcon-H1-Tiny-R",
+   "company": "TII",
+   "date": "2026-01-12",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/tiiuae/Falcon-H1-Tiny-R-0.6B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Falcon-H1-Tiny-Multilingual",
+   "company": "TII",
+   "date": "2026-01-12",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/tiiuae/Falcon-H1-Tiny-Multilingual-100M-Instruct",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Falcon-H1-Tiny-Tool-Calling",
+   "company": "TII",
+   "date": "2026-01-12",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/tiiuae/Falcon-H1-Tiny-Tool-Calling-90M",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Falcon-H1-Tiny-Coder",
+   "company": "TII",
+   "date": "2026-01-13",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/tiiuae/Falcon-H1-Tiny-Coder-90M",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Step3-VL",
+   "company": "StepFun",
+   "date": "2026-01-13",
+   "id": "2601.09668",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/stepfun-ai/Step3-VL-10B-Base",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.2-Codex",
+   "company": "OpenAI",
+   "date": "2026-01-14",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.2-Codex is an upgraded version of GPT-5.1-Codex optimi",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "Grok-4.1",
    "company": "xAI",
    "date": "2026-01-15",
@@ -2015,6 +2111,18 @@
    "title": "A Safety Report on GPT-5.2, Gemini 3 Pro, Qwen3-VL, Grok 4.1 Fast, Nano Banana Pro, and Seedream 4.5",
    "note": "综述类：对GPT-5.2、Gemini 3 Pro等六款前沿多模态大模型开展系统性安全评测，揭示能力进步未必带来安全同步提升。",
    "papers": 1
+  },
+  {
+   "model": "GLM-4.7-Flash",
+   "company": "Zhipu",
+   "date": "2026-01-19",
+   "id": "2508.06471",
+   "title": "",
+   "note": "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/GLM-4.7-Flash",
+   "source": "hf+openrouter",
+   "discovered": true
   },
   {
    "model": "Qwen-Max",
@@ -2044,6 +2152,18 @@
    "papers": 0,
    "url": "",
    "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Phi-4-reasoning-vision",
+   "company": "Microsoft",
+   "date": "2026-01-23",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/microsoft/Phi-4-reasoning-vision-15B",
+   "source": "huggingface",
    "discovered": true
   },
   {
