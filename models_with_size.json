@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-16",
-  "total_models": 423,
-  "with_real_size": 211,
-  "coverage": "49.9%",
+  "fetch_time": "2026-09-17",
+  "total_models": 433,
+  "with_real_size": 218,
+  "coverage": "50.3%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -2519,6 +2519,62 @@
       "source": "no_mapping"
     },
     {
+      "model": "Devstral-2",
+      "company": "Mistral",
+      "date": "2025-12-09",
+      "id": "",
+      "title": "",
+      "note": "Devstral 2 is a state-of-the-art open-source model by Mistra",
+      "papers": 0,
+      "url": "",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "mistralai/Devstral-2-123B-Instruct-2512",
+      "size_total_gb": 238.88
+    },
+    {
+      "model": "GPT-5.2",
+      "company": "OpenAI",
+      "date": "2025-12-10",
+      "id": "",
+      "title": "",
+      "note": "GPT-5.2 is the latest frontier-grade model in the GPT-5 seri",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GPT-5.2-Pro",
+      "company": "OpenAI",
+      "date": "2025-12-10",
+      "id": "",
+      "title": "",
+      "note": "GPT-5.2 Pro is OpenAI’s most advanced model, offering major ",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Granitelib-core-r1.0",
+      "company": "IBM",
+      "date": "2025-12-10",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granitelib-core-r1.0",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granitelib-core-r1.0",
+      "size_total_gb": 2.59
+    },
+    {
       "model": "Mistral-IA",
       "company": "Mistral",
       "date": "2025-12-11",
@@ -2555,6 +2611,34 @@
       "source": "gated"
     },
     {
+      "model": "Gemini-3-Flash",
+      "company": "Google",
+      "date": "2025-12-17",
+      "id": "",
+      "title": "",
+      "note": "Gemini 3 Flash Preview is a high speed, high value thinking ",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GLM-4.7",
+      "company": "Zhipu",
+      "date": "2025-12-22",
+      "id": "2508.06471",
+      "title": "",
+      "note": "GLM-4.7 is Z.ai’s latest flagship model, featuring upgrades ",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/GLM-4.7",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/GLM-4.7",
+      "size_total_gb": 667.46
+    },
+    {
       "model": "Nemotron-3-Nano",
       "company": "Nvidia",
       "date": "2025-12-23",
@@ -2567,6 +2651,20 @@
       "source": "gated"
     },
     {
+      "model": "MiniMax-M2.1",
+      "company": "MiniMax",
+      "date": "2025-12-23",
+      "id": "2509.06501",
+      "title": "",
+      "note": "MiniMax-M2.1 is a lightweight, state-of-the-art large langua",
+      "papers": 0,
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.1",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "MiniMaxAI/MiniMax-M2.1",
+      "size_total_gb": 214.33
+    },
+    {
       "model": "Nemotron-3",
       "company": "Nvidia",
       "date": "2025-12-24",
@@ -2577,6 +2675,20 @@
       "hf_repo": "nvidia/Nemotron-3-22B-Base",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "CapRL-Qwen3VL",
+      "company": "InternLM",
+      "date": "2025-12-24",
+      "id": "2509.22647",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/CapRL-Qwen3VL-4B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/CapRL-Qwen3VL-2B",
+      "size_total_gb": 4.54
     },
     {
       "model": "Llama-3.2",
@@ -2637,6 +2749,34 @@
       "hf_repo": "XiaoMi/MiMo-V2-Flash",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "AI21-Jamba2",
+      "company": "AI21",
+      "date": "2026-01-06",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ai21labs/AI21-Jamba2-3B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ai21labs/AI21-Jamba2-3B",
+      "size_total_gb": 5.96
+    },
+    {
+      "model": "AI21-Jamba2-Mini",
+      "company": "AI21",
+      "date": "2026-01-06",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ai21labs/AI21-Jamba2-Mini",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ai21labs/AI21-Jamba2-Mini",
+      "size_total_gb": 96.06
     },
     {
       "model": "DeepSeek-OCR",

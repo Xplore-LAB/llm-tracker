@@ -1909,6 +1909,54 @@
    "papers": 3
   },
   {
+   "model": "Devstral-2",
+   "company": "Mistral",
+   "date": "2025-12-09",
+   "id": "",
+   "title": "",
+   "note": "Devstral 2 is a state-of-the-art open-source model by Mistra",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.2",
+   "company": "OpenAI",
+   "date": "2025-12-10",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.2 is the latest frontier-grade model in the GPT-5 seri",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.2-Pro",
+   "company": "OpenAI",
+   "date": "2025-12-10",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.2 Pro is OpenAI’s most advanced model, offering major ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Granitelib-core-r1.0",
+   "company": "IBM",
+   "date": "2025-12-10",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ibm-granite/granitelib-core-r1.0",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Mistral-IA",
    "company": "Mistral",
    "date": "2025-12-11",
@@ -1936,6 +1984,30 @@
    "papers": 1
   },
   {
+   "model": "Gemini-3-Flash",
+   "company": "Google",
+   "date": "2025-12-17",
+   "id": "",
+   "title": "",
+   "note": "Gemini 3 Flash Preview is a high speed, high value thinking ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GLM-4.7",
+   "company": "Zhipu",
+   "date": "2025-12-22",
+   "id": "2508.06471",
+   "title": "",
+   "note": "GLM-4.7 is Z.ai’s latest flagship model, featuring upgrades ",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/GLM-4.7",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
    "model": "Nemotron-3-Nano",
    "company": "Nvidia",
    "date": "2025-12-23",
@@ -1945,6 +2017,18 @@
    "papers": 1
   },
   {
+   "model": "MiniMax-M2.1",
+   "company": "MiniMax",
+   "date": "2025-12-23",
+   "id": "2509.06501",
+   "title": "",
+   "note": "MiniMax-M2.1 is a lightweight, state-of-the-art large langua",
+   "papers": 0,
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.1",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
    "model": "Nemotron-3",
    "company": "Nvidia",
    "date": "2025-12-24",
@@ -1952,6 +2036,18 @@
    "title": "NVIDIA Nemotron 3: Efficient and Open Intelligence",
    "note": "综述Nemotron 3模型家族（Nano/Super/Ultra），采用MoE混合Mamba-Transformer架构，提供高吞吐量并支持最长1M toke",
    "papers": 1
+  },
+  {
+   "model": "CapRL-Qwen3VL",
+   "company": "InternLM",
+   "date": "2025-12-24",
+   "id": "2509.22647",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/internlm/CapRL-Qwen3VL-4B",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Llama-3.2",
@@ -1997,6 +2093,30 @@
    "title": "MiMo-V2-Flash Technical Report",
    "note": "小米发布309B总参/15B激活的MoE模型MiMo-V2-Flash，采用滑动窗与全局注意力混合架构，聚焦推理与智能体能力。",
    "papers": 1
+  },
+  {
+   "model": "AI21-Jamba2",
+   "company": "AI21",
+   "date": "2026-01-06",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ai21labs/AI21-Jamba2-3B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "AI21-Jamba2-Mini",
+   "company": "AI21",
+   "date": "2026-01-06",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ai21labs/AI21-Jamba2-Mini",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "DeepSeek-OCR",
