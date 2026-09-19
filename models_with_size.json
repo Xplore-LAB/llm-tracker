@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-18",
-  "total_models": 443,
-  "with_real_size": 224,
-  "coverage": "50.6%",
+  "fetch_time": "2026-09-19",
+  "total_models": 453,
+  "with_real_size": 227,
+  "coverage": "50.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -2411,6 +2411,48 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "GPT-5-Image-Mini",
+      "company": "OpenAI",
+      "date": "2025-10-16",
+      "id": "",
+      "title": "",
+      "note": "GPT-5 Image Mini combines OpenAI's advanced language capabil",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "CapRL-InternVL3.5",
+      "company": "InternLM",
+      "date": "2025-10-16",
+      "id": "2509.22647",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/CapRL-InternVL3.5-8B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/CapRL-InternVL3.5-8B",
+      "size_total_gb": 15.89
+    },
+    {
+      "model": "T5gemma-2",
+      "company": "Google",
+      "date": "2025-10-25",
+      "id": "1905.07830",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/google/t5gemma-2-4b-4b",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Kimi-Linear",
       "company": "Moonshot",
       "date": "2025-10-30",
@@ -2421,6 +2463,20 @@
       "hf_repo": "moonshotai/Kimi-Linear-48B-A3B",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "Nova-Premier-1.0",
+      "company": "Amazon",
+      "date": "2025-10-31",
+      "id": "",
+      "title": "",
+      "note": "Amazon Nova Premier is the most capable of Amazon’s multimod",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "Step-Audio-EditX",
@@ -2445,6 +2501,62 @@
       "hf_repo": "nvidia/Nemotron-Nano-V2-VL",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "UI2Code_N",
+      "company": "Zhipu",
+      "date": "2025-11-11",
+      "id": "2511.08195",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/UI2Code_N",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/UI2Code_N",
+      "size_total_gb": 19.17
+    },
+    {
+      "model": "GPT-5.1",
+      "company": "OpenAI",
+      "date": "2025-11-13",
+      "id": "",
+      "title": "",
+      "note": "GPT-5.1 is the latest frontier-grade model in the GPT-5 seri",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GPT-5.1-Codex",
+      "company": "OpenAI",
+      "date": "2025-11-13",
+      "id": "",
+      "title": "",
+      "note": "GPT-5.1-Codex is a specialized version of GPT-5.1 optimized ",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GPT-5.1-Codex-Mini",
+      "company": "OpenAI",
+      "date": "2025-11-13",
+      "id": "",
+      "title": "",
+      "note": "GPT-5.1-Codex-Mini is a smaller and faster version of GPT-5.",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "Xiaomi-Home",
@@ -2493,6 +2605,20 @@
       "hf_repo": "XiaoMi/MiMo-Embodied",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "Spatial-SSRL-Qwen3VL",
+      "company": "InternLM",
+      "date": "2025-11-21",
+      "id": "2510.27606",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/Spatial-SSRL-Qwen3VL-4B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/Spatial-SSRL-Qwen3VL-4B",
+      "size_total_gb": 8.99
     },
     {
       "model": "Nemotron-Flash",
@@ -5803,6 +5929,20 @@
       "discovered": true,
       "hf_repo": "deepseek-ai/DeepSeek-V4.1-Flash",
       "size_total_gb": 475.25
+    },
+    {
+      "model": "GLM-5.3-FlashX",
+      "company": "Zhipu",
+      "date": "2026-09-18",
+      "id": "",
+      "title": "",
+      "note": "GLM-5.3-FlashX is the high-speed variant of Z.ai's GLM-5.3-F",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     }
   ]
 }

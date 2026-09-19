@@ -1828,6 +1828,42 @@
    "url": "https://github.com/PaddlePaddle/PaddleOCR"
   },
   {
+   "model": "GPT-5-Image-Mini",
+   "company": "OpenAI",
+   "date": "2025-10-16",
+   "id": "",
+   "title": "",
+   "note": "GPT-5 Image Mini combines OpenAI's advanced language capabil",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "CapRL-InternVL3.5",
+   "company": "InternLM",
+   "date": "2025-10-16",
+   "id": "2509.22647",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/internlm/CapRL-InternVL3.5-8B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "T5gemma-2",
+   "company": "Google",
+   "date": "2025-10-25",
+   "id": "1905.07830",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/google/t5gemma-2-4b-4b",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Kimi-Linear",
    "company": "Moonshot",
    "date": "2025-10-30",
@@ -1835,6 +1871,18 @@
    "title": "Kimi Linear: An Expressive, Efficient Attention Architecture",
    "note": "提出Kimi Linear混合线性注意力架构，核心KDA模块首次在多场景下公平对比中超越全注意力。",
    "papers": 1
+  },
+  {
+   "model": "Nova-Premier-1.0",
+   "company": "Amazon",
+   "date": "2025-10-31",
+   "id": "",
+   "title": "",
+   "note": "Amazon Nova Premier is the most capable of Amazon’s multimod",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
   },
   {
    "model": "Step-Audio-EditX",
@@ -1853,6 +1901,54 @@
    "title": "NVIDIA Nemotron Nano V2 VL",
    "note": "发布Nemotron Nano V2 VL视觉语言模型，在文档理解、长视频与推理任务上全面超越前代。",
    "papers": 1
+  },
+  {
+   "model": "UI2Code_N",
+   "company": "Zhipu",
+   "date": "2025-11-11",
+   "id": "2511.08195",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/UI2Code_N",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.1",
+   "company": "OpenAI",
+   "date": "2025-11-13",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.1 is the latest frontier-grade model in the GPT-5 seri",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.1-Codex",
+   "company": "OpenAI",
+   "date": "2025-11-13",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.1-Codex is a specialized version of GPT-5.1 optimized ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5.1-Codex-Mini",
+   "company": "OpenAI",
+   "date": "2025-11-13",
+   "id": "",
+   "title": "",
+   "note": "GPT-5.1-Codex-Mini is a smaller and faster version of GPT-5.",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
   },
   {
    "model": "Xiaomi-Home",
@@ -1889,6 +1985,18 @@
    "title": "MiMo-Embodied: X-Embodied Foundation Model Technical Report",
    "note": "开源首个跨具身基础模型MiMo-Embodied，统一自动驾驶与具身AI，在任务规划、可供性预测、空间理解等多项基准上刷新记录。",
    "papers": 1
+  },
+  {
+   "model": "Spatial-SSRL-Qwen3VL",
+   "company": "InternLM",
+   "date": "2025-11-21",
+   "id": "2510.27606",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/internlm/Spatial-SSRL-Qwen3VL-4B",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Nemotron-Flash",
@@ -4644,6 +4752,18 @@
    "papers": 0,
    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
    "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "GLM-5.3-FlashX",
+   "company": "Zhipu",
+   "date": "2026-09-18",
+   "id": "",
+   "title": "",
+   "note": "GLM-5.3-FlashX is the high-speed variant of Z.ai's GLM-5.3-F",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
    "discovered": true
   }
  ],
