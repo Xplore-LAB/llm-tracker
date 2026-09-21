@@ -14,21 +14,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Extract shared LLM config from ai-assistant.js
+      - name: Resolve LLM config (secrets first, ai-assistant.js fallback)
+        env:
+          S_LLM_BASE_URL: ${{ secrets.AGENTS_LLM_BASE_URL }}
+          S_LLM_API_KEY: ${{ secrets.AGENTS_LLM_API_KEY }}
+          S_LLM_MODEL: ${{ secrets.AGENTS_LLM_MODEL }}
         run: |
           python3 << 'PYEOF'
           import re, os
-          s = open('assets/ai-assistant.js', encoding='utf-8').read()
-          def pick(key):
-              m = re.search(key + r"\s*:\s*'([^']*)'", s)
-              return m.group(1) if m else ''
-          endpoint, key, model = pick('endpoint'), pick('apiKey'), pick('model')
-          assert endpoint and key and model, 'AI_CONFIG 解析失败'
+          base = os.environ.get('S_LLM_BASE_URL', '').strip()
+          key = os.environ.get('S_LLM_API_KEY', '').strip()
+          model = os.environ.get('S_LLM_MODEL', '').strip()
+          src = 'repo secrets'
+          if not (base and key and model):
+              s = open('assets/ai-assistant.js', encoding='utf-8').read()
+              def pick(k):
+                  m = re.search(k + r"\s*:\s*'([^']*)'", s)
+                  return m.group(1) if m else ''
+              endpoint, key, model = pick('endpoint'), pick('apiKey'), pick('model')
+              assert endpoint and key and model, 'AI_CONFIG 解析失败'
+              base = endpoint.replace('/chat/completions', '').rstrip('/')
+              src = 'ai-assistant.js'
+          else:
+              base = base.replace('/chat/completions', '').rstrip('/')
           print(f'::add-mask::{key}')
-          base = endpoint.replace('/chat/completions', '').rstrip('/')
           with open(os.environ['GITHUB_ENV'], 'a') as f:
               f.write(f"LLM_BASE_URL={base}\nLLM_API_KEY={key}\nLLM_MODEL={model}\n")
-          print('LLM config loaded from ai-assistant.js:', base, model)
+          print('LLM config loaded from', src + ':', base, model)
           PYEOF
 
       - name: Discover agent news (RSS + Google News + HN)

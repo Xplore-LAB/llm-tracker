@@ -246,8 +246,10 @@ AFFILIATION_KEYWORDS = {
 }
 
 
+ARXIV_UA = "llm-tracker-papers/1.0 (daily research digest; contact: https://xplore-lab.github.io/llm-tracker/)"
+
 def fetch_arxiv(query, tag, max_results=30, start=0, cats="(cat:cs.CL OR cat:cs.AI)"):
-    """Fetch papers from arXiv API with correct query syntax and 429 retry."""
+    """Fetch papers from arXiv API with descriptive UA and 429/503/406 backoff retry."""
     import http.client
     params = urllib.parse.urlencode({
         "search_query": f"{cats} AND ({query})",
@@ -257,16 +259,20 @@ def fetch_arxiv(query, tag, max_results=30, start=0, cats="(cat:cs.CL OR cat:cs.
         "sortOrder": "descending"
     })
     url = "https://export.arxiv.org/api/query?" + params
-    max_retries = 3
+    max_retries = 4
     for attempt in range(max_retries):
         try:
-            with urllib.request.urlopen(url, timeout=60) as r:
+            req = urllib.request.Request(url, headers={
+                "User-Agent": ARXIV_UA,
+                "Accept": "application/atom+xml",
+            })
+            with urllib.request.urlopen(req, timeout=60) as r:
                 content = r.read().decode()
                 break
         except urllib.error.HTTPError as e:
-            if e.code == 429:
-                wait = (attempt + 1) * 30
-                print(f"  Rate limited [{tag}] attempt {attempt+1}/{max_retries}, waiting {wait}s...")
+            if e.code in (429, 503, 406):
+                wait = (attempt + 1) * 45
+                print(f"  Retryable HTTP {e.code} [{tag}] attempt {attempt+1}/{max_retries}, waiting {wait}s...")
                 time.sleep(wait)
             else:
                 print(f"  HTTP Error [{tag}]: {e.code} {e.reason}")
