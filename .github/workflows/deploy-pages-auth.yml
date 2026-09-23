@@ -1,0 +1,58 @@
+name: Deploy Pages (public or login)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+  workflow_run:
+    workflows: [Update Papers Daily, Update Agents Daily, Update Leaderboard Daily, 'Weekly Digest (GitHub 官方提醒)']
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-auth
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # Both modes deploy: turning login off must replace the previous login artifact.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'master')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npm run test:pages
+      - run: npm run build:pages
+        env:
+          TRACKER_AUTH_ENABLED: ${{ vars.TRACKER_AUTH_ENABLED || 'false' }}
+          TRACKER_SUPABASE_URL: ${{ vars.TRACKER_SUPABASE_URL }}
+          TRACKER_SUPABASE_PUBLISHABLE_KEY: ${{ vars.TRACKER_SUPABASE_PUBLISHABLE_KEY }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: auth/pages-dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

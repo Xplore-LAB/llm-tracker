@@ -1,3 +1,5 @@
+> **新增：小团队账号接入** — 支持 GitHub Pages 公开/登录双模式，默认公开；设置 `TRACKER_AUTH_ENABLED=true` 并重新发布后启用 Supabase 登录。含邀请、密码维护和独立管理员入口；本次发布使用公开模式，真实认证和 SMTP 待配置。先看 [Pages 接入手册](auth/pages/README.md)，后续服务器/进度方案见 [开发计划](auth/GITHUB_PAGES_PLAN.md)。另保留 [PocketBase 服务器版本](auth/README.md)。以下公开站点介绍不代表账号版已上线。
+
 <div align="center">
 
 <img src="assets/icon.svg" alt="大模型情报局" width="120" />

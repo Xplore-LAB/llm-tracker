@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>登录 · 大模型情报局</title><link rel="stylesheet" href="/auth/style.css"><script src="/auth/login.js" defer></script></head>
+<body><header class="topbar"><a class="brand" href="/auth/login"><span class="logo">XL</span><strong>大模型情报局</strong><span class="divider"></span><span>账号中心</span></a><a href="/_/">管理员入口</a></header>
+<main class="account-main"><section class="card" aria-labelledby="page-title"><p class="section-label">团队账号</p><h1 id="page-title">登录</h1><p class="description">使用管理员分配的账号登录。</p>
+<form id="login-form"><label for="identity">用户名或邮箱</label><input id="identity" name="username" autocomplete="username" required autofocus>
+<label for="password">密码</label><div class="password-row"><input id="password" name="password" type="password" autocomplete="current-password" required><button id="show-password" class="show-password" type="button" aria-pressed="false">显示</button></div>
+<p id="error" class="message error" role="alert" aria-live="polite"></p><button id="submit" class="primary" type="submit">登录</button></form>
+<p class="help">账号开通或密码重置，请联系管理员。<br>学习记录目前保存在本机浏览器。</p></section></main><footer>Xplore-LAB <span>·</span> 大模型情报局</footer></body></html>

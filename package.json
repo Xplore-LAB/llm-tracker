@@ -1,0 +1,18 @@
+{
+  "name": "llm-tracker-pages",
+  "private": true,
+  "scripts": {
+    "build:pages": "python3 auth/build_pages.py",
+    "preview:pages": "python3 auth/build_pages.py --preview",
+    "test:pages": "node --test auth/pages/tests/*.test.mjs",
+    "preview:public": "python3 auth/build_pages.py --preview --mode public",
+    "preview:login": "python3 auth/build_pages.py --preview --mode login"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.117.1"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "esbuild": "0.28.2"
+  }
+}
