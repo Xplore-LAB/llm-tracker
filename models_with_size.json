@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-09-30",
-  "total_models": 484,
-  "with_real_size": 239,
-  "coverage": "49.4%",
+  "fetch_time": "2026-10-01",
+  "total_models": 494,
+  "with_real_size": 245,
+  "coverage": "49.6%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -2202,6 +2202,34 @@
       "source": "no_mapping"
     },
     {
+      "model": "Mistral-Medium-3.1",
+      "company": "Mistral",
+      "date": "2025-08-13",
+      "id": "",
+      "title": "",
+      "note": "Mistral Medium 3.1 is an updated version of Mistral Medium 3",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Intern-S1-mini",
+      "company": "InternLM",
+      "date": "2025-08-18",
+      "id": "2508.15763",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/Intern-S1-mini",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/Intern-S1-mini",
+      "size_total_gb": 15.9
+    },
+    {
       "model": "Nemotron-CC-Math",
       "company": "Nvidia",
       "date": "2025-08-20",
@@ -2238,6 +2266,20 @@
       "hf_repo": "ByteDance-Seed/Seed-OSS-36B-Base",
       "size_total_gb": 67.34,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Seed-OSS-36B-Base-woSyn",
+      "company": "ByteDance",
+      "date": "2025-08-20",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Base-woSyn",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ByteDance-Seed/Seed-OSS-36B-Base-woSyn",
+      "size_total_gb": 67.34
     },
     {
       "model": "DeepSeek-V3.1",
@@ -2280,6 +2322,34 @@
       "source": "no_mapping"
     },
     {
+      "model": "Command-a-translate-08",
+      "company": "Cohere",
+      "date": "2025-08-27",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/command-a-translate-08-2025",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/command-a-translate-08-2025",
+      "size_total_gb": 206.86
+    },
+    {
+      "model": "Step-Audio-2-mini",
+      "company": "StepFun",
+      "date": "2025-08-28",
+      "id": "2507.16632",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/stepfun-ai/Step-Audio-2-mini",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "stepfun-ai/Step-Audio-2-mini",
+      "size_total_gb": 16.15
+    },
+    {
       "model": "LongCat-Flash",
       "company": "Meituan",
       "date": "2025-09-01",
@@ -2315,6 +2385,76 @@
       "hf_repo": "tencent/Hunyuan-MT-7B",
       "size_total_gb": 14.96,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Granite-4.0-micro",
+      "company": "IBM",
+      "date": "2025-09-16",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granite-4.0-micro-base",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granite-4.0-micro",
+      "size_total_gb": 6.34
+    },
+    {
+      "model": "Qwen3-Coder-Flash",
+      "company": "Qwen",
+      "date": "2025-09-17",
+      "id": "",
+      "title": "",
+      "note": "Qwen3 Coder Flash is Alibaba's fast and cost efficient versi",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Qwen3-Max",
+      "company": "Qwen",
+      "date": "2025-09-23",
+      "id": "",
+      "title": "",
+      "note": "Qwen3-Max is an updated release built on the Qwen3 series, o",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Qwen3-VL",
+      "company": "Qwen",
+      "date": "2025-09-23",
+      "id": "2505.09388",
+      "title": "",
+      "note": "Qwen3-VL-235B-A22B Instruct is an open-weight multimodal mod",
+      "papers": 0,
+      "url": "https://huggingface.co/Qwen/Qwen3-VL-2B-Thinking",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "Qwen/Qwen3-VL-8B-Instruct",
+      "size_total_gb": 16.33
+    },
+    {
+      "model": "Qwen3-Coder-Plus",
+      "company": "Qwen",
+      "date": "2025-09-23",
+      "id": "",
+      "title": "",
+      "note": "Qwen3 Coder Plus is Alibaba's proprietary version of the Ope",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "Kimi-Dev",

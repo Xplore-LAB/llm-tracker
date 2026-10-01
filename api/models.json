@@ -1667,6 +1667,30 @@
    "extra": true
   },
   {
+   "model": "Mistral-Medium-3.1",
+   "company": "Mistral",
+   "date": "2025-08-13",
+   "id": "",
+   "title": "",
+   "note": "Mistral Medium 3.1 is an updated version of Mistral Medium 3",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Intern-S1-mini",
+   "company": "InternLM",
+   "date": "2025-08-18",
+   "id": "2508.15763",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/internlm/Intern-S1-mini",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Nemotron-CC-Math",
    "company": "Nvidia",
    "date": "2025-08-20",
@@ -1694,6 +1718,18 @@
    "note": "字节 Seed 开源首发，512K 长上下文 + 思考预算控制",
    "papers": 0,
    "extra": true
+  },
+  {
+   "model": "Seed-OSS-36B-Base-woSyn",
+   "company": "ByteDance",
+   "date": "2025-08-20",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ByteDance-Seed/Seed-OSS-36B-Base-woSyn",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "DeepSeek-V3.1",
@@ -1727,6 +1763,30 @@
    "extra": true
   },
   {
+   "model": "Command-a-translate-08",
+   "company": "Cohere",
+   "date": "2025-08-27",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/CohereLabs/command-a-translate-08-2025",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Step-Audio-2-mini",
+   "company": "StepFun",
+   "date": "2025-08-28",
+   "id": "2507.16632",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/stepfun-ai/Step-Audio-2-mini",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "LongCat-Flash",
    "company": "Meituan",
    "date": "2025-09-01",
@@ -1753,6 +1813,66 @@
    "title": "Hunyuan-MT Technical Report",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "Granite-4.0-micro",
+   "company": "IBM",
+   "date": "2025-09-16",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ibm-granite/granite-4.0-micro-base",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3-Coder-Flash",
+   "company": "Qwen",
+   "date": "2025-09-17",
+   "id": "",
+   "title": "",
+   "note": "Qwen3 Coder Flash is Alibaba's fast and cost efficient versi",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3-Max",
+   "company": "Qwen",
+   "date": "2025-09-23",
+   "id": "",
+   "title": "",
+   "note": "Qwen3-Max is an updated release built on the Qwen3 series, o",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3-VL",
+   "company": "Qwen",
+   "date": "2025-09-23",
+   "id": "2505.09388",
+   "title": "",
+   "note": "Qwen3-VL-235B-A22B Instruct is an open-weight multimodal mod",
+   "papers": 0,
+   "url": "https://huggingface.co/Qwen/Qwen3-VL-2B-Thinking",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3-Coder-Plus",
+   "company": "Qwen",
+   "date": "2025-09-23",
+   "id": "",
+   "title": "",
+   "note": "Qwen3 Coder Plus is Alibaba's proprietary version of the Ope",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
   },
   {
    "model": "Kimi-Dev",
