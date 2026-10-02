@@ -1615,6 +1615,30 @@
    "papers": 1
   },
   {
+   "model": "Intern-S1",
+   "company": "InternLM",
+   "date": "2025-07-24",
+   "id": "2508.15763",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/internlm/Intern-S1",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "GLM-4.5-Air",
+   "company": "Zhipu",
+   "date": "2025-07-25",
+   "id": "2508.06471",
+   "title": "",
+   "note": "GLM-4.5-Air is the lightweight variant of our latest flagshi",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/GLM-4.5-Air",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
    "model": "GLM-4.5",
    "company": "Zhipu",
    "date": "2025-07-28",
@@ -1624,6 +1648,30 @@
    "note": "智谱开源旗舰，Agent/推理/编码一体",
    "papers": 0,
    "extra": true
+  },
+  {
+   "model": "Command-a-vision-07",
+   "company": "Cohere",
+   "date": "2025-07-28",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/CohereLabs/command-a-vision-07-2025",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "EXAONE-4.0.1",
+   "company": "LG",
+   "date": "2025-07-29",
+   "id": "2507.11407",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/LGAI-EXAONE/EXAONE-4.0.1-32B",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Falcon-H1",
@@ -1656,6 +1704,18 @@
    "extra": true
   },
   {
+   "model": "Claude-Opus-4.1",
+   "company": "Anthropic",
+   "date": "2025-08-05",
+   "id": "",
+   "title": "",
+   "note": "Claude Opus 4.1 is an updated version of Anthropic’s flagshi",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "GPT-5",
    "company": "OpenAI",
    "date": "2025-08-07",
@@ -1665,6 +1725,66 @@
    "note": "统一旗舰，自动在快速应答与深度推理间切换",
    "papers": 0,
    "extra": true
+  },
+  {
+   "model": "GPT-5-Mini",
+   "company": "OpenAI",
+   "date": "2025-08-07",
+   "id": "",
+   "title": "",
+   "note": "GPT-5 Mini is a compact version of GPT-5, designed to handle",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "GPT-5-Nano",
+   "company": "OpenAI",
+   "date": "2025-08-07",
+   "id": "",
+   "title": "",
+   "note": "GPT-5-Nano is the smallest and fastest variant in the GPT-5 ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "MiMo-VL-7B-RL",
+   "company": "Xiaomi",
+   "date": "2025-08-07",
+   "id": "2506.03569",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/XiaomiMiMo/MiMo-VL-7B-RL-2508",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "GLM-4.5V",
+   "company": "Zhipu",
+   "date": "2025-08-11",
+   "id": "2507.01006",
+   "title": "",
+   "note": "GLM-4.5V is a vision-language foundation model for multimoda",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/GLM-4.5V",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Command-a-reasoning-08",
+   "company": "Cohere",
+   "date": "2025-08-12",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/CohereLabs/command-a-reasoning-08-2025",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Mistral-Medium-3.1",
