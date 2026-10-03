@@ -1540,6 +1540,42 @@
    "papers": 1
   },
   {
+   "model": "Gemini-2.5-Flash",
+   "company": "Google",
+   "date": "2025-06-17",
+   "id": "",
+   "title": "",
+   "note": "Gemini 2.5 Flash is Google's state-of-the-art workhorse mode",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Mistral-Small-3.2",
+   "company": "Mistral",
+   "date": "2025-06-20",
+   "id": "",
+   "title": "",
+   "note": "Mistral-Small-3.2-24B-Instruct-2506 is an updated 24B parame",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Kimi-VL-A3B",
+   "company": "Moonshot",
+   "date": "2025-06-21",
+   "id": "2504.07491",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/moonshotai/Kimi-VL-A3B-Thinking-2506",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "GPT-4o-Level",
    "company": "OpenAI",
    "date": "2025-06-22",
@@ -1556,6 +1592,42 @@
    "title": "Skywork-SWE: Unveiling Data Scaling Laws for Software Engineering in LLMs",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "GLM-4.1V",
+   "company": "Zhipu",
+   "date": "2025-06-28",
+   "id": "2507.01006",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/GLM-4.1V-9B-Thinking",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "MiniMax-M1-40k",
+   "company": "MiniMax",
+   "date": "2025-07-01",
+   "id": "2506.13585",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-M1-40k-hf",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "MiniMax-M1-80k",
+   "company": "MiniMax",
+   "date": "2025-07-01",
+   "id": "2506.13585",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-M1-80k-hf",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Granite",
@@ -1613,6 +1685,30 @@
    "title": "EXAONE 4.0: Unified Large Language Models Integrating Non-reasoning and Reasoning Modes",
    "note": "推出统一大模型EXAONE 4.0，融合推理与非推理两种模式，支持智能体工具调用与多语言能力，兼顾易用性与推理深度。",
    "papers": 1
+  },
+  {
+   "model": "Gemini-2.5-Flash-Lite",
+   "company": "Google",
+   "date": "2025-07-22",
+   "id": "",
+   "title": "",
+   "note": "Gemini 2.5 Flash-Lite is a lightweight reasoning model in th",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen3-Coder",
+   "company": "Qwen",
+   "date": "2025-07-23",
+   "id": "",
+   "title": "",
+   "note": "Qwen3-Coder-480B-A35B-Instruct is a Mixture-of-Experts (MoE)",
+   "papers": 0,
+   "url": "https://huggingface.co/Qwen/Qwen3-Coder-Next-Base",
+   "source": "hf+openrouter",
+   "discovered": true
   },
   {
    "model": "Intern-S1",
@@ -5115,6 +5211,18 @@
    "discovered": true
   },
   {
+   "model": "AstaBrief_8B_SFT",
+   "company": "AllenAI",
+   "date": "2026-09-10",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/allenai/AstaBrief_8B_SFT",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "GLM-5.3-FlashX",
    "company": "Zhipu",
    "date": "2026-09-18",
@@ -5372,6 +5480,18 @@
    "id": "",
    "title": "",
    "note": "GPT-6.1 Sol is an upgrade to GPT-6 Sol from OpenAI, position",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Ling-3.1-Flash",
+   "company": "AntGroup",
+   "date": "2026-10-02",
+   "id": "",
+   "title": "",
+   "note": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts mode",
    "papers": 0,
    "url": "",
    "source": "openrouter",
