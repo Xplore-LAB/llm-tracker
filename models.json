@@ -1435,6 +1435,42 @@
    "papers": 1
   },
   {
+   "model": "Llama-Guard-4",
+   "company": "Meta",
+   "date": "2025-04-30",
+   "id": "2503.05731",
+   "title": "",
+   "note": "Llama Guard 4 is a Llama 4 Scout-derived multimodal pretrain",
+   "papers": 0,
+   "url": "https://huggingface.co/meta-llama/Llama-Guard-4-12B",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Falcon-H1-1.5B-Deep",
+   "company": "TII",
+   "date": "2025-05-01",
+   "id": "2507.22448",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/tiiuae/Falcon-H1-1.5B-Deep-Instruct",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Mistral-Medium-3",
+   "company": "Mistral",
+   "date": "2025-05-07",
+   "id": "",
+   "title": "",
+   "note": "Mistral Medium 3 is a high-performance enterprise-grade lang",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "Seed1.5-VL",
    "company": "ByteDance",
    "date": "2025-05-11",
@@ -1442,6 +1478,18 @@
    "title": "Seed1.5-VL Technical Report",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "BAGEL-7B-MoT",
+   "company": "ByteDance",
+   "date": "2025-05-19",
+   "id": "2505.14683",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ByteDance-Seed/BAGEL-7B-MoT",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Hunyuan-TurboS",
@@ -1462,6 +1510,18 @@
    "note": "Opus 4 / Sonnet 4，长时程 Agent 任务标杆",
    "papers": 0,
    "extra": true
+  },
+  {
+   "model": "Claude-Sonnet-4",
+   "company": "Anthropic",
+   "date": "2025-05-22",
+   "id": "",
+   "title": "",
+   "note": "Claude Sonnet 4 significantly enhances the capabilities of i",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
   },
   {
    "model": "Pangu-Light",
@@ -1502,6 +1562,54 @@
    "papers": 1
   },
   {
+   "model": "DeepSeek-R1-0528-Qwen3",
+   "company": "DeepSeek",
+   "date": "2025-05-29",
+   "id": "2501.12948",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "MiMo-7B-RL",
+   "company": "Xiaomi",
+   "date": "2025-05-30",
+   "id": "2505.07608",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/XiaomiMiMo/MiMo-7B-RL-0530",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "SynLogic-Mix-3",
+   "company": "MiniMax",
+   "date": "2025-05-30",
+   "id": "2505.19641",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/MiniMaxAI/SynLogic-Mix-3-32B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "MiniMax-Text-01",
+   "company": "MiniMax",
+   "date": "2025-06-03",
+   "id": "2501.08313",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-Text-01-hf",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "MiMo-VL",
    "company": "Xiaomi",
    "date": "2025-06-04",
@@ -1529,6 +1637,18 @@
    "title": "Step-Audio-AQAA: a Fully End-to-End Expressive Large Audio Language Model",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "O3-Pro",
+   "company": "OpenAI",
+   "date": "2025-06-10",
+   "id": "",
+   "title": "",
+   "note": "The o-series of models are trained with reinforcement learni",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
   },
   {
    "model": "MiniMax-M1",

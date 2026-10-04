@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-03",
-  "total_models": 514,
-  "with_real_size": 259,
-  "coverage": "50.4%",
+  "fetch_time": "2026-10-04",
+  "total_models": 524,
+  "with_real_size": 266,
+  "coverage": "50.8%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -1898,6 +1898,48 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Llama-Guard-4",
+      "company": "Meta",
+      "date": "2025-04-30",
+      "id": "2503.05731",
+      "title": "",
+      "note": "Llama Guard 4 is a Llama 4 Scout-derived multimodal pretrain",
+      "papers": 0,
+      "url": "https://huggingface.co/meta-llama/Llama-Guard-4-12B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "meta-llama/Llama-Guard-4-12B",
+      "size_total_gb": 22.35
+    },
+    {
+      "model": "Falcon-H1-1.5B-Deep",
+      "company": "TII",
+      "date": "2025-05-01",
+      "id": "2507.22448",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/tiiuae/Falcon-H1-1.5B-Deep-Instruct",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "tiiuae/Falcon-H1-1.5B-Deep-Base",
+      "size_total_gb": 2.9
+    },
+    {
+      "model": "Mistral-Medium-3",
+      "company": "Mistral",
+      "date": "2025-05-07",
+      "id": "",
+      "title": "",
+      "note": "Mistral Medium 3 is a high-performance enterprise-grade lang",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Seed1.5-VL",
       "company": "ByteDance",
       "date": "2025-05-11",
@@ -1908,6 +1950,20 @@
       "hf_repo": "ByteDance-Seed/Seed1.5-VL",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "BAGEL-7B-MoT",
+      "company": "ByteDance",
+      "date": "2025-05-19",
+      "id": "2505.14683",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ByteDance-Seed/BAGEL-7B-MoT",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ByteDance-Seed/BAGEL-7B-MoT",
+      "size_total_gb": 27.52
     },
     {
       "model": "Hunyuan-TurboS",
@@ -1934,6 +1990,20 @@
       "hf_repo": null,
       "size_total_gb": null,
       "source": "no_mapping"
+    },
+    {
+      "model": "Claude-Sonnet-4",
+      "company": "Anthropic",
+      "date": "2025-05-22",
+      "id": "",
+      "title": "",
+      "note": "Claude Sonnet 4 significantly enhances the capabilities of i",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "Pangu-Light",
@@ -1986,6 +2056,62 @@
       "source": "gated"
     },
     {
+      "model": "DeepSeek-R1-0528-Qwen3",
+      "company": "DeepSeek",
+      "date": "2025-05-29",
+      "id": "2501.12948",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B",
+      "size_total_gb": 15.26
+    },
+    {
+      "model": "MiMo-7B-RL",
+      "company": "Xiaomi",
+      "date": "2025-05-30",
+      "id": "2505.07608",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/XiaomiMiMo/MiMo-7B-RL-0530",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "XiaomiMiMo/MiMo-7B-RL",
+      "size_total_gb": 14.59
+    },
+    {
+      "model": "SynLogic-Mix-3",
+      "company": "MiniMax",
+      "date": "2025-05-30",
+      "id": "2505.19641",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/MiniMaxAI/SynLogic-Mix-3-32B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "MiniMaxAI/SynLogic-Mix-3-32B",
+      "size_total_gb": 61.03
+    },
+    {
+      "model": "MiniMax-Text-01",
+      "company": "MiniMax",
+      "date": "2025-06-03",
+      "id": "2501.08313",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-Text-01-hf",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "MiniMaxAI/MiniMax-Text-01",
+      "size_total_gb": 851.85
+    },
+    {
       "model": "MiMo-VL",
       "company": "Xiaomi",
       "date": "2025-06-04",
@@ -2022,6 +2148,20 @@
       "hf_repo": "stepfun-ai/Step-Audio-AQAA",
       "size_total_gb": 254.56,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "O3-Pro",
+      "company": "OpenAI",
+      "date": "2025-06-10",
+      "id": "",
+      "title": "",
+      "note": "The o-series of models are trained with reinforcement learni",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "MiniMax-M1",
