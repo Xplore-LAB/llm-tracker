@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-04",
-  "total_models": 524,
-  "with_real_size": 266,
-  "coverage": "50.8%",
+  "fetch_time": "2026-10-05",
+  "total_models": 534,
+  "with_real_size": 271,
+  "coverage": "50.7%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -1799,6 +1799,48 @@
       "source": "gated"
     },
     {
+      "model": "GPT-4.1",
+      "company": "OpenAI",
+      "date": "2025-04-14",
+      "id": "",
+      "title": "",
+      "note": "GPT-4.1 is a flagship large language model optimized for adv",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GPT-4.1-Mini",
+      "company": "OpenAI",
+      "date": "2025-04-14",
+      "id": "",
+      "title": "",
+      "note": "GPT-4.1 Mini is a mid-sized model delivering performance com",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GPT-4.1-Nano",
+      "company": "OpenAI",
+      "date": "2025-04-14",
+      "id": "",
+      "title": "",
+      "note": "For tasks that demand low latency, GPT‑4.1 nano is the faste",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Nemotron-CrossThink",
       "company": "Nvidia",
       "date": "2025-04-15",
@@ -1823,6 +1865,48 @@
       "hf_repo": null,
       "size_total_gb": null,
       "source": "no_mapping"
+    },
+    {
+      "model": "O4-Mini-High",
+      "company": "OpenAI",
+      "date": "2025-04-16",
+      "id": "",
+      "title": "",
+      "note": "OpenAI o4-mini-high is the same model as [o4-mini](/openai/o",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "O4-Mini",
+      "company": "OpenAI",
+      "date": "2025-04-16",
+      "id": "",
+      "title": "",
+      "note": "OpenAI o4-mini is a compact reasoning model in the o-series,",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "UI-TARS-1.5",
+      "company": "ByteDance",
+      "date": "2025-04-16",
+      "id": "2501.12326",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ByteDance-Seed/UI-TARS-1.5-7B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ByteDance-Seed/UI-TARS-1.5-7B",
+      "size_total_gb": 30.89
     },
     {
       "model": "Nemotron-CLIMB",
@@ -1861,6 +1945,20 @@
       "source": "gated"
     },
     {
+      "model": "Seed-Coder-8B-Reasoning",
+      "company": "ByteDance",
+      "date": "2025-04-27",
+      "id": "2506.03524",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ByteDance-Seed/Seed-Coder-8B-Reasoning",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ByteDance-Seed/Seed-Coder-8B-Reasoning",
+      "size_total_gb": 30.74
+    },
+    {
       "model": "Qwen3",
       "company": "Qwen",
       "date": "2025-04-29",
@@ -1872,6 +1970,20 @@
       "hf_repo": "Qwen/Qwen3-32B",
       "size_total_gb": 61.02,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "MiMo-7B-RL-Zero",
+      "company": "Xiaomi",
+      "date": "2025-04-29",
+      "id": "2505.07608",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/XiaomiMiMo/MiMo-7B-RL-Zero",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "XiaomiMiMo/MiMo-7B-RL-Zero",
+      "size_total_gb": 14.59
     },
     {
       "model": "Phi-4-reasoning",
@@ -1910,6 +2022,20 @@
       "discovered": true,
       "hf_repo": "meta-llama/Llama-Guard-4-12B",
       "size_total_gb": 22.35
+    },
+    {
+      "model": "DeepSeek-Prover-V2",
+      "company": "DeepSeek",
+      "date": "2025-04-30",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-Prover-V2-671B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-Prover-V2-671B",
+      "size_total_gb": 641.3
     },
     {
       "model": "Falcon-H1-1.5B-Deep",
@@ -6936,6 +7062,20 @@
       "discovered": true,
       "hf_repo": null,
       "size_total_gb": null
+    },
+    {
+      "model": "DiarizationLM-Gemma-4-E4B-v1",
+      "company": "Google",
+      "date": "2026-10-04",
+      "id": "2401.03506",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/google/DiarizationLM-Gemma-4-E4B-v1",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "google/DiarizationLM-Gemma-4-E4B-v1",
+      "size_total_gb": 14.89
     }
   ]
 }
