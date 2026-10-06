@@ -1234,6 +1234,18 @@
    "extra": true
   },
   {
+   "model": "AI21-Jamba-Mini-1.6",
+   "company": "AI21",
+   "date": "2025-02-27",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ai21labs/AI21-Jamba-Mini-1.6",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Phi-4-Mini",
    "company": "Microsoft",
    "date": "2025-03-03",
@@ -1241,6 +1253,18 @@
    "title": "Phi-4-Mini Technical Report: Compact yet Powerful Multimodal Language Models via Mixture-of-LoRAs",
    "note": "推出Phi-4-Mini及多模态版，采用Mixture-of-LoRAs架构让38亿参数小模型性能比肩更大模型。",
    "papers": 1
+  },
+  {
+   "model": "C4ai-command-a-03",
+   "company": "Cohere",
+   "date": "2025-03-11",
+   "id": "2504.00698",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/CohereLabs/c4ai-command-a-03-2025",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Command A",
@@ -1261,6 +1285,30 @@
    "title": "EXAONE Deep: Reasoning Enhanced Language Models",
    "note": "推出EXAONE Deep推理增强语言模型系列，专注数学与编程推理训练，2.4B和7.8B小模型在基准测试中表现领先。",
    "papers": 1
+  },
+  {
+   "model": "Mistral-Small-3.1",
+   "company": "Mistral",
+   "date": "2025-03-17",
+   "id": "",
+   "title": "",
+   "note": "Mistral Small 3.1 24B Instruct is an upgraded variant of Mis",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "O1-pro",
+   "company": "OpenAI",
+   "date": "2025-03-19",
+   "id": "",
+   "title": "",
+   "note": "The o1 series of models are trained with reinforcement learn",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
   },
   {
    "model": "Hunyuan-T1",
@@ -1313,6 +1361,30 @@
    "papers": 1
   },
   {
+   "model": "Llama-4-Maverick-17B-128E",
+   "company": "Meta",
+   "date": "2025-04-02",
+   "id": "2204.05149",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Llama-4-Scout-17B-16E",
+   "company": "Meta",
+   "date": "2025-04-02",
+   "id": "2204.05149",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Nemotron-H",
    "company": "Nvidia",
    "date": "2025-04-04",
@@ -1333,6 +1405,30 @@
    "extra": true
   },
   {
+   "model": "Llama-4-Maverick",
+   "company": "Meta",
+   "date": "2025-04-05",
+   "id": "",
+   "title": "",
+   "note": "Llama 4 Maverick 17B Instruct (128E) is a high-capacity mult",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Llama-4-Scout",
+   "company": "Meta",
+   "date": "2025-04-05",
+   "id": "",
+   "title": "",
+   "note": "Llama 4 Scout 17B Instruct (16E) is a mixture-of-experts (Mo",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "Skywork-R1V",
    "company": "Skywork",
    "date": "2025-04-08",
@@ -1340,6 +1436,18 @@
    "title": "Skywork R1V: Pioneering Multimodal Reasoning with Chain-of-Thought",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "GLM-Z1",
+   "company": "Zhipu",
+   "date": "2025-04-08",
+   "id": "2406.12793",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/GLM-Z1-32B-0414",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Pangu-Ultra",
@@ -1358,6 +1466,18 @@
    "title": "Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "GLM-Z1-Rumination",
+   "company": "Zhipu",
+   "date": "2025-04-13",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/zai-org/GLM-Z1-Rumination-32B-0414",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "GPT-4.1",

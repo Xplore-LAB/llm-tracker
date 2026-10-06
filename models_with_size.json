@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-05",
-  "total_models": 534,
-  "with_real_size": 271,
-  "coverage": "50.7%",
+  "fetch_time": "2026-10-06",
+  "total_models": 544,
+  "with_real_size": 278,
+  "coverage": "51.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -1634,6 +1634,20 @@
       "source": "no_mapping"
     },
     {
+      "model": "AI21-Jamba-Mini-1.6",
+      "company": "AI21",
+      "date": "2025-02-27",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ai21labs/AI21-Jamba-Mini-1.6",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ai21labs/AI21-Jamba-Mini-1.6",
+      "size_total_gb": 96.06
+    },
+    {
       "model": "Phi-4-Mini",
       "company": "Microsoft",
       "date": "2025-03-03",
@@ -1644,6 +1658,20 @@
       "hf_repo": "microsoft/Phi-4-mini-instruct",
       "size_total_gb": 7.15,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "C4ai-command-a-03",
+      "company": "Cohere",
+      "date": "2025-03-11",
+      "id": "2504.00698",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/c4ai-command-a-03-2025",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/c4ai-command-a-03-2025",
+      "size_total_gb": 206.86
     },
     {
       "model": "Command A",
@@ -1670,6 +1698,34 @@
       "hf_repo": "LGAI-EXAONE/EXAONE-Deep-7.8B",
       "size_total_gb": 14.56,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Mistral-Small-3.1",
+      "company": "Mistral",
+      "date": "2025-03-17",
+      "id": "",
+      "title": "",
+      "note": "Mistral Small 3.1 24B Instruct is an upgraded variant of Mis",
+      "papers": 0,
+      "url": "",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "mistralai/Mistral-Small-3.1-24B-Base-2503",
+      "size_total_gb": 89.45
+    },
+    {
+      "model": "O1-pro",
+      "company": "OpenAI",
+      "date": "2025-03-19",
+      "id": "",
+      "title": "",
+      "note": "The o1 series of models are trained with reinforcement learn",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "Hunyuan-T1",
@@ -1737,6 +1793,34 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Llama-4-Maverick-17B-128E",
+      "company": "Meta",
+      "date": "2025-04-02",
+      "id": "2204.05149",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "meta-llama/Llama-4-Maverick-17B-128E",
+      "size_total_gb": 748.01
+    },
+    {
+      "model": "Llama-4-Scout-17B-16E",
+      "company": "Meta",
+      "date": "2025-04-02",
+      "id": "2204.05149",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "meta-llama/Llama-4-Scout-17B-16E",
+      "size_total_gb": 202.36
+    },
+    {
       "model": "Nemotron-H",
       "company": "Nvidia",
       "date": "2025-04-04",
@@ -1763,6 +1847,34 @@
       "source": "rate_limited"
     },
     {
+      "model": "Llama-4-Maverick",
+      "company": "Meta",
+      "date": "2025-04-05",
+      "id": "",
+      "title": "",
+      "note": "Llama 4 Maverick 17B Instruct (128E) is a high-capacity mult",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Llama-4-Scout",
+      "company": "Meta",
+      "date": "2025-04-05",
+      "id": "",
+      "title": "",
+      "note": "Llama 4 Scout 17B Instruct (16E) is a mixture-of-experts (Mo",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Skywork-R1V",
       "company": "Skywork",
       "date": "2025-04-08",
@@ -1773,6 +1885,20 @@
       "hf_repo": "Skywork/Skywork-R1V-38B",
       "size_total_gb": 71.51,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "GLM-Z1",
+      "company": "Zhipu",
+      "date": "2025-04-08",
+      "id": "2406.12793",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/GLM-Z1-32B-0414",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/GLM-Z1-9B-0414",
+      "size_total_gb": 17.51
     },
     {
       "model": "Pangu-Ultra",
@@ -1797,6 +1923,20 @@
       "hf_repo": "ByteDance-Seed/Seed1.5-Thinking",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "GLM-Z1-Rumination",
+      "company": "Zhipu",
+      "date": "2025-04-13",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/GLM-Z1-Rumination-32B-0414",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/GLM-Z1-Rumination-32B-0414",
+      "size_total_gb": 61.73
     },
     {
       "model": "GPT-4.1",
