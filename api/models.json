@@ -1156,6 +1156,66 @@
    "papers": 2
   },
   {
+   "model": "Mistral-Small-3",
+   "company": "Mistral",
+   "date": "2025-01-30",
+   "id": "",
+   "title": "",
+   "note": "Mistral Small 3 is a 24B-parameter language model optimized ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "O3-Mini",
+   "company": "OpenAI",
+   "date": "2025-01-31",
+   "id": "",
+   "title": "",
+   "note": "OpenAI o3-mini is a cost-efficient language model optimized ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Qwen2.5-VL",
+   "company": "Qwen",
+   "date": "2025-02-01",
+   "id": "",
+   "title": "",
+   "note": "Qwen2.5-VL is proficient in recognizing common objects such ",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "OREAL-DeepSeek-R1-Distill-Qwen",
+   "company": "InternLM",
+   "date": "2025-02-10",
+   "id": "2502.06781",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/internlm/OREAL-DeepSeek-R1-Distill-Qwen-7B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "O3-Mini-High",
+   "company": "OpenAI",
+   "date": "2025-02-12",
+   "id": "",
+   "title": "",
+   "note": "OpenAI o3-mini-high is the same model as [o3-mini](/openai/o",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "Granite-Vision",
    "company": "IBM",
    "date": "2025-02-14",
@@ -1192,6 +1252,18 @@
    "title": "Baichuan-M1: Pushing the Medical Capability of Large Language Models",
    "note": "Baichuan-M1聚焦医学垂直领域，探索高效实用的医疗大模型训练方法以提升专业诊疗能力。",
    "papers": 1
+  },
+  {
+   "model": "BFS-Prover-V1",
+   "company": "ByteDance",
+   "date": "2025-02-23",
+   "id": "2502.03438",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ByteDance-Seed/BFS-Prover-V1-7B",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Baichuan-Audio",
@@ -1242,6 +1314,30 @@
    "note": "（自动发现收录，待人工补注）",
    "papers": 0,
    "url": "https://huggingface.co/ai21labs/AI21-Jamba-Mini-1.6",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "AI21-Jamba-Large-1.6",
+   "company": "AI21",
+   "date": "2025-02-27",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ai21labs/AI21-Jamba-Large-1.6",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "C4ai-command-r7b-arabic-02",
+   "company": "Cohere",
+   "date": "2025-02-27",
+   "id": "2503.14603",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/CohereLabs/c4ai-command-r7b-arabic-02-2025",
    "source": "huggingface",
    "discovered": true
   },
@@ -5855,6 +5951,30 @@
    "papers": 0,
    "url": "https://huggingface.co/google/DiarizationLM-Gemma-4-E4B-v1",
    "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Nano-Banana-2.1",
+   "company": "Google",
+   "date": "2026-10-06",
+   "id": "",
+   "title": "",
+   "note": "Nano Banana 2.1 (Gemini Nano Banana 2.1) is Google's image g",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Mistral-Large-4",
+   "company": "Mistral",
+   "date": "2026-10-06",
+   "id": "",
+   "title": "",
+   "note": "Mistral Large 4 is a frontier multimodal (text and image inp",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
    "discovered": true
   }
  ],

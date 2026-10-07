@@ -1,9 +1,9 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-06",
-  "total_models": 544,
-  "with_real_size": 278,
+  "fetch_time": "2026-10-07",
+  "total_models": 554,
+  "with_real_size": 283,
   "coverage": "51.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
@@ -1532,6 +1532,76 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Mistral-Small-3",
+      "company": "Mistral",
+      "date": "2025-01-30",
+      "id": "",
+      "title": "",
+      "note": "Mistral Small 3 is a 24B-parameter language model optimized ",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "O3-Mini",
+      "company": "OpenAI",
+      "date": "2025-01-31",
+      "id": "",
+      "title": "",
+      "note": "OpenAI o3-mini is a cost-efficient language model optimized ",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Qwen2.5-VL",
+      "company": "Qwen",
+      "date": "2025-02-01",
+      "id": "",
+      "title": "",
+      "note": "Qwen2.5-VL is proficient in recognizing common objects such ",
+      "papers": 0,
+      "url": "",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "size_total_gb": 15.45
+    },
+    {
+      "model": "OREAL-DeepSeek-R1-Distill-Qwen",
+      "company": "InternLM",
+      "date": "2025-02-10",
+      "id": "2502.06781",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/OREAL-DeepSeek-R1-Distill-Qwen-7B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/OREAL-DeepSeek-R1-Distill-Qwen-7B",
+      "size_total_gb": 28.37
+    },
+    {
+      "model": "O3-Mini-High",
+      "company": "OpenAI",
+      "date": "2025-02-12",
+      "id": "",
+      "title": "",
+      "note": "OpenAI o3-mini-high is the same model as [o3-mini](/openai/o",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Granite-Vision",
       "company": "IBM",
       "date": "2025-02-14",
@@ -1580,6 +1650,20 @@
       "hf_repo": "baichuan-inc/Baichuan-M1-14B-Instruct",
       "size_total_gb": 26.95,
       "source": "hf_tree"
+    },
+    {
+      "model": "BFS-Prover-V1",
+      "company": "ByteDance",
+      "date": "2025-02-23",
+      "id": "2502.03438",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ByteDance-Seed/BFS-Prover-V1-7B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ByteDance-Seed/BFS-Prover-V1-7B",
+      "size_total_gb": 14.19
     },
     {
       "model": "Baichuan-Audio",
@@ -1646,6 +1730,34 @@
       "discovered": true,
       "hf_repo": "ai21labs/AI21-Jamba-Mini-1.6",
       "size_total_gb": 96.06
+    },
+    {
+      "model": "AI21-Jamba-Large-1.6",
+      "company": "AI21",
+      "date": "2025-02-27",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ai21labs/AI21-Jamba-Large-1.6",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ai21labs/AI21-Jamba-Large-1.6",
+      "size_total_gb": 742.37
+    },
+    {
+      "model": "C4ai-command-r7b-arabic-02",
+      "company": "Cohere",
+      "date": "2025-02-27",
+      "id": "2503.14603",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/c4ai-command-r7b-arabic-02-2025",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/c4ai-command-r7b-arabic-02-2025",
+      "size_total_gb": 14.95
     },
     {
       "model": "Phi-4-Mini",
@@ -7216,6 +7328,34 @@
       "discovered": true,
       "hf_repo": "google/DiarizationLM-Gemma-4-E4B-v1",
       "size_total_gb": 14.89
+    },
+    {
+      "model": "Nano-Banana-2.1",
+      "company": "Google",
+      "date": "2026-10-06",
+      "id": "",
+      "title": "",
+      "note": "Nano Banana 2.1 (Gemini Nano Banana 2.1) is Google's image g",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Mistral-Large-4",
+      "company": "Mistral",
+      "date": "2026-10-06",
+      "id": "",
+      "title": "",
+      "note": "Mistral Large 4 is a frontier multimodal (text and image inp",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     }
   ]
 }
