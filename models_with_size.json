@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-08",
-  "total_models": 564,
-  "with_real_size": 291,
-  "coverage": "51.6%",
+  "fetch_time": "2026-10-09",
+  "total_models": 574,
+  "with_real_size": 298,
+  "coverage": "51.9%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -1355,6 +1355,34 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Nova-Lite-1.0",
+      "company": "Amazon",
+      "date": "2024-12-05",
+      "id": "",
+      "title": "",
+      "note": "Amazon Nova Lite 1.0 is a very low-cost multimodal model fro",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Nova-Micro-1.0",
+      "company": "Amazon",
+      "date": "2024-12-05",
+      "id": "",
+      "title": "",
+      "note": "Amazon Nova Micro 1.0 is a text-only model that delivers the",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "EXAONE-3.5",
       "company": "LG",
       "date": "2024-12-06",
@@ -1367,6 +1395,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Llama-3.3",
+      "company": "Meta",
+      "date": "2024-12-06",
+      "id": "2204.05149",
+      "title": "",
+      "note": "The Meta Llama 3.3 multilingual large language model (LLM) i",
+      "papers": 0,
+      "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "meta-llama/Llama-3.3-70B-Instruct",
+      "size_total_gb": 262.85
+    },
+    {
       "model": "Granite-Guardian",
       "company": "IBM",
       "date": "2024-12-10",
@@ -1377,6 +1419,20 @@
       "hf_repo": "ibm-granite/granite-guardian-3.0-8b",
       "size_total_gb": 15.22,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "DeepSeek-V2.5",
+      "company": "DeepSeek",
+      "date": "2024-12-10",
+      "id": "2405.04434",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V2.5-1210",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-V2.5",
+      "size_total_gb": 439.11
     },
     {
       "model": "Gemini-2.0-Flash",
@@ -1404,6 +1460,20 @@
       "hf_repo": null,
       "size_total_gb": null,
       "source": "no_mapping"
+    },
+    {
+      "model": "C4ai-command-r7b-12",
+      "company": "Cohere",
+      "date": "2024-12-11",
+      "id": "2504.00698",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/c4ai-command-r7b-12-2024",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/c4ai-command-r7b-12-2024",
+      "size_total_gb": 14.95
     },
     {
       "model": "Phi-4",
@@ -1442,6 +1512,34 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Command-R7B",
+      "company": "Cohere",
+      "date": "2024-12-14",
+      "id": "",
+      "title": "",
+      "note": "Command R7B (12-2024) is a small, fast update of the Command",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Falcon3",
+      "company": "TII",
+      "date": "2024-12-14",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/tiiuae/Falcon3-3B-Instruct",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "tiiuae/Falcon3-7B-Base",
+      "size_total_gb": 13.89
+    },
+    {
       "model": "DeepSeek-V3",
       "company": "DeepSeek",
       "date": "2024-12-26",
@@ -1465,6 +1563,34 @@
       "hf_repo": null,
       "size_total_gb": null,
       "source": "no_mapping"
+    },
+    {
+      "model": "MiniMax-VL-01",
+      "company": "MiniMax",
+      "date": "2025-01-12",
+      "id": "2501.08313",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-VL-01",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "MiniMaxAI/MiniMax-VL-01",
+      "size_total_gb": 852.5
+    },
+    {
+      "model": "Internlm3",
+      "company": "InternLM",
+      "date": "2025-01-13",
+      "id": "2403.17297",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/internlm3-8b-instruct",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/internlm3-8b-instruct",
+      "size_total_gb": 16.4
     },
     {
       "model": "MiniMax-01",
@@ -1560,6 +1686,20 @@
       "discovered": true,
       "hf_repo": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
       "size_total_gb": 14.96
+    },
+    {
+      "model": "DeepSeek-R1-Zero",
+      "company": "DeepSeek",
+      "date": "2025-01-20",
+      "id": "2501.12948",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Zero",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-R1-Zero",
+      "size_total_gb": 641.3
     },
     {
       "model": "Internlm-xcomposer2d5",

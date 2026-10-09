@@ -1021,6 +1021,30 @@
    "papers": 1
   },
   {
+   "model": "Nova-Lite-1.0",
+   "company": "Amazon",
+   "date": "2024-12-05",
+   "id": "",
+   "title": "",
+   "note": "Amazon Nova Lite 1.0 is a very low-cost multimodal model fro",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Nova-Micro-1.0",
+   "company": "Amazon",
+   "date": "2024-12-05",
+   "id": "",
+   "title": "",
+   "note": "Amazon Nova Micro 1.0 is a text-only model that delivers the",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "EXAONE-3.5",
    "company": "LG",
    "date": "2024-12-06",
@@ -1030,6 +1054,18 @@
    "papers": 1
   },
   {
+   "model": "Llama-3.3",
+   "company": "Meta",
+   "date": "2024-12-06",
+   "id": "2204.05149",
+   "title": "",
+   "note": "The Meta Llama 3.3 multilingual large language model (LLM) i",
+   "papers": 0,
+   "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+   "source": "hf+openrouter",
+   "discovered": true
+  },
+  {
    "model": "Granite-Guardian",
    "company": "IBM",
    "date": "2024-12-10",
@@ -1037,6 +1073,18 @@
    "title": "Granite Guardian",
    "note": "推出Granite Guardian风险检测模型套件，覆盖偏见、暴力等多维度，可与任意LLM搭配使用。",
    "papers": 1
+  },
+  {
+   "model": "DeepSeek-V2.5",
+   "company": "DeepSeek",
+   "date": "2024-12-10",
+   "id": "2405.04434",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/deepseek-ai/DeepSeek-V2.5-1210",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Gemini-2.0-Flash",
@@ -1058,6 +1106,18 @@
    "papers": 0,
    "url": "https://deepmind.google/technologies/gemini/",
    "extra": true
+  },
+  {
+   "model": "C4ai-command-r7b-12",
+   "company": "Cohere",
+   "date": "2024-12-11",
+   "id": "2504.00698",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/CohereLabs/c4ai-command-r7b-12-2024",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Phi-4",
@@ -1087,6 +1147,30 @@
    "papers": 1
   },
   {
+   "model": "Command-R7B",
+   "company": "Cohere",
+   "date": "2024-12-14",
+   "id": "",
+   "title": "",
+   "note": "Command R7B (12-2024) is a small, fast update of the Command",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Falcon3",
+   "company": "TII",
+   "date": "2024-12-14",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/tiiuae/Falcon3-3B-Instruct",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "DeepSeek-V3",
    "company": "DeepSeek",
    "date": "2024-12-26",
@@ -1104,6 +1188,30 @@
    "title": "Poisoned Identifiers Survive LLM Deobfuscation: A Case Study on Claude Opus 4.6",
    "note": "测试Claude Opus 4.6在192次反混淆推理中的表现，发现中毒标识符名能绕过语义理解存活至重构代码。",
    "papers": 3
+  },
+  {
+   "model": "MiniMax-VL-01",
+   "company": "MiniMax",
+   "date": "2025-01-12",
+   "id": "2501.08313",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/MiniMaxAI/MiniMax-VL-01",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Internlm3",
+   "company": "InternLM",
+   "date": "2025-01-13",
+   "id": "2403.17297",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/internlm/internlm3-8b-instruct",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "MiniMax-01",
@@ -1179,6 +1287,18 @@
    "note": "（自动发现收录，待人工补注）",
    "papers": 0,
    "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "DeepSeek-R1-Zero",
+   "company": "DeepSeek",
+   "date": "2025-01-20",
+   "id": "2501.12948",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Zero",
    "source": "huggingface",
    "discovered": true
   },
