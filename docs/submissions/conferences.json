@@ -1057,5 +1057,193 @@
       "url": "https://ifac-control.org/events",
       "checkedAt": "2026-09-01"
     }
-  ]
+  ],
+  "journals": [
+    {
+      "key": "jmlr",
+      "name": "JMLR",
+      "full": "Journal of Machine Learning Research",
+      "field": "机器学习",
+      "ccf": "A",
+      "guide": "https://jmlr.org/author-info.html",
+      "mode": "rolling",
+      "note": "适合机器学习方法、理论与机制分析；纯应用工作不在范围内。会议扩展版需有实质新增贡献。",
+      "checkedAt": "2026-10-10",
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    {
+      "key": "ai",
+      "name": "AI",
+      "full": "Artificial Intelligence",
+      "field": "人工智能",
+      "ccf": "A",
+      "guide": "https://www.sciencedirect.com/journal/artificial-intelligence/publish/guide-for-authors",
+      "mode": "rolling",
+      "note": "适合推理、规划、知识表示与 AI 方法研究。投稿细则以出版社最新指南为准。",
+      "checkedAt": null,
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    {
+      "key": "tpami",
+      "name": "TPAMI",
+      "full": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "field": "视觉与多模态",
+      "ccf": "A",
+      "guide": "https://www.computer.org/csdl/journal/tp",
+      "mode": "rolling",
+      "note": "适合模式分析、视觉与机器智能方法；从期刊官网进入作者指南。",
+      "checkedAt": null,
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    {
+      "key": "ijcv",
+      "name": "IJCV",
+      "full": "International Journal of Computer Vision",
+      "field": "视觉与多模态",
+      "ccf": "A",
+      "guide": "https://link.springer.com/journal/11263/submission-guidelines",
+      "mode": "rolling",
+      "note": "适合计算机视觉及视觉多模态研究；提交可编辑源文件与编译 PDF。",
+      "checkedAt": "2026-10-10",
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    {
+      "key": "tkde",
+      "name": "TKDE",
+      "full": "IEEE Transactions on Knowledge and Data Engineering",
+      "field": "检索与数据",
+      "ccf": "A",
+      "guide": "https://www.computer.org/csdl/journal/tk",
+      "mode": "rolling",
+      "note": "适合数据挖掘、知识工程与数据管理；强调方法和可重复评估。",
+      "checkedAt": null,
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/"
+    },
+    {
+      "key": "tois",
+      "name": "TOIS",
+      "full": "ACM Transactions on Information Systems",
+      "field": "检索与数据",
+      "ccf": "A",
+      "guide": "https://dl.acm.org/journal/tois/author-guidelines",
+      "mode": "rolling",
+      "note": "适合信息检索、排序、推荐与检索增强方法；关注检索贡献与实验设计。",
+      "checkedAt": null,
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/"
+    },
+    {
+      "key": "tse",
+      "name": "TSE",
+      "full": "IEEE Transactions on Software Engineering",
+      "field": "软件工程",
+      "ccf": "A",
+      "guide": "https://www.computer.org/csdl/journal/ts",
+      "mode": "rolling",
+      "note": "适合代码生成、软件 Agent、程序分析与软件工程实证研究。",
+      "checkedAt": null,
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/"
+    },
+    {
+      "key": "tosem",
+      "name": "TOSEM",
+      "full": "ACM Transactions on Software Engineering and Methodology",
+      "field": "软件工程",
+      "ccf": "A",
+      "guide": "https://dl.acm.org/journal/tosem/author-guidelines",
+      "mode": "rolling",
+      "note": "适合软件工程方法、工具与评测；LLM 论文需有明确的软件工程贡献。",
+      "checkedAt": null,
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/"
+    },
+    {
+      "key": "jair",
+      "name": "JAIR",
+      "full": "Journal of Artificial Intelligence Research",
+      "field": "人工智能",
+      "ccf": "B",
+      "guide": "https://jair.org/index.php/jair/about/submissions",
+      "mode": "rolling",
+      "note": "AI 综合高水平期刊；须填写可复现性清单，并回答投稿系统中的三项贡献问题。",
+      "checkedAt": "2026-10-10",
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    {
+      "key": "tnnls",
+      "name": "TNNLS",
+      "full": "IEEE Transactions on Neural Networks and Learning Systems",
+      "field": "机器学习",
+      "ccf": "B",
+      "guide": "https://cis.ieee.org/publications/t-neural-networks-and-learning-systems",
+      "mode": "rolling",
+      "note": "学习系统与神经网络方法方向；不将 CCF-B 等同于 CCF-A。",
+      "checkedAt": null,
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    {
+      "key": "tacl",
+      "name": "TACL",
+      "full": "Transactions of the Association for Computational Linguistics",
+      "field": "自然语言处理",
+      "ccf": "B",
+      "guide": "https://transacl.org/index.php/tacl/about/submissions",
+      "mode": "monthly",
+      "note": "每月 1 日 23:59 Honolulu（UTC-10）截止；注意近 9 个月 ACL 系列审稿的投稿限制。",
+      "checkedAt": "2026-10-10",
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    {
+      "key": "tmlr",
+      "name": "TMLR",
+      "full": "Transactions on Machine Learning Research",
+      "field": "机器学习",
+      "ccf": null,
+      "guide": "https://jmlr.org/tmlr/",
+      "mode": "rolling",
+      "note": "机器学习滚动投稿与开放评审；CCF 等级本次未核定。",
+      "checkedAt": "2026-10-10",
+      "classificationSource": null
+    },
+    {
+      "key": "nmi",
+      "name": "Nature Machine Intelligence",
+      "full": "Nature Machine Intelligence",
+      "field": "人工智能",
+      "ccf": null,
+      "guide": "https://www.nature.com/natmachintell/submission-guidelines",
+      "mode": "rolling",
+      "note": "适合具有广泛意义的机器智能研究；按文章类型准备材料，CCF 等级本次未核定。",
+      "checkedAt": "2026-10-10",
+      "classificationSource": null
+    },
+    {
+      "key": "tac-control",
+      "name": "IEEE TAC（控制）",
+      "full": "IEEE Transactions on Automatic Control",
+      "field": "控制与工业",
+      "ccf": null,
+      "guide": "https://ieeecss.org/publication/transactions-automatic-control",
+      "mode": "rolling",
+      "note": "控制领域主要期刊，重视理论与系统贡献；区别于 CCF 目录中的 Affective Computing（同缩写 TAC）。",
+      "checkedAt": "2026-10-10",
+      "classificationSource": null
+    },
+    {
+      "key": "automatica",
+      "name": "Automatica",
+      "full": "Automatica",
+      "field": "控制与工业",
+      "ccf": null,
+      "guide": "https://www.sciencedirect.com/journal/automatica/publish/guide-for-authors",
+      "mode": "rolling",
+      "note": "控制理论与系统方法的主要期刊；工业 LLM 工作需展示实质控制方法贡献。",
+      "checkedAt": null,
+      "classificationSource": null
+    }
+  ],
+  "journalPolicy": {
+    "ccfSource": "https://www.ccf.org.cn/Academic_Evaluation/By_category/",
+    "ccfNote": "CCF 分级与领域高水平定位分别记录。目录适用于主会 Full/Regular paper，不能自动套用于 Findings、Workshop、Demo 或 Short paper。",
+    "peerNote": "其他高水平期刊为按研究方向整理的投稿参考，不表示与所有 CCF-A 期刊等价，也不替代学校或单位认定。",
+    "verificationNote": "逐条保留核验日期。只有明确读取到的投稿细则标注核验；其余为官方入口，细则待复核。普通期刊按滚动投稿展示，特刊截止须另看 CFP。"
+  }
 }

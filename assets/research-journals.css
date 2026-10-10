@@ -1,0 +1,8 @@
+#conference-journals{position:relative;z-index:1;max-width:1160px;margin:28px auto;padding:0 22px;color:inherit}
+#conference-journals[hidden]{display:none}
+#conference-journals h2{font-size:1.2rem;margin-bottom:10px}
+.journal-intro{font-size:.8rem;line-height:1.7;opacity:.75;margin-bottom:18px}
+.journal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.journal-card{padding:18px;border:1px solid rgba(138,130,112,.4);border-radius:9px;background:rgba(255,255,255,.55);min-width:0}
+.journal-card h3{font-size:1rem;margin:9px 0 4px}.journal-card p{font-size:.78rem;line-height:1.7;margin:9px 0}.journal-full{opacity:.65;overflow-wrap:anywhere}.journal-grade{font-size:.7rem;color:#9c4a3c;font-weight:600}.journal-mode{font-weight:600}.journal-card a{color:#2e5e8a;text-underline-offset:3px}.journal-card small{font-size:.65rem;opacity:.6}
+.dark .journal-card{background:rgba(32,36,46,.8)}.dark .journal-card a{color:#9fc4e4}.dark .journal-grade{color:#e3a397}
