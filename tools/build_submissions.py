@@ -69,7 +69,7 @@ def build():
         cards.append(card(journal['key'], journal['name'], journal['full'], journal['field'], journal['ccf'],
                           'journal', journal['note'], dates, journal['guide'], journal['classificationSource'],
                           journal['checkedAt'], journal['mode']))
-    template = (SOURCE / 'index.template.html').read_text()
+    template = (SOURCE / 'index.template').read_text()
     output = template.replace('<!-- VENUE_CARDS -->', '\n'.join(cards)).replace('{{UPDATED}}', journals['meta']['updated'])
     destination = ROOT / 'research' / 'submissions' / 'index.html'
     destination.parent.mkdir(parents=True, exist_ok=True)

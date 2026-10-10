@@ -18,7 +18,9 @@ test('login Pages artifact covers every entry and excludes backend and shared st
   const result=build(['--preview','--mode','login']); assert.equal(result.status,0,result.stderr);
   const out=root+'/auth/pages-preview/';
   const manifest=JSON.parse(readFileSync(out+'build-manifest.json'));
-  assert.equal(manifest.pages.length,23); assert.equal(manifest.accountPages,7); assert.equal(manifest.configured,false);
+  assert.ok(manifest.pages.length >= 24); assert.equal(manifest.accountPages,7); assert.equal(manifest.configured,false);
+  assert.ok(manifest.pages.includes('research/submissions/index.html'));
+  assert.equal(existsSync(out+'docs/submissions/index.template'),false);
   for(const page of manifest.pages){
     const html=readFileSync(out+page,'utf8');
     const encoded=JSON.parse(html.match(/<script id="tracker-source" type="application\/json">(.*?)<\/script>/s)[1]);
@@ -44,6 +46,9 @@ test('default production is public, unchanged site files and no authentication d
   assert.equal(existsSync(out+'auth'),false);
   for(const page of [...manifest.pages,'favorites.json','robots.txt']) assert.deepEqual(readFileSync(out+page),readFileSync(root+'/'+page),page);
   assert.ok(!readFileSync(out+'index.html','utf8').includes('account/guard.js'));
+  assert.ok(manifest.pages.includes('research/submissions/index.html'));
+  for(const asset of ['assets/submissions.js','assets/submissions.css']) assert.deepEqual(readFileSync(out+asset),readFileSync(root+'/'+asset));
+  assert.equal(existsSync(out+'docs/submissions/index.template'),false);
 });
 test('switch public → login → public replaces artifacts without stale account pages',()=>{
   for(const mode of ['false','true','false']) {

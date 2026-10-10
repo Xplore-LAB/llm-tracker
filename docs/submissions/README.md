@@ -1,7 +1,7 @@
 # 投稿信息维护
 
 `conferences.json` 是现有会议时间轴数据的可读源；`journals.json` 是新增期刊投稿指南。
-`index.template.html`、`assets/submissions.css`、`assets/submissions.js` 构成投稿指南页面。
+`index.template`、`assets/submissions.css`、`assets/submissions.js` 构成投稿指南页面。
 
 修改数据后在仓库根目录执行：
 
