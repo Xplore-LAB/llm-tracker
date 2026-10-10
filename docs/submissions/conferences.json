@@ -1069,7 +1069,8 @@
       "mode": "rolling",
       "note": "适合机器学习方法、理论与机制分析；纯应用工作不在范围内。会议扩展版需有实质新增贡献。",
       "checkedAt": "2026-10-10",
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "impactFactor": null
     },
     {
       "key": "ai",
@@ -1081,7 +1082,8 @@
       "mode": "rolling",
       "note": "适合推理、规划、知识表示与 AI 方法研究。投稿细则以出版社最新指南为准。",
       "checkedAt": null,
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "impactFactor": null
     },
     {
       "key": "tpami",
@@ -1093,7 +1095,8 @@
       "mode": "rolling",
       "note": "适合模式分析、视觉与机器智能方法；从期刊官网进入作者指南。",
       "checkedAt": null,
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "impactFactor": null
     },
     {
       "key": "ijcv",
@@ -1105,7 +1108,13 @@
       "mode": "rolling",
       "note": "适合计算机视觉及视觉多模态研究；提交可编辑源文件与编译 PDF。",
       "checkedAt": "2026-10-10",
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "impactFactor": {
+        "value": 10.3,
+        "year": 2025,
+        "source": "https://link.springer.com/journal/11263",
+        "checkedAt": "2026-10-10"
+      }
     },
     {
       "key": "tkde",
@@ -1117,7 +1126,8 @@
       "mode": "rolling",
       "note": "适合数据挖掘、知识工程与数据管理；强调方法和可重复评估。",
       "checkedAt": null,
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/",
+      "impactFactor": null
     },
     {
       "key": "tois",
@@ -1129,7 +1139,13 @@
       "mode": "rolling",
       "note": "适合信息检索、排序、推荐与检索增强方法；关注检索贡献与实验设计。",
       "checkedAt": null,
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/",
+      "impactFactor": {
+        "value": 9.1,
+        "year": 2024,
+        "source": "https://www.acm.org/binaries/content/assets/press-releases/2025/july/news-release_impact_factors_2025_final.pdf",
+        "checkedAt": "2026-10-10"
+      }
     },
     {
       "key": "tse",
@@ -1141,7 +1157,8 @@
       "mode": "rolling",
       "note": "适合代码生成、软件 Agent、程序分析与软件工程实证研究。",
       "checkedAt": null,
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/",
+      "impactFactor": null
     },
     {
       "key": "tosem",
@@ -1153,7 +1170,13 @@
       "mode": "rolling",
       "note": "适合软件工程方法、工具与评测；LLM 论文需有明确的软件工程贡献。",
       "checkedAt": null,
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/",
+      "impactFactor": {
+        "value": 6.2,
+        "year": 2024,
+        "source": "https://www.acm.org/binaries/content/assets/press-releases/2025/july/news-release_impact_factors_2025_final.pdf",
+        "checkedAt": "2026-10-10"
+      }
     },
     {
       "key": "jair",
@@ -1165,7 +1188,8 @@
       "mode": "rolling",
       "note": "AI 综合高水平期刊；须填写可复现性清单，并回答投稿系统中的三项贡献问题。",
       "checkedAt": "2026-10-10",
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "impactFactor": null
     },
     {
       "key": "tnnls",
@@ -1177,7 +1201,8 @@
       "mode": "rolling",
       "note": "学习系统与神经网络方法方向；不将 CCF-B 等同于 CCF-A。",
       "checkedAt": null,
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "impactFactor": null
     },
     {
       "key": "tacl",
@@ -1189,7 +1214,8 @@
       "mode": "monthly",
       "note": "每月 1 日 23:59 Honolulu（UTC-10）截止；注意近 9 个月 ACL 系列审稿的投稿限制。",
       "checkedAt": "2026-10-10",
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "impactFactor": null
     },
     {
       "key": "tmlr",
@@ -1201,7 +1227,8 @@
       "mode": "rolling",
       "note": "机器学习滚动投稿与开放评审；CCF 等级本次未核定。",
       "checkedAt": "2026-10-10",
-      "classificationSource": null
+      "classificationSource": null,
+      "impactFactor": null
     },
     {
       "key": "nmi",
@@ -1213,7 +1240,13 @@
       "mode": "rolling",
       "note": "适合具有广泛意义的机器智能研究；按文章类型准备材料，CCF 等级本次未核定。",
       "checkedAt": "2026-10-10",
-      "classificationSource": null
+      "classificationSource": null,
+      "impactFactor": {
+        "value": 29.8,
+        "year": 2025,
+        "source": "https://www.nature.com/natmachintell/journal-impact",
+        "checkedAt": "2026-10-10"
+      }
     },
     {
       "key": "tac-control",
@@ -1225,7 +1258,8 @@
       "mode": "rolling",
       "note": "控制领域主要期刊，重视理论与系统贡献；区别于 CCF 目录中的 Affective Computing（同缩写 TAC）。",
       "checkedAt": "2026-10-10",
-      "classificationSource": null
+      "classificationSource": null,
+      "impactFactor": null
     },
     {
       "key": "automatica",
@@ -1237,7 +1271,8 @@
       "mode": "rolling",
       "note": "控制理论与系统方法的主要期刊；工业 LLM 工作需展示实质控制方法贡献。",
       "checkedAt": null,
-      "classificationSource": null
+      "classificationSource": null,
+      "impactFactor": null
     }
   ],
   "journalPolicy": {
