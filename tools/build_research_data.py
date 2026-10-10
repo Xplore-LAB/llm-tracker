@@ -2,6 +2,7 @@
 """Update existing conference data and embed journal data in the conference view."""
 import base64
 import html
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -37,6 +38,10 @@ def build():
     if 'research-journals.css' not in content:
         content = content.replace('</head>', '<link rel="stylesheet" href="../assets/research-journals.css">\n</head>', 1)
         content = content.replace('</body>', '<script src="../assets/research-journals.js"></script>\n</body>', 1)
+    # A content version prevents returning visitors from reusing an older tab script.
+    version = hashlib.sha256((ROOT / 'assets/research-journals.js').read_bytes()).hexdigest()[:12]
+    content = re.sub(r'../assets/research-journals\.js(?:\?v=[^"\s]*)?',
+                     '../assets/research-journals.js?v=' + version, content)
     page.write_text(content)
     print('Updated existing conference view:', len(data['series']), 'series and', len(cards), 'journals')
 
