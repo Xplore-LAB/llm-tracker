@@ -24,3 +24,6 @@
 /* The status selector controls past events consistently in both layouts. */
 #tlwrap .pasttoggle{display:none}
 @media(max-width:1160px){#conference-controls,#conference-results,#conference-list{margin-left:22px;margin-right:22px}}
+#conference-priorities{position:relative;z-index:1;max-width:1116px;margin:18px auto}
+#conference-priorities[hidden]{display:none}
+@media(max-width:1160px){#conference-priorities{margin-left:22px;margin-right:22px}}

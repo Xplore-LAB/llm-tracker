@@ -20,7 +20,7 @@
     ]
   },
   "meta": {
-    "updated": "2026-10-10"
+    "updated": "2026-10-11"
   },
   "series": {
     "neurips": {
@@ -44,7 +44,13 @@
         "intro": "1987 年创办（时称 NIPS），与 ICML、ICLR 并称机器学习三大顶会，覆盖表示学习、优化、生成模型与 AI for Science。",
         "url": "https://neurips.cc"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "iclr": {
       "name": "ICLR 2027",
@@ -68,7 +74,13 @@
         "url": "https://iclr.cc/archive/2013/organization/people.html"
       },
       "classificationSource": "https://www.ccf.org.cn/TCIP/dt/2026-07-07/909456.shtml",
-      "classificationNote": "保留站内 2026 版 CCF-A 标记；CCF 官方课程页亦列入 A 类，分类页搜索快照尚未同步。"
+      "classificationNote": "保留站内 2026 版 CCF-A 标记；CCF 官方课程页亦列入 A 类，分类页搜索快照尚未同步。",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "aaai": {
       "name": "AAAI 2027",
@@ -91,7 +103,13 @@
         "intro": "1980 年创办（首届于斯坦福大学），覆盖人工智能全谱系：搜索、规划、知识表示、多智能体与机器学习。",
         "url": "https://ojs.aaai.org/index.php/AAAI/about"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "cvpr": {
       "name": "CVPR 2027",
@@ -114,7 +132,13 @@
         "intro": "1983 年创办、1985 年起每年举办，计算机视觉头号会议，近年同时承载多模态与生成式视觉研究。",
         "url": "http://tab.computer.org/pamitc/conference/history.html"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "icml": {
       "name": "ICML 2027",
@@ -137,7 +161,13 @@
         "intro": "1980 年创办（首届卡内基梅隆大学，时为研讨会），1993 年改为现名，机器学习三大顶会之一。",
         "url": "https://machinelearning.org"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "acl": {
       "name": "ACL 2027",
@@ -160,7 +190,13 @@
         "intro": "1963 年首次年会（学会 1962 年成立），自然语言处理旗舰会议，投稿经 ARR 滚动评审输送。",
         "url": "https://www.archive.aclweb.org/misc/History.html"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "arr": {
       "name": "ARR",
@@ -182,7 +218,13 @@
         "freq": "约每两个月一个评审周期",
         "intro": "2020 年启动、2021 年 5 月首个截稿周期的滚动评审机制，为 ACL / EMNLP / NAACL 等会议输送稿件，本身不是会议。",
         "url": "https://aclrollingreview.org"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "emnlp": {
       "name": "EMNLP 2026",
@@ -205,7 +247,13 @@
         "intro": "1996 年创办（前身为 1993 年起 WVLC 研讨会），自然语言处理实证方法核心会议，规模已比肩 ACL。",
         "url": "http://cs.cmu.edu/~ark/EMNLP-2015/past-emnlp.html"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "kdd": {
       "name": "KDD 2027",
@@ -228,7 +276,13 @@
         "intro": "源于 1989 年 KDD 研讨会、1995 年升格为年度大会，数据挖掘与知识发现头号会议，设 Research 与 Applied 双轨。",
         "url": "https://kdd.org/news/view/the-age-of-big-data-from-kdd-89-to-kdd-2012"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "colm": {
       "name": "COLM 2026",
@@ -250,7 +304,13 @@
         "freq": "每年一届",
         "intro": "2024 年创办（首届宾夕法尼亚大学），专注语言建模的新会议，涵盖预训练、后训练、推理与评估全链条。",
         "url": "https://colmweb.org"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "iccv": {
       "name": "ICCV 2027",
@@ -273,7 +333,13 @@
         "intro": "1987 年创办（首届伦敦），与 CVPR 并称视觉双顶会，奇数年举办。",
         "url": "https://iccv.thecvf.com/Conferences/2025"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "cac": {
       "name": "CAC 2026",
@@ -295,7 +361,14 @@
         "freq": "2009-2017 两年一届，2017 年起每年一届",
         "intro": "2009 年创办（首届杭州），国内自动化领域旗舰大会，覆盖控制、机器人、智能制造与人工智能交叉方向。",
         "url": "https://www.caa.org.cn/Content/21.html"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "自动化与工业智能应用；优先有真实工业系统、控制指标和对照实验的工作。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "cdc": {
       "name": "CDC 2026",
@@ -317,7 +390,13 @@
         "freq": "每年一届（12 月）",
         "intro": "源头为 1962 年 JACC 同期研讨会，控制理论头号会议，侧重系统、优化与控制的理论进展。",
         "url": "https://cdc2022.ieeecss.org/cdc-history/index.html"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "industrial"
+      ],
+      "submissionFit": "控制理论、多智能体协同与稳定性；优先考虑有控制理论或系统贡献的工作。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "acc": {
       "name": "ACC 2027",
@@ -339,7 +418,14 @@
         "freq": "每年一届（5-6 月）",
         "intro": "1982 年创办（前身为 1959 年起 JACC 系列），控制三大顶会之一，理论与工业应用并重。",
         "url": "http://a2c2.org/history/history"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "适合控制与工业系统中的决策、学习控制和多智能体；普通论文截稿已过，提案不等于论文投稿。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "icra": {
       "name": "ICRA 2027",
@@ -362,7 +448,14 @@
         "intro": "1984 年创办（首届亚特兰大），机器人领域规模最大的旗舰会议，覆盖感知、规划、控制与具身智能。",
         "url": "https://icra40.ieee.org"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "具身 Agent、机器人规划和语言驱动控制；需要机器人或控制验证。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "iros": {
       "name": "IROS 2026",
@@ -385,7 +478,14 @@
         "intro": "1988 年创办（首届东京），智能机器人旗舰会议，偏系统与应用，近年具身智能与 VLA 稿件密集。",
         "url": "http://ieee-ras.org/conferences-workshops/financially-co-sponsored/iros/"
       },
-      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "机器人、具身 Agent 和人机交互；需要机器人贡献。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "ecc": {
       "name": "ECC 2027",
@@ -407,7 +507,14 @@
         "freq": "1991-2011 两年一届，2013 年起每年一届",
         "intro": "1991 年创办（首届法国格勒诺布尔），欧洲主要控制会议，理论与应用均衡。",
         "url": "https://euca-ecc.org/history"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工业控制优先：闭环控制、系统辨识、规划与安全约束；LLM / Agent 必须带来控制方法贡献。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "ijcai": {
       "name": "IJCAI 2027",
@@ -426,7 +533,13 @@
         "freq": "每年一届",
         "intro": "人工智能综合 · 推理与知识表示方向的主要研究会议；此处展示主会 Research/Main Track 节点。",
         "url": "https://2027.ijcai.org/"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     },
     "icse": {
       "name": "ICSE 2027",
@@ -445,7 +558,229 @@
         "freq": "每年一届",
         "intro": "软件工程 · 代码生成与软件 Agent方向的主要研究会议；此处展示主会 Research/Main Track 节点。",
         "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "代码生成、软件 Agent 和程序分析；需要明确的软件工程贡献。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
+    },
+    "www": {
+      "name": "WWW 2027",
+      "full": "ACM The Web Conference",
+      "org": "ACM",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "Web Agent · RAG · 搜索推荐",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "—",
+        "org": "主办组织见官网",
+        "freq": "每年一届",
+        "intro": "Web Agent、检索增强 AI 与 Web 基础设施；必须提出明确的 Web 研究问题，单纯调用 Web API 不足以匹配。",
+        "url": "https://www2027.thewebconf.org/research-track-papers/"
+      },
+      "hist": {
+        "text": "本次收录目标届次；历届统计未核验。",
+        "url": "https://www2027.thewebconf.org/research-track-papers/"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "submissionFit": "Web Agent、检索增强 AI 与 Web 基础设施；必须提出明确的 Web 研究问题，单纯调用 Web API 不足以匹配。",
+      "fitSource": "https://www2027.thewebconf.org/research-track-papers/",
+      "fitCheckedAt": "2026-10-11",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
+    },
+    "icde": {
+      "name": "ICDE 2027",
+      "full": "IEEE International Conference on Data Engineering",
+      "org": "IEEE",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "数据 Agent · LLM 数据工程",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "—",
+        "org": "主办组织见官网",
+        "freq": "每年一届",
+        "intro": "LLM 与数据工程双向结合、向量数据和数据系统；数据库 Agent / Text-to-SQL 需有实质数据管理贡献。",
+        "url": "https://icde2027.github.io/cf-research-papers.html"
+      },
+      "hist": {
+        "text": "本次收录目标届次；历届统计未核验。",
+        "url": "https://icde2027.github.io/cf-research-papers.html"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "submissionFit": "LLM 与数据工程双向结合、向量数据和数据系统；数据库 Agent / Text-to-SQL 需有实质数据管理贡献。",
+      "fitSource": "https://icde2027.github.io/cf-research-papers.html",
+      "fitCheckedAt": "2026-10-11",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
+    },
+    "sp": {
+      "name": "IEEE S&P 2027",
+      "full": "IEEE Symposium on Security and Privacy",
+      "org": "IEEE",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "Agent / LLM 安全与隐私",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "—",
+        "org": "主办组织见官网",
+        "freq": "每年一届",
+        "intro": "适合具有明确安全威胁模型的 Agent / LLM 攻击、防御与隐私研究；一般能力提升或工业应用不直接匹配。",
+        "url": "https://sp2027.ieee-security.org/cfpapers.html"
+      },
+      "hist": {
+        "text": "本次收录目标届次；历届统计未核验。",
+        "url": "https://sp2027.ieee-security.org/cfpapers.html"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "submissionFit": "适合具有明确安全威胁模型的 Agent / LLM 攻击、防御与隐私研究；一般能力提升或工业应用不直接匹配。",
+      "fitSource": "https://sp2027.ieee-security.org/cfpapers.html",
+      "fitCheckedAt": "2026-10-11",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
+    },
+    "osdi": {
+      "name": "OSDI 2027",
+      "full": "USENIX Symposium on Operating Systems Design and Implementation",
+      "org": "USENIX",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "LLM 推理与训练系统",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "—",
+        "org": "主办组织见官网",
+        "freq": "每年一届",
+        "intro": "适合 LLM 服务、缓存、调度与分布式训练中的系统设计贡献；只改提示词或模型算法不足以匹配。",
+        "url": "https://www.usenix.org/conference/osdi27/call-for-papers"
+      },
+      "hist": {
+        "text": "本次收录目标届次；历届统计未核验。",
+        "url": "https://www.usenix.org/conference/osdi27/call-for-papers"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "submissionFit": "适合 LLM 服务、缓存、调度与分布式训练中的系统设计贡献；只改提示词或模型算法不足以匹配。",
+      "fitSource": "https://www.usenix.org/conference/osdi27/call-for-papers",
+      "fitCheckedAt": "2026-10-11",
+      "priorityTopics": [
+        "llm"
+      ],
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
+    },
+    "sigir": {
+      "name": "SIGIR 2027",
+      "full": "ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "org": "ACM",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "Agentic IR · RAG · 生成式检索",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "—",
+        "org": "主办组织见官网",
+        "freq": "每年一届",
+        "intro": "检索 Agent 和生成式信息访问是本届独立主题；适合带有信息检索贡献的 RAG、搜索与多步工具调用。",
+        "url": "https://sigir2027.org/pages/submit-full.html"
+      },
+      "hist": {
+        "text": "本次收录目标届次；历届统计未核验。",
+        "url": "https://sigir2027.org/pages/submit-full.html"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "submissionFit": "检索 Agent 和生成式信息访问是本届独立主题；适合带有信息检索贡献的 RAG、搜索与多步工具调用。",
+      "fitSource": "https://sigir2027.org/pages/submit-full.html",
+      "fitCheckedAt": "2026-10-11",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
+    },
+    "naacl": {
+      "name": "NAACL 2027",
+      "full": "North American Chapter of the Association for Computational Linguistics",
+      "org": "ACL / ICCL",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "文本 LLM · NLP Agent",
+        "tier": "CCF-B"
+      },
+      "about": {
+        "founded": "—",
+        "org": "主办组织见官网",
+        "freq": "每年一届",
+        "intro": "走 ARR 2026 年 10 月评审周期；最后 ARR 投稿 10 月 12 日，承诺到会议 12 月 23 日。承诺需已有符合要求的评审，不能当作新的全文投稿。",
+        "url": "https://aclrollingreview.org/dates"
+      },
+      "hist": {
+        "text": "本次收录目标届次；历届统计未核验。",
+        "url": "https://aclrollingreview.org/dates"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitSource": "https://aclrollingreview.org/dates",
+      "fitCheckedAt": "2026-10-11",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
+    },
+    "coling": {
+      "name": "COLING 2027",
+      "full": "International Conference on Computational Linguistics",
+      "org": "ACL / ICCL",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "文本 LLM · NLP Agent",
+        "tier": "CCF-B"
+      },
+      "about": {
+        "founded": "—",
+        "org": "主办组织见官网",
+        "freq": "每年一届",
+        "intro": "走 ARR 2026 年 10 月评审周期；最后 ARR 投稿 10 月 12 日，承诺到会议 12 月 23 日。承诺需已有符合要求的评审，不能当作新的全文投稿。",
+        "url": "https://aclrollingreview.org/dates"
+      },
+      "hist": {
+        "text": "本次收录目标届次；历届统计未核验。",
+        "url": "https://aclrollingreview.org/dates"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "submissionFit": "适合 Agent / LLM 方法研究；具体投稿范围与日期以目标届次官方 CFP 为准。",
+      "fitSource": "https://aclrollingreview.org/dates",
+      "fitCheckedAt": "2026-10-11",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
     }
   },
   "events": [
@@ -627,12 +962,39 @@
       "checkedAt": "2026-09-01"
     },
     {
+      "s": "naacl",
+      "t": "sub",
+      "d": "2026-10-12",
+      "label": "最后 ARR 评审周期投稿",
+      "url": "https://aclrollingreview.org/dates",
+      "note": "AoE；同一篇论文只提交一次 ARR，不同时承诺到两个会议",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "coling",
+      "t": "sub",
+      "d": "2026-10-12",
+      "label": "最后 ARR 评审周期投稿",
+      "url": "https://aclrollingreview.org/dates",
+      "note": "AoE；同一篇论文只提交一次 ARR，不同时承诺到两个会议",
+      "checkedAt": "2026-10-11"
+    },
+    {
       "s": "acc",
       "t": "prop",
       "d": "2026-10-16",
       "label": "Workshop / Tutorial 提案截稿",
       "url": "https://acc2027.a2c2.org/important-dates/",
       "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "www",
+      "t": "abs",
+      "d": "2026-10-18",
+      "label": "Research Track 摘要截止",
+      "url": "https://www2027.thewebconf.org/research-track-papers/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "icse",
@@ -654,6 +1016,15 @@
       "checkedAt": "2026-09-01"
     },
     {
+      "s": "www",
+      "t": "sub",
+      "d": "2026-10-25",
+      "label": "Research Track 全文截止",
+      "url": "https://www2027.thewebconf.org/research-track-papers/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-11"
+    },
+    {
       "s": "cac",
       "t": "conf",
       "d": "2026-10-30",
@@ -667,10 +1038,10 @@
       "s": "ecc",
       "t": "sub",
       "d": "2026-10-31",
-      "label": "论文 / 邀请组 / Workshop 提案截稿",
-      "note": "投稿系统 2026-09-01 开放",
+      "label": "论文 / 邀请论文截止",
+      "note": "Workshop 提案截止为 2027-01-31；工业摘要另设同日截止",
       "url": "https://ecc27.euca-ecc.org/call-for-papers/",
-      "checkedAt": "2026-09-01"
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "icra",
@@ -688,6 +1059,24 @@
       "url": "https://cvpr.thecvf.com/Conferences/2027/Dates",
       "note": "AoE（UTC-12）",
       "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "sp",
+      "t": "abs",
+      "d": "2026-11-10",
+      "label": "第二轮摘要注册截止",
+      "url": "https://sp2027.ieee-security.org/cfpapers.html",
+      "note": "23:59:59 AoE（UTC-12）",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "icde",
+      "t": "sub",
+      "d": "2026-11-11",
+      "label": "Research Track 第二轮全文截止",
+      "url": "https://icde2027.github.io/cf-research-papers.html",
+      "note": "17:00 Pacific Time（当日 PST / UTC-8）；不是 AoE",
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "kdd",
@@ -716,6 +1105,15 @@
       "checkedAt": "2026-10-10"
     },
     {
+      "s": "sp",
+      "t": "sub",
+      "d": "2026-11-17",
+      "label": "第二轮全文截止",
+      "url": "https://sp2027.ieee-security.org/cfpapers.html",
+      "note": "23:59:59 AoE（UTC-12）",
+      "checkedAt": "2026-10-11"
+    },
+    {
       "s": "cvpr",
       "t": "cam",
       "d": "2026-11-23",
@@ -742,6 +1140,15 @@
       "checkedAt": "2026-10-10"
     },
     {
+      "s": "osdi",
+      "t": "abs",
+      "d": "2026-12-01",
+      "label": "摘要注册截止",
+      "url": "https://www.usenix.org/conference/osdi27/call-for-papers",
+      "note": "22:59 UTC（北京时间次日 06:59）；不是 AoE",
+      "checkedAt": "2026-10-11"
+    },
+    {
       "s": "neurips",
       "t": "conf",
       "d": "2026-12-06",
@@ -750,6 +1157,15 @@
       "note": "悉尼 12-06 至 12-12 · 亚特兰大 12-08 至 12-13 · 巴黎 12-09 至 12-13",
       "url": "https://neurips.cc/",
       "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "osdi",
+      "t": "sub",
+      "d": "2026-12-08",
+      "label": "全文截止",
+      "url": "https://www.usenix.org/conference/osdi27/call-for-papers",
+      "note": "22:59 UTC（北京时间次日 06:59）；不是 AoE",
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "aaai",
@@ -789,6 +1205,24 @@
       "checkedAt": "2026-10-10"
     },
     {
+      "s": "naacl",
+      "t": "commit",
+      "d": "2026-12-23",
+      "label": "Commitment 承诺截止（非终稿）",
+      "url": "https://aclrollingreview.org/dates",
+      "note": "已有 ARR 评审后选择会议；不是新论文投稿",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "coling",
+      "t": "commit",
+      "d": "2026-12-23",
+      "label": "Commitment 承诺截止（非终稿）",
+      "url": "https://aclrollingreview.org/dates",
+      "note": "已有 ARR 评审后选择会议；不是新论文投稿",
+      "checkedAt": "2026-10-11"
+    },
+    {
       "s": "ijcai",
       "t": "abs",
       "d": "2027-01-04",
@@ -796,6 +1230,15 @@
       "url": "https://2027.ijcai.org/",
       "note": "AoE（UTC-12）",
       "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "www",
+      "t": "noti",
+      "d": "2027-01-04",
+      "label": "录用通知",
+      "url": "https://www2027.thewebconf.org/research-track-papers/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "ijcai",
@@ -839,6 +1282,42 @@
       "label": "录用通知",
       "url": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra/",
       "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "www",
+      "t": "cam",
+      "d": "2027-01-31",
+      "label": "终稿截止",
+      "url": "https://www2027.thewebconf.org/research-track-papers/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "ecc",
+      "t": "prop",
+      "d": "2027-01-31",
+      "label": "Workshop 提案截止",
+      "url": "https://ecc27.euca-ecc.org/call-for-papers/",
+      "note": "",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "ecc",
+      "t": "abs",
+      "d": "2027-01-31",
+      "label": "Industry Abstract 截止（不进论文集）",
+      "url": "https://ecc27.euca-ecc.org/call-for-papers/",
+      "note": "工业摘要需至少一位作者有工业界单位；不能当正式论文投稿",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "icde",
+      "t": "noti",
+      "d": "2027-02-10",
+      "label": "第二轮录用通知",
+      "url": "https://icde2027.github.io/cf-research-papers.html",
+      "note": "官方通知日为近似日期",
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "aaai",
@@ -913,6 +1392,26 @@
       "checkedAt": "2026-10-10"
     },
     {
+      "s": "www",
+      "t": "conf",
+      "d": "2027-05-10",
+      "label": "会议举办",
+      "url": "https://www2027.thewebconf.org/research-track-papers/",
+      "note": "爱尔兰都柏林",
+      "checkedAt": "2026-10-11",
+      "e": "2027-05-14"
+    },
+    {
+      "s": "icde",
+      "t": "conf",
+      "d": "2027-05-17",
+      "label": "会议举办",
+      "url": "https://icde2027.github.io/cf-research-papers.html",
+      "note": "丹麦哥本哈根",
+      "checkedAt": "2026-10-11",
+      "e": "2027-05-21"
+    },
+    {
       "s": "icra",
       "t": "conf",
       "d": "2027-05-24",
@@ -941,6 +1440,16 @@
       "note": "美国费城，Workshops 07-05 至 07-06",
       "url": "https://acc2027.a2c2.org/",
       "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "osdi",
+      "t": "conf",
+      "d": "2027-07-07",
+      "label": "会议举办",
+      "url": "https://www.usenix.org/conference/osdi27/call-for-papers",
+      "note": "美国巴尔的摩",
+      "checkedAt": "2026-10-11",
+      "e": "2027-07-09"
     },
     {
       "s": "ecc",
@@ -1056,6 +1565,15 @@
       "note": "第 23 届 IFAC 2026 已于 2026-08-23 至 08-28 在韩国釜山举行",
       "url": "https://ifac-control.org/events",
       "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "sigir",
+      "name": "SIGIR 2027",
+      "full": "ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "item": "官方拟定：摘要 2027-01-14、全文 2027-01-21（AoE），待最终确认",
+      "note": "CFP 标注 PROPOSED；不作为已确认截止日期。新增 Agentic IR 与生成式信息访问主题。",
+      "url": "https://sigir2027.org/pages/submit-full.html",
+      "checkedAt": "2026-10-11"
     }
   ],
   "journals": [
@@ -1070,7 +1588,12 @@
       "note": "适合机器学习方法、理论与机制分析；纯应用工作不在范围内。会议扩展版需有实质新增贡献。",
       "checkedAt": "2026-10-10",
       "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "ai",
@@ -1083,7 +1606,12 @@
       "note": "适合推理、规划、知识表示与 AI 方法研究。投稿细则以出版社最新指南为准。",
       "checkedAt": null,
       "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "tpami",
@@ -1096,7 +1624,12 @@
       "note": "适合模式分析、视觉与机器智能方法；从期刊官网进入作者指南。",
       "checkedAt": null,
       "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "视觉 / 多模态与具身 Agent；纯文本或仅工业应用通常不匹配。"
     },
     {
       "key": "ijcv",
@@ -1114,7 +1647,12 @@
         "year": 2025,
         "source": "https://link.springer.com/journal/11263",
         "checkedAt": "2026-10-10"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "视觉 / 多模态与具身 Agent；纯文本或仅工业应用通常不匹配。"
     },
     {
       "key": "tkde",
@@ -1127,7 +1665,12 @@
       "note": "适合数据挖掘、知识工程与数据管理；强调方法和可重复评估。",
       "checkedAt": null,
       "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/",
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "tois",
@@ -1145,7 +1688,12 @@
         "year": 2024,
         "source": "https://www.acm.org/binaries/content/assets/press-releases/2025/july/news-release_impact_factors_2025_final.pdf",
         "checkedAt": "2026-10-10"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "tse",
@@ -1158,7 +1706,12 @@
       "note": "适合代码生成、软件 Agent、程序分析与软件工程实证研究。",
       "checkedAt": null,
       "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/",
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "tosem",
@@ -1176,7 +1729,12 @@
         "year": 2024,
         "source": "https://www.acm.org/binaries/content/assets/press-releases/2025/july/news-release_impact_factors_2025_final.pdf",
         "checkedAt": "2026-10-10"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "jair",
@@ -1189,7 +1747,12 @@
       "note": "AI 综合高水平期刊；须填写可复现性清单，并回答投稿系统中的三项贡献问题。",
       "checkedAt": "2026-10-10",
       "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "tnnls",
@@ -1202,7 +1765,12 @@
       "note": "学习系统与神经网络方法方向；不将 CCF-B 等同于 CCF-A。",
       "checkedAt": null,
       "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "tacl",
@@ -1215,7 +1783,12 @@
       "note": "每月 1 日 23:59 Honolulu（UTC-10）截止；注意近 9 个月 ACL 系列审稿的投稿限制。",
       "checkedAt": "2026-10-10",
       "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "tmlr",
@@ -1228,7 +1801,12 @@
       "note": "机器学习滚动投稿与开放评审；CCF 等级本次未核定。",
       "checkedAt": "2026-10-10",
       "classificationSource": null,
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "nmi",
@@ -1246,7 +1824,12 @@
         "year": 2025,
         "source": "https://www.nature.com/natmachintell/journal-impact",
         "checkedAt": "2026-10-10"
-      }
+      },
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "Agent / LLM 的方法或评测贡献需与该刊领域匹配；单纯工业落地不自动构成投稿贡献。"
     },
     {
       "key": "tac-control",
@@ -1259,7 +1842,12 @@
       "note": "控制领域主要期刊，重视理论与系统贡献；区别于 CCF 目录中的 Affective Computing（同缩写 TAC）。",
       "checkedAt": "2026-10-10",
       "classificationSource": null,
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "industrial"
+      ],
+      "submissionFit": "工业控制优先：稳定性、闭环性能、安全约束与系统贡献；LLM / Agent 需体现实质控制创新。"
     },
     {
       "key": "automatica",
@@ -1272,7 +1860,53 @@
       "note": "控制理论与系统方法的主要期刊；工业 LLM 工作需展示实质控制方法贡献。",
       "checkedAt": null,
       "classificationSource": null,
-      "impactFactor": null
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "industrial"
+      ],
+      "submissionFit": "工业控制优先：稳定性、闭环性能、安全约束与系统贡献；LLM / Agent 需体现实质控制创新。"
+    },
+    {
+      "key": "tii",
+      "name": "TII",
+      "full": "IEEE Transactions on Industrial Informatics",
+      "field": "控制与工业",
+      "ccf": null,
+      "guide": "https://www.ieee-ies.org/pubs/transactions-on-industrial-informatics",
+      "mode": "rolling",
+      "note": "IEEE IES 主要期刊；官方范围已核对，具体投稿细则待复核。CCF 等级及最新 IF 本次未核定。",
+      "checkedAt": null,
+      "classificationSource": null,
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工业 Agent / LLM 优先：工业信息系统、AI 增强自动化、工业网络与人机协作；需展示工业系统贡献与验证。",
+      "scopeSource": "https://www.ieee-ies.org/pubs",
+      "scopeCheckedAt": "2026-10-11"
+    },
+    {
+      "key": "tie",
+      "name": "TIE",
+      "full": "IEEE Transactions on Industrial Electronics",
+      "field": "控制与工业",
+      "ccf": null,
+      "guide": "https://www.ieee-ies.org/pubs/transactions-on-industrial-electronics",
+      "mode": "rolling",
+      "note": "IEEE IES 主要期刊；官方范围已核对，具体投稿细则待复核。CCF 等级及最新 IF 本次未核定。",
+      "checkedAt": null,
+      "classificationSource": null,
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "industrial"
+      ],
+      "submissionFit": "工业控制优先：控制、测量、电子与计算在工业过程中的方法和实验验证；仅文本 LLM 评测不直接匹配。",
+      "scopeSource": "https://technav.ieee.org/topic/ieee-transactions-on-industrial-electronics/",
+      "scopeCheckedAt": "2026-10-11"
     }
   ],
   "journalPolicy": {
@@ -1280,5 +1914,14 @@
     "ccfNote": "CCF 分级与领域高水平定位分别记录。目录适用于主会 Full/Regular paper，不能自动套用于 Findings、Workshop、Demo 或 Short paper。",
     "peerNote": "其他高水平期刊为按研究方向整理的投稿参考，不表示与所有 CCF-A 期刊等价，也不替代学校或单位认定。",
     "verificationNote": "逐条保留核验日期。只有明确读取到的投稿细则标注核验；其余为官方入口，细则待复核。普通期刊按滚动投稿展示，特刊截止须另看 CFP。"
+  },
+  "submissionPriorities": {
+    "order": [
+      "agent",
+      "llm",
+      "industrial"
+    ],
+    "basis": "按用户研究方向进行编辑匹配；官方等级、日期与编辑建议分别展示。",
+    "updated": "2026-10-11"
   }
 }

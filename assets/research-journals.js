@@ -3,6 +3,7 @@
   const section = document.getElementById('conference-journals');
   if (!section) return;
 
+  TYPES.commit = ['承诺到会议', '#6b5b95'];
   VIEWS.push(['journal', '📖 期刊投稿']);
   const originalRender = render;
   const originalToolbar = renderToolbar;
@@ -58,6 +59,7 @@
     </div>
     <label>关键词<input id="journal-query" type="search" placeholder="名称、领域或研究方向"></label>
     <label>领域<select id="journal-field"><option value="">全部领域</option></select></label>
+    <label>研究方向<select id="journal-topic"><option value="">全部方向</option><option value="agent">Agent</option><option value="llm">LLM</option><option value="industrial">工业控制</option></select></label>
     <label>CCF 等级<select id="journal-ccf"><option value="">全部等级</option><option>A</option><option>B</option><option value="unknown">未核定</option></select></label>
     <label>IF 年份<select id="journal-year"><option value="">全部年份</option></select></label>
     <label>最低 IF<input id="journal-min" type="number" min="0" step="0.1" placeholder="不限"></label>
@@ -104,7 +106,7 @@
     const filtered = cards.filter(card => {
       const d = card.dataset, known = d.if !== '';
       return !invalid && (!query || card.textContent.toLocaleLowerCase().includes(query)) &&
-        (!val('field') || d.field === val('field')) && (!val('ccf') || d.ccf === val('ccf')) &&
+        (!val('topic') || d.topics.split(' ').includes(val('topic'))) && (!val('field') || d.field === val('field')) && (!val('ccf') || d.ccf === val('ccf')) &&
         (!val('year') || d.year === val('year')) &&
         (!val('metric') || known === (val('metric') === 'known')) &&
         (min === '' || (known && Number(d.if) >= Number(min))) &&
@@ -153,21 +155,25 @@
       <button type="button" data-conf-layout="timeline" aria-pressed="true">时间轴</button>
       <button type="button" data-conf-layout="list" aria-pressed="false">列表</button>
     </div>
+    <label>研究方向<select id="conference-topic"><option value="">全部方向</option><option value="agent">Agent</option><option value="llm">LLM</option><option value="industrial">工业控制</option></select></label>
     <label>会议等级<select id="conference-tier"><option value="">全部等级</option></select></label>
     <label>节点类型<select id="conference-type"><option value="">全部节点</option></select></label>
     <label>日期起<input id="conference-start" type="date"></label>
     <label>日期止<input id="conference-end" type="date"></label>
     <label>时间状态<select id="conference-status"><option value="upcoming">当前及未来</option><option value="all">全部（含历史）</option><option value="past">已结束</option></select></label>
-    <label>列表排序<select id="conference-sort"><option value="date-asc">日期从近到远</option><option value="date-desc">日期从远到近</option><option value="tier">会议等级</option><option value="name">会议名称 A–Z</option></select></label>
+    <label>列表排序<select id="conference-sort"><option value="date-asc">日期从近到远</option><option value="date-desc">日期从远到近</option><option value="priority">研究方向优先</option><option value="tier">会议等级</option><option value="name">会议名称 A–Z</option></select></label>
     <button type="button" id="conference-reset">重置筛选</button>`;
-  timeline.before(controls);
+  const priorities = document.createElement('p');
+  priorities.id = 'conference-priorities'; priorities.className = 'journal-intro'; priorities.hidden = true;
+  priorities.textContent = '投稿关注：Agent → LLM → 工业控制。方向标签和匹配建议为站内编辑判断，等级与截止日期以官方来源为准；提案、承诺和正式论文投稿分别标注。';
+  timeline.before(priorities, controls);
   const status = document.createElement('p');
   status.id = 'conference-results'; status.className = 'journal-results';
   status.setAttribute('role', 'status'); status.hidden = true;
   timeline.before(status);
   const wrapper = document.createElement('div');
   wrapper.id = 'conference-list'; wrapper.className = 'journal-table-wrap'; wrapper.hidden = true;
-  wrapper.innerHTML = '<table class="journal-table"><caption>会议节点列表 · 日期及截止时区以官方说明为准</caption><thead><tr><th scope="col">会议</th><th scope="col">领域 / 等级</th><th scope="col">节点</th><th scope="col">日期</th><th scope="col">时区 / 说明</th><th scope="col">来源 / 核验</th></tr></thead><tbody></tbody></table>';
+  wrapper.innerHTML = '<table class="journal-table"><caption>会议节点列表 · 日期及截止时区以官方说明为准</caption><thead><tr><th scope="col">会议</th><th scope="col">领域 / 等级</th><th scope="col">投稿匹配建议</th><th scope="col">节点</th><th scope="col">日期</th><th scope="col">时区 / 说明</th><th scope="col">来源 / 核验</th></tr></thead><tbody></tbody></table>';
   timeline.after(wrapper);
   const body = wrapper.querySelector('tbody');
   const originalVisible = confVisible;
@@ -179,7 +185,7 @@
     return originalVisible().filter(event => {
       const series = C.series[event.s];
       const past = dleft(event.e || event.d) < 0;
-      return !invalidDates() && (!val('tier') || series.tag?.tier === val('tier')) &&
+      return !invalidDates() && (!val('topic') || series.priorityTopics?.includes(val('topic'))) && (!val('tier') || series.tag?.tier === val('tier')) &&
         (!val('type') || event.t === val('type')) &&
         (!val('start') || (event.e || event.d) >= val('start')) &&
         (!val('end') || event.d <= val('end')) &&
@@ -195,6 +201,7 @@
     if (VIEW === 'conf') SHOWPAST = val('status') !== 'upcoming';
     originalRender();
     const conference = VIEW === 'conf';
+    priorities.hidden = !conference;
     controls.hidden = !conference; status.hidden = !conference;
     wrapper.hidden = !conference || layout !== 'list';
     if (!conference) return;
@@ -209,6 +216,10 @@
     const fieldNames = Object.fromEntries(FIELDS);
     const sort = val('sort');
     events.sort((a, b) => {
+      if (sort === 'priority') {
+        const score = s => (s.priorityTopics || []).reduce((sum, topic) => sum + ({agent:4,llm:2,industrial:1}[topic] || 0), 0);
+        return score(C.series[b.s]) - score(C.series[a.s]) || a.d.localeCompare(b.d);
+      }
       if (sort === 'date-desc') return b.d.localeCompare(a.d);
       if (sort === 'name') return C.series[a.s].name.localeCompare(C.series[b.s].name, 'en') || a.d.localeCompare(b.d);
       if (sort === 'tier') return (C.series[a.s].tag?.tier || '未核定').localeCompare(C.series[b.s].tag?.tier || '未核定') || a.d.localeCompare(b.d);
@@ -218,6 +229,7 @@
       const series = C.series[event.s], row = document.createElement('tr');
       cell(row, series.name);
       cell(row, (series.tag?.focus || fieldNames[series.field] || series.field) + ' / ' + (series.tag?.tier || '未核定'));
+      cell(row, series.submissionFit);
       cell(row, event.label || TYPES[event.t]?.[0]);
       cell(row, event.d + (event.e ? ' 至 ' + event.e : ''));
       cell(row, event.note);

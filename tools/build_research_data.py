@@ -27,9 +27,9 @@ def build():
         impact = (f'<a href="{esc(metric["source"])}" target="_blank" rel="noopener noreferrer">JIF {metric["value"]} · {metric["year"]} ↗</a>' if metric else 'JIF 待核验')
         value = str(metric['value']) if metric else ''
         year = str(metric['year']) if metric else ''
-        cards.append(f'''<article class="journal-card" data-name="{esc(journal['name'])}" data-field="{esc(journal['field'])}" data-ccf="{esc(journal['ccf'] or 'unknown')}" data-if="{value}" data-year="{year}"><div class="journal-grade">{esc(grade)} · {esc(journal['field'])}</div>
+        cards.append(f'''<article class="journal-card" data-name="{esc(journal['name'])}" data-field="{esc(journal['field'])}" data-ccf="{esc(journal['ccf'] or 'unknown')}" data-if="{value}" data-year="{year}" data-topics="{esc(" ".join(journal.get("priorityTopics", [])))}"><div class="journal-grade">{esc(grade)} · {esc(journal['field'])}</div>
 <h3>{esc(journal['name'])}</h3><p class="journal-impact">{impact}</p><p class="journal-full">{esc(journal['full'])}</p>
-<p>{esc(journal['note'])}</p><p class="journal-mode">{esc(mode)}</p>
+<p>{esc(journal['note'])}</p><p class="journal-fit">匹配建议：{esc(journal.get('submissionFit', ''))}</p><p class="journal-mode">{esc(mode)}</p>
 <p><a href="{esc(journal['guide'])}" target="_blank" rel="noopener noreferrer">官方投稿指南 / 官网 ↗</a> {source}</p>
 <small>{esc(checked)}</small></article>''')
     section = '<!-- JOURNALS_START -->\n<section id="conference-journals" hidden><h2>期刊投稿 · CCF-A 与领域高水平期刊</h2><p class="journal-intro">更新 ' + esc(data['meta']['updated']) + ' · ' + str(len(cards)) + ' 本期刊。CCF 分级与领域定位分别展示；高水平期刊参考不表示与 CCF-A 等价。普通稿件滚动投稿，特刊按官方 CFP；逐条保留核验口径。</p><div class="journal-grid">' + '\n'.join(cards) + '</div></section>\n<!-- JOURNALS_END -->'
