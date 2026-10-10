@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>论文投稿 · 顶会与期刊 · 大模型情报局</title>
+<meta name="description" content="AI 与 LLM 投稿参考：顶会官方节点、CCF-A 期刊、领域高水平期刊与作者指南。">
+<link rel="stylesheet" href="../../assets/submissions.css">
+</head>
+<body>
+<header><nav aria-label="站点导航"><a href="../../">← 论文追踪</a><a href="../">科研前线</a><a href="../?view=conf">会议时间轴</a><a href="../conf/">会议志</a></nav>
+<p class="eyebrow">RESEARCH DESK / SUBMISSIONS</p><h1>论文投稿</h1><p class="intro">从研究方向找到投稿去处：顶会节点、CCF-A 期刊，以及值得关注的领域期刊。</p>
+<p class="updated">更新 {{UPDATED}} · AI / LLM、软件工程、控制交叉方向精选</p></header>
+<main>
+<aside class="notice"><strong>分级与投稿口径</strong><p>CCF 等级和领域高水平定位分别展示；“领域投稿参考”不表示 CCF-A 等价认定。<a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/" target="_blank" rel="noopener noreferrer">CCF 官方目录 ↗</a></p><p>会议节点注明主会 / Research Track；Findings、Workshop、Demo、Short paper 不自动适用主会等级。期刊普通稿件通常滚动投稿，特刊另看 CFP。每项保留来源与核验日期。</p></aside>
+<section class="filters" aria-label="筛选投稿去处">
+<label>搜索<input id="venue-search" type="search" placeholder="名称、方向、关键词…"></label>
+<label>类型<select id="venue-kind"><option value="">全部</option><option value="conference">会议</option><option value="journal">期刊</option></select></label>
+<label>等级<select id="venue-grade"><option value="">全部</option><option value="A">CCF-A</option><option value="B">CCF-B</option><option value="C">CCF-C</option><option value="other">领域投稿参考</option></select></label>
+<label>投稿状态<select id="venue-state"><option value="">全部</option><option value="upcoming">截止未到 / 滚动投稿</option><option value="closed">已截止</option><option value="pending">待公布 / 待核实</option></select></label>
+</section>
+<p id="result-count" class="result-count" role="status" aria-live="polite">会议与期刊投稿指南</p>
+<div id="venue-grid" class="venue-grid"><!-- VENUE_CARDS --></div>
+<p id="venue-empty" hidden>没有匹配的投稿去处，请调整筛选条件。</p>
+<noscript><p>所有投稿信息已显示。启用 JavaScript 后可筛选并查看实时截止状态。</p></noscript>
+</main>
+<footer>大模型情报局 · Xplore-LAB · 日期以各会议与期刊官方最新公告为准</footer>
+<script src="../../assets/submissions.js" defer></script>
+<script src="../../assets/site-search.js" defer></script>
+</body></html>

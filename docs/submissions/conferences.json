@@ -1,0 +1,1061 @@
+{
+  "_schema": {
+    "purpose": "科研会议时间轴：AI 顶会与控制/机器人会议的投稿节点、通知日与会期，帮助提前规划投稿与参会",
+    "fields": {
+      "series": "会议系列：name 简称 / full 全称 / org 主办方 / field 领域（ai=AI 顶会，control=控制与机器人）/ color",
+      "events": "节点：s=系列键，t=类型（abs 摘要截稿 / sub 全文截稿 / prop 提案截稿 / cam 终稿 / noti 录用通知 / conf 会期），d=日期 YYYY-MM-DD，e=会期结束日（仅 conf），label=节点说明，note=时区或补充，url=官方来源",
+      "watch": "官方尚未公布日期的观望项：s=系列键，item=待公布内容，note=参考信息（非官方口径会标注），url=信息来源",
+      "series.hist": "往届情况：text 为最近一届已举办会议的年份/城市/会期/录用数据（口径逐条标注：官方公告、官方复盘、录用通知口径、官方未公布），url 为来源",
+      "series.tag": "会议定位标签：focus 为研究方向，tier 为水平分级",
+      "series.about": "会议沿革：founded 创办年份 / org 主办方 / freq 频率 / intro 简介 / url 来源，全部经官方来源核实"
+    },
+    "snapshot": "2026-10-10 增量核验：CVPR 2027、IJCAI 2027、ICSE 2027、AAAI 2027、ICLR 2027 与 KDD 2027 第一轮；其余节点保留 2026-09-01 核验记录。",
+    "caveats": [
+      "截稿时区以官方公告为准，AoE = UTC-12（地球上最后进入当天的地方）",
+      "观望区条目为官方未公布（TBD），第三方聚合站从往届外推的预测日期一律不采信",
+      "NeurIPS 2026 为三站点联办，会期按整体跨度（12-06 至 12-13）展示",
+      "会议日期与投稿节点可能延期或调整，投稿前务必回到官方页面复核",
+      "往届情况的录用数据分两级口径：官方公告/官方复盘 与 录用通知口径（官网未设统计页，经多家机构官方稿交叉印证），逐条已标注；官方未公布者一律留空不推测",
+      "会议标签分级口径：CCF-A/B/C 依据《中国计算机学会推荐国际学术会议和期刊目录（2026 年）》，ICLR 为 2026 版新晋 A 类，COLM 创办时间短未收录；控制领域会议无 CCF 目录，「控制三大顶会」「国内旗舰大会」等为学科共识描述"
+    ]
+  },
+  "meta": {
+    "updated": "2026-10-10"
+  },
+  "series": {
+    "neurips": {
+      "name": "NeurIPS 2026",
+      "full": "Neural Information Processing Systems（第 40 届）",
+      "org": "NeurIPS Foundation",
+      "field": "ai",
+      "color": "#9c4a3c",
+      "hist": {
+        "text": "NeurIPS 2025（第 39 届）2025-12-02 至 12-07 美国圣迭戈，首设墨西哥城并行分会场；官方复盘：有效投稿 21,575，录用 5,290，录用率 24.5%",
+        "url": "https://blog.neurips.cc/2025/09/30/reflections-on-the-2025-review-process-from-the-program-committee-chairs/"
+      },
+      "tag": {
+        "focus": "机器学习综合",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "1987",
+        "org": "NeurIPS 基金会",
+        "freq": "每年一届（12 月）",
+        "intro": "1987 年创办（时称 NIPS），与 ICML、ICLR 并称机器学习三大顶会，覆盖表示学习、优化、生成模型与 AI for Science。",
+        "url": "https://neurips.cc"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    "iclr": {
+      "name": "ICLR 2027",
+      "full": "International Conference on Learning Representations（第 15 届）",
+      "org": "ICLR",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "hist": {
+        "text": "ICLR 2026（第 14 届）2026-04-23 至 04-27 巴西里约热内卢；官方复盘：有效投稿 19,525，录用 5,355，录用率 27.4%",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      },
+      "tag": {
+        "focus": "机器学习 · 表示学习",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "2013",
+        "org": "社区运行（OpenReview），Bengio 与 LeCun 发起",
+        "freq": "每年一届",
+        "intro": "2013 年创办，以表示学习立身，全程开放评审（审稿意见与作者回复公开），是大模型研究的主要发表阵地之一。",
+        "url": "https://iclr.cc/archive/2013/organization/people.html"
+      },
+      "classificationSource": "https://www.ccf.org.cn/TCIP/dt/2026-07-07/909456.shtml",
+      "classificationNote": "保留站内 2026 版 CCF-A 标记；CCF 官方课程页亦列入 A 类，分类页搜索快照尚未同步。"
+    },
+    "aaai": {
+      "name": "AAAI 2027",
+      "full": "AAAI Conference on Artificial Intelligence（第 41 届）",
+      "org": "AAAI",
+      "field": "ai",
+      "color": "#6b5b95",
+      "hist": {
+        "text": "AAAI 2026（第 40 届）2026-01-20 至 01-27 新加坡；录用通知口径：投稿 23,680，录用 4,167，录用率 17.6%（官网未设统计页）",
+        "url": "https://aaai.org/conference/aaai-26"
+      },
+      "tag": {
+        "focus": "人工智能综合",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "1980",
+        "org": "AAAI 学会",
+        "freq": "每年一届",
+        "intro": "1980 年创办（首届于斯坦福大学），覆盖人工智能全谱系：搜索、规划、知识表示、多智能体与机器学习。",
+        "url": "https://ojs.aaai.org/index.php/AAAI/about"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    "cvpr": {
+      "name": "CVPR 2027",
+      "full": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "org": "IEEE / CVF",
+      "field": "ai",
+      "color": "#3d7a52",
+      "hist": {
+        "text": "CVPR 2026，2026-06-03 至 06-07 美国丹佛；官方公告：投稿 16,092 创纪录，录用率 25.2%",
+        "url": "https://cvpr.thecvf.com/Conferences/2026/News/Media_Reg_Open"
+      },
+      "tag": {
+        "focus": "计算机视觉",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "1983",
+        "org": "IEEE 计算机学会 + CVF",
+        "freq": "每年一届（6 月）",
+        "intro": "1983 年创办、1985 年起每年举办，计算机视觉头号会议，近年同时承载多模态与生成式视觉研究。",
+        "url": "http://tab.computer.org/pamitc/conference/history.html"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    "icml": {
+      "name": "ICML 2027",
+      "full": "International Conference on Machine Learning",
+      "org": "IMLS",
+      "field": "ai",
+      "color": "#8a6d3b",
+      "hist": {
+        "text": "ICML 2026（第 43 届）2026-07-06 至 07-11 韩国首尔；录用通知口径：投稿 23,918，录用 6,352，录用率 26.6%（官网未设统计页）",
+        "url": "https://icml.cc/"
+      },
+      "tag": {
+        "focus": "机器学习",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "1980",
+        "org": "IMLS 国际机器学习学会",
+        "freq": "每年一届（7 月）",
+        "intro": "1980 年创办（首届卡内基梅隆大学，时为研讨会），1993 年改为现名，机器学习三大顶会之一。",
+        "url": "https://machinelearning.org"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    "acl": {
+      "name": "ACL 2027",
+      "full": "Annual Meeting of the Association for Computational Linguistics（第 65 届）",
+      "org": "ACL",
+      "field": "ai",
+      "color": "#7a4a6b",
+      "hist": {
+        "text": "ACL 2026（第 64 届）2026-07-02 至 07-07 美国圣迭戈，主题「NLP 模型可解释性」；录用通知口径：总投稿 12,148，主会录用率约 19%、Findings 约 18%",
+        "url": "https://2026.aclweb.org/"
+      },
+      "tag": {
+        "focus": "自然语言处理",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "1963",
+        "org": "ACL 计算语言学协会",
+        "freq": "每年一届（夏季，轮换欧美亚太）",
+        "intro": "1963 年首次年会（学会 1962 年成立），自然语言处理旗舰会议，投稿经 ARR 滚动评审输送。",
+        "url": "https://www.archive.aclweb.org/misc/History.html"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    "arr": {
+      "name": "ARR",
+      "full": "ACL Rolling Review（滚动评审）",
+      "org": "ACL",
+      "field": "ai",
+      "color": "#a4698f",
+      "hist": {
+        "text": "滚动评审机制非会议：双月周期，2025-05 起每周期从 8 周改为 10 周；官方说明信：2026 年 5 月周期投稿 17,087，当前 8 月周期（8-03 截稿）进行中",
+        "url": "https://aclrollingreview.org/"
+      },
+      "tag": {
+        "focus": "NLP 滚动评审",
+        "tier": "非会议机制"
+      },
+      "about": {
+        "founded": "2020",
+        "org": "ACL 推出，基于 OpenReview",
+        "freq": "约每两个月一个评审周期",
+        "intro": "2020 年启动、2021 年 5 月首个截稿周期的滚动评审机制，为 ACL / EMNLP / NAACL 等会议输送稿件，本身不是会议。",
+        "url": "https://aclrollingreview.org"
+      }
+    },
+    "emnlp": {
+      "name": "EMNLP 2026",
+      "full": "Conference on Empirical Methods in Natural Language Processing",
+      "org": "ACL",
+      "field": "ai",
+      "color": "#4a6b8a",
+      "hist": {
+        "text": "EMNLP 2025（第 30 届）2025-11-04 至 11-09 中国苏州，系首次落地中国；录用通知口径：有效投稿 8,174，主会录用 1,811（22.2%）",
+        "url": "https://2025.emnlp.org/"
+      },
+      "tag": {
+        "focus": "自然语言处理",
+        "tier": "CCF-B"
+      },
+      "about": {
+        "founded": "1996",
+        "org": "ACL 下属 SIGDAT",
+        "freq": "每年一届",
+        "intro": "1996 年创办（前身为 1993 年起 WVLC 研讨会），自然语言处理实证方法核心会议，规模已比肩 ACL。",
+        "url": "http://cs.cmu.edu/~ark/EMNLP-2015/past-emnlp.html"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    "kdd": {
+      "name": "KDD 2027",
+      "full": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+      "org": "ACM",
+      "field": "ai",
+      "color": "#946b2d",
+      "hist": {
+        "text": "KDD 2026（第 32 届）2026-08-09 至 08-13 韩国济州岛；ACM 论文集前言：Research Track 录用 785 篇，总投稿数官方未公布",
+        "url": "https://kdd2026.kdd.org/"
+      },
+      "tag": {
+        "focus": "数据挖掘",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "1989",
+        "org": "ACM SIGKDD",
+        "freq": "每年一届",
+        "intro": "源于 1989 年 KDD 研讨会、1995 年升格为年度大会，数据挖掘与知识发现头号会议，设 Research 与 Applied 双轨。",
+        "url": "https://kdd.org/news/view/the-age-of-big-data-from-kdd-89-to-kdd-2012"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/DM_CS/"
+    },
+    "colm": {
+      "name": "COLM 2026",
+      "full": "Conference on Language Modeling",
+      "org": "COLM",
+      "field": "ai",
+      "color": "#5a7a3a",
+      "hist": {
+        "text": "COLM 2025（第 2 届）2025-10-07 至 10-10 加拿大蒙特利尔；官方录用名单 418 篇，投稿数与录用率官方未公布",
+        "url": "https://colmweb.org/2025/"
+      },
+      "tag": {
+        "focus": "大语言模型",
+        "tier": "未入 CCF 目录"
+      },
+      "about": {
+        "founded": "2024",
+        "org": "社区组织（OpenReview）",
+        "freq": "每年一届",
+        "intro": "2024 年创办（首届宾夕法尼亚大学），专注语言建模的新会议，涵盖预训练、后训练、推理与评估全链条。",
+        "url": "https://colmweb.org"
+      }
+    },
+    "iccv": {
+      "name": "ICCV 2027",
+      "full": "IEEE/CVF International Conference on Computer Vision（两年一届）",
+      "org": "IEEE / CVF",
+      "field": "ai",
+      "color": "#2d7a7a",
+      "hist": {
+        "text": "ICCV 2025（第 20 届）2025-10-19 至 10-23 美国檀香山；官网公布：投稿 11,239，录用 2,698，录用率 24.0%",
+        "url": "https://iccv.thecvf.com/Conferences/2025"
+      },
+      "tag": {
+        "focus": "计算机视觉",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "1987",
+        "org": "IEEE 计算机学会 + CVF",
+        "freq": "每两年一届（奇数年）",
+        "intro": "1987 年创办（首届伦敦），与 CVPR 并称视觉双顶会，奇数年举办。",
+        "url": "https://iccv.thecvf.com/Conferences/2025"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    "cac": {
+      "name": "CAC 2026",
+      "full": "中国自动化大会（暨中国自动化学会成立 65 周年）",
+      "org": "中国自动化学会",
+      "field": "control",
+      "color": "#b03a2e",
+      "hist": {
+        "text": "CAC 2025，2025-10-10 至 10-12 哈尔滨；主办方通稿：3500 余名代表、36 场平行会议、1000 余篇墙报，投稿与录用数官方未公布",
+        "url": "https://www.caa.org.cn/article/191/5720.html"
+      },
+      "tag": {
+        "focus": "自动化综合",
+        "tier": "国内旗舰大会"
+      },
+      "about": {
+        "founded": "2009",
+        "org": "中国自动化学会",
+        "freq": "2009-2017 两年一届，2017 年起每年一届",
+        "intro": "2009 年创办（首届杭州），国内自动化领域旗舰大会，覆盖控制、机器人、智能制造与人工智能交叉方向。",
+        "url": "https://www.caa.org.cn/Content/21.html"
+      }
+    },
+    "cdc": {
+      "name": "CDC 2026",
+      "full": "IEEE Conference on Decision and Control（第 65 届）",
+      "org": "IEEE CSS",
+      "field": "control",
+      "color": "#14304d",
+      "hist": {
+        "text": "CDC 2025（第 64 届，64 年来首次落地南美）2025-12-10 至 12-12 巴西里约热内卢；组委会官方欢迎词：投稿 2,239（另有 539 篇 L-CSS 联投），录用率 57%，近 1,800 人参会",
+        "url": "https://cdc2025.ieeecss.org/"
+      },
+      "tag": {
+        "focus": "控制理论与系统",
+        "tier": "控制三大顶会"
+      },
+      "about": {
+        "founded": "1962",
+        "org": "IEEE 控制系统学会（CSS）",
+        "freq": "每年一届（12 月）",
+        "intro": "源头为 1962 年 JACC 同期研讨会，控制理论头号会议，侧重系统、优化与控制的理论进展。",
+        "url": "https://cdc2022.ieeecss.org/cdc-history/index.html"
+      }
+    },
+    "acc": {
+      "name": "ACC 2027",
+      "full": "American Control Conference",
+      "org": "AACC",
+      "field": "control",
+      "color": "#5c5c38",
+      "hist": {
+        "text": "ACC 2026，2026-05-26 至 05-29 美国新奥尔良；投稿数与录用率官方均未公布",
+        "url": "https://acc2026.a2c2.org/"
+      },
+      "tag": {
+        "focus": "控制理论与应用",
+        "tier": "控制三大顶会"
+      },
+      "about": {
+        "founded": "1982",
+        "org": "AACC 美国自动控制委员会（九家学会联合）",
+        "freq": "每年一届（5-6 月）",
+        "intro": "1982 年创办（前身为 1959 年起 JACC 系列），控制三大顶会之一，理论与工业应用并重。",
+        "url": "http://a2c2.org/history/history"
+      }
+    },
+    "icra": {
+      "name": "ICRA 2027",
+      "full": "IEEE International Conference on Robotics and Automation",
+      "org": "IEEE RAS",
+      "field": "control",
+      "color": "#7a3a2e",
+      "hist": {
+        "text": "ICRA 2026，2026-06-01 至 06-05 奥地利维也纳，主题 Robots for All；官方录用通知：投稿 4,947（86 国创纪录），录用 1,882，录用率 38.0%",
+        "url": "https://2026.ieee-icra.org/"
+      },
+      "tag": {
+        "focus": "机器人",
+        "tier": "CCF-B"
+      },
+      "about": {
+        "founded": "1984",
+        "org": "IEEE 机器人与自动化学会（RAS）旗舰",
+        "freq": "每年一届（5-6 月）",
+        "intro": "1984 年创办（首届亚特兰大），机器人领域规模最大的旗舰会议，覆盖感知、规划、控制与具身智能。",
+        "url": "https://icra40.ieee.org"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    "iros": {
+      "name": "IROS 2026",
+      "full": "IEEE/RSJ International Conference on Intelligent Robots and Systems",
+      "org": "IEEE / RSJ",
+      "field": "control",
+      "color": "#4a5d23",
+      "hist": {
+        "text": "IROS 2025（第 38 届）2025-10-19 至 10-25 中国杭州；官方 Digest：投稿 5,083，录用会议论文 1,991，录用率 46%，参会超 8,000 人",
+        "url": "https://www.iros25.org/"
+      },
+      "tag": {
+        "focus": "智能机器人",
+        "tier": "CCF-C"
+      },
+      "about": {
+        "founded": "1988",
+        "org": "IEEE RAS + 日本机器人学会 RSJ",
+        "freq": "每年一届",
+        "intro": "1988 年创办（首届东京），智能机器人旗舰会议，偏系统与应用，近年具身智能与 VLA 稿件密集。",
+        "url": "http://ieee-ras.org/conferences-workshops/financially-co-sponsored/iros/"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/"
+    },
+    "ecc": {
+      "name": "ECC 2027",
+      "full": "European Control Conference（第 25 届）",
+      "org": "EUCA",
+      "field": "control",
+      "color": "#37414f",
+      "hist": {
+        "text": "ECC 2026（第 24 届，首次落地冰岛）2026-07-07 至 07-10 雷克雅未克；投稿与录用数据官方未公布；ECC 自 2013 年起每年举办",
+        "url": "https://ecc26.euca-ecc.org/"
+      },
+      "tag": {
+        "focus": "控制理论",
+        "tier": "欧洲主要控制会议"
+      },
+      "about": {
+        "founded": "1991",
+        "org": "EUCA 欧洲控制协会（IFAC 与 IEEE CSS 协办）",
+        "freq": "1991-2011 两年一届，2013 年起每年一届",
+        "intro": "1991 年创办（首届法国格勒诺布尔），欧洲主要控制会议，理论与应用均衡。",
+        "url": "https://euca-ecc.org/history"
+      }
+    },
+    "ijcai": {
+      "name": "IJCAI 2027",
+      "full": "International Joint Conference on Artificial Intelligence",
+      "org": "IJCAI",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "人工智能综合 · 推理与知识表示",
+        "tier": "CCF-A"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/AI/",
+      "about": {
+        "founded": "1969",
+        "org": "IJCAI",
+        "freq": "每年一届",
+        "intro": "人工智能综合 · 推理与知识表示方向的主要研究会议；此处展示主会 Research/Main Track 节点。",
+        "url": "https://2027.ijcai.org/"
+      }
+    },
+    "icse": {
+      "name": "ICSE 2027",
+      "full": "International Conference on Software Engineering",
+      "org": "ACM / IEEE",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "软件工程 · 代码生成与软件 Agent",
+        "tier": "CCF-A"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/",
+      "about": {
+        "founded": "1975",
+        "org": "ACM / IEEE",
+        "freq": "每年一届",
+        "intro": "软件工程 · 代码生成与软件 Agent方向的主要研究会议；此处展示主会 Research/Main Track 节点。",
+        "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track"
+      }
+    }
+  },
+  "events": [
+    {
+      "s": "icse",
+      "t": "abs",
+      "d": "2026-06-23",
+      "label": "Research Track 摘要截稿",
+      "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "icse",
+      "t": "sub",
+      "d": "2026-06-30",
+      "label": "Research Track 全文截稿",
+      "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "kdd",
+      "t": "abs",
+      "d": "2026-07-19",
+      "label": "Research Track Cycle 1 摘要截稿",
+      "url": "https://kdd2027.kdd.org/research-track-call-for-papers/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "aaai",
+      "t": "abs",
+      "d": "2026-07-21",
+      "label": "Main Track 摘要截稿",
+      "url": "https://aaai.org/conference/aaai/aaai-27/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "kdd",
+      "t": "sub",
+      "d": "2026-07-26",
+      "label": "Research Track Cycle 1 全文截稿",
+      "url": "https://kdd2027.kdd.org/research-track-call-for-papers/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "aaai",
+      "t": "sub",
+      "d": "2026-07-28",
+      "label": "Main Track 全文截稿",
+      "url": "https://aaai.org/conference/aaai/aaai-27/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "cac",
+      "t": "noti",
+      "d": "2026-09-01",
+      "label": "录用通知",
+      "note": "延期通知中所列日期；OKC-SFT 在审",
+      "url": "https://cac.caa.org.cn/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "acc",
+      "t": "sub",
+      "d": "2026-09-11",
+      "label": "ACC + L-CSS 联合投稿截稿",
+      "url": "https://acc2027.a2c2.org/important-dates/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "cac",
+      "t": "cam",
+      "d": "2026-09-15",
+      "label": "终稿截止",
+      "url": "https://cac.caa.org.cn/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "icra",
+      "t": "sub",
+      "d": "2026-09-15",
+      "label": "论文截稿",
+      "note": "23:59 PST，PaperPlaza",
+      "url": "https://2027.ieee-icra.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "cdc",
+      "t": "cam",
+      "d": "2026-09-18",
+      "label": "终稿截止",
+      "url": "https://cdc2026.ieeecss.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "iclr",
+      "t": "abs",
+      "d": "2026-09-18",
+      "label": "摘要截稿",
+      "note": "AoE（UTC-12）",
+      "url": "https://iclr.cc/Conferences/2027/CallForPapers",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "acc",
+      "t": "prop",
+      "d": "2026-09-23",
+      "label": "邀请组提案截稿",
+      "url": "https://acc2027.a2c2.org/important-dates/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "aaai",
+      "t": "noti",
+      "d": "2026-09-24",
+      "label": "Phase 1 拒稿通知",
+      "note": "反馈期 10-19 至 10-25",
+      "url": "https://aaai.org/conference/aaai/aaai-27/",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "neurips",
+      "t": "noti",
+      "d": "2026-09-24",
+      "label": "录用通知",
+      "note": "AoE（UTC-12）",
+      "url": "https://neurips.cc/Conferences/2026/CallForPapers",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "acc",
+      "t": "sub",
+      "d": "2026-09-25",
+      "label": "普通稿件截稿",
+      "url": "https://acc2027.a2c2.org/important-dates/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "iclr",
+      "t": "sub",
+      "d": "2026-09-25",
+      "label": "全文截稿",
+      "note": "AoE（UTC-12）",
+      "url": "https://iclr.cc/Conferences/2027/CallForPapers",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "iros",
+      "t": "conf",
+      "d": "2026-09-27",
+      "e": "2026-10-01",
+      "label": "会议举办",
+      "note": "美国匹兹堡",
+      "url": "https://2026.ieee-iros.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "colm",
+      "t": "conf",
+      "d": "2026-10-06",
+      "e": "2026-10-09",
+      "label": "会议举办",
+      "note": "美国旧金山",
+      "url": "https://colmweb.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "arr",
+      "t": "sub",
+      "d": "2026-10-12",
+      "label": "ARR 2026 年 10 月周期截稿",
+      "note": "AoE；本周期承诺对象为 NAACL / COLING 2027",
+      "url": "https://aclrollingreview.org/dates",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "acc",
+      "t": "prop",
+      "d": "2026-10-16",
+      "label": "Workshop / Tutorial 提案截稿",
+      "url": "https://acc2027.a2c2.org/important-dates/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "icse",
+      "t": "noti",
+      "d": "2026-10-20",
+      "label": "首轮录用通知",
+      "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "emnlp",
+      "t": "conf",
+      "d": "2026-10-24",
+      "e": "2026-10-29",
+      "label": "会议举办",
+      "note": "匈牙利布达佩斯",
+      "url": "https://2026.emnlp.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "cac",
+      "t": "conf",
+      "d": "2026-10-30",
+      "e": "2026-11-01",
+      "label": "会议举办",
+      "note": "北京 · 首都国际会展中心（新国展二期）",
+      "url": "https://cac.caa.org.cn/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "ecc",
+      "t": "sub",
+      "d": "2026-10-31",
+      "label": "论文 / 邀请组 / Workshop 提案截稿",
+      "note": "投稿系统 2026-09-01 开放",
+      "url": "https://ecc27.euca-ecc.org/call-for-papers/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "icra",
+      "t": "prop",
+      "d": "2026-11-01",
+      "label": "Workshop / Tutorial 正式提案截稿",
+      "url": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "cvpr",
+      "t": "abs",
+      "d": "2026-11-10",
+      "label": "论文注册截止",
+      "url": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "kdd",
+      "t": "noti",
+      "d": "2026-11-14",
+      "label": "Cycle 1 录用通知",
+      "url": "https://kdd2027.kdd.org/",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "cvpr",
+      "t": "sub",
+      "d": "2026-11-16",
+      "label": "全文截稿",
+      "url": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "icse",
+      "t": "cam",
+      "d": "2026-11-17",
+      "label": "大修稿截止",
+      "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "cvpr",
+      "t": "cam",
+      "d": "2026-11-23",
+      "label": "补充材料截止",
+      "url": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "icse",
+      "t": "cam",
+      "d": "2026-11-24",
+      "label": "直接录用论文终稿",
+      "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "aaai",
+      "t": "noti",
+      "d": "2026-11-30",
+      "label": "最终录用通知",
+      "url": "https://aaai.org/conference/aaai/aaai-27/",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "neurips",
+      "t": "conf",
+      "d": "2026-12-06",
+      "e": "2026-12-13",
+      "label": "会议举办（三站点联办）",
+      "note": "悉尼 12-06 至 12-12 · 亚特兰大 12-08 至 12-13 · 巴黎 12-09 至 12-13",
+      "url": "https://neurips.cc/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "aaai",
+      "t": "cam",
+      "d": "2026-12-14",
+      "label": "Main Track 终稿截止",
+      "url": "https://aaai.org/conference/aaai/aaai-27/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "cdc",
+      "t": "conf",
+      "d": "2026-12-15",
+      "e": "2026-12-18",
+      "label": "会议举办",
+      "note": "美国夏威夷檀香山，Workshops 12-14",
+      "url": "https://cdc2026.ieeecss.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "iclr",
+      "t": "noti",
+      "d": "2026-12-16",
+      "label": "终审决定",
+      "note": "评审 11-05 放出，讨论期 11-05 至 11-18",
+      "url": "https://iclr.cc/Conferences/2027/CallForPapers",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "icse",
+      "t": "noti",
+      "d": "2026-12-18",
+      "label": "大修稿最终决定",
+      "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "ijcai",
+      "t": "abs",
+      "d": "2027-01-04",
+      "label": "摘要截稿",
+      "url": "https://2027.ijcai.org/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "ijcai",
+      "t": "sub",
+      "d": "2027-01-11",
+      "label": "全文截稿",
+      "url": "https://2027.ijcai.org/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "acc",
+      "t": "noti",
+      "d": "2027-01-22",
+      "label": "录用通知",
+      "url": "https://acc2027.a2c2.org/important-dates/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "cvpr",
+      "t": "noti",
+      "d": "2027-01-25",
+      "label": "评审意见发布",
+      "url": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "icse",
+      "t": "cam",
+      "d": "2027-01-25",
+      "label": "大修录用论文终稿",
+      "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "icra",
+      "t": "noti",
+      "d": "2027-01-31",
+      "label": "录用通知",
+      "url": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "aaai",
+      "t": "conf",
+      "d": "2027-02-16",
+      "e": "2027-02-23",
+      "label": "会议举办",
+      "note": "加拿大蒙特利尔",
+      "url": "https://aaai.org/conference/aaai/aaai-27/",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "cvpr",
+      "t": "noti",
+      "d": "2027-02-25",
+      "label": "最终录用通知",
+      "url": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "ecc",
+      "t": "noti",
+      "d": "2027-03-05",
+      "label": "录用通知",
+      "url": "https://ecc27.euca-ecc.org/call-for-papers/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "icra",
+      "t": "cam",
+      "d": "2027-03-06",
+      "label": "终稿截止",
+      "url": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "acc",
+      "t": "cam",
+      "d": "2027-03-12",
+      "label": "终稿截止",
+      "url": "https://acc2027.a2c2.org/important-dates/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "ijcai",
+      "t": "noti",
+      "d": "2027-04-21",
+      "label": "录用通知",
+      "url": "https://2027.ijcai.org/",
+      "note": "AoE（UTC-12）",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "icse",
+      "t": "conf",
+      "d": "2027-04-25",
+      "label": "会议举办",
+      "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track",
+      "note": "爱尔兰都柏林；会期含共址活动",
+      "checkedAt": "2026-10-10",
+      "e": "2027-05-01"
+    },
+    {
+      "s": "iclr",
+      "t": "conf",
+      "d": "2027-04-26",
+      "e": "2027-04-30",
+      "label": "会议举办",
+      "note": "美国加州（具体城市待公布）",
+      "url": "https://iclr.cc/",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "icra",
+      "t": "conf",
+      "d": "2027-05-24",
+      "e": "2027-05-28",
+      "label": "会议举办",
+      "note": "韩国首尔，纯线下",
+      "url": "https://2027.ieee-icra.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "cvpr",
+      "t": "conf",
+      "d": "2027-06-20",
+      "e": "2027-06-25",
+      "label": "会议举办",
+      "note": "美国西雅图；Workshop/Tutorial 06-20 至 06-21，主会 06-22 至 06-25",
+      "url": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "acc",
+      "t": "conf",
+      "d": "2027-07-07",
+      "e": "2027-07-09",
+      "label": "会议举办",
+      "note": "美国费城，Workshops 07-05 至 07-06",
+      "url": "https://acc2027.a2c2.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "ecc",
+      "t": "conf",
+      "d": "2027-07-13",
+      "e": "2027-07-16",
+      "label": "会议举办",
+      "note": "比利时布鲁塞尔 UCLouvain",
+      "url": "https://ecc27.euca-ecc.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "kdd",
+      "t": "conf",
+      "d": "2027-08-01",
+      "e": "2027-08-05",
+      "label": "会议举办",
+      "note": "美国圣何塞",
+      "url": "https://kdd2027.kdd.org/",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "ijcai",
+      "t": "conf",
+      "d": "2027-08-07",
+      "label": "京都主会",
+      "url": "https://2027.ijcai.org/",
+      "note": "日本京都；横琴卫星活动 08-15 至 08-17",
+      "checkedAt": "2026-10-10",
+      "e": "2027-08-13"
+    },
+    {
+      "s": "acl",
+      "t": "conf",
+      "d": "2027-08-17",
+      "e": "2027-08-22",
+      "label": "会议举办",
+      "note": "日本京都",
+      "url": "https://2027.aclweb.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "iccv",
+      "t": "conf",
+      "d": "2027-10-02",
+      "e": "2027-10-08",
+      "label": "会议举办",
+      "note": "中国香港",
+      "url": "https://www.thecvf.com/?page_id=100",
+      "checkedAt": "2026-09-01"
+    }
+  ],
+  "watch": [
+    {
+      "s": "ccc",
+      "name": "CCC 2027",
+      "full": "中国控制会议（第 46 届）",
+      "item": "截稿、会期、承办城市全部待公布",
+      "note": "TCCT 官网目前仅发布到 CCC 2026；往届惯例为 7 月底举办、前一年 10 月开投、2 月底截稿（仅供参考，非官方口径）",
+      "url": "https://tcct.amss.ac.cn/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "icml",
+      "name": "ICML 2027",
+      "full": "International Conference on Machine Learning",
+      "item": "投稿日期与会期全部待公布",
+      "note": "官方仅公布地点为南美洲；2026 届全文截稿参考值为 1 月底（仅供规划）",
+      "url": "https://icml.cc/Conferences/FutureMeetings",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "kdd",
+      "name": "KDD 2027 Cycle 2",
+      "full": "ACM SIGKDD 第二轮投稿",
+      "item": "Cycle 2 截稿日待公布",
+      "note": "第二轮具体日期尚未核实，不使用往届月份外推。",
+      "url": "https://kdd2027.kdd.org/",
+      "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "acl",
+      "name": "ACL 2027 投稿周期",
+      "full": "ACL 2027 走 ARR 滚动评审",
+      "item": "承诺周期（commitment deadline）待公布",
+      "note": "可走 2027 年初的 ARR 周期；2026-10-12 周期的承诺对象是 NAACL / COLING 2027",
+      "url": "https://aclrollingreview.org/dates",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "emnlp27",
+      "name": "EMNLP 2027",
+      "full": "Conference on Empirical Methods in Natural Language Processing",
+      "item": "日期与地点待公布",
+      "note": "ACL 联合 workshop 征集信称暂定 2027 年 11 月初、墨西哥或中美洲（tentative）",
+      "url": "https://2026.emnlp.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "colm27",
+      "name": "COLM 2027",
+      "full": "Conference on Language Modeling",
+      "item": "全部待公布",
+      "note": "官网尚无 2027 届信息",
+      "url": "https://colmweb.org/",
+      "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "ifac",
+      "name": "IFAC 2029",
+      "full": "国际自动控制联合会世界大会（第 24 届，三年一届）",
+      "item": "2027 年不举办，下一届地点日期待公布",
+      "note": "第 23 届 IFAC 2026 已于 2026-08-23 至 08-28 在韩国釜山举行",
+      "url": "https://ifac-control.org/events",
+      "checkedAt": "2026-09-01"
+    }
+  ]
+}
