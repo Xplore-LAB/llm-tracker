@@ -23,7 +23,9 @@
     "tags": [
       "RAG",
       "Reasoning",
-      "LLM"
+      "LLM",
+      "Agent",
+      "MCP"
     ],
     "abstract": "Large language models (LLMs) are increasingly embedded as components in software systems, marketed under labels such as chatbot, copilot, retrieval-augmented generation, workflow, coding agent and AI agent. Whether these labels denote genuine architectural forms or serve as branding has not been assessed systematically. In the sources surveyed, labels do carry architectural content, most clearly in vendor usage: copilot denotes a router-worker architecture operating a host application under step"
   },
@@ -48,7 +50,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "RAG"
+      "RAG",
+      "Agent"
     ],
     "abstract": "Retrieval-augmented generation (RAG) grounds language models in external corpora. Agentic RAG enables iterative search, yet exposes the model to isolated chunks without document structure, making it difficult to distinguish relevant evidence from chunks that merely resemble the query. Structure-aware methods such as PageIndex navigate document structure but cannot scale to the structures of large corpora, which do not fit in the LLM context. Hence, they first commit to a single document using a ",
     "company": "IBM"
@@ -143,7 +146,8 @@
     "cite": 0,
     "tags": [
       "Reasoning",
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Over 90% of disease-associated variants from genome-wide association studies fall in noncoding regulatory regions, yet their functional interpretation remains a central open problem in genomic medicine. Large language models prompted to interpret such variants routinely hallucinate transcription factor (TF) binding changes, fabricate experimental support, and assign biological significance to statistically negligible signals. We present ARGUS (Agentic Regulatory Genomics for an Uncertainty-aware"
   },
@@ -169,7 +173,8 @@
     "cite": 0,
     "tags": [
       "Reasoning",
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Large language model (LLM)-based agents have demonstrated strong capabilities on complex tasks. They typically perform reasoning before each action throughout an interaction trajectory. However, reasoning may not be necessary at every turn, as reasoning produced earlier can continue to support subsequent actions. A key challenge is therefore to determine when existing reasoning remains sufficient and when a new reasoning step is needed, without relying on costly generation-based verification. We",
     "company": "Qwen"
@@ -611,7 +616,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "Fine-tuning"
+      "Fine-tuning",
+      "Agent"
     ],
     "abstract": "Improving a long-horizon LLM agent means evolving the harness around a frozen model or training its weights. We let a self-evolving harness make the system stronger first, then cross seed and evolved harnesses with base and trained weights to learn which gains the trained model keeps and which still need the runtime. We show that the right lever can be read off the agent's failure composition: labelling failed trajectories by the first signal that fires separates process failures (blocked calls,"
   },
@@ -988,7 +994,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Black-box optimization (BBO) arises in many scientific and engineering problems where objective evaluations are expensive and limited. Recent large language model (LLM) agents offer a new way to approach BBO by combining task semantics, computation, optimization tools, and feedback-driven decision making, showing great potential due to the integration with mathematically rigorous tools. However, existing agentic BBO studies use different task domains and system configurations, making their resul"
   },
@@ -1000,7 +1007,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "The evolution of Large Language Model agents from single-task execution to long-term autonomous operation highlights the critical challenge of transforming continuous experiences into reusable knowledge. To address this, we propose Hippocam, a hierarchical memory and continual learning architecture. Hippocam draws inspiration from two characteristics of human memory: cognitive processes selectively maintain information relevant to current goals, while long-term memories form gradually through re"
   },
@@ -1073,7 +1081,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Large language model (LLM) agents are beginning to operate industrial energy equipment, and what they get right depends on what they are told about the plant. Established building ontologies name many kinds of points across many sites, whereas an industrial equipment system needs few entities with much knowledge about each. This study proposes the ontology tower, a narrow-and-deep ontology of a single equipment system whose knowledge deepens in two ways: through quantities derived from the measu"
   },
@@ -1098,7 +1107,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Large language model (LLM) agents for portfolio management learn from experience: they credit each experience in their memory with the outcome of the decisions that used it. In financial markets, however, this outcome mostly reflects the market move shared by all decisions on that date, so the credit tracks the market rather than the experience, and these agents often do worse than simply holding the equal-weight (1/$N$) portfolio. We ask how an agent can credit an experience with what it change"
   },
@@ -1122,7 +1132,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Verifier scores now serve as both benchmark metrics and training rewards for large language model (LLM) agents, and a change in score is routinely read as a change in capability. It may instead reflect a change in the evaluation. We introduce TRACE, a protocol that turns a score change from a verdict into a testable diagnosis: it applies a targeted change to one part of an evaluation, compares paired runs, checks whether the agent's behavior changed, and rescores unchanged trajectories to test w"
   },
@@ -1194,7 +1205,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Historical pull requests record the design decisions, compatibility constraints, and implementation patterns behind a codebase's current state. Experience relevant to a new task can span related changes whose descriptions emphasize different concerns. We introduce Chronos, a test-time framework that makes this connected history available to large language model (LLM)-based code agents. Chronos distills merged pull requests into structured experience cards and connects them through a typed graph "
   },
@@ -1206,7 +1218,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "The memory capabilities of Large Language Models (LLMs) have garnered increasing attention recently. Despite great success achieved, existing retrieval-based memory approaches typically overlook the differences between memories and employ a unified strategy to process all memories, leading to suboptimal performance. Thus, an intuitive question arises: can we categorize memory into different types and select appropriate strategies? However, given the topic-rich, scenario-complex, and boundary-blu",
     "company": "Huawei"
@@ -1219,7 +1232,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Large language model agents can invoke tools fluently, but enterprise workflows demand more than selecting the right tools: actions must strictly comply with organizational policies, tool feedback often conceals hidden side effects under partial observability, and long-horizon tasks require persistent state tracking across multiple records. To address these challenges, we introduce E-Ledger, a multi-agent harness for safe and persistent execution. E-Ledger employs a code approval layer that chec"
   },
@@ -1243,7 +1257,9 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent",
+      "MCP"
     ],
     "abstract": "Context: Large language model (LLM) agents are increasingly used as software and data-engineering assistants, yet evidence about locally deployable open-weight agents remains limited. Existing evaluations often emphasize textual responses or isolated code generation rather than the validity of complete engineering artifacts. Objectives: We evaluate whether local LLM agents can produce correct and reproducible data-engineering artifacts, quantify the effect of a closed-loop workspace condition, a"
   },
@@ -1267,7 +1283,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Large language models (LLMs) are increasingly deployed as coding agents that edit files, run builds and tests, inspect execution results, and repair software iteratively. Embedded firmware is a demanding target because correctness depends on closed-loop behavior under sensing, timing, and safety constraints, not only on static source quality. Yet embedded-agent evaluation remains limited and often emphasizes one-shot synthesis or offline correctness. We present a benchmark for closed-loop evalua"
   },
@@ -1339,7 +1356,8 @@
     "date": "2026-10-08",
     "cite": 0,
     "tags": [
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Large language model agents are being increasingly deployed as autonomous scientists, designing experiments and inferring mechanistic world models with minimal human oversight. Yet identifiability is often overlooked: when a plateau is reached, the agent needs to know whether it is not yet capable enough or the model simply is not identifiable from the data, in which case no amount of further experimentation of the same kind can help. We propose the Identifiability-Driven Experimental Agent (LLM"
   },
@@ -1679,6 +1697,102 @@
     ],
     "abstract": "Most human-agent interaction today remains text-based. Natural language can impose cognitive overload, ambiguity, information chaos, and slow input for complex tasks; ephemeral generative UIs can present structured information and guide users toward task completion. We propose GenUI-Harness, a multi-agent harness pairing a Tool Agent for information retrieval and task execution with a GUI Coder Agent that identifies ambiguities and generates front-end code for structured interfaces. Training the",
     "company": "Microsoft"
+  },
+  {
+    "id": "2610.12445",
+    "title": "Caught in the Act: Probes Effectively Detect Sabotage and Catch Unverbalized Deception",
+    "authors": "Oskar J. Hollinsworth, Alex F. Spies, Tigist Diriba et al.",
+    "year": 2026,
+    "date": "2026-10-08",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Recent incidents have highlighted the challenge of monitoring LLM agents and the danger of models deceiving people. We show that white-box deception detection via probes can be scaled up to frontier monitoring settings by collecting the largest deception dataset to date for training probes and introducing a novel probe architecture which can aggregate information across many layers and tokens. Our probes achieve 98.8% AUC in SHADE-Arena, surpassing an Opus 5.5 text-monitoring baseline, and show "
+  },
+  {
+    "id": "2610.12375",
+    "title": "OnTrack: Real-Time Monitoring and Intervention in LLM Agent Trajectories via Streaming Structure-Aware Optimal Transport",
+    "authors": "Babak Barazandeh, Connor Swanson, Chinmay Kulkarni et al.",
+    "year": 2026,
+    "date": "2026-10-08",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Agents are deployed in applications from trip planners and stock trading to IT incident triage. In most cases, LLM agents work autonomously with minimal rule-based safeguarding, leading to cost and safety issues from irreversible actions. Recent works resolve this either by using a safeguard agent to monitor behavior or evaluating logs post-hoc. The first adds cost and latency to every step; the second delivers its verdict after the run, when tokens are burned and damage is done. To overcome thi"
+  },
+  {
+    "id": "2610.12360",
+    "title": "Accurate but Not Humble: Evaluating Epistemic Humility in LLM Agents under Knowledge Conflict",
+    "authors": "Kaiser Sun, Bernal Jimenez Gutierrez, Hongjun Liu et al.",
+    "year": 2026,
+    "date": "2026-10-08",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "When retrieved evidence contradicts an agent's prior beliefs, does it revise its answer, acknowledge uncertainty, or persist with an incorrect conclusion? Existing evaluations of agentic systems focus primarily on task success, offering limited insight into how agents handle such conflicts. We propose to evaluate agents on epistemic humility (EH): the agent's willingness to recognize, act on, and communicate uncertainty during task execution. We operationalize EH through three trajectory-level b"
+  },
+  {
+    "id": "2610.11467",
+    "title": "GROB: A Multi-Agent Architecture for Public-Trace Investigation of Candidate Agentic Activity",
+    "authors": "Chiara Bonfanti, Cataldo Basile",
+    "year": 2026,
+    "date": "2026-10-08",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "We present GROB, a multi-agent architecture for investigating candidate autonomous-agent activity through public Internet traces when privileged telemetry is unavailable. The system performs controlled, read-only collection of public traces and preserves selected observations for later resolution. In a frozen September 2026 corpus, several collected traces became more informative as additional public evidence emerged. The strongest result concerns Census-labelled identifiers captured on 9 Septem"
+  },
+  {
+    "id": "2610.11345",
+    "title": "SynCo: Data Synthesis Co-Training for Self-Evolving LLMs via Multi-Agent Reinforcement Learning",
+    "authors": "Wei Yang, Shawn Li, Yuehan Qin et al.",
+    "year": 2026,
+    "date": "2026-10-08",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Self-evolving LLM agents promise to improve autonomously through continual interaction and learning, reducing their dependence on manually curated supervision. Realizing this promise requires not only updating the agent, but also evolving its training experience as its capabilities change. However, most existing pipelines rely on static datasets or separately updated synthesis models, causing previously useful tasks to become trivial while overly difficult tasks remain uninformative. This growin"
+  },
+  {
+    "id": "2610.11188",
+    "title": "What to Admit and How to Present: Governing Persistent Memory in LLM Agents",
+    "authors": "Chang Liu, Deliang Ding",
+    "year": 2026,
+    "date": "2026-10-08",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Persistent memory can improve personalization in LLM agents but can also induce sycophancy and cross-domain leakage. We distinguish two governance decisions: admission, which determines what recalled information enters the working context, and presentation, which determines how admitted information is expressed. We implement two inference-time designs without retraining: factor-compiled admission (FC), which assesses whole memory entries, and permission-semantic admission (PS), which decomposes "
+  },
+  {
+    "id": "2610.11152",
+    "title": "Do LLMs Learn from Rewards in Context? : Rethinking the role of reward in In-Context Reinforcement Learning",
+    "authors": "Minchan Kwon, Seunghee Koh, Sunghyun Baek et al.",
+    "year": 2026,
+    "date": "2026-10-08",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "LLM agents increasingly improve at inference time by accumulating experience in context rather than by updating parameters. This process is often described as in-context reinforcement learning (ICRL). Whether in-context learning (ICL) can actually play the role of RL, however, has not been tested. We study this question in its simplest form, direct ICRL, where the model conditions directly on raw trajectory-reward pairs, and ask whether the reward acts as a learning signal. Through controlled ex"
+  },
+  {
+    "id": "2610.11030",
+    "title": "NOMOS: Compiling Written Policies into Statically Verified Tool-Call Gates for LLM Agents",
+    "authors": "Min-Young Yu, Tony Kim, Jang Won Choi",
+    "year": 2026,
+    "date": "2026-10-08",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Tool-using LLM agents violate the policies they are deployed to enforce, often silently. Prior defenses hand-write rules, query an LLM verifier per action, or compile policies through heavyweight formal machinery. Naive compilation fails: extracted rules block the tool satisfying their own precondition, or read arguments their tool lacks. NOMOS, a four-pass compiler, turns a natural-language policy into a deterministic tool-call gate; static verification with tool-schema-level checks alone (no p"
   },
   {
     "id": "2610.10507",
@@ -2902,7 +3016,8 @@
     "tags": [
       "RAG",
       "Multimodal",
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Analog/RF circuits remain the critical interface between digital computation and the physical world, and emerging standards from Wi-Fi 7 to 6G place stringent demands on them, yet analog/RF design remains one of the most labor-intensive steps in chip development. We present RFChipAgent, a first-of-its-kind multi-agent flow of large language model (LLM) agents for end-to-end analog/RF circuit design automation, in which AI agents collaboratively orchestrate the complete design flow under human su"
   },
@@ -2915,7 +3030,8 @@
     "cite": 0,
     "tags": [
       "Reasoning",
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Agentic AI based on Large Language Model generalization capabilities offers a wide range of potential applications, including planning for embodied tasks. For example, embodied agents based on Foundation models can generate plausible plans in autonomous robotics scenarios. Due to limited context windows or hallucinatory phenomena in the next-token prediction formulation, behaviors may be generated without establishing whether the deployed robot and the observed environment actually support the r"
   },
@@ -2928,7 +3044,8 @@
     "cite": 0,
     "tags": [
       "Reasoning",
-      "LLM"
+      "LLM",
+      "Agent"
     ],
     "abstract": "Reinforcement learning environments are now a primary lever for improving large language model (LLM) capabilities in post-training, yet most agentic benchmarks remain static: the world moves only when the agent acts, the reward is a terminal verdict, and the pass bar is set arbitrarily. We introduce StoreBench, a live-commerce environment in which an agent runs a mid-size online apparel store on a production-grade commerce backend, testing long-horizon planning and economic judgment under uncert"
   },
@@ -2978,7 +3095,9 @@
     "date": "2026-10-07",
     "cite": 0,
     "tags": [
-      "Reasoning"
+      "Reasoning",
+      "Agent",
+      "MCP"
     ],
     "abstract": "Security operations centers (SOCs) must triage large volumes of alerts, most of which are benign, while missed attacks can remain uninvestigated. Tool-using large language model (LLM) agents can retrieve evidence during triage, but it remains unclear how reasoning strategies determine what to gather and when an investigation is sufficient to close an alert. We study five representative approaches spanning single-pass tool use, iterative retrieval, sampled investigations, self-review, and explici"
   },
@@ -3215,6 +3334,102 @@
     ],
     "abstract": "Repository benchmarks (e.g., SWE-bench) for coding agents often assume that lines of code edited can predict task difficulty, but such datasets' poor control over code and task types makes it hard to know which abilities truly drive agent errors. We present CABRA: a Coding Ability Blueprint for Rigorous Agent evaluation. CABRA builds tasks from scratch as call graph transformations and scales difficulty via a task size parameter on four axes: function traversal, search, runtime resolution, and i",
     "company": "Microsoft"
+  },
+  {
+    "id": "2610.11008",
+    "title": "Why LLM Agents Favor Their Group: Stakes, Observed Norms, and Reputation",
+    "authors": "Yujiao Chen",
+    "year": 2026,
+    "date": "2026-10-07",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Language-model agents favor their own group because they have watched their members favor each other. The group label alone does little once the decision has a cost; what drives favoritism is observed behavior, and an individual's own record can override it. We test this in small societies with arbitrary group labels, ten rounds of point sharing, and matched one-shot decisions across fifteen OpenAI models and three Claude models, about 4,400 societies and 3.3 million audited model calls. First, "
+  },
+  {
+    "id": "2610.11007",
+    "title": "Curating Always-Loaded Context for LLM Agents: A Capacitated Assortment Model with Censored Feedback",
+    "authors": "Zexuan Liu, Yuning Yang, Tiancheng Zhao",
+    "year": 2026,
+    "date": "2026-10-07",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "At the start of every session, LLM agents load a fixed context file, such as $\\texttt{AGENTS.md}$. Each loaded token in the file is charged again in every later round of the session, and these files can degrade performance as they grow in size. However, in practice, human or automated curators usually grow these files by appending. We formulate context curation as a capacitated assortment problem. Instructions consume tokens under a finite attention capacity; adding an instruction never raises t"
+  },
+  {
+    "id": "2610.10906",
+    "title": "Reading the Room: Foundations, Design, and Challenges of Normative Competence in LLMs",
+    "authors": "Andrea Wynn, Harsh Satija,  Seokhyun et al.",
+    "year": 2026,
+    "date": "2026-10-07",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Human communities are governed by normative systems: shared standards that produce \\textit{norms} dictating acceptable behavior, enforced through community sanctioning. Aligning increasingly autonomous AI systems with these norms is a central alignment challenge, complicated by the fact that norms are vast in number, change quickly, and are often arbitrary (e.g., dress or language conventions). Thus, alignment requires \\textit{normative competence}: the ability to discern from interaction alone "
+  },
+  {
+    "id": "2610.10833",
+    "title": "On the Clock: Towards Punctual and Productive Time-Budgeted AI Agents",
+    "authors": "Aaron Wang, Neelabh Madan, Vlad Sobal et al.",
+    "year": 2026,
+    "date": "2026-10-07",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "We study whether small LLM agents can operate effectively under explicit wall-clock time budgets by both respecting the allocated runtime and using available time productively. We evaluate Qwen3.6-27B on five competitions from MLE-Bench Lite and Qwen3-4B on Zork I (Jericho), two agentic benchmarks where additional computational time can meaningfully improve performance. In the simplest setting, where the budget is stated only in the prompt, agents fail to translate the stated budget into control"
+  },
+  {
+    "id": "2610.10629",
+    "title": "The Harness as the Only Mutable Surface: Compliance-Bounded Self-Evolution of LLM Agents in Credit Pipelines, with a Measured Admission Gate",
+    "authors": "Ravil Akhtyamov",
+    "year": 2026,
+    "date": "2026-10-07",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Self-improving LLM agents can adapt a credit pipeline to a changed rule, but an agent that rewrites itself destroys the artefact a supervisor reviews: a named change, a recorded test, an approval. We argue that self-evolution is reviewable only if it is confined to the runtime harness (instruction text, tool-call logic and primitive composition) while model weights stay fixed, so that every adaptation is a diff with a cause and a test attached. We give a dual-loop engine built on that bound, wit"
+  },
+  {
+    "id": "2610.10628",
+    "title": "Agent4RE: A Self-Refining Multi-agent Framework for End-to-End Software Requirements Engineering and Benchmarking",
+    "authors": "Yongjian Tang, Linhan Li, Thomas Runkler",
+    "year": 2026,
+    "date": "2026-10-07",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Existing LLM-based approaches for software Requirements Engineering (RE) typically rely on basic prompting strategies or rudimentary agent collaboration, under-utilizing the full potential of multi-agent systems. Meanwhile, available datasets focus on isolated subtasks, such as requirements extraction, classification, and completeness detection, leaving the absence of an end-to-end RE benchmark that spans from requirements elicitation to generation. We present Agent4RE - a self-refining multi-ag"
+  },
+  {
+    "id": "2610.10619",
+    "title": "TestJack: Should you trust the results in coding benchmarks? Agentic Coding Benchmarks Auditing via Evaluator Evolution",
+    "authors": "Shuangjie Yao, Hao Wang, Koushik Sen et al.",
+    "year": 2026,
+    "date": "2026-10-07",
+    "cite": 0,
+    "tags": [
+      "Agent"
+    ],
+    "abstract": "Large language model (LLM) agents are rapidly reshaping software engineering, accompanied by an explosion of new code benchmarks. Yet nearly all existing benchmarks still rely on the same decades-old criterion: a solution is correct if it passes a fixed set of unit tests. Such tests are often insufficient: they check only part of what the task requires, so agents can reward hack them or silently miss required behavior while still passing every test. As a result, higher benchmark scores may partl"
+  },
+  {
+    "id": "2610.10786",
+    "title": "Plan-and-Patch: Diffusion Language Models for Agentic Planning",
+    "authors": "Syamantak Kumar, Jiang Guo, Hassan Hamad et al.",
+    "year": 2026,
+    "date": "2026-10-07",
+    "cite": 0,
+    "tags": [
+      "MCP"
+    ],
+    "abstract": "Planning is increasingly important for long-horizon agents, where successful execution requires coordinating subgoals, tool use, and intermediate outcomes over many steps. Yet assumptions made during planning may be invalidated by the environment, tools may return unexpected results, or actions may fail. Effective agents must therefore not only generate plans, but also revise them. Such revisions often affect only part of a plan, leaving the preceding and subsequent structure intact. Rather than"
   },
   {
     "id": "2610.08571",
