@@ -139,3 +139,112 @@
   });
   update();
 })();
+
+// Conference layouts share the original field, preparation-stage and search filters.
+(() => {
+  const timeline = document.getElementById('tlwrap');
+  if (!timeline) return;
+  const controls = document.createElement('div');
+  controls.id = 'conference-controls';
+  controls.className = 'journal-controls conference-controls';
+  controls.hidden = true;
+  controls.innerHTML = `
+    <div class="journal-layout" role="group" aria-label="会议展示形式">
+      <button type="button" data-conf-layout="timeline" aria-pressed="true">时间轴</button>
+      <button type="button" data-conf-layout="list" aria-pressed="false">列表</button>
+    </div>
+    <label>会议等级<select id="conference-tier"><option value="">全部等级</option></select></label>
+    <label>节点类型<select id="conference-type"><option value="">全部节点</option></select></label>
+    <label>日期起<input id="conference-start" type="date"></label>
+    <label>日期止<input id="conference-end" type="date"></label>
+    <label>时间状态<select id="conference-status"><option value="upcoming">当前及未来</option><option value="all">全部（含历史）</option><option value="past">已结束</option></select></label>
+    <label>列表排序<select id="conference-sort"><option value="date-asc">日期从近到远</option><option value="date-desc">日期从远到近</option><option value="tier">会议等级</option><option value="name">会议名称 A–Z</option></select></label>
+    <button type="button" id="conference-reset">重置筛选</button>`;
+  timeline.before(controls);
+  const status = document.createElement('p');
+  status.id = 'conference-results'; status.className = 'journal-results';
+  status.setAttribute('role', 'status'); status.hidden = true;
+  timeline.before(status);
+  const wrapper = document.createElement('div');
+  wrapper.id = 'conference-list'; wrapper.className = 'journal-table-wrap'; wrapper.hidden = true;
+  wrapper.innerHTML = '<table class="journal-table"><caption>会议节点列表 · 日期及截止时区以官方说明为准</caption><thead><tr><th scope="col">会议</th><th scope="col">领域 / 等级</th><th scope="col">节点</th><th scope="col">日期</th><th scope="col">时区 / 说明</th><th scope="col">来源 / 核验</th></tr></thead><tbody></tbody></table>';
+  timeline.after(wrapper);
+  const body = wrapper.querySelector('tbody');
+  const originalVisible = confVisible;
+  const originalRender = render;
+  const val = id => controls.querySelector('#conference-' + id).value;
+  const invalidDates = () => val('start') && val('end') && val('start') > val('end');
+  let layout = 'timeline', initialized = false;
+  confVisible = function () {
+    return originalVisible().filter(event => {
+      const series = C.series[event.s];
+      const past = dleft(event.e || event.d) < 0;
+      return !invalidDates() && (!val('tier') || series.tag?.tier === val('tier')) &&
+        (!val('type') || event.t === val('type')) &&
+        (!val('start') || (event.e || event.d) >= val('start')) &&
+        (!val('end') || event.d <= val('end')) &&
+        (val('status') === 'all' || (val('status') === 'past' ? past : !past));
+    });
+  };
+  function cell(row, value) {
+    const td = document.createElement('td');
+    if (value instanceof Node) td.append(value); else td.textContent = value || '—';
+    row.append(td); return td;
+  }
+  render = function () {
+    if (VIEW === 'conf') SHOWPAST = val('status') !== 'upcoming';
+    originalRender();
+    const conference = VIEW === 'conf';
+    controls.hidden = !conference; status.hidden = !conference;
+    wrapper.hidden = !conference || layout !== 'list';
+    if (!conference) return;
+    if (!initialized) {
+      for (const tier of [...new Set(Object.values(C.series).map(s => s.tag?.tier).filter(Boolean))].sort()) {
+        controls.querySelector('#conference-tier').add(new Option(tier, tier));
+      }
+      for (const [key, [name]] of Object.entries(TYPES)) controls.querySelector('#conference-type').add(new Option(name, key));
+      initialized = true;
+    }
+    const events = confVisible();
+    const fieldNames = Object.fromEntries(FIELDS);
+    const sort = val('sort');
+    events.sort((a, b) => {
+      if (sort === 'date-desc') return b.d.localeCompare(a.d);
+      if (sort === 'name') return C.series[a.s].name.localeCompare(C.series[b.s].name, 'en') || a.d.localeCompare(b.d);
+      if (sort === 'tier') return (C.series[a.s].tag?.tier || '未核定').localeCompare(C.series[b.s].tag?.tier || '未核定') || a.d.localeCompare(b.d);
+      return a.d.localeCompare(b.d);
+    });
+    body.replaceChildren(...events.map(event => {
+      const series = C.series[event.s], row = document.createElement('tr');
+      cell(row, series.name);
+      cell(row, (series.tag?.focus || fieldNames[series.field] || series.field) + ' / ' + (series.tag?.tier || '未核定'));
+      cell(row, event.label || TYPES[event.t]?.[0]);
+      cell(row, event.d + (event.e ? ' 至 ' + event.e : ''));
+      cell(row, event.note);
+      const source = document.createElement('div');
+      if (event.url) {
+        const link = document.createElement('a'); link.href = event.url;
+        link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = '官方来源 ↗'; source.append(link);
+      }
+      const checked = document.createElement('div'); checked.textContent = event.checkedAt ? '核验 ' + event.checkedAt : '待核验'; source.append(checked);
+      cell(row, source); return row;
+    }));
+    timeline.style.display = layout === 'list' ? 'none' : '';
+    status.textContent = invalidDates() ? '起始日期不能晚于结束日期，请调整区间。' :
+      `显示 ${events.length} / ${C.events.length} 个已公布日期节点` + (events.length ? ' · 日期待公布条目见下方观望区' : ' · 暂无匹配结果，请调整或重置筛选');
+    for (const button of controls.querySelectorAll('[data-conf-layout]')) button.setAttribute('aria-pressed', String(button.dataset.confLayout === layout));
+  };
+  controls.addEventListener('input', () => { if (VIEW === 'conf') render(); });
+  controls.addEventListener('change', () => { if (VIEW === 'conf') render(); });
+  controls.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (button?.dataset.confLayout) { layout = button.dataset.confLayout; render(); }
+    if (button?.id === 'conference-reset') {
+      for (const input of controls.querySelectorAll('input,select')) {
+        input.value = input.id === 'conference-sort' ? 'date-asc' : input.id === 'conference-status' ? 'upcoming' : '';
+      }
+      F = 'all'; STAGE = 'all'; Q = '';
+      renderToolbar(); render();
+    }
+  });
+})();

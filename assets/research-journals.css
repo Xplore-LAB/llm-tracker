@@ -19,3 +19,8 @@
 .journal-table h3,.journal-table p{font-size:inherit;margin:0}.journal-table a{color:#2e5e8a;text-underline-offset:3px}.journal-table th{white-space:nowrap}
 .dark .journal-controls input,.dark .journal-controls select,.dark .journal-controls button{background:#20242e}.dark .journal-layout button[aria-pressed=true]{background:#2e5e8a}.dark .journal-table a{color:#9fc4e4}
 @media(max-width:480px){.journal-controls{gap:10px}.journal-controls label{max-width:100%}.journal-controls input[type=search]{width:190px}}
+#conference-controls,#conference-results,#conference-list{position:relative;z-index:1;max-width:1116px;margin:18px auto}
+#conference-controls[hidden],#conference-results[hidden],#conference-list[hidden]{display:none}
+/* The status selector controls past events consistently in both layouts. */
+#tlwrap .pasttoggle{display:none}
+@media(max-width:1160px){#conference-controls,#conference-results,#conference-list{margin-left:22px;margin-right:22px}}
