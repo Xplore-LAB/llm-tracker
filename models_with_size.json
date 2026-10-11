@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-10",
-  "total_models": 584,
-  "with_real_size": 306,
-  "coverage": "52.4%",
+  "fetch_time": "2026-10-11",
+  "total_models": 594,
+  "with_real_size": 316,
+  "coverage": "53.2%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -1069,6 +1069,34 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Internlm2_5",
+      "company": "InternLM",
+      "date": "2024-07-31",
+      "id": "2403.17297",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/internlm2_5-20b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/internlm2_5-7b-chat",
+      "size_total_gb": 14.41
+    },
+    {
+      "model": "Internlm2_5-1_8b",
+      "company": "InternLM",
+      "date": "2024-07-31",
+      "id": "2403.17297",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/internlm2_5-1_8b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/internlm2_5-1_8b",
+      "size_total_gb": 3.52
+    },
+    {
       "model": "MiniCPM-V 2.6",
       "company": "ModelBest",
       "date": "2024-08-06",
@@ -1093,6 +1121,34 @@
       "hf_repo": "LGAI-EXAONE/EXAONE-3.0-7.8B-Instruct",
       "size_total_gb": 29.13,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "LongWriter-glm4",
+      "company": "Zhipu",
+      "date": "2024-08-12",
+      "id": "2408.07055",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/LongWriter-glm4-9b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/LongWriter-glm4-9b",
+      "size_total_gb": 17.51
+    },
+    {
+      "model": "LongWriter-llama3.1",
+      "company": "Zhipu",
+      "date": "2024-08-12",
+      "id": "2408.07055",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/LongWriter-llama3.1-8b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/LongWriter-llama3.1-8b",
+      "size_total_gb": 14.96
     },
     {
       "model": "Llama-3-70B",
@@ -1121,6 +1177,48 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "AI21-Jamba-Large-1.5",
+      "company": "AI21",
+      "date": "2024-08-19",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ai21labs/AI21-Jamba-Large-1.5",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ai21labs/AI21-Jamba-Large-1.5",
+      "size_total_gb": 742.37
+    },
+    {
+      "model": "AI21-Jamba-Mini-1.5",
+      "company": "AI21",
+      "date": "2024-08-19",
+      "id": "2305.14314",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ai21labs/AI21-Jamba-Mini-1.5",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ai21labs/AI21-Jamba-Mini-1.5",
+      "size_total_gb": 96.06
+    },
+    {
+      "model": "C4ai-command-r-08",
+      "company": "Cohere",
+      "date": "2024-08-19",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/c4ai-command-r-08-2024",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/c4ai-command-r-08-2024",
+      "size_total_gb": 60.16
+    },
+    {
       "model": "Mistral-SPLADE",
       "company": "Mistral",
       "date": "2024-08-20",
@@ -1133,6 +1231,20 @@
       "source": "no_mapping"
     },
     {
+      "model": "C4ai-command-r-plus-08",
+      "company": "Cohere",
+      "date": "2024-08-21",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/c4ai-command-r-plus-08-2024",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/c4ai-command-r-plus-08-2024",
+      "size_total_gb": 193.36
+    },
+    {
       "model": "Jamba-1.5",
       "company": "AI21",
       "date": "2024-08-22",
@@ -1143,6 +1255,34 @@
       "hf_repo": "ai21labs/AI21-Jamba-Large-1.5",
       "size_total_gb": 742.37,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "LongCite-llama3.1",
+      "company": "Zhipu",
+      "date": "2024-09-02",
+      "id": "2409.02897",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/LongCite-llama3.1-8b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/LongCite-llama3.1-8b",
+      "size_total_gb": 14.96
+    },
+    {
+      "model": "LongCite-glm4",
+      "company": "Zhipu",
+      "date": "2024-09-02",
+      "id": "2409.02897",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/LongCite-glm4-9b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/LongCite-glm4-9b",
+      "size_total_gb": 19.6
     },
     {
       "model": "MiniCPM3",
