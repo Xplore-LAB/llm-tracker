@@ -781,6 +781,641 @@
         "llm"
       ],
       "fitBasis": "站内编辑匹配建议，非官方等级或录用保证"
+    },
+    "mlsys": {
+      "name": "MLSys 2027",
+      "full": "Conference on Machine Learning and Systems",
+      "org": "见官方来源",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "LLM / Agent 系统",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "LLM / Agent 系统；官网明确覆盖 LLM 训练、微调、推理、大规模 RL 和 Agentic AI，以及工业轨道。",
+        "url": "https://mlsys.org/Conferences/2027/CallForResearchPapers"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://mlsys.org/Conferences/2027/CallForResearchPapers"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "LLM / Agent 系统；官网明确覆盖 LLM 训练、微调、推理、大规模 RL 和 Agentic AI，以及工业轨道。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "rss": {
+      "name": "RSS 2027",
+      "full": "Robotics: Science and Systems",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "具身 Agent 与机器人系统",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "具身 Agent 与机器人系统；2027 两阶段审稿，初稿为最多 6 页扩展摘要，第二阶段仅限受邀作者。",
+        "url": "https://roboticsconference.org/information/cfp/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://roboticsconference.org/information/cfp/"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "具身 Agent 与机器人系统；2027 两阶段审稿，初稿为最多 6 页扩展摘要，第二阶段仅限受邀作者。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://roboticsconference.org/information/cfp/",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "aamas": {
+      "name": "AAMAS 2027",
+      "full": "International Conference on Autonomous Agents and Multiagent Systems",
+      "org": "见官方来源",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "自主 Agent 与多智能体",
+        "tier": "CCF-B"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "自主 Agent 与多智能体；协同、规划、学习与交互，主会本轮全文截止已过。",
+        "url": "https://warwick.ac.uk/fac/sci/dcs/aamas2027/calls/call-for-main-track/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://warwick.ac.uk/fac/sci/dcs/aamas2027/calls/call-for-main-track/"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "自主 Agent 与多智能体；协同、规划、学习与交互，主会本轮全文截止已过。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://warwick.ac.uk/fac/sci/dcs/aamas2027/calls/call-for-main-track/",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "facct": {
+      "name": "FAccT 2027",
+      "full": "ACM Conference on Fairness, Accountability, and Transparency",
+      "org": "见官方来源",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "可信 Agent / LLM 与社会影响",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "可信 Agent / LLM 与社会影响；公平、问责、透明度、人机与社会技术研究，非通用能力提升会议。",
+        "url": "https://facctconference.org/2027/cfp.html"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://facctconference.org/2027/cfp.html"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "可信 Agent / LLM 与社会影响；公平、问责、透明度、人机与社会技术研究，非通用能力提升会议。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://facctconference.org/2027/cfp.html",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "satml": {
+      "name": "SaTML 2027",
+      "full": "IEEE Conference on Secure and Trustworthy Machine Learning",
+      "org": "见官方来源",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "机器学习安全与可信性",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "机器学习安全与可信性；Agent / LLM 威胁、鲁棒性、验证和隐私，主会本轮已截止。",
+        "url": "https://satml.org/call-for-papers/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://satml.org/call-for-papers/"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "机器学习安全与可信性；Agent / LLM 威胁、鲁棒性、验证和隐私，主会本轮已截止。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://satml.org/call-for-papers/",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "aistats": {
+      "name": "AISTATS 2027",
+      "full": "International Conference on Artificial Intelligence and Statistics",
+      "org": "见官方来源",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "统计学习与方法基础",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "统计学习与方法基础；不确定性、学习理论和概率建模，主会本轮已截止。",
+        "url": "https://aistats.org/aistats2027/dates.html"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://aistats.org/aistats2027/dates.html"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "统计学习与方法基础；不确定性、学习理论和概率建模，主会本轮已截止。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://aistats.org/aistats2027/dates.html",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "corl": {
+      "name": "CoRL / 下一届观察",
+      "full": "Conference on Robot Learning",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "机器人学习与具身 Agent",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "机器人学习与具身 Agent；关注机器人基础模型、世界模型、模仿 / 强化学习及真实机器人验证。",
+        "url": "https://www.corl.org/contributions/call-for-papers"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://www.corl.org/contributions/call-for-papers"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "机器人学习与具身 Agent；关注机器人基础模型、世界模型、模仿 / 强化学习及真实机器人验证。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://www.corl.org/contributions/call-for-papers",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "rlc": {
+      "name": "RLC / 下一届观察",
+      "full": "Reinforcement Learning Conference",
+      "org": "见官方来源",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "强化学习与决策",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "强化学习与决策；Agent 策略学习、LLM RL 与控制方法交叉，下一届日期需独立核验。",
+        "url": "https://rl-conference.cc/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://rl-conference.cc/"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "强化学习与决策；Agent 策略学习、LLM RL 与控制方法交叉，下一届日期需独立核验。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://rl-conference.cc/",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "case": {
+      "name": "CASE 2027",
+      "full": "IEEE International Conference on Automation Science and Engineering",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "工业自动化与智能制造",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "工业自动化与智能制造；工业 Agent、生产调度与控制系统，需要自动化问题和系统验证。",
+        "url": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/case/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/case/"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工业自动化与智能制造；工业 Agent、生产调度与控制系统，需要自动化问题和系统验证。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/case/",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "sigmod": {
+      "name": "SIGMOD / 2027 观察",
+      "full": "ACM SIGMOD International Conference on Management of Data",
+      "org": "见官方来源",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "数据库与数据系统",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "数据库与数据系统；数据 Agent、LLM 数据管理、向量检索与执行系统贡献。",
+        "url": "https://2027.sigmod.org/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://2027.sigmod.org/"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "数据库与数据系统；数据 Agent、LLM 数据管理、向量检索与执行系统贡献。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://2027.sigmod.org/",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "vldb": {
+      "name": "VLDB / PVLDB",
+      "full": "International Conference on Very Large Data Bases",
+      "org": "见官方来源",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "数据库与数据工程",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "数据库与数据工程；PVLDB 投稿规则、轮次与会议展示资格需按当前卷独立核验。",
+        "url": "https://www.vldb.org/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://www.vldb.org/"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "数据库与数据工程；PVLDB 投稿规则、轮次与会议展示资格需按当前卷独立核验。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://www.vldb.org/",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "chi": {
+      "name": "CHI 2027",
+      "full": "ACM Conference on Human Factors in Computing Systems",
+      "org": "见官方来源",
+      "field": "ai",
+      "color": "#2e5e8a",
+      "tag": {
+        "focus": "人机协作与交互",
+        "tier": "CCF-A"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "人机协作与交互；人类监督 Agent、可用性与信任，不能只提交模型性能实验。",
+        "url": "https://chi2027.acm.org/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://chi2027.acm.org/"
+      },
+      "classificationSource": "https://www.ccf.org.cn/Academic_Evaluation/",
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "人机协作与交互；人类监督 Agent、可用性与信任，不能只提交模型性能实验。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://chi2027.acm.org/",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "iecon": {
+      "name": "IECON / 届次观察",
+      "full": "Annual Conference of the IEEE Industrial Electronics Society",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "工业电子与自动化",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "工业电子与自动化；控制、制造、工业通信和智能系统，按届次核验正式论文轨道。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工业电子与自动化；控制、制造、工业通信和智能系统，按届次核验正式论文轨道。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://confcomm.ieee-ies.org/home/welcome",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "isie": {
+      "name": "ISIE / 届次观察",
+      "full": "IEEE International Symposium on Industrial Electronics",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "工业电子系统",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "工业电子系统；控制、机器人和智能工业应用，工业系统验证优先。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工业电子系统；控制、机器人和智能工业应用，工业系统验证优先。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://confcomm.ieee-ies.org/home/welcome",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "icit": {
+      "name": "ICIT / 届次观察",
+      "full": "IEEE International Conference on Industrial Technology",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "工业技术与智能系统",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "工业技术与智能系统；工业自动化、工业通信及控制应用。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工业技术与智能系统；工业自动化、工业通信及控制应用。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://confcomm.ieee-ies.org/home/welcome",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "indin": {
+      "name": "INDIN / 届次观察",
+      "full": "IEEE International Conference on Industrial Informatics",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "工业信息学与工业 Agent",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "工业信息学与工业 Agent；分布式工业系统、工业信息处理与人机协同。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工业信息学与工业 Agent；分布式工业系统、工业信息处理与人机协同。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://confcomm.ieee-ies.org/home/welcome",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "etfa": {
+      "name": "ETFA / 届次观察",
+      "full": "IEEE International Conference on Emerging Technologies and Factory Automation",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "工厂自动化与新技术",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "工厂自动化与新技术；工业 Agent、实时系统、工业 CPS 与可信自动化。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工厂自动化与新技术；工业 Agent、实时系统、工业 CPS 与可信自动化。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://confcomm.ieee-ies.org/home/welcome",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "icps": {
+      "name": "ICPS / 届次观察",
+      "full": "IEEE International Conference on Industrial Cyber-Physical Systems",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "工业信息物理系统",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "工业信息物理系统；计算与物理闭环、工业 AI、协同优化和安全可靠性。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://confcomm.ieee-ies.org/home/welcome"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工业信息物理系统；计算与物理闭环、工业 AI、协同优化和安全可靠性。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://confcomm.ieee-ies.org/home/welcome",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "ccc": {
+      "name": "CCC / 下一届观察",
+      "full": "Chinese Control Conference",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "控制理论与工业系统",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "控制理论与工业系统；下一届 CFP 与时间未核验，不使用往届月份外推。",
+        "url": "https://tcct.amss.ac.cn/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://tcct.amss.ac.cn/"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "控制理论与工业系统；下一届 CFP 与时间未核验，不使用往届月份外推。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://tcct.amss.ac.cn/",
+      "fitCheckedAt": "2026-10-11"
+    },
+    "ifac": {
+      "name": "IFAC World Congress / 下一届观察",
+      "full": "IFAC World Congress",
+      "org": "见官方来源",
+      "field": "control",
+      "color": "#3d7a52",
+      "tag": {
+        "focus": "控制与自动化全领域",
+        "tier": "CCF 未核定"
+      },
+      "about": {
+        "founded": "—",
+        "org": "见官方来源",
+        "freq": "具体届次见官网",
+        "intro": "控制与自动化全领域；世界大会不是每年举办，按下一届官方 CFP 规划。",
+        "url": "https://www.ifac-control.org/"
+      },
+      "hist": {
+        "text": "研究社区入口；未核验的历届统计不填入。",
+        "url": "https://www.ifac-control.org/"
+      },
+      "classificationSource": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "控制与自动化全领域；世界大会不是每年举办，按下一届官方 CFP 规划。",
+      "fitBasis": "站内编辑匹配建议，非官方等级或录用保证",
+      "fitSource": "https://www.ifac-control.org/",
+      "fitCheckedAt": "2026-10-11"
     }
   },
   "events": [
@@ -890,6 +1525,15 @@
       "checkedAt": "2026-10-10"
     },
     {
+      "s": "satml",
+      "t": "abs",
+      "d": "2026-09-22",
+      "label": "摘要注册截止",
+      "url": "https://satml.org/call-for-papers/",
+      "note": "23:59 AoE",
+      "checkedAt": "2026-10-11"
+    },
+    {
       "s": "acc",
       "t": "prop",
       "d": "2026-09-23",
@@ -943,6 +1587,33 @@
       "checkedAt": "2026-09-01"
     },
     {
+      "s": "satml",
+      "t": "sub",
+      "d": "2026-09-29",
+      "label": "主会论文截止",
+      "url": "https://satml.org/call-for-papers/",
+      "note": "23:59 AoE；Workshop 另有征稿，不继承主会等级",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "aistats",
+      "t": "abs",
+      "d": "2026-09-29",
+      "label": "摘要截止",
+      "url": "https://aistats.org/aistats2027/dates.html",
+      "note": "AoE",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "aamas",
+      "t": "abs",
+      "d": "2026-10-01",
+      "label": "Main Track 摘要截止",
+      "url": "https://warwick.ac.uk/fac/sci/dcs/aamas2027/calls/call-for-main-track/",
+      "note": "AoE",
+      "checkedAt": "2026-10-11"
+    },
+    {
       "s": "colm",
       "t": "conf",
       "d": "2026-10-06",
@@ -951,6 +1622,24 @@
       "note": "美国旧金山",
       "url": "https://colmweb.org/",
       "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "aistats",
+      "t": "sub",
+      "d": "2026-10-06",
+      "label": "全文截止",
+      "url": "https://aistats.org/aistats2027/dates.html",
+      "note": "AoE",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "aamas",
+      "t": "sub",
+      "d": "2026-10-08",
+      "label": "Main Track 全文截止",
+      "url": "https://warwick.ac.uk/fac/sci/dcs/aamas2027/calls/call-for-main-track/",
+      "note": "AoE；已截止，不能将 rebuttal 当新投稿",
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "arr",
@@ -1025,6 +1714,15 @@
       "checkedAt": "2026-10-11"
     },
     {
+      "s": "facct",
+      "t": "abs",
+      "d": "2026-10-27",
+      "label": "摘要注册截止",
+      "url": "https://facctconference.org/2027/cfp.html",
+      "note": "23:59 AoE",
+      "checkedAt": "2026-10-11"
+    },
+    {
       "s": "cac",
       "t": "conf",
       "d": "2026-10-30",
@@ -1033,6 +1731,15 @@
       "note": "北京 · 首都国际会展中心（新国展二期）",
       "url": "https://cac.caa.org.cn/",
       "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "mlsys",
+      "t": "sub",
+      "d": "2026-10-30",
+      "label": "Research / Industrial Track 全文截止",
+      "url": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+      "note": "20:00 UTC（北京时间 10 月 31 日 04:00）；不是 AoE",
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "ecc",
@@ -1050,6 +1757,15 @@
       "label": "Workshop / Tutorial 正式提案截稿",
       "url": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/icra/",
       "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "facct",
+      "t": "sub",
+      "d": "2026-11-03",
+      "label": "论文截止",
+      "url": "https://facctconference.org/2027/cfp.html",
+      "note": "23:59 AoE",
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "cvpr",
@@ -1146,6 +1862,15 @@
       "label": "摘要注册截止",
       "url": "https://www.usenix.org/conference/osdi27/call-for-papers",
       "note": "22:59 UTC（北京时间次日 06:59）；不是 AoE",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "rss",
+      "t": "sub",
+      "d": "2026-12-04",
+      "label": "Stage 1 扩展摘要初稿截止（6 页）",
+      "url": "https://roboticsconference.org/information/cfp/",
+      "note": "23:59 AoE；最多 5 页正文 + 1 页参考文献，不是仅填写摘要",
       "checkedAt": "2026-10-11"
     },
     {
@@ -1339,6 +2064,15 @@
       "checkedAt": "2026-10-10"
     },
     {
+      "s": "mlsys",
+      "t": "noti",
+      "d": "2027-02-28",
+      "label": "录用通知",
+      "url": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+      "note": "",
+      "checkedAt": "2026-10-11"
+    },
+    {
       "s": "ecc",
       "t": "noti",
       "d": "2027-03-05",
@@ -1361,6 +2095,15 @@
       "label": "终稿截止",
       "url": "https://acc2027.a2c2.org/important-dates/",
       "checkedAt": "2026-09-01"
+    },
+    {
+      "s": "rss",
+      "t": "revision",
+      "d": "2027-04-16",
+      "label": "Stage 2 受邀扩展论文截止",
+      "url": "https://roboticsconference.org/information/cfp/",
+      "note": "仅限通过第一阶段的受邀作者，不能作为新投稿入口",
+      "checkedAt": "2026-10-11"
     },
     {
       "s": "ijcai",
@@ -1430,6 +2173,26 @@
       "note": "美国西雅图；Workshop/Tutorial 06-20 至 06-21，主会 06-22 至 06-25",
       "url": "https://cvpr.thecvf.com/Conferences/2027/Dates",
       "checkedAt": "2026-10-10"
+    },
+    {
+      "s": "facct",
+      "t": "conf",
+      "d": "2027-06-21",
+      "label": "会议举办",
+      "url": "https://facctconference.org/2027/cfp.html",
+      "note": "地点见官网",
+      "checkedAt": "2026-10-11",
+      "e": "2027-06-24"
+    },
+    {
+      "s": "rss",
+      "t": "conf",
+      "d": "2027-07-06",
+      "label": "会议举办",
+      "url": "https://roboticsconference.org/information/cfp/",
+      "note": "希腊雅典",
+      "checkedAt": "2026-10-11",
+      "e": "2027-07-11"
     },
     {
       "s": "acc",
@@ -1573,6 +2336,114 @@
       "item": "官方拟定：摘要 2027-01-14、全文 2027-01-21（AoE），待最终确认",
       "note": "CFP 标注 PROPOSED；不作为已确认截止日期。新增 Agentic IR 与生成式信息访问主题。",
       "url": "https://sigir2027.org/pages/submit-full.html",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "corl",
+      "name": "CoRL / 下一届观察",
+      "full": "Conference on Robot Learning",
+      "item": "投稿日期待核验",
+      "note": "本轮 / 下一届投稿日期本次未核验；仅作为研究社区入口，不代表当前可投。",
+      "url": "https://www.corl.org/contributions/call-for-papers",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "rlc",
+      "name": "RLC / 下一届观察",
+      "full": "Reinforcement Learning Conference",
+      "item": "投稿日期待核验",
+      "note": "本轮 / 下一届投稿日期本次未核验；仅作为研究社区入口，不代表当前可投。",
+      "url": "https://rl-conference.cc/",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "case",
+      "name": "CASE 2027",
+      "full": "IEEE International Conference on Automation Science and Engineering",
+      "item": "投稿日期待核验",
+      "note": "本轮 / 下一届投稿日期本次未核验；仅作为研究社区入口，不代表当前可投。",
+      "url": "https://www.ieee-ras.org/conferences-workshops/fully-sponsored/case/",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "sigmod",
+      "name": "SIGMOD / 2027 观察",
+      "full": "ACM SIGMOD International Conference on Management of Data",
+      "item": "投稿日期待核验",
+      "note": "本轮 / 下一届投稿日期本次未核验；仅作为研究社区入口，不代表当前可投。",
+      "url": "https://2027.sigmod.org/",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "vldb",
+      "name": "VLDB / PVLDB",
+      "full": "International Conference on Very Large Data Bases",
+      "item": "投稿日期待核验",
+      "note": "本轮 / 下一届投稿日期本次未核验；仅作为研究社区入口，不代表当前可投。",
+      "url": "https://www.vldb.org/",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "chi",
+      "name": "CHI 2027",
+      "full": "ACM Conference on Human Factors in Computing Systems",
+      "item": "投稿日期待核验",
+      "note": "本轮 / 下一届投稿日期本次未核验；仅作为研究社区入口，不代表当前可投。",
+      "url": "https://chi2027.acm.org/",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "iecon",
+      "name": "IECON / 届次观察",
+      "full": "Annual Conference of the IEEE Industrial Electronics Society",
+      "item": "投稿日期待核验",
+      "note": "IEEE IES 官方社区入口已核验；各会议最新 CFP、截止日和投稿轨道尚需逐项核验。",
+      "url": "https://confcomm.ieee-ies.org/home/welcome",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "isie",
+      "name": "ISIE / 届次观察",
+      "full": "IEEE International Symposium on Industrial Electronics",
+      "item": "投稿日期待核验",
+      "note": "IEEE IES 官方社区入口已核验；各会议最新 CFP、截止日和投稿轨道尚需逐项核验。",
+      "url": "https://confcomm.ieee-ies.org/home/welcome",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "icit",
+      "name": "ICIT / 届次观察",
+      "full": "IEEE International Conference on Industrial Technology",
+      "item": "投稿日期待核验",
+      "note": "IEEE IES 官方社区入口已核验；各会议最新 CFP、截止日和投稿轨道尚需逐项核验。",
+      "url": "https://confcomm.ieee-ies.org/home/welcome",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "indin",
+      "name": "INDIN / 届次观察",
+      "full": "IEEE International Conference on Industrial Informatics",
+      "item": "投稿日期待核验",
+      "note": "IEEE IES 官方社区入口已核验；各会议最新 CFP、截止日和投稿轨道尚需逐项核验。",
+      "url": "https://confcomm.ieee-ies.org/home/welcome",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "etfa",
+      "name": "ETFA / 届次观察",
+      "full": "IEEE International Conference on Emerging Technologies and Factory Automation",
+      "item": "投稿日期待核验",
+      "note": "IEEE IES 官方社区入口已核验；各会议最新 CFP、截止日和投稿轨道尚需逐项核验。",
+      "url": "https://confcomm.ieee-ies.org/home/welcome",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "s": "icps",
+      "name": "ICPS / 届次观察",
+      "full": "IEEE International Conference on Industrial Cyber-Physical Systems",
+      "item": "投稿日期待核验",
+      "note": "IEEE IES 官方社区入口已核验；各会议最新 CFP、截止日和投稿轨道尚需逐项核验。",
+      "url": "https://confcomm.ieee-ies.org/home/welcome",
       "checkedAt": "2026-10-11"
     }
   ],
@@ -1907,6 +2778,109 @@
       "submissionFit": "工业控制优先：控制、测量、电子与计算在工业过程中的方法和实验验证；仅文本 LLM 评测不直接匹配。",
       "scopeSource": "https://technav.ieee.org/topic/ieee-transactions-on-industrial-electronics/",
       "scopeCheckedAt": "2026-10-11"
+    },
+    {
+      "key": "ral",
+      "name": "RA-L",
+      "full": "IEEE Robotics and Automation Letters",
+      "field": "控制与工业",
+      "ccf": null,
+      "guide": "https://www.ieee-ras.org/publications/ra-l/",
+      "mode": "rolling",
+      "note": "官方范围 / 入口已核验；当前投稿细则、CCF 等级及最新 IF 本次未核定。",
+      "checkedAt": null,
+      "classificationSource": null,
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "机器人 / 具身 Agent 的紧凑研究与应用结果；期刊评审和会议展示选项必须分别核验。",
+      "scopeSource": "https://www.ieee-ras.org/publications/ra-l/",
+      "scopeCheckedAt": "2026-10-11"
+    },
+    {
+      "key": "tcst",
+      "name": "TCST",
+      "full": "IEEE Transactions on Control Systems Technology",
+      "field": "控制与工业",
+      "ccf": null,
+      "guide": "https://www.ieeecss.org/publication/transactions-control-systems-technology",
+      "mode": "rolling",
+      "note": "官方范围 / 入口已核验；当前投稿细则、CCF 等级及最新 IF 本次未核定。",
+      "checkedAt": null,
+      "classificationSource": null,
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "industrial"
+      ],
+      "submissionFit": "工业控制落地与系统技术；重视设计、仿真、硬件验证及理论实践结合。",
+      "scopeSource": "https://www.ieeecss.org/publication/transactions-control-systems-technology",
+      "scopeCheckedAt": "2026-10-11"
+    },
+    {
+      "key": "ticps",
+      "name": "TICPS",
+      "full": "IEEE Transactions on Industrial Cyber-Physical Systems",
+      "field": "控制与工业",
+      "ccf": null,
+      "guide": "https://www.ieee-ies.org/pubs/transactions-on-industrial-cyberphysical-systems",
+      "mode": "rolling",
+      "note": "官方范围 / 入口已核验；当前投稿细则、CCF 等级及最新 IF 本次未核定。",
+      "checkedAt": null,
+      "classificationSource": null,
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "工业 CPS 与工业 Agent；AI 增强 ICPS、系统架构和可信可靠性，属于补充观察期刊。",
+      "scopeSource": "https://www.ieee-ies.org/pubs/transactions-on-industrial-cyberphysical-systems",
+      "scopeCheckedAt": "2026-10-11"
+    },
+    {
+      "key": "ijrr",
+      "name": "IJRR",
+      "full": "The International Journal of Robotics Research",
+      "field": "控制与工业",
+      "ccf": null,
+      "guide": "https://journals.sagepub.com/home/ijr",
+      "mode": "rolling",
+      "note": "官方范围 / 入口已核验；当前投稿细则、CCF 等级及最新 IF 本次未核定。",
+      "checkedAt": null,
+      "classificationSource": null,
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm",
+        "industrial"
+      ],
+      "submissionFit": "机器人研究、基础模型、世界模型和学习控制；需机器人方法或系统贡献。",
+      "scopeSource": "https://journals.sagepub.com/home/ijr",
+      "scopeCheckedAt": "2026-10-11"
+    },
+    {
+      "key": "dmlr",
+      "name": "DMLR",
+      "full": "Data-centric Machine Learning Research",
+      "field": "机器学习",
+      "ccf": null,
+      "guide": "https://data.mlr.press/",
+      "mode": "rolling",
+      "note": "官方范围 / 入口已核验；当前投稿细则、CCF 等级及最新 IF 本次未核定。",
+      "checkedAt": null,
+      "classificationSource": null,
+      "impactFactor": null,
+      "priorityTopics": [
+        "agent",
+        "llm"
+      ],
+      "submissionFit": "数据中心机器学习；数据质量、数据集与评测贡献，属于补充观察期刊。",
+      "scopeSource": "https://data.mlr.press/",
+      "scopeCheckedAt": "2026-10-11"
     }
   ],
   "journalPolicy": {
@@ -1923,5 +2897,169 @@
     ],
     "basis": "按用户研究方向进行编辑匹配；官方等级、日期与编辑建议分别展示。",
     "updated": "2026-10-11"
+  },
+  "frontierDomains": [
+    {
+      "key": "agent",
+      "name": "Agent 与决策基础",
+      "questions": "规划、工具调用、多智能体协同、强化学习、长任务可靠性。",
+      "series": [
+        "aamas",
+        "rlc",
+        "aaai",
+        "ijcai",
+        "icml",
+        "iclr",
+        "neurips",
+        "aistats"
+      ],
+      "journals": [
+        "ai",
+        "jair",
+        "jmlr",
+        "tmlr"
+      ]
+    },
+    {
+      "key": "llm",
+      "name": "LLM 与语言智能",
+      "questions": "推理、后训练、评测、NLP Agent 与数据质量。",
+      "series": [
+        "colm",
+        "acl",
+        "emnlp",
+        "naacl",
+        "coling",
+        "arr"
+      ],
+      "journals": [
+        "tacl",
+        "nmi",
+        "dmlr"
+      ]
+    },
+    {
+      "key": "embodied",
+      "name": "具身智能与机器人",
+      "questions": "机器人基础模型、VLA、世界模型、模仿学习、真实系统泛化。",
+      "series": [
+        "corl",
+        "rss",
+        "icra",
+        "iros",
+        "cvpr",
+        "iccv"
+      ],
+      "journals": [
+        "ral",
+        "ijrr",
+        "tpami",
+        "ijcv"
+      ]
+    },
+    {
+      "key": "industrial",
+      "name": "工业 Agent 与闭环控制",
+      "questions": "工厂自动化、数字孪生、生产调度、安全约束与闭环验证。",
+      "series": [
+        "case",
+        "indin",
+        "etfa",
+        "iecon",
+        "isie",
+        "icit",
+        "icps",
+        "ecc",
+        "acc",
+        "cdc",
+        "ccc",
+        "cac",
+        "ifac"
+      ],
+      "journals": [
+        "tii",
+        "tie",
+        "ticps",
+        "tcst",
+        "tac-control",
+        "automatica"
+      ]
+    },
+    {
+      "key": "systems",
+      "name": "LLM 系统、检索与数据",
+      "questions": "Agent 执行系统、推理服务、RAG、向量检索、数据 Agent 和软件工程。",
+      "series": [
+        "mlsys",
+        "www",
+        "sigir",
+        "icde",
+        "sigmod",
+        "vldb",
+        "osdi",
+        "kdd",
+        "icse"
+      ],
+      "journals": [
+        "tkde",
+        "tois",
+        "tse",
+        "tosem",
+        "tnnls"
+      ]
+    },
+    {
+      "key": "safety",
+      "name": "安全、可信与人机协作",
+      "questions": "提示注入、隐私、Agent 权限、可解释性、公平和人类监督。",
+      "series": [
+        "satml",
+        "facct",
+        "sp",
+        "chi"
+      ],
+      "journals": [
+        "nmi",
+        "ticps"
+      ]
+    }
+  ],
+  "frontierSources": [
+    {
+      "name": "OpenAI Research",
+      "url": "https://openai.com/research/",
+      "focus": "模型、推理与 Agent 研究；追踪论文、技术报告和评测口径。"
+    },
+    {
+      "name": "Anthropic Research",
+      "url": "https://www.anthropic.com/research",
+      "focus": "对齐、可解释性、前沿红队与 Agent 社会影响。"
+    },
+    {
+      "name": "Google DeepMind Research",
+      "url": "https://deepmind.google/research/",
+      "focus": "模型、强化学习、机器人与科学研究。"
+    },
+    {
+      "name": "NVIDIA Research",
+      "url": "https://www.nvidia.com/en-us/research/",
+      "focus": "物理 AI、机器人、仿真与高效计算。"
+    },
+    {
+      "name": "IEEE IES Industrial Agents",
+      "url": "https://tcia.ieee-ies.org/",
+      "focus": "工业 Agent 社区与工业自动化相关活动。"
+    },
+    {
+      "name": "IEEE IES Conference Community",
+      "url": "https://confcomm.ieee-ies.org/home/welcome",
+      "focus": "工业电子、工业信息学、工厂自动化和工业 CPS 征稿入口。"
+    }
+  ],
+  "coverageAudit": {
+    "updated": "2026-10-11",
+    "scope": "Agent、LLM、工业控制及交叉研究社区；非全学科会议全集。",
+    "datePolicy": "已核验日期进入时间轴；待核验、官方拟定与下一届观察分别标注。",
+    "frontierPolicy": "前沿关注问题为编辑研究框架；官方研究入口不代表自动同步或对厂商指标独立复现。"
   }
 }

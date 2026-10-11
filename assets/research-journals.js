@@ -260,3 +260,63 @@
     }
   });
 })();
+
+// The panorama covers relevant communities even when no deadline is confirmed.
+(() => {
+  const section = document.getElementById('conference-frontier');
+  if (!section) return;
+  document.getElementById('conference-priorities').before(section);
+  TYPES.revision = ['受邀扩展 / 修订', '#6b5b95'];
+  const originalRender = render;
+  const cards = Array.from(section.querySelectorAll('.frontier-venue'));
+  const controls = section.querySelector('.journal-controls');
+  const val = id => section.querySelector('#frontier-' + id).value;
+  let initialized = false;
+  function update() {
+    if (!initialized) {
+      for (const card of cards) {
+        const events = C.events.filter(event => event.s === card.dataset.series && event.t === 'sub').sort((a, b) => a.d.localeCompare(b.d));
+        const future = events.find(event => dleft(event.e || event.d) >= 0);
+        const last = events.at(-1);
+        card.dataset.status = future ? 'upcoming' : last ? 'closed' : 'unknown';
+        const state = card.querySelector('.frontier-state');
+        if (future) {
+          state.textContent = `已核验 · 截止未到：${future.d} · ${future.label}。${future.note || ''}`;
+          const registration = C.events.find(event => event.s === card.dataset.series && event.t === 'abs' && event.d <= future.d);
+          if (registration) state.textContent += ` 摘要 / 注册：${registration.d}。`;
+        } else if (last) {
+          state.textContent = `已核验 · 本轮已截稿：${last.d}；关注下一届或独立轨道 CFP。`;
+        } else {
+          const watch = C.watch?.find(item => item.s === card.dataset.series);
+          state.textContent = `日期待核验 / 观察：${watch?.item || '本轮 / 下一届截止日未核验'}。`;
+        }
+      }
+      initialized = true;
+    }
+    const query = val('query').trim().toLocaleLowerCase();
+    let count = 0;
+    for (const card of cards) {
+      card.hidden = !!((val('domain') && card.dataset.domain !== val('domain')) ||
+        (val('status') && card.dataset.status !== val('status')) ||
+        (query && !card.textContent.toLocaleLowerCase().includes(query)));
+      if (!card.hidden) count++;
+    }
+    for (const group of section.querySelectorAll('.frontier-domain')) {
+      group.hidden = !Array.from(group.querySelectorAll('.frontier-venue')).some(card => !card.hidden);
+      if (val('domain') || val('status') || query) group.open = !group.hidden;
+    }
+    section.querySelector('#frontier-results').textContent = count ? `显示 ${count} 个社区 · 展开分支查看投稿匹配和来源` : '暂无匹配社区，请调整或重置筛选';
+  }
+  render = function () {
+    originalRender();
+    section.hidden = VIEW !== 'conf';
+    if (VIEW === 'conf') update();
+  };
+  controls.addEventListener('input', update);
+  controls.addEventListener('change', update);
+  section.querySelector('#frontier-reset').addEventListener('click', () => {
+    for (const input of controls.querySelectorAll('input,select')) input.value = '';
+    for (const group of section.querySelectorAll('.frontier-domain')) group.open = false;
+    update();
+  });
+})();

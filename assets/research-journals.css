@@ -27,3 +27,14 @@
 #conference-priorities{position:relative;z-index:1;max-width:1116px;margin:18px auto}
 #conference-priorities[hidden]{display:none}
 @media(max-width:1160px){#conference-priorities{margin-left:22px;margin-right:22px}}
+#conference-frontier{position:relative;z-index:1;max-width:1116px;margin:24px auto;padding:20px;border:1px solid rgba(138,130,112,.4);border-radius:9px;box-sizing:border-box}
+#conference-frontier[hidden],.frontier-domain[hidden],.frontier-venue[hidden]{display:none}
+#conference-frontier h2{font-size:1.2rem;margin:0 0 12px}.frontier-domain,.frontier-sources{border-top:1px solid rgba(138,130,112,.3);padding:12px 0}
+#conference-frontier summary{cursor:pointer;font-size:.9rem;font-weight:600;line-height:1.6}
+.frontier-questions,.frontier-journals{font-size:.78rem;line-height:1.8;margin:10px 0}
+.frontier-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
+.frontier-venue{padding:14px;border:1px solid rgba(138,130,112,.3);border-radius:6px;min-width:0;overflow-wrap:anywhere}
+.frontier-venue h4{font-size:.9rem;margin:0 0 8px}.frontier-venue p{font-size:.75rem;line-height:1.8;margin:7px 0}.frontier-tier{opacity:.75}.frontier-state{font-weight:600}
+#conference-frontier a{font-size:.75rem;color:#2e5e8a;text-underline-offset:3px}.frontier-sources ul{padding-left:20px}.frontier-sources li{font-size:.78rem;line-height:1.8;margin:8px 0}.frontier-sources span{display:block;opacity:.75}
+.dark #conference-frontier a{color:#9fc4e4}
+@media(max-width:1160px){#conference-frontier{margin-left:22px;margin-right:22px}}
