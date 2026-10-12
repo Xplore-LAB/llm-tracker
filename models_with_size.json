@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-11",
-  "total_models": 594,
-  "with_real_size": 316,
-  "coverage": "53.2%",
+  "fetch_time": "2026-10-12",
+  "total_models": 604,
+  "with_real_size": 324,
+  "coverage": "53.6%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -841,6 +841,20 @@
       "source": "no_mapping"
     },
     {
+      "model": "Aya-23",
+      "company": "Cohere",
+      "date": "2024-05-19",
+      "id": "2405.15032",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/CohereLabs/aya-23-35B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "CohereLabs/aya-23-8B",
+      "size_total_gb": 14.95
+    },
+    {
       "model": "MiniCPM-V",
       "company": "ModelBest",
       "date": "2024-05-20",
@@ -853,6 +867,20 @@
       "hf_repo": "OpenBMB/MiniCPM-V-2_6",
       "size_total_gb": 15.09,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Internlm2-math-plus",
+      "company": "InternLM",
+      "date": "2024-05-24",
+      "id": "2402.06332",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/internlm2-math-plus-20b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/internlm2-math-plus-7b",
+      "size_total_gb": 14.41
     },
     {
       "model": "MiniCPM-Llama3-V 2.5",
@@ -893,6 +921,20 @@
       "source": "gated"
     },
     {
+      "model": "Internlm2-wqx",
+      "company": "InternLM",
+      "date": "2024-06-04",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/internlm2-wqx-20b",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/internlm2-wqx-20b",
+      "size_total_gb": 36.99
+    },
+    {
       "model": "Qwen2",
       "company": "Qwen",
       "date": "2024-06-07",
@@ -906,6 +948,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Cogvlm2-llama3-chat-19B-tgi",
+      "company": "Zhipu",
+      "date": "2024-06-08",
+      "id": "2311.03079",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/cogvlm2-llama3-chat-19B-tgi",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/cogvlm2-llama3-chat-19B-tgi",
+      "size_total_gb": 36.33
+    },
+    {
       "model": "Mistral-C2F",
       "company": "Mistral",
       "date": "2024-06-12",
@@ -916,6 +972,20 @@
       "hf_repo": "mistralai/Mistral-7B-v0.3",
       "size_total_gb": 27.0,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "DeepSeek-Coder-V2-Lite",
+      "company": "DeepSeek",
+      "date": "2024-06-14",
+      "id": "2401.06066",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+      "size_total_gb": 29.26
     },
     {
       "model": "DeepSeek-Coder-V2",
@@ -1030,6 +1100,34 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Cogvlm2-video-llama3",
+      "company": "Zhipu",
+      "date": "2024-07-03",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/cogvlm2-video-llama3-base",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "zai-org/cogvlm2-video-llama3-chat",
+      "size_total_gb": 23.3
+    },
+    {
+      "model": "Codegeex4-all",
+      "company": "Zhipu",
+      "date": "2024-07-05",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/zai-org/codegeex4-all-9b",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": "zai-org/codegeex4-all-9b-GGUF",
+      "size_total_gb": null
+    },
+    {
       "model": "Skywork-Math",
       "company": "Skywork",
       "date": "2024-07-11",
@@ -1040,6 +1138,20 @@
       "hf_repo": "Skywork/Skywork-Math-7B",
       "size_total_gb": null,
       "source": "gated"
+    },
+    {
+      "model": "GPT-4o-mini",
+      "company": "OpenAI",
+      "date": "2024-07-18",
+      "id": "",
+      "title": "",
+      "note": "GPT-4o mini is OpenAI's newest model after [GPT-4 Omni](/mod",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     },
     {
       "model": "Llama-3.1",
@@ -1069,6 +1181,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Internlm2-step-prover",
+      "company": "InternLM",
+      "date": "2024-07-24",
+      "id": "2407.17227",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/internlm/internlm2-step-prover",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "internlm/internlm2-step-prover",
+      "size_total_gb": 14.41
+    },
+    {
       "model": "Internlm2_5",
       "company": "InternLM",
       "date": "2024-07-31",
@@ -1095,6 +1221,20 @@
       "discovered": true,
       "hf_repo": "internlm/internlm2_5-1_8b",
       "size_total_gb": 3.52
+    },
+    {
+      "model": "EXAONE-3.0",
+      "company": "LG",
+      "date": "2024-07-31",
+      "id": "2408.03541",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/LGAI-EXAONE/EXAONE-3.0-7.8B-Instruct",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "LGAI-EXAONE/EXAONE-3.0-7.8B-Instruct",
+      "size_total_gb": 29.13
     },
     {
       "model": "MiniCPM-V 2.6",
