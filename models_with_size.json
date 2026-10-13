@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-12",
-  "total_models": 604,
-  "with_real_size": 324,
-  "coverage": "53.6%",
+  "fetch_time": "2026-10-13",
+  "total_models": 614,
+  "with_real_size": 332,
+  "coverage": "54.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -754,6 +754,20 @@
       "source": "no_mapping"
     },
     {
+      "model": "GPT-4-Turbo",
+      "company": "OpenAI",
+      "date": "2024-04-09",
+      "id": "",
+      "title": "",
+      "note": "The latest GPT-4 Turbo model with vision capabilities. Visio",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Mistral-8x7B",
       "company": "Mistral",
       "date": "2024-04-13",
@@ -764,6 +778,48 @@
       "hf_repo": "mistralai/Mixtral-8x7B-v0.1",
       "size_total_gb": 177.4,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "WizardLM-2",
+      "company": "Microsoft",
+      "date": "2024-04-16",
+      "id": "",
+      "title": "",
+      "note": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard mode",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Meta-Llama-Guard-2",
+      "company": "Meta",
+      "date": "2024-04-17",
+      "id": "2312.06674",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/meta-llama/Meta-Llama-Guard-2-8B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "meta-llama/Meta-Llama-Guard-2-8B",
+      "size_total_gb": 29.92
+    },
+    {
+      "model": "Meta-Llama-3",
+      "company": "Meta",
+      "date": "2024-04-17",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/meta-llama/Meta-Llama-3-8B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "size_total_gb": 29.92
     },
     {
       "model": "Llama-3",
@@ -828,6 +884,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Yi-1.5",
+      "company": "01.AI",
+      "date": "2024-05-11",
+      "id": "2403.04652",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/01-ai/Yi-1.5-6B-Chat",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "01-ai/Yi-1.5-34B-Chat",
+      "size_total_gb": 64.05
+    },
+    {
       "model": "GPT-4o",
       "company": "OpenAI",
       "date": "2024-05-13",
@@ -839,6 +909,76 @@
       "hf_repo": null,
       "size_total_gb": null,
       "source": "no_mapping"
+    },
+    {
+      "model": "DeepSeek-V2-Lite",
+      "company": "DeepSeek",
+      "date": "2024-05-15",
+      "id": "2405.04434",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V2-Lite-Chat",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/DeepSeek-V2-Lite",
+      "size_total_gb": 29.26
+    },
+    {
+      "model": "Yi-1.5-9B-Chat-16K",
+      "company": "01.AI",
+      "date": "2024-05-15",
+      "id": "2403.04652",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/01-ai/Yi-1.5-9B-Chat-16K",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "01-ai/Yi-1.5-9B-Chat-16K",
+      "size_total_gb": 16.45
+    },
+    {
+      "model": "Yi-1.5-34B-Chat-16K",
+      "company": "01.AI",
+      "date": "2024-05-15",
+      "id": "2403.04652",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat-16K",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "01-ai/Yi-1.5-34B-Chat-16K",
+      "size_total_gb": 64.05
+    },
+    {
+      "model": "Yi-1.5-9B-32K",
+      "company": "01.AI",
+      "date": "2024-05-15",
+      "id": "2403.04652",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/01-ai/Yi-1.5-9B-32K",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "01-ai/Yi-1.5-9B-32K",
+      "size_total_gb": 16.45
+    },
+    {
+      "model": "Yi-1.5-34B-32K",
+      "company": "01.AI",
+      "date": "2024-05-15",
+      "id": "2403.04652",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/01-ai/Yi-1.5-34B-32K",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "01-ai/Yi-1.5-34B-32K",
+      "size_total_gb": 64.05
     },
     {
       "model": "Aya-23",
