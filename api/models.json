@@ -426,6 +426,18 @@
    "url": "https://github.com/OpenBMB/MiniCPM"
   },
   {
+   "model": "Deepseek-math-7b-rl",
+   "company": "DeepSeek",
+   "date": "2024-02-05",
+   "id": "2402.03300",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/deepseek-ai/deepseek-math-7b-rl",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "InternLM-Math",
    "company": "InternLM",
    "date": "2024-02-09",
@@ -515,6 +527,78 @@
    "extra": true
   },
   {
+   "model": "C4ai-command-r-v01",
+   "company": "Cohere",
+   "date": "2024-03-11",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/CohereLabs/c4ai-command-r-v01",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "CodeLlama-70b-Python",
+   "company": "Meta",
+   "date": "2024-03-13",
+   "id": "2308.12950",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/meta-llama/CodeLlama-70b-Python-hf",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "CodeLlama-13b-Python",
+   "company": "Meta",
+   "date": "2024-03-13",
+   "id": "2308.12950",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/meta-llama/CodeLlama-13b-Python-hf",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "CodeLlama-7b-Python",
+   "company": "Meta",
+   "date": "2024-03-13",
+   "id": "2308.12950",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/meta-llama/CodeLlama-7b-Python-hf",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "CodeLlama-34b-Python",
+   "company": "Meta",
+   "date": "2024-03-14",
+   "id": "2308.12950",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/meta-llama/CodeLlama-34b-Python-hf",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Yi-9B-200K",
+   "company": "01.AI",
+   "date": "2024-03-15",
+   "id": "2403.04652",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/01-ai/Yi-9B-200K",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Grok-1",
    "company": "xAI",
    "date": "2024-03-17",
@@ -546,6 +630,18 @@
    "papers": 1
   },
   {
+   "model": "Jamba-v0.1",
+   "company": "AI21",
+   "date": "2024-03-28",
+   "id": "2403.19887",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/ai21labs/Jamba-v0.1",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "ChatGLM-RLHF",
    "company": "Zhipu",
    "date": "2024-04-01",
@@ -562,6 +658,18 @@
    "title": "ChatGLM-Math: Improving Math Problem-Solving in Large Language Models with a Self-Critique Pipeline",
    "note": "通过自批判流水线提升大模型数学解题能力，兼顾数学推理与通用语言能力。",
    "papers": 1
+  },
+  {
+   "model": "C4ai-command-r-plus",
+   "company": "Cohere",
+   "date": "2024-04-03",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/CohereLabs/c4ai-command-r-plus",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "GPT-4-Turbo",
@@ -6692,6 +6800,18 @@
    "id": "",
    "title": "",
    "note": "Claude Haiku 5.5 is Anthropic's small, fast model for high-v",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
+   "model": "Gemini-4-Argon",
+   "company": "Google",
+   "date": "2026-10-13",
+   "id": "",
+   "title": "",
+   "note": "Gemini 4 Argon is Google's flagship reasoning model, built f",
    "papers": 0,
    "url": "",
    "source": "openrouter",
