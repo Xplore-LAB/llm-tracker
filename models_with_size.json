@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-14",
-  "total_models": 624,
-  "with_real_size": 341,
-  "coverage": "54.6%",
+  "fetch_time": "2026-10-15",
+  "total_models": 633,
+  "with_real_size": 349,
+  "coverage": "55.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -301,6 +301,20 @@
       "source": "no_mapping"
     },
     {
+      "model": "GPT-3.5-Turbo",
+      "company": "OpenAI",
+      "date": "2023-05-28",
+      "id": "",
+      "title": "",
+      "note": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand a",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Falcon",
       "company": "TII",
       "date": "2023-06-01",
@@ -350,6 +364,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "GPT-3.5-Turbo-16k",
+      "company": "OpenAI",
+      "date": "2023-08-28",
+      "id": "",
+      "title": "",
+      "note": "This model offers four times the context length of gpt-3.5-t",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
       "model": "Baichuan-2",
       "company": "Baichuan",
       "date": "2023-09-19",
@@ -360,6 +388,34 @@
       "hf_repo": "baichuan-inc/Baichuan2-7B-Chat",
       "size_total_gb": 13.98,
       "source": "hf_tree"
+    },
+    {
+      "model": "Mistral-7B-v0.1",
+      "company": "Mistral",
+      "date": "2023-09-20",
+      "id": "2310.06825",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/mistralai/Mistral-7B-v0.1",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "mistralai/Mistral-7B-v0.1",
+      "size_total_gb": 27.47
+    },
+    {
+      "model": "Mistral-7B-Instruct-v0.1",
+      "company": "Mistral",
+      "date": "2023-09-27",
+      "id": "2310.06825",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "mistralai/Mistral-7B-Instruct-v0.1",
+      "size_total_gb": 27.47
     },
     {
       "model": "Mistral-7B",
@@ -398,6 +454,20 @@
       "source": "hf_tree_api"
     },
     {
+      "model": "Deepseek-coder-5.7bmqa",
+      "company": "DeepSeek",
+      "date": "2023-10-31",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/deepseek-coder-5.7bmqa-base",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/deepseek-coder-5.7bmqa-base",
+      "size_total_gb": 10.62
+    },
+    {
       "model": "Yi",
       "company": "01.AI",
       "date": "2023-11-05",
@@ -409,6 +479,34 @@
       "hf_repo": "01-ai/Yi-1.5-34B-Chat",
       "size_total_gb": 64.05,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Yi-6B-200K",
+      "company": "01.AI",
+      "date": "2023-11-06",
+      "id": "2403.04652",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/01-ai/Yi-6B-200K",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "01-ai/Yi-6B-200K",
+      "size_total_gb": 22.58
+    },
+    {
+      "model": "Yi-34B-200K",
+      "company": "01.AI",
+      "date": "2023-11-06",
+      "id": "2403.04652",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/01-ai/Yi-34B-200K",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "01-ai/Yi-34B-200K",
+      "size_total_gb": 128.11
     },
     {
       "model": "Qwen-Audio",
@@ -435,6 +533,20 @@
       "hf_repo": "google/gemini-1.0-pro",
       "size_total_gb": null,
       "source": "rate_limited"
+    },
+    {
+      "model": "Mistral-7B-Instruct-v0.2",
+      "company": "Mistral",
+      "date": "2023-12-11",
+      "id": "2310.06825",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "mistralai/Mistral-7B-Instruct-v0.2",
+      "size_total_gb": 27.47
     },
     {
       "model": "Phi-2",
@@ -535,6 +647,20 @@
       "hf_repo": "deepseek-ai/deepseek-coder-33b-instruct",
       "size_total_gb": 124.21,
       "source": "hf_tree_api"
+    },
+    {
+      "model": "Deepseek-coder-7b-base-v1.5",
+      "company": "DeepSeek",
+      "date": "2024-01-25",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/deepseek-ai/deepseek-coder-7b-base-v1.5",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "deepseek-ai/deepseek-coder-7b-base-v1.5",
+      "size_total_gb": 12.87
     },
     {
       "model": "InternLM-XComposer2",
@@ -8262,10 +8388,10 @@
       "note": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts mode",
       "papers": 0,
       "url": "",
-      "source": "no_mapping",
+      "source": "hf_tree",
       "discovered": true,
-      "hf_repo": null,
-      "size_total_gb": null
+      "hf_repo": "inclusionAI/Ling-3.1-flash",
+      "size_total_gb": 534.38
     },
     {
       "model": "DiarizationLM-Gemma-4-E4B-v1",

@@ -219,6 +219,18 @@
    "url": "https://arxiv.org/abs/2305.10403"
   },
   {
+   "model": "GPT-3.5-Turbo",
+   "company": "OpenAI",
+   "date": "2023-05-28",
+   "id": "",
+   "title": "",
+   "note": "GPT-3.5 Turbo is OpenAI's fastest model. It can understand a",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "Falcon",
    "company": "TII",
    "date": "2023-06-01",
@@ -256,6 +268,18 @@
    "papers": 1
   },
   {
+   "model": "GPT-3.5-Turbo-16k",
+   "company": "OpenAI",
+   "date": "2023-08-28",
+   "id": "",
+   "title": "",
+   "note": "This model offers four times the context length of gpt-3.5-t",
+   "papers": 0,
+   "url": "",
+   "source": "openrouter",
+   "discovered": true
+  },
+  {
    "model": "Baichuan-2",
    "company": "Baichuan",
    "date": "2023-09-19",
@@ -263,6 +287,30 @@
    "title": "Baichuan 2: Open Large-scale Language Models",
    "note": "Baichuan 2开源大规模多语言大模型，以少样本指令在多种自然语言任务上展现强劲泛化能力。",
    "papers": 1
+  },
+  {
+   "model": "Mistral-7B-v0.1",
+   "company": "Mistral",
+   "date": "2023-09-20",
+   "id": "2310.06825",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/mistralai/Mistral-7B-v0.1",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.1",
+   "company": "Mistral",
+   "date": "2023-09-27",
+   "id": "2310.06825",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Mistral-7B",
@@ -292,6 +340,18 @@
    "papers": 2
   },
   {
+   "model": "Deepseek-coder-5.7bmqa",
+   "company": "DeepSeek",
+   "date": "2023-10-31",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/deepseek-ai/deepseek-coder-5.7bmqa-base",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
    "model": "Yi",
    "company": "01.AI",
    "date": "2023-11-05",
@@ -300,6 +360,30 @@
    "note": "零一万物开山之作，34B/6B 双尺寸",
    "papers": 1,
    "url": "https://arxiv.org/abs/2403.04652"
+  },
+  {
+   "model": "Yi-6B-200K",
+   "company": "01.AI",
+   "date": "2023-11-06",
+   "id": "2403.04652",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/01-ai/Yi-6B-200K",
+   "source": "huggingface",
+   "discovered": true
+  },
+  {
+   "model": "Yi-34B-200K",
+   "company": "01.AI",
+   "date": "2023-11-06",
+   "id": "2403.04652",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/01-ai/Yi-34B-200K",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Qwen-Audio",
@@ -320,6 +404,18 @@
    "note": "Google 原生多模态旗舰的开端",
    "papers": 0,
    "extra": true
+  },
+  {
+   "model": "Mistral-7B-Instruct-v0.2",
+   "company": "Mistral",
+   "date": "2023-12-11",
+   "id": "2310.06825",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "Phi-2",
@@ -396,6 +492,18 @@
    "title": "DeepSeek-Coder: When the Large Language Model Meets Programming -- The Rise of Code Intelligence",
    "note": "",
    "papers": 1
+  },
+  {
+   "model": "Deepseek-coder-7b-base-v1.5",
+   "company": "DeepSeek",
+   "date": "2024-01-25",
+   "id": "",
+   "title": "",
+   "note": "（自动发现收录，待人工补注）",
+   "papers": 0,
+   "url": "https://huggingface.co/deepseek-ai/deepseek-coder-7b-base-v1.5",
+   "source": "huggingface",
+   "discovered": true
   },
   {
    "model": "InternLM-XComposer2",
