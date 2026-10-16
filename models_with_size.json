@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-15",
-  "total_models": 633,
+  "fetch_time": "2026-10-16",
+  "total_models": 634,
   "with_real_size": 349,
-  "coverage": "55.1%",
+  "coverage": "55.0%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -8456,6 +8456,20 @@
       "id": "",
       "title": "",
       "note": "Gemini 4 Argon is Google's flagship reasoning model, built f",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Nemotron-3.5-Super-VL",
+      "company": "Nvidia",
+      "date": "2026-10-15",
+      "id": "",
+      "title": "",
+      "note": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-o",
       "papers": 0,
       "url": "",
       "source": "no_mapping",
