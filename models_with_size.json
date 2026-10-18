@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-16",
-  "total_models": 634,
-  "with_real_size": 349,
-  "coverage": "55.0%",
+  "fetch_time": "2026-10-18",
+  "total_models": 635,
+  "with_real_size": 350,
+  "coverage": "55.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -7946,6 +7946,20 @@
       "discovered": true,
       "hf_repo": "CohereLabs/tiny-aya-l2-thinker",
       "size_total_gb": 6.24
+    },
+    {
+      "model": "Nemotron-3.5-Parse",
+      "company": "Nvidia",
+      "date": "2026-09-03",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/nvidia/Nemotron-3.5-Parse",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/Nemotron-3.5-Parse",
+      "size_total_gb": 2.35
     },
     {
       "model": "GPT-6-Astra",
