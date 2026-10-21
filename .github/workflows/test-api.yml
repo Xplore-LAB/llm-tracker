@@ -1,0 +1,28 @@
+name: Test API generation
+
+on:
+  push:
+    paths:
+      - 'scripts/split_api.py'
+      - 'tests/test_split_api.py'
+      - '.github/workflows/test-api.yml'
+  pull_request:
+    paths:
+      - 'scripts/split_api.py'
+      - 'tests/test_split_api.py'
+      - '.github/workflows/test-api.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test publication and recovery without network requests
+        run: python -m unittest discover -s tests -p 'test_split_api.py' -v
