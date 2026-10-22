@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-20",
-  "total_models": 636,
-  "with_real_size": 350,
-  "coverage": "55.0%",
+  "fetch_time": "2026-10-22",
+  "total_models": 639,
+  "with_real_size": 352,
+  "coverage": "55.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -8478,6 +8478,20 @@
       "size_total_gb": null
     },
     {
+      "model": "Ling-3.0-flash-UBTree",
+      "company": "AntGroup",
+      "date": "2026-10-14",
+      "id": "2609.39972",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ling-3.0-flash-UBTree",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ling-3.0-flash-UBTree",
+      "size_total_gb": 0.9
+    },
+    {
       "model": "Nemotron-3.5-Super-VL",
       "company": "Nvidia",
       "date": "2026-10-15",
@@ -8504,6 +8518,33 @@
       "discovered": true,
       "hf_repo": null,
       "size_total_gb": null
+    },
+    {
+      "model": "Qwen-Audio-3.1-ASR",
+      "company": "Qwen",
+      "date": "2026-10-20",
+      "id": "2610.28711",
+      "title": "Qwen-Audio-3.1-ASR Technical Report",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 1,
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "Ling-3.0-tiny-UBTree",
+      "company": "AntGroup",
+      "date": "2026-10-21",
+      "id": "2609.39972",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/Ling-3.0-tiny-UBTree",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/Ling-3.0-tiny-UBTree",
+      "size_total_gb": 0.34
     }
   ]
 }
