@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-22",
+  "fetch_time": "2026-10-23",
   "total_models": 639,
-  "with_real_size": 352,
-  "coverage": "55.1%",
+  "with_real_size": 354,
+  "coverage": "55.4%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -7998,10 +7998,10 @@
       "note": "Ling 3.0 Flash Sante is a health and medicine-focused mixtur",
       "papers": 0,
       "url": "",
-      "source": "no_mapping",
+      "source": "hf_tree",
       "discovered": true,
-      "hf_repo": null,
-      "size_total_gb": null
+      "hf_repo": "inclusionAI/Ling-3.0-flash-Sante",
+      "size_total_gb": 237.47
     },
     {
       "model": "Ling-3.0-flash-VL",
@@ -8514,10 +8514,10 @@
       "note": "MiniMax-M3.1-Flash is a multimodal model from MiniMax. Compa",
       "papers": 0,
       "url": "",
-      "source": "no_mapping",
+      "source": "hf_tree",
       "discovered": true,
-      "hf_repo": null,
-      "size_total_gb": null
+      "hf_repo": "MiniMaxAI/MiniMax-M3.1-Flash",
+      "size_total_gb": 235.08
     },
     {
       "model": "Qwen-Audio-3.1-ASR",
