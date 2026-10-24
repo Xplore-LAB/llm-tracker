@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-23",
-  "total_models": 639,
+  "fetch_time": "2026-10-24",
+  "total_models": 640,
   "with_real_size": 354,
-  "coverage": "55.4%",
+  "coverage": "55.3%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -8545,6 +8545,20 @@
       "discovered": true,
       "hf_repo": "inclusionAI/Ling-3.0-tiny-UBTree",
       "size_total_gb": 0.34
+    },
+    {
+      "model": "Kimi-K3.1-Pro",
+      "company": "Moonshot",
+      "date": "2026-10-23",
+      "id": "",
+      "title": "",
+      "note": "Kimi K3.1 Pro is Moonshot AI's flagship open-weight multimod",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
     }
   ]
 }
