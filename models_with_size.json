@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-24",
-  "total_models": 640,
+  "fetch_time": "2026-10-27",
+  "total_models": 642,
   "with_real_size": 354,
-  "coverage": "55.3%",
+  "coverage": "55.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -8553,6 +8553,34 @@
       "id": "",
       "title": "",
       "note": "Kimi K3.1 Pro is Moonshot AI's flagship open-weight multimod",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GPT-6.1-Terra-Pro",
+      "company": "OpenAI",
+      "date": "2026-10-26",
+      "id": "",
+      "title": "",
+      "note": "GPT-6.1 Terra Pro is the same underlying model as [GPT-6.1 T",
+      "papers": 0,
+      "url": "",
+      "source": "no_mapping",
+      "discovered": true,
+      "hf_repo": null,
+      "size_total_gb": null
+    },
+    {
+      "model": "GPT-6.1-Terra",
+      "company": "OpenAI",
+      "date": "2026-10-26",
+      "id": "",
+      "title": "",
+      "note": "GPT-6.1 Terra is the mid-tier model in OpenAI's GPT-6.1 seri",
       "papers": 0,
       "url": "",
       "source": "no_mapping",
