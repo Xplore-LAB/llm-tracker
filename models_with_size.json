@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-27",
-  "total_models": 642,
-  "with_real_size": 354,
-  "coverage": "55.1%",
+  "fetch_time": "2026-10-28",
+  "total_models": 643,
+  "with_real_size": 355,
+  "coverage": "55.2%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -8504,6 +8504,20 @@
       "discovered": true,
       "hf_repo": null,
       "size_total_gb": null
+    },
+    {
+      "model": "ZwZ2",
+      "company": "AntGroup",
+      "date": "2026-10-16",
+      "id": "2602.11858",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/ZwZ2-27B",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/ZwZ2-4B",
+      "size_total_gb": 8.46
     },
     {
       "model": "MiniMax-M3.1-Flash",
