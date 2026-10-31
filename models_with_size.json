@@ -1,9 +1,9 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-10-30",
-  "total_models": 643,
-  "with_real_size": 356,
+  "fetch_time": "2026-10-31",
+  "total_models": 644,
+  "with_real_size": 357,
   "coverage": "55.4%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
@@ -8392,6 +8392,20 @@
       "discovered": true,
       "hf_repo": null,
       "size_total_gb": null
+    },
+    {
+      "model": "UserLM-2.0",
+      "company": "Microsoft",
+      "date": "2026-10-01",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/microsoft/UserLM-2.0",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "microsoft/UserLM-2.0",
+      "size_total_gb": 29.92
     },
     {
       "model": "Ling-3.1-Flash",
