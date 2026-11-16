@@ -8,6 +8,12 @@ on:
 permissions:
   contents: write
 
+# 与 Update Leaderboard Daily 同为 02:30 且都要 push 到 master，
+# 共用同一组让它们串行执行，避免 non-fast-forward 冲突。
+concurrency:
+  group: repo-content-writes
+  cancel-in-progress: false
+
 jobs:
   discover:
     runs-on: ubuntu-latest

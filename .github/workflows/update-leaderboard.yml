@@ -5,6 +5,14 @@ on:
     - cron: '30 2 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+# 与本仓库其他会 push 的工作流共用同一组，避免 02:30 并发 push 造成 non-fast-forward 冲突
+concurrency:
+  group: repo-content-writes
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
