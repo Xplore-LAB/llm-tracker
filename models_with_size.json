@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-11-20",
-  "total_models": 666,
-  "with_real_size": 365,
-  "coverage": "54.8%",
+  "fetch_time": "2026-11-21",
+  "total_models": 671,
+  "with_real_size": 370,
+  "coverage": "55.1%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -8422,6 +8422,34 @@
       "size_total_gb": 29.92
     },
     {
+      "model": "Granite-4.1-8b-llmon",
+      "company": "IBM",
+      "date": "2026-10-01",
+      "id": "2603.22519",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granite-4.1-8b-llmon-preview",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granite-4.1-8b-llmon-preview",
+      "size_total_gb": 16.38
+    },
+    {
+      "model": "Granite-4.1-3b-llmon",
+      "company": "IBM",
+      "date": "2026-10-01",
+      "id": "2603.22519",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/ibm-granite/granite-4.1-3b-llmon-preview",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "ibm-granite/granite-4.1-3b-llmon-preview",
+      "size_total_gb": 6.82
+    },
+    {
       "model": "Ling-3.1-Flash",
       "company": "AntGroup",
       "date": "2026-10-02",
@@ -8741,6 +8769,48 @@
       "discovered": true,
       "hf_repo": "inclusionAI/SingVL_S1_4B",
       "size_total_gb": 8.46
+    },
+    {
+      "model": "Llama-3.2-1B-Qwen3.8-27B-Draft",
+      "company": "Nvidia",
+      "date": "2026-11-11",
+      "id": "2407.21783",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/nvidia/Llama-3.2-1B-Qwen3.8-27B-Draft",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/Llama-3.2-1B-Qwen3.8-27B-Draft",
+      "size_total_gb": 2.76
+    },
+    {
+      "model": "Qwen3.5-0.8B-Qwen3.8-27B-Draft",
+      "company": "Nvidia",
+      "date": "2026-11-11",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/nvidia/Qwen3.5-0.8B-Qwen3.8-27B-Draft",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/Qwen3.5-0.8B-Qwen3.8-27B-Draft",
+      "size_total_gb": 1.4
+    },
+    {
+      "model": "Qwen3.5-4B-Qwen3.8-27B-Draft",
+      "company": "Nvidia",
+      "date": "2026-11-11",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+      "size_total_gb": 7.83
     },
     {
       "model": "Gemini-4-Hydrogen",
