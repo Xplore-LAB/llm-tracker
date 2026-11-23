@@ -1,10 +1,10 @@
 {
   "version": "3.1",
   "schema_note": "基于 Xplore-LAB/llm-tracker/models.json 增强,新增 hf_repo + 存储字节",
-  "fetch_time": "2026-11-21",
-  "total_models": 671,
-  "with_real_size": 370,
-  "coverage": "55.1%",
+  "fetch_time": "2026-11-23",
+  "total_models": 673,
+  "with_real_size": 372,
+  "coverage": "55.3%",
   "data_sources": {
     "models_json": "https://github.com/Xplore-LAB/llm-tracker/blob/master/models.json",
     "hf_size": "https://hf-mirror.com/api/models/{repo_id}/tree/main?recursive=true"
@@ -8993,6 +8993,34 @@
       "discovered": true,
       "hf_repo": "microsoft/Aion-1.0-Instruct-2.3B",
       "size_total_gb": 4.26
+    },
+    {
+      "model": "LingSante-3.1-air-VL",
+      "company": "AntGroup",
+      "date": "2026-11-19",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/LingSante-3.1-air-VL",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/LingSante-3.1-air-VL",
+      "size_total_gb": 232.56
+    },
+    {
+      "model": "LingSante-3.1-flash",
+      "company": "AntGroup",
+      "date": "2026-11-19",
+      "id": "",
+      "title": "",
+      "note": "（自动发现收录，待人工补注）",
+      "papers": 0,
+      "url": "https://huggingface.co/inclusionAI/LingSante-3.1-flash",
+      "source": "hf_tree",
+      "discovered": true,
+      "hf_repo": "inclusionAI/LingSante-3.1-flash",
+      "size_total_gb": 534.38
     }
   ]
 }
